@@ -1,0 +1,446 @@
+# Cheeta Ethical License v1.0 (CEL-1.0)
+
+## Preamble
+
+The Cheeta Ethical License (CEL) is designed to promote sustainable open source development by balancing developer freedom with corporate responsibility. This license recognizes that individuals and small organizations should have unrestricted access to software, while large organizations that derive significant value from the software should contribute back to the ecosystem that supports them.
+
+The goal is simple: keep open source free and accessible for those building their careers and businesses, while ensuring that well-resourced organizations fairly compensate the maintainers whose work they depend upon.
+
+---
+
+## Definitions
+
+For the purposes of this License, the following terms shall have the meanings set forth below:
+
+**"Software"** means the software, documentation, and associated materials distributed under this License.
+
+**"You"** or **"Your"** means an individual or Legal Entity exercising permissions granted by this License.
+
+**"Legal Entity"** means any entity that is legally recognized as having rights and responsibilities, including but not limited to corporations, partnerships, limited liability companies, and other organizational forms.
+
+**"Individual Developer"** means a natural person using the Software for any lawful purpose, including but not limited to personal projects, education, research, freelance work, or consulting.
+
+**"Small Organization"** means a Legal Entity that meets BOTH of the following criteria:
+- Employs fewer than 50 full-time equivalent employees (including contractors), AND
+- Generated less than US $1,000,000 (one million United States dollars) in gross annual revenue in the most recently completed fiscal year.
+
+**"Large Organization"** means any Legal Entity that does NOT qualify as a Small Organization (i.e., has 50 or more employees OR generates $1,000,000 or more in annual revenue).
+
+**"Contribution"** means any code, documentation, bug report, feature request, or financial support provided to the Software's maintainers or repository.
+
+**"Maintainer"** means the individual or organization that holds the copyright to the Software and is identified as the maintainer in the LICENSE file or project documentation.
+
+**"Compliance Option"** means any of the methods specified in Section 3 by which a Large Organization may satisfy its obligations under this License.
+
+**"Commercial Use"** means use of the Software in connection with any business, trade, or commercial enterprise, including but not limited to: (a) use in a product or service offered for sale or license; (b) use to provide commercial services; (c) use in support of revenue-generating activities.
+
+---
+
+## 1. Grant of Rights
+
+### 1.1 Individual Developer Rights
+
+Subject to the terms and conditions of this License, Maintainer hereby grants to each Individual Developer a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license to:
+
+a) Use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Software;
+b) Use the Software for Commercial Use, including in closed-source or proprietary projects;
+c) Create derivative works of the Software;
+d) Use the Software without attribution requirements (though attribution is appreciated);
+e) Use the Software without any obligation to contribute back to the project.
+
+**Clarification:** An individual freelancer, consultant, or contractor working for a Large Organization is still considered an Individual Developer for their own personal use of the Software. However, the Large Organization employing or contracting with that individual must separately comply with Section 3 if they use the Software.
+
+### 1.2 Small Organization Rights
+
+Subject to the terms and conditions of this License, Maintainer hereby grants to each Small Organization all rights granted to Individual Developers under Section 1.1, with the following additional terms:
+
+a) Small Organizations may use the Software for any Commercial Use;
+b) Small Organizations must provide attribution to the Maintainer in product documentation, "About" pages, or similar visible locations where third-party software credits are typically displayed;
+c) Attribution must include: (i) the name of the Software, (ii) the name of the Maintainer, and (iii) a link to the official Software repository or website;
+d) Small Organizations are encouraged, but not required, to contribute back to the Software.
+
+### 1.3 Transition Provisions
+
+If a Small Organization grows and becomes a Large Organization:
+
+a) The organization has a **90-day grace period** from the date it first meets the Large Organization criteria to select and implement a Compliance Option under Section 3;
+b) Any deployments of the Software made while the organization qualified as a Small Organization may continue under Small Organization terms for up to **12 months** after becoming a Large Organization;
+c) New deployments or significant updates to the Software after becoming a Large Organization must immediately comply with Section 3;
+d) The organization must notify the Maintainer within 30 days of becoming a Large Organization.
+
+---
+
+## 2. Large Organization Obligations
+
+### 2.1 Compliance Requirement
+
+Large Organizations may NOT use the Software unless they have selected and are actively maintaining compliance with one of the Compliance Options specified in Section 3.
+
+### 2.2 Prohibition on Use Without Compliance
+
+Any use of the Software by a Large Organization that has not selected a Compliance Option, or that is not in good standing with its selected Compliance Option, is unauthorized and constitutes copyright infringement.
+
+### 2.3 Reporting Requirement
+
+Large Organizations must report their selected Compliance Option to the Maintainer within 30 days of first using the Software. Reporting may be done through:
+a) The official Software repository (via issue, pull request, or designated form);
+b) Direct communication with the Maintainer;
+c) Any reporting mechanism specified by the Maintainer.
+
+---
+
+## 3. Compliance Options for Large Organizations
+
+Large Organizations must select and maintain compliance with ONE of the following options:
+
+### Option A: Code Contribution
+
+The Large Organization agrees to contribute meaningful code improvements, bug fixes, or features back to the Software project.
+
+**Minimum Contribution Requirements (choose one):**
+
+1. **Time-Based Contribution:**
+   - Dedicate a minimum of 1% of the total developer time spent using or working with the Software to contributing improvements back to the project;
+   - Measured on a quarterly basis;
+   - Contributions must be substantial (not trivial formatting changes);
+   - Must be submitted via pull requests to the official repository.
+
+2. **Issue-Based Contribution:**
+   - Fix and submit pull requests for at least 2 bugs or issues per quarter that your organization encounters while using the Software;
+   - Bugs must be meaningful (not documentation typos);
+   - Pull requests must be accepted by Maintainer to count.
+
+3. **Feature Contribution:**
+   - Contribute at least one significant feature or enhancement per year that benefits the broader community;
+   - Feature scope must be agreed upon with Maintainer in advance;
+   - Must include tests and documentation.
+
+**Good Faith Standard:**
+Contributions must be made in good faith to genuinely improve the Software for all users, not merely to satisfy the minimum requirements. The Maintainer reserves the right to reject contributions that are not useful or that create maintenance burden.
+
+### Option B: Financial Support
+
+The Large Organization agrees to provide fair financial compensation to the Maintainer(s) for the value derived from the Software.
+
+**Minimum Payment Requirements:**
+
+The Large Organization must pay the GREATER of:
+
+1. **$500 USD per month** (or local currency equivalent), OR
+2. **0.1% (one-tenth of one percent) of gross annual revenue** derived from products or services that incorporate, utilize, or depend upon the Software.
+
+**Payment Terms:**
+- Payments must be made monthly or quarterly (at organization's discretion);
+- Payments must be made through a method specified by the Maintainer (e.g., GitHub Sponsors, Open Collective, bank transfer, or other payment processor);
+- Payment receipts or transaction records must be retained for audit purposes;
+- If revenue-based payment applies, annual revenue reports must be provided to Maintainer.
+
+**Revenue Calculation:**
+- For organizations where the Software is embedded in a product: revenue from that product only;
+- For organizations using Software as infrastructure: calculate based on proportional use across revenue-generating services;
+- Revenue is calculated on a calendar or fiscal year basis (organization's choice, but must be consistent).
+
+### Option C: Commercial License
+
+The Large Organization may negotiate a separate commercial license agreement directly with the Maintainer.
+
+**Terms:**
+- Contact Maintainer to discuss custom terms;
+- Commercial license may include support, warranties, indemnification, or other provisions not available under this License;
+- Pricing and terms are negotiated on a case-by-case basis;
+- Once executed, the commercial license supersedes this License for that organization.
+
+### Option D: Open Source Reciprocity
+
+The Large Organization may choose to open source the portions of their software that directly use or integrate with the Software.
+
+**Requirements:**
+
+1. **Scope of Open Sourcing:**
+   - Any module, component, or service that directly imports, links to, or integrates with the Software must be released as open source;
+   - "Directly" means within the same process, service boundary, or tightly coupled interface;
+   - Network APIs, microservices communicating over HTTP/gRPC, or similar loose coupling does NOT require open sourcing;
+
+2. **License Requirements:**
+   - Open sourced components must use a license compatible with CEL-1.0;
+   - Acceptable licenses include: CEL-1.0, MIT, Apache 2.0, BSD, GPL v3, LGPL v3, AGPL v3;
+   - Must be published on a publicly accessible repository (e.g., GitHub, GitLab);
+
+3. **Documentation:**
+   - Must document how the open sourced component uses the Software;
+   - Must maintain the open source release for as long as the organization continues using the Software;
+
+4. **Good Faith:**
+   - The open sourced portion must represent meaningful software, not a trivial wrapper;
+   - Must include reasonable documentation and ability for others to build and use it.
+
+### 3.1 Changing Compliance Options
+
+Large Organizations may change their selected Compliance Option with 30 days' written notice to the Maintainer, provided they:
+a) Have been in compliance with their current option for at least 6 months;
+b) Continue to meet all obligations under the previous option during the transition period;
+c) Begin immediately complying with the new option upon the transition date.
+
+---
+
+## 4. Exemptions and Special Cases
+
+### 4.1 Non-Profit Organizations
+
+Qualified non-profit organizations are treated as Small Organizations regardless of size or revenue, provided they:
+a) Hold valid 501(c)(3) status (United States) or equivalent charitable status in their jurisdiction;
+b) Use the Software exclusively for their charitable mission, not for commercial activities;
+c) Provide proof of non-profit status to the Maintainer upon request.
+
+### 4.2 Educational Institutions
+
+Accredited educational institutions (universities, colleges, K-12 schools) are treated as Small Organizations regardless of size or budget when:
+a) The Software is used exclusively for educational or research purposes;
+b) Use is not connected to revenue-generating commercial activities or partnerships;
+c) Students and faculty using the Software for personal projects retain Individual Developer status.
+
+### 4.3 Open Source Projects
+
+Other open source software projects that depend on the Software are treated as Individual Developers, provided:
+a) The dependent project is released under an OSI-approved open source license or CEL-1.0;
+b) The dependent project is not primarily a commercial product with an open source wrapper;
+c) If the dependent project is sponsored by a Large Organization, that organization must separately comply with Section 3.
+
+### 4.4 Government Entities
+
+Government agencies and departments are evaluated on a case-by-case basis:
+a) Small governmental units (municipalities with <50 employees or budgets <$10M) are treated as Small Organizations;
+b) Larger government entities should contact the Maintainer for appropriate terms;
+c) Use for public benefit and non-commercial governmental functions is generally permissible;
+d) Use by government contractors must be separately evaluated.
+
+### 4.5 Personal Use by Employees
+
+Employees of Large Organizations may use the Software as Individual Developers for their personal projects that are unrelated to their employment, provided:
+a) The use is genuinely personal (hobby projects, learning, open source contributions);
+b) The project is not owned by or assigned to the employer;
+c) The project does not create intellectual property for the employer.
+
+---
+
+## 5. Compliance Verification and Enforcement
+
+### 5.1 Self-Reporting
+
+Large Organizations using the Software are expected to self-report their status and selected Compliance Option. The Maintainer may provide tools, forms, or dashboards to facilitate reporting.
+
+### 5.2 Audit Rights
+
+The Maintainer reserves the right to:
+a) Request proof of compliance from any Large Organization;
+b) Audit payment records, contribution logs, or open source releases (with reasonable notice);
+c) Use automated tools to detect usage of the Software in publicly available products or services.
+
+### 5.3 Non-Compliance
+
+If a Large Organization fails to comply with this License:
+
+1. **Notice of Non-Compliance:**
+   - The Maintainer will provide written notice of the non-compliance;
+   - The organization has 30 days to cure the non-compliance;
+
+2. **Cure Period:**
+   - The organization must either: (i) come into full compliance with a Compliance Option, or (ii) cease all use of the Software;
+   - If compliance involves payment, all arrears must be paid;
+
+3. **Failure to Cure:**
+   - If the organization fails to cure within 30 days, all rights under this License terminate automatically;
+   - Continued use constitutes copyright infringement;
+   - The Maintainer may pursue legal remedies, including injunctive relief and damages;
+
+4. **Reinstatement:**
+   - Rights may be reinstated if the organization: (i) cures all non-compliance, (ii) pays any arrears plus a 10% penalty, and (iii) provides assurance of future compliance;
+   - Reinstatement is at the sole discretion of the Maintainer.
+
+### 5.4 Arbitration
+
+Before initiating litigation, both parties agree to attempt resolution through good-faith negotiation and, if necessary, binding arbitration under the rules of the American Arbitration Association (or equivalent in the relevant jurisdiction).
+
+---
+
+## 6. Warranties and Liability
+
+### 6.1 No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
+
+THE MAINTAINER DOES NOT WARRANT THAT:
+- The Software will meet Your requirements;
+- The Software will be uninterrupted, timely, secure, or error-free;
+- The results obtained from using the Software will be accurate or reliable;
+- Any errors in the Software will be corrected.
+
+### 6.2 Limitation of Liability
+
+IN NO EVENT SHALL THE MAINTAINER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+This limitation applies to:
+- Direct, indirect, incidental, special, exemplary, or consequential damages;
+- Loss of profits, revenue, data, or use;
+- Business interruption;
+- Any damages arising from reliance on the Software;
+
+EVEN IF THE MAINTAINER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+### 6.3 Large Organization Acknowledgment
+
+BY USING THE SOFTWARE, LARGE ORGANIZATIONS EXPLICITLY ACKNOWLEDGE AND AGREE THAT:
+a) They have assessed the Software for their use case and accept all risks;
+b) They waive any right to sue the Maintainer for defects, failures, or issues with the Software;
+c) If they require warranties or support, they must negotiate a Commercial License under Option C;
+d) The financial consideration or contributions provided under Compliance Options are solely for the right to use the Software, not for any warranty or support.
+
+---
+
+## 7. Patents
+
+### 7.1 Patent Grant
+
+Subject to the terms of this License, the Maintainer grants You a perpetual, worldwide, non-exclusive, royalty-free patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Software, where such license applies only to those patent claims licensable by the Maintainer that are necessarily infringed by the Software alone or by combination of the Software with other software or hardware.
+
+### 7.2 Patent Retaliation
+
+If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Software or a Contribution incorporated within the Software constitutes direct or contributory patent infringement, then:
+a) Any patent licenses granted to You under this License shall terminate as of the date such litigation is filed;
+b) All other rights granted to You under this License shall terminate as of the date such litigation is filed.
+
+---
+
+## 8. Termination
+
+### 8.1 Automatic Termination
+
+Your rights under this License terminate automatically if You fail to comply with any of its terms and conditions.
+
+### 8.2 Effect of Termination
+
+Upon termination:
+a) You must immediately cease all use of the Software;
+b) You must destroy all copies of the Software in Your possession or control;
+c) Sections 6 (Warranties and Liability), 7 (Patents), 9 (Miscellaneous), and this Section 8 survive termination;
+d) Any Contributions You made to the Software before termination remain available to the Maintainer under the terms You submitted them.
+
+### 8.3 Survival
+
+Sections that by their nature should survive termination will survive, including but not limited to Sections 6, 7, 8, and 9.
+
+---
+
+## 9. Miscellaneous
+
+### 9.1 Entire Agreement
+
+This License constitutes the entire agreement between You and the Maintainer regarding the Software and supersedes all prior or contemporaneous agreements, representations, warranties, and understandings.
+
+### 9.2 Amendments
+
+The Maintainer may publish revised and/or new versions of the Cheeta Ethical License from time to time. Each version will be given a distinguishing version number.
+
+You may use the Software under the terms of the version of the License under which You originally received the Software, or under the terms of any subsequent version published by Cheeta Platform.
+
+### 9.3 Severability
+
+If any provision of this License is held to be unenforceable or invalid, that provision will be enforced to the maximum extent possible, and the other provisions will remain in full force and effect.
+
+### 9.4 Waiver
+
+No waiver of any provision of this License shall be deemed or shall constitute a waiver of any other provision, nor shall any waiver constitute a continuing waiver.
+
+### 9.5 Governing Law
+
+This License shall be governed by and construed in accordance with the laws of the jurisdiction in which the Maintainer resides, without regard to its conflict of law provisions.
+
+### 9.6 Jurisdiction
+
+Any disputes arising under this License shall be resolved in the courts of the jurisdiction in which the Maintainer resides.
+
+### 9.7 Assignment
+
+You may not assign or transfer this License or Your rights under it without the prior written consent of the Maintainer. Any attempted assignment in violation of this provision is void.
+
+### 9.8 Language
+
+This License is written in English. If translated into other languages, the English version shall control in case of any conflict or ambiguity.
+
+### 9.9 Contact
+
+For questions about this License, to report Your status as a Large Organization, or to discuss Compliance Options, contact:
+
+[Maintainer Name]
+[Contact Email]
+[Project Repository URL]
+
+---
+
+## 10. How to Apply This License
+
+To apply the Cheeta Ethical License to your software:
+
+1. Include a copy of this license file in your repository as `LICENSE` or `LICENSE-CEL-1.0.txt`
+
+2. Add the following notice to the top of each source file:
+
+```
+Copyright [year] [Maintainer Name]
+
+Licensed under the Cheeta Ethical License v1.0 (CEL-1.0).
+You may obtain a copy of the License at:
+https://cheeta.dev/licenses/cel-1.0
+
+Free for individuals and small organizations.
+Large organizations must contribute back.
+See LICENSE file for details.
+```
+
+3. Update your README with:
+
+```markdown
+## License
+
+This project is licensed under the Cheeta Ethical License v1.0 (CEL-1.0).
+
+- **Individuals**: Free to use for any purpose
+- **Small orgs** (<50 employees or <$1M revenue): Free to use
+- **Large orgs**: Must contribute back (code, funding, or commercial license)
+
+See [LICENSE](LICENSE) for full details.
+```
+
+4. (Optional) Create a compliance dashboard:
+   - Use Cheeta Platform's built-in CEL compliance tools
+   - Or self-report at [your-repository]/CEL-COMPLIANCE.md
+
+---
+
+## Version History
+
+**v1.0 (2025)** - Initial release
+
+---
+
+## Acknowledgments
+
+The Cheeta Ethical License draws inspiration from:
+- The MIT License (permissive spirit)
+- The GPL (copyleft concept)
+- The Fair Source License (size-based differentiation)
+- The Commons Clause (commercial restriction approach)
+- The Prosperity Public License (commercial limitations)
+- The Elastic License (source-available model)
+
+CEL aims to combine the best aspects of these licenses while addressing their shortcomings, creating a truly sustainable model for open source software.
+
+---
+
+**The Cheeta Ethical License is designed to make open source sustainable.**
+
+Questions? Contact us at legal@cheeta.dev or visit https://cheeta.dev/licenses/cel
+
+---
+
+END OF LICENSE
