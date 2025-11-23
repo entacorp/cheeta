@@ -1,11 +1,11 @@
-package io.onedev.server.validation;
+package io.cheeta.server.validation;
 
 import java.util.Locale;
 
 import org.apache.wicket.Session;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
-import io.onedev.server.web.WebSession;
+import io.cheeta.server.web.WebSession;
 
 public class MessageInterpolator extends ParameterMessageInterpolator {
 	

@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.floatinput;
+package io.cheeta.server.buildspecmodel.inputspec.floatinput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import javax.validation.ValidationException;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.buildspecmodel.inputspec.floatinput.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.buildspecmodel.inputspec.floatinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
 
 public class FloatInput {
 	

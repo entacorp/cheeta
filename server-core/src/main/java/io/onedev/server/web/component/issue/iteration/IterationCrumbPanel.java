@@ -1,14 +1,14 @@
-package io.onedev.server.web.component.issue.iteration;
+package io.cheeta.server.web.component.issue.iteration;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.editable.InplacePropertyEditLink;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.issues.iteration.IterationIssuesPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.editable.InplacePropertyEditLink;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.issues.iteration.IterationIssuesPage;
 import org.apache.wicket.Component;
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 import org.apache.wicket.markup.head.CssHeaderItem;
@@ -64,7 +64,7 @@ public abstract class IterationCrumbPanel extends Panel {
 						.map(it -> issue.getProject().getHierarchyIteration(it))
 						.collect(toList());
 				var user = SecurityUtils.getUser();
-				OneDev.getInstance(IssueChangeService.class).changeIterations(user, issue, iterations);
+				Cheeta.getInstance(IssueChangeService.class).changeIterations(user, issue, iterations);
 				((BasePage) getPage()).notifyObservablesChange(handler, issue.getChangeObservables(true));
 			}
 

@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.layout;
+package io.cheeta.server.web.page.layout;
 
 import com.google.common.collect.Lists;
-import io.onedev.server.web.page.admin.pluginsettings.ContributedAdministrationSettingPage;
-import io.onedev.server.web.page.project.setting.pluginsettings.ContributedProjectSettingPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.web.page.admin.pluginsettings.ContributedAdministrationSettingPage;
+import io.cheeta.server.web.page.project.setting.pluginsettings.ContributedProjectSettingPage;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import org.jspecify.annotations.Nullable;

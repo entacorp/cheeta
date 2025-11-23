@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;

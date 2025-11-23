@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.link;
+package io.cheeta.server.web.component.link;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +7,12 @@ import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.link.ResourceLink;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.resource.ArchiveResource;
-import io.onedev.server.web.resource.ArchiveResourceReference;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.resource.ArchiveResource;
+import io.cheeta.server.web.resource.ArchiveResourceReference;
 
 public abstract class ArchiveMenuLink extends MenuLink {
 

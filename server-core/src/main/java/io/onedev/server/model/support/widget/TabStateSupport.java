@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.widget;
+package io.cheeta.server.model.support.widget;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

@@ -1,6 +1,6 @@
-package io.onedev.server.event.cluster;
+package io.cheeta.server.event.cluster;
 
-import io.onedev.server.event.Event;
+import io.cheeta.server.event.Event;
 
 public abstract class ConnectionEvent extends Event {
 	

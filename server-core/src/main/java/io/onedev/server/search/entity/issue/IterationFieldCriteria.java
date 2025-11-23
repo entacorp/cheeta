@@ -1,8 +1,8 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueField;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueField;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.From;

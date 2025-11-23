@@ -1,4 +1,4 @@
-package io.onedev.server.util.criteria;
+package io.cheeta.server.util.criteria;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,13 +24,13 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.RangeBuilder;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.RangeBuilder;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 public abstract class Criteria<T> implements Serializable {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.pack.npm;
+package io.cheeta.server.plugin.pack.npm;
 
 import java.io.Serializable;
 import java.util.Set;

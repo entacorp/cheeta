@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
 import static java.util.stream.Collectors.toList;
 
@@ -11,21 +11,21 @@ import org.jspecify.annotations.Nullable;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.RunContainerFacade;
-import io.onedev.k8shelper.StepFacade;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.RegEx;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.EnvVar;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.support.administration.jobexecutor.DockerAware;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.jobexecutor.KubernetesAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.RunContainerFacade;
+import io.cheeta.k8shelper.StepFacade;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.RegEx;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.EnvVar;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.support.administration.jobexecutor.DockerAware;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.jobexecutor.KubernetesAware;
 
-@Editable(order=150, name="Run Docker Container", description="Run specified docker container. <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>Job workspace</a> "
+@Editable(order=150, name="Run Docker Container", description="Run specified docker container. <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>Job workspace</a> "
 		+ "is mounted into the container and its path is placed in environment variable <code>ONEDEV_WORKSPACE</code>. " +
 		"<b class='text-warning'>Note: </b> this step can only be executed by server docker executor or remote " +
 		"docker executor")

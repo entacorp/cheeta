@@ -1,21 +1,21 @@
-package io.onedev.server.plugin.report.roslynator;
+package io.cheeta.server.plugin.report.roslynator;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.step.StepGroup;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CodeProblem.Severity;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.problem.PublishProblemReportStep;
-import io.onedev.server.util.XmlUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.step.StepGroup;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CodeProblem.Severity;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.problem.PublishProblemReportStep;
+import io.cheeta.server.util.XmlUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
@@ -35,7 +35,7 @@ public class PublishRoslynatorReportStep extends PublishProblemReportStep {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Editable(order=100, description="Specify Roslynator diagnostics output file in XML format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. "
+	@Editable(order=100, description="Specify Roslynator diagnostics output file in XML format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. "
 			+ "This file can be generated with <i>-o</i> option. Use * or ? for pattern match")
 	@Interpolative(variableSuggester="suggestVariables")
 	@Patterns(path=true)

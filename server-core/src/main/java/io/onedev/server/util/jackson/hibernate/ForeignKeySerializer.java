@@ -1,4 +1,4 @@
-package io.onedev.server.util.jackson.hibernate;
+package io.cheeta.server.util.jackson.hibernate;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.server.model.AbstractEntity;
 
 public final class ForeignKeySerializer extends StdSerializer<AbstractEntity> {
 

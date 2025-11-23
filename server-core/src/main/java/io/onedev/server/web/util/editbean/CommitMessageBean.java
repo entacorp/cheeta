@@ -1,9 +1,9 @@
-package io.onedev.server.web.util.editbean;
+package io.cheeta.server.web.util.editbean;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ReferenceAware;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ReferenceAware;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;

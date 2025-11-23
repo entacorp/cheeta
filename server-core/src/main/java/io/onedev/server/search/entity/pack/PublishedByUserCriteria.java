@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pack;
+package io.cheeta.server.search.entity.pack;
 
 import java.util.Objects;
 
@@ -9,9 +9,9 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.User;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.ProjectScope;
 
 public class PublishedByUserCriteria extends PublishedByCriteria {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.util.lucene;
+package io.cheeta.server.util.lucene;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +19,8 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.bouncycastle.util.Arrays;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 public class LuceneUtils {
 

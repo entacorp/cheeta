@@ -1,6 +1,6 @@
-package io.onedev.server.exception;
+package io.cheeta.server.exception;
 
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExplicitException;
 
 public class PullRequestReviewRejectedException extends ExplicitException {
 

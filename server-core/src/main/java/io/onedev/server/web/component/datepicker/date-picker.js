@@ -1,4 +1,4 @@
-onedev.server.datePicker = {
+cheeta.server.datePicker = {
 	onDomReady: function(inputId, withTime, rangeMode) {
 		// set locale if available
 		var locale = (navigator.language || 'en').toLowerCase();

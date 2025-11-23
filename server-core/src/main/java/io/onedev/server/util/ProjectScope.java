@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,8 +8,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.ProjectBelonging;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.ProjectBelonging;
 
 public class ProjectScope {
 

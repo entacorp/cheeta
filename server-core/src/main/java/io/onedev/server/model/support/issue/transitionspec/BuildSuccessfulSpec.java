@@ -1,20 +1,20 @@
-package io.onedev.server.model.support.issue.transitionspec;
+package io.cheeta.server.model.support.issue.transitionspec;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.IssueQuery;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.issue.IssueQueryLexer;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.IssueQuery;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.issue.IssueQueryLexer;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 @Editable(order=400, name="Build is successful")
 public class BuildSuccessfulSpec extends AutoSpec {
@@ -26,7 +26,7 @@ public class BuildSuccessfulSpec extends AutoSpec {
 	private String branches;
 	
 	public BuildSuccessfulSpec() {
-		setIssueQuery(io.onedev.server.search.entity.issue.IssueQuery
+		setIssueQuery(io.cheeta.server.search.entity.issue.IssueQuery
 				.getRuleName(IssueQueryLexer.FixedInCurrentBuild));		
 	}
 	
@@ -43,7 +43,7 @@ public class BuildSuccessfulSpec extends AutoSpec {
 	}
 
 	@Editable(order=200, name="Applicable Branches", placeholder="Any branch", description="Optionally specify space-separated branches "
-			+ "applicable for this transition. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "applicable for this transition. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty to match all")
 	@Patterns(suggester = "suggestBranches", path=true)
 	public String getBranches() {

@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import io.onedev.server.model.support.issue.BoardSpec;
-import io.onedev.server.web.page.project.issues.boards.IssueBoardsPage;
+import io.cheeta.server.model.support.issue.BoardSpec;
+import io.cheeta.server.web.page.project.issues.boards.IssueBoardsPage;
 
 public class BoardParam extends ParamSegment {
 

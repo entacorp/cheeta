@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.field.spec;
+package io.cheeta.server.model.support.issue.field.spec;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -11,31 +11,31 @@ import javax.validation.constraints.NotEmpty;
 
 import org.apache.wicket.MarkupContainer;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.FieldName;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.SpecifiedChoices;
-import io.onedev.server.buildspecmodel.inputspec.showcondition.ShowCondition;
-import io.onedev.server.buildspecmodel.inputspec.showcondition.ValueIsNotAnyOf;
-import io.onedev.server.buildspecmodel.inputspec.showcondition.ValueIsOneOf;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.FieldName;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.SpecifiedChoices;
+import io.cheeta.server.buildspecmodel.inputspec.showcondition.ShowCondition;
+import io.cheeta.server.buildspecmodel.inputspec.showcondition.ValueIsNotAnyOf;
+import io.cheeta.server.buildspecmodel.inputspec.showcondition.ValueIsOneOf;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 @Editable
 public abstract class FieldSpec extends InputSpec {
@@ -136,7 +136,7 @@ public abstract class FieldSpec extends InputSpec {
 	
 	@Editable(order=10100, placeholder="All projects", description="Specify applicable projects for above option. "
 			+ "Multiple projects should be separated by space. Use '**', '*' or '?' for "
-			+ "<a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "<a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty for all projects")
 	@DependsOn(property="promptUponIssueOpen")
 	@Patterns(suggester="suggestProjects", path=true)
@@ -154,7 +154,7 @@ public abstract class FieldSpec extends InputSpec {
 	}
 	
 	private GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	public Collection<String> getUndefinedFields() {

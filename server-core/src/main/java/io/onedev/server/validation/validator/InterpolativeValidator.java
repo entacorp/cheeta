@@ -1,4 +1,4 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Interpolative;
 
 public class InterpolativeValidator implements ConstraintValidator<Interpolative, Object> {
 	
@@ -42,7 +42,7 @@ public class InterpolativeValidator implements ConstraintValidator<Interpolative
 		for (List<String> each: values) {
 			for (String each2: each) {
 				try {
-					io.onedev.server.util.interpolative.Interpolative.parse(each2);					
+					io.cheeta.server.util.interpolative.Interpolative.parse(each2);					
 				} catch (Exception e) {
 					constraintContext.disableDefaultConstraintViolation();
 					String message = this.message;

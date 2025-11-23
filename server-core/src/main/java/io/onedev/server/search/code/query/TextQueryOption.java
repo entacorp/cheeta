@@ -1,13 +1,13 @@
-package io.onedev.server.search.code.query;
+package io.cheeta.server.search.code.query;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.search.code.IndexConstants;
-import io.onedev.server.search.code.query.regex.RegexLiterals;
-import io.onedev.server.util.ContentDetector;
-import io.onedev.server.web.component.codequeryoption.TextQueryOptionEditor;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.search.code.IndexConstants;
+import io.cheeta.server.search.code.query.regex.RegexLiterals;
+import io.cheeta.server.util.ContentDetector;
+import io.cheeta.server.web.component.codequeryoption.TextQueryOptionEditor;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause;
@@ -24,10 +24,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static io.onedev.server.search.code.FieldConstants.BLOB_NAME;
-import static io.onedev.server.search.code.FieldConstants.BLOB_TEXT;
-import static io.onedev.server.search.code.IndexConstants.MAX_INDEXABLE_LINE_LEN;
-import static io.onedev.server.search.code.IndexConstants.NGRAM_SIZE;
+import static io.cheeta.server.search.code.FieldConstants.BLOB_NAME;
+import static io.cheeta.server.search.code.FieldConstants.BLOB_TEXT;
+import static io.cheeta.server.search.code.IndexConstants.MAX_INDEXABLE_LINE_LEN;
+import static io.cheeta.server.search.code.IndexConstants.NGRAM_SIZE;
 
 public class TextQueryOption implements QueryOption {
 	

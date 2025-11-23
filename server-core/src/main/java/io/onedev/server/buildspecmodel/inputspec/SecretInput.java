@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec;
+package io.cheeta.server.buildspecmodel.inputspec;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class SecretInput {
 
 	public static final String MASK = "*****";
 	
-	public static final String LITERAL_VALUE_PREFIX = "$OneDev-Secret-Literal$";
+	public static final String LITERAL_VALUE_PREFIX = "$Cheeta-Secret-Literal$";
 	
 	public static String getPropertyDef(InputSpec inputSpec, Map<String, Integer> indexes) {
 		int index = indexes.get(inputSpec.getName());

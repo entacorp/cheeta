@@ -1,4 +1,4 @@
-package io.onedev.server.web.img;
+package io.cheeta.server.web.img;
 
 public class ImageScope {
 

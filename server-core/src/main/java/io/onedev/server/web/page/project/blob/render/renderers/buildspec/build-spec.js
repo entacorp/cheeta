@@ -1,4 +1,4 @@
-onedev.server.buildSpec = {
+cheeta.server.buildSpec = {
 	onTabDomReady: function(tabClass) {
 		$(".build-spec>.head>a").removeClass("active").filter(tabClass).addClass("active");		
 	},

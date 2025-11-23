@@ -1,8 +1,8 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 /**
  * A version composed of major, minor, patch, qualifier and build. All fields except 

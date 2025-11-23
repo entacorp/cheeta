@@ -1,4 +1,4 @@
-onedev.server.revisionSelector = {
+cheeta.server.revisionSelector = {
 	onDomReady: function(containerId) {
 		var $container = $("#" + containerId);
 		var $floating = $container.closest(".floating");

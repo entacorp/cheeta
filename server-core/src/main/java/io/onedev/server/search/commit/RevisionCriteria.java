@@ -1,4 +1,4 @@
-package io.onedev.server.search.commit;
+package io.cheeta.server.search.commit;
 
 import static java.util.stream.Collectors.toList;
 
@@ -9,9 +9,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.model.Project;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.model.Project;
 
 public class RevisionCriteria extends CommitCriteria {
 

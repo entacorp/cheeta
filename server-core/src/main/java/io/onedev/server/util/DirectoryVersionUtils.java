@@ -1,17 +1,17 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.commons.utils.FileUtils;
+import io.cheeta.commons.utils.FileUtils;
 
 import java.io.File;
 import java.util.concurrent.Callable;
 import java.util.concurrent.locks.Lock;
 
-import static io.onedev.commons.utils.LockUtils.getLock;
+import static io.cheeta.commons.utils.LockUtils.getLock;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class DirectoryVersionUtils {
 
-	public static String FILE_VERSION = ".onedev-directory-version";
+	public static String FILE_VERSION = ".cheeta-directory-version";
 
 	private static <T> T callWithVersionLock(java.nio.file.Path path, Callable<T> callable) {
 		Lock lock = getLock("directory-version: " + path.normalize().toString());

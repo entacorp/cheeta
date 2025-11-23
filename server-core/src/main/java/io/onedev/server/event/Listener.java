@@ -1,4 +1,4 @@
-package io.onedev.server.event;
+package io.cheeta.server.event;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

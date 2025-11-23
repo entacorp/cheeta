@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -14,28 +14,28 @@ import org.apache.wicket.model.IModel;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.match.PatternApplied;
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.ai.QueryDescriptions;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.commit.CommitQueryParser;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.NameAndEmail;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.NaturalLanguageTranslator;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.match.PatternApplied;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ai.QueryDescriptions;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.commit.CommitQueryParser;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.NameAndEmail;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.NaturalLanguageTranslator;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.xodus.CommitInfoService;
 
 public class CommitQueryBehavior extends ANTLRAssistBehavior {
 
@@ -140,7 +140,7 @@ public class CommitQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private CommitInfoService getCommitInfoManager() {
-		return OneDev.getInstance(CommitInfoService.class);
+		return Cheeta.getInstance(CommitInfoService.class);
 	}
 	
 	@Override
@@ -217,7 +217,7 @@ public class CommitQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	@Override

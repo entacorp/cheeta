@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.workflowreconcile;
+package io.cheeta.server.web.component.issue.workflowreconcile;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -27,16 +27,16 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.web.ajaxlistener.ChangeTextListener;
-import io.onedev.server.web.ajaxlistener.DisableGlobalAjaxIndicatorListener;
-import io.onedev.server.web.ajaxlistener.SelfDisableListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValueResolution.FixType;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.web.ajaxlistener.ChangeTextListener;
+import io.cheeta.server.web.ajaxlistener.DisableGlobalAjaxIndicatorListener;
+import io.cheeta.server.web.ajaxlistener.SelfDisableListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValueResolution.FixType;
+import io.cheeta.server.web.editable.BeanContext;
 
 public abstract class WorkflowReconcilePanel extends Panel {
 
@@ -66,7 +66,7 @@ public abstract class WorkflowReconcilePanel extends Panel {
 	}
 	
 	private IssueService getIssueService() {
-		return OneDev.getInstance(IssueService.class);
+		return Cheeta.getInstance(IssueService.class);
 	}
 	
 	private Component checkStates(String markupId) {
@@ -372,7 +372,7 @@ public abstract class WorkflowReconcilePanel extends Panel {
 					protected void respond(AjaxRequestTarget target) {
 						getIssueService().fixStateAndFieldOrdinals();
 						
-						SettingService settingService = OneDev.getInstance(SettingService.class);
+						SettingService settingService = Cheeta.getInstance(SettingService.class);
 						GlobalIssueSetting issueSetting = settingService.getIssueSetting();
 						issueSetting.setReconciled(true);
 						settingService.saveIssueSetting(issueSetting);

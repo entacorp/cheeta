@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.mousewheel;
+package io.cheeta.server.web.asset.mousewheel;
 
 import java.util.ArrayList;
 import java.util.List;

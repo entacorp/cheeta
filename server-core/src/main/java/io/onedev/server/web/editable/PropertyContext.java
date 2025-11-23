@@ -1,8 +1,8 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.util.ComponentContext;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.util.ComponentContext;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;

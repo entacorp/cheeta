@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -23,14 +23,14 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.rest.annotation.Immutable;
-import io.onedev.server.ssh.SshKeyUtils;
-import io.onedev.server.validation.Validatable;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.rest.annotation.Immutable;
+import io.cheeta.server.ssh.SshKeyUtils;
+import io.cheeta.server.validation.Validatable;
 
 @Editable
 @Entity

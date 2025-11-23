@@ -1,4 +1,4 @@
-package io.onedev.server.search.code;
+package io.cheeta.server.search.code;
 
 public interface IndexConstants {
 

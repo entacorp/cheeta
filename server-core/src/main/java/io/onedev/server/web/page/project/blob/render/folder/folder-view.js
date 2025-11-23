@@ -1,4 +1,4 @@
-onedev.server.folderView = {
+cheeta.server.folderView = {
 	onDomReady: function(containerId, lastCommitsUrl, userCardCallback) {
 		var $container = $("#" + containerId);
 		
@@ -42,7 +42,7 @@ onedev.server.folderView = {
 							}, alignment);
 						}
 					});
-					onedev.server.viewState.getFromHistoryAndSetToView();
+					cheeta.server.viewState.getFromHistoryAndSetToView();
 				}
 			}
 		});		

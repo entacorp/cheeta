@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.branchchoice;
+package io.cheeta.server.web.editable.branchchoice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,13 +14,13 @@ import org.apache.wicket.util.convert.ConversionException;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.annotation.BranchChoice;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.component.branch.choice.BranchMultiChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.BranchChoice;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.component.branch.choice.BranchMultiChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class BranchMultiChoiceEditor extends PropertyEditor<List<String>> {
 	

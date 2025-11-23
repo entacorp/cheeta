@@ -1,4 +1,4 @@
-onedev.server.confirm = function(containerId, confirmInput) {
+cheeta.server.confirm = function(containerId, confirmInput) {
 	var $container = $("#" + containerId);
 	var $confirmBtn = $container.find(".btn-danger, .btn-primary");
 	if (confirmInput) {

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.modal;
+package io.cheeta.server.web.component.modal;
 
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class ModalResourceReference extends BaseDependentResourceReference {
 

@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.project;
+package io.cheeta.server.web.page.project;
 
-import static io.onedev.server.model.Project.PROP_CODE_MANAGEMENT;
-import static io.onedev.server.model.Project.PROP_DESCRIPTION;
-import static io.onedev.server.model.Project.PROP_ISSUE_MANAGEMENT;
-import static io.onedev.server.model.Project.PROP_KEY;
-import static io.onedev.server.model.Project.PROP_NAME;
-import static io.onedev.server.model.Project.PROP_PACK_MANAGEMENT;
-import static io.onedev.server.model.Project.PROP_TIME_TRACKING;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.Project.PROP_CODE_MANAGEMENT;
+import static io.cheeta.server.model.Project.PROP_DESCRIPTION;
+import static io.cheeta.server.model.Project.PROP_ISSUE_MANAGEMENT;
+import static io.cheeta.server.model.Project.PROP_KEY;
+import static io.cheeta.server.model.Project.PROP_NAME;
+import static io.cheeta.server.model.Project.PROP_PACK_MANAGEMENT;
+import static io.cheeta.server.model.Project.PROP_TIME_TRACKING;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 
@@ -20,27 +20,27 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.BaseAuthorizationService;
-import io.onedev.server.service.ProjectLabelService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.children.ProjectChildrenPage;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
-import io.onedev.server.web.page.project.packs.ProjectPacksPage;
-import io.onedev.server.web.page.project.setting.general.DefaultRolesBean;
-import io.onedev.server.web.page.project.setting.general.ParentBean;
-import io.onedev.server.web.util.editbean.LabelsBean;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.BaseAuthorizationService;
+import io.cheeta.server.service.ProjectLabelService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.children.ProjectChildrenPage;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.server.web.page.project.packs.ProjectPacksPage;
+import io.cheeta.server.web.page.project.setting.general.DefaultRolesBean;
+import io.cheeta.server.web.page.project.setting.general.ParentBean;
+import io.cheeta.server.web.util.editbean.LabelsBean;
 
 public class NewProjectPage extends LayoutPage {
 
@@ -102,16 +102,16 @@ public class NewProjectPage extends LayoutPage {
 						newProject.setPackManagement(editProject.isPackManagement());
 						newProject.setTimeTracking(editProject.isTimeTracking());
 						
-						OneDev.getInstance(TransactionService.class).run(() -> {
+						Cheeta.getInstance(TransactionService.class).run(() -> {
 							getProjectService().create(SecurityUtils.getUser(), newProject);
-							OneDev.getInstance(BaseAuthorizationService.class).syncRoles(newProject, defaultRolesBean.getRoles());
-							OneDev.getInstance(ProjectLabelService.class).sync(newProject, labelsBean.getLabels());
+							Cheeta.getInstance(BaseAuthorizationService.class).syncRoles(newProject, defaultRolesBean.getRoles());
+							Cheeta.getInstance(ProjectLabelService.class).sync(newProject, labelsBean.getLabels());
 
 							var auditData = editor.getPropertyValues();
 							auditData.put("parent", parentBean.getParentPath());
 							auditData.put("labels", labelsBean.getLabels());
 							auditData.put("defaultRoles", defaultRolesBean.getRoleNames());
-							OneDev.getInstance(AuditService.class).audit(newProject, "created project", null, VersionedXmlDoc.fromBean(newProject).toXML());
+							Cheeta.getInstance(AuditService.class).audit(newProject, "created project", null, VersionedXmlDoc.fromBean(newProject).toXML());
 						});
 						
 						Session.get().success(_T("New project created"));
@@ -141,7 +141,7 @@ public class NewProjectPage extends LayoutPage {
 	}
 
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	@Override

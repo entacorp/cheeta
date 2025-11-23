@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,21 +10,21 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
 
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.pullrequest.PullRequestReviewRequested;
-import io.onedev.server.event.project.pullrequest.PullRequestReviewerRemoved;
-import io.onedev.server.exception.PullRequestReviewRejectedException;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestApproveData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestRequestedForChangesData;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.service.PullRequestReviewService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.pullrequest.PullRequestReviewRequested;
+import io.cheeta.server.event.project.pullrequest.PullRequestReviewerRemoved;
+import io.cheeta.server.exception.PullRequestReviewRejectedException;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestApproveData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestRequestedForChangesData;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.service.PullRequestReviewService;
 
 @Singleton
 public class DefaultPullRequestReviewService extends BaseEntityService<PullRequestReview>

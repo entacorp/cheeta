@@ -1,10 +1,10 @@
-package io.onedev.server.agent;
+package io.cheeta.server.agent;
 
-import io.onedev.agent.Agent;
-import io.onedev.server.OneDev;
-import io.onedev.server.exception.ServerNotReadyException;
-import io.onedev.server.service.AgentTokenService;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.agent.Agent;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.exception.ServerNotReadyException;
+import io.cheeta.server.service.AgentTokenService;
+import io.cheeta.server.security.SecurityUtils;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 
@@ -40,7 +40,7 @@ public class ServerSocketServlet extends WebSocketServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (!OneDev.getInstance().isReady())
+		if (!Cheeta.getInstance().isReady())
 			throw new ServerNotReadyException();
 		String tokenValue = SecurityUtils.getBearerToken(request);
 		if (tokenValue != null && tokenService.find(tokenValue) != null)

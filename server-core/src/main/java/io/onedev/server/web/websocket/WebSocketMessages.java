@@ -1,4 +1,4 @@
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
 public interface WebSocketMessages {
 

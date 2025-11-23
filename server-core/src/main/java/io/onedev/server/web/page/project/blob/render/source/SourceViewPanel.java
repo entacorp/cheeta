@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.blob.render.source;
+package io.cheeta.server.web.page.project.blob.render.source;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
 import java.util.ArrayList;
@@ -60,73 +60,73 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.jsymbol.Symbol;
-import io.onedev.commons.jsymbol.SymbolExtractor;
-import io.onedev.commons.jsymbol.SymbolExtractorRegistry;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CodeProblemContribution;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.codequality.LineCoverageContribution;
-import io.onedev.server.git.BlameBlock;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.search.code.CodeSearchService;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.CodeCommentReplyService;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.service.CodeCommentStatusChangeService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.asset.selectbytyping.SelectByTypingResourceReference;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.behavior.blamemessage.BlameMessageBehavior;
-import io.onedev.server.web.component.codecomment.CodeCommentPanel;
-import io.onedev.server.web.component.comment.CommentInput;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.component.markdown.SuggestionSupport;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.sourceformat.OptionChangeCallback;
-import io.onedev.server.web.component.sourceformat.SourceFormatPanel;
-import io.onedev.server.web.component.suggestionapply.SuggestionApplyBean;
-import io.onedev.server.web.component.suggestionapply.SuggestionApplyModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.symboltooltip.SymbolContext;
-import io.onedev.server.web.component.symboltooltip.SymbolTooltipPanel;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
-import io.onedev.server.web.page.project.blob.render.view.BlobViewPanel;
-import io.onedev.server.web.page.project.blob.render.view.Positionable;
-import io.onedev.server.web.page.project.blob.search.SearchMenuContributor;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.util.AnnotationInfo;
-import io.onedev.server.web.util.CodeCommentInfo;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.jsymbol.Symbol;
+import io.cheeta.commons.jsymbol.SymbolExtractor;
+import io.cheeta.commons.jsymbol.SymbolExtractorRegistry;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CodeProblemContribution;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.codequality.LineCoverageContribution;
+import io.cheeta.server.git.BlameBlock;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.search.code.CodeSearchService;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.CodeCommentReplyService;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.service.CodeCommentStatusChangeService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.asset.selectbytyping.SelectByTypingResourceReference;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.behavior.blamemessage.BlameMessageBehavior;
+import io.cheeta.server.web.component.codecomment.CodeCommentPanel;
+import io.cheeta.server.web.component.comment.CommentInput;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.component.markdown.SuggestionSupport;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.sourceformat.OptionChangeCallback;
+import io.cheeta.server.web.component.sourceformat.SourceFormatPanel;
+import io.cheeta.server.web.component.suggestionapply.SuggestionApplyBean;
+import io.cheeta.server.web.component.suggestionapply.SuggestionApplyModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.symboltooltip.SymbolContext;
+import io.cheeta.server.web.component.symboltooltip.SymbolTooltipPanel;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.server.web.page.project.blob.render.view.BlobViewPanel;
+import io.cheeta.server.web.page.project.blob.render.view.Positionable;
+import io.cheeta.server.web.page.project.blob.search.SearchMenuContributor;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.util.AnnotationInfo;
+import io.cheeta.server.web.util.CodeCommentInfo;
+import io.cheeta.server.web.util.WicketUtils;
 
 /**
  * Make sure to add only one source view panel per page
@@ -154,17 +154,17 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 			RevCommit commitId = context.getCommit();
 			String path = context.getBlobIdent().path;
 			
-			CodeCommentService codeCommentService = OneDev.getInstance(CodeCommentService.class);
+			CodeCommentService codeCommentService = Cheeta.getInstance(CodeCommentService.class);
 			Map<CodeComment, PlanarRange> comments = codeCommentService.queryInHistory(project, commitId, path);
 
 			var problems = new HashSet<CodeProblem>();
 			Map<Integer, CoverageStatus> coverages = new HashMap<>();
 			var lines = context.getProject().getBlob(context.getBlobIdent(), true).getText().getLines();
-			BuildService buildService = OneDev.getInstance(BuildService.class);
+			BuildService buildService = Cheeta.getInstance(BuildService.class);
 			for (var build: buildService.query(project, commitId, null, null, null, null, new HashMap<>())) {
-				for (var contribution: OneDev.getExtensions(CodeProblemContribution.class)) 
+				for (var contribution: Cheeta.getExtensions(CodeProblemContribution.class)) 
 					problems.addAll(contribution.getCodeProblems(build, path, context.getProblemReport()));
-				for (var contribution: OneDev.getExtensions(LineCoverageContribution.class)) { 
+				for (var contribution: Cheeta.getExtensions(LineCoverageContribution.class)) { 
 					contribution.getLineCoverages(build, path, context.getCoverageReport()).forEach((key, value)->{
 						coverages.merge(key, value, CoverageStatus::mergeWith);
 					});
@@ -202,7 +202,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 		String blobName = context.getBlobIdent().getName();
 		SymbolExtractor<Symbol> extractor = SymbolExtractorRegistry.getExtractor(blobName);
 		if (extractor != null) {
-			CodeSearchService searchService = OneDev.getInstance(CodeSearchService.class);
+			CodeSearchService searchService = Cheeta.getInstance(CodeSearchService.class);
 			List<Symbol> cachedSymbols = searchService.getSymbols(context.getProject(), blob.getBlobId(), 
 					blob.getIdent().path);
 			if (cachedSymbols != null) {
@@ -224,12 +224,12 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 			
 			@Override
 			public void onOptioneChange(AjaxRequestTarget target) {
-				String script = String.format("onedev.server.sourceView.onTabSizeChange(%s);", sourceFormat.getTabSize());
+				String script = String.format("cheeta.server.sourceView.onTabSizeChange(%s);", sourceFormat.getTabSize());
 				target.appendJavaScript(script);
 			}
 			
 		}, (OptionChangeCallback) target -> {
-			String script = String.format("onedev.server.sourceView.onLineWrapModeChange('%s');", sourceFormat.getLineWrapMode());
+			String script = String.format("cheeta.server.sourceView.onLineWrapModeChange('%s');", sourceFormat.getLineWrapMode());
 			target.appendJavaScript(script);
 		});
 		return sourceFormat;
@@ -273,12 +273,12 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 		cookie.setMaxAge(Integer.MAX_VALUE);
 		response.addCookie(cookie);
 		target.add(outlineContainer);
-		target.appendJavaScript("onedev.server.sourceView.onToggleOutline();");
+		target.appendJavaScript("cheeta.server.sourceView.onToggleOutline();");
 	}
 
 	private String convertToJson(Object obj) {
 		try {
-			return OneDev.getInstance(ObjectMapper.class).writeValueAsString(obj);
+			return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(obj);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
@@ -293,7 +293,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				response.render(OnDomReadyHeaderItem.forScript("onedev.server.sourceView.initComment();"));
+				response.render(OnDomReadyHeaderItem.forScript("cheeta.server.sourceView.initComment();"));
 			}
 
 		};
@@ -432,7 +432,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 
 				@Override
 				protected void onSaveComment(AjaxRequestTarget target, CodeComment comment) {
-					OneDev.getInstance(CodeCommentService.class).update(comment);
+					Cheeta.getInstance(CodeCommentService.class).update(comment);
 					target.add(commentContainer.get("head"));
 				}
 
@@ -475,7 +475,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 					PlanarRange range = getRange(params, "param1", "param2", "param3", "param4");
 							
 					String position = BlobRenderer.getSourcePosition(range);
-					String script = String.format("onedev.server.sourceView.openSelectionPopover(%s, '%s', %s);", 
+					String script = String.format("cheeta.server.sourceView.openSelectionPopover(%s, '%s', %s);", 
 							convertToJson(range), context.getPositionUrl(position), SecurityUtils.getAuthUser()!=null);
 					target.appendJavaScript(script);
 					break;
@@ -559,7 +559,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 						@Override
 						public void onClick(AjaxRequestTarget target) {
 							clearComment(target);
-							target.appendJavaScript("onedev.server.sourceView.clearMark();");
+							target.appendJavaScript("cheeta.server.sourceView.clearMark();");
 							target.appendJavaScript("$(window).resize();");
 							context.onPosition(target, null);
 						}
@@ -592,7 +592,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 								comment.setProject(context.getProject());
 								comment.setCompareContext(getCompareContext());
 								
-								OneDev.getInstance(CodeCommentService.class).create(comment);
+								Cheeta.getInstance(CodeCommentService.class).create(comment);
 								
 								CodeCommentPanel commentPanel = new CodeCommentPanel(fragment.getId(), comment.getId()) {
 
@@ -603,7 +603,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 
 									@Override
 									protected void onSaveComment(AjaxRequestTarget target, CodeComment comment) {
-										OneDev.getInstance(CodeCommentService.class).update(comment);
+										Cheeta.getInstance(CodeCommentService.class).update(comment);
 										target.add(commentContainer.get("head"));
 									}
 
@@ -631,7 +631,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 								commentContainer.replace(commentPanel);
 								target.add(commentContainer);
 
-								String script = String.format("onedev.server.sourceView.onCommentAdded(%s);", 
+								String script = String.format("cheeta.server.sourceView.onCommentAdded(%s);", 
 										convertToJson(new CodeCommentInfo(comment, range)));
 								target.appendJavaScript(script);
 								
@@ -645,7 +645,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 					commentContainer.setVisible(true);
 					target.add(commentContainer);
 					context.onAddComment(target, range);
-					target.appendJavaScript(String.format("onedev.server.sourceView.onAddComment(%s);", convertToJson(range)));
+					target.appendJavaScript(String.format("cheeta.server.sourceView.onAddComment(%s);", convertToJson(range)));
 					break;
 				case "openComment":
 					Long commentId = params.getParameterValue("param1").toLong();
@@ -661,7 +661,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 
 						@Override
 						protected void onSaveComment(AjaxRequestTarget target, CodeComment comment) {
-							OneDev.getInstance(CodeCommentService.class).update(comment);
+							Cheeta.getInstance(CodeCommentService.class).update(comment);
 							target.add(commentContainer.get("head"));
 						}
 
@@ -690,8 +690,8 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 					commentContainer.setVisible(true);
 					target.add(commentContainer);
 					
-					CodeComment comment = OneDev.getInstance(CodeCommentService.class).load(commentId);
-					script = String.format("onedev.server.sourceView.onCommentOpened(%s);", 
+					CodeComment comment = Cheeta.getInstance(CodeCommentService.class).load(commentId);
+					script = String.format("cheeta.server.sourceView.onCommentOpened(%s);", 
 							convertToJson(new CodeCommentInfo(comment, range)));
 					target.appendJavaScript(script);
 					context.onCommentOpened(target, comment, range);
@@ -733,7 +733,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 							tree.expand(current);
 							current = current.getParent();
 						}
-						script = String.format("onedev.server.sourceView.syncOutline('%s');", 
+						script = String.format("cheeta.server.sourceView.syncOutline('%s');", 
 								getSymbolId(symbols, closest));
 						target.appendJavaScript(script);
 					}
@@ -756,7 +756,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				response.render(OnDomReadyHeaderItem.forScript("onedev.server.sourceView.initOutline();"));
+				response.render(OnDomReadyHeaderItem.forScript("cheeta.server.sourceView.initOutline();"));
 			}
 			
 		};
@@ -939,7 +939,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 
 	private void onCommentDeleted(AjaxRequestTarget target) {
 		clearComment(target);
-		target.appendJavaScript("onedev.server.sourceView.onCommentDeleted();");
+		target.appendJavaScript("cheeta.server.sourceView.onCommentDeleted();");
 		context.onCommentClosed(target);
 	}
 	
@@ -961,7 +961,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	private String getJsonOfBlameInfos(boolean blamed) {
@@ -1038,7 +1038,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 			translations.put(severity.name(), _T("severity:" + severity.name()));
 		translations.put("add-problem-comment", _T("Add comment"));
 
-		String script = String.format("onedev.server.sourceView.onDomReady("
+		String script = String.format("cheeta.server.sourceView.onDomReady("
 				+ "'%s', '%s', %s, %s, '%s', '%s', %s, %s, %s, %s, '%s', %s, %s);", 
 				JavaScriptEscape.escapeJavaScript(context.getBlobIdent().path),
 				JavaScriptEscape.escapeJavaScript(blob.getText().getContent()),
@@ -1056,7 +1056,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 		response.render(OnDomReadyHeaderItem.forScript(script));
 		
 		if (markRange != null) {
-			script = String.format("onedev.server.sourceView.onWindowLoad(%s);", convertToJson(markRange));
+			script = String.format("cheeta.server.sourceView.onWindowLoad(%s);", convertToJson(markRange));
 			response.render(OnLoadHeaderItem.forScript(script));
 		}
 	}
@@ -1091,9 +1091,9 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 		String script;
 		PlanarRange mark = BlobRenderer.getSourceRange(position);
 		if (mark != null) 
-			script = String.format("onedev.server.sourceView.mark(%s, true);", convertToJson(mark));
+			script = String.format("cheeta.server.sourceView.mark(%s, true);", convertToJson(mark));
 		else 
-			script = String.format("onedev.server.sourceView.clearMark();");
+			script = String.format("cheeta.server.sourceView.clearMark();");
 		target.appendJavaScript(script);
 	}
 
@@ -1130,7 +1130,7 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 	private void closeComment(AjaxRequestTarget target) {
 		clearComment(target);
 		context.onCommentClosed(target);
-		target.appendJavaScript("onedev.server.sourceView.onCloseComment();");
+		target.appendJavaScript("cheeta.server.sourceView.onCloseComment();");
 	}
 	
 	private NestedTree<Symbol> newOutlineSearchTree(ModalPanel modal, List<Symbol> symbols, Set<Symbol> state) {
@@ -1309,14 +1309,14 @@ public class SourceViewPanel extends BlobViewPanel implements Positionable, Sear
 	private void onSaveCommentReply(AjaxRequestTarget target, CodeCommentReply reply) {
 		reply.setCompareContext(getCompareContext());
 		if (reply.isNew())
-			OneDev.getInstance(CodeCommentReplyService.class).create(reply);
+			Cheeta.getInstance(CodeCommentReplyService.class).create(reply);
 		else
-			OneDev.getInstance(CodeCommentReplyService.class).update(reply);
+			Cheeta.getInstance(CodeCommentReplyService.class).update(reply);
 	}
 	
 	private void onSaveCommentStatusChange(AjaxRequestTarget target, CodeCommentStatusChange change, String note) {
 		change.setCompareContext(getCompareContext());
-		OneDev.getInstance(CodeCommentStatusChangeService.class).create(change, note);
+		Cheeta.getInstance(CodeCommentStatusChangeService.class).create(change, note);
 	}
 	
 	private SuggestionSupport getSuggestionSupport(Mark mark) {

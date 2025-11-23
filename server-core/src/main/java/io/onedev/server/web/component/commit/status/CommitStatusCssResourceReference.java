@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.commit.status;
+package io.cheeta.server.web.component.commit.status;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class CommitStatusCssResourceReference extends BaseDependentCssResourceReference {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.UserName;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.SessionService;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.UserName;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.SessionService;
 
 public class UserNameValidator implements ConstraintValidator<UserName, String> {
 	
@@ -52,13 +52,13 @@ public class UserNameValidator implements ConstraintValidator<UserName, String> 
 	}
 	
 	public static String suggestUserName(String preferredUserName) {
-		return OneDev.getInstance(SessionService.class).call(new Callable<String>() {
+		return Cheeta.getInstance(SessionService.class).call(new Callable<String>() {
 
 			@Override
 			public String call() throws Exception {
 				String normalizedUserName = normalizeUserName(preferredUserName);
 				int suffix = 1;
-				UserService userService = OneDev.getInstance(UserService.class);
+				UserService userService = Cheeta.getInstance(UserService.class);
 				while (true) {
 					String suggestedUserName = normalizedUserName;
 					if (suffix > 1)

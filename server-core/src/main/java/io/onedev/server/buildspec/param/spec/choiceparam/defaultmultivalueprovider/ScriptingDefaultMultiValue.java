@@ -1,10 +1,10 @@
-package io.onedev.server.buildspec.param.spec.choiceparam.defaultmultivalueprovider;
+package io.cheeta.server.buildspec.param.spec.choiceparam.defaultmultivalueprovider;
 
 import com.google.common.collect.Lists;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ScriptChoice;
-import io.onedev.server.util.GroovyUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ScriptChoice;
+import io.cheeta.server.util.GroovyUtils;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class ScriptingDefaultMultiValue implements DefaultMultiValueProvider {
 	private String scriptName;
 
 	@Editable(description="Groovy script to be evaluated. It should return string or list of string. "
-			+ "Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details")
+			+ "Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details")
 	@ScriptChoice
 	@OmitName
 	@NotEmpty

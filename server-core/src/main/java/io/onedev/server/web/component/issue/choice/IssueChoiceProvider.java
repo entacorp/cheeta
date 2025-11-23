@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.choice;
+package io.cheeta.server.web.component.issue.choice;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,23 +13,23 @@ import org.unbescape.html.HtmlEscape;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.issue.FuzzyCriteria;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.ProjectScopedQuery;
-import io.onedev.server.util.criteria.AndCriteria;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.component.select2.ChoiceProvider;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.issue.FuzzyCriteria;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.ProjectScopedQuery;
+import io.cheeta.server.util.criteria.AndCriteria;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.component.select2.ChoiceProvider;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
 
 public abstract class IssueChoiceProvider extends ChoiceProvider<Issue> {
 
@@ -49,7 +49,7 @@ public abstract class IssueChoiceProvider extends ChoiceProvider<Issue> {
 	@Override
 	public Collection<Issue> toChoices(Collection<String> ids) {
 		List<Issue> issues = Lists.newArrayList();
-		IssueService issueService = OneDev.getInstance(IssueService.class);
+		IssueService issueService = Cheeta.getInstance(IssueService.class);
 		for (String id: ids) {
 			Issue issue = issueService.load(Long.valueOf(id)); 
 			Hibernate.initialize(issue);
@@ -78,7 +78,7 @@ public abstract class IssueChoiceProvider extends ChoiceProvider<Issue> {
 			}
 			var issueQuery = new IssueQuery(new AndCriteria<>(criterias), sorts);
 			var subject = SecurityUtils.getSubject();
-			var issues = OneDev.getInstance(IssueService.class)
+			var issues = Cheeta.getInstance(IssueService.class)
 					.query(subject, projectScope, issueQuery, false, 0, count);
 			new ResponseFiller<>(response).fill(issues, page, WebConstants.PAGE_SIZE);
 		} else {

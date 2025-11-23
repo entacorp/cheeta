@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.color;
+package io.cheeta.server.web.editable.color;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
@@ -8,9 +8,9 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.web.component.colorpicker.ColorPicker;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.component.colorpicker.ColorPicker;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class ColorPropertyEditor extends PropertyEditor<String> {
 

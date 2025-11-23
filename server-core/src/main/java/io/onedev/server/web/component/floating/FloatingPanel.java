@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.floating;
+package io.cheeta.server.web.component.floating;
 
 import org.jspecify.annotations.Nullable;
 
@@ -11,10 +11,10 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.DisplayNoneBehavior;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.util.Animation;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.DisplayNoneBehavior;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.util.Animation;
 
 public abstract class FloatingPanel extends Panel {
 
@@ -70,7 +70,7 @@ public abstract class FloatingPanel extends Panel {
 			@Override
 			protected void respond(AjaxRequestTarget target) {
 				FloatingPanel.this.remove();
-				String script = String.format("onedev.server.floating.close('%s');", getMarkupId(true));
+				String script = String.format("cheeta.server.floating.close('%s');", getMarkupId(true));
 				target.appendJavaScript(script);
 				onClosed();
 			}
@@ -88,7 +88,7 @@ public abstract class FloatingPanel extends Panel {
 				} else {
 					jsonOfAlignment = "undefined";
 				}
-				String script = String.format("onedev.server.floating.init('%s', %s, %b, %b, %s, %s);", 
+				String script = String.format("cheeta.server.floating.init('%s', %s, %b, %b, %s, %s);", 
 						getMarkupId(true), jsonOfAlignment, 
 						noNarrowThanTarget,
 						neverShrink,
@@ -112,7 +112,7 @@ public abstract class FloatingPanel extends Panel {
 	public final void close() {
 		AjaxRequestTarget target = RequestCycle.get().find(AjaxRequestTarget.class);
 		if (target != null) {
-			String script = String.format("onedev.server.floating.close('%s');", getMarkupId(true));
+			String script = String.format("cheeta.server.floating.close('%s');", getMarkupId(true));
 			target.appendJavaScript(script);
 		} 
 		if (getParent() != null)

@@ -1,11 +1,11 @@
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.codecomment.CodeCommentEvent;
-import io.onedev.server.model.CodeComment;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.codecomment.CodeCommentEvent;
+import io.cheeta.server.model.CodeComment;
 
 @Singleton
 public class CodeCommentEventBroadcaster {

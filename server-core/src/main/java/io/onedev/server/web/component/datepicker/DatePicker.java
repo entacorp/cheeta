@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.datepicker;
+package io.cheeta.server.web.component.datepicker;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,9 +15,9 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.convert.IConverter;
 import org.apache.wicket.util.convert.converter.DateConverter;
 
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BasePage;
 
 public class DatePicker extends DateTextField {
 
@@ -64,7 +64,7 @@ public class DatePicker extends DateTextField {
 					new BaseDependentCssResourceReference(DatePickerResourceReference.class, "dark.css")));
 		}
 		
-		String script = String.format("onedev.server.datePicker.onDomReady('%s', %b)", 
+		String script = String.format("cheeta.server.datePicker.onDomReady('%s', %b)", 
 				getMarkupId(), withTime);
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

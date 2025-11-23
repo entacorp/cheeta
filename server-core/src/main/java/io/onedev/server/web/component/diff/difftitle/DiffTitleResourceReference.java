@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.diff.difftitle;
+package io.cheeta.server.web.component.diff.difftitle;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

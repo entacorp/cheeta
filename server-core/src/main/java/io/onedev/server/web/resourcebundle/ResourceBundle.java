@@ -1,4 +1,4 @@
-package io.onedev.server.web.resourcebundle;
+package io.cheeta.server.web.resourcebundle;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

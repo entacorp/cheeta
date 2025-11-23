@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.setting.webhook;
+package io.cheeta.server.web.page.project.setting.webhook;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import io.onedev.server.model.support.WebHook;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.model.support.WebHook;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class WebHooksBean implements Serializable {

@@ -1,10 +1,10 @@
-package io.onedev.server.web.component;
+package io.cheeta.server.web.component;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.base.BasePage;
 
 public abstract class AjaxLazyLoadPanel extends org.apache.wicket.extensions.ajax.markup.html.AjaxLazyLoadPanel {
 

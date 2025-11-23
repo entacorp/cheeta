@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.sideinfo;
+package io.cheeta.server.web.component.sideinfo;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;

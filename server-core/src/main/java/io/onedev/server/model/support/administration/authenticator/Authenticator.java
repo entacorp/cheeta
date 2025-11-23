@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.administration.authenticator;
+package io.cheeta.server.model.support.administration.authenticator;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.GroupChoice;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.GroupChoice;
+import io.cheeta.server.util.usage.Usage;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 

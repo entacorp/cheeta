@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.noname;
+package io.cheeta.server.web.page.project.blob.render.noname;
 
 import org.apache.wicket.markup.html.form.FormComponentPanel;
 

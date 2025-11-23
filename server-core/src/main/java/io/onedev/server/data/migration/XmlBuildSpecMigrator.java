@@ -1,4 +1,4 @@
-package io.onedev.server.data.migration;
+package io.cheeta.server.data.migration;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -24,8 +24,8 @@ import org.yaml.snakeyaml.serializer.Serializer;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.XmlUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.XmlUtils;
 
 public class XmlBuildSpecMigrator {
 

@@ -1,13 +1,13 @@
-package io.onedev.server.plugin.pack.pypi;
+package io.cheeta.server.plugin.pack.pypi;
 
 import com.google.common.base.Joiner;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.util.UrlUtils;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.codesnippet.CodeSnippetPanel;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.util.UrlUtils;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.codesnippet.CodeSnippetPanel;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.GenericPanel;
@@ -15,7 +15,7 @@ import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -40,7 +40,7 @@ public class PypiPackPanel extends GenericPanel<Pack> {
 		} catch (MalformedURLException e) {
 			throw new RuntimeException(e);
 		}
-		var indexUrl = protocol + "://<OneDev_account_name>:<OneDev_password>@" + UrlUtils.getServer(serverUrl) 
+		var indexUrl = protocol + "://<Cheeta_account_name>:<Cheeta_password>@" + UrlUtils.getServer(serverUrl) 
 				+ "/" + getPack().getProject().getPath() + "/~" + PypiPackHandler.HANDLER_ID + "/simple/";
 		var installCmd = "$ python3 -m pip install --extra-index-url " + indexUrl;
 		if (protocol.equals("http"))
@@ -51,7 +51,7 @@ public class PypiPackPanel extends GenericPanel<Pack> {
 		indexUrl = protocol + "://@job_token@:@secret:access-token@@@" + UrlUtils.getServer(serverUrl)
 				+ "/" + getPack().getProject().getPath() + "/~" + PypiPackHandler.HANDLER_ID + "/simple/";
 		var jobCommands = "" +
-				"# " + _T("Use job token to tell OneDev the build using the package") + "\n" +
+				"# " + _T("Use job token to tell Cheeta the build using the package") + "\n" +
 				"# " + _T("Job secret 'access-token' should be defined in project build setting as an access token with package read permission") + "\n\n" +
 				"python3 -m pip install --extra-index-url " + indexUrl;
 		if (protocol.equals("http"))		
@@ -92,7 +92,7 @@ public class PypiPackPanel extends GenericPanel<Pack> {
 	}
 
 	private String getServerUrl() {
-		return OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+		return Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 	}
 	
 }

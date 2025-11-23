@@ -38,9 +38,9 @@ import org.apache.wicket.util.visit.IVisitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.websocket.WebSocketService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.websocket.WebSocketService;
 
 /**
  * A handler of WebSocket requests.
@@ -131,7 +131,7 @@ public class WebSocketRequestHandler implements IWebSocketRequestHandler
 				@Override
 				protected void onAfterRespond(Response response) {
 					if (!markupIdToComponent.isEmpty())
-						OneDev.getInstance(WebSocketService.class).observe((BasePage) getPage());
+						Cheeta.getInstance(WebSocketService.class).observe((BasePage) getPage());
 					super.onAfterRespond(response);
 				}
 				

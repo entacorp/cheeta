@@ -1,13 +1,13 @@
-package io.onedev.server.plugin.report.clippy;
+package io.cheeta.server.plugin.report.clippy;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Resources;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.IOUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.IOUtils;
 import org.eclipse.jgit.lib.ObjectId;
 import org.jetbrains.annotations.Nullable;
 import org.junit.Test;

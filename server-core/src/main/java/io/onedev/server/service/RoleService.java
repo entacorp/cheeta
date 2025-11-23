@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Role;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
 
 public interface RoleService extends EntityService<Role> {
 	

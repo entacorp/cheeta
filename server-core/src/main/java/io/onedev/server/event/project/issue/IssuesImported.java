@@ -1,9 +1,9 @@
-package io.onedev.server.event.project.issue;
+package io.cheeta.server.event.project.issue;
 
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
 
 import java.util.Collection;
 import java.util.Date;

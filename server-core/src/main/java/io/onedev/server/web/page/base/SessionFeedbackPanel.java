@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.base;
+package io.cheeta.server.web.page.base;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.feedback.FeedbackMessage;
@@ -46,7 +46,7 @@ public class SessionFeedbackPanel extends FeedbackPanel {
 		super.renderHead(response);
 		
 		// we delay show feedback with a timer as some other script may scroll the window 
-		response.render(OnDomReadyHeaderItem.forScript("setTimeout('onedev.server.showSessionFeedback();', 1);"));
+		response.render(OnDomReadyHeaderItem.forScript("setTimeout('cheeta.server.showSessionFeedback();', 1);"));
 	}
 
 }

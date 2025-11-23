@@ -1,7 +1,7 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.PackBlobReference.PROP_PACK;
-import static io.onedev.server.model.PackBlobReference.PROP_PACK_BLOB;
+import static io.cheeta.server.model.PackBlobReference.PROP_PACK;
+import static io.cheeta.server.model.PackBlobReference.PROP_PACK_BLOB;
 
 import java.io.ObjectStreamException;
 import java.io.Serializable;
@@ -12,12 +12,12 @@ import org.hibernate.criterion.Restrictions;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.model.PackBlobReference;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.PackBlobReferenceService;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.model.PackBlobReference;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.PackBlobReferenceService;
 
 @Singleton
 public class DefaultPackBlobReferenceService extends BaseEntityService<PackBlobReference>

@@ -1,4 +1,4 @@
-package io.onedev.server.search.buildmetric;
+package io.cheeta.server.search.buildmetric;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Join;

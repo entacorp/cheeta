@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import org.dom4j.io.SAXReader;
 import org.xml.sax.SAXException;

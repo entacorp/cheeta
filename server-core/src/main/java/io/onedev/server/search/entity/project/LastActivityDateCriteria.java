@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.project;
+package io.cheeta.server.search.entity.project;
 
 import java.util.Date;
 
@@ -9,11 +9,11 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.ProjectLastActivityDate;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.ProjectLastActivityDate;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class LastActivityDateCriteria extends Criteria<Project> {
 

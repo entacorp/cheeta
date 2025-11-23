@@ -1,6 +1,6 @@
-package io.onedev.server.model.support.pullrequest.changedata;
+package io.cheeta.server.model.support.pullrequest.changedata;
 
-import io.onedev.server.notification.ActivityDetail;
+import io.cheeta.server.notification.ActivityDetail;
 
 import org.jspecify.annotations.Nullable;
 import java.util.HashMap;

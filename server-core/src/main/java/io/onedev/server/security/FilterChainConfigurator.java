@@ -1,8 +1,8 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
 import org.apache.shiro.web.filter.mgt.FilterChainManager;
 
-import io.onedev.commons.loader.ExtensionPoint;
+import io.cheeta.commons.loader.ExtensionPoint;
 
 @ExtensionPoint
 public interface FilterChainConfigurator {

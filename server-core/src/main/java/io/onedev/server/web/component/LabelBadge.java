@@ -1,4 +1,4 @@
-package io.onedev.server.web.component;
+package io.cheeta.server.web.component;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.ComponentTag;
@@ -6,8 +6,8 @@ import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.markup.html.WebComponent;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.util.ColorUtils;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.util.ColorUtils;
 
 public class LabelBadge extends WebComponent {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.git.command;
+package io.cheeta.server.git.command;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -11,8 +11,8 @@ import org.jspecify.annotations.Nullable;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.util.patternset.PatternSet;
 
 public class LogCommit implements Serializable {
 

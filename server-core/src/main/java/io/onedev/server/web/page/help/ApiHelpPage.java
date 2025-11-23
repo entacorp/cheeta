@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.lang.reflect.Method;
 
@@ -16,9 +16,9 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.utils.WordUtils;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.web.page.layout.LayoutPage;
+import io.cheeta.commons.utils.WordUtils;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.web.page.layout.LayoutPage;
 
 public abstract class ApiHelpPage extends LayoutPage {
 

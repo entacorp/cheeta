@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.issues.create;
+package io.cheeta.server.web.page.project.issues.create;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.List;
 
@@ -16,27 +16,27 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.issue.create.NewIssueEditor;
-import io.onedev.server.web.component.issue.workflowreconcile.WorkflowChangeAlertPanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.issues.detail.IssueActivitiesPage;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
-import io.onedev.server.web.page.security.LoginPage;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.issue.create.NewIssueEditor;
+import io.cheeta.server.web.component.issue.workflowreconcile.WorkflowChangeAlertPanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.issues.detail.IssueActivitiesPage;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.server.web.page.security.LoginPage;
 
 public class NewIssuePage extends ProjectPage implements InputContext {
 
@@ -107,7 +107,7 @@ public class NewIssuePage extends ProjectPage implements InputContext {
 			protected void onSubmit() {
 				super.onSubmit();
 				Issue issue = editor.getConvertedInput();
-				OneDev.getInstance(IssueService.class).open(issue);
+				Cheeta.getInstance(IssueService.class).open(issue);
 				setResponsePage(IssueActivitiesPage.class, IssueActivitiesPage.paramsOf(issue));
 			}
 			
@@ -119,7 +119,7 @@ public class NewIssuePage extends ProjectPage implements InputContext {
 	}
 
 	private GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	@Override

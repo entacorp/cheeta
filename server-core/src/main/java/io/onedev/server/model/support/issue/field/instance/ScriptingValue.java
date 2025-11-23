@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.field.instance;
+package io.cheeta.server.model.support.issue.field.instance;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,10 +11,10 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import javax.validation.constraints.NotEmpty;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.GroovyUtils;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ScriptChoice;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.GroovyUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ScriptChoice;
 
 @Editable
 public class ScriptingValue implements ValueProvider {

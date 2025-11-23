@@ -1,7 +1,7 @@
-package io.onedev.server.model.support.issue.changedata;
+package io.cheeta.server.model.support.issue.changedata;
 
-import io.onedev.server.model.Group;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.User;
 
 import java.util.Collection;
 import java.util.HashMap;

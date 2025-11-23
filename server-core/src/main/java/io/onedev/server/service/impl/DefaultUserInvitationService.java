@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,14 +16,14 @@ import org.hibernate.criterion.Restrictions;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
-import io.onedev.server.mail.MailService;
-import io.onedev.server.model.UserInvitation;
-import io.onedev.server.model.support.administration.emailtemplates.EmailTemplates;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserInvitationService;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.model.UserInvitation;
+import io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserInvitationService;
 
 @Singleton
 public class DefaultUserInvitationService extends BaseEntityService<UserInvitation> implements UserInvitationService {
@@ -66,7 +66,7 @@ public class DefaultUserInvitationService extends BaseEntityService<UserInvitati
 		
 		mailService.sendMail(Arrays.asList(invitation.getEmailAddress()),
 				Lists.newArrayList(), Lists.newArrayList(), 
-				"[Invitation] You are Invited to Use OneDev", 
+				"[Invitation] You are Invited to Use Cheeta", 
 				htmlBody, textBody, null, null, null);
 	}
 	

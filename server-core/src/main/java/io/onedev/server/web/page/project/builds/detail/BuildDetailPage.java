@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.builds.detail;
+package io.cheeta.server.web.page.project.builds.detail;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -38,62 +38,62 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobDependency;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.event.project.build.BuildUpdated;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.job.JobAuthorizationContextAware;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.JobService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Build.Status;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.pack.PackSupport;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.build.BuildQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.terminal.TerminalService;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.build.side.BuildSidePanel;
-import io.onedev.server.web.component.build.status.BuildStatusIcon;
-import io.onedev.server.web.component.entity.nav.EntityNavPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.job.joblist.JobListPanel;
-import io.onedev.server.web.component.link.BuildSpecLink;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.modal.message.MessageModal;
-import io.onedev.server.web.component.sideinfo.SideInfoLink;
-import io.onedev.server.web.component.sideinfo.SideInfoPanel;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.builds.ProjectBuildsPage;
-import io.onedev.server.web.page.project.builds.detail.artifacts.BuildArtifactsPage;
-import io.onedev.server.web.page.project.builds.detail.changes.BuildChangesPage;
-import io.onedev.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
-import io.onedev.server.web.page.project.builds.detail.issues.FixedIssuesPage;
-import io.onedev.server.web.page.project.builds.detail.log.BuildLogPage;
-import io.onedev.server.web.page.project.builds.detail.pack.BuildPacksPage;
-import io.onedev.server.web.page.project.builds.detail.pipeline.BuildPipelinePage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.BuildAware;
-import io.onedev.server.web.util.ConfirmClickModifier;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.CursorSupport;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobDependency;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.event.project.build.BuildUpdated;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.job.JobAuthorizationContextAware;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Build.Status;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.pack.PackSupport;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.build.BuildQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.terminal.TerminalService;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.build.side.BuildSidePanel;
+import io.cheeta.server.web.component.build.status.BuildStatusIcon;
+import io.cheeta.server.web.component.entity.nav.EntityNavPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.job.joblist.JobListPanel;
+import io.cheeta.server.web.component.link.BuildSpecLink;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.modal.message.MessageModal;
+import io.cheeta.server.web.component.sideinfo.SideInfoLink;
+import io.cheeta.server.web.component.sideinfo.SideInfoPanel;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.builds.ProjectBuildsPage;
+import io.cheeta.server.web.page.project.builds.detail.artifacts.BuildArtifactsPage;
+import io.cheeta.server.web.page.project.builds.detail.changes.BuildChangesPage;
+import io.cheeta.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
+import io.cheeta.server.web.page.project.builds.detail.issues.FixedIssuesPage;
+import io.cheeta.server.web.page.project.builds.detail.log.BuildLogPage;
+import io.cheeta.server.web.page.project.builds.detail.pack.BuildPacksPage;
+import io.cheeta.server.web.page.project.builds.detail.pipeline.BuildPipelinePage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.BuildAware;
+import io.cheeta.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.CursorSupport;
 
 public abstract class BuildDetailPage extends ProjectPage 
 		implements InputContext, BuildAware, JobAuthorizationContextAware {
@@ -314,14 +314,14 @@ public abstract class BuildDetailPage extends ProjectPage
 					@Override
 					public void onClick(AjaxRequestTarget target) {
 						if (isSubscriptionActive()) {
-							target.appendJavaScript(String.format("onedev.server.buildDetail.openTerminal('%s');",
+							target.appendJavaScript(String.format("cheeta.server.buildDetail.openTerminal('%s');",
 									terminalService.getTerminalUrl(getBuild())));
 						} else {
 							new MessageModal(target) {
 
 								@Override
 								protected Component newMessageContent(String componentId) {
-									return new Label(componentId, _T("Interactive web shell access to running jobs is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days")).setEscapeModelStrings(false);
+									return new Label(componentId, _T("Interactive web shell access to running jobs is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days")).setEscapeModelStrings(false);
 								}
 							};
 						}

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.ssoaccount;
+package io.cheeta.server.web.component.user.ssoaccount;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,15 +25,15 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SsoAccountService;
-import io.onedev.server.model.SsoAccount;
-import io.onedev.server.model.User;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.page.user.UserPage;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SsoAccountService;
+import io.cheeta.server.model.SsoAccount;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.page.user.UserPage;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
 
 public class SsoAccountListPanel extends GenericPanel<User> {
 
@@ -84,9 +84,9 @@ public class SsoAccountListPanel extends GenericPanel<User> {
 					@Override
 					public void onClick(AjaxRequestTarget target) {
 						var ssoAccount = rowModel.getObject();
-						OneDev.getInstance(SsoAccountService.class).delete(ssoAccount);
+						Cheeta.getInstance(SsoAccountService.class).delete(ssoAccount);
 						if (getPage() instanceof UserPage)
-							OneDev.getInstance(AuditService.class).audit(null, "deleted SSO account \"" + ssoAccount.getProvider() + "/" + ssoAccount.getSubject() + "\" from account \"" + ssoAccount.getUser().getName() + "\"", null, null);
+							Cheeta.getInstance(AuditService.class).audit(null, "deleted SSO account \"" + ssoAccount.getProvider() + "/" + ssoAccount.getSubject() + "\" from account \"" + ssoAccount.getUser().getName() + "\"", null, null);
 						Session.get().success(_T("SSO account deleted"));
 						target.add(ssoAccountsTable);
 					}
@@ -136,7 +136,7 @@ public class SsoAccountListPanel extends GenericPanel<User> {
 
 					@Override
 					protected SsoAccount load() {
-						return OneDev.getInstance(SsoAccountService.class).load(id);
+						return Cheeta.getInstance(SsoAccountService.class).load(id);
 					}
 					
 				};

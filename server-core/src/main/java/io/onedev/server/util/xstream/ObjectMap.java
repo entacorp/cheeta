@@ -1,4 +1,4 @@
-package io.onedev.server.util.xstream;
+package io.cheeta.server.util.xstream;
 
 import java.util.LinkedHashMap;
 

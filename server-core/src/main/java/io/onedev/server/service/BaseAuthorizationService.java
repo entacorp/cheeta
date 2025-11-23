@@ -1,10 +1,10 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 
-import io.onedev.server.model.BaseAuthorization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.Role;
+import io.cheeta.server.model.BaseAuthorization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.Role;
 
 public interface BaseAuthorizationService extends EntityService<BaseAuthorization> {
 

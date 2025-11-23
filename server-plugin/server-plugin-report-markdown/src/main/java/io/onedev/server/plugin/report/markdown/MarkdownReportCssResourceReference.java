@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.markdown;
+package io.cheeta.server.plugin.report.markdown;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class MarkdownReportCssResourceReference extends BaseDependentCssResourceReference {
 

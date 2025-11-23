@@ -1,8 +1,8 @@
-package io.onedev.server.search.code.query;
+package io.cheeta.server.search.code.query;
 
 import com.google.common.base.Preconditions;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.hit.TextHit;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.hit.TextHit;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
 import org.eclipse.jgit.lib.ObjectLoader;

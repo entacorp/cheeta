@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.base;
+package io.cheeta.server.web.page.base;
 
-import static io.onedev.server.web.behavior.ChangeObserver.filterObservables;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.behavior.ChangeObserver.filterObservables;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
 import java.io.File;
@@ -58,30 +58,30 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.OneDev;
-import io.onedev.server.commandhandler.Upgrade;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.ForceOrdinaryStyleBehavior;
-import io.onedev.server.web.behavior.ZoneIdBehavior;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.help.IncompatibilitiesPage;
-import io.onedev.server.web.page.security.LoginPage;
-import io.onedev.server.web.page.serverinit.ServerInitPage;
-import io.onedev.server.web.page.simple.SimplePage;
-import io.onedev.server.web.util.WicketUtils;
-import io.onedev.server.web.websocket.WebSocketMessages;
-import io.onedev.server.web.websocket.WebSocketService;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.commandhandler.Upgrade;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.ForceOrdinaryStyleBehavior;
+import io.cheeta.server.web.behavior.ZoneIdBehavior;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.help.IncompatibilitiesPage;
+import io.cheeta.server.web.page.security.LoginPage;
+import io.cheeta.server.web.page.serverinit.ServerInitPage;
+import io.cheeta.server.web.page.simple.SimplePage;
+import io.cheeta.server.web.util.WicketUtils;
+import io.cheeta.server.web.websocket.WebSocketMessages;
+import io.cheeta.server.web.websocket.WebSocketService;
 
 public abstract class BasePage extends WebPage {
 
@@ -180,7 +180,7 @@ public abstract class BasePage extends WebPage {
 				Serializable data = (Serializable) SerializationUtils.deserialize(CryptoUtils.decrypt(bytes));
 				onPopState(target, data);
 				resizeWindow(target);
-				target.appendJavaScript("onedev.server.viewState.getFromHistoryAndSetToView();");
+				target.appendJavaScript("cheeta.server.viewState.getFromHistoryAndSetToView();");
 			}
 
 		});
@@ -201,16 +201,16 @@ public abstract class BasePage extends WebPage {
 				
 				try {
 					response.render(OnDomReadyHeaderItem.forScript(
-						String.format("onedev.server.onDomReady('%s', '%s', %s, %s, %s);",
-								String.valueOf(OneDev.getInstance().getBootDate().getTime()),
+						String.format("cheeta.server.onDomReady('%s', '%s', %s, %s, %s);",
+								String.valueOf(Cheeta.getInstance().getBootDate().getTime()),
 								SpriteImage.getVersionedHref(IconScope.class, null),
 								popStateBehavior.getCallbackFunction(explicit("data")).toString(), 
-								OneDev.getInstance(ObjectMapper.class).writeValueAsString(getRemoveAutosaveKeys()),
-								OneDev.getInstance(ObjectMapper.class).writeValueAsString(translations))));
+								Cheeta.getInstance(ObjectMapper.class).writeValueAsString(getRemoveAutosaveKeys()),
+								Cheeta.getInstance(ObjectMapper.class).writeValueAsString(translations))));
 				} catch (JsonProcessingException e) {
 					throw new RuntimeException(e);
 				}
-				response.render(OnLoadHeaderItem.forScript("onedev.server.onWindowLoad();"));
+				response.render(OnLoadHeaderItem.forScript("cheeta.server.onWindowLoad();"));
 				getSession().setMetaData(REMOVE_AUTOSAVE_KEYS, null);
 			}
 
@@ -356,14 +356,14 @@ public abstract class BasePage extends WebPage {
 
 	public void pushState(IPartialPageRequestHandler handler, String url, Serializable data) {
 		String encodedData = new String(Base64.encodeBase64(CryptoUtils.encrypt(SerializationUtils.serialize(data))));
-		String script = String.format("onedev.server.history.pushState('%s', '%s', '%s');",
+		String script = String.format("cheeta.server.history.pushState('%s', '%s', '%s');",
 				url, encodedData, JavaScriptEscape.escapeJavaScript(getPageTitle()));
 		handler.prependJavaScript(script);
 	}
 
 	public void replaceState(IPartialPageRequestHandler handler, String url, Serializable data) {
 		String encodedData = new String(Base64.encodeBase64(CryptoUtils.encrypt(SerializationUtils.serialize(data))));
-		String script = String.format("onedev.server.history.replaceState('%s', '%s', '%s');",
+		String script = String.format("cheeta.server.history.replaceState('%s', '%s', '%s');",
 				url, encodedData, JavaScriptEscape.escapeJavaScript(getPageTitle()));
 		handler.prependJavaScript(script);
 	}
@@ -408,7 +408,7 @@ public abstract class BasePage extends WebPage {
 	}
 
 	private void checkReady() {
-		if (!OneDev.getInstance().isReady() && getClass() != ServerInitPage.class)
+		if (!Cheeta.getInstance().isReady() && getClass() != ServerInitPage.class)
 			throw new RestartResponseAtInterceptPageException(ServerInitPage.class);
 	}
 
@@ -433,7 +433,7 @@ public abstract class BasePage extends WebPage {
 	}
 
 	protected String getPageTitle() {
-		return "OneDev - Git Server with CI/CD, Kanban, and Packages";
+		return "Cheeta - Git Server with CI/CD, Kanban, and Packages";
 	}
 
 	protected int getPageRefreshInterval() {

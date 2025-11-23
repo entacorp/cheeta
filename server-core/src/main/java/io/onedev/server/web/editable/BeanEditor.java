@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -32,17 +32,17 @@ import org.apache.wicket.util.visit.IVisit;
 import org.apache.wicket.util.visit.IVisitor;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.Shallow;
-import io.onedev.server.annotation.SubscriptionRequired;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.util.PathNode.Named;
-import io.onedev.server.util.xstream.ObjectMap;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.Shallow;
+import io.cheeta.server.annotation.SubscriptionRequired;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.util.PathNode.Named;
+import io.cheeta.server.util.xstream.ObjectMap;
+import io.cheeta.server.web.util.WicketUtils;
 
 public class BeanEditor extends ValueEditor<Serializable> {
 	
@@ -332,7 +332,7 @@ public class BeanEditor extends ValueEditor<Serializable> {
 	@Override
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
-		String script = String.format("onedev.server.editable.onBeanEditorDomReady('%s');", getMarkupId());
+		String script = String.format("cheeta.server.editable.onBeanEditorDomReady('%s');", getMarkupId());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
 

@@ -1,21 +1,21 @@
-package io.onedev.server.web.editable.iterationchoice;
+package io.cheeta.server.web.editable.iterationchoice;
 
 import com.google.common.base.Preconditions;
-import io.onedev.server.annotation.IterationChoice;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.component.iteration.choice.IterationMultiChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.IterationChoice;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.component.iteration.choice.IterationMultiChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;

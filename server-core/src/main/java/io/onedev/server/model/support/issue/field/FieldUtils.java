@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.field;
+package io.cheeta.server.model.support.issue.field;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,22 +22,22 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.buildspecmodel.inputspec.SecretInput;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.instance.FieldInstance;
-import io.onedev.server.model.support.issue.field.instance.SpecifiedValue;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.SecretField;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.buildspecmodel.inputspec.SecretInput;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.instance.FieldInstance;
+import io.cheeta.server.model.support.issue.field.instance.SpecifiedValue;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.SecretField;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.PropertyDescriptor;
 
 public class FieldUtils {
 	
@@ -75,7 +75,7 @@ public class FieldUtils {
 	
 	@SuppressWarnings("unchecked")
 	private static Class<? extends Serializable> defineFieldBeanClass() {
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		return (Class<? extends Serializable>) FieldSpec.defineClass(FIELD_BEAN_CLASS_NAME, 
 				"Issue Fields", issueSetting.getFieldSpecs());
 	}
@@ -179,7 +179,7 @@ public class FieldUtils {
 
 	@SuppressWarnings("unchecked")
 	public static Map<String, Object> getFieldValues(Project project, Map<String, Serializable> fieldEdits) {
-		var settingService = OneDev.getInstance(SettingService.class);
+		var settingService = Cheeta.getInstance(SettingService.class);
 		var issueSetting = settingService.getIssueSetting();
 		Map<String, Object> fieldValues = new HashMap<>();
 		for (Map.Entry<String, Serializable> entry : fieldEdits.entrySet()) {
@@ -239,7 +239,7 @@ public class FieldUtils {
 			}
 
 			private GlobalIssueSetting getIssueSetting() {
-				return OneDev.getInstance(SettingService.class).getIssueSetting();
+				return Cheeta.getInstance(SettingService.class).getIssueSetting();
 			}
 			
 			@Override

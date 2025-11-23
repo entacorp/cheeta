@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.dropzone;
+package io.cheeta.server.web.asset.dropzone;
 
 import java.util.ArrayList;
 import java.util.List;

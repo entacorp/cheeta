@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,12 +14,12 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import com.google.common.base.Joiner;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.git.exception.BlobEditException;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.web.component.markdown.OutdatedSuggestionException;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.git.exception.BlobEditException;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.web.component.markdown.OutdatedSuggestionException;
 
 public class BlobEdits implements Serializable {
 	

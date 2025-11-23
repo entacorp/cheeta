@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.issue.link;
+package io.cheeta.server.web.component.issue.link;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueLink;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueLink;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.ComponentTag;

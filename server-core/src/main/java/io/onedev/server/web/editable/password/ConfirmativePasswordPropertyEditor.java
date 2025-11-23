@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.password;
+package io.cheeta.server.web.editable.password;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.behavior.AttributeAppender;
@@ -9,11 +9,11 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class ConfirmativePasswordPropertyEditor extends PropertyEditor<String> {
 	

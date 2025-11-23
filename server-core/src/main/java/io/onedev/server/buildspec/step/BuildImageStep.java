@@ -1,6 +1,6 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import static io.onedev.server.buildspec.step.StepGroup.DOCKER_IMAGE;
+import static io.cheeta.server.buildspec.step.StepGroup.DOCKER_IMAGE;
 import static java.util.stream.Collectors.toList;
 
 import java.io.Serializable;
@@ -11,20 +11,20 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.BuildImageFacade;
-import io.onedev.k8shelper.StepFacade;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.NoSpace;
-import io.onedev.server.annotation.ReservedOptions;
-import io.onedev.server.annotation.SubPath;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.support.administration.jobexecutor.DockerAware;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.jobexecutor.KubernetesAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.BuildImageFacade;
+import io.cheeta.k8shelper.StepFacade;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.NoSpace;
+import io.cheeta.server.annotation.ReservedOptions;
+import io.cheeta.server.annotation.SubPath;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.support.administration.jobexecutor.DockerAware;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.jobexecutor.KubernetesAware;
 
 @Editable(order=160, name="Build Image", group = DOCKER_IMAGE, description="Build docker image with docker buildx. " +
 		"This step can only be executed by server docker executor or remote docker executor, and it uses the buildx " +
@@ -46,7 +46,7 @@ public class BuildImageStep extends Step {
 	
 	private String moreOptions;
 	
-	@Editable(order=100, description="Optionally specify build path relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. "
+	@Editable(order=100, description="Optionally specify build path relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. "
 			+ "Leave empty to use job workspace itself")
 	@Interpolative(variableSuggester="suggestVariables")
 	@SubPath
@@ -58,7 +58,7 @@ public class BuildImageStep extends Step {
 		this.buildPath = buildPath;
 	}
 
-	@Editable(order=200, description="Optionally specify Dockerfile relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. "
+	@Editable(order=200, description="Optionally specify Dockerfile relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. "
 			+ "Leave empty to use file <tt>Dockerfile</tt> under build path specified above")
 	@Interpolative(variableSuggester="suggestVariables")
 	@SubPath
@@ -178,7 +178,7 @@ public class BuildImageStep extends Step {
 		
 		private String destPath;
 
-		@Editable(name="OCI Layout Directory", description = "Specify relative path under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout")
+		@Editable(name="OCI Layout Directory", description = "Specify relative path under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout")
 		@SubPath
 		@NoSpace
 		@Interpolative(variableSuggester="suggestVariables")

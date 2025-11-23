@@ -1,6 +1,6 @@
-package io.onedev.server.model.support.issue.transitionspec;
+package io.cheeta.server.model.support.issue.transitionspec;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -15,29 +15,29 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.IssueQuery;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueField;
-import io.onedev.server.model.Membership;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.Role;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.GroupChoiceField;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.component.issue.workflowreconcile.ReconcileUtils;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.IssueQuery;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueField;
+import io.cheeta.server.model.Membership;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.GroupChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.component.issue.workflowreconcile.ReconcileUtils;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 @Editable(order=100, name="Transit manually")
 public class ManualSpec extends TransitionSpec {
@@ -77,7 +77,7 @@ public class ManualSpec extends TransitionSpec {
 	
 	private static Map<String, String> getRoleDescriptions() {
 		Map<String, String> descriptions = new HashMap<>();
-		for (Role role: OneDev.getInstance(RoleService.class).query())
+		for (Role role: Cheeta.getInstance(RoleService.class).query())
 			descriptions.put(role.getName(), role.getDescription());
 		descriptions = CollectionUtils.sortByKey(descriptions);
 		descriptions.put(ROLE_SUBMITTER, "user opening the issue");
@@ -120,7 +120,7 @@ public class ManualSpec extends TransitionSpec {
 		if ((state == null || getToStates().isEmpty() || getToStates().contains(state)) 
 				&& (getFromStates().isEmpty() || getFromStates().contains(issue.getState())) 
 				&& isAuthorized(subject, issue)) {
-			io.onedev.server.search.entity.issue.IssueQuery parsedQuery = io.onedev.server.search.entity.issue.IssueQuery.parse(issue.getProject(),
+			io.cheeta.server.search.entity.issue.IssueQuery parsedQuery = io.cheeta.server.search.entity.issue.IssueQuery.parse(issue.getProject(),
 					getIssueQuery(), new IssueQueryParseOption().enableAll(true), true);
 			return parsedQuery.matches(issue);
 		} else {
@@ -230,7 +230,7 @@ public class ManualSpec extends TransitionSpec {
 							if (user.equals(issue.getSubmitter()))
 								return true;
 						} else {
-							Role role = OneDev.getInstance(RoleService.class).find(roleName);
+							Role role = Cheeta.getInstance(RoleService.class).find(roleName);
 							if (role != null) {
 								if (SecurityUtils.isAssignedRole(subject, project, role)) 
 									return true;

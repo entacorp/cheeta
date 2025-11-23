@@ -1,13 +1,13 @@
-package io.onedev.server.event.project.codecomment;
+package io.cheeta.server.event.project.codecomment;
 
 import java.util.Date;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.User;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.User;
 
 public abstract class CodeCommentEvent extends ProjectEvent {
 
@@ -26,12 +26,12 @@ public abstract class CodeCommentEvent extends ProjectEvent {
 	}
 
 	public CodeComment getComment() {
-		return OneDev.getInstance(CodeCommentService.class).load(commentId);
+		return Cheeta.getInstance(CodeCommentService.class).load(commentId);
 	}
 
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getComment(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getComment(), true);
 	}
 	
 }

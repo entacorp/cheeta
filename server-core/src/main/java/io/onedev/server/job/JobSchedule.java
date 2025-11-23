@@ -1,6 +1,6 @@
-package io.onedev.server.job;
+package io.cheeta.server.job;
 
-import io.onedev.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.buildspec.job.TriggerMatch;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.eclipse.jgit.lib.ObjectId;

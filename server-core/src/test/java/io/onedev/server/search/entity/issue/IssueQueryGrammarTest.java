@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,12 +6,12 @@ import java.util.List;
 
 import org.junit.Test;
 
-import io.onedev.commons.codeassist.CodeAssist;
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputStatus;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.codeassist.CodeAssist;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputStatus;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
 
 public class IssueQueryGrammarTest {
 

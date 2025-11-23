@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.issues.list;
+package io.cheeta.server.web.page.project.issues.list;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,48 +36,48 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.IssueLinkService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IssueQueryPersonalizationService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueQueryPersonalization;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.issue.NamedIssueQuery;
-import io.onedev.server.model.support.issue.ProjectIssueSetting;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.LinkDescriptor;
-import io.onedev.server.web.ajaxlistener.AttachAjaxIndicatorListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.issue.IssueStateBadge;
-import io.onedev.server.web.component.issue.fieldvalues.FieldValuesPanel;
-import io.onedev.server.web.component.issue.iteration.IterationCrumbPanel;
-import io.onedev.server.web.component.issue.link.IssueLinksPanel;
-import io.onedev.server.web.component.issue.list.IssueListPanel;
-import io.onedev.server.web.component.issue.list.IssuePinStatusChanged;
-import io.onedev.server.web.component.issue.operation.TransitionMenuLink;
-import io.onedev.server.web.component.issue.progress.IssueProgressPanel;
-import io.onedev.server.web.component.issue.title.IssueTitlePanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.PersonalQuerySupport;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.issues.ProjectIssuesPage;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.NamedIssueQueriesBean;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.IssueLinkService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IssueQueryPersonalizationService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueQueryPersonalization;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.issue.NamedIssueQuery;
+import io.cheeta.server.model.support.issue.ProjectIssueSetting;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.LinkDescriptor;
+import io.cheeta.server.web.ajaxlistener.AttachAjaxIndicatorListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.issue.IssueStateBadge;
+import io.cheeta.server.web.component.issue.fieldvalues.FieldValuesPanel;
+import io.cheeta.server.web.component.issue.iteration.IterationCrumbPanel;
+import io.cheeta.server.web.component.issue.link.IssueLinksPanel;
+import io.cheeta.server.web.component.issue.list.IssueListPanel;
+import io.cheeta.server.web.component.issue.list.IssuePinStatusChanged;
+import io.cheeta.server.web.component.issue.operation.TransitionMenuLink;
+import io.cheeta.server.web.component.issue.progress.IssueProgressPanel;
+import io.cheeta.server.web.component.issue.title.IssueTitlePanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.PersonalQuerySupport;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.issues.ProjectIssuesPage;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.NamedIssueQueriesBean;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class ProjectIssueListPage extends ProjectIssuesPage {
 
@@ -107,11 +107,11 @@ public class ProjectIssueListPage extends ProjectIssuesPage {
 	}
 
 	private IssueQueryPersonalizationService getIssueQueryPersonalizationService() {
-		return OneDev.getInstance(IssueQueryPersonalizationService.class);		
+		return Cheeta.getInstance(IssueQueryPersonalizationService.class);		
 	}
 	
 	private IssueService getIssueService() {
-		return OneDev.getInstance(IssueService.class);
+		return Cheeta.getInstance(IssueService.class);
 	}
 	
 	@Override
@@ -273,7 +273,7 @@ public class ProjectIssueListPage extends ProjectIssuesPage {
 							@Override
 							protected List<Issue> load() {
 								Issue issue = getIssueService().load(issueId);
-								OneDev.getInstance(IssueLinkService.class).loadDeepLinks(issue);
+								Cheeta.getInstance(IssueLinkService.class).loadDeepLinks(issue);
 								LinkDescriptor descriptor = new LinkDescriptor(linksPanel.getExpandedLink());
 								return issue.findLinkedIssues(descriptor.getSpec(), descriptor.isOpposite());
 							}

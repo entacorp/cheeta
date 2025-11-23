@@ -1,11 +1,11 @@
-package io.onedev.server.web.util.editbean;
+package io.cheeta.server.web.util.editbean;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Markdown;
-import io.onedev.server.annotation.WithTime;
-import io.onedev.server.annotation.WorkingPeriod;
-import io.onedev.server.service.SettingService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Markdown;
+import io.cheeta.server.annotation.WithTime;
+import io.cheeta.server.annotation.WorkingPeriod;
+import io.cheeta.server.service.SettingService;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -35,7 +35,7 @@ public class IssueWorkBean implements Serializable {
 
 	@SuppressWarnings("unused")
 	private static String getSpentTimeDescription() {
-		var aggregationLink = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting().getAggregationLink();
+		var aggregationLink = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting().getAggregationLink();
 		if (aggregationLink != null)
 			return "Add spent time <b class='text-warning'>only for this issue</b>, not counting '" + aggregationLink + "'";
 		else

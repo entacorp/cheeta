@@ -1,4 +1,4 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import java.util.Collection;
 

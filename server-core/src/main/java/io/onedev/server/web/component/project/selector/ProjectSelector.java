@@ -1,17 +1,17 @@
-package io.onedev.server.web.component.project.selector;
+package io.cheeta.server.web.component.project.selector;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.asset.selectbytyping.SelectByTypingResourceReference;
-import io.onedev.server.web.behavior.InputChangeBehavior;
-import io.onedev.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
-import io.onedev.server.web.component.link.PreventDefaultAjaxLink;
-import io.onedev.server.web.component.project.ProjectAvatar;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.asset.selectbytyping.SelectByTypingResourceReference;
+import io.cheeta.server.web.behavior.InputChangeBehavior;
+import io.cheeta.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
+import io.cheeta.server.web.component.link.PreventDefaultAjaxLink;
+import io.cheeta.server.web.component.project.ProjectAvatar;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -194,7 +194,7 @@ public abstract class ProjectSelector extends Panel {
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	@Override

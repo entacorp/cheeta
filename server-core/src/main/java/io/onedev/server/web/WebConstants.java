@@ -1,4 +1,4 @@
-package io.onedev.server.web;
+package io.cheeta.server.web;
 
 public class WebConstants {
 

@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.user.passwordedit;
+package io.cheeta.server.web.component.user.passwordedit;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.CurrentPassword;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
+import io.cheeta.server.annotation.CurrentPassword;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
 
 @Editable
 public class PasswordEditBean implements Serializable {

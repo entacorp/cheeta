@@ -1,4 +1,4 @@
-package io.onedev.server.web.upload;
+package io.cheeta.server.web.upload;
 
 import org.jspecify.annotations.Nullable;
 

@@ -1,4 +1,4 @@
-onedev.server.blobEdit = {
+cheeta.server.blobEdit = {
 	onDomReady: function(containerId) {
 		var $container = $("#" + containerId);
 		var $blobEdit = $container.children(".blob-edit");
@@ -16,7 +16,7 @@ onedev.server.blobEdit = {
             }
 	    });
 	    $head.find(".save>a").click(function() {
-    		onedev.server.viewState.getFromViewAndSetToHistory();
+    		cheeta.server.viewState.getFromViewAndSetToHistory();
 	    	$body.find(">.content>.save.submit").click();
 	    });
 	    
@@ -68,7 +68,7 @@ onedev.server.blobEdit = {
 		$(window).resize();
         
         if (!$tab.hasClass("save"))
-        	onedev.server.viewState.getFromHistoryAndSetToView();        	
+        	cheeta.server.viewState.getFromHistoryAndSetToView();        	
 	},
 	recordFormFlags: function(formId) {
 		var $form = $("#" + formId);

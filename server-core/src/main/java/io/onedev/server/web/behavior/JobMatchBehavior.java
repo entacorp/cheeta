@@ -1,30 +1,30 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
-import io.onedev.commons.codeassist.AntlrUtils;
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.job.match.JobMatch;
-import io.onedev.server.job.match.JobMatchParser;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.AntlrUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.job.match.JobMatch;
+import io.cheeta.server.job.match.JobMatchParser;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.onedev.commons.codeassist.AntlrUtils.getLexerRule;
-import static io.onedev.commons.codeassist.AntlrUtils.getLexerRuleName;
-import static io.onedev.server.job.match.JobMatchLexer.*;
+import static io.cheeta.commons.codeassist.AntlrUtils.getLexerRule;
+import static io.cheeta.commons.codeassist.AntlrUtils.getLexerRuleName;
+import static io.cheeta.server.job.match.JobMatchLexer.*;
 
 public class JobMatchBehavior extends ANTLRAssistBehavior {
 
@@ -121,7 +121,7 @@ public class JobMatchBehavior extends ANTLRAssistBehavior {
 				if (!fieldElements.isEmpty()) {
 					String fieldName = ProjectQuery.getValue(fieldElements.get(0).getMatchedText());
 					if (fieldName.equals(Build.NAME_PROJECT))
-						hints.add("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>");
+						hints.add("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>");
 					else if (fieldName.equals(Build.NAME_JOB))
 						hints.add("Use '*' or '?' for wildcard match");						
 				} else {
@@ -130,7 +130,7 @@ public class JobMatchBehavior extends ANTLRAssistBehavior {
 					String operatorName = StringUtils.normalizeSpace(operatorElements.get(0).getMatchedText());
 					int operator = AntlrUtils.getLexerRule(ruleNames, operatorName);
 					if (operator == OnBranch)
-						hints.add("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>");
+						hints.add("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>");
 				}
 			}
 		} 

@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.dateinput;
+package io.cheeta.server.buildspecmodel.inputspec.dateinput;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,8 +9,8 @@ import javax.validation.ValidationException;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.buildspecmodel.inputspec.dateinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.buildspecmodel.inputspec.dateinput.defaultvalueprovider.DefaultValueProvider;
 
 public class DateInput {
 

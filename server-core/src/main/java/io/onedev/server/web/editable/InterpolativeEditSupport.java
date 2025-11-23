@@ -1,9 +1,9 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
-import io.onedev.server.annotation.Code;
+import io.cheeta.server.annotation.Code;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.model.IModel;
@@ -11,15 +11,15 @@ import org.apache.wicket.model.Model;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.InterpolativeAssistBehavior;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Markdown;
-import io.onedev.server.web.editable.markdown.MarkdownPropertyEditor;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
-import io.onedev.server.web.editable.string.StringPropertyViewer;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.InterpolativeAssistBehavior;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Markdown;
+import io.cheeta.server.web.editable.markdown.MarkdownPropertyEditor;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.web.editable.string.StringPropertyViewer;
 
 public class InterpolativeEditSupport implements EditSupport {
 

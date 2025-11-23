@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,21 +8,21 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import io.onedev.commons.codeassist.InputStatus;
+import io.cheeta.commons.codeassist.InputStatus;
 import org.antlr.v4.runtime.Token;
 
 import com.google.common.base.Optional;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.patternset.InterpolativePatternSetLexer;
-import io.onedev.server.util.patternset.InterpolativePatternSetParser;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.patternset.InterpolativePatternSetLexer;
+import io.cheeta.server.util.patternset.InterpolativePatternSetParser;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
 
 public abstract class InterpolativePatternSetAssistBehavior extends ANTLRAssistBehavior {
 

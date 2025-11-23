@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.snapsvg;
+package io.cheeta.server.web.asset.snapsvg;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 

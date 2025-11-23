@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,8 +21,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.annotation.Immutable;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.Immutable;
 
 @Entity
 @Table(

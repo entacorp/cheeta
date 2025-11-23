@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +7,7 @@ import java.util.Stack;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 public interface EditContext {
 

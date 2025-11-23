@@ -1,4 +1,4 @@
-package io.onedev.server.markdown;
+package io.cheeta.server.markdown;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +10,7 @@ import com.vladsch.flexmark.html.renderer.NodeRendererFactory;
 import com.vladsch.flexmark.html.renderer.NodeRenderingHandler;
 import com.vladsch.flexmark.util.data.DataHolder;
 
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 /**
  * HTML renderer for callout blocks.

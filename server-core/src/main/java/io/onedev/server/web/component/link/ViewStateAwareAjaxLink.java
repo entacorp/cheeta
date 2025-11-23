@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.link;
+package io.cheeta.server.web.component.link;
 
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.ajaxlistener.TrackViewStateListener;
+import io.cheeta.server.web.ajaxlistener.TrackViewStateListener;
 
 public abstract class ViewStateAwareAjaxLink<T> extends PreventDefaultAjaxLink<T> {
 

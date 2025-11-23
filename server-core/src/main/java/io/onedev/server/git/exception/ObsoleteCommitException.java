@@ -1,8 +1,8 @@
-package io.onedev.server.git.exception;
+package io.cheeta.server.git.exception;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExplicitException;
 import org.eclipse.jgit.lib.ObjectId;
 
 public class ObsoleteCommitException extends ExplicitException {

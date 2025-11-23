@@ -1,4 +1,4 @@
-package io.onedev.server.entityreference;
+package io.cheeta.server.entityreference;
 
 import java.util.function.BiFunction;
 
@@ -7,9 +7,9 @@ import org.jspecify.annotations.Nullable;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
-import io.onedev.server.web.page.project.issues.detail.IssueActivitiesPage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
+import io.cheeta.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
+import io.cheeta.server.web.page.project.issues.detail.IssueActivitiesPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
 
 public class LinkTransformer implements BiFunction<EntityReference, String, String> {
 	

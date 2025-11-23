@@ -1,16 +1,16 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.commons.codeassist.AntlrUtils.getLexerRule;
-import static io.onedev.server.buildspec.job.action.condition.ActionCondition.checkField;
-import static io.onedev.server.buildspec.job.action.condition.ActionConditionLexer.Is;
-import static io.onedev.server.buildspec.job.action.condition.ActionConditionLexer.OnBranch;
-import static io.onedev.server.buildspec.job.action.condition.ActionConditionLexer.ruleNames;
-import static io.onedev.server.model.Build.NAME_BRANCH;
-import static io.onedev.server.model.Build.NAME_LOG;
-import static io.onedev.server.model.Build.NAME_PROJECT;
-import static io.onedev.server.model.Build.NAME_PULL_REQUEST;
-import static io.onedev.server.model.Build.NAME_TAG;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.commons.codeassist.AntlrUtils.getLexerRule;
+import static io.cheeta.server.buildspec.job.action.condition.ActionCondition.checkField;
+import static io.cheeta.server.buildspec.job.action.condition.ActionConditionLexer.Is;
+import static io.cheeta.server.buildspec.job.action.condition.ActionConditionLexer.OnBranch;
+import static io.cheeta.server.buildspec.job.action.condition.ActionConditionLexer.ruleNames;
+import static io.cheeta.server.model.Build.NAME_BRANCH;
+import static io.cheeta.server.model.Build.NAME_LOG;
+import static io.cheeta.server.model.Build.NAME_PROJECT;
+import static io.cheeta.server.model.Build.NAME_PULL_REQUEST;
+import static io.cheeta.server.model.Build.NAME_TAG;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -22,24 +22,24 @@ import org.apache.commons.lang3.StringUtils;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.codeassist.AntlrUtils;
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobAware;
-import io.onedev.server.buildspec.job.action.condition.ActionCondition;
-import io.onedev.server.buildspec.job.action.condition.ActionConditionParser;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.AntlrUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobAware;
+import io.cheeta.server.buildspec.job.action.condition.ActionCondition;
+import io.cheeta.server.buildspec.job.action.condition.ActionConditionParser;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class ActionConditionBehavior extends ANTLRAssistBehavior {
 
@@ -139,7 +139,7 @@ public class ActionConditionBehavior extends ANTLRAssistBehavior {
 				if (!fieldElements.isEmpty()) {
 					String fieldName = ProjectQuery.getValue(fieldElements.get(0).getMatchedText());
 					if (fieldName.equals(NAME_PROJECT) || fieldName.equals(NAME_BRANCH) || fieldName.equals(NAME_TAG))
-						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 					else if (fieldName.equals(Build.NAME_LOG))
 						hints.add(_T("Use '*' for wildcard match"));
 				} else {
@@ -148,7 +148,7 @@ public class ActionConditionBehavior extends ANTLRAssistBehavior {
 					String operatorName = StringUtils.normalizeSpace(operatorElements.get(0).getMatchedText());
 					int operator = getLexerRule(ruleNames, operatorName);
 					if (operator == OnBranch)
-						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 				}
 			}
 		} 

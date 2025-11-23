@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.codecomment;
+package io.cheeta.server.web.component.codecomment;
 
-import static io.onedev.server.model.CodeComment.SORT_FIELDS;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.CodeComment.SORT_FIELDS;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -49,48 +49,48 @@ import org.apache.wicket.request.cycle.RequestCycle;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.service.CodeCommentStatusChangeService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestAssignment;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.LastActivity;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.EntitySort.Direction;
-import io.onedev.server.search.entity.codecomment.CodeCommentQuery;
-import io.onedev.server.search.entity.codecomment.FuzzyCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.Provider;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.CodeCommentQueryBehavior;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.datatable.selectioncolumn.SelectionColumn;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesClosed;
-import io.onedev.server.web.component.savedquery.SavedQueriesOpened;
-import io.onedev.server.web.component.sortedit.SortEditPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.service.CodeCommentStatusChangeService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestAssignment;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.LastActivity;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.search.entity.codecomment.CodeCommentQuery;
+import io.cheeta.server.search.entity.codecomment.FuzzyCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.Provider;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.CodeCommentQueryBehavior;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.datatable.selectioncolumn.SelectionColumn;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesClosed;
+import io.cheeta.server.web.component.savedquery.SavedQueriesOpened;
+import io.cheeta.server.web.component.sortedit.SortEditPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.xodus.VisitInfoService;
 
 public abstract class CodeCommentListPanel extends Panel {
 
@@ -141,7 +141,7 @@ public abstract class CodeCommentListPanel extends Panel {
 	}
 
 	private CodeCommentService getCodeCommentService() {
-		return OneDev.getInstance(CodeCommentService.class);
+		return Cheeta.getInstance(CodeCommentService.class);
 	}
 	
 	private void doQuery(AjaxRequestTarget target) {
@@ -238,7 +238,7 @@ public abstract class CodeCommentListPanel extends Panel {
 						
 						String note = bean.getNote();
 						
-						OneDev.getInstance(CodeCommentStatusChangeService.class).create(changes, note);
+						Cheeta.getInstance(CodeCommentStatusChangeService.class).create(changes, note);
 						selectionColumn.getSelections().clear();
 						dataProvider.detach();
 						target.add(countLabel);
@@ -374,7 +374,7 @@ public abstract class CodeCommentListPanel extends Panel {
 											Collection<CodeComment> comments = new ArrayList<>();
 											for (IModel<CodeComment> each: selectionColumn.getSelections())
 												comments.add(each.getObject());
-											OneDev.getInstance(CodeCommentService.class).delete(comments, getProject());
+											Cheeta.getInstance(CodeCommentService.class).delete(comments, getProject());
 											selectionColumn.getSelections().clear();
 											target.add(countLabel);
 											target.add(body);
@@ -530,7 +530,7 @@ public abstract class CodeCommentListPanel extends Panel {
 											Collection<CodeComment> comments = new ArrayList<>();
 											for (Iterator<CodeComment> it = (Iterator<CodeComment>) dataProvider.iterator(0, commentsTable.getItemCount()); it.hasNext();) 
 												comments.add(it.next());
-											OneDev.getInstance(CodeCommentService.class).delete(comments, getProject());
+											Cheeta.getInstance(CodeCommentService.class).delete(comments, getProject());
 											dataProvider.detach();
 											selectionColumn.getSelections().clear();
 											target.add(countLabel);
@@ -602,7 +602,7 @@ public abstract class CodeCommentListPanel extends Panel {
 							@Override
 							public void onClick(AjaxRequestTarget target) {
 								dropdown.close();
-								var visitInfoService = OneDev.getInstance(VisitInfoService.class);
+								var visitInfoService = Cheeta.getInstance(VisitInfoService.class);
 								for (@SuppressWarnings("unchecked")
 								Iterator<CodeComment> it = (Iterator<CodeComment>) dataProvider.iterator(0, commentsTable.getItemCount()); it.hasNext(); )
 									visitInfoService.visitCodeComment(SecurityUtils.getAuthUser(), it.next());
@@ -783,7 +783,7 @@ public abstract class CodeCommentListPanel extends Panel {
 
 					@Override
 					protected CodeComment load() {
-						return OneDev.getInstance(CodeCommentService.class).load(commentId);
+						return Cheeta.getInstance(CodeCommentService.class).load(commentId);
 					}
 
 				};
@@ -855,7 +855,7 @@ public abstract class CodeCommentListPanel extends Panel {
 					}
 				});
 
-				String url = OneDev.getInstance(UrlService.class).urlFor(comment, false);
+				String url = Cheeta.getInstance(UrlService.class).urlFor(comment, false);
 				var link = new ExternalLink("description", url);
 				link.add(new Label("label", StringUtils.abbreviate(comment.getContent(), MAX_DESCRIPTION_LEN)));
 				fragment.add(link);

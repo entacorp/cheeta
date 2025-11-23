@@ -1,4 +1,4 @@
-package io.onedev.server.event.project;
+package io.cheeta.server.event.project;
 
 import java.io.Serializable;
 import java.util.Collection;

@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.savedquery;
+package io.cheeta.server.web.component.savedquery;
 
 import java.util.ArrayList;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.NamedQuery;
 
 public interface ProjectQuerySupport<T extends NamedQuery> {
 

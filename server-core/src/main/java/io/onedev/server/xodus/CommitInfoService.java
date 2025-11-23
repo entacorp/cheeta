@@ -1,4 +1,4 @@
-package io.onedev.server.xodus;
+package io.cheeta.server.xodus;
 
 import java.io.File;
 import java.util.Collection;
@@ -8,11 +8,11 @@ import java.util.Map;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.git.GitContribution;
-import io.onedev.server.git.GitContributor;
-import io.onedev.server.model.User;
-import io.onedev.server.util.NameAndEmail;
-import io.onedev.server.util.facade.EmailAddressFacade;
+import io.cheeta.server.git.GitContribution;
+import io.cheeta.server.git.GitContributor;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.NameAndEmail;
+import io.cheeta.server.util.facade.EmailAddressFacade;
 
 public interface CommitInfoService {
 	

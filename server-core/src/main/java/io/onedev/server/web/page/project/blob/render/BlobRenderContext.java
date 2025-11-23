@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render;
+package io.cheeta.server.web.page.project.blob.render;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,13 +9,13 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.revwalk.RevCommit;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.web.upload.FileUpload;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.web.upload.FileUpload;
 
 public interface BlobRenderContext extends Serializable {
 

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.board;
+package io.cheeta.server.web.component.issue.board;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.model.support.issue.BoardSpec;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.model.support.issue.BoardSpec;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 public abstract class BoardEditPanel extends Panel {
 

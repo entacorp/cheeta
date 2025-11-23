@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.buildspec.job.jobdependency;
+package io.cheeta.server.web.editable.buildspec.job.jobdependency;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.buildspec.BuildSpecAware;
-import io.onedev.server.buildspec.job.JobAware;
-import io.onedev.server.buildspec.job.JobDependency;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.buildspec.BuildSpecAware;
+import io.cheeta.server.buildspec.job.JobAware;
+import io.cheeta.server.buildspec.job.JobDependency;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 public abstract class JobDependencyEditPanel extends Panel implements BuildSpecAware, JobAware {
 

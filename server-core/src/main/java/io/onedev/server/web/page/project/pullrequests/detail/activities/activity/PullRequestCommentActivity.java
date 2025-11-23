@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.project.pullrequests.detail.activities.activity;
+package io.cheeta.server.web.page.project.pullrequests.detail.activities.activity;
 
 import java.util.Date;
 
 import org.apache.wicket.Component;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestCommentService;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivity;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestCommentService;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivity;
 
 public class PullRequestCommentActivity implements PullRequestActivity {
 
@@ -24,7 +24,7 @@ public class PullRequestCommentActivity implements PullRequestActivity {
 
 	
 	public PullRequestComment getComment() {
-		return OneDev.getInstance(PullRequestCommentService.class).load(commentId);
+		return Cheeta.getInstance(PullRequestCommentService.class).load(commentId);
 	}
 
 	@Override

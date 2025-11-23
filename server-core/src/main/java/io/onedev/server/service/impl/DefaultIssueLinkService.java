@@ -1,13 +1,13 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import com.google.common.base.Preconditions;
-import io.onedev.server.service.IssueFieldService;
-import io.onedev.server.service.IssueLinkService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueLink;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.IssueFieldService;
+import io.cheeta.server.service.IssueLinkService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueLink;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
 import org.hibernate.Hibernate;
 import org.hibernate.query.Query;
 

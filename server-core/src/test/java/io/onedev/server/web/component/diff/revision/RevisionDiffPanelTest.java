@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.diff.revision;
+package io.cheeta.server.web.component.diff.revision;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static io.onedev.server.web.component.diff.revision.RevisionDiffPanel.getChildren;
+import static io.cheeta.server.web.component.diff.revision.RevisionDiffPanel.getChildren;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;

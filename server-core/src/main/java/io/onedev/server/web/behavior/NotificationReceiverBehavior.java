@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.List;
 
@@ -9,15 +9,15 @@ import org.apache.wicket.model.IModel;
 
 import com.google.common.base.Optional;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.server.buildspec.job.action.notificationreceiver.NotificationReceiverParser;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.server.buildspec.job.action.notificationreceiver.NotificationReceiverParser;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class NotificationReceiverBehavior extends ANTLRAssistBehavior {
 

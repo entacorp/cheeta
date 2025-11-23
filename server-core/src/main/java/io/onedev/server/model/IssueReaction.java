@@ -1,8 +1,8 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import javax.persistence.*;
 
-import io.onedev.server.model.support.EntityReaction;
+import io.cheeta.server.model.support.EntityReaction;
 
 @Entity
 @Table(

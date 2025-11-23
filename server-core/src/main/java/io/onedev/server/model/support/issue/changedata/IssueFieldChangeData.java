@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.changedata;
+package io.cheeta.server.model.support.issue.changedata;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,17 +10,17 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.notification.ActivityDetail;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.buildspecmodel.inputspec.Input;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.notification.ActivityDetail;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
 
 public class IssueFieldChangeData extends IssueChangeData {
 
@@ -106,7 +106,7 @@ public class IssueFieldChangeData extends IssueChangeData {
 	
 	@Override
 	public Map<String, Collection<User>> getNewUsers() {
-		UserService userService = OneDev.getInstance(UserService.class);
+		UserService userService = Cheeta.getInstance(UserService.class);
 		Map<String, Collection<User>> newUsers = new HashMap<>();
 		for (Input oldField: oldFields.values()) {
 			Input newField = newFields.get(oldField.getName());
@@ -141,7 +141,7 @@ public class IssueFieldChangeData extends IssueChangeData {
 	@Override
 	public Map<String, Group> getNewGroups() {
 		Map<String, Group> newGroups = new HashMap<>();
-		GroupService groupService = OneDev.getInstance(GroupService.class);
+		GroupService groupService = Cheeta.getInstance(GroupService.class);
 		for (Input oldField: oldFields.values()) {
 			Input newField = newFields.get(oldField.getName());
 			if (newField != null 

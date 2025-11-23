@@ -1,36 +1,36 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import static io.onedev.server.buildspec.step.StepGroup.PUBLISH;
+import static io.cheeta.server.buildspec.step.StepGroup.PUBLISH;
 
 import java.io.File;
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.annotation.ProjectChoice;
-import io.onedev.server.annotation.SubPath;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.JobService;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.annotation.ProjectChoice;
+import io.cheeta.server.annotation.SubPath;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.util.patternset.PatternSet;
 
 @Editable(order=1060, name="Site", group = PUBLISH, description="This step publishes specified files to be served as project web site. "
-		+ "Project web site can be accessed publicly via <code>http://&lt;onedev base url&gt;/path/to/project/~site</code>")
+		+ "Project web site can be accessed publicly via <code>http://&lt;cheeta base url&gt;/path/to/project/~site</code>")
 public class PublishSiteStep extends ServerSideStep {
 
 	private static final long serialVersionUID = 1L;
@@ -53,7 +53,7 @@ public class PublishSiteStep extends ServerSideStep {
 	}
 	
 	@Editable(order=50, name="From Directory", placeholder="Job workspace", description="Optionally specify path "
-			+ "relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to publish "
+			+ "relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to publish "
 			+ "artifacts from. Leave empty to use job workspace itself")
 	@Interpolative(variableSuggester="suggestVariables")
 	@SubPath
@@ -92,13 +92,13 @@ public class PublishSiteStep extends ServerSideStep {
 
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger logger) {
-		return OneDev.getInstance(SessionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
-			JobContext jobContext = OneDev.getInstance(JobService.class).getJobContext(build.getId());
+		return Cheeta.getInstance(SessionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
+			JobContext jobContext = Cheeta.getInstance(JobService.class).getJobContext(build.getId());
 			if (jobContext.getJobExecutor().isSitePublishEnabled()) {
 				Project project;
 				if (projectPath != null) {
-					project = OneDev.getInstance(ProjectService.class).findByPath(projectPath);
+					project = Cheeta.getInstance(ProjectService.class).findByPath(projectPath);
 					if (project == null) {
 						logger.error("Unable to find project: " + projectPath);
 						return new ServerStepResult(false);
@@ -108,13 +108,13 @@ public class PublishSiteStep extends ServerSideStep {
 				}
 				var projectId = project.getId();
 				LockUtils.write(project.getSiteLockName(), () -> {
-					File projectSiteDir = OneDev.getInstance(ProjectService.class).getSiteDir(projectId);
+					File projectSiteDir = Cheeta.getInstance(ProjectService.class).getSiteDir(projectId);
 					FileUtils.cleanDir(projectSiteDir);
 					FileUtils.copyDirectory(inputDir, projectSiteDir);
-					OneDev.getInstance(ProjectService.class).directoryModified(projectId, projectSiteDir);
+					Cheeta.getInstance(ProjectService.class).directoryModified(projectId, projectSiteDir);
 					return null;
 				});
-				String serverUrl = OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+				String serverUrl = Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 				logger.log("Site published as "
 						+ StringUtils.stripEnd(serverUrl, "/") + "/" + project.getPath() + "/~site");
 			} else {

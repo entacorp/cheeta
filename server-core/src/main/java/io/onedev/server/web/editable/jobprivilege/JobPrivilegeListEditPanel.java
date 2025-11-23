@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.jobprivilege;
+package io.cheeta.server.web.editable.jobprivilege;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -30,18 +30,18 @@ import org.apache.wicket.util.convert.ConversionException;
 
 import com.google.common.base.Joiner;
 
-import io.onedev.server.model.support.role.JobPrivilege;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyUpdating;
+import io.cheeta.server.model.support.role.JobPrivilege;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyUpdating;
 
 class JobPrivilegeListEditPanel extends PropertyEditor<List<Serializable>> {
 

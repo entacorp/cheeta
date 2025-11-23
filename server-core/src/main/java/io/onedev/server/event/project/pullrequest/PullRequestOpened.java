@@ -1,8 +1,8 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
 
 public class PullRequestOpened extends PullRequestEvent {
 

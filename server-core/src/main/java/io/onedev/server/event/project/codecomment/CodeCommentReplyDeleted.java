@@ -1,7 +1,7 @@
-package io.onedev.server.event.project.codecomment;
+package io.cheeta.server.event.project.codecomment;
 
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.security.SecurityUtils;
 
 import java.util.Date;
 

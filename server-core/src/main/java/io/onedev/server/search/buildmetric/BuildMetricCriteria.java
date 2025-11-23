@@ -1,4 +1,4 @@
-package io.onedev.server.search.buildmetric;
+package io.cheeta.server.search.buildmetric;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 public abstract class BuildMetricCriteria implements Serializable {
 

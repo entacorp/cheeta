@@ -1,4 +1,4 @@
-package io.onedev.server.util.facade;
+package io.cheeta.server.util.facade;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,8 +8,8 @@ import org.jspecify.annotations.Nullable;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.server.model.User;
-import io.onedev.server.util.MapProxy;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.MapProxy;
 
 public class EmailAddressCache extends MapProxy<Long, EmailAddressFacade> {
 

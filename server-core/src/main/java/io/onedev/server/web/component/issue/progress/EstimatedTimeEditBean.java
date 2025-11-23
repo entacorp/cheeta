@@ -1,15 +1,15 @@
-package io.onedev.server.web.component.issue.progress;
+package io.cheeta.server.web.component.issue.progress;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.WorkingPeriod;
-import io.onedev.server.service.SettingService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.WorkingPeriod;
+import io.cheeta.server.service.SettingService;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -34,7 +34,7 @@ public class EstimatedTimeEditBean implements Serializable {
 	
 	@SuppressWarnings("unused")
 	private static String getEstimatedTimeDescription() {
-		var aggregationLink = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting().getAggregationLink();
+		var aggregationLink = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting().getAggregationLink();
 		if (aggregationLink != null)
 			return MessageFormat.format(_T("Specify estimated time <b class='text-warning'>only for this issue</b>, not counting \"{0}\""), aggregationLink);
 		else 

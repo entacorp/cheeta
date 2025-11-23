@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.pack.gem.marshal;
+package io.cheeta.server.plugin.pack.gem.marshal;
 
 public class RubySymbol implements CharSequence, Cloneable {
 

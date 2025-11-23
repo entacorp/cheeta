@@ -1,12 +1,12 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueField;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueField;
 
 public class FloatFieldCriteria extends FieldCriteria {
 

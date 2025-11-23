@@ -1,4 +1,4 @@
-package io.onedev.server.util.jackson;
+package io.cheeta.server.util.jackson;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -36,11 +36,11 @@ import com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 
-import io.onedev.commons.loader.ImplementationRegistry;
-import io.onedev.server.web.page.layout.AdministrationSettingContribution;
-import io.onedev.server.web.page.layout.ContributedAdministrationSetting;
-import io.onedev.server.web.page.project.setting.ContributedProjectSetting;
-import io.onedev.server.web.page.project.setting.ProjectSettingContribution;
+import io.cheeta.commons.loader.ImplementationRegistry;
+import io.cheeta.server.web.page.layout.AdministrationSettingContribution;
+import io.cheeta.server.web.page.layout.ContributedAdministrationSetting;
+import io.cheeta.server.web.page.project.setting.ContributedProjectSetting;
+import io.cheeta.server.web.page.project.setting.ProjectSettingContribution;
 
 @Singleton
 public class ObjectMapperProvider implements Provider<ObjectMapper> {

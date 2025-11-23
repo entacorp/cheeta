@@ -1,10 +1,10 @@
-package io.onedev.server.event.project;
+package io.cheeta.server.event.project;
 
 import java.util.Date;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.util.CommitAware;
-import io.onedev.server.util.ProjectScopedCommit;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.CommitAware;
+import io.cheeta.server.util.ProjectScopedCommit;
 
 public class DefaultBranchChanged extends ProjectEvent implements CommitAware {
 	

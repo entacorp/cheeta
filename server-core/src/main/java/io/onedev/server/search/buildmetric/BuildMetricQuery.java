@@ -1,12 +1,12 @@
-package io.onedev.server.search.buildmetric;
+package io.cheeta.server.search.buildmetric;
 
-import io.onedev.commons.codeassist.AntlrUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildParamService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.BuildMetric;
-import io.onedev.server.search.entity.EntityQuery;
+import io.cheeta.commons.codeassist.AntlrUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildParamService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.BuildMetric;
+import io.cheeta.server.search.entity.EntityQuery;
 import org.antlr.v4.runtime.*;
 
 import org.jspecify.annotations.Nullable;
@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static io.onedev.server.model.Build.*;
-import static io.onedev.server.search.buildmetric.BuildMetricQueryParser.*;
+import static io.cheeta.server.model.Build.*;
+import static io.cheeta.server.search.buildmetric.BuildMetricQueryParser.*;
 
 public class BuildMetricQuery implements Serializable {
 
@@ -161,7 +161,7 @@ public class BuildMetricQuery implements Serializable {
 	}
 	
 	public static void checkField(Project project, String fieldName, int operator) {
-		Collection<String> paramNames = OneDev.getInstance(BuildParamService.class).getParamNames(null);
+		Collection<String> paramNames = Cheeta.getInstance(BuildParamService.class).getParamNames(null);
 		if (!METRIC_QUERY_FIELDS.contains(fieldName) && !paramNames.contains(fieldName)) 
 			throw new ExplicitException("Field not found: " + fieldName);
 		switch (operator) {

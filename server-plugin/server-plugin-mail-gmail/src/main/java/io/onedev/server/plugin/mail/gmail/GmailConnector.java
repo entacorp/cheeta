@@ -1,18 +1,18 @@
-package io.onedev.server.plugin.mail.gmail;
+package io.cheeta.server.plugin.mail.gmail;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.annotation.RefreshToken;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.mail.*;
-import io.onedev.server.model.support.administration.mailservice.ImapImplicitSsl;
-import io.onedev.server.model.support.administration.mailservice.MailConnector;
-import io.onedev.server.model.support.administration.mailservice.SmtpExplicitSsl;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.oauth.RefreshTokenAccessor;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.annotation.RefreshToken;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.mail.*;
+import io.cheeta.server.model.support.administration.mailservice.ImapImplicitSsl;
+import io.cheeta.server.model.support.administration.mailservice.MailConnector;
+import io.cheeta.server.model.support.administration.mailservice.SmtpExplicitSsl;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.oauth.RefreshTokenAccessor;
 import org.jetbrains.annotations.Nullable;
 
 import javax.mail.Message;
@@ -50,7 +50,7 @@ public class GmailConnector implements MailConnector {
 	
 	private transient MailPosition mailPosition;
 
-	@Editable(order=100, description="Client ID of this OneDev instance registered in Google cloud")
+	@Editable(order=100, description="Client ID of this Cheeta instance registered in Google cloud")
 	@NotEmpty
 	public String getClientId() {
 		return clientId;
@@ -60,7 +60,7 @@ public class GmailConnector implements MailConnector {
 		this.clientId = clientId;
 	}
 
-	@Editable(order=200, description="Client secret of this OneDev instance registered in Google cloud")
+	@Editable(order=200, description="Client secret of this Cheeta instance registered in Google cloud")
 	@Password
 	@NotEmpty
 	public String getClientSecret() {
@@ -210,7 +210,7 @@ public class GmailConnector implements MailConnector {
 
 	private void updateRefreshToken(String refreshToken) {
 		this.refreshToken = refreshToken;
-		OneDev.getInstance(SettingService.class).saveMailConnector(this);
+		Cheeta.getInstance(SettingService.class).saveMailConnector(this);
 	}
 
 	@Override
@@ -246,7 +246,7 @@ public class GmailConnector implements MailConnector {
 	}
 
 	private MailService getMailService() {
-		return OneDev.getInstance(MailService.class);
+		return Cheeta.getInstance(MailService.class);
 	}
 	
 }

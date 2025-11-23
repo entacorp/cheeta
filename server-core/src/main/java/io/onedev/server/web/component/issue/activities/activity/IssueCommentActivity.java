@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.issue.activities.activity;
+package io.cheeta.server.web.component.issue.activities.activity;
 
 import java.util.Date;
 
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueCommentService;
-import io.onedev.server.model.IssueComment;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueCommentService;
+import io.cheeta.server.model.IssueComment;
 
 public class IssueCommentActivity implements IssueActivity {
 
@@ -26,7 +26,7 @@ public class IssueCommentActivity implements IssueActivity {
 	}
 	
 	public IssueComment getComment() {
-		return OneDev.getInstance(IssueCommentService.class).load(commentId);
+		return Cheeta.getInstance(IssueCommentService.class).load(commentId);
 	}
 
 	@Override

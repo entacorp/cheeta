@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.security;
+package io.cheeta.server.web.page.security;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
@@ -8,10 +8,10 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.web.page.simple.SimplePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.web.page.simple.SimplePage;
 
 public class EmailAddressVerificationPage extends SimplePage {
 
@@ -44,7 +44,7 @@ public class EmailAddressVerificationPage extends SimplePage {
 	}
 	
 	private EmailAddressService getEmailAddressService() {
-		return OneDev.getInstance(EmailAddressService.class);
+		return Cheeta.getInstance(EmailAddressService.class);
 	}
 
 	@Override

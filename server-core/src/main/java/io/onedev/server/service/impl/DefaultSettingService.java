@@ -1,6 +1,6 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.Setting.PROP_KEY;
+import static io.cheeta.server.model.Setting.PROP_KEY;
 import static org.hibernate.criterion.Restrictions.eq;
 
 import java.io.ObjectStreamException;
@@ -22,45 +22,45 @@ import org.apache.shiro.crypto.AesCipherService;
 import org.apache.shiro.crypto.CipherService;
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.model.Setting;
-import io.onedev.server.model.Setting.Key;
-import io.onedev.server.model.support.administration.AISetting;
-import io.onedev.server.model.support.administration.AgentSetting;
-import io.onedev.server.model.support.administration.AlertSetting;
-import io.onedev.server.model.support.administration.AuditSetting;
-import io.onedev.server.model.support.administration.BackupSetting;
-import io.onedev.server.model.support.administration.BrandingSetting;
-import io.onedev.server.model.support.administration.ClusterSetting;
-import io.onedev.server.model.support.administration.GlobalBuildSetting;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.administration.GlobalPackSetting;
-import io.onedev.server.model.support.administration.GlobalProjectSetting;
-import io.onedev.server.model.support.administration.GlobalPullRequestSetting;
-import io.onedev.server.model.support.administration.GpgSetting;
-import io.onedev.server.model.support.administration.GroovyScript;
-import io.onedev.server.model.support.administration.PerformanceSetting;
-import io.onedev.server.model.support.administration.SecuritySetting;
-import io.onedev.server.model.support.administration.ServiceDeskSetting;
-import io.onedev.server.model.support.administration.SshSetting;
-import io.onedev.server.model.support.administration.SystemSetting;
-import io.onedev.server.model.support.administration.authenticator.Authenticator;
-import io.onedev.server.model.support.administration.emailtemplates.EmailTemplates;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.mailservice.MailConnector;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.page.layout.ContributedAdministrationSetting;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.model.Setting;
+import io.cheeta.server.model.Setting.Key;
+import io.cheeta.server.model.support.administration.AISetting;
+import io.cheeta.server.model.support.administration.AgentSetting;
+import io.cheeta.server.model.support.administration.AlertSetting;
+import io.cheeta.server.model.support.administration.AuditSetting;
+import io.cheeta.server.model.support.administration.BackupSetting;
+import io.cheeta.server.model.support.administration.BrandingSetting;
+import io.cheeta.server.model.support.administration.ClusterSetting;
+import io.cheeta.server.model.support.administration.GlobalBuildSetting;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.administration.GlobalPackSetting;
+import io.cheeta.server.model.support.administration.GlobalProjectSetting;
+import io.cheeta.server.model.support.administration.GlobalPullRequestSetting;
+import io.cheeta.server.model.support.administration.GpgSetting;
+import io.cheeta.server.model.support.administration.GroovyScript;
+import io.cheeta.server.model.support.administration.PerformanceSetting;
+import io.cheeta.server.model.support.administration.SecuritySetting;
+import io.cheeta.server.model.support.administration.ServiceDeskSetting;
+import io.cheeta.server.model.support.administration.SshSetting;
+import io.cheeta.server.model.support.administration.SystemSetting;
+import io.cheeta.server.model.support.administration.authenticator.Authenticator;
+import io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.mailservice.MailConnector;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.page.layout.ContributedAdministrationSetting;
 
 @Singleton
 public class DefaultSettingService extends BaseEntityService<Setting> implements SettingService, Serializable {
@@ -423,7 +423,7 @@ public class DefaultSettingService extends BaseEntityService<Setting> implements
 		if (setting == null) {
 			try {
 				T value = settingClass.getDeclaredConstructor().newInstance();
-				if (OneDev.getInstance(Validator.class).validate(value).isEmpty()) 
+				if (Cheeta.getInstance(Validator.class).validate(value).isEmpty()) 
 					setting = value;
 			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException 
 					| InvocationTargetException | NoSuchMethodException | SecurityException e) {

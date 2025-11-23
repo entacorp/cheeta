@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.sourceformat;
+package io.cheeta.server.web.component.sourceformat;
 
 import org.jspecify.annotations.Nullable;
 import javax.servlet.http.Cookie;
@@ -170,7 +170,7 @@ public class SourceFormatPanel extends Panel {
 		
 		response.render(JavaScriptReferenceHeaderItem.forReference(new SourceFormatResourceReference()));
 		
-		String script = String.format("onedev.server.sourceFormat.init('%s');", getMarkupId());
+		String script = String.format("cheeta.server.sourceFormat.init('%s');", getMarkupId());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
 

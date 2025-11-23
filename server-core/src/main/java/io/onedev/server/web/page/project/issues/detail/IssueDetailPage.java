@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.issues.detail;
+package io.cheeta.server.web.page.project.issues.detail;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -33,48 +33,48 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.IssueLinkService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.entity.nav.EntityNavPanel;
-import io.onedev.server.web.component.issue.editabletitle.IssueEditableTitlePanel;
-import io.onedev.server.web.component.issue.operation.IssueOperationsPanel;
-import io.onedev.server.web.component.issue.primary.IssuePrimaryPanel;
-import io.onedev.server.web.component.issue.side.IssueSidePanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.sideinfo.SideInfoLink;
-import io.onedev.server.web.component.sideinfo.SideInfoPanel;
-import io.onedev.server.web.component.tabbable.PageTab;
-import io.onedev.server.web.component.tabbable.PageTabHead;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.issues.ProjectIssuesPage;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.CursorSupport;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.IssueLinkService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.entity.nav.EntityNavPanel;
+import io.cheeta.server.web.component.issue.editabletitle.IssueEditableTitlePanel;
+import io.cheeta.server.web.component.issue.operation.IssueOperationsPanel;
+import io.cheeta.server.web.component.issue.primary.IssuePrimaryPanel;
+import io.cheeta.server.web.component.issue.side.IssueSidePanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.sideinfo.SideInfoLink;
+import io.cheeta.server.web.component.sideinfo.SideInfoPanel;
+import io.cheeta.server.web.component.tabbable.PageTab;
+import io.cheeta.server.web.component.tabbable.PageTabHead;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.issues.ProjectIssuesPage;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.CursorSupport;
+import io.cheeta.server.xodus.VisitInfoService;
 
 public abstract class IssueDetailPage extends ProjectIssuesPage implements InputContext {
 
 	public static final String PARAM_ISSUE = "issue";
 	
-	private static final String KEY_SCROLL_TOP = "onedev.issue.scrollTop";
+	private static final String KEY_SCROLL_TOP = "cheeta.issue.scrollTop";
 
 	protected final IModel<Issue> issueModel;
 	
@@ -102,7 +102,7 @@ public abstract class IssueDetailPage extends ProjectIssuesPage implements Input
 				if (issue == null) { 
 					throw new EntityNotFoundException(MessageFormat.format(_T("Unable to find issue #{0} in project {1}"), issueNumber, getProject()));
 				} else {
-					OneDev.getInstance(IssueLinkService.class).loadDeepLinks(issue);
+					Cheeta.getInstance(IssueLinkService.class).loadDeepLinks(issue);
 					if (!issue.getProject().equals(getProject())) 
 						throw new RestartResponseException(getPageClass(), paramsOf(issue));
 					return issue;
@@ -362,7 +362,7 @@ public abstract class IssueDetailPage extends ProjectIssuesPage implements Input
 			@Override
 			public void onEndRequest(RequestCycle cycle) {
 				if (SecurityUtils.getAuthUser() != null) 
-					OneDev.getInstance(VisitInfoService.class).visitIssue(SecurityUtils.getAuthUser(), getIssue());
+					Cheeta.getInstance(VisitInfoService.class).visitIssue(SecurityUtils.getAuthUser(), getIssue());
 			}
 						
 		});	
@@ -392,11 +392,11 @@ public abstract class IssueDetailPage extends ProjectIssuesPage implements Input
 
 	@Override
 	public FieldSpec getInputSpec(String inputName) {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getFieldSpec(inputName);
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldSpec(inputName);
 	}
 	
 	private IssueService getIssueService() {
-		return OneDev.getInstance(IssueService.class);
+		return Cheeta.getInstance(IssueService.class);
 	}
 	
 	@Override
@@ -417,7 +417,7 @@ public abstract class IssueDetailPage extends ProjectIssuesPage implements Input
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new IssueDetailResourceReference()));
-		response.render(OnDomReadyHeaderItem.forScript(String.format( "onedev.server.issueDetail.onDomReady('%s');", KEY_SCROLL_TOP)));
+		response.render(OnDomReadyHeaderItem.forScript(String.format( "cheeta.server.issueDetail.onDomReady('%s');", KEY_SCROLL_TOP)));
 	}
 	
 	@Override

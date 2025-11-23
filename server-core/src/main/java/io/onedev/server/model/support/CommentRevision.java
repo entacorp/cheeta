@@ -1,4 +1,4 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import java.util.Date;
 
@@ -9,9 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.User;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.User;
 
 @MappedSuperclass
 public abstract class CommentRevision extends AbstractEntity {

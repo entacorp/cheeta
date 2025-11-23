@@ -1,4 +1,4 @@
-onedev.server.onQuickSearchDomReady = function(containerId, callback) {
+cheeta.server.onQuickSearchDomReady = function(containerId, callback) {
 	var $body = $("#" + containerId + ">.quick-search>.modal-body");
 	
 	$body.children("input").doneEvents("inputchange", function() {

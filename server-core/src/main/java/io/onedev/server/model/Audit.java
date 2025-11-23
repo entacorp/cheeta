@@ -1,7 +1,7 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.Audit.PROP_ACTION;
-import static io.onedev.server.model.Audit.PROP_DATE;
+import static io.cheeta.server.model.Audit.PROP_ACTION;
+import static io.cheeta.server.model.Audit.PROP_DATE;
 
 import java.util.Date;
 

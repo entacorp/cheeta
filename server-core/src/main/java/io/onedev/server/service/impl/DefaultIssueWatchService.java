@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -8,13 +8,13 @@ import javax.inject.Singleton;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueWatch;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.IssueWatchService;
-import io.onedev.server.util.watch.WatchStatus;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueWatch;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.IssueWatchService;
+import io.cheeta.server.util.watch.WatchStatus;
 
 @Singleton
 public class DefaultIssueWatchService extends BaseEntityService<IssueWatch>

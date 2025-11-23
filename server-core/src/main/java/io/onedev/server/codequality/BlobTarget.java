@@ -1,6 +1,6 @@
-package io.onedev.server.codequality;
+package io.cheeta.server.codequality;
 
-import io.onedev.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.PlanarRange;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.wicket.Component;

@@ -1,8 +1,8 @@
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.pullrequest.PullRequestEvent;
-import io.onedev.server.model.PullRequest;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.pullrequest.PullRequestEvent;
+import io.cheeta.server.model.PullRequest;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

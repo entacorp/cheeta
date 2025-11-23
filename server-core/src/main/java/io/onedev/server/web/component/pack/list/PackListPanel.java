@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.pack.list;
+package io.cheeta.server.web.component.pack.list;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -45,47 +45,47 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.PackService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.pack.PackSupport;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.EntitySort.Direction;
-import io.onedev.server.search.entity.pack.FuzzyCriteria;
-import io.onedev.server.search.entity.pack.PackQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.behavior.PackQueryBehavior;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.datatable.selectioncolumn.SelectionColumn;
-import io.onedev.server.web.component.entity.labels.EntityLabelsPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.ActionablePageLink;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesClosed;
-import io.onedev.server.web.component.savedquery.SavedQueriesOpened;
-import io.onedev.server.web.component.sortedit.SortEditPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.project.packs.ProjectPacksPage;
-import io.onedev.server.web.page.project.packs.detail.PackDetailPage;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.pack.PackSupport;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.search.entity.pack.FuzzyCriteria;
+import io.cheeta.server.search.entity.pack.PackQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.behavior.PackQueryBehavior;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.datatable.selectioncolumn.SelectionColumn;
+import io.cheeta.server.web.component.entity.labels.EntityLabelsPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.ActionablePageLink;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesClosed;
+import io.cheeta.server.web.component.savedquery.SavedQueriesOpened;
+import io.cheeta.server.web.component.sortedit.SortEditPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.project.packs.ProjectPacksPage;
+import io.cheeta.server.web.page.project.packs.detail.PackDetailPage;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
 
 public abstract class PackListPanel extends Panel {
 	
@@ -127,11 +127,11 @@ public abstract class PackListPanel extends Panel {
 	}
 	
 	private PackService getPackService() {
-		return OneDev.getInstance(PackService.class);
+		return Cheeta.getInstance(PackService.class);
 	}
 
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 	
 	@Nullable
@@ -182,7 +182,7 @@ public abstract class PackListPanel extends Panel {
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 	
 	private void doQuery(AjaxRequestTarget target) {
@@ -715,7 +715,7 @@ public abstract class PackListPanel extends Panel {
 	
 	private WebMarkupContainer newHelpPanel(String componentId) {
 		var fragment = new Fragment(componentId, "helpFrag", this);
-		var packSupports = new ArrayList<>(OneDev.getExtensions(PackSupport.class));
+		var packSupports = new ArrayList<>(Cheeta.getExtensions(PackSupport.class));
 		packSupports.sort(Comparator.comparing(PackSupport::getOrder));
 		List<Tab> tabs = new ArrayList<>();
 		for (var packSupport: packSupports) {

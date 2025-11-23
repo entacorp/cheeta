@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.ident;
+package io.cheeta.server.web.component.user.ident;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

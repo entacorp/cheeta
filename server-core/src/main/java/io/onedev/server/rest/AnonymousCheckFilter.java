@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import java.io.IOException;
 
@@ -12,10 +12,10 @@ import javax.ws.rs.ext.Provider;
 
 import org.apache.shiro.authz.UnauthenticatedException;
 
-import io.onedev.server.service.SettingService;
-import io.onedev.server.rest.resource.TriggerJobResource;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.rest.resource.TriggerJobResource;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 
 @Provider
 public class AnonymousCheckFilter implements ContainerRequestFilter {

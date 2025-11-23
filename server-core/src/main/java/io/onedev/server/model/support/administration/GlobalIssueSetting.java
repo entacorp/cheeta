@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,38 +20,38 @@ import org.apache.shiro.subject.Subject;
 import com.google.common.collect.Lists;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.Choice;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.SpecifiedChoices;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.issue.BoardSpec;
-import io.onedev.server.model.support.issue.CommitMessageFixPatterns;
-import io.onedev.server.model.support.issue.ExternalIssueTransformers;
-import io.onedev.server.model.support.issue.IssueTemplate;
-import io.onedev.server.model.support.issue.NamedIssueQuery;
-import io.onedev.server.model.support.issue.StateSpec;
-import io.onedev.server.model.support.issue.TimeTrackingSetting;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.DefaultValue;
-import io.onedev.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.SpecifiedDefaultValue;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
-import io.onedev.server.model.support.issue.transitionspec.BranchUpdatedSpec;
-import io.onedev.server.model.support.issue.transitionspec.IssueStateTransitedSpec;
-import io.onedev.server.model.support.issue.transitionspec.ManualSpec;
-import io.onedev.server.model.support.issue.transitionspec.PullRequestOpenedSpec;
-import io.onedev.server.model.support.issue.transitionspec.TransitionSpec;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.component.issue.workflowreconcile.ReconcileUtils;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.Choice;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.SpecifiedChoices;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.issue.BoardSpec;
+import io.cheeta.server.model.support.issue.CommitMessageFixPatterns;
+import io.cheeta.server.model.support.issue.ExternalIssueTransformers;
+import io.cheeta.server.model.support.issue.IssueTemplate;
+import io.cheeta.server.model.support.issue.NamedIssueQuery;
+import io.cheeta.server.model.support.issue.StateSpec;
+import io.cheeta.server.model.support.issue.TimeTrackingSetting;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.DefaultValue;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.SpecifiedDefaultValue;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
+import io.cheeta.server.model.support.issue.transitionspec.BranchUpdatedSpec;
+import io.cheeta.server.model.support.issue.transitionspec.IssueStateTransitedSpec;
+import io.cheeta.server.model.support.issue.transitionspec.ManualSpec;
+import io.cheeta.server.model.support.issue.transitionspec.PullRequestOpenedSpec;
+import io.cheeta.server.model.support.issue.transitionspec.TransitionSpec;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.component.issue.workflowreconcile.ReconcileUtils;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 @Editable
 public class GlobalIssueSetting implements Serializable {
@@ -181,8 +181,8 @@ public class GlobalIssueSetting implements Serializable {
 		inProgress.setColor("#FFA700");		
 		inProgress.setDescription(
 			"The AI assistant should switch the working directory to the branch corresponding to the issue by running below command:\n\n" + 
-			"git fetch <onedev remote> main && git checkout -b <branch-name> <onedev remote>/main && git push -u <onedev remote> <branch-name>\n\n" +
-			"Here <branch name> should be derived from user instruction or issue title, and <onedev remote> should be retrieved by calling tool getCurrentRemote"
+			"git fetch <cheeta remote> main && git checkout -b <branch-name> <cheeta remote>/main && git push -u <cheeta remote> <branch-name>\n\n" +
+			"Here <branch name> should be derived from user instruction or issue title, and <cheeta remote> should be retrieved by calling tool getCurrentRemote"
 		);
 		stateSpecs.add(inProgress);
 
@@ -192,9 +192,9 @@ public class GlobalIssueSetting implements Serializable {
 		inReview.setDescription(
 			"AI assistant should do the following:\n\n" +
 			"1. Add files to git index, and create conventional commit for current work if there are uncommitted changes. Subject line of the commit message should include the issue number at the end in form of (<issue reference>)\n" +
-			"2. Push the branch to remote by running \"git push <onedev remote>\"\n" +
+			"2. Push the branch to remote by running \"git push <cheeta remote>\"\n" +
 			"3. Create a pull request for current branch, with other params derived from current issue, and user instruction\n\n" +
-			"Here <issue reference> should be replaced with reference of the issue whose state is being changed, and <onedev remote> should be retrieved via tool getCurrentRemote"
+			"Here <issue reference> should be replaced with reference of the issue whose state is being changed, and <cheeta remote> should be retrieved via tool getCurrentRemote"
 		);
 		stateSpecs.add(inReview);
 

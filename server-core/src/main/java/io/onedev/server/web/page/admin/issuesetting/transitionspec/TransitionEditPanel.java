@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.admin.issuesetting.transitionspec;
+package io.cheeta.server.web.page.admin.issuesetting.transitionspec;
 
 import java.util.List;
 
@@ -12,17 +12,17 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.transitionspec.TransitionSpec;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.transitionspec.TransitionSpec;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 abstract class TransitionEditPanel extends Panel implements InputContext {
 
@@ -86,9 +86,9 @@ abstract class TransitionEditPanel extends Panel implements InputContext {
 					getSetting().getTransitionSpecs().add(transition);
 				}
 				var newAuditContent = VersionedXmlDoc.fromBean(transition).toXML();
-				OneDev.getInstance(SettingService.class).saveIssueSetting(getSetting());
+				Cheeta.getInstance(SettingService.class).saveIssueSetting(getSetting());
 				var verb = transitionIndex != -1 ? "changed" : "added";
-				OneDev.getInstance(AuditService.class).audit(null, verb + " issue transition", oldAuditContent, newAuditContent);
+				Cheeta.getInstance(AuditService.class).audit(null, verb + " issue transition", oldAuditContent, newAuditContent);
 				onSave(target);
 			}
 			
@@ -114,7 +114,7 @@ abstract class TransitionEditPanel extends Panel implements InputContext {
 	}
 
 	private GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	@Override

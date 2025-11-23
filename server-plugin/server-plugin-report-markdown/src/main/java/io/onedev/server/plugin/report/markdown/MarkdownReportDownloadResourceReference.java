@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.report.markdown;
+package io.cheeta.server.plugin.report.markdown;
 
 import org.apache.wicket.request.resource.IResource;
 import org.apache.wicket.request.resource.ResourceReference;

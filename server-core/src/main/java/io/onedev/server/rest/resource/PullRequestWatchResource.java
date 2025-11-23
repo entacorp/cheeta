@@ -1,9 +1,9 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import io.onedev.server.service.PullRequestWatchService;
-import io.onedev.server.model.PullRequestWatch;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.service.PullRequestWatchService;
+import io.cheeta.server.model.PullRequestWatch;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 
 import javax.inject.Inject;

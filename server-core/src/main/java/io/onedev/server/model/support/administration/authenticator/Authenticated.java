@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration.authenticator;
+package io.cheeta.server.model.support.administration.authenticator;
 
 import java.io.Serializable;
 import java.util.Collection;

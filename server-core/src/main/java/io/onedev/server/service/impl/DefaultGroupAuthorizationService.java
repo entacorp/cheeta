@@ -1,15 +1,15 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 import java.util.List;
 
 import javax.inject.Singleton;
 
-import io.onedev.server.model.Group;
-import io.onedev.server.model.GroupAuthorization;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.GroupAuthorizationService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.GroupAuthorization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.GroupAuthorizationService;
 
 @Singleton
 public class DefaultGroupAuthorizationService extends BaseEntityService<GroupAuthorization>

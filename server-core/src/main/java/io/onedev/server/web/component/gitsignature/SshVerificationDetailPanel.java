@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.gitsignature;
+package io.cheeta.server.web.component.gitsignature;
 
-import io.onedev.server.git.signatureverification.ssh.SshKeyInfo;
+import io.cheeta.server.git.signatureverification.ssh.SshKeyInfo;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;

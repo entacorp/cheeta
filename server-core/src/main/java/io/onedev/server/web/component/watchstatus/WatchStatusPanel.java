@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.watchstatus;
+package io.cheeta.server.web.component.watchstatus;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -7,7 +7,7 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.util.watch.WatchStatus;
+import io.cheeta.server.util.watch.WatchStatus;
 
 import org.jspecify.annotations.Nullable;
 

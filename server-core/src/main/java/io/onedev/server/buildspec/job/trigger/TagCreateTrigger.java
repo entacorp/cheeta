@@ -1,17 +1,17 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.util.SuggestionUtils;
 import org.eclipse.jgit.lib.ObjectId;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class TagCreateTrigger extends JobTrigger {
 	
 	@Editable(name="Tags", order=100, placeholder="Any tag", description=""
 			+ "Optionally specify space-separated tags to check. Use '**', '*' or '?' for "
-			+ "<a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "<a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty to match all tags")
 	@Patterns(suggester="suggestTags", path=true)
 	public String getTags() {
@@ -46,7 +46,7 @@ public class TagCreateTrigger extends JobTrigger {
 	@Editable(name="On Branches", order=200, placeholder="Any branch", description=""
 			+ "This trigger will only be applicable if tagged commit is reachable from branches specified here. "
 			+ "Multiple branches should be separated with spaces. Use '**', '*' or '?' for "
-			+ "<a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "<a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty to match all branches")
 	@Patterns(suggester="suggestBranches", path=true)
 	public String getBranches() {

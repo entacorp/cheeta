@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.passwordedit;
+package io.cheeta.server.web.component.user.passwordedit;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,14 +14,14 @@ import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class PasswordEditPanel extends GenericPanel<User> {
 	
@@ -51,7 +51,7 @@ public class PasswordEditPanel extends GenericPanel<User> {
 			protected void onSubmit() {
 				super.onSubmit();
 
-				var auditService = OneDev.getInstance(AuditService.class);
+				var auditService = Cheeta.getInstance(AuditService.class);
 				if (getUser().getPassword() != null) {
 					if (getPage() instanceof UserPage)
 						auditService.audit(null, "changed password in account \"" + getUser().getName() + "\"", null, null);
@@ -63,7 +63,7 @@ public class PasswordEditPanel extends GenericPanel<User> {
 				}
 					
 				getUser().setPassword(AppLoader.getInstance(PasswordService.class).encryptPassword(bean.getNewPassword()));
-				OneDev.getInstance(UserService.class).update(getUser(), null);
+				Cheeta.getInstance(UserService.class).update(getUser(), null);
 
 				bean.setOldPassword(null);
 				

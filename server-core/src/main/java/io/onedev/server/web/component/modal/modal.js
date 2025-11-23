@@ -1,4 +1,4 @@
-onedev.server.modal = {
+cheeta.server.modal = {
 	onDomReady: function(containerId, closeCallback) {
 		var $modal = $("#" + containerId);
 		
@@ -18,10 +18,10 @@ onedev.server.modal = {
 					&& !$("body").hasClass("fullscreen")) {
 				if ($modal.find(".leave-confirm.dirty").length != 0) {
 					if (confirm("There are unsaved changes, do you want to close?")) {
-						onedev.server.modal.close($modal, true);
+						cheeta.server.modal.close($modal, true);
 					}
 				} else {
-					onedev.server.modal.close($modal, true);
+					cheeta.server.modal.close($modal, true);
 				}
 			}
 
@@ -29,7 +29,7 @@ onedev.server.modal = {
 		
 		$modal.on("hide.bs.modal", function() {
 			$("body>.floating").each(function() {
-				onedev.server.floating.close($(this).attr("id"));
+				cheeta.server.floating.close($(this).attr("id"));
 			});
 		});
 		

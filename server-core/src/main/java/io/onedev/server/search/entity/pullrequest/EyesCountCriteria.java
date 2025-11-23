@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pullrequest;
+package io.cheeta.server.search.entity.pullrequest;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -7,9 +7,9 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class EyesCountCriteria extends Criteria<PullRequest> {
 

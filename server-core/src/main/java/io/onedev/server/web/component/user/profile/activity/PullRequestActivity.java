@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.user.profile.activity;
+package io.cheeta.server.web.component.user.profile.activity;
 
 import java.util.Date;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
 
 public abstract class PullRequestActivity extends UserActivity {
 

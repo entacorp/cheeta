@@ -1,12 +1,12 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.List;
 
 import javax.inject.Singleton;
 
-import io.onedev.server.model.DashboardVisit;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.DashboardVisitService;
+import io.cheeta.server.model.DashboardVisit;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.DashboardVisitService;
 
 @Singleton
 public class DefaultDashboardVisitService extends BaseEntityService<DashboardVisit>

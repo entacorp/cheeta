@@ -1,10 +1,10 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Iteration;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Iteration;
 
 public interface IssueScheduleService extends EntityService<IssueSchedule> {
 	

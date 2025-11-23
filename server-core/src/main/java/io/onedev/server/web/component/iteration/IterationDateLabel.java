@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.iteration;
+package io.cheeta.server.web.component.iteration;
 
-import static io.onedev.server.util.DateUtils.formatDate;
-import static io.onedev.server.util.DateUtils.toDate;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.util.DateUtils.formatDate;
+import static io.cheeta.server.util.DateUtils.toDate;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.time.LocalDate.ofEpochDay;
 
 import java.time.LocalDate;
@@ -12,8 +12,8 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.model.Iteration;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public class IterationDateLabel extends Label {
 

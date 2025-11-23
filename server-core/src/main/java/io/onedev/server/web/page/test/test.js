@@ -1,4 +1,4 @@
-onedev.server.test = {
+cheeta.server.test = {
 	onDomReady: function() {
 	}
 }

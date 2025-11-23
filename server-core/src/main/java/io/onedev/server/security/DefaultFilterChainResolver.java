@@ -1,11 +1,11 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
 import java.util.Set;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.onedev.server.pack.PackFilter;
+import io.cheeta.server.pack.PackFilter;
 import org.apache.shiro.web.filter.mgt.FilterChainManager;
 import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver;
 

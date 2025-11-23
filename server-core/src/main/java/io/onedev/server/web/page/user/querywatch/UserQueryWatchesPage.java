@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.user.querywatch;
+package io.cheeta.server.web.page.user.querywatch;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.web.component.user.querywatch.QueryWatchesPanel;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.web.component.user.querywatch.QueryWatchesPanel;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserQueryWatchesPage extends UserPage {
 

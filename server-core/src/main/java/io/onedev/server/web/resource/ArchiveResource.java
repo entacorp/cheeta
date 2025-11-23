@@ -1,12 +1,12 @@
-package io.onedev.server.web.resource;
+package io.cheeta.server.web.resource;
 
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -36,7 +36,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 
 public class ArchiveResource extends AbstractResource {
 
@@ -69,7 +69,7 @@ public class ArchiveResource extends AbstractResource {
 		
 		if (!SecurityUtils.isSystem()) {
 			// Perform database operations only if it is not a cluster access to avoid possible deadlocks
-			Project project = OneDev.getInstance(ProjectService.class).load(projectId);
+			Project project = Cheeta.getInstance(ProjectService.class).load(projectId);
 			if (!SecurityUtils.canReadCode(project)) 
 				throw new UnauthorizedException();
 		}
@@ -99,9 +99,9 @@ public class ArchiveResource extends AbstractResource {
 
 			@Override
 			public void writeData(Attributes attributes) throws IOException {
-				ProjectService projectService = OneDev.getInstance(ProjectService.class);
+				ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 				String activeServer = projectService.getActiveServer(projectId, true);
-				ClusterService clusterService = OneDev.getInstance(ClusterService.class);
+				ClusterService clusterService = Cheeta.getInstance(ClusterService.class);
 				if (activeServer.equals(clusterService.getLocalServerAddress())) {
 					if (format.equals("zip"))
 						ArchiveCommand.registerFormat(format, new ZipFormat());
@@ -109,7 +109,7 @@ public class ArchiveResource extends AbstractResource {
 						ArchiveCommand.registerFormat(format, new TgzFormat());
 					try {
 						RevCommit commit;
-						Repository repository = OneDev.getInstance(ProjectService.class).getRepository(projectId);
+						Repository repository = Cheeta.getInstance(ProjectService.class).getRepository(projectId);
 						try (RevWalk revWalk = new RevWalk(repository)) {
 							commit = revWalk.parseCommit(repository.resolve(revision));
 						}

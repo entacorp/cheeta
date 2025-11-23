@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.field.spec.choicefield;
+package io.cheeta.server.model.support.issue.field.spec.choicefield;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,15 +7,15 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.ChoiceInput;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.SpecifiedChoices;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.choicefield.defaultmultivalueprovider.DefaultMultiValueProvider;
-import io.onedev.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.ChoiceInput;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.SpecifiedChoices;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.defaultmultivalueprovider.DefaultMultiValueProvider;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.util.usage.Usage;
 
 @Editable(order=145, name= FieldSpec.ENUMERATION)
 public class ChoiceField extends FieldSpec {

@@ -1,16 +1,16 @@
-package io.onedev.server.git.signatureverification.gpg;
+package io.cheeta.server.git.signatureverification.gpg;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.git.signatureverification.VerificationSuccessful;
-import io.onedev.server.model.support.administration.GpgSetting;
-import io.onedev.server.web.component.gitsignature.GpgVerificationDetailPanel;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.git.signatureverification.VerificationSuccessful;
+import io.cheeta.server.model.support.administration.GpgSetting;
+import io.cheeta.server.web.component.gitsignature.GpgVerificationDetailPanel;
 import org.apache.wicket.Component;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevObject;
 
-import static io.onedev.server.util.GpgUtils.getEmailAddresses;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.util.GpgUtils.getEmailAddresses;
+import static io.cheeta.server.web.translation.Translation._T;
 
 public class GpgVerificationSuccessful implements VerificationSuccessful {
 	
@@ -32,7 +32,7 @@ public class GpgVerificationSuccessful implements VerificationSuccessful {
 		} else if (getGpgSetting().getTrustedSignatureVerificationKey(publicKey.getKeyID()) != null) {
 			message = _T("Signature verified successfully with trusted GPG key");
 		} else {
-			message = _T("Signature verified successfully with OneDev GPG key");
+			message = _T("Signature verified successfully with Cheeta GPG key");
 		}
 		
 		return new GpgVerificationDetailPanel(componentId, true, message, 
@@ -40,7 +40,7 @@ public class GpgVerificationSuccessful implements VerificationSuccessful {
 	}
 	
 	private GpgSetting getGpgSetting() {
-		return OneDev.getInstance(SettingService.class).getGpgSetting();
+		return Cheeta.getInstance(SettingService.class).getGpgSetting();
 	}
 	
 }

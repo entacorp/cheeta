@@ -1,4 +1,4 @@
-onedev.server.bootstrapSwitch = {
+cheeta.server.bootstrapSwitch = {
 	onDomReady: function(elementId) {
 		var $switch = $("#" + elementId);
 		var $clone = $switch.clone();

@@ -1,4 +1,4 @@
-package io.onedev.server.product;
+package io.cheeta.server.product;
 
 import java.io.File;
 import java.util.EnumSet;
@@ -17,22 +17,22 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.server.OneDev;
-import io.onedev.server.agent.ServerSocketServlet;
-import io.onedev.server.git.GitFilter;
-import io.onedev.server.git.GitLfsFilter;
-import io.onedev.server.git.GoGetFilter;
-import io.onedev.server.git.hook.GitPostReceiveCallback;
-import io.onedev.server.git.hook.GitPreReceiveCallback;
-import io.onedev.server.jetty.ClasspathAssetServlet;
-import io.onedev.server.jetty.FileAssetServlet;
-import io.onedev.server.jetty.ServletConfigurator;
-import io.onedev.server.security.CorsFilter;
-import io.onedev.server.security.DefaultWebEnvironment;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.img.ImageScope;
-import io.onedev.server.web.websocket.WebSocketService;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.agent.ServerSocketServlet;
+import io.cheeta.server.git.GitFilter;
+import io.cheeta.server.git.GitLfsFilter;
+import io.cheeta.server.git.GoGetFilter;
+import io.cheeta.server.git.hook.GitPostReceiveCallback;
+import io.cheeta.server.git.hook.GitPreReceiveCallback;
+import io.cheeta.server.jetty.ClasspathAssetServlet;
+import io.cheeta.server.jetty.FileAssetServlet;
+import io.cheeta.server.jetty.ServletConfigurator;
+import io.cheeta.server.security.CorsFilter;
+import io.cheeta.server.security.DefaultWebEnvironment;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.img.ImageScope;
+import io.cheeta.server.web.websocket.WebSocketService;
 
 public class ProductServletConfigurator implements ServletConfigurator {
 	
@@ -121,7 +121,7 @@ public class ProductServletConfigurator implements ServletConfigurator {
 		 * Configure a servlet to serve contents under site folder. Site folder can be used 
 		 * to hold site specific web assets.   
 		 */
-		File assetsDir = OneDev.getAssetsDir();
+		File assetsDir = Cheeta.getAssetsDir();
 		
 		boolean hasCustomLogo = false;
 		boolean hasCustomDarkLogo = false;

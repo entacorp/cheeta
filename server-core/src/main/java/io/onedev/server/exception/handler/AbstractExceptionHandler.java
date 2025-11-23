@@ -1,6 +1,6 @@
-package io.onedev.server.exception.handler;
+package io.cheeta.server.exception.handler;
 
-import io.onedev.server.util.ReflectionUtils;
+import io.cheeta.server.util.ReflectionUtils;
 
 import java.util.List;
 

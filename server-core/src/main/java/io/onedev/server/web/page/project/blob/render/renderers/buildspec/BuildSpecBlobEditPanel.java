@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.project.blob.render.renderers.buildspec;
+package io.cheeta.server.web.page.project.blob.render.renderers.buildspec;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.form.FormComponentPanel;
 
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.edit.BlobEditPanel;
-import io.onedev.server.web.page.project.blob.render.edit.plain.PlainEditPanel;
-import io.onedev.server.web.page.project.blob.render.edit.plain.PlainEditSupport;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.edit.BlobEditPanel;
+import io.cheeta.server.web.page.project.blob.render.edit.plain.PlainEditPanel;
+import io.cheeta.server.web.page.project.blob.render.edit.plain.PlainEditSupport;
 
 public class BuildSpecBlobEditPanel extends BlobEditPanel implements PlainEditSupport {
 

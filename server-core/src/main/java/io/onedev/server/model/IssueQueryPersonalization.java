@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,12 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueQueryPersonalizationService;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.issue.NamedIssueQuery;
-import io.onedev.server.util.watch.QuerySubscriptionSupport;
-import io.onedev.server.util.watch.QueryWatchSupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueQueryPersonalizationService;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.issue.NamedIssueQuery;
+import io.cheeta.server.util.watch.QuerySubscriptionSupport;
+import io.cheeta.server.util.watch.QueryWatchSupport;
 
 @Entity
 @Table(
@@ -112,7 +112,7 @@ public class IssueQueryPersonalization extends AbstractEntity implements QueryPe
 
 	@Override
 	public void onUpdated() {
-		OneDev.getInstance(IssueQueryPersonalizationService.class).createOrUpdate(this);
+		Cheeta.getInstance(IssueQueryPersonalizationService.class).createOrUpdate(this);
 	}
 	
 }

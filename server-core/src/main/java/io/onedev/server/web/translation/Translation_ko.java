@@ -1,4 +1,4 @@
-package io.onedev.server.web.translation;
+package io.cheeta.server.web.translation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,8 +23,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("(on behalf of <b>{0}</b>)", "(<b>{0}</b>를 대신하여)");
 		m.put("** Enterprise edition is disabled as the subscription was expired. Renew to enable **", 
 			"** 구독이 만료되어 엔터프라이즈 에디션이 비활성화되었습니다. 활성화하려면 갱신하세요 **");
-		m.put("** Enterprise edition is disabled as the trial subscription was expired, order subscription to enable or contact support@onedev.io if you need to extend your trial **", 
-			"** 엔터프라이즈 에디션은 체험 구독이 만료되어 비활성화되었습니다. 활성화하려면 구독을 주문하거나 체험 연장을 원하시면 support@onedev.io로 문의하세요 **");
+		m.put("** Enterprise edition is disabled as the trial subscription was expired, order subscription to enable or contact support@cheeta.io if you need to extend your trial **", 
+			"** 엔터프라이즈 에디션은 체험 구독이 만료되어 비활성화되었습니다. 활성화하려면 구독을 주문하거나 체험 연장을 원하시면 support@cheeta.io로 문의하세요 **");
 		m.put("** Enterprise edition is disabled as there is no remaining user months. Order more to enable **", 
 			"** 엔터프라이즈 에디션은 남은 사용자 월이 없어 비활성화되었습니다. 활성화하려면 추가 주문하세요 **");
 		m.put("1. To use this package, add below to project pom.xml", "1. 이 패키지를 사용하려면 아래 내용을 프로젝트 pom.xml에 추가하세요");
@@ -40,22 +40,22 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("7 days", "7일");
 		m.put("<a href=\"/~administration/settings/lite-ai-model\" target=\"_blank\">Set up AI</a> to mark the most likely", 
 			"<a href=\"/~administration/settings/lite-ai-model\" target=\"_blank\">AI 설정</a>을 통해 가장 가능성이 높은 것을 표시합니다");
-		m.put("<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">user</a> to reset password for", 
-			"<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">사용자</a>의 비밀번호를 재설정합니다");
-		m.put("<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">user</a> to verify email for", 
-			"<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">사용자</a>의 이메일을 확인합니다");
-		m.put("<a href=\"https://guides.github.com/features/mastering-markdown/\" target=\"_blank\">GitHub flavored markdown</a> is accepted, with <a href=\"https://docs.onedev.io/appendix/markdown-syntax\" target=\"_blank\">mermaid and katex support</a>.", 
-			"<a href=\"https://guides.github.com/features/mastering-markdown/\" target=\"_blank\">GitHub 스타일 마크다운</a>이 허용되며, <a href=\"https://docs.onedev.io/appendix/markdown-syntax\" target=\"_blank\">mermaid 및 katex 지원</a>이 포함됩니다.");
+		m.put("<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">user</a> to reset password for", 
+			"<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">사용자</a>의 비밀번호를 재설정합니다");
+		m.put("<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">user</a> to verify email for", 
+			"<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">사용자</a>의 이메일을 확인합니다");
+		m.put("<a href=\"https://guides.github.com/features/mastering-markdown/\" target=\"_blank\">GitHub flavored markdown</a> is accepted, with <a href=\"https://docs.cheeta.io/appendix/markdown-syntax\" target=\"_blank\">mermaid and katex support</a>.", 
+			"<a href=\"https://guides.github.com/features/mastering-markdown/\" target=\"_blank\">GitHub 스타일 마크다운</a>이 허용되며, <a href=\"https://docs.cheeta.io/appendix/markdown-syntax\" target=\"_blank\">mermaid 및 katex 지원</a>이 포함됩니다.");
 		m.put("<a href='/~administration/settings/lite-ai-model' target='_blank'>Set up AI</a> to query with natural language", 
 			"<a href='/~administration/settings/lite-ai-model' target='_blank'>AI 설정</a>을 통해 자연어로 질의합니다");
 		m.put("<a href='/~administration/settings/lite-ai-model' target='_blank'>Set up AI</a> to query with natural language</a>", 
 			"<a href='/~administration/settings/lite-ai-model' target='_blank'>AI 설정</a>을 통해 자연어로 질의합니다</a>");
-		m.put("<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/event/Event.java' target='_blank'>event object</a> triggering the notification", 
-			"<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/event/Event.java' target='_blank'>이벤트 객체</a>가 알림을 트리거합니다");
-		m.put("<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Alert.java'>alert</a> to display", 
-			"<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Alert.java'>알림</a>을 표시합니다");
-		m.put("<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Stopwatch.java'>Stopwatch</a> overdue", 
-			"<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Stopwatch.java'>스톱워치</a>가 기한을 초과했습니다");
+		m.put("<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/event/Event.java' target='_blank'>event object</a> triggering the notification", 
+			"<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/event/Event.java' target='_blank'>이벤트 객체</a>가 알림을 트리거합니다");
+		m.put("<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Alert.java'>alert</a> to display", 
+			"<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Alert.java'>알림</a>을 표시합니다");
+		m.put("<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Stopwatch.java'>Stopwatch</a> overdue", 
+			"<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Stopwatch.java'>스톱워치</a>가 기한을 초과했습니다");
 		m.put("<a wicket:id=\"author\" class=\"name link-gray\"></a> committed <span wicket:id=\"date\"></span>", 
 			"<a wicket:id=\"author\" class=\"name link-gray\"></a>가 <span wicket:id=\"date\"></span>에 커밋했습니다");
 		m.put("<a wicket:id=\"author\" class=\"name link-gray\"></a> committed with <a wicket:id=\"committer\" class=\"name link-gray\"></a> <span wicket:id=\"date\"></span>", 
@@ -65,21 +65,21 @@ public class Translation_ko extends TranslationResourceBundle {
 			"<a wicket:id=\"removePassword\">비밀번호 제거</a>를 통해 사용자가 외부 시스템을 통해 인증하도록 강제합니다");
 		m.put("<a wicket:id=\"verifyRecoveryCode\">Verify by recovery code</a> if you can not access your TOTP authenticator", 
 			"<a wicket:id=\"verifyRecoveryCode\">복구 코드로 확인</a>을 통해 TOTP 인증기에 접근할 수 없는 경우를 대비합니다");
-		m.put("<b class='text-danger'>NOTE: </b> This requires an enterprise subscription. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"<b class='text-danger'>참고: </b> 이는 엔터프라이즈 구독이 필요합니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>을 시도해보세요");
-		m.put("<b class='text-danger'>NOTE: </b> This step requires an enterprise subscription. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"<b class='text-danger'>참고: </b> 이 단계는 엔터프라이즈 구독이 필요합니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>을 시도해보세요");
-		m.put("<b class='text-danger'>NOTE: </b>SendGrid integration is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"<b class='text-danger'>참고: </b>SendGrid 통합은 엔터프라이즈 기능입니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>을 시도해보세요");
-		m.put("<b class='text-warning'>NOTE: </b><a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>Time tracking</a> is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"<b class='text-warning'>참고: </b><a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>시간 추적</a>은 엔터프라이즈 기능입니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>을 시도해보세요");
+		m.put("<b class='text-danger'>NOTE: </b> This requires an enterprise subscription. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"<b class='text-danger'>참고: </b> 이는 엔터프라이즈 구독이 필요합니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>을 시도해보세요");
+		m.put("<b class='text-danger'>NOTE: </b> This step requires an enterprise subscription. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"<b class='text-danger'>참고: </b> 이 단계는 엔터프라이즈 구독이 필요합니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>을 시도해보세요");
+		m.put("<b class='text-danger'>NOTE: </b>SendGrid integration is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"<b class='text-danger'>참고: </b>SendGrid 통합은 엔터프라이즈 기능입니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>을 시도해보세요");
+		m.put("<b class='text-warning'>NOTE: </b><a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>Time tracking</a> is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"<b class='text-warning'>참고: </b><a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>시간 추적</a>은 엔터프라이즈 기능입니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>을 시도해보세요");
 		m.put("<b>NOTE: </b> Service desk only takes effect if <a wicket:id=\"mailConnector\">mail service</a> is defined and its <tt>check incoming email</tt> option is enabled. Also <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>sub addressing</a> needs to be enabled for the system email address. Check <a href=\"https://medium.com/p/e56d62c27e57\" target='_blank'>this tutorial</a> for details", 
 			"<b>참고: </b> 서비스 데스크는 <a wicket:id=\"mailConnector\">메일 서비스</a>가 정의되고 <tt>수신 이메일 확인</tt> 옵션이 활성화된 경우에만 작동합니다. 또한 시스템 이메일 주소에 대해 <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>서브 어드레싱</a>이 활성화되어야 합니다. 자세한 내용은 <a href=\"https://medium.com/p/e56d62c27e57\" target='_blank'>이 튜토리얼</a>을 확인하세요");
 		m.put("<b>NOTE:</b> Batch editing issues will not cause state transitions of other issues even if transition rule matches", 
 			"<b>참고:</b> 문제를 일괄 편집해도 다른 문제의 상태 전환은 규칙이 일치하더라도 발생하지 않습니다");
 		m.put("<b>Project Owner</b> is a built-in role with full permission over projects", "<b>프로젝트 소유자</b>는 프로젝트에 대한 전체 권한을 가진 내장 역할입니다");
-		m.put("<b>Tips: </b> Type <tt>@</tt> to <a href='https://docs.onedev.io/appendix/job-variables' target='_blank' tabindex='-1'>insert variable</a>. Use <tt>@@</tt> for literal <tt>@</tt>", 
-			"<b>팁: </b> <tt>@</tt>를 입력하여 <a href='https://docs.onedev.io/appendix/job-variables' target='_blank' tabindex='-1'>변수를 삽입</a>하세요. <tt>@@</tt>는 리터럴 <tt>@</tt>를 사용합니다");
+		m.put("<b>Tips: </b> Type <tt>@</tt> to <a href='https://docs.cheeta.io/appendix/job-variables' target='_blank' tabindex='-1'>insert variable</a>. Use <tt>@@</tt> for literal <tt>@</tt>", 
+			"<b>팁: </b> <tt>@</tt>를 입력하여 <a href='https://docs.cheeta.io/appendix/job-variables' target='_blank' tabindex='-1'>변수를 삽입</a>하세요. <tt>@@</tt>는 리터럴 <tt>@</tt>를 사용합니다");
 		m.put("<div><span>Search Files</span> <span class='font-size-sm text-muted'>in default branch</span></div>", 
 			"<div><span>파일 검색</span> <span class='font-size-sm text-muted'>기본 브랜치에서</span></div>");
 		m.put("<div><span>Search Symbols</span> <span class='font-size-sm text-muted'>in default branch</span></div>", 
@@ -383,8 +383,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Authorized Roles", "승인된 역할");
 		m.put("Auto Merge", "자동 병합");
 		m.put("Auto Spec", "자동 사양");
-		m.put("Auto update check is performed by requesting an image in your browser from onedev.io indicating new version availability, with color indicating severity of the update. It works the same way as how gravatar requests avatar images. If disabled, you are highly recommended to check update manually from time to time (can be done via help menu on left bottom of the screen) to see if there are any security/critical fixes", 
-			"자동 업데이트 확인은 브라우저에서 onedev.io의 이미지를 요청하여 새 버전 가용성을 나타내며, 색상은 업데이트의 심각도를 나타냅니다. 이는 gravatar가 아바타 이미지를 요청하는 방식과 동일하게 작동합니다. 비활성화된 경우, 보안/중요 수정 사항이 있는지 확인하기 위해 수동으로 업데이트를 주기적으로 확인하는 것이 강력히 권장됩니다(화면 왼쪽 하단의 도움말 메뉴를 통해 수행 가능).");
+		m.put("Auto update check is performed by requesting an image in your browser from cheeta.io indicating new version availability, with color indicating severity of the update. It works the same way as how gravatar requests avatar images. If disabled, you are highly recommended to check update manually from time to time (can be done via help menu on left bottom of the screen) to see if there are any security/critical fixes", 
+			"자동 업데이트 확인은 브라우저에서 cheeta.io의 이미지를 요청하여 새 버전 가용성을 나타내며, 색상은 업데이트의 심각도를 나타냅니다. 이는 gravatar가 아바타 이미지를 요청하는 방식과 동일하게 작동합니다. 비활성화된 경우, 보안/중요 수정 사항이 있는지 확인하기 위해 수동으로 업데이트를 주기적으로 확인하는 것이 강력히 권장됩니다(화면 왼쪽 하단의 도움말 메뉴를 통해 수행 가능).");
 		m.put("Auto-discovered executor", "자동 검색된 실행기");
 		m.put("Available Agent Tokens", "사용 가능한 에이전트 토큰");
 		m.put("Available Choices", "사용 가능한 선택 항목");
@@ -514,8 +514,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Build spec not defined", "빌드 사양이 정의되지 않았습니다");
 		m.put("Build spec not defined (import project: {0}, import revision: {1})", "빌드 사양이 정의되지 않았습니다 (프로젝트 가져오기: {0}, 리비전 가져오기: {1})");
 		m.put("Build spec not found in commit of this build", "이 빌드의 커밋에서 빌드 사양을 찾을 수 없습니다");
-		m.put("Build statistics is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"빌드 통계는 엔터프라이즈 기능입니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>을 해보세요");
+		m.put("Build statistics is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"빌드 통계는 엔터프라이즈 기능입니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>을 해보세요");
 		m.put("Build version", "빌드 버전");
 		m.put("Build with Persistent Volume", "Persistent Volume을 사용하는 빌드");
 		m.put("Builds", "빌드들");
@@ -528,8 +528,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("By Group", "그룹별");
 		m.put("By User", "사용자별");
 		m.put("By day", "일별");
-		m.put("By default code is cloned via an auto-generated credential, which only has read permission over current project. In case the job needs to <a href='https://docs.onedev.io/tutorials/cicd/commit-and-push' target='_blank'>push code to server</a>, you should supply custom credential with appropriate permissions here", 
-			"기본적으로 코드는 자동 생성된 자격 증명을 통해 클론되며, 현재 프로젝트에 대한 읽기 권한만 있습니다. 작업이 <a href='https://docs.onedev.io/tutorials/cicd/commit-and-push' target='_blank'>코드를 서버에 푸시</a>해야 하는 경우 적절한 권한을 가진 사용자 정의 자격 증명을 제공해야 합니다");
+		m.put("By default code is cloned via an auto-generated credential, which only has read permission over current project. In case the job needs to <a href='https://docs.cheeta.io/tutorials/cicd/commit-and-push' target='_blank'>push code to server</a>, you should supply custom credential with appropriate permissions here", 
+			"기본적으로 코드는 자동 생성된 자격 증명을 통해 클론되며, 현재 프로젝트에 대한 읽기 권한만 있습니다. 작업이 <a href='https://docs.cheeta.io/tutorials/cicd/commit-and-push' target='_blank'>코드를 서버에 푸시</a>해야 하는 경우 적절한 권한을 가진 사용자 정의 자격 증명을 제공해야 합니다");
 		m.put("By default issues of parent and child projects will also be listed. Use query <code>&quot;Project&quot; is current</code> to show issues only belong to this project", 
 			"기본적으로 부모 및 자식 프로젝트의 문제도 나열됩니다. 이 프로젝트에만 속한 문제를 표시하려면 쿼리 <code>&quot;Project&quot; is current</code>를 사용하세요");
 		m.put("By month", "월별");
@@ -582,8 +582,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Change To", "다음으로 변경");
 		m.put("Change already merged", "변경 사항이 이미 병합되었습니다");
 		m.put("Change not updated yet", "변경 사항이 아직 업데이트되지 않았습니다");
-		m.put("Change property <code>serverUrl</code> in file <code>conf/agent.properties</code> if necessary. The default value is taken from OneDev server url specified in <i>Administration / System Setting</i>", 
-			"필요한 경우 파일 <code>conf/agent.properties</code>에서 속성 <code>serverUrl</code>을 변경하세요. 기본값은 <i>관리 / 시스템 설정</i>에서 지정된 OneDev 서버 URL에서 가져옵니다");
+		m.put("Change property <code>serverUrl</code> in file <code>conf/agent.properties</code> if necessary. The default value is taken from Cheeta server url specified in <i>Administration / System Setting</i>", 
+			"필요한 경우 파일 <code>conf/agent.properties</code>에서 속성 <code>serverUrl</code>을 변경하세요. 기본값은 <i>관리 / 시스템 설정</i>에서 지정된 Cheeta 서버 URL에서 가져옵니다");
 		m.put("Change to another field", "다른 필드로 변경");
 		m.put("Change to another state", "다른 상태로 변경");
 		m.put("Change to another value", "다른 값으로 변경");
@@ -595,10 +595,10 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Chart Metadata", "차트 메타데이터");
 		m.put("Check <a href=\"https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification\" target=\"_blank\">GitHub's guide</a> on how to generate and use GPG keys to sign your commits", 
 			"커밋에 서명을 하기 위해 GPG 키를 생성하고 사용하는 방법에 대한 <a href=\"https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification\" target=\"_blank\">GitHub 가이드</a>를 확인하세요");
-		m.put("Check <a href=\"https://docs.onedev.io/administration-guide/agent-management\" target=\"_blank\">agent management</a> for details, including instructions on how to run agent as service", 
-			"에이전트를 서비스로 실행하는 방법을 포함하여 자세한 내용은 <a href=\"https://docs.onedev.io/administration-guide/agent-management\" target=\"_blank\">에이전트 관리</a>를 확인하세요");
-		m.put("Check <a href=\"https://docs.onedev.io/administration-guide/agent-management\" target=\"_blank\">agent management</a> for details, including list of supported environment variables", 
-			"지원되는 환경 변수 목록을 포함하여 자세한 내용은 <a href=\"https://docs.onedev.io/administration-guide/agent-management\" target=\"_blank\">에이전트 관리</a>를 확인하세요");
+		m.put("Check <a href=\"https://docs.cheeta.io/administration-guide/agent-management\" target=\"_blank\">agent management</a> for details, including instructions on how to run agent as service", 
+			"에이전트를 서비스로 실행하는 방법을 포함하여 자세한 내용은 <a href=\"https://docs.cheeta.io/administration-guide/agent-management\" target=\"_blank\">에이전트 관리</a>를 확인하세요");
+		m.put("Check <a href=\"https://docs.cheeta.io/administration-guide/agent-management\" target=\"_blank\">agent management</a> for details, including list of supported environment variables", 
+			"지원되는 환경 변수 목록을 포함하여 자세한 내용은 <a href=\"https://docs.cheeta.io/administration-guide/agent-management\" target=\"_blank\">에이전트 관리</a>를 확인하세요");
 		m.put("Check Commit Message Footer", "커밋 메시지 푸터 확인");
 		m.put("Check Incoming Email", "수신 이메일 확인");
 		m.put("Check Issue Integrity", "이슈 무결성 확인");
@@ -663,10 +663,10 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Click to select a commit, or shift-click to select multiple commit", "커밋을 선택하려면 클릭하세요, 여러 커밋을 선택하려면 Shift-클릭하세요.");
 		m.put("Click to show comment of marked text", "표시된 텍스트의 주석을 보려면 클릭하세요.");
 		m.put("Click to show issue details", "이슈 세부 정보를 보려면 클릭하세요.");
-		m.put("Client ID of this OneDev instance registered in Google cloud", "Google 클라우드에 등록된 이 OneDev 인스턴스의 클라이언트 ID");
+		m.put("Client ID of this Cheeta instance registered in Google cloud", "Google 클라우드에 등록된 이 Cheeta 인스턴스의 클라이언트 ID");
 		m.put("Client Id", "클라이언트 ID");
 		m.put("Client Secret", "클라이언트 비밀");
-		m.put("Client secret of this OneDev instance registered in Google cloud", "Google 클라우드에 등록된 이 OneDev 인스턴스의 클라이언트 비밀");
+		m.put("Client secret of this Cheeta instance registered in Google cloud", "Google 클라우드에 등록된 이 Cheeta 인스턴스의 클라이언트 비밀");
 		m.put("Clippy Report", "Clippy 보고서");
 		m.put("Clone", "클론");
 		m.put("Clone Credential", "클론 자격 증명");
@@ -757,8 +757,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Commit suggestion", "커밋 제안");
 		m.put("Commits", "커밋들");
 		m.put("Commits are taken from default branch of non-forked repositories", "포크되지 않은 저장소의 기본 브랜치에서 커밋이 가져옵니다");
-		m.put("Commits generated by OneDev previously will be shown as unverified if this key is deleted. Type <code>yes</code> below if you want to continue.", 
-			"이 키가 삭제되면 이전에 OneDev에서 생성된 커밋은 확인되지 않은 것으로 표시됩니다. 계속하려면 아래에 <code>yes</code>를 입력하세요.");
+		m.put("Commits generated by Cheeta previously will be shown as unverified if this key is deleted. Type <code>yes</code> below if you want to continue.", 
+			"이 키가 삭제되면 이전에 Cheeta에서 생성된 커밋은 확인되지 않은 것으로 표시됩니다. 계속하려면 아래에 <code>yes</code>를 입력하세요.");
 		m.put("Commits were merged into target branch", "커밋이 대상 브랜치에 병합되었습니다");
 		m.put("Commits were merged into target branch outside of this pull request", "커밋이 이 풀 리퀘스트 외부에서 대상 브랜치에 병합되었습니다");
 		m.put("Commits were rebased onto target branch", "커밋이 대상 브랜치에 리베이스되었습니다");
@@ -1150,10 +1150,10 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Empty file added.", "빈 파일이 추가되었습니다.");
 		m.put("Empty file removed.", "빈 파일이 제거되었습니다.");
 		m.put("Enable", "활성화");
-		m.put("Enable <a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>time tracking</a> for this project to track progress and generate timesheets", 
-			"이 프로젝트에 대한 <a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>시간 추적</a>을 활성화하여 진행 상황을 추적하고 타임시트를 생성하세요.");
-		m.put("Enable <a href='https://docs.onedev.io/tutorials/package/working-with-packages' target='_blank'>package management</a> for this project", 
-			"이 프로젝트에 대해 <a href='https://docs.onedev.io/tutorials/package/working-with-packages' target='_blank'>패키지 관리</a>를 활성화합니다");
+		m.put("Enable <a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>time tracking</a> for this project to track progress and generate timesheets", 
+			"이 프로젝트에 대한 <a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>시간 추적</a>을 활성화하여 진행 상황을 추적하고 타임시트를 생성하세요.");
+		m.put("Enable <a href='https://docs.cheeta.io/tutorials/package/working-with-packages' target='_blank'>package management</a> for this project", 
+			"이 프로젝트에 대해 <a href='https://docs.cheeta.io/tutorials/package/working-with-packages' target='_blank'>패키지 관리</a>를 활성화합니다");
 		m.put("Enable Account Self Removal", "계정 자가 삭제를 활성화합니다");
 		m.put("Enable Account Self Sign-Up", "계정 자가 가입을 활성화합니다");
 		m.put("Enable All Queried Users", "모든 조회된 사용자를 활성화합니다");
@@ -1171,15 +1171,15 @@ public class Translation_ko extends TranslationResourceBundle {
 			"준비되었을 때(모든 리뷰어 승인, 모든 필수 작업 통과 등) 풀 리퀘스트를 자동으로 병합하도록 이 옵션을 활성화합니다");
 		m.put("Enable this to allow to run html report publish step. To avoid XSS attack, make sure this executor can only be used by trusted jobs", 
 			"HTML 보고서 게시 단계를 실행할 수 있도록 활성화합니다. XSS 공격을 방지하려면 이 실행자가 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
-		m.put("Enable this to allow to run site publish step. OneDev will serve project site files as is. To avoid XSS attack, make sure this executor can only be used by trusted jobs", 
-			"사이트 게시 단계를 실행할 수 있도록 허용하려면 이를 활성화합니다. OneDev는 프로젝트 사이트 파일을 그대로 제공합니다. XSS 공격을 방지하려면 이 실행자가 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
+		m.put("Enable this to allow to run site publish step. Cheeta will serve project site files as is. To avoid XSS attack, make sure this executor can only be used by trusted jobs", 
+			"사이트 게시 단계를 실행할 수 있도록 허용하려면 이를 활성화합니다. Cheeta는 프로젝트 사이트 파일을 그대로 제공합니다. XSS 공격을 방지하려면 이 실행자가 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
 		m.put("Enable this to place intermediate files required by job execution on dynamically allocated persistent volume instead of emptyDir", 
 			"emptyDir 대신 동적으로 할당된 영구 볼륨에 작업 실행에 필요한 중간 파일을 배치하려면 이를 활성화합니다");
 		m.put("Enable this to process issue or pull request comments posted via email", "이메일을 통해 게시된 이슈 또는 풀 리퀘스트 댓글을 처리하려면 이를 활성화합니다");
-		m.put("Enable this to process issue or pull request comments posted via email. <b class='text-danger'>NOTE:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>Sub addressing</a> needs to be enabled for system email address above, as OneDev uses it to track issue and pull request contexts", 
-			"이메일을 통해 게시된 이슈 또는 풀 리퀘스트 댓글을 처리하려면 이를 활성화합니다. <b class='text-danger'>참고:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>서브 어드레싱</a>이 위 시스템 이메일 주소에 대해 활성화되어야 합니다. OneDev는 이를 사용하여 이슈 및 풀 리퀘스트 컨텍스트를 추적합니다");
-		m.put("Enable this to process issue or pull request comments posted via email. <b class='text-danger'>NOTE:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>Sub addressing</a> needs to be enabled for system email address above, as OneDev uses it to track issue and pull request contexts", 
-			"이메일을 통해 게시된 이슈 또는 풀 리퀘스트 댓글을 처리하려면 이를 활성화합니다. <b class='text-danger'>참고:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>서브 어드레싱</a>이 위 시스템 이메일 주소에 대해 활성화되어야 합니다. OneDev는 이를 사용하여 이슈 및 풀 리퀘스트 컨텍스트를 추적합니다");
+		m.put("Enable this to process issue or pull request comments posted via email. <b class='text-danger'>NOTE:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>Sub addressing</a> needs to be enabled for system email address above, as Cheeta uses it to track issue and pull request contexts", 
+			"이메일을 통해 게시된 이슈 또는 풀 리퀘스트 댓글을 처리하려면 이를 활성화합니다. <b class='text-danger'>참고:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>서브 어드레싱</a>이 위 시스템 이메일 주소에 대해 활성화되어야 합니다. Cheeta는 이를 사용하여 이슈 및 풀 리퀘스트 컨텍스트를 추적합니다");
+		m.put("Enable this to process issue or pull request comments posted via email. <b class='text-danger'>NOTE:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>Sub addressing</a> needs to be enabled for system email address above, as Cheeta uses it to track issue and pull request contexts", 
+			"이메일을 통해 게시된 이슈 또는 풀 리퀘스트 댓글을 처리하려면 이를 활성화합니다. <b class='text-danger'>참고:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>서브 어드레싱</a>이 위 시스템 이메일 주소에 대해 활성화되어야 합니다. Cheeta는 이를 사용하여 이슈 및 풀 리퀘스트 컨텍스트를 추적합니다");
 		m.put("Enable to allow to upload build cache generated during CI/CD job. Uploaded cache can be used by subsequent builds of the project as long as cache key matches", 
 			"CI/CD 작업 중 생성된 빌드 캐시를 업로드할 수 있도록 허용하려면 이를 활성화합니다. 업로드된 캐시는 캐시 키가 일치하는 한 프로젝트의 후속 빌드에서 사용할 수 있습니다");
 		m.put("End Point", "엔드 포인트");
@@ -1196,8 +1196,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Enumeration", "열거형");
 		m.put("Env Var", "환경 변수");
 		m.put("Environment Variables", "환경 변수들");
-		m.put("Environment variable <code>serverUrl</code> in above command is taken from OneDev server url specified in <i>Administration / System Setting</i>. Change it if necessary", 
-			"위 명령에서 <code>serverUrl</code> 환경 변수는 <i>관리 / 시스템 설정</i>에 지정된 OneDev 서버 URL에서 가져옵니다. 필요하면 변경하세요");
+		m.put("Environment variable <code>serverUrl</code> in above command is taken from Cheeta server url specified in <i>Administration / System Setting</i>. Change it if necessary", 
+			"위 명령에서 <code>serverUrl</code> 환경 변수는 <i>관리 / 시스템 설정</i>에 지정된 Cheeta 서버 URL에서 가져옵니다. 필요하면 변경하세요");
 		m.put("Equal", "동일");
 		m.put("Error authenticating user", "사용자 인증 오류");
 		m.put("Error calculating commits: check log for details", "커밋 계산 오류: 세부 사항은 로그를 확인하세요");
@@ -1359,23 +1359,23 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("For CI/CD job, run below via a command step", "CI/CD 작업의 경우, 아래 명령 단계를 실행하세요");
 		m.put("For a particular project, the first matching entry will be used", "특정 프로젝트의 경우, 첫 번째 일치 항목이 사용됩니다");
 		m.put("For all issues", "모든 문제에 대해");
-		m.put("For build commit not reachable from default branch, a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create branch permission", 
-			"기본 브랜치에서 접근할 수 없는 빌드 커밋의 경우, <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 생성 브랜치 권한이 있는 액세스 토큰으로 지정해야 합니다");
-		m.put("For build commit not reachable from default branch, a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create tag permission", 
-			"기본 브랜치에서 접근할 수 없는 빌드 커밋의 경우, <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 생성 태그 권한이 있는 액세스 토큰으로 지정해야 합니다");
-		m.put("For build commit not reachable from default branch, a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with manage issue permission", 
-			"기본 브랜치에서 접근할 수 없는 빌드 커밋의 경우, <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 문제 관리 권한이 있는 액세스 토큰으로 지정해야 합니다");
-		m.put("For docker aware executors, this path is inside container, and accepts both absolute path and relative path (relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>). For shell related executors which runs on host machine directly, only relative path is accepted", 
-			"도커 인식 실행기의 경우, 이 경로는 컨테이너 내부에 있으며 절대 경로와 상대 경로( <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 기준 상대 경로)를 모두 허용합니다. 호스트 머신에서 직접 실행되는 쉘 관련 실행기의 경우, 상대 경로만 허용됩니다");
-		m.put("For each build, OneDev calculates a list of fixed issues since previous build automatically. This setting provides a default query to further filter/order this list. For a given job, the first matching entry will be used.", 
-			"각 빌드마다 OneDev는 이전 빌드 이후 수정된 문제 목록을 자동으로 계산합니다. 이 설정은 이 목록을 추가로 필터링/정렬하기 위한 기본 쿼리를 제공합니다. 특정 작업의 경우, 첫 번째 일치 항목이 사용됩니다.");
+		m.put("For build commit not reachable from default branch, a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create branch permission", 
+			"기본 브랜치에서 접근할 수 없는 빌드 커밋의 경우, <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 생성 브랜치 권한이 있는 액세스 토큰으로 지정해야 합니다");
+		m.put("For build commit not reachable from default branch, a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create tag permission", 
+			"기본 브랜치에서 접근할 수 없는 빌드 커밋의 경우, <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 생성 태그 권한이 있는 액세스 토큰으로 지정해야 합니다");
+		m.put("For build commit not reachable from default branch, a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with manage issue permission", 
+			"기본 브랜치에서 접근할 수 없는 빌드 커밋의 경우, <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 문제 관리 권한이 있는 액세스 토큰으로 지정해야 합니다");
+		m.put("For docker aware executors, this path is inside container, and accepts both absolute path and relative path (relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>). For shell related executors which runs on host machine directly, only relative path is accepted", 
+			"도커 인식 실행기의 경우, 이 경로는 컨테이너 내부에 있으며 절대 경로와 상대 경로( <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 기준 상대 경로)를 모두 허용합니다. 호스트 머신에서 직접 실행되는 쉘 관련 실행기의 경우, 상대 경로만 허용됩니다");
+		m.put("For each build, Cheeta calculates a list of fixed issues since previous build automatically. This setting provides a default query to further filter/order this list. For a given job, the first matching entry will be used.", 
+			"각 빌드마다 Cheeta는 이전 빌드 이후 수정된 문제 목록을 자동으로 계산합니다. 이 설정은 이 목록을 추가로 필터링/정렬하기 위한 기본 쿼리를 제공합니다. 특정 작업의 경우, 첫 번째 일치 항목이 사용됩니다.");
 		m.put("For each selected branch/tag, a separate build will be generated with branch/tag set to corresponding value", 
 			"선택된 각 브랜치/태그에 대해 별도의 빌드가 생성되며 브랜치/태그는 해당 값으로 설정됩니다");
 		m.put("For issues matching: ", "일치하는 문제에 대해:");
 		m.put("For very large git repository, you may need to tune options here to reduce memory usage", 
 			"매우 큰 Git 저장소의 경우, 메모리 사용량을 줄이기 위해 여기에서 옵션을 조정해야 할 수 있습니다");
-		m.put("For web hooks defined here and in parent projects, OneDev will post event data in JSON format to specified URLs when subscribed events happen", 
-			"여기와 상위 프로젝트에 정의된 웹 훅에 대해, OneDev는 구독된 이벤트가 발생할 때 지정된 URL로 JSON 형식의 이벤트 데이터를 게시합니다");
+		m.put("For web hooks defined here and in parent projects, Cheeta will post event data in JSON format to specified URLs when subscribed events happen", 
+			"여기와 상위 프로젝트에 정의된 웹 훅에 대해, Cheeta는 구독된 이벤트가 발생할 때 지정된 URL로 JSON 형식의 이벤트 데이터를 게시합니다");
 		m.put("Force", "강제");
 		m.put("Force Garbage Collection", "강제 가비지 컬렉션");
 		m.put("Forgot Password?", "비밀번호를 잊으셨나요?");
@@ -1397,8 +1397,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("GPG Trusted Keys", "GPG 신뢰 키");
 		m.put("GPG key deleted", "GPG 키 삭제됨");
 		m.put("GPG public key begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'", "GPG 공개 키는 '-----BEGIN PGP PUBLIC KEY BLOCK-----'로 시작합니다");
-		m.put("GPG signing key will be used to sign commits generated by OneDev, including pull request merge commits, user commits created via web UI or RESTful api.", 
-			"GPG 서명 키는 OneDev에서 생성된 커밋(풀 리퀘스트 병합 커밋, 웹 UI 또는 RESTful API를 통해 생성된 사용자 커밋 포함)을 서명하는 데 사용됩니다");
+		m.put("GPG signing key will be used to sign commits generated by Cheeta, including pull request merge commits, user commits created via web UI or RESTful api.", 
+			"GPG 서명 키는 Cheeta에서 생성된 커밋(풀 리퀘스트 병합 커밋, 웹 UI 또는 RESTful API를 통해 생성된 사용자 커밋 포함)을 서명하는 데 사용됩니다");
 		m.put("Gem Info", "젬 정보");
 		m.put("General", "일반");
 		m.put("General Settings", "일반 설정");
@@ -1457,28 +1457,28 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Great, your mail service configuration is working", "메일 서비스 구성이 정상적으로 작동합니다");
 		m.put("Groovy Script", "그루비 스크립트");
 		m.put("Groovy Scripts", "그루비 스크립트들");
-		m.put("Groovy script to be evaluated. It should return a <i>Date</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. <i>Date</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. It should return a <i>Float</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. <i>Float</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. It should return a <i>Integer</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. <i>Integer</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. It should return a <i>String</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. <i>String</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. It should return a <i>boolean</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. <i>boolean</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. It should return a <i>string</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. <i>string</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. It should return name of a group. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. 그룹 이름을 반환해야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. It should return string or list of string. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. 문자열 또는 문자열 목록을 반환해야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. The return value should be a list of group facade object to be used as choices. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. 반환 값은 선택 항목으로 사용할 그룹 파사드 객체 목록이어야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. The return value should be a list of user login names to be used as choices. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. 반환 값은 선택 항목으로 사용할 사용자 로그인 이름 목록이어야 합니다. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
-		m.put("Groovy script to be evaluated. The return value should be a value to color map, for instance:<br><code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, Use <tt>null</tt> if the value does not have a color. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"평가할 그루비 스크립트입니다. 반환 값은 값-색상 맵이어야 합니다. 예를 들어:<br><code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, 값에 색상이 없는 경우 <tt>null</tt>을 사용하세요. 자세한 내용은 <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. It should return a <i>Date</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. <i>Date</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. It should return a <i>Float</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. <i>Float</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. It should return a <i>Integer</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. <i>Integer</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. It should return a <i>String</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. <i>String</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. It should return a <i>boolean</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. <i>boolean</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. It should return a <i>string</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. <i>string</i> 값을 반환해야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. It should return name of a group. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. 그룹 이름을 반환해야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. It should return string or list of string. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. 문자열 또는 문자열 목록을 반환해야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. The return value should be a list of group facade object to be used as choices. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. 반환 값은 선택 항목으로 사용할 그룹 파사드 객체 목록이어야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. The return value should be a list of user login names to be used as choices. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. 반환 값은 선택 항목으로 사용할 사용자 로그인 이름 목록이어야 합니다. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
+		m.put("Groovy script to be evaluated. The return value should be a value to color map, for instance:<br><code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, Use <tt>null</tt> if the value does not have a color. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"평가할 그루비 스크립트입니다. 반환 값은 값-색상 맵이어야 합니다. 예를 들어:<br><code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, 값에 색상이 없는 경우 <tt>null</tt>을 사용하세요. 자세한 내용은 <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>스크립팅 도움말</a>을 확인하세요");
 		m.put("Groovy scripts", "그루비 스크립트들");
 		m.put("Group", "그룹");
 		m.put("Group \"{0}\" deleted", "그룹 \"{0}\"이(가) 삭제되었습니다");
@@ -1531,15 +1531,15 @@ public class Translation_ko extends TranslationResourceBundle {
 			"활성화되면 예약된 백업이 현재 <span wicket:id=\"leadServer\"></span> 리드 서버에서 실행됩니다");
 		m.put("If enabled, source branch will be deleted automatically after merge the pull request if user has permission to do that", 
 			"활성화되면 사용자가 권한이 있는 경우 풀 리퀘스트 병합 후 소스 브랜치가 자동으로 삭제됩니다");
-		m.put("If specified, OneDev will only display iterations with this prefix", "지정된 경우, OneDev는 이 접두사가 있는 반복만 표시합니다");
+		m.put("If specified, Cheeta will only display iterations with this prefix", "지정된 경우, Cheeta는 이 접두사가 있는 반복만 표시합니다");
 		m.put("If specified, all public and internal projects imported from GitLab will use these as default roles. Private projects are not affected", 
 			"지정된 경우, GitLab에서 가져온 모든 공개 및 내부 프로젝트는 이를 기본 역할로 사용합니다. 비공개 프로젝트는 영향을 받지 않습니다");
 		m.put("If specified, all public repositories imported from GitHub will use these as default roles. Private repositories are not affected", 
 			"지정된 경우, GitHub에서 가져온 모든 공개 저장소는 이를 기본 역할로 사용합니다. 비공개 저장소는 영향을 받지 않습니다");
 		m.put("If specified, total estimated/spent time of an issue will also include linked issues of this type", 
 			"지정된 경우, 문제의 총 예상/소요 시간에 이 유형의 연결된 문제도 포함됩니다");
-		m.put("If this option is enabled, git lfs command needs to be installed on OneDev server (even this step runs on other node)", 
-			"이 옵션이 활성화되면, git lfs 명령이 OneDev 서버에 설치되어야 합니다 (이 단계가 다른 노드에서 실행되더라도)");
+		m.put("If this option is enabled, git lfs command needs to be installed on Cheeta server (even this step runs on other node)", 
+			"이 옵션이 활성화되면, git lfs 명령이 Cheeta 서버에 설치되어야 합니다 (이 단계가 다른 노드에서 실행되더라도)");
 		m.put("If ticked, group indicated by this field will be able to edit estimated time of corresponding issues if time tracking is enabled", 
 			"선택된 경우, 이 필드로 표시된 그룹은 시간 추적이 활성화된 경우 해당 문제의 예상 시간을 편집할 수 있습니다");
 		m.put("Ignore", "무시");
@@ -1589,14 +1589,14 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Importing projects from {0}", "{0}에서 프로젝트 가져오는 중");
 		m.put("Imports", "가져오기");
 		m.put("In Projects", "프로젝트 내");
-		m.put("In case IMAP host certificate is self-signed or its CA root is not accepted, you may tell OneDev to bypass certificate check. <b class='text-danger'>WARNING: </b> In an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the certificate into OneDev</a> instead", 
-			"IMAP 호스트 인증서가 자체 서명되었거나 CA 루트가 허용되지 않는 경우, OneDev에 인증서 검사를 우회하도록 지시할 수 있습니다. <b class='text-danger'>경고: </b> 신뢰할 수 없는 네트워크에서는 중간자 공격으로 이어질 수 있으므로 대신 <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>OneDev에 인증서를 가져오십시오</a>");
-		m.put("In case SMTP host certificate is self-signed or its CA root is not accepted, you may tell OneDev to bypass certificate check. <b class='text-danger'>WARNING: </b> In an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the certificate into OneDev</a> instead", 
-			"SMTP 호스트 인증서가 자체 서명되었거나 CA 루트가 허용되지 않는 경우, OneDev에 인증서 검사를 우회하도록 지시할 수 있습니다. <b class='text-danger'>경고: </b> 신뢰할 수 없는 네트워크에서는 중간자 공격으로 이어질 수 있으므로 대신 <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>OneDev에 인증서를 가져오십시오</a>");
+		m.put("In case IMAP host certificate is self-signed or its CA root is not accepted, you may tell Cheeta to bypass certificate check. <b class='text-danger'>WARNING: </b> In an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the certificate into Cheeta</a> instead", 
+			"IMAP 호스트 인증서가 자체 서명되었거나 CA 루트가 허용되지 않는 경우, Cheeta에 인증서 검사를 우회하도록 지시할 수 있습니다. <b class='text-danger'>경고: </b> 신뢰할 수 없는 네트워크에서는 중간자 공격으로 이어질 수 있으므로 대신 <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>Cheeta에 인증서를 가져오십시오</a>");
+		m.put("In case SMTP host certificate is self-signed or its CA root is not accepted, you may tell Cheeta to bypass certificate check. <b class='text-danger'>WARNING: </b> In an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the certificate into Cheeta</a> instead", 
+			"SMTP 호스트 인증서가 자체 서명되었거나 CA 루트가 허용되지 않는 경우, Cheeta에 인증서 검사를 우회하도록 지시할 수 있습니다. <b class='text-danger'>경고: </b> 신뢰할 수 없는 네트워크에서는 중간자 공격으로 이어질 수 있으므로 대신 <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>Cheeta에 인증서를 가져오십시오</a>");
 		m.put("In case anonymous access is disabled or anonymous user does not have enough permission for a resource operation, you will need to authenticate by providing user name and password (or access token) via http basic auth header", 
 			"익명 액세스가 비활성화되었거나 익명 사용자가 리소스 작업에 대한 충분한 권한이 없는 경우, 사용자 이름과 비밀번호(또는 액세스 토큰)를 제공하여 http 기본 인증 헤더를 통해 인증해야 합니다");
-		m.put("In case cache is not hit via above key, OneDev will loop through load keys defined here in order until a matching cache is found in project hierarchy. A cache is considered matching if its key is prefixed with the load key. If multiple caches matches, the most recent cache will be returned", 
-			"위 키를 통해 캐시가 적중되지 않는 경우, OneDev는 프로젝트 계층에서 정의된 로드 키를 순서대로 반복하여 일치하는 캐시를 찾습니다. 캐시는 키가 로드 키로 시작하는 경우 일치하는 것으로 간주됩니다. 여러 캐시가 일치하면 가장 최근의 캐시가 반환됩니다");
+		m.put("In case cache is not hit via above key, Cheeta will loop through load keys defined here in order until a matching cache is found in project hierarchy. A cache is considered matching if its key is prefixed with the load key. If multiple caches matches, the most recent cache will be returned", 
+			"위 키를 통해 캐시가 적중되지 않는 경우, Cheeta는 프로젝트 계층에서 정의된 로드 키를 순서대로 반복하여 일치하는 캐시를 찾습니다. 캐시는 키가 로드 키로 시작하는 경우 일치하는 것으로 간주됩니다. 여러 캐시가 일치하면 가장 최근의 캐시가 반환됩니다");
 		m.put("In case cache needs to be uploaded, this property specifies target project for the upload. Leave empty for current project", 
 			"캐시를 업로드해야 하는 경우, 이 속성은 업로드 대상 프로젝트를 지정합니다. 현재 프로젝트는 비워 두십시오");
 		m.put("In case the pull request status is out of sync with underlying repository, you may synchronize them manually here", 
@@ -1635,8 +1635,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Insert this image", "이 이미지를 삽입");
 		m.put("Install Subscription Key", "구독 키 설치");
 		m.put("Integer", "정수");
-		m.put("Interactive web shell access to running jobs is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"실행 중인 작업에 대한 대화형 웹 셸 액세스는 엔터프라이즈 기능입니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>");
+		m.put("Interactive web shell access to running jobs is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"실행 중인 작업에 대한 대화형 웹 셸 액세스는 엔터프라이즈 기능입니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>");
 		m.put("Internal Database", "내부 데이터베이스");
 		m.put("Interpreter", "인터프리터");
 		m.put("Invalid GPG signature", "유효하지 않은 GPG 서명");
@@ -1653,8 +1653,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Invalid selection, click for details", "잘못된 선택, 세부 정보 확인 클릭");
 		m.put("Invalid ssh signature", "유효하지 않은 ssh 서명");
 		m.put("Invalid state response", "잘못된 상태 응답");
-		m.put("Invalid state. Please make sure you are visiting OneDev using server url specified in system setting", 
-			"유효하지 않은 상태입니다. 시스템 설정에 지정된 서버 URL을 사용하여 OneDev를 방문하고 있는지 확인하세요");
+		m.put("Invalid state. Please make sure you are visiting Cheeta using server url specified in system setting", 
+			"유효하지 않은 상태입니다. 시스템 설정에 지정된 서버 URL을 사용하여 Cheeta를 방문하고 있는지 확인하세요");
 		m.put("Invalid subscription key", "잘못된 구독 키");
 		m.put("Invalid working period", "잘못된 작업 기간");
 		m.put("Invitation sent to \"{0}\"", "\"{0}\"로 초대장이 발송되었습니다");
@@ -1731,8 +1731,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Issue state duration statistics", "이슈 상태 지속 시간 통계");
 		m.put("Issue state frequency statistics", "이슈 상태 빈도 통계");
 		m.put("Issue state trend statistics", "이슈 상태 추세 통계");
-		m.put("Issue statistics is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"이슈 통계는 엔터프라이즈 기능입니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>");
+		m.put("Issue statistics is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"이슈 통계는 엔터프라이즈 기능입니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>");
 		m.put("Issue workflow changed, <a wicket:id=\"reconcile\" class=\"link-primary\">reconciliation</a> needs to be performed to make data consistent. You may do this after making all necessary changes", 
 			"이슈 워크플로가 변경되었습니다. <a wicket:id=\"reconcile\" class=\"link-primary\">조정</a>을 수행하여 데이터를 일관되게 만들어야 합니다. 필요한 모든 변경을 완료한 후 수행할 수 있습니다");
 		m.put("Issues", "이슈들");
@@ -1898,7 +1898,7 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Login name already used by another account", "다른 계정에서 이미 사용 중인 로그인 이름");
 		m.put("Login name or email", "로그인 이름 또는 이메일");
 		m.put("Login name or email address", "로그인 이름 또는 이메일 주소");
-		m.put("Login to OneDev docker registry", "OneDev 도커 레지스트리에 로그인");
+		m.put("Login to Cheeta docker registry", "Cheeta 도커 레지스트리에 로그인");
 		m.put("Login to comment", "댓글 작성하려면 로그인하세요");
 		m.put("Login to comment on selection", "선택에 댓글 작성하려면 로그인하세요");
 		m.put("Login to vote", "투표하려면 로그인하세요");
@@ -2160,8 +2160,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("No one", "아무도 없음");
 		m.put("No packages to delete", "삭제할 패키지 없음");
 		m.put("No parent", "상위 없음");
-		m.put("No previous successful build on <a href=\"https://docs.onedev.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">same stream</a> to calculate fixed issues since", 
-			"<a href=\"https://docs.onedev.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">동일 스트림</a>에서 이전 성공적인 빌드 없음");
+		m.put("No previous successful build on <a href=\"https://docs.cheeta.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">same stream</a> to calculate fixed issues since", 
+			"<a href=\"https://docs.cheeta.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">동일 스트림</a>에서 이전 성공적인 빌드 없음");
 		m.put("No projects found", "프로젝트 없음");
 		m.put("No projects to delete", "삭제할 프로젝트 없음");
 		m.put("No projects to modify", "수정할 프로젝트 없음");
@@ -2251,16 +2251,16 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Old Password", "이전 비밀번호");
 		m.put("On Behalf Of", "대신하여");
 		m.put("On Branches", "브랜치에서");
-		m.put("OneDev Issue Field", "OneDev 이슈 필드");
-		m.put("OneDev Issue Link", "OneDev 이슈 링크");
-		m.put("OneDev Issue State", "OneDev 이슈 상태");
-		m.put("OneDev analyzes repository files for code search, line statistics, and code contribution statistics. This setting tells which files should be analyzed, and expects space-separated <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path patterns</a>. A pattern can be excluded by prefixing with '-', for instance <code>-**/vendors/**</code> will exclude all files with vendors in path. <b>NOTE: </b> Changing this setting only affects new commits. To apply the change to history commits, please stop the server and delete folder <code>index</code> and <code>info/commit</code> under <a href='https://docs.onedev.io/concepts#project-storage' target='_blank'>project's storage directory</a>. The repository will be re-analyzed when server is started", 
-			"OneDev는 코드 검색, 라인 통계 및 코드 기여 통계를 위해 저장소 파일을 분석합니다. 이 설정은 분석할 파일을 지정하며, 공백으로 구분된 <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 패턴</a>을 기대합니다. 패턴은 '-'로 시작하여 제외할 수 있으며, 예를 들어 <code>-**/vendors/**</code>는 경로에 vendors가 포함된 모든 파일을 제외합니다. <b>참고: </b> 이 설정을 변경하면 새 커밋에만 영향을 미칩니다. 변경 사항을 히스토리 커밋에 적용하려면 서버를 중지하고 <a href='https://docs.onedev.io/concepts#project-storage' target='_blank'>프로젝트 저장소 디렉토리</a> 아래의 <code>index</code> 및 <code>info/commit</code> 폴더를 삭제하십시오. 서버가 시작되면 저장소가 다시 분석됩니다");
-		m.put("OneDev configures git hooks to communicate with itself via curl", "OneDev는 git 훅을 구성하여 curl을 통해 자체적으로 통신합니다");
-		m.put("OneDev needs to search and determine user DN, as well as searching user group information if group retrieval is enabled. Tick this option and specify 'manager' DN and password if these operations needs to be authenticated", 
-			"OneDev는 사용자 DN을 검색하고 그룹 검색이 활성화된 경우 사용자 그룹 정보를 검색해야 합니다. 이 옵션을 선택하고 '관리자' DN 및 비밀번호를 지정하여 이러한 작업이 인증이 필요한 경우 설정하십시오");
-		m.put("OneDev requires git command line to manage repositories. The minimum required version is 2.11.1. Also make sure that git-lfs is installed if you want to retrieve LFS files in build job", 
-			"OneDev는 저장소를 관리하기 위해 git 명령줄을 필요로 합니다. 최소 요구 버전은 2.11.1입니다. 또한 빌드 작업에서 LFS 파일을 검색하려면 git-lfs가 설치되어 있는지 확인하십시오");
+		m.put("Cheeta Issue Field", "Cheeta 이슈 필드");
+		m.put("Cheeta Issue Link", "Cheeta 이슈 링크");
+		m.put("Cheeta Issue State", "Cheeta 이슈 상태");
+		m.put("Cheeta analyzes repository files for code search, line statistics, and code contribution statistics. This setting tells which files should be analyzed, and expects space-separated <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path patterns</a>. A pattern can be excluded by prefixing with '-', for instance <code>-**/vendors/**</code> will exclude all files with vendors in path. <b>NOTE: </b> Changing this setting only affects new commits. To apply the change to history commits, please stop the server and delete folder <code>index</code> and <code>info/commit</code> under <a href='https://docs.cheeta.io/concepts#project-storage' target='_blank'>project's storage directory</a>. The repository will be re-analyzed when server is started", 
+			"Cheeta는 코드 검색, 라인 통계 및 코드 기여 통계를 위해 저장소 파일을 분석합니다. 이 설정은 분석할 파일을 지정하며, 공백으로 구분된 <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 패턴</a>을 기대합니다. 패턴은 '-'로 시작하여 제외할 수 있으며, 예를 들어 <code>-**/vendors/**</code>는 경로에 vendors가 포함된 모든 파일을 제외합니다. <b>참고: </b> 이 설정을 변경하면 새 커밋에만 영향을 미칩니다. 변경 사항을 히스토리 커밋에 적용하려면 서버를 중지하고 <a href='https://docs.cheeta.io/concepts#project-storage' target='_blank'>프로젝트 저장소 디렉토리</a> 아래의 <code>index</code> 및 <code>info/commit</code> 폴더를 삭제하십시오. 서버가 시작되면 저장소가 다시 분석됩니다");
+		m.put("Cheeta configures git hooks to communicate with itself via curl", "Cheeta는 git 훅을 구성하여 curl을 통해 자체적으로 통신합니다");
+		m.put("Cheeta needs to search and determine user DN, as well as searching user group information if group retrieval is enabled. Tick this option and specify 'manager' DN and password if these operations needs to be authenticated", 
+			"Cheeta는 사용자 DN을 검색하고 그룹 검색이 활성화된 경우 사용자 그룹 정보를 검색해야 합니다. 이 옵션을 선택하고 '관리자' DN 및 비밀번호를 지정하여 이러한 작업이 인증이 필요한 경우 설정하십시오");
+		m.put("Cheeta requires git command line to manage repositories. The minimum required version is 2.11.1. Also make sure that git-lfs is installed if you want to retrieve LFS files in build job", 
+			"Cheeta는 저장소를 관리하기 위해 git 명령줄을 필요로 합니다. 최소 요구 버전은 2.11.1입니다. 또한 빌드 작업에서 LFS 파일을 검색하려면 git-lfs가 설치되어 있는지 확인하십시오");
 		m.put("Online", "온라인");
 		m.put("Only create merge commit if target branch can not be fast-forwarded to source branch", 
 			"대상 브랜치를 소스 브랜치로 빠르게 병합할 수 없는 경우에만 병합 커밋 생성");
@@ -2272,10 +2272,10 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Open new pull request", "새 풀 리퀘스트 열기");
 		m.put("Open terminal of current running step", "현재 실행 중인 단계의 터미널 열기");
 		m.put("OpenID", "OpenID");
-		m.put("OpenID client identification will be assigned by your OpenID provider when registering this OneDev instance as client application", 
-			"OpenID 클라이언트 식별은 이 OneDev 인스턴스를 클라이언트 애플리케이션으로 등록할 때 OpenID 제공자가 할당합니다");
-		m.put("OpenID client secret will be generated by your OpenID provider when registering this OneDev instance as client application", 
-			"OpenID 클라이언트 비밀은 이 OneDev 인스턴스를 클라이언트 애플리케이션으로 등록할 때 OpenID 제공자가 생성합니다");
+		m.put("OpenID client identification will be assigned by your OpenID provider when registering this Cheeta instance as client application", 
+			"OpenID 클라이언트 식별은 이 Cheeta 인스턴스를 클라이언트 애플리케이션으로 등록할 때 OpenID 제공자가 할당합니다");
+		m.put("OpenID client secret will be generated by your OpenID provider when registering this Cheeta instance as client application", 
+			"OpenID 클라이언트 비밀은 이 Cheeta 인스턴스를 클라이언트 애플리케이션으로 등록할 때 OpenID 제공자가 생성합니다");
 		m.put("OpenSSH Public Key", "OpenSSH 공개 키");
 		m.put("OpenSSH public key begins with 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', 'ecdsa-sha2-nistp521', 'ssh-ed25519', 'sk-ecdsa-sha2-nistp256@openssh.com', or 'sk-ssh-ed25519@openssh.com'", 
 			"OpenSSH 공개 키는 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', 'ecdsa-sha2-nistp521', 'ssh-ed25519', 'sk-ecdsa-sha2-nistp256@openssh.com', 또는 'sk-ssh-ed25519@openssh.com'으로 시작합니다");
@@ -2315,8 +2315,8 @@ public class Translation_ko extends TranslationResourceBundle {
 			"선택적으로 사용자 LDAP 항목 내부의 속성 이름을 지정하십시오. 해당 값은 사용자 이메일로 사용됩니다. 이 필드는 일반적으로 RFC 2798에 따라 <i>mail</i>로 설정됩니다");
 		m.put("Optionally specifies name of the attribute inside the user LDAP entry whose value will be taken as user full name. This field is normally set to <i>displayName</i> according to RFC 2798. If left empty, full name of the user will not be retrieved", 
 			"선택적으로 사용자 LDAP 항목 내부의 속성 이름을 지정하십시오. 해당 값은 사용자 전체 이름으로 사용됩니다. 이 필드는 일반적으로 RFC 2798에 따라 <i>displayName</i>로 설정됩니다. 비워 두면 사용자의 전체 이름이 검색되지 않습니다");
-		m.put("Optionally specify <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as GitHub access token. This is used to retrieve release notes of dependencies hosted on GitHub, and the authenticated access will get a higher rate limit", 
-			"선택적으로 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 GitHub 액세스 토큰으로 지정하세요. 이는 GitHub에 호스팅된 종속 항목의 릴리스 노트를 검색하는 데 사용되며, 인증된 액세스는 더 높은 속도 제한을 받습니다.");
+		m.put("Optionally specify <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as GitHub access token. This is used to retrieve release notes of dependencies hosted on GitHub, and the authenticated access will get a higher rate limit", 
+			"선택적으로 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 GitHub 액세스 토큰으로 지정하세요. 이는 GitHub에 호스팅된 종속 항목의 릴리스 노트를 검색하는 데 사용되며, 인증된 액세스는 더 높은 속도 제한을 받습니다.");
 		m.put("Optionally specify <a href='https://github.com/GoogleContainerTools/kaniko?tab=readme-ov-file#additional-flags' target='_blank'>additional options</a> of kaniko", 
 			"선택적으로 kaniko의 <a href='https://github.com/GoogleContainerTools/kaniko?tab=readme-ov-file#additional-flags' target='_blank'>추가 옵션</a>을 지정하세요.");
 		m.put("Optionally specify <a href='https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane_pull.md' target='_blank'>additional options</a> of crane", 
@@ -2327,37 +2327,37 @@ public class Translation_ko extends TranslationResourceBundle {
 			"선택적으로 <span class='text-info'>쉼표로 구분된</span> 빌드 플랫폼을 지정하세요. 예를 들어 <tt>linux/amd64,linux/arm64</tt>. 작업을 실행하는 노드의 플랫폼으로 빌드하려면 비워 두세요.");
 		m.put("Optionally specify <span class='text-info'>comma separated</span> platforms to scan, for instance <tt>linux/amd64,linux/arm64</tt>. Leave empty to scan all platforms in OCI layout", 
 			"선택적으로 <span class='text-info'>쉼표로 구분된</span> 스캔 플랫폼을 지정하세요. 예를 들어 <tt>linux/amd64,linux/arm64</tt>. OCI 레이아웃의 모든 플랫폼을 스캔하려면 비워 두세요.");
-		m.put("Optionally specify Dockerfile relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use file <tt>Dockerfile</tt> under build path specified above", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>에 상대적인 Dockerfile을 지정하세요. 위에서 지정한 빌드 경로 아래의 <tt>Dockerfile</tt> 파일을 사용하려면 비워 두세요.");
+		m.put("Optionally specify Dockerfile relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use file <tt>Dockerfile</tt> under build path specified above", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>에 상대적인 Dockerfile을 지정하세요. 위에서 지정한 빌드 경로 아래의 <tt>Dockerfile</tt> 파일을 사용하려면 비워 두세요.");
 		m.put("Optionally specify JavaScript config to be used by Renovate CLI", "선택적으로 Renovate CLI에서 사용할 JavaScript 구성을 지정하세요.");
 		m.put("Optionally specify SSH root URL, which will be used to construct project clone url via SSH protocol. Leave empty to derive from server url", 
 			"선택적으로 SSH 루트 URL을 지정하세요. 이는 SSH 프로토콜을 통해 프로젝트 클론 URL을 구성하는 데 사용됩니다. 서버 URL에서 파생하려면 비워 두세요.");
 		m.put("Optionally specify a <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>regular expression pattern</a> for valid values of the text input", 
 			"선택적으로 텍스트 입력의 유효한 값을 위한 <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>정규 표현식 패턴</a>을 지정하세요.");
-		m.put("Optionally specify a OneDev project to be used as parent of imported projects. Leave empty to import as root projects", 
-			"선택적으로 가져온 프로젝트의 상위 프로젝트로 사용할 OneDev 프로젝트를 지정하세요. 루트 프로젝트로 가져오려면 비워 두세요.");
-		m.put("Optionally specify a OneDev project to be used as parent of imported repositories. Leave empty to import as root projects", 
-			"선택적으로 가져온 저장소의 상위 프로젝트로 사용할 OneDev 프로젝트를 지정하세요. 루트 프로젝트로 가져오려면 비워 두세요.");
+		m.put("Optionally specify a Cheeta project to be used as parent of imported projects. Leave empty to import as root projects", 
+			"선택적으로 가져온 프로젝트의 상위 프로젝트로 사용할 Cheeta 프로젝트를 지정하세요. 루트 프로젝트로 가져오려면 비워 두세요.");
+		m.put("Optionally specify a Cheeta project to be used as parent of imported repositories. Leave empty to import as root projects", 
+			"선택적으로 가져온 저장소의 상위 프로젝트로 사용할 Cheeta 프로젝트를 지정하세요. 루트 프로젝트로 가져오려면 비워 두세요.");
 		m.put("Optionally specify a base query for the list", "선택적으로 목록에 대한 기본 쿼리를 지정하세요.");
 		m.put("Optionally specify a base query to filter/order issues in backlog. Backlog issues are those not associating with current iteration", 
 			"선택적으로 백로그의 문제를 필터링/정렬하기 위한 기본 쿼리를 지정하세요. 백로그 문제는 현재 반복과 연관되지 않은 문제입니다.");
 		m.put("Optionally specify a base query to filter/order issues of the board", "선택적으로 보드의 문제를 필터링/정렬하기 위한 기본 쿼리를 지정하세요.");
-		m.put("Optionally specify a cron expression to schedule database auto-backup. The cron expression format is <em>&lt;seconds&gt; &lt;minutes&gt; &lt;hours&gt; &lt;day-of-month&gt; &lt;month&gt; &lt;day-of-week&gt;</em>.For example, <em>0 0 1 * * ?</em> means 1:00am every day. For details of the format, refer to <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>Quartz tutorial</a>.The backup files will be placed into <em>db-backup</em> folder under OneDev installation directory. In case multiple servers connect to form a cluster, auto-backup takes place on the <a href='https://docs.onedev.io/concepts#lead-server' target='_blank'>lead server</a>. Leave this property empty if you do not want to enable database auto backup.", 
-			"선택적으로 데이터베이스 자동 백업을 예약하기 위한 크론 표현식을 지정하세요. 크론 표현식 형식은 <em>&lt;초&gt; &lt;분&gt; &lt;시간&gt; &lt;일&gt; &lt;월&gt; &lt;요일&gt;</em>입니다. 예를 들어, <em>0 0 1 * * ?</em>는 매일 오전 1시를 의미합니다. 형식에 대한 자세한 내용은 <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>Quartz 튜토리얼</a>을 참조하세요. 백업 파일은 OneDev 설치 디렉터리 아래의 <em>db-backup</em> 폴더에 저장됩니다. 여러 서버가 클러스터를 형성하기 위해 연결된 경우, 자동 백업은 <a href='https://docs.onedev.io/concepts#lead-server' target='_blank'>리드 서버</a>에서 수행됩니다. 데이터베이스 자동 백업을 활성화하지 않으려면 이 속성을 비워 두세요.");
-		m.put("Optionally specify a date field to hold due date information.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"선택적으로 마감일 정보를 보유할 날짜 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Optionally specify a path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to put retrieved artifacts. Leave empty to use job workspace itself", 
-			"선택적으로 검색된 아티팩트를 저장할 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 워크스페이스</a>에 상대적인 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
+		m.put("Optionally specify a cron expression to schedule database auto-backup. The cron expression format is <em>&lt;seconds&gt; &lt;minutes&gt; &lt;hours&gt; &lt;day-of-month&gt; &lt;month&gt; &lt;day-of-week&gt;</em>.For example, <em>0 0 1 * * ?</em> means 1:00am every day. For details of the format, refer to <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>Quartz tutorial</a>.The backup files will be placed into <em>db-backup</em> folder under Cheeta installation directory. In case multiple servers connect to form a cluster, auto-backup takes place on the <a href='https://docs.cheeta.io/concepts#lead-server' target='_blank'>lead server</a>. Leave this property empty if you do not want to enable database auto backup.", 
+			"선택적으로 데이터베이스 자동 백업을 예약하기 위한 크론 표현식을 지정하세요. 크론 표현식 형식은 <em>&lt;초&gt; &lt;분&gt; &lt;시간&gt; &lt;일&gt; &lt;월&gt; &lt;요일&gt;</em>입니다. 예를 들어, <em>0 0 1 * * ?</em>는 매일 오전 1시를 의미합니다. 형식에 대한 자세한 내용은 <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>Quartz 튜토리얼</a>을 참조하세요. 백업 파일은 Cheeta 설치 디렉터리 아래의 <em>db-backup</em> 폴더에 저장됩니다. 여러 서버가 클러스터를 형성하기 위해 연결된 경우, 자동 백업은 <a href='https://docs.cheeta.io/concepts#lead-server' target='_blank'>리드 서버</a>에서 수행됩니다. 데이터베이스 자동 백업을 활성화하지 않으려면 이 속성을 비워 두세요.");
+		m.put("Optionally specify a date field to hold due date information.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"선택적으로 마감일 정보를 보유할 날짜 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Optionally specify a path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to put retrieved artifacts. Leave empty to use job workspace itself", 
+			"선택적으로 검색된 아티팩트를 저장할 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 워크스페이스</a>에 상대적인 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
 		m.put("Optionally specify a storage class to allocate build volume dynamically. Leave empty to use default storage class. <b class='text-warning'>NOTE:</b> Reclaim policy of the storage class should be set to <code>Delete</code>, as the volume is only used to hold temporary build files", 
 			"선택적으로 빌드 볼륨을 동적으로 할당할 스토리지 클래스를 지정하세요. 기본 스토리지 클래스를 사용하려면 비워 두세요. <b class='text-warning'>참고:</b> 스토리지 클래스의 복구 정책은 <code>Delete</code>로 설정되어야 합니다. 볼륨은 임시 빌드 파일을 저장하는 데만 사용됩니다.");
-		m.put("Optionally specify a working period field to hold estimated time infomration.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"선택적으로 예상 시간을 보유할 작업 기간 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Optionally specify a working period field to hold spent time infomration.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"선택적으로 소요 시간을 보유할 작업 기간 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Optionally specify a working period field to hold time estimate infomration.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"선택적으로 시간 추정을 보유할 작업 기간 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Optionally specify a working period field to hold time spent infomration.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"선택적으로 소요 시간을 보유할 작업 기간 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Optionally specify a working period field to hold estimated time infomration.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"선택적으로 예상 시간을 보유할 작업 기간 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Optionally specify a working period field to hold spent time infomration.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"선택적으로 소요 시간을 보유할 작업 기간 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Optionally specify a working period field to hold time estimate infomration.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"선택적으로 시간 추정을 보유할 작업 기간 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Optionally specify a working period field to hold time spent infomration.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"선택적으로 소요 시간을 보유할 작업 기간 필드를 지정하세요.<br><b>참고: </b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
 		m.put("Optionally specify additional options for buildx build command", "선택적으로 buildx 빌드 명령의 추가 옵션을 지정하세요.");
 		m.put("Optionally specify allowed <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank'>CORS</a> origins. For a CORS simple or preflight request, if value of request header <code>Origin</code> is included here, the response header <code>Access-Control-Allow-Origin</code> will be set to the same value", 
 			"선택적으로 허용된 <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank'>CORS</a> 출처를 지정하세요. CORS 간단 또는 사전 요청의 경우, 요청 헤더 <code>Origin</code>의 값이 여기에 포함되어 있으면 응답 헤더 <code>Access-Control-Allow-Origin</code>이 동일한 값으로 설정됩니다.");
@@ -2368,17 +2368,17 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Optionally specify applicable jobs of this executor", "선택적으로 이 실행자에 적용 가능한 작업을 지정합니다");
 		m.put("Optionally specify applicable users who pushed the change", "변경 사항을 푸시한 적용 가능한 사용자를 선택적으로 지정");
 		m.put("Optionally specify arguments to run above image", "선택적으로 위 이미지 실행을 위한 인수를 지정하세요.");
-		m.put("Optionally specify artifacts to retrieve from the dependency into <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Only published artifacts (via artifact publish step) can be retrieved. Leave empty to not retrieve any artifacts", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 워크스페이스</a>로 종속 항목에서 검색할 아티팩트를 지정하세요. 게시된 아티팩트(아티팩트 게시 단계에서 게시된 것)만 검색할 수 있습니다. 아티팩트를 검색하지 않으려면 비워 두세요.");
+		m.put("Optionally specify artifacts to retrieve from the dependency into <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Only published artifacts (via artifact publish step) can be retrieved. Leave empty to not retrieve any artifacts", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 워크스페이스</a>로 종속 항목에서 검색할 아티팩트를 지정하세요. 게시된 아티팩트(아티팩트 게시 단계에서 게시된 것)만 검색할 수 있습니다. 아티팩트를 검색하지 않으려면 비워 두세요.");
 		m.put("Optionally specify authorized roles to press this button. If not specified, all users are allowed", 
 			"선택적으로 이 버튼을 누를 수 있는 권한이 있는 역할을 지정하세요. 지정하지 않으면 모든 사용자가 허용됩니다.");
 		m.put("Optionally specify base query of the list", "선택적으로 목록의 기본 쿼리를 지정하세요.");
 		m.put("Optionally specify branches/users/groups allowed to access this secret. If left empty, any job can access this secret, including those triggered via external pull requests", 
 			"선택적으로 이 비밀에 액세스할 수 있는 브랜치/사용자/그룹을 지정하세요. 비워 두면 외부 풀 요청을 통해 트리거된 작업을 포함하여 모든 작업이 이 비밀에 액세스할 수 있습니다.");
-		m.put("Optionally specify build context path relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use job workspace itself. The file <code>Dockerfile</code> is expected to exist in build context directory, unless you specify a different location with option <code>--dockerfile</code>", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>에 상대적인 빌드 컨텍스트 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요. <code>Dockerfile</code> 파일은 빌드 컨텍스트 디렉터리에 존재해야 하며, 옵션 <code>--dockerfile</code>로 다른 위치를 지정하지 않는 한 그렇습니다.");
-		m.put("Optionally specify build path relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use job workspace itself", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>에 상대적인 빌드 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
+		m.put("Optionally specify build context path relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use job workspace itself. The file <code>Dockerfile</code> is expected to exist in build context directory, unless you specify a different location with option <code>--dockerfile</code>", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>에 상대적인 빌드 컨텍스트 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요. <code>Dockerfile</code> 파일은 빌드 컨텍스트 디렉터리에 존재해야 하며, 옵션 <code>--dockerfile</code>로 다른 위치를 지정하지 않는 한 그렇습니다.");
+		m.put("Optionally specify build path relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use job workspace itself", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>에 상대적인 빌드 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
 		m.put("Optionally specify cluster role the job pods service account binding to. This is necessary if you want to do things such as running other Kubernetes pods in job command", 
 			"선택적으로 작업 포드 서비스 계정이 바인딩되는 클러스터 역할을 지정하세요. 이는 작업 명령에서 다른 Kubernetes 포드를 실행하는 등의 작업을 수행하려는 경우 필요합니다.");
 		m.put("Optionally specify comma separated licenses to be ignored", "선택적으로 무시할 쉼표로 구분된 라이센스를 지정하세요.");
@@ -2414,10 +2414,10 @@ public class Translation_ko extends TranslationResourceBundle {
 			"선택적으로 이 작업에 대한 실행자를 지정합니다. 비워두면 자동 검색된 실행자를 사용합니다");
 		m.put("Optionally specify executor for this job. Leave empty to use first applicable executor", 
 			"선택적으로 이 작업에 대한 실행자를 지정합니다. 비워두면 첫 번째 적용 가능한 실행자를 사용합니다");
-		m.put("Optionally specify files relative to cache path to ignore when detect cache changes. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Multiple files should be separated by space, and single file containing space should be quoted", 
-			"선택적으로 캐시 변경을 감지할 때 무시할 캐시 경로에 상대적인 파일을 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 여러 파일은 공백으로 구분해야 하며, 공백이 포함된 단일 파일은 따옴표로 묶어야 합니다.");
-		m.put("Optionally specify group search base if you want to retrieve group membership information of the user. For example: <i>cn=Users, dc=example, dc=com</i>. To give appropriate permissions to a Active Directory group, a OneDev group with same name should be defined. Leave empty to manage group memberships at OneDev side", 
-			"선택적으로 사용자의 그룹 멤버십 정보를 검색하려면 그룹 검색 기준을 지정하세요. 예를 들어: <i>cn=Users, dc=example, dc=com</i>. Active Directory 그룹에 적절한 권한을 부여하려면 동일한 이름의 OneDev 그룹이 정의되어야 합니다. 그룹 멤버십을 OneDev 측에서 관리하려면 비워 두세요.");
+		m.put("Optionally specify files relative to cache path to ignore when detect cache changes. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Multiple files should be separated by space, and single file containing space should be quoted", 
+			"선택적으로 캐시 변경을 감지할 때 무시할 캐시 경로에 상대적인 파일을 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 여러 파일은 공백으로 구분해야 하며, 공백이 포함된 단일 파일은 따옴표로 묶어야 합니다.");
+		m.put("Optionally specify group search base if you want to retrieve group membership information of the user. For example: <i>cn=Users, dc=example, dc=com</i>. To give appropriate permissions to a Active Directory group, a Cheeta group with same name should be defined. Leave empty to manage group memberships at Cheeta side", 
+			"선택적으로 사용자의 그룹 멤버십 정보를 검색하려면 그룹 검색 기준을 지정하세요. 예를 들어: <i>cn=Users, dc=example, dc=com</i>. Active Directory 그룹에 적절한 권한을 부여하려면 동일한 이름의 Cheeta 그룹이 정의되어야 합니다. 그룹 멤버십을 Cheeta 측에서 관리하려면 비워 두세요.");
 		m.put("Optionally specify issue links allowed to edit", "선택적으로 편집할 수 있는 문제 링크를 지정하세요.");
 		m.put("Optionally specify issues applicable for this template. Leave empty for all", "선택적으로 이 템플릿에 적용 가능한 문제를 지정하세요. 모든 문제를 지정하려면 비워 두세요.");
 		m.put("Optionally specify issues applicable for this transition. Leave empty for all issues", 
@@ -2442,15 +2442,15 @@ public class Translation_ko extends TranslationResourceBundle {
 			"선택적으로 ssh 명령의 옵션을 지정하세요. 여러 옵션은 공백으로 구분해야 합니다.");
 		m.put("Optionally specify options passed to renovate cli. Multiple options should be separated by space, and single option containing spaces should be quoted", 
 			"선택적으로 Renovate CLI에 전달된 옵션을 지정하세요. 여러 옵션은 공백으로 구분해야 하며, 공백이 포함된 단일 옵션은 따옴표로 묶어야 합니다.");
-		m.put("Optionally specify osv scanner <a href='https://google.github.io/osv-scanner/configuration/' target='_blank'>config file</a> under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. You may ignore particular vulnerabilities via this file", 
-			"선택적으로 <a href='https://google.github.io/osv-scanner/configuration/' target='_blank'>OSV 스캐너 구성 파일</a>을 <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a> 아래에 지정하세요. 이 파일을 통해 특정 취약점을 무시할 수 있습니다.");
+		m.put("Optionally specify osv scanner <a href='https://google.github.io/osv-scanner/configuration/' target='_blank'>config file</a> under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. You may ignore particular vulnerabilities via this file", 
+			"선택적으로 <a href='https://google.github.io/osv-scanner/configuration/' target='_blank'>OSV 스캐너 구성 파일</a>을 <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a> 아래에 지정하세요. 이 파일을 통해 특정 취약점을 무시할 수 있습니다.");
 		m.put("Optionally specify path protection rules", "선택적으로 경로 보호 규칙을 지정하세요.");
-		m.put("Optionally specify path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be used as trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/configuration/filtering/#by-finding-ids' target='_blank'>ignore file</a>", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 워크스페이스</a>에 상대적인 경로를 지정하여 trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/configuration/filtering/#by-finding-ids' target='_blank'>무시 파일</a>로 사용하세요.");
-		m.put("Optionally specify path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be used as trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/scanner/secret/#configuration' target='_blank'>secret config</a>", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 워크스페이스</a>에 상대적인 경로를 지정하여 trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/scanner/secret/#configuration' target='_blank'>비밀 구성</a>으로 사용하세요.");
-		m.put("Optionally specify path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to publish artifacts from. Leave empty to use job workspace itself", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 워크스페이스</a>에서 아티팩트를 게시할 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
+		m.put("Optionally specify path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be used as trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/configuration/filtering/#by-finding-ids' target='_blank'>ignore file</a>", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 워크스페이스</a>에 상대적인 경로를 지정하여 trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/configuration/filtering/#by-finding-ids' target='_blank'>무시 파일</a>로 사용하세요.");
+		m.put("Optionally specify path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be used as trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/scanner/secret/#configuration' target='_blank'>secret config</a>", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 워크스페이스</a>에 상대적인 경로를 지정하여 trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/scanner/secret/#configuration' target='_blank'>비밀 구성</a>으로 사용하세요.");
+		m.put("Optionally specify path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to publish artifacts from. Leave empty to use job workspace itself", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 워크스페이스</a>에서 아티팩트를 게시할 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
 		m.put("Optionally specify platform to pull, for instance <tt>linux/amd64</tt>. Leave empty to pull all platforms in image", 
 			"선택적으로 가져올 플랫폼을 지정하세요. 예를 들어 <tt>linux/amd64</tt>. 이미지의 모든 플랫폼을 가져오려면 비워 두세요.");
 		m.put("Optionally specify project to show builds of. Leave empty to show builds of all projects with permissions", 
@@ -2464,12 +2464,12 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Optionally specify registry logins to override those defined in job executor. For built-in registry, use <code>@server_url@</code> for registry url, <code>@job_token@</code> for user name, and access token secret for password secret", 
 			"선택적으로 작업 실행자에 정의된 레지스트리 로그인을 재정의하세요. 내장 레지스트리의 경우, 레지스트리 URL로 <code>@server_url@</code>, 사용자 이름으로 <code>@job_token@</code>, 비밀번호 비밀로 액세스 토큰 비밀을 사용하세요.");
 		m.put("Optionally specify relative directory to put uploaded files", "선택적으로 업로드된 파일을 저장할 상대 디렉터리를 지정하세요.");
-		m.put("Optionally specify relative path under <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to clone code into. Leave empty to use job workspace itself", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 워크스페이스</a> 아래에 코드를 클론할 상대 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
-		m.put("Optionally specify relative path under <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to scan. Leave empty to use job workspace itself", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 워크스페이스</a> 아래에 스캔할 상대 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
-		m.put("Optionally specify relative paths under <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to scan dependency vulnerabilities. Multiple paths can be specified and should be separated with space. Leave empty to use job workspace itself", 
-			"선택적으로 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 워크스페이스</a> 아래에 종속성 취약점을 스캔할 상대 경로를 지정하세요. 여러 경로를 지정할 수 있으며 공백으로 구분해야 합니다. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
+		m.put("Optionally specify relative path under <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to clone code into. Leave empty to use job workspace itself", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 워크스페이스</a> 아래에 코드를 클론할 상대 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
+		m.put("Optionally specify relative path under <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to scan. Leave empty to use job workspace itself", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 워크스페이스</a> 아래에 스캔할 상대 경로를 지정하세요. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
+		m.put("Optionally specify relative paths under <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to scan dependency vulnerabilities. Multiple paths can be specified and should be separated with space. Leave empty to use job workspace itself", 
+			"선택적으로 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 워크스페이스</a> 아래에 종속성 취약점을 스캔할 상대 경로를 지정하세요. 여러 경로를 지정할 수 있으며 공백으로 구분해야 합니다. 작업 워크스페이스 자체를 사용하려면 비워 두세요.");
 		m.put("Optionally specify required reviewers for changes of specified branch", "선택적으로 지정된 브랜치 변경 사항에 대한 필요한 검토자를 지정하세요.");
 		m.put("Optionally specify revision to create branch from. Leave empty to create from build commit", 
 			"선택적으로 브랜치를 생성할 리비전을 지정하세요. 빌드 커밋에서 생성하려면 비워 두세요.");
@@ -2481,32 +2481,32 @@ public class Translation_ko extends TranslationResourceBundle {
 			"선택적으로 패키지 파일을 저장할 별도의 디렉터리를 지정하세요. 절대 디렉터리가 아닌 경우 사이트 디렉터리에 상대적으로 간주됩니다.");
 		m.put("Optionally specify services required by this job. <b class='text-warning'>NOTE:</b> Services are only supported by docker aware executors (server docker executor, remote docker executor, or kubernetes executor)", 
 			"선택적으로 이 작업에 필요한 서비스를 지정하세요. <b class='text-warning'>참고:</b> 서비스는 Docker를 인식하는 실행자(서버 Docker 실행자, 원격 Docker 실행자 또는 Kubernetes 실행자)에서만 지원됩니다.");
-		m.put("Optionally specify space-separated branches applicable for this transition. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all", 
-			"선택적으로 이 전환에 적용 가능한 공백으로 구분된 브랜치를 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 브랜치를 일치시키려면 비워 두세요.");
-		m.put("Optionally specify space-separated branches applicable for this trigger. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for default branch", 
-			"선택적으로 이 트리거에 적용 가능한 공백으로 구분된 브랜치를 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 기본 브랜치에 대해 비워 두세요.");
-		m.put("Optionally specify space-separated branches to check. Use '**' or '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
-			"선택적으로 확인할 공백으로 구분된 브랜치를 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 브랜치를 일치시키려면 비워 두세요.");
+		m.put("Optionally specify space-separated branches applicable for this transition. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all", 
+			"선택적으로 이 전환에 적용 가능한 공백으로 구분된 브랜치를 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 브랜치를 일치시키려면 비워 두세요.");
+		m.put("Optionally specify space-separated branches applicable for this trigger. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for default branch", 
+			"선택적으로 이 트리거에 적용 가능한 공백으로 구분된 브랜치를 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 기본 브랜치에 대해 비워 두세요.");
+		m.put("Optionally specify space-separated branches to check. Use '**' or '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
+			"선택적으로 확인할 공백으로 구분된 브랜치를 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 브랜치를 일치시키려면 비워 두세요.");
 		m.put("Optionally specify space-separated commit messages applicable for this transition. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all", 
 			"이 전환에 적용 가능한 공백으로 구분된 커밋 메시지를 선택적으로 지정하십시오. 와일드카드 일치를 위해 '*' 또는 '?'를 사용하십시오. 제외하려면 '-'로 시작하십시오. 모두 일치시키려면 비워 두십시오");
-		m.put("Optionally specify space-separated files to check. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all files", 
-			"선택적으로 확인할 공백으로 구분된 파일을 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 파일을 일치시키려면 비워 두세요.");
+		m.put("Optionally specify space-separated files to check. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all files", 
+			"선택적으로 확인할 공백으로 구분된 파일을 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 파일을 일치시키려면 비워 두세요.");
 		m.put("Optionally specify space-separated jobs applicable for this transition. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all", 
 			"선택적으로 이 전환에 적용 가능한 공백으로 구분된 작업을 지정하세요. 와일드카드 매칭을 위해 '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 작업을 일치시키려면 비워 두세요.");
-		m.put("Optionally specify space-separated projects applicable for this trigger. This is useful for instance when you want to prevent the job from being triggered in forked projects. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all projects", 
-			"선택적으로 이 트리거에 적용 가능한 공백으로 구분된 프로젝트를 지정하세요. 예를 들어, 포크된 프로젝트에서 작업이 트리거되는 것을 방지하려는 경우 유용합니다. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 프로젝트를 일치시키려면 비워 두세요.");
-		m.put("Optionally specify space-separated projects to search in. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to search in all projects with code read permission", 
-			"선택적으로 검색할 공백으로 구분된 프로젝트를 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 코드 읽기 권한이 있는 모든 프로젝트를 검색하려면 비워 두세요.");
+		m.put("Optionally specify space-separated projects applicable for this trigger. This is useful for instance when you want to prevent the job from being triggered in forked projects. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all projects", 
+			"선택적으로 이 트리거에 적용 가능한 공백으로 구분된 프로젝트를 지정하세요. 예를 들어, 포크된 프로젝트에서 작업이 트리거되는 것을 방지하려는 경우 유용합니다. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 프로젝트를 일치시키려면 비워 두세요.");
+		m.put("Optionally specify space-separated projects to search in. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to search in all projects with code read permission", 
+			"선택적으로 검색할 공백으로 구분된 프로젝트를 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 코드 읽기 권한이 있는 모든 프로젝트를 검색하려면 비워 두세요.");
 		m.put("Optionally specify space-separated reports. Use '*' or '?' for wildcard match. Prefix with '-' to exclude", 
 			"선택적으로 공백으로 구분된 보고서를 지정하십시오. '*' 또는 '?'를 사용하여 와일드카드 매칭을 수행합니다. '-'로 시작하여 제외할 수 있습니다.");
-		m.put("Optionally specify space-separated service images applicable for this locator. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all", 
-			"선택적으로 이 로케이터에 적용 가능한 공백으로 구분된 서비스 이미지를 지정하십시오. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외할 수 있습니다. 비워두면 모두 매칭됩니다.");
+		m.put("Optionally specify space-separated service images applicable for this locator. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all", 
+			"선택적으로 이 로케이터에 적용 가능한 공백으로 구분된 서비스 이미지를 지정하십시오. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외할 수 있습니다. 비워두면 모두 매칭됩니다.");
 		m.put("Optionally specify space-separated service names applicable for this locator. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all", 
 			"선택적으로 이 로케이터에 적용 가능한 공백으로 구분된 서비스 이름을 지정하십시오. '*' 또는 '?'를 사용하여 와일드카드 매칭을 수행합니다. '-'로 시작하여 제외할 수 있습니다. 비워두면 모두 매칭됩니다.");
-		m.put("Optionally specify space-separated tags to check. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all tags", 
-			"선택적으로 확인할 공백으로 구분된 태그를 지정하십시오. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외할 수 있습니다. 비워두면 모든 태그가 매칭됩니다.");
-		m.put("Optionally specify space-separated target branches of the pull requests to check. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
-			"선택적으로 확인할 풀 리퀘스트의 대상 브랜치를 공백으로 구분하여 지정하십시오. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외할 수 있습니다. 비워두면 모든 브랜치가 매칭됩니다.");
+		m.put("Optionally specify space-separated tags to check. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all tags", 
+			"선택적으로 확인할 공백으로 구분된 태그를 지정하십시오. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외할 수 있습니다. 비워두면 모든 태그가 매칭됩니다.");
+		m.put("Optionally specify space-separated target branches of the pull requests to check. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
+			"선택적으로 확인할 풀 리퀘스트의 대상 브랜치를 공백으로 구분하여 지정하십시오. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외할 수 있습니다. 비워두면 모든 브랜치가 매칭됩니다.");
 		m.put("Optionally specify the OpenID claim to retrieve groups of authenticated user. Depending on the provider, you may need to request additional scopes above to make this claim available", 
 			"선택적으로 인증된 사용자의 그룹을 가져오기 위한 OpenID 클레임을 지정하십시오. 제공자에 따라 이 클레임을 사용할 수 있도록 추가 범위를 요청해야 할 수 있습니다.");
 		m.put("Optionally specify the maximum value allowed.", "선택적으로 허용되는 최대 값을 지정하십시오.");
@@ -2582,7 +2582,7 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Params & Triggers", "매개변수 및 트리거");
 		m.put("Params to Display", "표시할 매개변수들");
 		m.put("Parent Bean", "상위 빈");
-		m.put("Parent OneDev Project", "상위 OneDev 프로젝트");
+		m.put("Parent Cheeta Project", "상위 Cheeta 프로젝트");
 		m.put("Parent Project", "상위 프로젝트");
 		m.put("Parent project not found", "상위 프로젝트를 찾을 수 없습니다.");
 		m.put("Parents", "상위들");
@@ -2793,8 +2793,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Projects deleted", "프로젝트들이 삭제되었습니다");
 		m.put("Projects modified", "프로젝트들이 수정되었습니다");
 		m.put("Projects moved", "프로젝트들이 이동되었습니다");
-		m.put("Projects need to be redistributed when cluster members are added/removed. OneDev does not do this automatically as this is resource intensive, and you may only want to do it after cluster is finalized and stable.", 
-			"클러스터 멤버가 추가/제거될 때 프로젝트를 재배포해야 합니다. OneDev는 이 작업을 자동으로 수행하지 않으며, 이는 리소스를 많이 소모하므로 클러스터가 최종화되고 안정화된 후에만 수행하는 것이 좋습니다");
+		m.put("Projects need to be redistributed when cluster members are added/removed. Cheeta does not do this automatically as this is resource intensive, and you may only want to do it after cluster is finalized and stable.", 
+			"클러스터 멤버가 추가/제거될 때 프로젝트를 재배포해야 합니다. Cheeta는 이 작업을 자동으로 수행하지 않으며, 이는 리소스를 많이 소모하므로 클러스터가 최종화되고 안정화된 후에만 수행하는 것이 좋습니다");
 		m.put("Promotions", "프로모션");
 		m.put("Prompt Fields", "프롬프트 필드");
 		m.put("Properties", "속성");
@@ -2875,8 +2875,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Pull request query watch only affects new pull requests. To manage watch status of existing pull requests in batch, filter pull requests by watch status in pull requests page, and then take appropriate action", 
 			"풀 리퀘스트 쿼리 감시는 새로운 풀 리퀘스트에만 영향을 미칩니다. 기존 풀 리퀘스트의 감시 상태를 일괄적으로 관리하려면 풀 리퀘스트 페이지에서 감시 상태로 필터링한 후 적절한 작업을 수행하세요");
 		m.put("Pull request settings updated", "풀 리퀘스트 설정이 업데이트됨");
-		m.put("Pull request statistics is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"풀 리퀘스트 통계는 엔터프라이즈 기능입니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>을 이용해보세요");
+		m.put("Pull request statistics is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"풀 리퀘스트 통계는 엔터프라이즈 기능입니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>을 이용해보세요");
 		m.put("Pull request synchronization submitted", "풀 리퀘스트 동기화 제출됨");
 		m.put("Pull request will be merged automatically when ready. This option will be disabled upon adding new commits, changing merge strategy, or switching target branch", 
 			"풀 리퀘스트는 준비되면 자동으로 병합됩니다. 새로운 커밋 추가, 병합 전략 변경, 또는 대상 브랜치 전환 시 이 옵션은 비활성화됩니다");
@@ -2931,10 +2931,10 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Redundant", "중복된");
 		m.put("Ref", "참조");
 		m.put("Ref Name", "참조 이름");
-		m.put("Refer to this <a href='https://docs.onedev.io/tutorials/security/sso-with-github' target='_blank'>tutorial</a> for an example setup", 
-			"예제 설정은 이 <a href='https://docs.onedev.io/tutorials/security/sso-with-github' target='_blank'>튜토리얼</a>을 참조하세요");
-		m.put("Refer to this <a href='https://docs.onedev.io/tutorials/security/sso-with-okta' target='_blank'>tutorial</a> for an example setup", 
-			"예제 설정은 이 <a href='https://docs.onedev.io/tutorials/security/sso-with-okta' target='_blank'>튜토리얼</a>을 참조하세요");
+		m.put("Refer to this <a href='https://docs.cheeta.io/tutorials/security/sso-with-github' target='_blank'>tutorial</a> for an example setup", 
+			"예제 설정은 이 <a href='https://docs.cheeta.io/tutorials/security/sso-with-github' target='_blank'>튜토리얼</a>을 참조하세요");
+		m.put("Refer to this <a href='https://docs.cheeta.io/tutorials/security/sso-with-okta' target='_blank'>tutorial</a> for an example setup", 
+			"예제 설정은 이 <a href='https://docs.cheeta.io/tutorials/security/sso-with-okta' target='_blank'>튜토리얼</a>을 참조하세요");
 		m.put("Reference", "참조");
 		m.put("Reference Build", "참조 빌드");
 		m.put("Reference Issue", "참조 이슈");
@@ -3086,8 +3086,8 @@ public class Translation_ko extends TranslationResourceBundle {
 			"다양한 <a href='https://deps.dev/' target='_blank'>종속성</a>에서 사용된 위반된 라이센스를 스캔하기 위해 osv 스캐너를 실행하십시오. 이는 Docker를 인식하는 실행기에서만 실행할 수 있습니다.");
 		m.put("Run osv scanner to scan vulnerabilities in <a href='https://google.github.io/osv-scanner/supported-languages-and-lockfiles/' target='_blank'>various lock files</a>. It can only be executed by docker aware executor.", 
 			"다양한 <a href='https://google.github.io/osv-scanner/supported-languages-and-lockfiles/' target='_blank'>잠금 파일</a>의 취약점을 스캔하기 위해 osv 스캐너를 실행하십시오. 이는 Docker를 인식하는 실행기에서만 실행할 수 있습니다.");
-		m.put("Run specified docker container. <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>Job workspace</a> is mounted into the container and its path is placed in environment variable <code>ONEDEV_WORKSPACE</code>. <b class='text-warning'>Note: </b> this step can only be executed by server docker executor or remote docker executor", 
-			"지정된 Docker 컨테이너를 실행하십시오. <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>가 컨테이너에 마운트되고 해당 경로가 환경 변수 <code>ONEDEV_WORKSPACE</code>에 배치됩니다. <b class='text-warning'>참고: </b> 이 단계는 서버 Docker 실행기 또는 원격 Docker 실행기에서만 실행할 수 있습니다");
+		m.put("Run specified docker container. <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>Job workspace</a> is mounted into the container and its path is placed in environment variable <code>ONEDEV_WORKSPACE</code>. <b class='text-warning'>Note: </b> this step can only be executed by server docker executor or remote docker executor", 
+			"지정된 Docker 컨테이너를 실행하십시오. <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>가 컨테이너에 마운트되고 해당 경로가 환경 변수 <code>ONEDEV_WORKSPACE</code>에 배치됩니다. <b class='text-warning'>참고: </b> 이 단계는 서버 Docker 실행기 또는 원격 Docker 실행기에서만 실행할 수 있습니다");
 		m.put("Run specified step template", "지정된 단계 템플릿 실행");
 		m.put("Run this job", "이 작업 실행");
 		m.put("Run trivy container image scanner to find issues in specified image. For vulnerabilities, it checks various <a href='https://aquasecurity.github.io/trivy/v0.50/docs/coverage/language/#supported-languages' target='_blank'>distribution files</a>. It can only be executed by docker aware executor.", 
@@ -3237,8 +3237,8 @@ public class Translation_ko extends TranslationResourceBundle {
 			"Microsoft Teams 알림 설정을 구성합니다. 설정은 하위 프로젝트에 상속되며, 동일한 웹훅 URL로 설정을 정의하여 재정의할 수 있습니다.");
 		m.put("Set up discord notification settings. Settings will be inherited by child projects, and can be overridden by defining settings with same webhook url", 
 			"Discord 알림 설정을 구성합니다. 설정은 하위 프로젝트에 상속되며, 동일한 웹훅 URL로 설정을 정의하여 재정의할 수 있습니다.");
-		m.put("Set up job cache to speed up job execution. Check <a href='https://docs.onedev.io/tutorials/cicd/job-cache' target='_blank'>this tutorial</a> on how to use job cache", 
-			"작업 캐시를 설정하여 작업 실행 속도를 높입니다. 작업 캐시 사용 방법은 <a href='https://docs.onedev.io/tutorials/cicd/job-cache' target='_blank'>이 튜토리얼</a>을 확인하세요.");
+		m.put("Set up job cache to speed up job execution. Check <a href='https://docs.cheeta.io/tutorials/cicd/job-cache' target='_blank'>this tutorial</a> on how to use job cache", 
+			"작업 캐시를 설정하여 작업 실행 속도를 높입니다. 작업 캐시 사용 방법은 <a href='https://docs.cheeta.io/tutorials/cicd/job-cache' target='_blank'>이 튜토리얼</a>을 확인하세요.");
 		m.put("Set up ntfy.sh notification settings. Settings will be inherited by child projects, and can be overridden by defining settings with same webhook url", 
 			"ntfy.sh 알림 설정을 구성합니다. 설정은 하위 프로젝트에 상속되며, 동일한 웹훅 URL로 설정을 정의하여 재정의할 수 있습니다.");
 		m.put("Set up slack notification settings. Settings will be inherited by child projects, and can be overridden by defining settings with same webhook url", 
@@ -3297,7 +3297,7 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Sign in", "로그인");
 		m.put("Signature required for this change, but no signing key is specified", "이 변경 사항에는 서명이 필요하지만 서명 키가 지정되지 않았습니다.");
 		m.put("Signature required for this change, please generate system GPG signing key first", "이 변경에 서명이 필요합니다. 먼저 시스템 GPG 서명 키를 생성하세요.");
-		m.put("Signature verified successfully with OneDev GPG key", "OneDev GPG 키로 서명이 성공적으로 확인되었습니다");
+		m.put("Signature verified successfully with Cheeta GPG key", "Cheeta GPG 키로 서명이 성공적으로 확인되었습니다");
 		m.put("Signature verified successfully with committer's GPG key", "커미터의 GPG 키로 서명이 성공적으로 확인되었습니다");
 		m.put("Signature verified successfully with committer's SSH key", "커미터의 SSH 키로 서명이 성공적으로 확인되었습니다");
 		m.put("Signature verified successfully with tagger's GPG key", "태거의 GPG 키로 서명이 성공적으로 확인되었습니다");
@@ -3344,58 +3344,58 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Specified choices", "지정된 선택 항목");
 		m.put("Specified default value", "지정된 기본값");
 		m.put("Specified fields", "지정된 필드");
-		m.put("Specifies LDAP URL of the Active Directory server, for example: <i>ldap://ad-server</i>, or <i>ldaps://ad-server</i>. In case your ldap server is using a self-signed certificate for ldaps connection, you will need to <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure OneDev to trust the certificate</a>", 
-			"Active Directory 서버의 LDAP URL을 지정합니다. 예: <i>ldap://ad-server</i> 또는 <i>ldaps://ad-server</i>. ldaps 연결을 위한 자체 서명 인증서를 사용하는 경우, <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>OneDev를 구성하여 인증서를 신뢰하도록 설정</a>해야 합니다");
-		m.put("Specifies LDAP URL, for example: <i>ldap://localhost</i>, or <i>ldaps://localhost</i>. In caseyour ldap server is using a self-signed certificate for ldaps connection, you will need to <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure OneDev to trust the certificate</a>", 
-			"LDAP URL을 지정합니다. 예: <i>ldap://localhost</i> 또는 <i>ldaps://localhost</i>. ldaps 연결을 위한 자체 서명 인증서를 사용하는 경우, <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>OneDev를 구성하여 인증서를 신뢰하도록 설정</a>해야 합니다");
+		m.put("Specifies LDAP URL of the Active Directory server, for example: <i>ldap://ad-server</i>, or <i>ldaps://ad-server</i>. In case your ldap server is using a self-signed certificate for ldaps connection, you will need to <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure Cheeta to trust the certificate</a>", 
+			"Active Directory 서버의 LDAP URL을 지정합니다. 예: <i>ldap://ad-server</i> 또는 <i>ldaps://ad-server</i>. ldaps 연결을 위한 자체 서명 인증서를 사용하는 경우, <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>Cheeta를 구성하여 인증서를 신뢰하도록 설정</a>해야 합니다");
+		m.put("Specifies LDAP URL, for example: <i>ldap://localhost</i>, or <i>ldaps://localhost</i>. In caseyour ldap server is using a self-signed certificate for ldaps connection, you will need to <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure Cheeta to trust the certificate</a>", 
+			"LDAP URL을 지정합니다. 예: <i>ldap://localhost</i> 또는 <i>ldaps://localhost</i>. ldaps 연결을 위한 자체 서명 인증서를 사용하는 경우, <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>Cheeta를 구성하여 인증서를 신뢰하도록 설정</a>해야 합니다");
 		m.put("Specifies base nodes for user search. For example: <i>ou=users, dc=example, dc=com</i>", 
 			"사용자 검색을 위한 기본 노드를 지정합니다. 예: <i>ou=users, dc=example, dc=com</i>");
 		m.put("Specifies name of the attribute inside the user LDAP entry whose value contains distinguished names of belonging groups. For instance some LDAP servers uses attribute <i>memberOf</i> to list groups", 
 			"사용자가 속한 그룹의 고유 이름을 포함하는 사용자 LDAP 항목 내부 속성 이름을 지정합니다. 예를 들어 일부 LDAP 서버는 그룹 목록을 나열하기 위해 <i>memberOf</i> 속성을 사용합니다");
 		m.put("Specifies password of above manager DN", "위의 관리자 DN 비밀번호를 지정합니다");
-		m.put("Specifies the attribute containing group name inside the found group LDAP entry. Value of this attribute will be mapped to a OneDev group. This attribute is normally set to <i>cn</i>", 
-			"찾은 그룹 LDAP 항목 내부에서 그룹 이름을 포함하는 속성을 지정합니다. 이 속성의 값은 OneDev 그룹에 매핑됩니다. 일반적으로 이 속성은 <i>cn</i>으로 설정됩니다");
-		m.put("Specify .net TRX test result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance <tt>TestResults/*.trx</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 .net TRX 테스트 결과 파일을 지정합니다. 예: <tt>TestResults/*.trx</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
-		m.put("Specify <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is access token with code write permission over above projects. Commits, issues, and pull requests will also be created under name of the access token owner", 
-			"<a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정하여 위 프로젝트에 대한 코드 쓰기 권한이 있는 액세스 토큰 값을 사용합니다. 커밋, 이슈 및 풀 요청은 액세스 토큰 소유자의 이름으로 생성됩니다");
-		m.put("Specify <a href='https://github.com/rust-lang/rust-clippy'>rust clippy</a> json output file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with clippy json output option, for instance <code>cargo clippy --message-format json>check-result.json</code>. Use * or ? for pattern match", 
-			"<a href='https://github.com/rust-lang/rust-clippy'>rust clippy</a> json 출력 파일을 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 지정합니다. 이 파일은 clippy json 출력 옵션으로 생성할 수 있습니다. 예: <code>cargo clippy --message-format json>check-result.json</code>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specifies the attribute containing group name inside the found group LDAP entry. Value of this attribute will be mapped to a Cheeta group. This attribute is normally set to <i>cn</i>", 
+			"찾은 그룹 LDAP 항목 내부에서 그룹 이름을 포함하는 속성을 지정합니다. 이 속성의 값은 Cheeta 그룹에 매핑됩니다. 일반적으로 이 속성은 <i>cn</i>으로 설정됩니다");
+		m.put("Specify .net TRX test result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance <tt>TestResults/*.trx</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 .net TRX 테스트 결과 파일을 지정합니다. 예: <tt>TestResults/*.trx</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is access token with code write permission over above projects. Commits, issues, and pull requests will also be created under name of the access token owner", 
+			"<a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정하여 위 프로젝트에 대한 코드 쓰기 권한이 있는 액세스 토큰 값을 사용합니다. 커밋, 이슈 및 풀 요청은 액세스 토큰 소유자의 이름으로 생성됩니다");
+		m.put("Specify <a href='https://github.com/rust-lang/rust-clippy'>rust clippy</a> json output file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with clippy json output option, for instance <code>cargo clippy --message-format json>check-result.json</code>. Use * or ? for pattern match", 
+			"<a href='https://github.com/rust-lang/rust-clippy'>rust clippy</a> json 출력 파일을 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 지정합니다. 이 파일은 clippy json 출력 옵션으로 생성할 수 있습니다. 예: <code>cargo clippy --message-format json>check-result.json</code>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
 		m.put("Specify Build Options", "빌드 옵션을 지정합니다");
-		m.put("Specify CPD result xml file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/cpd.xml</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 CPD 결과 xml 파일을 지정합니다. 예: <tt>target/cpd.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify CPD result xml file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/cpd.xml</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 CPD 결과 xml 파일을 지정합니다. 예: <tt>target/cpd.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
 		m.put("Specify Commit Message", "커밋 메시지를 지정합니다");
-		m.put("Specify ESLint report file in checkstyle format under <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with ESLint option <tt>'-f checkstyle'</tt> and <tt>'-o'</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 아래에서 체크스타일 형식의 ESLint 보고서 파일을 지정합니다. 이 파일은 ESLint 옵션 <tt>'-f checkstyle'</tt> 및 <tt>'-o'</tt>로 생성할 수 있습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify ESLint report file in checkstyle format under <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with ESLint option <tt>'-f checkstyle'</tt> and <tt>'-o'</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 아래에서 체크스타일 형식의 ESLint 보고서 파일을 지정합니다. 이 파일은 ESLint 옵션 <tt>'-f checkstyle'</tt> 및 <tt>'-o'</tt>로 생성할 수 있습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
 		m.put("Specify GitHub API url, for instance <tt>https://api.github.com</tt>", "GitHub API URL을 지정합니다. 예: <tt>https://api.github.com</tt>");
 		m.put("Specify GitLab API url, for instance <tt>https://gitlab.example.com/api/v4</tt>", "GitLab API URL을 지정합니다. 예: <tt>https://gitlab.example.com/api/v4</tt>");
 		m.put("Specify Gitea API url, for instance <tt>https://gitea.example.com/api/v1</tt>", "Gitea API URL을 지정합니다. 예: <tt>https://gitea.example.com/api/v1</tt>");
-		m.put("Specify GoogleTest XML result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This report can be generated with environment variable <tt>GTEST_OUTPUT</tt> when running tests, For instance, <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 GoogleTest XML 결과 파일을 지정합니다. 이 보고서는 테스트 실행 시 환경 변수 <tt>GTEST_OUTPUT</tt>로 생성할 수 있습니다. 예: <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify GoogleTest XML result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This report can be generated with environment variable <tt>GTEST_OUTPUT</tt> when running tests, For instance, <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 GoogleTest XML 결과 파일을 지정합니다. 이 보고서는 테스트 실행 시 환경 변수 <tt>GTEST_OUTPUT</tt>로 생성할 수 있습니다. 예: <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
 		m.put("Specify IMAP user name.<br><b class='text-danger'>NOTE: </b> This account should be able to receive emails sent to system email address specified above", 
 			"IMAP 사용자 이름을 지정합니다.<br><b class='text-danger'>참고: </b> 이 계정은 위에 지정된 시스템 이메일 주소로 전송된 이메일을 받을 수 있어야 합니다");
-		m.put("Specify JUnit test result file in XML format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance <tt>target/surefire-reports/TEST-*.xml</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 XML 형식의 JUnit 테스트 결과 파일을 지정합니다. 예: <tt>target/surefire-reports/TEST-*.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
-		m.put("Specify JaCoCo coverage xml report file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/jacoco/jacoco.xml</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 JaCoCo 커버리지 xml 보고서 파일을 지정합니다. 예: <tt>target/site/jacoco/jacoco.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
-		m.put("Specify Jest coverage report file in clover format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance <tt>coverage/clover.xml</tt>. This file can be generated with Jest option <tt>'--coverage'</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 클로버 형식의 Jest 커버리지 보고서 파일을 지정합니다. 예: <tt>coverage/clover.xml</tt>. 이 파일은 Jest 옵션 <tt>'--coverage'</tt>로 생성할 수 있습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
-		m.put("Specify Jest test result file in json format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated via Jest option <tt>'--json'</tt> and <tt>'--outputFile'</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 json 형식의 Jest 테스트 결과 파일을 지정합니다. 이 파일은 Jest 옵션 <tt>'--json'</tt> 및 <tt>'--outputFile'</tt>로 생성할 수 있습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
-		m.put("Specify OCI layout directory of the image to scan. This directory can be generated via build image step or pull image step. It should be relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"스캔할 이미지의 OCI 레이아웃 디렉토리를 지정합니다. 이 디렉토리는 이미지 빌드 단계 또는 이미지 가져오기 단계에서 생성할 수 있습니다. <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 상대 경로여야 합니다");
-		m.put("Specify OCI layout directory relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to push from", 
-			"푸시할 <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 상대 경로의 OCI 레이아웃 디렉토리를 지정합니다");
+		m.put("Specify JUnit test result file in XML format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance <tt>target/surefire-reports/TEST-*.xml</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 XML 형식의 JUnit 테스트 결과 파일을 지정합니다. 예: <tt>target/surefire-reports/TEST-*.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify JaCoCo coverage xml report file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/jacoco/jacoco.xml</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 JaCoCo 커버리지 xml 보고서 파일을 지정합니다. 예: <tt>target/site/jacoco/jacoco.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify Jest coverage report file in clover format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance <tt>coverage/clover.xml</tt>. This file can be generated with Jest option <tt>'--coverage'</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 클로버 형식의 Jest 커버리지 보고서 파일을 지정합니다. 예: <tt>coverage/clover.xml</tt>. 이 파일은 Jest 옵션 <tt>'--coverage'</tt>로 생성할 수 있습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify Jest test result file in json format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated via Jest option <tt>'--json'</tt> and <tt>'--outputFile'</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 json 형식의 Jest 테스트 결과 파일을 지정합니다. 이 파일은 Jest 옵션 <tt>'--json'</tt> 및 <tt>'--outputFile'</tt>로 생성할 수 있습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify OCI layout directory of the image to scan. This directory can be generated via build image step or pull image step. It should be relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"스캔할 이미지의 OCI 레이아웃 디렉토리를 지정합니다. 이 디렉토리는 이미지 빌드 단계 또는 이미지 가져오기 단계에서 생성할 수 있습니다. <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 상대 경로여야 합니다");
+		m.put("Specify OCI layout directory relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to push from", 
+			"푸시할 <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 상대 경로의 OCI 레이아웃 디렉토리를 지정합니다");
 		m.put("Specify OpenID scopes to request", "요청할 OpenID 범위를 지정합니다");
-		m.put("Specify PMD result xml file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/pmd.xml</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 PMD 결과 xml 파일을 지정합니다. 예: <tt>target/pmd.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
-		m.put("Specify PowerShell commands to execute under the <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>.<br><b class='text-warning'>NOTE: </b> OneDev checks exit code of the script to determine if step is successful. Since PowerShell always exit with 0 even if there are script errors, you should handle errors in the script and exit with non-zero code, or add line <code>$ErrorActionPreference = &quot;Stop&quot;</code> at start of your script<br>", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 아래에서 실행할 PowerShell 명령을 지정합니다.<br><b class='text-warning'>참고: </b> OneDev는 스크립트의 종료 코드를 확인하여 단계가 성공했는지 판단합니다. PowerShell은 스크립트 오류가 있어도 항상 0으로 종료되므로, 스크립트에서 오류를 처리하고 0이 아닌 코드로 종료하거나 스크립트 시작 부분에 <code>$ErrorActionPreference = &quot;Stop&quot;</code>를 추가해야 합니다<br>");
-		m.put("Specify Roslynator diagnostics output file in XML format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with <i>-o</i> option. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 XML 형식의 Roslynator 진단 출력 파일을 지정합니다. 이 파일은 <i>-o</i> 옵션으로 생성할 수 있습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify PMD result xml file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/pmd.xml</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 PMD 결과 xml 파일을 지정합니다. 예: <tt>target/pmd.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify PowerShell commands to execute under the <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>.<br><b class='text-warning'>NOTE: </b> Cheeta checks exit code of the script to determine if step is successful. Since PowerShell always exit with 0 even if there are script errors, you should handle errors in the script and exit with non-zero code, or add line <code>$ErrorActionPreference = &quot;Stop&quot;</code> at start of your script<br>", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 아래에서 실행할 PowerShell 명령을 지정합니다.<br><b class='text-warning'>참고: </b> Cheeta는 스크립트의 종료 코드를 확인하여 단계가 성공했는지 판단합니다. PowerShell은 스크립트 오류가 있어도 항상 0으로 종료되므로, 스크립트에서 오류를 처리하고 0이 아닌 코드로 종료하거나 스크립트 시작 부분에 <code>$ErrorActionPreference = &quot;Stop&quot;</code>를 추가해야 합니다<br>");
+		m.put("Specify Roslynator diagnostics output file in XML format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with <i>-o</i> option. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 XML 형식의 Roslynator 진단 출력 파일을 지정합니다. 이 파일은 <i>-o</i> 옵션으로 생성할 수 있습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
 		m.put("Specify Shell/Batch Commands to Run", "실행할 Shell/Batch 명령을 지정합니다");
-		m.put("Specify SpotBugs result xml file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/spotbugsXml.xml</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 SpotBugs 결과 xml 파일을 지정합니다. 예: <tt>target/spotbugsXml.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify SpotBugs result xml file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/spotbugsXml.xml</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 SpotBugs 결과 xml 파일을 지정합니다. 예: <tt>target/spotbugsXml.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
 		m.put("Specify System Settings", "시스템 설정을 지정합니다");
 		m.put("Specify URL of remote git repository. Only http/https protocol is supported", "원격 git 저장소의 URL을 지정합니다. http/https 프로토콜만 지원됩니다");
 		m.put("Specify YouTrack login name. This account should have permission to:<ul><li>Read full information and issues of the projects you want to import<li>Read issue tags<li>Read user basic information</ul>", 
@@ -3407,35 +3407,35 @@ public class Translation_ko extends TranslationResourceBundle {
 			"이슈 번호 뒤에 올 <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>정규 표현식</a>을 지정합니다");
 		m.put("Specify a <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>regular expression</a> before issue number", 
 			"이슈 번호 앞에 올 <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>정규 표현식</a>을 지정합니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as SSH private key", 
-			"SSH 개인 키로 사용할 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token", 
-			"액세스 토큰으로 사용할 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token to import build spec from above project if its code is not publicly accessible", 
-			"위 프로젝트에서 빌드 사양을 가져오기 위해 액세스 토큰으로 사용할 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. 코드가 공개적으로 접근 가능하지 않은 경우에만 필요합니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token of the registry", 
-			"레지스트리의 비밀번호 또는 액세스 토큰으로 사용할 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token to access remote repository", 
-			"원격 저장소에 접근하기 위한 비밀번호 또는 액세스 토큰으로 사용할 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key for SSH authentication. <b class='text-info'>NOTE:</b> Private key with passphrase is not supported", 
-			"SSH 인증을 위한 개인 키로 사용할 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. <b class='text-info'>참고:</b> 암호가 있는 개인 키는 지원되지 않습니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key of above user for SSH authentication. <b class='text-info'>NOTE:</b> Private key with passphrase is not supported", 
-			"위 사용자의 SSH 인증을 위한 개인 키로 사용할 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. <b class='text-info'>참고:</b> 암호가 있는 개인 키는 지원되지 않습니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with management permission for above project. Note that access token is not required if sync to current or child project and build commit is reachable from default branch", 
-			"위 프로젝트에 대한 관리 권한이 있는 액세스 토큰 값을 가진 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. 현재 또는 하위 프로젝트로 동기화하고 기본 브랜치에서 빌드 커밋에 접근할 수 있는 경우 액세스 토큰이 필요하지 않습니다");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with upload cache permission for above project. Note that this property is not required if upload cache to current or child project and build commit is reachable from default branch", 
-			"위 프로젝트에 대한 캐시 업로드 권한이 있는 액세스 토큰 값을 가진 <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. 현재 또는 하위 프로젝트로 캐시를 업로드하고 기본 브랜치에서 빌드 커밋에 접근할 수 있는 경우 이 속성이 필요하지 않습니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as SSH private key", 
+			"SSH 개인 키로 사용할 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token", 
+			"액세스 토큰으로 사용할 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token to import build spec from above project if its code is not publicly accessible", 
+			"위 프로젝트에서 빌드 사양을 가져오기 위해 액세스 토큰으로 사용할 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. 코드가 공개적으로 접근 가능하지 않은 경우에만 필요합니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token of the registry", 
+			"레지스트리의 비밀번호 또는 액세스 토큰으로 사용할 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token to access remote repository", 
+			"원격 저장소에 접근하기 위한 비밀번호 또는 액세스 토큰으로 사용할 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key for SSH authentication. <b class='text-info'>NOTE:</b> Private key with passphrase is not supported", 
+			"SSH 인증을 위한 개인 키로 사용할 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. <b class='text-info'>참고:</b> 암호가 있는 개인 키는 지원되지 않습니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key of above user for SSH authentication. <b class='text-info'>NOTE:</b> Private key with passphrase is not supported", 
+			"위 사용자의 SSH 인증을 위한 개인 키로 사용할 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. <b class='text-info'>참고:</b> 암호가 있는 개인 키는 지원되지 않습니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with management permission for above project. Note that access token is not required if sync to current or child project and build commit is reachable from default branch", 
+			"위 프로젝트에 대한 관리 권한이 있는 액세스 토큰 값을 가진 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. 현재 또는 하위 프로젝트로 동기화하고 기본 브랜치에서 빌드 커밋에 접근할 수 있는 경우 액세스 토큰이 필요하지 않습니다");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with upload cache permission for above project. Note that this property is not required if upload cache to current or child project and build commit is reachable from default branch", 
+			"위 프로젝트에 대한 캐시 업로드 권한이 있는 액세스 토큰 값을 가진 <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>작업 비밀</a>을 지정합니다. 현재 또는 하위 프로젝트로 캐시를 업로드하고 기본 브랜치에서 빌드 커밋에 접근할 수 있는 경우 이 속성이 필요하지 않습니다");
 		m.put("Specify a <a target='_blank' href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format'>cron schedule</a> to fire the job automatically. <b class='text-info'>Note:</b> To save resource, seconds in cron expression will be ignored, and the minimum schedule interval is one minute", 
 			"작업을 자동으로 실행하기 위한 <a target='_blank' href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format'>cron 일정</a>을 지정합니다. <b class='text-info'>참고:</b> 리소스를 절약하기 위해 cron 표현식의 초는 무시되며 최소 일정 간격은 1분입니다");
 		m.put("Specify a Docker Image to Test Against", "테스트할 Docker 이미지를 지정합니다");
 		m.put("Specify a custom field of Enum type", "Enum 유형의 사용자 정의 필드를 지정합니다");
 		m.put("Specify a default query to filter/order fixed issues of specified jobs", "지정된 작업의 고정된 이슈를 필터링/정렬하기 위한 기본 쿼리를 지정합니다");
-		m.put("Specify a file relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to write checksum into", 
-			"체크섬을 기록할 <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 상대 경로의 파일을 지정합니다");
-		m.put("Specify a multi-value user field to hold assignees information.<b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"담당자 정보를 저장할 다중 값 사용자 필드를 지정합니다.<b>참고: </b> 적절한 옵션이 없는 경우 OneDev 이슈 필드를 사용자 정의할 수 있습니다");
-		m.put("Specify a multi-value user field to hold assignees information.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"담당자 정보를 저장할 다중 값 사용자 필드를 지정합니다.<br><b>참고: </b> 적절한 옵션이 없는 경우 OneDev 이슈 필드를 사용자 정의할 수 있습니다");
+		m.put("Specify a file relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to write checksum into", 
+			"체크섬을 기록할 <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 상대 경로의 파일을 지정합니다");
+		m.put("Specify a multi-value user field to hold assignees information.<b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"담당자 정보를 저장할 다중 값 사용자 필드를 지정합니다.<b>참고: </b> 적절한 옵션이 없는 경우 Cheeta 이슈 필드를 사용자 정의할 수 있습니다");
+		m.put("Specify a multi-value user field to hold assignees information.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"담당자 정보를 저장할 다중 값 사용자 필드를 지정합니다.<br><b>참고: </b> 적절한 옵션이 없는 경우 Cheeta 이슈 필드를 사용자 정의할 수 있습니다");
 		m.put("Specify a path inside container to be used as mount target", "마운트 대상으로 사용할 컨테이너 내부 경로를 지정합니다");
 		m.put("Specify a path relative to job workspace to be used as mount source. Leave empty to mount job workspace itself", 
 			"마운트 소스로 사용할 작업 공간 상대 경로를 지정합니다. 비워두면 작업 공간 자체를 마운트합니다");
@@ -3448,8 +3448,8 @@ public class Translation_ko extends TranslationResourceBundle {
 			"위 프로젝트에 대한 캐시 업로드 권한이 있는 액세스 토큰 값을 가진 비밀을 지정합니다. 현재 또는 하위 프로젝트로 캐시를 업로드하고 기본 브랜치에서 빌드 커밋에 접근할 수 있는 경우 이 속성이 필요하지 않습니다");
 		m.put("Specify absolute path to the config file used by kubectl to access the cluster. Leave empty to have kubectl determining cluster access information automatically", 
 			"클러스터에 접근하기 위해 kubectl이 사용하는 구성 파일의 절대 경로를 지정합니다. 비워두면 kubectl이 클러스터 접근 정보를 자동으로 결정합니다");
-		m.put("Specify absolute path to the kubectl utility, for instance: <i>/usr/bin/kubectl</i>. If left empty, OneDev will try to find the utility from system path", 
-			"kubectl 유틸리티의 절대 경로를 지정합니다. 예: <i>/usr/bin/kubectl</i>. 비워두면 OneDev가 시스템 경로에서 유틸리티를 찾으려고 시도합니다");
+		m.put("Specify absolute path to the kubectl utility, for instance: <i>/usr/bin/kubectl</i>. If left empty, Cheeta will try to find the utility from system path", 
+			"kubectl 유틸리티의 절대 경로를 지정합니다. 예: <i>/usr/bin/kubectl</i>. 비워두면 Cheeta가 시스템 경로에서 유틸리티를 찾으려고 시도합니다");
 		m.put("Specify account name to login to Gmail to send/receive email", "이메일을 보내고/받기 위해 Gmail에 로그인할 계정 이름을 지정합니다");
 		m.put("Specify additional users able to access this confidential issue besides those granted via role. Users mentioned in the issue will be authorized automatically", 
 			"역할을 통해 권한이 부여된 사용자 외에 이 기밀 이슈에 접근할 수 있는 추가 사용자를 지정합니다. 이슈에 언급된 사용자는 자동으로 권한이 부여됩니다");
@@ -3458,17 +3458,17 @@ public class Translation_ko extends TranslationResourceBundle {
 			"허용된 <a href='https://spdx.org/licenses/' target='_blank'>spdx 라이선스 식별자</a>를 <span class='text-warning'>쉼표로 구분하여</span> 지정합니다");
 		m.put("Specify an email address sharing same inbox as the system email address in mail setting definition. Emails sent to this address will be created as issues in this project. The default value takes form of <tt>&lt;system email address name&gt;+&lt;project path&gt;@&lt;system email address domain&gt;</tt>", 
 			"메일 설정 정의에서 시스템 이메일 주소와 동일한 받은 편지함을 공유하는 이메일 주소를 지정합니다. 이 주소로 전송된 이메일은 이 프로젝트에서 이슈로 생성됩니다. 기본값은 <tt>&lt;시스템 이메일 주소 이름&gt;+&lt;프로젝트 경로&gt;@&lt;시스템 이메일 주소 도메인&gt;</tt> 형식을 따릅니다");
-		m.put("Specify applicable projects for above option. Multiple projects should be separated by space. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for all projects", 
-			"위 옵션에 적용 가능한 프로젝트를 지정합니다. 여러 프로젝트는 공백으로 구분해야 합니다. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외합니다. 비워두면 모든 프로젝트에 적용됩니다");
-		m.put("Specify applicable projects separated by space. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for all projects", 
-			"적용 가능한 프로젝트를 공백으로 구분하여 지정합니다. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외합니다. 비워두면 모든 프로젝트에 적용됩니다");
+		m.put("Specify applicable projects for above option. Multiple projects should be separated by space. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for all projects", 
+			"위 옵션에 적용 가능한 프로젝트를 지정합니다. 여러 프로젝트는 공백으로 구분해야 합니다. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외합니다. 비워두면 모든 프로젝트에 적용됩니다");
+		m.put("Specify applicable projects separated by space. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for all projects", 
+			"적용 가능한 프로젝트를 공백으로 구분하여 지정합니다. '**', '*' 또는 '?'를 사용하여 <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 수행합니다. '-'로 시작하여 제외합니다. 비워두면 모든 프로젝트에 적용됩니다");
 		m.put("Specify application (client) ID of the app registered in Entra ID", "Entra ID에 등록된 앱의 애플리케이션(클라이언트) ID를 지정합니다");
 		m.put("Specify arguments for imagetools. For instance <code>create -t myorg/myrepo:1.0.0 myorg/myrepo@&lt;arm64 manifest digest&gt; myorg/myrepo@&lt;amd64 manifest digest&gt;</code>", 
 			"imagetools에 대한 인수를 지정합니다. 예: <code>create -t myorg/myrepo:1.0.0 myorg/myrepo@&lt;arm64 manifest digest&gt; myorg/myrepo@&lt;amd64 manifest digest&gt;</code>");
-		m.put("Specify artifacts to retrieve into <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Only published artifacts (via artifact publish step) can be retrieved.", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a>으로 가져올 아티팩트를 지정합니다. 아티팩트는 아티팩트 게시 단계에서 게시된 것만 가져올 수 있습니다");
-		m.put("Specify at least 10 alphanumeric chars to be used as secret, and then add an inbound parse entry at SendGrid side:<ul><li><code>Destination URL</code> should be set to <i>&lt;OneDev root url&gt;/~sendgrid/&lt;secret&gt;</i>, for instance, <i>https://onedev.example.com/~sendgrid/1234567890</i>. Note that in production environment, <a href='https://docs.onedev.io/administration-guide/https-setup' target='_blank'>https should be enabled</a> to protect the secret</li><li><code>Receiving domain</code> should be the same as domain part of system email address specified above</li><li>Option <code>POST the raw, full MIME message</code> is enabled</li></ul>", 
-			"비밀로 사용할 최소 10자리의 영숫자를 지정한 후 SendGrid 측에서 인바운드 파싱 항목을 추가합니다:<ul><li><code>Destination URL</code>은 <i>&lt;OneDev 루트 URL&gt;/~sendgrid/&lt;비밀&gt;</i>로 설정해야 합니다. 예: <i>https://onedev.example.com/~sendgrid/1234567890</i>. 프로덕션 환경에서는 <a href='https://docs.onedev.io/administration-guide/https-setup' target='_blank'>https를 활성화</a>하여 비밀을 보호해야 합니다</li><li><code>Receiving domain</code>은 위에 지정된 시스템 이메일 주소의 도메인 부분과 동일해야 합니다</li><li>옵션 <code>POST the raw, full MIME message</code>가 활성화되어야 합니다</li></ul>");
+		m.put("Specify artifacts to retrieve into <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Only published artifacts (via artifact publish step) can be retrieved.", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a>으로 가져올 아티팩트를 지정합니다. 아티팩트는 아티팩트 게시 단계에서 게시된 것만 가져올 수 있습니다");
+		m.put("Specify at least 10 alphanumeric chars to be used as secret, and then add an inbound parse entry at SendGrid side:<ul><li><code>Destination URL</code> should be set to <i>&lt;Cheeta root url&gt;/~sendgrid/&lt;secret&gt;</i>, for instance, <i>https://cheeta.example.com/~sendgrid/1234567890</i>. Note that in production environment, <a href='https://docs.cheeta.io/administration-guide/https-setup' target='_blank'>https should be enabled</a> to protect the secret</li><li><code>Receiving domain</code> should be the same as domain part of system email address specified above</li><li>Option <code>POST the raw, full MIME message</code> is enabled</li></ul>", 
+			"비밀로 사용할 최소 10자리의 영숫자를 지정한 후 SendGrid 측에서 인바운드 파싱 항목을 추가합니다:<ul><li><code>Destination URL</code>은 <i>&lt;Cheeta 루트 URL&gt;/~sendgrid/&lt;비밀&gt;</i>로 설정해야 합니다. 예: <i>https://cheeta.example.com/~sendgrid/1234567890</i>. 프로덕션 환경에서는 <a href='https://docs.cheeta.io/administration-guide/https-setup' target='_blank'>https를 활성화</a>하여 비밀을 보호해야 합니다</li><li><code>Receiving domain</code>은 위에 지정된 시스템 이메일 주소의 도메인 부분과 동일해야 합니다</li><li>옵션 <code>POST the raw, full MIME message</code>가 활성화되어야 합니다</li></ul>");
 		m.put("Specify base nodes for user search. For example: <i>cn=Users, dc=example, dc=com</i>", 
 			"사용자 검색을 위한 기본 노드를 지정합니다. 예: <i>cn=Users, dc=example, dc=com</i>");
 		m.put("Specify branch to commit suggested change", "제안된 변경 사항을 커밋할 브랜치를 지정합니다");
@@ -3482,13 +3482,13 @@ public class Translation_ko extends TranslationResourceBundle {
 			"원격 저장소에 대해 자체 서명 인증서를 사용하는 경우 신뢰할 인증서를 지정합니다");
 		m.put("Specify certificates to trust if you are using self-signed certificates for your docker registries", 
 			"도커 레지스트리에 대해 자체 서명 인증서를 사용하는 경우 신뢰할 인증서를 지정합니다");
-		m.put("Specify checkstyle result xml file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/checkstyle-result.xml</tt>. Refer to <a href='https://checkstyle.org/'>checkstyle documentation</a> on how to generate the result xml file. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 체크스타일 결과 xml 파일을 지정합니다. 예: <tt>target/checkstyle-result.xml</tt>. 체크스타일 결과 xml 파일을 생성하는 방법은 <a href='https://checkstyle.org/'>체크스타일 문서</a>를 참조하세요. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify checkstyle result xml file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/checkstyle-result.xml</tt>. Refer to <a href='https://checkstyle.org/'>checkstyle documentation</a> on how to generate the result xml file. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 체크스타일 결과 xml 파일을 지정합니다. 예: <tt>target/checkstyle-result.xml</tt>. 체크스타일 결과 xml 파일을 생성하는 방법은 <a href='https://checkstyle.org/'>체크스타일 문서</a>를 참조하세요. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
 		m.put("Specify client secret of the app registered in Entra ID", "Entra ID에 등록된 앱의 클라이언트 비밀을 지정합니다");
-		m.put("Specify clover coverage xml report file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/clover/clover.xml</tt>. Refer to <a href='https://openclover.org/documentation'>OpenClover documentation</a> on how to generate clover xml file. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 클로버 커버리지 xml 보고서 파일을 지정합니다. 예: <tt>target/site/clover/clover.xml</tt>. 클로버 xml 파일을 생성하는 방법은 <a href='https://openclover.org/documentation'>OpenClover 문서</a>를 참조하세요. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
-		m.put("Specify cobertura coverage xml report file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/cobertura/coverage.xml</tt>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 cobertura 커버리지 xml 보고서 파일을 지정합니다. 예: <tt>target/site/cobertura/coverage.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify clover coverage xml report file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/clover/clover.xml</tt>. Refer to <a href='https://openclover.org/documentation'>OpenClover documentation</a> on how to generate clover xml file. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 클로버 커버리지 xml 보고서 파일을 지정합니다. 예: <tt>target/site/clover/clover.xml</tt>. 클로버 xml 파일을 생성하는 방법은 <a href='https://openclover.org/documentation'>OpenClover 문서</a>를 참조하세요. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
+		m.put("Specify cobertura coverage xml report file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/cobertura/coverage.xml</tt>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 상대 경로로 cobertura 커버리지 xml 보고서 파일을 지정합니다. 예: <tt>target/site/cobertura/coverage.xml</tt>. 패턴 매칭을 위해 * 또는 ?를 사용하세요");
 		m.put("Specify color of the state for displaying purpose", "표시 목적으로 상태의 색상을 지정합니다");
 		m.put("Specify columns of the board. Each column corresponds to a value of the issue field specified above", 
 			"보드의 열을 지정합니다. 각 열은 위에 지정된 이슈 필드의 값에 해당합니다");
@@ -3497,12 +3497,12 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Specify commands to be executed on remote machine. <b class='text-warning'>Note:</b> user environments will not be picked up when execute these commands, set up them explicitly in commands if necessary", 
 			"원격 머신에서 실행할 명령을 지정하세요. <b class='text-warning'>참고:</b> 사용자 환경은 이러한 명령을 실행할 때 적용되지 않으므로 필요시 명령에서 명시적으로 설정하세요.");
 		m.put("Specify condition to retry build upon failure", "실패 시 빌드를 재시도할 조건을 지정하세요.");
-		m.put("Specify configuration discovery url of your OpenID provider, for instance: <code>https://openid.example.com/.well-known/openid-configuration</code>. Make sure to use HTTPS protocol as OneDev relies on TLS encryption to ensure token validity", 
-			"OpenID 제공자의 구성 검색 URL을 지정하세요. 예: <code>https://openid.example.com/.well-known/openid-configuration</code>. OneDev는 토큰 유효성을 보장하기 위해 TLS 암호화에 의존하므로 HTTPS 프로토콜을 사용해야 합니다.");
+		m.put("Specify configuration discovery url of your OpenID provider, for instance: <code>https://openid.example.com/.well-known/openid-configuration</code>. Make sure to use HTTPS protocol as Cheeta relies on TLS encryption to ensure token validity", 
+			"OpenID 제공자의 구성 검색 URL을 지정하세요. 예: <code>https://openid.example.com/.well-known/openid-configuration</code>. Cheeta는 토큰 유효성을 보장하기 위해 TLS 암호화에 의존하므로 HTTPS 프로토콜을 사용해야 합니다.");
 		m.put("Specify container image to execute commands inside", "명령을 실행할 컨테이너 이미지를 지정하세요.");
 		m.put("Specify container image to run", "실행할 컨테이너 이미지를 지정하세요.");
-		m.put("Specify cppcheck xml result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with cppcheck xml output option, for instance <code>cppcheck src --xml 2>check-result.xml</code>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 기준으로 cppcheck XML 결과 파일을 지정하세요. 이 파일은 cppcheck XML 출력 옵션으로 생성할 수 있습니다. 예: <code>cppcheck src --xml 2>check-result.xml</code>. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
+		m.put("Specify cppcheck xml result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with cppcheck xml output option, for instance <code>cppcheck src --xml 2>check-result.xml</code>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 기준으로 cppcheck XML 결과 파일을 지정하세요. 이 파일은 cppcheck XML 출력 옵션으로 생성할 수 있습니다. 예: <code>cppcheck src --xml 2>check-result.xml</code>. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
 		m.put("Specify cpu request for each job/service using this executor. Check <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/' target='_blank'>Kubernetes resource management</a> for details", 
 			"이 실행자를 사용하는 각 작업/서비스에 대한 CPU 요청을 지정하세요. 자세한 내용은 <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/' target='_blank'>Kubernetes 리소스 관리</a>를 확인하세요.");
 		m.put("Specify default assignees of pull requests submitted to this project. Only users with the write code permission to the project can be selected", 
@@ -3511,11 +3511,11 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Specify destinations, for instance <tt>registry-server:5000/myorg/myrepo:latest</tt>. Make sure to use <b>same host</b> as specified in server url of system settings if you want to push to built-in registry, or simply use the form <tt>@server@/&lt;project path&gt;/&lt;repo name&gt;:&lt;tag name&gt;</tt>. Multiple destinations should be separated with space", 
 			"대상지를 지정하세요. 예: <tt>registry-server:5000/myorg/myrepo:latest</tt>. 내장 레지스트리에 푸시하려면 시스템 설정의 서버 URL에 지정된 <b>동일한 호스트</b>를 사용하거나 단순히 <tt>@server@/&lt;project path&gt;/&lt;repo name&gt;:&lt;tag name&gt;</tt> 형식을 사용하세요. 여러 대상은 공백으로 구분해야 합니다.");
 		m.put("Specify directory (tenant) ID of the app registered in Entra ID", "Entra ID에 등록된 앱의 디렉터리(테넌트) ID를 지정하세요.");
-		m.put("Specify directory relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 기준으로 OCI 레이아웃을 저장할 디렉터리를 지정하세요.");
+		m.put("Specify directory relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 기준으로 OCI 레이아웃을 저장할 디렉터리를 지정하세요.");
 		m.put("Specify docker image of the service", "서비스의 도커 이미지를 지정하세요.");
-		m.put("Specify dockerx builder used to build docker image. OneDev will create the builder automatically if it does not exist. Check <a href='https://docs.onedev.io/tutorials/cicd/insecure-docker-registry' target='_blank'>this tutorial</a> on how to customize the builder for instance to allow publishing to insecure registries", 
-			"도커 이미지를 빌드하는 데 사용되는 dockerx 빌더를 지정하세요. OneDev는 빌더가 존재하지 않을 경우 자동으로 생성합니다. 예를 들어 비보안 레지스트리에 게시를 허용하도록 빌더를 사용자 정의하는 방법에 대한 <a href='https://docs.onedev.io/tutorials/cicd/insecure-docker-registry' target='_blank'>이 튜토리얼</a>을 확인하세요.");
+		m.put("Specify dockerx builder used to build docker image. Cheeta will create the builder automatically if it does not exist. Check <a href='https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry' target='_blank'>this tutorial</a> on how to customize the builder for instance to allow publishing to insecure registries", 
+			"도커 이미지를 빌드하는 데 사용되는 dockerx 빌더를 지정하세요. Cheeta는 빌더가 존재하지 않을 경우 자동으로 생성합니다. 예를 들어 비보안 레지스트리에 게시를 허용하도록 빌더를 사용자 정의하는 방법에 대한 <a href='https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry' target='_blank'>이 튜토리얼</a>을 확인하세요.");
 		m.put("Specify email addresses to send invitations, with one per line", "초대장을 보낼 이메일 주소를 한 줄에 하나씩 지정하세요.");
 		m.put("Specify estimated time <b class='text-warning'>only for this issue</b>, not counting \"{0}\"", 
 			"\"{0}\"을 제외하고 <b class='text-warning'>이 문제에 대해서만</b> 예상 시간을 지정하세요.");
@@ -3523,35 +3523,35 @@ public class Translation_ko extends TranslationResourceBundle {
 			"종속성 업데이트를 조정하기 위해 Renovate가 생성한 다양한 문제의 필드를 지정하세요.");
 		m.put("Specify fields to be displayed in the issue list", "문제 목록에 표시할 필드를 지정하세요.");
 		m.put("Specify fields to display in board card", "보드 카드에 표시할 필드를 지정하세요.");
-		m.put("Specify files relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be published. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 기준으로 게시할 파일을 지정하세요. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
-		m.put("Specify files to create md5 checksum from. Multiple files should be separated by space. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>Globstar</a> patterns accepted. Non-absolute file is considered to be relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"md5 체크섬을 생성할 파일을 지정하세요. 여러 파일은 공백으로 구분해야 합니다. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>Globstar</a> 패턴이 허용됩니다. 절대 경로가 아닌 파일은 <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 기준으로 간주됩니다.");
+		m.put("Specify files relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be published. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 기준으로 게시할 파일을 지정하세요. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
+		m.put("Specify files to create md5 checksum from. Multiple files should be separated by space. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>Globstar</a> patterns accepted. Non-absolute file is considered to be relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"md5 체크섬을 생성할 파일을 지정하세요. 여러 파일은 공백으로 구분해야 합니다. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>Globstar</a> 패턴이 허용됩니다. 절대 경로가 아닌 파일은 <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 기준으로 간주됩니다.");
 		m.put("Specify files under above directory to be published", "위 디렉토리 아래에 게시할 파일 지정");
 		m.put("Specify files under above directory to be published. Use * or ? for pattern match. <b>NOTE:</b> <code>index.html</code> should be included in these files to be served as site start page", 
 			"위 디렉터리 아래에서 게시할 파일을 지정하세요. 패턴 매칭을 위해 * 또는 ?를 사용하세요. <b>참고:</b> <code>index.html</code>은 사이트 시작 페이지로 제공되기 위해 이러한 파일에 포함되어야 합니다.");
 		m.put("Specify group to import from. Leave empty to import from projects under current account", 
 			"가져올 그룹을 지정하세요. 현재 계정 아래 프로젝트에서 가져오려면 비워 두세요.");
-		m.put("Specify how to map GitHub issue labels to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"GitHub 문제 레이블을 OneDev 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Specify how to map GitLab issue labels to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"GitLab 문제 레이블을 OneDev 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Specify how to map Gitea issue labels to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Gitea 문제 레이블을 OneDev 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Specify how to map JIRA issue priorities to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"JIRA 문제 우선순위를 OneDev 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Specify how to map JIRA issue statuses to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"JIRA 문제 상태를 OneDev 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 상태를 사용자 정의할 수 있습니다.");
-		m.put("Specify how to map JIRA issue types to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"JIRA 문제 유형을 OneDev 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
-		m.put("Specify how to map YouTrack issue fields to OneDev. Unmapped fields will be reflected in issue description.<br><b>Note: </b><ul><li>Enum field needs to be mapped in form of <tt>&lt;Field Name&gt;::&lt;Field Value&gt;</tt>, for instance <tt>Priority::Critical</tt><li>You may customize OneDev issue fields in case there is no appropriate option here</ul>", 
-			"YouTrack 문제 필드를 OneDev에 매핑하는 방법을 지정하세요. 매핑되지 않은 필드는 문제 설명에 반영됩니다.<br><b>참고:</b><ul><li>열거형 필드는 <tt>&lt;필드 이름&gt;::&lt;필드 값&gt;</tt> 형식으로 매핑해야 합니다. 예: <tt>Priority::Critical</tt></li><li>적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.</ul>");
-		m.put("Specify how to map YouTrack issue links to OneDev issue links.<br><b>NOTE: </b> You may customize OneDev issue links in case there is no appropriate option here", 
-			"YouTrack 문제 링크를 OneDev 문제 링크에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 링크를 사용자 정의할 수 있습니다.");
-		m.put("Specify how to map YouTrack issue state to OneDev issue state. Unmapped states will use the initial state in OneDev.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"YouTrack 문제 상태를 OneDev 문제 상태에 매핑하는 방법을 지정하세요. 매핑되지 않은 상태는 OneDev의 초기 상태를 사용합니다.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 상태를 사용자 정의할 수 있습니다.");
-		m.put("Specify how to map YouTrack issue tags to OneDev issue custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"YouTrack 문제 태그를 OneDev 문제 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map GitHub issue labels to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"GitHub 문제 레이블을 Cheeta 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map GitLab issue labels to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"GitLab 문제 레이블을 Cheeta 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map Gitea issue labels to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Gitea 문제 레이블을 Cheeta 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map JIRA issue priorities to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"JIRA 문제 우선순위를 Cheeta 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map JIRA issue statuses to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"JIRA 문제 상태를 Cheeta 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 상태를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map JIRA issue types to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"JIRA 문제 유형을 Cheeta 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map YouTrack issue fields to Cheeta. Unmapped fields will be reflected in issue description.<br><b>Note: </b><ul><li>Enum field needs to be mapped in form of <tt>&lt;Field Name&gt;::&lt;Field Value&gt;</tt>, for instance <tt>Priority::Critical</tt><li>You may customize Cheeta issue fields in case there is no appropriate option here</ul>", 
+			"YouTrack 문제 필드를 Cheeta에 매핑하는 방법을 지정하세요. 매핑되지 않은 필드는 문제 설명에 반영됩니다.<br><b>참고:</b><ul><li>열거형 필드는 <tt>&lt;필드 이름&gt;::&lt;필드 값&gt;</tt> 형식으로 매핑해야 합니다. 예: <tt>Priority::Critical</tt></li><li>적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.</ul>");
+		m.put("Specify how to map YouTrack issue links to Cheeta issue links.<br><b>NOTE: </b> You may customize Cheeta issue links in case there is no appropriate option here", 
+			"YouTrack 문제 링크를 Cheeta 문제 링크에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 링크를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map YouTrack issue state to Cheeta issue state. Unmapped states will use the initial state in Cheeta.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"YouTrack 문제 상태를 Cheeta 문제 상태에 매핑하는 방법을 지정하세요. 매핑되지 않은 상태는 Cheeta의 초기 상태를 사용합니다.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 상태를 사용자 정의할 수 있습니다.");
+		m.put("Specify how to map YouTrack issue tags to Cheeta issue custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"YouTrack 문제 태그를 Cheeta 문제 사용자 정의 필드에 매핑하는 방법을 지정하세요.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 문제 필드를 사용자 정의할 수 있습니다.");
 		m.put("Specify image on the login button", "로그인 버튼에 표시할 이미지를 지정하세요.");
 		m.put("Specify image tag to pull from, for instance <tt>registry-server:5000/myorg/myrepo:latest</tt>. Make sure to use <b>same host</b> as specified in server url of system settings if you want to pull from built-in registry, or simply use the form <tt>@server@/&lt;project path&gt;/&lt;repo name&gt;:&lt;tag name&gt;</tt>", 
 			"가져올 이미지 태그를 지정하세요. 예: <tt>registry-server:5000/myorg/myrepo:latest</tt>. 내장 레지스트리에서 가져오려면 시스템 설정의 서버 URL에 지정된 <b>동일한 호스트</b>를 사용하거나 단순히 <tt>@server@/&lt;project path&gt;/&lt;repo name&gt;:&lt;tag name&gt;</tt> 형식을 사용하세요.");
@@ -3567,11 +3567,11 @@ public class Translation_ko extends TranslationResourceBundle {
 			"보드의 다른 열을 식별할 문제 필드를 지정하세요. 여기에는 상태 및 단일 값 열거형 필드만 사용할 수 있습니다.");
 		m.put("Specify links to be displayed in the issue list", "문제 목록에 표시할 링크를 지정하세요.");
 		m.put("Specify links to display in board card", "보드 카드에 표시할 링크를 지정하세요.");
-		m.put("Specify manager DN to authenticate OneDev itself to Active Directory. The manager DN should be specified in form of <i>&lt;account name&gt;@&lt;domain&gt;</i>, for instance: <i>manager@example.com</i>", 
-			"OneDev 자체를 Active Directory에 인증하기 위한 관리자 DN을 지정하세요. 관리자 DN은 <i>&lt;계정 이름&gt;@&lt;도메인&gt;</i> 형식으로 지정해야 합니다. 예: <i>manager@example.com</i>.");
-		m.put("Specify manager DN to authenticate OneDev itself to LDAP server", "OneDev 자체를 LDAP 서버에 인증하기 위한 관리자 DN을 지정하세요.");
-		m.put("Specify markdown file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be published", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 기준으로 게시할 마크다운 파일을 지정하세요.");
+		m.put("Specify manager DN to authenticate Cheeta itself to Active Directory. The manager DN should be specified in form of <i>&lt;account name&gt;@&lt;domain&gt;</i>, for instance: <i>manager@example.com</i>", 
+			"Cheeta 자체를 Active Directory에 인증하기 위한 관리자 DN을 지정하세요. 관리자 DN은 <i>&lt;계정 이름&gt;@&lt;도메인&gt;</i> 형식으로 지정해야 합니다. 예: <i>manager@example.com</i>.");
+		m.put("Specify manager DN to authenticate Cheeta itself to LDAP server", "Cheeta 자체를 LDAP 서버에 인증하기 위한 관리자 DN을 지정하세요.");
+		m.put("Specify markdown file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be published", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 기준으로 게시할 마크다운 파일을 지정하세요.");
 		m.put("Specify max git LFS file size in mega bytes", "Git LFS 파일의 최대 크기(메가바이트)를 지정하세요.");
 		m.put("Specify max number of CPU intensive tasks the server can run concurrently, such as Git repository pull/push, repository index, etc.", 
 			"서버가 동시에 실행할 수 있는 CPU 집약적인 작업의 최대 수를 지정하세요. 예: Git 저장소 가져오기/푸시, 저장소 인덱스 등.");
@@ -3587,8 +3587,8 @@ public class Translation_ko extends TranslationResourceBundle {
 			"웹 인터페이스를 통해 업로드된 파일의 최대 크기(메가바이트)를 지정하세요. 이는 저장소에 업로드된 파일, 마크다운 콘텐츠(문제 댓글 등), 빌드 아티팩트에 적용됩니다.");
 		m.put("Specify memory request for each job/service using this executor. Check <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/' target='_blank'>Kubernetes resource management</a> for details", 
 			"이 실행자를 사용하는 각 작업/서비스에 대한 메모리 요청을 지정하세요. 자세한 내용은 <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/' target='_blank'>Kubernetes 리소스 관리</a>를 확인하세요.");
-		m.put("Specify mypy output file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated by redirecting mypy output <b>without option '--pretty'</b>, for instance <code>mypy --exclude=.git --exclude=.venv . > mypy-output</code>. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 기준으로 mypy 출력 파일을 지정하세요. 이 파일은 <b>'--pretty' 옵션 없이</b> mypy 출력을 리디렉션하여 생성할 수 있습니다. 예: <code>mypy --exclude=.git --exclude=.venv . > mypy-output</code>. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
+		m.put("Specify mypy output file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated by redirecting mypy output <b>without option '--pretty'</b>, for instance <code>mypy --exclude=.git --exclude=.venv . > mypy-output</code>. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 기준으로 mypy 출력 파일을 지정하세요. 이 파일은 <b>'--pretty' 옵션 없이</b> mypy 출력을 리디렉션하여 생성할 수 있습니다. 예: <code>mypy --exclude=.git --exclude=.venv . > mypy-output</code>. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
 		m.put("Specify name of the branch", "브랜치 이름을 지정하세요.");
 		m.put("Specify name of the environment variable", "환경 변수 이름을 지정하세요.");
 		m.put("Specify name of the iteration", "반복 이름을 지정하세요.");
@@ -3606,50 +3606,50 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Specify path to git executable, for instance: <tt>/usr/bin/git</tt>", "git 실행 파일 경로를 지정하세요. 예: <tt>/usr/bin/git</tt>.");
 		m.put("Specify powershell executable to be used", "사용할 powershell 실행 파일을 지정하세요.");
 		m.put("Specify project to import build spec from", "빌드 사양을 가져올 프로젝트를 지정하세요.");
-		m.put("Specify project to import into at OneDev side", "OneDev 측에서 가져올 프로젝트를 지정하세요.");
+		m.put("Specify project to import into at Cheeta side", "Cheeta 측에서 가져올 프로젝트를 지정하세요.");
 		m.put("Specify project to retrieve artifacts from", "아티팩트를 가져올 프로젝트를 지정하세요.");
 		m.put("Specify project to run job in", "작업을 실행할 프로젝트를 지정하세요.");
 		m.put("Specify projects", "프로젝트를 지정하세요.");
 		m.put("Specify projects to update dependencies. Leave empty for current project", "종속성을 업데이트할 프로젝트를 지정하세요. 현재 프로젝트의 경우 비워 두세요.");
-		m.put("Specify pylint json result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with pylint json output format option, for instance <code>--exit-zero --output-format=json:pylint-result.json</code>. Note that we do not fail pylint command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 기준으로 pylint JSON 결과 파일을 지정하세요. 이 파일은 pylint JSON 출력 형식 옵션으로 생성할 수 있습니다. 예: <code>--exit-zero --output-format=json:pylint-result.json</code>. 이 단계는 구성된 임계값에 따라 빌드를 실패시키므로 위반 시 pylint 명령을 실패시키지 않습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
+		m.put("Specify pylint json result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with pylint json output format option, for instance <code>--exit-zero --output-format=json:pylint-result.json</code>. Note that we do not fail pylint command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 기준으로 pylint JSON 결과 파일을 지정하세요. 이 파일은 pylint JSON 출력 형식 옵션으로 생성할 수 있습니다. 예: <code>--exit-zero --output-format=json:pylint-result.json</code>. 이 단계는 구성된 임계값에 따라 빌드를 실패시키므로 위반 시 pylint 명령을 실패시키지 않습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
 		m.put("Specify registry logins if necessary. For built-in registry, use <code>@server_url@</code> for registry url, <code>@job_token@</code> for user name, and access token for password", 
 			"필요한 경우 레지스트리 로그인을 지정하세요. 내장 레지스트리의 경우 레지스트리 URL에 <code>@server_url@</code>, 사용자 이름에 <code>@job_token@</code>, 비밀번호에 액세스 토큰을 사용하세요.");
 		m.put("Specify registry url. Leave empty for official registry", "레지스트리 URL을 지정하세요. 공식 레지스트리의 경우 비워 두세요.");
-		m.put("Specify relative path under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 기준으로 OCI 레이아웃을 저장할 상대 경로를 지정하세요.");
+		m.put("Specify relative path under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 기준으로 OCI 레이아웃을 저장할 상대 경로를 지정하세요.");
 		m.put("Specify repositories", "저장소를 지정하세요.");
 		m.put("Specify required reviewers if specified path is changed. Note that the user submitting the change is considered to reviewed the change automatically", 
 			"지정된 경로가 변경된 경우 필요한 검토자를 지정하세요. 변경을 제출한 사용자는 자동으로 변경을 검토한 것으로 간주됩니다.");
 		m.put("Specify root URL to access this server", "이 서버에 액세스할 루트 URL을 지정하세요.");
-		m.put("Specify ruff json result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with ruff json output format option, for instance <code>--exit-zero --output-format json --output-file ruff-result.json</code>. Note that we do not fail ruff command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 기준으로 ruff JSON 결과 파일을 지정하세요. 이 파일은 ruff JSON 출력 형식 옵션으로 생성할 수 있습니다. 예: <code>--exit-zero --output-format json --output-file ruff-result.json</code>. 이 단계는 구성된 임계값에 따라 빌드를 실패시키므로 위반 시 ruff 명령을 실패시키지 않습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
-		m.put("Specify shell commands (on Linux/Unix) or batch commands (on Windows) to execute under the <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 아래에서 실행할 셸 명령(Linux/Unix) 또는 배치 명령(Windows)을 지정하세요.");
-		m.put("Specify shell commands to execute under the <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 공간</a> 아래에서 실행할 셸 명령을 지정하세요.");
+		m.put("Specify ruff json result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with ruff json output format option, for instance <code>--exit-zero --output-format json --output-file ruff-result.json</code>. Note that we do not fail ruff command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 기준으로 ruff JSON 결과 파일을 지정하세요. 이 파일은 ruff JSON 출력 형식 옵션으로 생성할 수 있습니다. 예: <code>--exit-zero --output-format json --output-file ruff-result.json</code>. 이 단계는 구성된 임계값에 따라 빌드를 실패시키므로 위반 시 ruff 명령을 실패시키지 않습니다. 패턴 매칭을 위해 * 또는 ?를 사용하세요.");
+		m.put("Specify shell commands (on Linux/Unix) or batch commands (on Windows) to execute under the <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 아래에서 실행할 셸 명령(Linux/Unix) 또는 배치 명령(Windows)을 지정하세요.");
+		m.put("Specify shell commands to execute under the <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 공간</a> 아래에서 실행할 셸 명령을 지정하세요.");
 		m.put("Specify shell to be used", "사용할 셸을 지정하세요.");
 		m.put("Specify source param for SCP command, for instance <code>app.tar.gz</code>", "SCP 명령의 소스 매개변수를 지정하세요. 예: <code>app.tar.gz</code>.");
 		m.put("Specify space separated refs to pull from remote. '*' can be used in ref name for wildcard match<br><b class='text-danger'>NOTE:</b> branch/tag protection rule will be ignored when update branches/tags via this step", 
 			"원격에서 가져올 공백으로 구분된 참조를 지정하세요. '*'는 참조 이름에서 와일드카드 매칭에 사용할 수 있습니다.<br><b class='text-danger'>참고:</b> 이 단계에서 브랜치/태그를 업데이트할 때 브랜치/태그 보호 규칙이 무시됩니다.");
-		m.put("Specify space-separated branches to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
-			"보호할 공백으로 구분된 브랜치를 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요.");
+		m.put("Specify space-separated branches to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
+			"보호할 공백으로 구분된 브랜치를 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요.");
 		m.put("Specify space-separated jobs. Use '*' or '?' for wildcard match. Prefix with '-' to exclude", 
 			"공백으로 구분된 작업을 지정하세요. 와일드카드 매칭을 위해 '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요.");
 		m.put("Specify space-separated jobs. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. <b class='text-danger'>NOTE: </b> Permission to access build artifacts will be granted implicitly in matched jobs even if no other permissions are specified here", 
 			"공백으로 구분된 작업을 지정하세요. 와일드카드 매칭을 위해 '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. <b class='text-danger'>참고:</b> 여기에서 다른 권한이 지정되지 않은 경우에도 일치하는 작업에서 빌드 아티팩트에 액세스할 권한이 암시적으로 부여됩니다.");
-		m.put("Specify space-separated paths to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
-			"보호할 공백으로 구분된 경로를 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요.");
+		m.put("Specify space-separated paths to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
+			"보호할 공백으로 구분된 경로를 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요.");
 		m.put("Specify space-separated projects applicable for this entry. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all projects", 
 			"이 항목에 적용 가능한 공백으로 구분된 프로젝트를 지정하세요. 와일드카드 매칭을 위해 '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 프로젝트와 일치하려면 비워 두세요.");
 		m.put("Specify space-separated sender email addresses applicable for this entry. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all senders", 
 			"이 항목에 적용 가능한 공백으로 구분된 발신자 이메일 주소를 지정하세요. 와일드카드 매칭을 위해 '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요. 모든 발신자와 일치하려면 비워 두세요.");
-		m.put("Specify space-separated tags to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
-			"보호할 공백으로 구분된 태그를 지정하세요. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요.");
-		m.put("Specify start page of the report relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance: <tt>manual/index.md</tt>", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 기준으로 보고서의 시작 페이지를 지정하세요. 예: <tt>manual/index.md</tt>.");
-		m.put("Specify start page of the report relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance: api/index.html", 
-			"<a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a> 기준으로 보고서의 시작 페이지를 지정하세요. 예: api/index.html.");
+		m.put("Specify space-separated tags to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
+			"보호할 공백으로 구분된 태그를 지정하세요. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>을 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 접두어를 붙이세요.");
+		m.put("Specify start page of the report relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance: <tt>manual/index.md</tt>", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 기준으로 보고서의 시작 페이지를 지정하세요. 예: <tt>manual/index.md</tt>.");
+		m.put("Specify start page of the report relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance: api/index.html", 
+			"<a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a> 기준으로 보고서의 시작 페이지를 지정하세요. 예: api/index.html.");
 		m.put("Specify storage size to request for the build volume. The size should conform to <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#setting-requests-and-limits-for-local-ephemeral-storage' target='_blank'>Kubernetes resource capacity format</a>, for instance <i>10Gi</i>", 
 			"빌드 볼륨에 요청할 저장소 크기를 지정하세요. 크기는 <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#setting-requests-and-limits-for-local-ephemeral-storage' target='_blank'>Kubernetes 리소스 용량 형식</a>을 따라야 합니다. 예: <i>10Gi</i>.");
 		m.put("Specify tab width used to calculate column value of found problems in provided report", 
@@ -3664,8 +3664,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Specify the condition preserved builds must match", "보존된 빌드가 일치해야 하는 조건을 지정하십시오.");
 		m.put("Specify the private key (in PEM format) used by SSH server to establish connections with client", 
 			"SSH 서버가 클라이언트와 연결을 설정하는 데 사용하는 개인 키(PEM 형식)를 지정하십시오.");
-		m.put("Specify the strategy to retrieve group membership information. To give appropriate permissions to a LDAP group, a OneDev group with same name should be defined. Use strategy <tt>Do Not Retrieve Groups</tt> if you want to manage group memberships at OneDev side", 
-			"그룹 멤버십 정보를 검색하는 전략을 지정하십시오. LDAP 그룹에 적절한 권한을 부여하려면 동일한 이름의 OneDev 그룹을 정의해야 합니다. 그룹 멤버십을 OneDev 측에서 관리하려면 <tt>그룹 검색 안 함</tt> 전략을 사용하십시오.");
+		m.put("Specify the strategy to retrieve group membership information. To give appropriate permissions to a LDAP group, a Cheeta group with same name should be defined. Use strategy <tt>Do Not Retrieve Groups</tt> if you want to manage group memberships at Cheeta side", 
+			"그룹 멤버십 정보를 검색하는 전략을 지정하십시오. LDAP 그룹에 적절한 권한을 부여하려면 동일한 이름의 Cheeta 그룹을 정의해야 합니다. 그룹 멤버십을 Cheeta 측에서 관리하려면 <tt>그룹 검색 안 함</tt> 전략을 사용하십시오.");
 		m.put("Specify timeout in seconds when communicating with mail server", "메일 서버와 통신할 때의 타임아웃(초)을 지정하십시오.");
 		m.put("Specify timeout in seconds. It counts from the time when job is submitted", "작업이 제출된 시점부터의 타임아웃(초)을 지정하십시오.");
 		m.put("Specify title of the issue", "이슈 제목을 지정하십시오.");
@@ -3678,14 +3678,14 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Specify web UI session timeout in minutes. Existing sessions will not be affected after changing this value.", 
 			"웹 UI 세션 시간 초과를 분 단위로 지정합니다. 이 값을 변경해도 기존 세션에는 영향을 미치지 않습니다.");
 		m.put("Specify webhook url to post events", "이벤트를 게시할 웹훅 URL을 지정하십시오.");
-		m.put("Specify which issue state to use for closed GitHub issues.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"닫힌 GitHub 이슈에 사용할 이슈 상태를 지정하십시오.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 이슈 상태를 사용자 정의할 수 있습니다.");
-		m.put("Specify which issue state to use for closed GitLab issues.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"닫힌 GitLab 이슈에 사용할 이슈 상태를 지정하십시오.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 이슈 상태를 사용자 정의할 수 있습니다.");
-		m.put("Specify which issue state to use for closed Gitea issues.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"닫힌 Gitea 이슈에 사용할 이슈 상태를 지정하십시오.<br><b>참고:</b> 적절한 옵션이 없는 경우 OneDev 이슈 상태를 사용자 정의할 수 있습니다.");
-		m.put("Specify which states are considered as closed for various issues created by Renovate to orchestrate dependency update. Additionally, when Renovate closes the issue, OneDev will transit the issue to first state specified here", 
-			"Renovate가 의존성 업데이트를 조정하기 위해 생성한 다양한 이슈에서 닫힌 것으로 간주되는 상태를 지정하십시오. 추가적으로, Renovate가 이슈를 닫을 때 OneDev는 이슈를 여기에서 지정된 첫 번째 상태로 전환합니다.");
+		m.put("Specify which issue state to use for closed GitHub issues.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"닫힌 GitHub 이슈에 사용할 이슈 상태를 지정하십시오.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 이슈 상태를 사용자 정의할 수 있습니다.");
+		m.put("Specify which issue state to use for closed GitLab issues.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"닫힌 GitLab 이슈에 사용할 이슈 상태를 지정하십시오.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 이슈 상태를 사용자 정의할 수 있습니다.");
+		m.put("Specify which issue state to use for closed Gitea issues.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"닫힌 Gitea 이슈에 사용할 이슈 상태를 지정하십시오.<br><b>참고:</b> 적절한 옵션이 없는 경우 Cheeta 이슈 상태를 사용자 정의할 수 있습니다.");
+		m.put("Specify which states are considered as closed for various issues created by Renovate to orchestrate dependency update. Additionally, when Renovate closes the issue, Cheeta will transit the issue to first state specified here", 
+			"Renovate가 의존성 업데이트를 조정하기 위해 생성한 다양한 이슈에서 닫힌 것으로 간주되는 상태를 지정하십시오. 추가적으로, Renovate가 이슈를 닫을 때 Cheeta는 이슈를 여기에서 지정된 첫 번째 상태로 전환합니다.");
 		m.put("Specify working days per week. This will affect parsing and displaying of working periods. For instance <tt>1w</tt> is the same as <tt>5d</tt> if this property is set to <tt>5</tt>", 
 			"주당 근무일을 지정하십시오. 이는 근무 기간의 분석 및 표시에 영향을 미칩니다. 예를 들어 <tt>1w</tt>는 이 속성이 <tt>5</tt>로 설정된 경우 <tt>5d</tt>와 동일합니다.");
 		m.put("Specify working hours per day. This will affect parsing and displaying of working periods. For instance <tt>1d</tt> is the same as <tt>8h</tt> if this property is set to <tt>8</tt>", 
@@ -3735,8 +3735,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Step Templates", "단계 템플릿들");
 		m.put("Step {0} of {1}: ", "{0}단계 중 {1}단계:");
 		m.put("Steps", "단계들");
-		m.put("Steps will be executed serially on same node, sharing the same <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>", 
-			"단계는 동일한 노드에서 직렬로 실행되며 동일한 <a href='https://docs.onedev.io/concepts#job-workspace'>작업 공간</a>을 공유합니다.");
+		m.put("Steps will be executed serially on same node, sharing the same <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>", 
+			"단계는 동일한 노드에서 직렬로 실행되며 동일한 <a href='https://docs.cheeta.io/concepts#job-workspace'>작업 공간</a>을 공유합니다.");
 		m.put("Stop work", "작업 중지");
 		m.put("Stopwatch Overdue", "스톱워치 초과");
 		m.put("Storage Settings", "스토리지 설정");
@@ -3798,8 +3798,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("System Maintenance", "시스템 유지보수");
 		m.put("System Setting", "시스템 설정");
 		m.put("System Settings", "시스템 설정");
-		m.put("System email address defined in mail setting should be used as recipient of such email, and project name may be appended to this address using to indicate where to create issues. For instance, if system email address is specified as <tt>support@example.com</tt>, sending email to <tt>support+myproject@example.com</tt> will create issue in <tt>myproject</tt>. If project name is not appended, OneDev will look up the project using project designation information below", 
-			"메일 설정에서 정의된 시스템 이메일 주소는 해당 이메일의 수신자로 사용되어야 하며, 프로젝트 이름을 추가하여 이슈를 생성할 위치를 나타낼 수 있습니다. 예를 들어, 시스템 이메일 주소가 <tt>support@example.com</tt>으로 지정된 경우, <tt>support+myproject@example.com</tt>으로 이메일을 보내면 <tt>myproject</tt>에서 이슈가 생성됩니다. 프로젝트 이름이 추가되지 않은 경우, OneDev는 아래 프로젝트 지정 정보를 사용하여 프로젝트를 검색합니다.");
+		m.put("System email address defined in mail setting should be used as recipient of such email, and project name may be appended to this address using to indicate where to create issues. For instance, if system email address is specified as <tt>support@example.com</tt>, sending email to <tt>support+myproject@example.com</tt> will create issue in <tt>myproject</tt>. If project name is not appended, Cheeta will look up the project using project designation information below", 
+			"메일 설정에서 정의된 시스템 이메일 주소는 해당 이메일의 수신자로 사용되어야 하며, 프로젝트 이름을 추가하여 이슈를 생성할 위치를 나타낼 수 있습니다. 예를 들어, 시스템 이메일 주소가 <tt>support@example.com</tt>으로 지정된 경우, <tt>support+myproject@example.com</tt>으로 이메일을 보내면 <tt>myproject</tt>에서 이슈가 생성됩니다. 프로젝트 이름이 추가되지 않은 경우, Cheeta는 아래 프로젝트 지정 정보를 사용하여 프로젝트를 검색합니다.");
 		m.put("System settings have been saved", "시스템 설정이 저장되었습니다");
 		m.put("System uuid", "시스템 UUID");
 		m.put("TIMED_OUT", "시간 초과");
@@ -3858,10 +3858,10 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("The permission to access build pipeline", "빌드 파이프라인에 접근할 권한");
 		m.put("The permission to run job manually. It also implies the permission to access build log, build pipeline and all published reports", 
 			"작업을 수동으로 실행할 권한. 이는 빌드 로그, 빌드 파이프라인 및 모든 게시된 보고서에 접근할 권한을 포함합니다");
-		m.put("The secret which allows you to ensure that POST requests sent to the payload URL are from OneDev. When you set a secret you'll receive the X-OneDev-Signature header in the webhook POST request", 
-			"POST 요청이 OneDev에서 페이로드 URL로 전송되었는지 확인할 수 있는 비밀 키입니다. 비밀 키를 설정하면 웹훅 POST 요청에서 X-OneDev-Signature 헤더를 받게 됩니다");
-		m.put("The service desk feature enables user to create issues by sending emails to OneDev. Issues can be discussed over email completely, without the need of logging to OneDev.", 
-			"서비스 데스크 기능을 사용하면 사용자가 이메일을 통해 OneDev에 이슈를 생성할 수 있습니다. 이슈는 OneDev에 로그인하지 않고도 이메일로 완전히 논의될 수 있습니다.");
+		m.put("The secret which allows you to ensure that POST requests sent to the payload URL are from Cheeta. When you set a secret you'll receive the X-Cheeta-Signature header in the webhook POST request", 
+			"POST 요청이 Cheeta에서 페이로드 URL로 전송되었는지 확인할 수 있는 비밀 키입니다. 비밀 키를 설정하면 웹훅 POST 요청에서 X-Cheeta-Signature 헤더를 받게 됩니다");
+		m.put("The service desk feature enables user to create issues by sending emails to Cheeta. Issues can be discussed over email completely, without the need of logging to Cheeta.", 
+			"서비스 데스크 기능을 사용하면 사용자가 이메일을 통해 Cheeta에 이슈를 생성할 수 있습니다. 이슈는 Cheeta에 로그인하지 않고도 이메일로 완전히 논의될 수 있습니다.");
 		m.put("Then enter the passcode shown in the TOTP authenticator to verify", "TOTP 인증기에 표시된 패스코드를 입력하여 확인하세요");
 		m.put("Then publish package from project directory like below", "아래와 같이 프로젝트 디렉토리에서 패키지를 게시하세요");
 		m.put("Then push gem to the source", "소스에 gem을 푸시하세요");
@@ -3895,20 +3895,20 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("This date is using <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO 8601 format</a>", 
 			"이 날짜는 <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO 8601 형식</a>을 사용합니다");
 		m.put("This email address is being used", "이 이메일 주소는 사용 중입니다");
-		m.put("This executor runs build jobs as docker containers on OneDev server", "이 실행자는 OneDev 서버에서 Docker 컨테이너로 빌드 작업을 실행합니다");
+		m.put("This executor runs build jobs as docker containers on Cheeta server", "이 실행자는 Cheeta 서버에서 Docker 컨테이너로 빌드 작업을 실행합니다");
 		m.put("This executor runs build jobs as docker containers on remote machines via <a href='/~administration/agents' target='_blank'>agents</a>", 
 			"이 실행자는 <a href='/~administration/agents' target='_blank'>에이전트</a>를 통해 원격 머신에서 Docker 컨테이너로 빌드 작업을 실행합니다");
 		m.put("This executor runs build jobs as pods in a kubernetes cluster. No any agents are required.<b class='text-danger'>Note:</b> Make sure server url is specified correctly in system settings as job pods need to access it to download source and artifacts", 
 			"이 실행자는 Kubernetes 클러스터에서 Pod로 빌드 작업을 실행합니다. 에이전트가 필요하지 않습니다.<b class='text-danger'>참고:</b> 작업 Pod가 소스 및 아티팩트를 다운로드하기 위해 시스템 설정에서 서버 URL이 올바르게 지정되었는지 확인하세요");
-		m.put("This executor runs build jobs with OneDev server's shell facility.<br><b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as OneDev server process. Make sure it can only be used by trusted jobs", 
-			"이 실행자는 OneDev 서버의 셸 기능을 사용하여 빌드 작업을 실행합니다.<br><b class='text-danger'>경고</b>: 이 실행자를 사용하는 작업은 OneDev 서버 프로세스와 동일한 권한을 가집니다. 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
-		m.put("This executor runs build jobs with remote machines's shell facility via <a href='/~administration/agents' target='_blank'>agents</a><br><b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as OneDev agent process. Make sure it can only be used by trusted jobs", 
-			"이 실행자는 <a href='/~administration/agents' target='_blank'>에이전트</a>를 통해 원격 머신의 셸 기능을 사용하여 빌드 작업을 실행합니다<br><b class='text-danger'>경고</b>: 이 실행자를 사용하는 작업은 OneDev 에이전트 프로세스와 동일한 권한을 가집니다. 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
+		m.put("This executor runs build jobs with Cheeta server's shell facility.<br><b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as Cheeta server process. Make sure it can only be used by trusted jobs", 
+			"이 실행자는 Cheeta 서버의 셸 기능을 사용하여 빌드 작업을 실행합니다.<br><b class='text-danger'>경고</b>: 이 실행자를 사용하는 작업은 Cheeta 서버 프로세스와 동일한 권한을 가집니다. 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
+		m.put("This executor runs build jobs with remote machines's shell facility via <a href='/~administration/agents' target='_blank'>agents</a><br><b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as Cheeta agent process. Make sure it can only be used by trusted jobs", 
+			"이 실행자는 <a href='/~administration/agents' target='_blank'>에이전트</a>를 통해 원격 머신의 셸 기능을 사용하여 빌드 작업을 실행합니다<br><b class='text-danger'>경고</b>: 이 실행자를 사용하는 작업은 Cheeta 에이전트 프로세스와 동일한 권한을 가집니다. 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
 		m.put("This field is required", "이 필드는 필수입니다");
 		m.put("This filter is used to determine the LDAP entry for current user. For example: <i>(&(uid={0})(objectclass=person))</i>. In this example, <i>{0}</i> represents login name of current user.", 
 			"이 필터는 현재 사용자의 LDAP 항목을 결정하는 데 사용됩니다. 예: <i>(&(uid={0})(objectclass=person))</i>. 이 예에서 <i>{0}</i>는 현재 사용자의 로그인 이름을 나타냅니다.");
-		m.put("This installation does not have an active subscription and runs as community edition. To access <a href=\"https://onedev.io/pricing\">enterprise features</a>, an active subscription is required", 
-			"이 설치는 활성 구독이 없으며 커뮤니티 에디션으로 실행됩니다. <a href=\"https://onedev.io/pricing\">엔터프라이즈 기능</a>에 액세스하려면 활성 구독이 필요합니다");
+		m.put("This installation does not have an active subscription and runs as community edition. To access <a href=\"https://cheeta.io/pricing\">enterprise features</a>, an active subscription is required", 
+			"이 설치는 활성 구독이 없으며 커뮤니티 에디션으로 실행됩니다. <a href=\"https://cheeta.io/pricing\">엔터프라이즈 기능</a>에 액세스하려면 활성 구독이 필요합니다");
 		m.put("This installation has a trial subscription and is now running as enterprise edition", 
 			"이 설치는 체험 구독을 가지고 있으며 현재 엔터프라이즈 에디션으로 실행 중입니다");
 		m.put("This installation has an active subscription and runs as enterprise edition", "이 설치는 활성 구독을 가지고 있으며 엔터프라이즈 에디션으로 실행됩니다");
@@ -3923,8 +3923,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("This is a layer cache. To use the cache, add below option to your docker buildx command", 
 			"이것은 레이어 캐시입니다. 캐시를 사용하려면 아래 옵션을 Docker buildx 명령에 추가하세요");
 		m.put("This is a service account for task automation purpose", "이것은 작업 자동화를 위한 서비스 계정입니다");
-		m.put("This is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"이것은 엔터프라이즈 기능입니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>");
+		m.put("This is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"이것은 엔터프라이즈 기능입니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>");
 		m.put("This key has already been used by another project", "이 키는 이미 다른 프로젝트에서 사용되었습니다");
 		m.put("This key is associated with {0}, however it is NOT a verified email address of this user", 
 			"이 키는 {0}와 연결되어 있지만 이 사용자의 확인된 이메일 주소가 아닙니다");
@@ -3952,8 +3952,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("This name has already been used by another script", "이 이름은 이미 다른 스크립트에서 사용되었습니다");
 		m.put("This name has already been used by another state", "이 이름은 이미 다른 상태에서 사용되었습니다");
 		m.put("This operation is disallowed by branch protection rule", "이 작업은 브랜치 보호 규칙에 의해 허용되지 않습니다");
-		m.put("This page lists changes since previous build on <a href=\"https://docs.onedev.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">same stream</a>", 
-			"이 페이지는 <a href=\"https://docs.onedev.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">동일한 스트림</a>에서 이전 빌드 이후의 변경 사항을 나열합니다");
+		m.put("This page lists changes since previous build on <a href=\"https://docs.cheeta.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">same stream</a>", 
+			"이 페이지는 <a href=\"https://docs.cheeta.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">동일한 스트림</a>에서 이전 빌드 이후의 변경 사항을 나열합니다");
 		m.put("This page lists recent commits fixing the issue", "이 페이지는 문제를 수정한 최근 커밋을 나열합니다");
 		m.put("This permission enables one to access confidential issues", "이 권한은 기밀 이슈에 액세스할 수 있도록 합니다");
 		m.put("This permission enables one to schedule issues into iterations", "이 권한은 이슈를 반복 작업에 일정으로 추가할 수 있도록 합니다");
@@ -3961,20 +3961,20 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("This pull request has been discarded", "이 풀 리퀘스트는 폐기되었습니다");
 		m.put("This report will be displayed in pull request overview page if build is triggered by pull request", 
 			"이 보고서는 빌드가 풀 리퀘스트에 의해 트리거된 경우 풀 리퀘스트 개요 페이지에 표시됩니다");
-		m.put("This server is currently accessed via http protocol, please configure your docker daemon or buildx builder to <a href=\"https://docs.onedev.io/tutorials/cicd/insecure-docker-registry\" target=\"_blank\">work with insecure registry</a>", 
-			"이 서버는 현재 HTTP 프로토콜을 통해 액세스되고 있습니다. Docker 데몬 또는 buildx 빌더를 <a href=\"https://docs.onedev.io/tutorials/cicd/insecure-docker-registry\" target=\"_blank\">비보안 레지스트리와 함께 작동하도록 구성</a>하세요");
+		m.put("This server is currently accessed via http protocol, please configure your docker daemon or buildx builder to <a href=\"https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry\" target=\"_blank\">work with insecure registry</a>", 
+			"이 서버는 현재 HTTP 프로토콜을 통해 액세스되고 있습니다. Docker 데몬 또는 buildx 빌더를 <a href=\"https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry\" target=\"_blank\">비보안 레지스트리와 함께 작동하도록 구성</a>하세요");
 		m.put("This shows average duration of different states over time", "이 그래프는 시간에 따른 다양한 상태의 평균 지속 시간을 보여줍니다");
 		m.put("This shows average duration of merged pull requests over time", "이 그래프는 시간에 따른 병합된 풀 리퀘스트의 평균 지속 시간을 보여줍니다");
 		m.put("This shows number of <b>new</b> issues in different states over time", "이 그래프는 시간에 따른 <b>새로운</b> 이슈의 수를 다양한 상태에서 보여줍니다");
 		m.put("This shows number of issues in various states over time", "이 그래프는 시간에 따른 다양한 상태의 이슈 수를 보여줍니다");
 		m.put("This shows number of open and merged pull requests over time", "이 그래프는 시간에 따른 열려 있는 풀 리퀘스트와 병합된 풀 리퀘스트의 수를 보여줍니다");
 		m.put("This step can only be executed by a docker aware executor", "이 단계는 Docker를 인식하는 실행자만 실행할 수 있습니다");
-		m.put("This step can only be executed by a docker aware executor. It runs under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"이 단계는 Docker를 인식하는 실행자만 실행할 수 있습니다. <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>에서 실행됩니다");
+		m.put("This step can only be executed by a docker aware executor. It runs under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"이 단계는 Docker를 인식하는 실행자만 실행할 수 있습니다. <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>작업 워크스페이스</a>에서 실행됩니다");
 		m.put("This step copies files from job workspace to build artifacts directory, so that they can be accessed after job is completed", 
 			"이 단계는 작업 공간에서 빌드 아티팩트 디렉토리로 파일을 복사하여 작업이 완료된 후에도 액세스할 수 있도록 합니다");
-		m.put("This step publishes specified files to be served as project web site. Project web site can be accessed publicly via <code>http://&lt;onedev base url&gt;/path/to/project/~site</code>", 
-			"이 단계는 지정된 파일을 프로젝트 웹 사이트로 제공하도록 게시합니다. 프로젝트 웹 사이트는 <code>http://&lt;onedev base url&gt;/path/to/project/~site</code>를 통해 공개적으로 액세스할 수 있습니다");
+		m.put("This step publishes specified files to be served as project web site. Project web site can be accessed publicly via <code>http://&lt;cheeta base url&gt;/path/to/project/~site</code>", 
+			"이 단계는 지정된 파일을 프로젝트 웹 사이트로 제공하도록 게시합니다. 프로젝트 웹 사이트는 <code>http://&lt;cheeta base url&gt;/path/to/project/~site</code>를 통해 공개적으로 액세스할 수 있습니다");
 		m.put("This step pulls specified refs from remote", "이 단계는 원격에서 지정된 참조를 가져옵니다");
 		m.put("This step pushes current commit to same ref on remote", "이 단계는 현재 커밋을 원격의 동일한 참조로 푸시합니다");
 		m.put("This step sets up Renovate cache. Place it before Renovate step if you want to use it", 
@@ -3983,10 +3983,10 @@ public class Translation_ko extends TranslationResourceBundle {
 			"이 단계는 다양한 스캐너 단계의 속도를 높이기 위해 trivy db 캐시를 설정합니다. 스캐너 단계를 사용하려면 이 단계를 그 전에 배치하세요");
 		m.put("This subscription key was already used", "이 구독 키는 이미 사용되었습니다");
 		m.put("This subscription key was expired", "이 구독 키는 만료되었습니다");
-		m.put("This tab shows the pipeline containing current build. Check <a href=\"https://robinshen.medium.com/understanding-onedev-pipeline-db0bb0e54aa7\" target=\"_blank\">this article</a> to understand how build pipeline works", 
-			"이 탭은 현재 빌드를 포함하는 파이프라인을 보여줍니다. 빌드 파이프라인이 어떻게 작동하는지 이해하려면 <a href=\"https://robinshen.medium.com/understanding-onedev-pipeline-db0bb0e54aa7\" target=\"_blank\">이 기사</a>를 확인하세요");
-		m.put("This trigger will only be applicable if tagged commit is reachable from branches specified here. Multiple branches should be separated with spaces. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
-			"이 트리거는 태그된 커밋이 여기에서 지정된 브랜치에서 도달 가능한 경우에만 적용됩니다. 여러 브랜치는 공백으로 구분해야 합니다. <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매치</a>를 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 시작하세요. 모든 브랜치를 매치하려면 비워 두세요");
+		m.put("This tab shows the pipeline containing current build. Check <a href=\"https://robinshen.medium.com/understanding-cheeta-pipeline-db0bb0e54aa7\" target=\"_blank\">this article</a> to understand how build pipeline works", 
+			"이 탭은 현재 빌드를 포함하는 파이프라인을 보여줍니다. 빌드 파이프라인이 어떻게 작동하는지 이해하려면 <a href=\"https://robinshen.medium.com/understanding-cheeta-pipeline-db0bb0e54aa7\" target=\"_blank\">이 기사</a>를 확인하세요");
+		m.put("This trigger will only be applicable if tagged commit is reachable from branches specified here. Multiple branches should be separated with spaces. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
+			"이 트리거는 태그된 커밋이 여기에서 지정된 브랜치에서 도달 가능한 경우에만 적용됩니다. 여러 브랜치는 공백으로 구분해야 합니다. <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매치</a>를 위해 '**', '*' 또는 '?'를 사용하세요. 제외하려면 '-'로 시작하세요. 모든 브랜치를 매치하려면 비워 두세요");
 		m.put("This user is authenticating via external system.", "이 사용자는 외부 시스템을 통해 인증 중입니다.");
 		m.put("This user is authenticating via internal database.", "이 사용자는 내부 데이터베이스를 통해 인증 중입니다.");
 		m.put("This user is currently authenticating via external system. Setting password will switch to use internal database", 
@@ -4067,8 +4067,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Two-factor Authentication", "이중 인증");
 		m.put("Two-factor authentication already set up. <a wicket:id=\"requestToSetupAgain\"><wicket:t>Request to set up again", 
 			"이중 인증이 이미 설정되었습니다. <a wicket:id=\"requestToSetupAgain\"><wicket:t>다시 설정 요청");
-		m.put("Two-factor authentication is enabled. Please input passcode displayed on your TOTP authenticator. If you encounter problems, make sure time of OneDev server and your device running TOTP authenticator is in sync", 
-			"이중 인증이 활성화되었습니다. TOTP 인증기에 표시된 암호를 입력하세요. 문제가 발생하면 OneDev 서버와 TOTP 인증기를 실행 중인 장치의 시간이 동기화되어 있는지 확인하세요");
+		m.put("Two-factor authentication is enabled. Please input passcode displayed on your TOTP authenticator. If you encounter problems, make sure time of Cheeta server and your device running TOTP authenticator is in sync", 
+			"이중 인증이 활성화되었습니다. TOTP 인증기에 표시된 암호를 입력하세요. 문제가 발생하면 Cheeta 서버와 TOTP 인증기를 실행 중인 장치의 시간이 동기화되어 있는지 확인하세요");
 		m.put("Two-factor authentication is enforced for your account to enhance security. Please follow below procedure to set it up", 
 			"보안을 강화하기 위해 계정에 이중 인증이 적용됩니다. 아래 절차를 따라 설정하세요");
 		m.put("Two-factor authentication is now configured", "이중 인증이 이제 구성되었습니다");
@@ -4193,12 +4193,12 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Url", "URL");
 		m.put("Use '*' for wildcard match", "와일드카드 매칭에 '*' 사용");
 		m.put("Use '*' or '?' for wildcard match. Prefix with '-' to exclude", "와일드카드 매칭에 '*' 또는 '?' 사용. 제외하려면 '-'로 시작");
-		m.put("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>", 
-			"<a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>에 '**', '*' 또는 '?' 사용");
-		m.put("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
-			"<a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>에 '**', '*' 또는 '?' 사용. 제외하려면 '-'로 시작");
-		m.put("Use '**', '*', or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>", 
-			"<a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>에 '**', '*', 또는 '?' 사용");
+		m.put("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>", 
+			"<a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>에 '**', '*' 또는 '?' 사용");
+		m.put("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
+			"<a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>에 '**', '*' 또는 '?' 사용. 제외하려면 '-'로 시작");
+		m.put("Use '**', '*', or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>", 
+			"<a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>경로 와일드카드 매칭</a>에 '**', '*', 또는 '?' 사용");
 		m.put("Use '\\' to escape brackets", "괄호를 이스케이프하려면 '\\' 사용");
 		m.put("Use '\\' to escape quotes", "따옴표를 이스케이프하려면 '\\' 사용");
 		m.put("Use @@ to reference scope in job commands to avoid being interpreted as variable", "변수로 해석되지 않도록 작업 명령에서 범위를 참조하려면 @@ 사용");
@@ -4214,12 +4214,12 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Use curl in System Path", "시스템 경로에서 curl 사용");
 		m.put("Use default", "기본값 사용");
 		m.put("Use default storage class", "기본 스토리지 클래스 사용");
-		m.put("Use job token as user name so that OneDev can know which build is ${permission.equals(\"write\")? \"deploying\": \"using\"} packages", 
-			"OneDev이 ${permission.equals(\"write\")? \"배포\": \"사용\"} 패키지를 알 수 있도록 사용자 이름으로 작업 토큰 사용");
-		m.put("Use job token to tell OneDev the build publishing the package", "OneDev에 패키지를 게시하는 빌드를 알리기 위해 작업 토큰 사용");
-		m.put("Use job token to tell OneDev the build pushing the chart", "OneDev에 차트를 푸시하는 빌드를 알리기 위해 작업 토큰 사용");
-		m.put("Use job token to tell OneDev the build pushing the package", "OneDev에 패키지를 푸시하는 빌드를 알리기 위해 작업 토큰 사용");
-		m.put("Use job token to tell OneDev the build using the package", "OneDev에 패키지를 사용하는 빌드를 알리기 위해 작업 토큰 사용");
+		m.put("Use job token as user name so that Cheeta can know which build is ${permission.equals(\"write\")? \"deploying\": \"using\"} packages", 
+			"Cheeta이 ${permission.equals(\"write\")? \"배포\": \"사용\"} 패키지를 알 수 있도록 사용자 이름으로 작업 토큰 사용");
+		m.put("Use job token to tell Cheeta the build publishing the package", "Cheeta에 패키지를 게시하는 빌드를 알리기 위해 작업 토큰 사용");
+		m.put("Use job token to tell Cheeta the build pushing the chart", "Cheeta에 차트를 푸시하는 빌드를 알리기 위해 작업 토큰 사용");
+		m.put("Use job token to tell Cheeta the build pushing the package", "Cheeta에 패키지를 푸시하는 빌드를 알리기 위해 작업 토큰 사용");
+		m.put("Use job token to tell Cheeta the build using the package", "Cheeta에 패키지를 사용하는 빌드를 알리기 위해 작업 토큰 사용");
 		m.put("Use project dependency to retrieve artifacts from other projects", "다른 프로젝트에서 아티팩트를 검색하기 위해 프로젝트 종속성 사용");
 		m.put("Use specified choices", "지정된 선택 항목 사용");
 		m.put("Use specified default value", "지정된 기본값 사용");
@@ -4311,8 +4311,8 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("When determine if the user is author/committer of a git commit, all emails listed here will be checked", 
 			"사용자가 Git 커밋의 작성자/커미터인지 확인할 때 여기에 나열된 모든 이메일이 확인됩니다");
 		m.put("When evaluating this template, below variables will be available:", "이 템플릿을 평가할 때 아래 변수가 사용 가능합니다:");
-		m.put("When login via OneDev's built-in form, submitted user credentials can be checked against authenticator defined here, besides the internal database", 
-			"OneDev의 내장된 양식을 통해 로그인할 때, 제출된 사용자 자격 증명은 내부 데이터베이스 외에도 여기 정의된 인증기를 통해 확인할 수 있습니다");
+		m.put("When login via Cheeta's built-in form, submitted user credentials can be checked against authenticator defined here, besides the internal database", 
+			"Cheeta의 내장된 양식을 통해 로그인할 때, 제출된 사용자 자격 증명은 내부 데이터베이스 외에도 여기 정의된 인증기를 통해 확인할 수 있습니다");
 		m.put("When target branch of a pull request has new commits, merge commit of the pull request will be recalculated, and this option tells whether or not to accept pull request builds ran on previous merged commit. If enabled, you will need to re-run required builds on the new merge commit. This setting takes effect only when required builds are specified", 
 			"풀 리퀘스트의 대상 브랜치에 새 커밋이 있을 경우, 풀 리퀘스트의 병합 커밋이 재계산되며, 이전 병합 커밋에서 실행된 빌드를 수락할지 여부를 결정합니다. 활성화되면 새 병합 커밋에서 필요한 빌드를 다시 실행해야 합니다. 이 설정은 필요한 빌드가 지정된 경우에만 적용됩니다");
 		m.put("When this work starts", "이 작업이 시작될 때");
@@ -4341,14 +4341,14 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Whether or not to be able to access time tracking info of issues", "문제의 시간 추적 정보를 액세스할 수 있는지 여부");
 		m.put("Whether or not to create as a service account for task automation purpose. Service account does not have password and email addresses, and will not generate notifications for its activities", 
 			"작업 자동화 목적으로 서비스 계정으로 생성할지 여부. 서비스 계정은 비밀번호와 이메일 주소가 없으며, 활동에 대한 알림을 생성하지 않습니다");
-		m.put("Whether or not to create as a service account for task automation purpose. Service account does not have password and email addresses, and will not generate notifications for its activities. <b class='text-warning'>NOTE:</b> Service account is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"작업 자동화 목적으로 서비스 계정으로 생성할지 여부. 서비스 계정은 비밀번호와 이메일 주소가 없으며, 활동에 대한 알림을 생성하지 않습니다. <b class='text-warning'>참고:</b> 서비스 계정은 엔터프라이즈 기능입니다. <a href='https://onedev.io/pricing' target='_blank'>30일 무료 체험</a>");
+		m.put("Whether or not to create as a service account for task automation purpose. Service account does not have password and email addresses, and will not generate notifications for its activities. <b class='text-warning'>NOTE:</b> Service account is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"작업 자동화 목적으로 서비스 계정으로 생성할지 여부. 서비스 계정은 비밀번호와 이메일 주소가 없으며, 활동에 대한 알림을 생성하지 않습니다. <b class='text-warning'>참고:</b> 서비스 계정은 엔터프라이즈 기능입니다. <a href='https://cheeta.io/pricing' target='_blank'>30일 무료 체험</a>");
 		m.put("Whether or not to enable code management for the project", "프로젝트에 대한 코드 관리를 활성화할지 여부");
 		m.put("Whether or not to enable issue management for the project", "프로젝트에 대한 문제 관리를 활성화할지 여부");
 		m.put("Whether or not to fetch LFS objects if pull request is opened from a different project.", 
 			"풀 리퀘스트가 다른 프로젝트에서 열렸을 경우 LFS 객체를 가져올지 여부");
-		m.put("Whether or not to fetch LFS objects if pull request is opened from a different project. If this option is enabled, git lfs command needs to be installed on OneDev server", 
-			"풀 리퀘스트가 다른 프로젝트에서 열렸을 경우 LFS 객체를 가져올지 여부. 이 옵션이 활성화되면 OneDev 서버에 git lfs 명령이 설치되어야 합니다");
+		m.put("Whether or not to fetch LFS objects if pull request is opened from a different project. If this option is enabled, git lfs command needs to be installed on Cheeta server", 
+			"풀 리퀘스트가 다른 프로젝트에서 열렸을 경우 LFS 객체를 가져올지 여부. 이 옵션이 활성화되면 Cheeta 서버에 git lfs 명령이 설치되어야 합니다");
 		m.put("Whether or not to import forked Bitbucket repositories", "포크된 Bitbucket 저장소를 가져올지 여부");
 		m.put("Whether or not to import forked GitHub repositories", "포크된 GitHub 저장소를 가져올지 여부");
 		m.put("Whether or not to import forked GitLab projects", "포크된 GitLab 프로젝트를 가져올지 여부");
@@ -4357,15 +4357,15 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Whether or not to include this field when issue is initially opened. If not, you may include this field later when issue is transited to other states via issue transition rule", 
 			"문제가 처음 열릴 때 이 필드를 포함할지 여부. 포함하지 않을 경우, 문제가 다른 상태로 전환될 때 문제 전환 규칙을 통해 나중에 이 필드를 포함할 수 있습니다");
 		m.put("Whether or not to input and display estimated/spent time in hours/minutes only", "예상/소요 시간을 시간/분 단위로만 입력하고 표시할지 여부");
-		m.put("Whether or not to mount docker sock into job container to support docker operations in job commands<br><b class='text-danger'>WARNING</b>: Malicious jobs can take control of whole OneDev by operating the mounted docker sock. Make sure this executor can only be used by trusted jobs if this option is enabled", 
-			"작업 명령에서 도커 작업을 지원하기 위해 도커 소켓을 작업 컨테이너에 마운트할지 여부<br><b class='text-danger'>경고</b>: 악의적인 작업은 마운트된 도커 소켓을 조작하여 전체 OneDev를 제어할 수 있습니다. 이 옵션이 활성화된 경우 이 실행자가 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
+		m.put("Whether or not to mount docker sock into job container to support docker operations in job commands<br><b class='text-danger'>WARNING</b>: Malicious jobs can take control of whole Cheeta by operating the mounted docker sock. Make sure this executor can only be used by trusted jobs if this option is enabled", 
+			"작업 명령에서 도커 작업을 지원하기 위해 도커 소켓을 작업 컨테이너에 마운트할지 여부<br><b class='text-danger'>경고</b>: 악의적인 작업은 마운트된 도커 소켓을 조작하여 전체 Cheeta를 제어할 수 있습니다. 이 옵션이 활성화된 경우 이 실행자가 신뢰할 수 있는 작업에서만 사용되도록 해야 합니다");
 		m.put("Whether or not to pre-populate tag mappings in next page. You may want to disable this if there are too many tags to display", 
 			"다음 페이지에서 태그 매핑을 미리 채울지 여부. 표시할 태그가 너무 많을 경우 이 옵션을 비활성화할 수 있습니다");
 		m.put("Whether or not to require this dependency to be successful", "이 종속성이 성공해야 하는지 여부");
 		m.put("Whether or not to retrieve groups of login user. Make sure to add groups claim via token configuration of the app registered in Entra ID if this option is enabled. The groups claim should return group id (the default option) via various token types in this case", 
 			"로그인 사용자의 그룹을 검색할지 여부. 이 옵션이 활성화된 경우, Entra ID에 등록된 앱의 토큰 구성에서 그룹 클레임을 추가해야 합니다. 이 경우 그룹 클레임은 다양한 토큰 유형을 통해 기본 옵션으로 그룹 ID를 반환해야 합니다");
-		m.put("Whether or not to retrieve submodules. Refer to <a href='https://docs.onedev.io/tutorials/cicd/clone-submodules' target='_blank'>this tutorial</a> on how to set up clone credential above to retrieve submodules", 
-			"하위 모듈을 검색할지 여부. 위의 클론 자격 증명을 설정하는 방법에 대한 <a href='https://docs.onedev.io/tutorials/cicd/clone-submodules' target='_blank'>이 튜토리얼</a>을 참조하세요");
+		m.put("Whether or not to retrieve submodules. Refer to <a href='https://docs.cheeta.io/tutorials/cicd/clone-submodules' target='_blank'>this tutorial</a> on how to set up clone credential above to retrieve submodules", 
+			"하위 모듈을 검색할지 여부. 위의 클론 자격 증명을 설정하는 방법에 대한 <a href='https://docs.cheeta.io/tutorials/cicd/clone-submodules' target='_blank'>이 튜토리얼</a>을 참조하세요");
 		m.put("Whether or not to run this step inside container", "이 단계를 컨테이너 내부에서 실행할지 여부");
 		m.put("Whether or not to scan recursively in above paths", "위 경로에서 재귀적으로 스캔할지 여부");
 		m.put("Whether or not to send notifications for events generated by yourself", "자신이 생성한 이벤트에 대한 알림을 보낼지 여부");
@@ -4420,7 +4420,7 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("Your email address is now verified", "이메일 주소가 이제 확인되었습니다");
 		m.put("Your primary email address is not verified", "기본 이메일 주소가 확인되지 않았습니다");
 		m.put("[Any state]", "[어떤 상태든]");
-		m.put("[Reset Password] Please Reset Your OneDev Password", "[비밀번호 재설정] OneDev 비밀번호를 재설정하세요");
+		m.put("[Reset Password] Please Reset Your Cheeta Password", "[비밀번호 재설정] Cheeta 비밀번호를 재설정하세요");
 		m.put("a boolean indiciating whether or not topic comment can be created directly by replying the email", 
 			"이메일에 직접 답글을 달아 주제 댓글을 생성할 수 있는지 여부를 나타내는 불리언 값");
 		m.put("a new agent token will be generated each time this button is pressed", "이 버튼을 누를 때마다 새 에이전트 토큰이 생성됩니다");
@@ -4430,10 +4430,10 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("access [{0}]", "액세스 [{0}]");
 		m.put("active", "활성");
 		m.put("add another order", "다른 주문 추가");
-		m.put("adding .onedev-buildspec.yml", ".onedev-buildspec.yml 추가 중");
+		m.put("adding .cheeta-buildspec.yml", ".cheeta-buildspec.yml 추가 중");
 		m.put("after specified date", "지정된 날짜 이후");
-		m.put("an <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/notification/Unsubscribable.java' target='_blank'>object</a> holding unsubscribe information.  A <code>null</code> value means that the notification can not be unsubscribed", 
-			"구독 취소 정보를 보유한 <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/notification/Unsubscribable.java' target='_blank'>객체</a>. <code>null</code> 값은 알림을 구독 취소할 수 없음을 의미합니다");
+		m.put("an <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/notification/Unsubscribable.java' target='_blank'>object</a> holding unsubscribe information.  A <code>null</code> value means that the notification can not be unsubscribed", 
+			"구독 취소 정보를 보유한 <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/notification/Unsubscribable.java' target='_blank'>객체</a>. <code>null</code> 값은 알림을 구독 취소할 수 없음을 의미합니다");
 		m.put("and more", "그리고 더 많은 것");
 		m.put("archived", "보관됨");
 		m.put("artifacts", "아티팩트");
@@ -4570,26 +4570,26 @@ public class Translation_ko extends TranslationResourceBundle {
 		m.put("pull requests", "풀 리퀘스트들");
 		m.put("reconciliation (need administrator permission)", "조정 (관리자 권한 필요)");
 		m.put("reports", "보고서");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Build.java' target='_blank'>build</a> object to be notified", 
-			"알림을 받을 <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Build.java' target='_blank'>빌드</a> 객체를 나타냅니다");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>issue</a> being opened via service desk", 
-			"서비스 데스크를 통해 열리는 <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>이슈</a>를 나타냅니다");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>issue</a> object to be notified", 
-			"알림을 받을 <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>이슈</a> 객체를 나타냅니다");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Pack.java' target='_blank'>package</a> object to be notified", 
-			"알림을 받을 <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Pack.java' target='_blank'>패키지</a> 객체를 나타냅니다");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/PullRequest.java' target='_blank'>pull request</a> object to be notified", 
-			"알림을 받을 <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/PullRequest.java' target='_blank'>풀 리퀘스트</a> 객체를 나타냅니다");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Build.java' target='_blank'>build</a> object to be notified", 
+			"알림을 받을 <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Build.java' target='_blank'>빌드</a> 객체를 나타냅니다");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>issue</a> being opened via service desk", 
+			"서비스 데스크를 통해 열리는 <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>이슈</a>를 나타냅니다");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>issue</a> object to be notified", 
+			"알림을 받을 <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>이슈</a> 객체를 나타냅니다");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Pack.java' target='_blank'>package</a> object to be notified", 
+			"알림을 받을 <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Pack.java' target='_blank'>패키지</a> 객체를 나타냅니다");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/PullRequest.java' target='_blank'>pull request</a> object to be notified", 
+			"알림을 받을 <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/PullRequest.java' target='_blank'>풀 리퀘스트</a> 객체를 나타냅니다");
 		m.put("represents the <a href='https://javadoc.io/static/org.eclipse.jgit/org.eclipse.jgit/5.13.0.202109080827-r/org/eclipse/jgit/revwalk/RevCommit.html' target='_blank'>commit</a> object to be notified", 
 			"알림을 받을 <a href='https://javadoc.io/static/org.eclipse.jgit/org.eclipse.jgit/5.13.0.202109080827-r/org/eclipse/jgit/revwalk/RevCommit.html' target='_blank'>커밋</a> 객체를 나타냅니다");
 		m.put("represents the exception encountered when open issue via service desk", "서비스 데스크를 통해 이슈를 열 때 발생한 예외를 나타냅니다");
-		m.put("represents the unsubscribed <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>issue</a>", 
-			"구독 취소된 <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>이슈</a>를 나타냅니다");
-		m.put("represents the unsubscribed <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/PullRequest.java' target='_blank'>pull request</a>", 
-			"구독 취소된 <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/PullRequest.java' target='_blank'>풀 리퀘스트</a>를 나타냅니다");
+		m.put("represents the unsubscribed <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>issue</a>", 
+			"구독 취소된 <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>이슈</a>를 나타냅니다");
+		m.put("represents the unsubscribed <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/PullRequest.java' target='_blank'>pull request</a>", 
+			"구독 취소된 <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/PullRequest.java' target='_blank'>풀 리퀘스트</a>를 나타냅니다");
 		m.put("request to change", "변경 요청");
 		m.put("root", "루트");
-		m.put("root url of OneDev server", "OneDev 서버의 루트 URL");
+		m.put("root url of Cheeta server", "Cheeta 서버의 루트 URL");
 		m.put("run job", "작업 실행");
 		m.put("search in this revision will be accurate after indexed", "이 리비전에 대한 검색은 인덱싱 후 정확해집니다");
 		m.put("service", "서비스");

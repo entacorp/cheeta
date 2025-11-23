@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
 import java.io.IOException;
 
@@ -29,10 +29,10 @@ import org.eclipse.jetty.websocket.servlet.ServletUpgradeResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.persistence.SessionService;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.persistence.SessionService;
 
 /**
  * An {@link org.apache.wicket.protocol.ws.api.IWebSocketProcessor processor} that integrates with
@@ -78,7 +78,7 @@ public class WebSocketProcessor extends AbstractWebSocketProcessor implements We
 	}
 	
 	private void run(Runnable runnable) {
-		if (OneDev.getInstance().isReady()) {
+		if (Cheeta.getInstance().isReady()) {
 			SessionService sessionService = AppLoader.getInstance(SessionService.class);
 			Subject subject = (Subject) request.getHttpServletRequest()
 					.getAttribute(WebSocketFilter.SHIRO_SUBJECT);

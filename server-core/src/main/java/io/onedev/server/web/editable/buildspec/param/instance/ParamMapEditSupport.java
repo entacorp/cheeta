@@ -1,9 +1,9 @@
-package io.onedev.server.web.editable.buildspec.param.instance;
+package io.cheeta.server.web.editable.buildspec.param.instance;
 
-import io.onedev.server.annotation.ParamSpecProvider;
-import io.onedev.server.buildspec.param.instance.ParamInstance;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.editable.*;
+import io.cheeta.server.annotation.ParamSpecProvider;
+import io.cheeta.server.buildspec.param.instance.ParamInstance;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;

@@ -1,4 +1,4 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import java.io.Serializable;
 import java.util.Properties;
@@ -11,7 +11,7 @@ import org.hibernate.id.IdentifierGenerator;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.type.Type;
 
-import io.onedev.commons.loader.AppLoader;
+import io.cheeta.commons.loader.AppLoader;
 
 public class IdGenerator implements IdentifierGenerator, Configurable {
 

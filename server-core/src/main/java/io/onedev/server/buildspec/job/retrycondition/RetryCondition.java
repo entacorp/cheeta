@@ -1,11 +1,11 @@
-package io.onedev.server.buildspec.job.retrycondition;
+package io.cheeta.server.buildspec.job.retrycondition;
 
-import static io.onedev.server.buildspec.job.retrycondition.RetryConditionLexer.Contains;
-import static io.onedev.server.buildspec.job.retrycondition.RetryConditionLexer.Is;
-import static io.onedev.server.buildspec.job.retrycondition.RetryConditionLexer.IsEmpty;
-import static io.onedev.server.buildspec.job.retrycondition.RetryConditionLexer.IsNot;
-import static io.onedev.server.buildspec.job.retrycondition.RetryConditionLexer.IsNotEmpty;
-import static io.onedev.server.model.Build.NAME_LOG;
+import static io.cheeta.server.buildspec.job.retrycondition.RetryConditionLexer.Contains;
+import static io.cheeta.server.buildspec.job.retrycondition.RetryConditionLexer.Is;
+import static io.cheeta.server.buildspec.job.retrycondition.RetryConditionLexer.IsEmpty;
+import static io.cheeta.server.buildspec.job.retrycondition.RetryConditionLexer.IsNot;
+import static io.cheeta.server.buildspec.job.retrycondition.RetryConditionLexer.IsNotEmpty;
+import static io.cheeta.server.model.Build.NAME_LOG;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,24 +24,24 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
-import io.onedev.commons.codeassist.AntlrUtils;
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser.AndCriteriaContext;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser.ConditionContext;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser.CriteriaContext;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser.FieldOperatorCriteriaContext;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser.FieldOperatorValueCriteriaContext;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser.NotCriteriaContext;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser.OrCriteriaContext;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser.ParensCriteriaContext;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.AndCriteria;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.criteria.NotCriteria;
-import io.onedev.server.util.criteria.OrCriteria;
+import io.cheeta.commons.codeassist.AntlrUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser.AndCriteriaContext;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser.ConditionContext;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser.CriteriaContext;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser.FieldOperatorCriteriaContext;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser.FieldOperatorValueCriteriaContext;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser.NotCriteriaContext;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser.OrCriteriaContext;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser.ParensCriteriaContext;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.AndCriteria;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.criteria.NotCriteria;
+import io.cheeta.server.util.criteria.OrCriteria;
 
 public class RetryCondition extends Criteria<RetryContext> {
 

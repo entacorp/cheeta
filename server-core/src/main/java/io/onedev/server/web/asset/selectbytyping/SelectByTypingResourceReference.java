@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.selectbytyping;
+package io.cheeta.server.web.asset.selectbytyping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,10 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.doneevents.DoneEventsResourceReference;
-import io.onedev.server.web.asset.hotkeys.HotkeysResourceReference;
-import io.onedev.server.web.page.base.BaseCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.doneevents.DoneEventsResourceReference;
+import io.cheeta.server.web.asset.hotkeys.HotkeysResourceReference;
+import io.cheeta.server.web.page.base.BaseCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class SelectByTypingResourceReference extends BaseDependentResourceReference {
 

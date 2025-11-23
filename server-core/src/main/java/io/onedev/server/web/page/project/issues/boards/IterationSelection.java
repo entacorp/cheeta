@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
-import io.onedev.server.model.Iteration;
+import io.cheeta.server.model.Iteration;
 
 import org.jspecify.annotations.Nullable;
 

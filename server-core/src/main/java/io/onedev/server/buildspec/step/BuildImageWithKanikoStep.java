@@ -1,16 +1,16 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.k8shelper.CommandFacade;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.server.annotation.*;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.step.commandinterpreter.DefaultInterpreter;
-import io.onedev.server.buildspec.step.commandinterpreter.Interpreter;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.jobexecutor.DockerAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.k8shelper.CommandFacade;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.server.annotation.*;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.step.commandinterpreter.DefaultInterpreter;
+import io.cheeta.server.buildspec.step.commandinterpreter.Interpreter;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.jobexecutor.DockerAware;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -19,9 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static io.onedev.agent.DockerExecutorUtils.buildDockerConfig;
-import static io.onedev.k8shelper.RegistryLoginFacade.merge;
-import static io.onedev.server.buildspec.step.StepGroup.DOCKER_IMAGE;
+import static io.cheeta.agent.DockerExecutorUtils.buildDockerConfig;
+import static io.cheeta.k8shelper.RegistryLoginFacade.merge;
+import static io.cheeta.server.buildspec.step.StepGroup.DOCKER_IMAGE;
 
 @Editable(order=200, name="Build Image (Kaniko)", group = DOCKER_IMAGE, description="Build docker image with kaniko. " +
 		"This step needs to be executed by server docker executor, remote docker executor, or Kubernetes executor")
@@ -59,7 +59,7 @@ public class BuildImageWithKanikoStep extends CommandStep {
 		return null;
 	}
 
-	@Editable(order=100, description="Optionally specify build context path relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. "
+	@Editable(order=100, description="Optionally specify build context path relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. "
 			+ "Leave empty to use job workspace itself. The file <code>Dockerfile</code> is expected to exist in build context " +
 			"directory, unless you specify a different location with option <code>--dockerfile</code>")
 	@Interpolative(variableSuggester="suggestVariables")
@@ -143,9 +143,9 @@ public class BuildImageWithKanikoStep extends CommandStep {
 				
 				commandsBuilder.append("/kaniko/executor");
 				if (getBuildContext() != null)
-					commandsBuilder.append(" --context=\"/onedev-build/workspace/").append(getBuildContext()).append("\"");
+					commandsBuilder.append(" --context=\"/cheeta-build/workspace/").append(getBuildContext()).append("\"");
 				else
-					commandsBuilder.append(" --context=/onedev-build/workspace");
+					commandsBuilder.append(" --context=/cheeta-build/workspace");
 
 				commandsBuilder.append(" ").append(getOutput().getOptions());			
 				
@@ -212,7 +212,7 @@ public class BuildImageWithKanikoStep extends CommandStep {
 
 		private String destPath;
 
-		@Editable(name="OCI Layout Directory", description = "Specify relative path under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout")
+		@Editable(name="OCI Layout Directory", description = "Specify relative path under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout")
 		@Interpolative(variableSuggester="suggestVariables")
 		@SubPath
 		@NoSpace
@@ -231,7 +231,7 @@ public class BuildImageWithKanikoStep extends CommandStep {
 
 		@Override
 		public String getOptions() {
-			return "--no-push --oci-layout-path /onedev-build/workspace/" + getDestPath();
+			return "--no-push --oci-layout-path /cheeta-build/workspace/" + getDestPath();
 		}
 		
 	}

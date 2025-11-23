@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.issue.choice;
+package io.cheeta.server.web.component.issue.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.web.component.select2.Select2Choice;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.web.component.select2.Select2Choice;
 
 public class IssueSingleChoice extends Select2Choice<Issue> {
 
@@ -23,9 +23,9 @@ public class IssueSingleChoice extends Select2Choice<Issue> {
 			getSettings().setPlaceholder(_T("Choose issue..."));
 		else
 			getSettings().setPlaceholder(_T("Not specified"));
-		getSettings().setFormatResult("onedev.server.issueChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.issueChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.issueChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.issueChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.issueChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.issueChoiceFormatter.escapeMarkup");
 		setConvertEmptyInputStringToNull(true);
 	}
 

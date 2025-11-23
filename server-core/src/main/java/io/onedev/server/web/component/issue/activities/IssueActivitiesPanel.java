@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.issue.activities;
+package io.cheeta.server.web.component.issue.activities;
 
-import static io.onedev.server.security.SecurityUtils.canAccessTimeTracking;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.security.SecurityUtils.canAccessTimeTracking;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -36,41 +36,41 @@ import org.apache.wicket.request.http.WebResponse;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.service.IssueCommentService;
-import io.onedev.server.entityreference.ReferencedFromAware;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueWork;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.changedata.IssueDescriptionChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueOwnEstimatedTimeChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueOwnSpentTimeChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueTotalEstimatedTimeChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueTotalSpentTimeChangeData;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.comment.CommentInput;
-import io.onedev.server.web.component.issue.activities.activity.IssueActivity;
-import io.onedev.server.web.component.issue.activities.activity.IssueChangeActivity;
-import io.onedev.server.web.component.issue.activities.activity.IssueCommentActivity;
-import io.onedev.server.web.component.issue.activities.activity.IssueWorkActivity;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.security.LoginPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.service.IssueCommentService;
+import io.cheeta.server.entityreference.ReferencedFromAware;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueWork;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.changedata.IssueDescriptionChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueOwnEstimatedTimeChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueOwnSpentTimeChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueTotalEstimatedTimeChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueTotalSpentTimeChangeData;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.comment.CommentInput;
+import io.cheeta.server.web.component.issue.activities.activity.IssueActivity;
+import io.cheeta.server.web.component.issue.activities.activity.IssueChangeActivity;
+import io.cheeta.server.web.component.issue.activities.activity.IssueCommentActivity;
+import io.cheeta.server.web.component.issue.activities.activity.IssueWorkActivity;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.security.LoginPage;
+import io.cheeta.server.web.util.WicketUtils;
 
 public abstract class IssueActivitiesPanel extends Panel {
 
-	private static final String COOKIE_SHOW_COMMENTS = "onedev.server.issue.showComments";
+	private static final String COOKIE_SHOW_COMMENTS = "cheeta.server.issue.showComments";
 	
-	private static final String COOKIE_SHOW_CHANGE_HISTORY = "onedev.server.issue.showChangeHistory";
+	private static final String COOKIE_SHOW_CHANGE_HISTORY = "cheeta.server.issue.showChangeHistory";
 	
-	private static final String COOKIE_SHOW_WORK_LOG = "onedev.server.issue.showWorkLog";
+	private static final String COOKIE_SHOW_WORK_LOG = "cheeta.server.issue.showWorkLog";
 	
 	private RepeatingView activitiesView;
 	
@@ -276,7 +276,7 @@ public abstract class IssueActivitiesPanel extends Panel {
 						comment.setUser(SecurityUtils.getAuthUser());
 						comment.setDate(new Date());
 						comment.setIssue(getIssue());
-						OneDev.getInstance(IssueCommentService.class).create(comment);
+						Cheeta.getInstance(IssueCommentService.class).create(comment);
 						
 						if (showComments) {
 							((BasePage) getPage()).notifyObservablesChange(target, getIssue().getChangeObservables(false));

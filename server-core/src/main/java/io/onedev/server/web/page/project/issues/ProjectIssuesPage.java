@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.issues;
+package io.cheeta.server.web.page.project.issues;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.web.component.issue.workflowreconcile.WorkflowChangeAlertPanel;
-import io.onedev.server.web.page.project.ProjectPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.web.component.issue.workflowreconcile.WorkflowChangeAlertPanel;
+import io.cheeta.server.web.page.project.ProjectPage;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
@@ -15,7 +15,7 @@ public abstract class ProjectIssuesPage extends ProjectPage {
 	}
 
 	protected GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	@Override

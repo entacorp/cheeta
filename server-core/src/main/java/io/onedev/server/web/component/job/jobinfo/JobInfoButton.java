@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.job.jobinfo;
+package io.cheeta.server.web.component.job.jobinfo;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -24,23 +24,23 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Build.Status;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.web.asset.pipelinebutton.PipelineButtonCssResourceReference;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.build.minilist.MiniBuildListPanel;
-import io.onedev.server.web.component.build.status.BuildStatusIcon;
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.job.RunJobLink;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.page.project.builds.ProjectBuildsPage;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Build.Status;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.web.asset.pipelinebutton.PipelineButtonCssResourceReference;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.build.minilist.MiniBuildListPanel;
+import io.cheeta.server.web.component.build.status.BuildStatusIcon;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.job.RunJobLink;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.page.project.builds.ProjectBuildsPage;
+import io.cheeta.server.web.util.TextUtils;
 
 public abstract class JobInfoButton extends Panel {
 
@@ -60,7 +60,7 @@ public abstract class JobInfoButton extends Panel {
 
 					@Override
 					protected List<Build> load() {
-						BuildService buildService = OneDev.getInstance(BuildService.class);
+						BuildService buildService = Cheeta.getInstance(BuildService.class);
 						List<Build> builds = new ArrayList<>(buildService.query(getProject(), getCommitId(), getJobName()));
 						builds.sort(Comparator.comparing(Build::getNumber));
 						return builds;

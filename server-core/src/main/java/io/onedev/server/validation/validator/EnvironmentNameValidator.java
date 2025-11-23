@@ -1,10 +1,10 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.lang.model.SourceVersion;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.annotation.EnvironmentName;
+import io.cheeta.server.annotation.EnvironmentName;
 
 public class EnvironmentNameValidator implements ConstraintValidator<EnvironmentName, String> {
 

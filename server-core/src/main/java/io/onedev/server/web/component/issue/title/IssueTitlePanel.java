@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.title;
+package io.cheeta.server.web.component.issue.title;
 
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
 
 import org.jspecify.annotations.Nullable;
 
@@ -14,14 +14,14 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.entityreference.LinkTransformer;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.component.link.ActionablePageLink;
-import io.onedev.server.web.page.project.issues.detail.IssueActivitiesPage;
-import io.onedev.server.web.util.Cursor;
+import io.cheeta.server.entityreference.LinkTransformer;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.component.link.ActionablePageLink;
+import io.cheeta.server.web.page.project.issues.detail.IssueActivitiesPage;
+import io.cheeta.server.web.util.Cursor;
 
 public abstract class IssueTitlePanel extends Panel {
 

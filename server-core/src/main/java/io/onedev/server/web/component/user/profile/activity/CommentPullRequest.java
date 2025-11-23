@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.profile.activity;
+package io.cheeta.server.web.component.user.profile.activity;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -9,11 +9,11 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestCommentService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestCommentService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
 
 public class CommentPullRequest extends PullRequestActivity {
 
@@ -25,7 +25,7 @@ public class CommentPullRequest extends PullRequestActivity {
     }
 
     private PullRequestComment getComment() {
-        return OneDev.getInstance(PullRequestCommentService.class).load(commentId);
+        return Cheeta.getInstance(PullRequestCommentService.class).load(commentId);
     }
 
     @Override

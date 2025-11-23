@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.diff.diffstat;
+package io.cheeta.server.web.component.diff.diffstat;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 

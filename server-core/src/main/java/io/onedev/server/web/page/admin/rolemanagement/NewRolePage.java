@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.rolemanagement;
+package io.cheeta.server.web.page.admin.rolemanagement;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,19 +12,19 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Role;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.admin.AdministrationPage;
 
 public class NewRolePage extends AdministrationPage {
 
@@ -46,7 +46,7 @@ public class NewRolePage extends AdministrationPage {
 			protected void onSubmit() {
 				super.onSubmit();
 
-				RoleService roleService = OneDev.getInstance(RoleService.class);
+				RoleService roleService = Cheeta.getInstance(RoleService.class);
 				Role roleWithSameName = roleService.find(role.getName());
 				if (roleWithSameName != null) {
 					editor.error(new Path(new PathNode.Named("name")),
@@ -55,10 +55,10 @@ public class NewRolePage extends AdministrationPage {
 				if (editor.isValid()) {
 					Collection<LinkSpec> authorizedLinks = new ArrayList<>();
 					for (String linkName : role.getEditableIssueLinks())
-						authorizedLinks.add(OneDev.getInstance(LinkSpecService.class).find(linkName));
+						authorizedLinks.add(Cheeta.getInstance(LinkSpecService.class).find(linkName));
 					roleService.create(role, authorizedLinks);
 					var newAuditContent = VersionedXmlDoc.fromBean(editor.getPropertyValues()).toXML();
-					OneDev.getInstance(AuditService.class).audit(null, "created role \"" + role.getName() + "\"", null, newAuditContent);
+					Cheeta.getInstance(AuditService.class).audit(null, "created role \"" + role.getName() + "\"", null, newAuditContent);
 					Session.get().success(_T("Role created"));
 					setResponsePage(RoleListPage.class);
 				}

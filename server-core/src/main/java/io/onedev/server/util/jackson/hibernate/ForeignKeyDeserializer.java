@@ -1,12 +1,12 @@
-package io.onedev.server.util.jackson.hibernate;
+package io.cheeta.server.util.jackson.hibernate;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.persistence.dao.Dao;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.persistence.dao.Dao;
 
 import java.io.IOException;
 

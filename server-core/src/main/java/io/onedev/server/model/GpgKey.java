@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.Date;
 
@@ -15,9 +15,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.support.BaseGpgKey;
-import io.onedev.server.rest.annotation.Immutable;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.support.BaseGpgKey;
+import io.cheeta.server.rest.annotation.Immutable;
 
 @Editable
 @Entity

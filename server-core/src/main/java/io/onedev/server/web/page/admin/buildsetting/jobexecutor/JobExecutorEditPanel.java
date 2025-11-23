@@ -1,19 +1,19 @@
-package io.onedev.server.web.page.admin.buildsetting.jobexecutor;
+package io.cheeta.server.web.page.admin.buildsetting.jobexecutor;
 
 import com.google.common.collect.Sets;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.taskbutton.TaskButton;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.taskbutton.TaskResult.PlainMessage;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.BeanUpdating;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.util.Testable;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.taskbutton.TaskButton;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.taskbutton.TaskResult.PlainMessage;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.BeanUpdating;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.util.Testable;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -27,7 +27,7 @@ import org.apache.wicket.util.visit.IVisitor;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;

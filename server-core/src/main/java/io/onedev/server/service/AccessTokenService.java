@@ -1,7 +1,7 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.model.User;
 
 import org.jspecify.annotations.Nullable;
 

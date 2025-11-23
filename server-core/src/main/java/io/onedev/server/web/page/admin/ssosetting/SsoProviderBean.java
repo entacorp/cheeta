@@ -1,18 +1,18 @@
-package io.onedev.server.web.page.admin.ssosetting;
+package io.cheeta.server.web.page.admin.ssosetting;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.GroupChoice;
-import io.onedev.server.annotation.UrlSegment;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.SsoProvider;
-import io.onedev.server.model.support.administration.sso.SsoConnector;
-import io.onedev.server.web.page.security.SsoProcessPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.GroupChoice;
+import io.cheeta.server.annotation.UrlSegment;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.SsoProvider;
+import io.cheeta.server.model.support.administration.sso.SsoConnector;
+import io.cheeta.server.web.page.security.SsoProcessPage;
 
 @Editable
 public class SsoProviderBean implements Serializable {
@@ -65,7 +65,7 @@ public class SsoProviderBean implements Serializable {
 		provider.setName(name);
 		provider.setConnector(connector);
 		if (defaultGroup != null)
-			provider.setDefaultGroup(OneDev.getInstance(GroupService.class).find(defaultGroup));
+			provider.setDefaultGroup(Cheeta.getInstance(GroupService.class).find(defaultGroup));
 	}
 
 	public static SsoProviderBean of(SsoProvider provider) {

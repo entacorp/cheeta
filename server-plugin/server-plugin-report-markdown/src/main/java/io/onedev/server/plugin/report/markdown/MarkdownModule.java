@@ -1,23 +1,23 @@
-package io.onedev.server.plugin.report.markdown;
+package io.cheeta.server.plugin.report.markdown;
 
 import com.google.common.collect.Sets;
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.commons.loader.ImplementationProvider;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.step.PublishReportStep;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.replica.BuildStorageSyncer;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebApplicationConfigurator;
-import io.onedev.server.web.mapper.ProjectPageMapper;
-import io.onedev.server.web.page.project.builds.detail.BuildTab;
-import io.onedev.server.web.page.project.builds.detail.BuildTabContribution;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestSummaryContribution;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestSummaryPart;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.commons.loader.ImplementationProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.step.PublishReportStep;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.replica.BuildStorageSyncer;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebApplicationConfigurator;
+import io.cheeta.server.web.mapper.ProjectPageMapper;
+import io.cheeta.server.web.page.project.builds.detail.BuildTab;
+import io.cheeta.server.web.page.project.builds.detail.BuildTabContribution;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestSummaryContribution;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestSummaryPart;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -26,9 +26,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static io.onedev.commons.utils.LockUtils.read;
-import static io.onedev.server.model.Build.getProjectRelativeDirPath;
-import static io.onedev.server.util.DirectoryVersionUtils.isVersionFile;
+import static io.cheeta.commons.utils.LockUtils.read;
+import static io.cheeta.server.model.Build.getProjectRelativeDirPath;
+import static io.cheeta.server.util.DirectoryVersionUtils.isVersionFile;
 
 /**
  * NOTE: Do not forget to rename moduleClass property defined in the pom if you've renamed this class.
@@ -112,7 +112,7 @@ public class MarkdownModule extends AbstractPluginModule {
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	private static class GetBuildTabs implements ClusterTask<List<BuildTab>> {
@@ -132,7 +132,7 @@ public class MarkdownModule extends AbstractPluginModule {
 		public List<BuildTab> call() {
 			return read(PublishMarkdownReportStep.getReportLockName(projectId, buildNumber), () -> {
 				List<BuildTab> tabs = new ArrayList<>();
-				File categoryDir = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), PublishMarkdownReportStep.CATEGORY);
+				File categoryDir = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), PublishMarkdownReportStep.CATEGORY);
 				if (categoryDir.exists()) {
 					for (File reportDir: categoryDir.listFiles()) {
 						if (!isVersionFile(reportDir))
@@ -163,7 +163,7 @@ public class MarkdownModule extends AbstractPluginModule {
 		public List<PullRequestSummaryPart> call() {
 			return read(PublishPullRequestMarkdownReportStep.getReportLockName(projectId, buildNumber), () -> {
 				List<PullRequestSummaryPart> parts = new ArrayList<>();
-				File categoryDir = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), PublishPullRequestMarkdownReportStep.CATEGORY);
+				File categoryDir = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), PublishPullRequestMarkdownReportStep.CATEGORY);
 				if (categoryDir.exists()) {
 					for (File reportDir: categoryDir.listFiles()) {
 						if (!isVersionFile(reportDir))

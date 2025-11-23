@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.retrycondition;
+package io.cheeta.server.buildspec.job.retrycondition;
 
 import java.util.regex.Pattern;
 
@@ -8,11 +8,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.job.log.LogService;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.job.log.LogService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class LogCriteria extends Criteria<RetryContext> {
 
@@ -33,7 +33,7 @@ public class LogCriteria extends Criteria<RetryContext> {
 	public boolean matches(RetryContext context) {
 		Pattern pattern = Pattern.compile(value);
 		return context.getErrorMessage() != null && pattern.matcher(context.getErrorMessage()).find() 
-				|| OneDev.getInstance(LogService.class).matches(context.getBuild(), pattern);
+				|| Cheeta.getInstance(LogService.class).matches(context.getBuild(), pattern);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.blob;
+package io.cheeta.server.web.component.blob;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class BlobResourceReference extends BaseDependentCssResourceReference {
 

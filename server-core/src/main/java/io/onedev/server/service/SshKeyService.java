@@ -1,11 +1,11 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.SshKey;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.SshKey;
+import io.cheeta.server.model.User;
 
 public interface SshKeyService extends EntityService<SshKey> {
 

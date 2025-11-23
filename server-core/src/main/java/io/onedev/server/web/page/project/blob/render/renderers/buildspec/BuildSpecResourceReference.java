@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.renderers.buildspec;
+package io.cheeta.server.web.page.project.blob.render.renderers.buildspec;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.doneevents.DoneEventsResourceReference;
-import io.onedev.server.web.asset.pipelinebutton.PipelineButtonCssResourceReference;
-import io.onedev.server.web.asset.snapsvg.SnapSvgResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.doneevents.DoneEventsResourceReference;
+import io.cheeta.server.web.asset.pipelinebutton.PipelineButtonCssResourceReference;
+import io.cheeta.server.web.asset.snapsvg.SnapSvgResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class BuildSpecResourceReference extends BaseDependentResourceReference {
 

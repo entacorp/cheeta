@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.diff.difftitle;
+package io.cheeta.server.web.component.diff.difftitle;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -7,9 +7,9 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.eclipse.jgit.diff.DiffEntry.ChangeType;
 
-import io.onedev.server.git.BlobChange;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.git.BlobChange;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public class BlobDiffTitle extends Panel {
 

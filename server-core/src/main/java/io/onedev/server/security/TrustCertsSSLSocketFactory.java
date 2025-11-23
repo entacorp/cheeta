@@ -1,6 +1,6 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
-import io.onedev.server.OneDev;
+import io.cheeta.server.Cheeta;
 import nl.altindag.ssl.SSLFactory;
 
 import javax.net.ssl.SSLSocketFactory;
@@ -8,7 +8,7 @@ import javax.net.ssl.SSLSocketFactory;
 public abstract class TrustCertsSSLSocketFactory extends SSLSocketFactory {
 	
 	public static SSLSocketFactory getDefault() {
-		return OneDev.getInstance(SSLFactory.class).getSslSocketFactory();
+		return Cheeta.getInstance(SSLFactory.class).getSslSocketFactory();
 	}
 	
 }

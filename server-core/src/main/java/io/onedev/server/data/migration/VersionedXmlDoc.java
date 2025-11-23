@@ -1,4 +1,4 @@
-package io.onedev.server.data.migration;
+package io.cheeta.server.data.migration;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
@@ -41,12 +41,12 @@ import com.thoughtworks.xstream.io.xml.Dom4JReader;
 import com.thoughtworks.xstream.io.xml.Dom4JWriter;
 import com.thoughtworks.xstream.mapper.CannotResolveClassException;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
 
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 
 public final class VersionedXmlDoc implements Document, Externalizable {
 

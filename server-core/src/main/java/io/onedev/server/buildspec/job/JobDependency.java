@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job;
+package io.cheeta.server.buildspec.job;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,22 +7,22 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ParamSpecProvider;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.annotation.ShowCondition;
-import io.onedev.server.annotation.VariableOption;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.param.instance.ParamInstances;
-import io.onedev.server.buildspec.param.instance.ParamMap;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ParamSpecProvider;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.annotation.ShowCondition;
+import io.cheeta.server.annotation.VariableOption;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.param.instance.ParamInstances;
+import io.cheeta.server.buildspec.param.instance.ParamMap;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 @Editable
 public class JobDependency implements Serializable {
@@ -111,7 +111,7 @@ public class JobDependency implements Serializable {
 	
 	@Editable(order=300, name="Artifacts to Retrieve", placeholder="Do not retrieve", description=""
 			+ "Optionally specify artifacts to retrieve from the dependency into "
-			+ "<a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. "
+			+ "<a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. "
 			+ "Only published artifacts (via artifact publish step) can be retrieved. Leave empty to not "
 			+ "retrieve any artifacts")
 	@Interpolative(variableSuggester="suggestVariables")
@@ -125,7 +125,7 @@ public class JobDependency implements Serializable {
 	}
 
 	@Editable(order=400, placeholder="Job workspace", description=""
-			+ "Optionally specify a path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> "
+			+ "Optionally specify a path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> "
 			+ "to put retrieved artifacts. Leave empty to use job workspace itself")
 	@Interpolative(variableSuggester="suggestVariables")
 	public String getDestinationPath() {

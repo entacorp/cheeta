@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.branch.picker;
+package io.cheeta.server.web.component.branch.picker;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.web.component.project.ProjectPicker;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.web.component.project.ProjectPicker;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.LoadableDetachableModel;
@@ -52,7 +52,7 @@ public abstract class AffinalBranchPicker extends Panel {
 	}
 	
 	private Project getProject() {
-		return OneDev.getInstance(Dao.class).load(Project.class, projectId);
+		return Cheeta.getInstance(Dao.class).load(Project.class, projectId);
 	}
 	
 	@Override
@@ -63,7 +63,7 @@ public abstract class AffinalBranchPicker extends Panel {
 
 			@Override
 			protected List<Project> load() {
-				Project project = OneDev.getInstance(Dao.class).load(Project.class, projectId);
+				Project project = Cheeta.getInstance(Dao.class).load(Project.class, projectId);
 				List<Project> affinals = project.getForkRoot().getForkDescendants();
 				affinals.add(0, project.getForkRoot());
 				affinals.retainAll(SecurityUtils.getAuthorizedProjects(new ReadCode()));
@@ -83,7 +83,7 @@ public abstract class AffinalBranchPicker extends Panel {
 
 			@Override
 			protected Project getCurrent() {
-				return OneDev.getInstance(ProjectService.class).load(projectId);
+				return Cheeta.getInstance(ProjectService.class).load(projectId);
 			}
 			
 		});

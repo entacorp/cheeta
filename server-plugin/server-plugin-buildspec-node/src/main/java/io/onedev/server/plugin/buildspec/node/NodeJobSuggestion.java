@@ -1,19 +1,19 @@
-package io.onedev.server.plugin.buildspec.node;
+package io.cheeta.server.plugin.buildspec.node;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobSuggestion;
-import io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger;
-import io.onedev.server.buildspec.step.*;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GroovyScript;
-import io.onedev.server.util.interpolative.VariableInterpolator;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobSuggestion;
+import io.cheeta.server.buildspec.job.trigger.BranchUpdateTrigger;
+import io.cheeta.server.buildspec.step.*;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GroovyScript;
+import io.cheeta.server.util.interpolative.VariableInterpolator;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.slf4j.Logger;
@@ -41,7 +41,7 @@ public class NodeJobSuggestion implements JobSuggestion {
 			return jobs;
 		
 		String content = blob.getText().getContent();
-		ObjectMapper objectMapper = OneDev.getInstance(ObjectMapper.class);
+		ObjectMapper objectMapper = Cheeta.getInstance(ObjectMapper.class);
 		JsonNode jsonNode;
 		try {
 			jsonNode = objectMapper.readTree(content);
@@ -245,7 +245,7 @@ public class NodeJobSuggestion implements JobSuggestion {
 		Blob blob = project.getBlob(new BlobIdent(commitId.name(), "package.json", FileMode.TYPE_FILE), false);
 		if (blob != null) {
 			String content = blob.getText().getContent();
-			ObjectMapper objectMapper = OneDev.getInstance(ObjectMapper.class);
+			ObjectMapper objectMapper = Cheeta.getInstance(ObjectMapper.class);
 			try {
 				return objectMapper.readTree(content);
 			} catch (IOException e) {

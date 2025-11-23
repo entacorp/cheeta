@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 import java.util.Date;
@@ -13,20 +13,20 @@ import javax.persistence.criteria.Predicate;
 
 import org.apache.shiro.subject.Subject;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.IssueTimes;
-import io.onedev.server.util.IterationAndIssueState;
-import io.onedev.server.util.ProjectIssueStateStat;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.IssueTimes;
+import io.cheeta.server.util.IterationAndIssueState;
+import io.cheeta.server.util.ProjectIssueStateStat;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 public interface IssueService extends EntityService<Issue> {
 	

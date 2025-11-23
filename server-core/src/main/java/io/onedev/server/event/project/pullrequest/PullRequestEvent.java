@@ -1,15 +1,15 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import java.util.Date;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
 
 public abstract class PullRequestEvent extends ProjectEvent {
 
@@ -23,7 +23,7 @@ public abstract class PullRequestEvent extends ProjectEvent {
 	}
 
 	public PullRequest getRequest() {
-		return OneDev.getInstance(PullRequestService.class).load(requestId);
+		return Cheeta.getInstance(PullRequestService.class).load(requestId);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public abstract class PullRequestEvent extends ProjectEvent {
 	
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getRequest(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getRequest(), true);
 	}
 	
 }

@@ -1,29 +1,29 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import io.onedev.server.service.*;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.issue.IssueCommentCreated;
-import io.onedev.server.event.project.issue.IssueEvent;
-import io.onedev.server.event.project.issue.IssueOpened;
-import io.onedev.server.event.project.issue.IssuesMoved;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.markdown.MentionParser;
-import io.onedev.server.model.*;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.QueryWatchBuilder;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.commenttext.MarkdownText;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.server.service.*;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.issue.IssueCommentCreated;
+import io.cheeta.server.event.project.issue.IssueEvent;
+import io.cheeta.server.event.project.issue.IssueOpened;
+import io.cheeta.server.event.project.issue.IssuesMoved;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.markdown.MentionParser;
+import io.cheeta.server.model.*;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.QueryWatchBuilder;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.commenttext.MarkdownText;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.xodus.VisitInfoService;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.inject.Inject;
@@ -32,9 +32,9 @@ import javax.mail.internet.InternetAddress;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static io.onedev.server.notification.NotificationUtils.getEmailBody;
-import static io.onedev.server.notification.NotificationUtils.isNotified;
-import static io.onedev.server.util.EmailAddressUtils.describe;
+import static io.cheeta.server.notification.NotificationUtils.getEmailBody;
+import static io.cheeta.server.notification.NotificationUtils.isNotified;
+import static io.cheeta.server.util.EmailAddressUtils.describe;
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
 @Singleton
@@ -193,7 +193,7 @@ public class IssueNotificationManager {
 					issue.getReference(), 
 					entry.getKey(), 
 					emojis.apply(issue.getTitle()));
-			String threadingReferences = String.format("<you-in-field-%s-%s@onedev>", entry.getKey(), issue.getUUID());
+			String threadingReferences = String.format("<you-in-field-%s-%s@cheeta>", entry.getKey(), issue.getUUID());
 			for (User member: entry.getValue().getMembers()) {
 				if (!member.equals(user)) {
 					EmailAddress emailAddress = member.getPrimaryEmailAddress();
@@ -222,7 +222,7 @@ public class IssueNotificationManager {
 					issue.getReference(), 
 					entry.getKey(), 
 					emojis.apply(issue.getTitle()));
-			String threadingReferences = String.format("<you-in-field-%s-%s@onedev>", entry.getKey(), issue.getUUID());
+			String threadingReferences = String.format("<you-in-field-%s-%s@cheeta>", entry.getKey(), issue.getUUID());
 			for (User member: entry.getValue()) {
 				if (!member.equals(user)) {
 					EmailAddress emailAddress = member.getPrimaryEmailAddress();
@@ -258,7 +258,7 @@ public class IssueNotificationManager {
 								"[Issue %s] (Mentioned You) %s", 
 								issue.getReference(), 
 								emojis.apply(issue.getTitle()));
-						String threadingReferences = String.format("<mentioned-%s@onedev>", issue.getUUID());
+						String threadingReferences = String.format("<mentioned-%s@cheeta>", issue.getUUID());
 						
 						EmailAddress emailAddress = mentionedUser.getPrimaryEmailAddress();
 						if (emailAddress != null && emailAddress.isVerified()) {

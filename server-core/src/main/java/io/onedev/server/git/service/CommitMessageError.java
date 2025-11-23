@@ -1,6 +1,6 @@
-package io.onedev.server.git.service;
+package io.cheeta.server.git.service;
 
-import static io.onedev.server.git.GitUtils.abbreviateSHA;
+import static io.cheeta.server.git.GitUtils.abbreviateSHA;
 
 import java.io.Serializable;
 

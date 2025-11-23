@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import java.io.InputStream;
 import java.io.Serializable;
@@ -35,43 +35,43 @@ import org.apache.shiro.authz.UnauthorizedException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.SubscriptionService;
-import io.onedev.server.attachment.AttachmentService;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueLink;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.IssueVote;
-import io.onedev.server.model.IssueWatch;
-import io.onedev.server.model.IssueWork;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.model.support.issue.transitionspec.ManualSpec;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.annotation.EntityCreate;
-import io.onedev.server.rest.resource.support.RestConstants;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.web.page.help.ApiHelpUtils;
-import io.onedev.server.web.page.help.ValueInfo;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.SubscriptionService;
+import io.cheeta.server.attachment.AttachmentService;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueLink;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.IssueVote;
+import io.cheeta.server.model.IssueWatch;
+import io.cheeta.server.model.IssueWork;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.model.support.issue.transitionspec.ManualSpec;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.EntityCreate;
+import io.cheeta.server.rest.resource.support.RestConstants;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.web.page.help.ApiHelpUtils;
+import io.cheeta.server.web.page.help.ValueInfo;
 
 @Api(description="In most cases, issue resource is operated with issue id, which is different from issue number. "
-		+ "To get issue id of a particular issue number, use the <a href='/~help/api/io.onedev.server.rest.IssueResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
+		+ "To get issue id of a particular issue number, use the <a href='/~help/api/io.cheeta.server.rest.IssueResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
 		+ "instance <code>&quot;Number&quot; is &quot;path/to/project#100&quot;</code> or <code>&quot;Number&quot; is &quot;PROJECTKEY-100&quot;</code>")
 @Path("/issues")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -285,7 +285,7 @@ public class IssueResource {
 	private static List<Map<String, Object>> getIssuesExample() {
 		var issues = new ArrayList<Map<String, Object>>();
 		var issue = ApiHelpUtils.getExampleValue(Issue.class, ValueInfo.Origin.READ_BODY);
-		issues.add(OneDev.getInstance(ObjectMapper.class).convertValue(issue, new TypeReference<Map<String, Object>>() {}));
+		issues.add(Cheeta.getInstance(ObjectMapper.class).convertValue(issue, new TypeReference<Map<String, Object>>() {}));
 		return issues;
 	}
 	

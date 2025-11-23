@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,10 +8,10 @@ import java.util.Set;
 
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.model.AgentAttribute;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.model.AgentAttribute;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 @ClassValidating

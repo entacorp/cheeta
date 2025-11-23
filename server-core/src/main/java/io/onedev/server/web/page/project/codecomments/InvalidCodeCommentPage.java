@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.codecomments;
+package io.cheeta.server.web.page.project.codecomments;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.text.MessageFormat;
@@ -22,18 +22,18 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public class InvalidCodeCommentPage extends ProjectPage {
 
@@ -49,7 +49,7 @@ public class InvalidCodeCommentPage extends ProjectPage {
 			@Override
 			protected CodeComment load() {
 				Long codeCommentId = params.get(PARAM_COEDE_COMMENT).toLong();
-				CodeComment codeComment = OneDev.getInstance(CodeCommentService.class).load(codeCommentId);
+				CodeComment codeComment = Cheeta.getInstance(CodeCommentService.class).load(codeCommentId);
 				Preconditions.checkState(!codeComment.isValid());
 				return codeComment;
 			}
@@ -74,7 +74,7 @@ public class InvalidCodeCommentPage extends ProjectPage {
 
 			@Override
 			public void onClick() {
-				OneDev.getInstance(CodeCommentService.class).delete(getCodeComment());
+				Cheeta.getInstance(CodeCommentService.class).delete(getCodeComment());
 				
 				Session.get().success(MessageFormat.format(_T("Code comment #{0} deleted"), getCodeComment().getId()));
 				

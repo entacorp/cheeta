@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.refreshtoken;
+package io.cheeta.server.web.editable.refreshtoken;
 
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class RefreshTokenResourceReference extends BaseDependentResourceReference {
 

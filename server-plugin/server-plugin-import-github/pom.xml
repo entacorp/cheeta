@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>server-plugin-import-github</artifactId>
 	<parent>
-		<groupId>io.onedev</groupId>
+		<groupId>io.cheeta</groupId>
 		<artifactId>server-plugin</artifactId>
 		<version>13.1.0</version>
 	</parent>
 	<properties>
-		<moduleClass>io.onedev.server.plugin.imports.github.GitHubModule</moduleClass>
+		<moduleClass>io.cheeta.server.plugin.imports.github.GitHubModule</moduleClass>
 	</properties>
 </project>

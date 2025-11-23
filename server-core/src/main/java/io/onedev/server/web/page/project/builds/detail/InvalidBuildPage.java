@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.builds.detail;
+package io.cheeta.server.web.page.project.builds.detail;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -19,17 +19,17 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.builds.ProjectBuildsPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.builds.ProjectBuildsPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public class InvalidBuildPage extends ProjectPage {
 
@@ -45,7 +45,7 @@ public class InvalidBuildPage extends ProjectPage {
 			@Override
 			protected Build load() {
 				Long buildNumber = params.get(PARAM_BUILD).toLong();
-				Build build = OneDev.getInstance(BuildService.class).find(getProject(), buildNumber);
+				Build build = Cheeta.getInstance(BuildService.class).find(getProject(), buildNumber);
 				if (build == null)
 					throw new EntityNotFoundException(MessageFormat.format(_T("Unable to find build #{0} in project {1}"), buildNumber, getProject()));
 				Preconditions.checkState(!build.isValid());
@@ -67,7 +67,7 @@ public class InvalidBuildPage extends ProjectPage {
 
 			@Override
 			public void onClick() {
-				OneDev.getInstance(BuildService.class).delete(getBuild());
+				Cheeta.getInstance(BuildService.class).delete(getBuild());
 				
 				Session.get().success(MessageFormat.format(_T("Build #{0} deleted"), getBuild().getNumber()));
 				

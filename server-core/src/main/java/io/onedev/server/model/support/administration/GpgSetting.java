@@ -1,7 +1,7 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
-import io.onedev.server.git.signatureverification.gpg.GpgSigningKey;
-import io.onedev.server.util.GpgUtils;
+import io.cheeta.server.git.signatureverification.gpg.GpgSigningKey;
+import io.cheeta.server.util.GpgUtils;
 import org.bouncycastle.openpgp.PGPException;
 import org.bouncycastle.openpgp.PGPPublicKey;
 import org.bouncycastle.openpgp.PGPSecretKeyRing;

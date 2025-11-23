@@ -1,8 +1,8 @@
-package io.onedev.server;
+package io.cheeta.server;
 
-import static io.onedev.k8shelper.KubernetesHelper.BEARER;
-import static io.onedev.k8shelper.KubernetesHelper.checkStatus;
-import static io.onedev.server.persistence.PersistenceUtils.callWithTransaction;
+import static io.cheeta.k8shelper.KubernetesHelper.BEARER;
+import static io.cheeta.k8shelper.KubernetesHelper.checkStatus;
+import static io.cheeta.server.persistence.PersistenceUtils.callWithTransaction;
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
 import java.io.File;
@@ -38,36 +38,36 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Provider;
 import com.hazelcast.core.HazelcastInstance;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.loader.AbstractPlugin;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TarUtils;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.data.DataService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.event.system.SystemStopped;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.exception.ServerNotReadyException;
-import io.onedev.server.jetty.JettyService;
-import io.onedev.server.model.support.administration.SystemSetting;
-import io.onedev.server.persistence.IdService;
-import io.onedev.server.persistence.SessionFactoryService;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.taskschedule.TaskScheduler;
-import io.onedev.server.util.UrlUtils;
-import io.onedev.server.util.init.InitStage;
-import io.onedev.server.util.init.ManualConfig;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.loader.AbstractPlugin;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TarUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.data.DataService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.event.system.SystemStopped;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.exception.ServerNotReadyException;
+import io.cheeta.server.jetty.JettyService;
+import io.cheeta.server.model.support.administration.SystemSetting;
+import io.cheeta.server.persistence.IdService;
+import io.cheeta.server.persistence.SessionFactoryService;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.taskschedule.TaskScheduler;
+import io.cheeta.server.util.UrlUtils;
+import io.cheeta.server.util.init.InitStage;
+import io.cheeta.server.util.init.ManualConfig;
 
-public class OneDev extends AbstractPlugin implements Serializable, Runnable {
+public class Cheeta extends AbstractPlugin implements Serializable, Runnable {
 
-	private static final Logger logger = LoggerFactory.getLogger(OneDev.class);
+	private static final Logger logger = LoggerFactory.getLogger(Cheeta.class);
 
 	private final Provider<JettyService> jettyLauncherProvider;
 
@@ -102,7 +102,7 @@ public class OneDev extends AbstractPlugin implements Serializable, Runnable {
 	// Some are injected via provider as instantiation might encounter problem
 	// during upgrade
 	@Inject
-	public OneDev(Provider<JettyService> jettyLauncherProvider, TaskScheduler taskScheduler,
+	public Cheeta(Provider<JettyService> jettyLauncherProvider, TaskScheduler taskScheduler,
 			SessionService sessionService, Provider<ServerConfig> serverConfigProvider,
 			DataService dataService, ExecutorService executorService,
 			ListenerRegistry listenerRegistry, ClusterService clusterService,
@@ -362,8 +362,8 @@ public class OneDev extends AbstractPlugin implements Serializable, Runnable {
 		return initStage == null;
 	}
 
-	public static OneDev getInstance() {
-		return AppLoader.getInstance(OneDev.class);
+	public static Cheeta getInstance() {
+		return AppLoader.getInstance(Cheeta.class);
 	}
 
 	public static <T> T getInstance(Class<T> type) {
@@ -383,7 +383,7 @@ public class OneDev extends AbstractPlugin implements Serializable, Runnable {
 	}
 
 	public Object writeReplace() throws ObjectStreamException {
-		return new ManagedSerializedForm(OneDev.class);
+		return new ManagedSerializedForm(Cheeta.class);
 	}
 
 	public static boolean isServerRunning(File installDir) {

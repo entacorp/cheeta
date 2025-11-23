@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.labelmanagement;
+package io.cheeta.server.web.page.admin.labelmanagement;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Comparator;
 
@@ -10,12 +10,12 @@ import org.apache.wicket.feedback.FencedFeedbackPanel;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.admin.AdministrationPage;
 
 public class LabelManagementPage extends AdministrationPage {
 
@@ -24,7 +24,7 @@ public class LabelManagementPage extends AdministrationPage {
 	}
 
 	private LabelSpecService getLabelService() {
-		return OneDev.getInstance(LabelSpecService.class);
+		return Cheeta.getInstance(LabelSpecService.class);
 	}
 	
 	@Override

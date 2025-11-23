@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.SsoProvider;
+import io.cheeta.server.model.SsoProvider;
 
 public interface SsoProviderService extends EntityService<SsoProvider> {
 	

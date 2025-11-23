@@ -1,13 +1,13 @@
-package io.onedev.server.plugin.pack.nuget;
+package io.cheeta.server.plugin.pack.nuget;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PackService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.pack.PackSupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.pack.PackSupport;
 
 public class NugetPackSupport implements PackSupport {
 	
@@ -42,7 +42,7 @@ public class NugetPackSupport implements PackSupport {
 		return new NugetPackPanel(componentId, new LoadableDetachableModel<>() {
 			@Override
 			protected Pack load() {
-				return OneDev.getInstance(PackService.class).load(packId);
+				return Cheeta.getInstance(PackService.class).load(packId);
 			}
 
 		});

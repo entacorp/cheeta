@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.choice;
+package io.cheeta.server.web.component.issue.choice;
 
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class IssueChoiceResourceReference extends BaseDependentResourceReference {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.search.code.query.regex;
+package io.cheeta.server.search.code.query.regex;
 
 import java.util.ArrayList;
 import java.util.List;

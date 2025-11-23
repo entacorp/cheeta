@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import javax.validation.ValidatorFactory;
 import javax.ws.rs.container.ResourceContext;
@@ -9,7 +9,7 @@ import javax.ws.rs.ext.Provider;
 import org.glassfish.jersey.server.validation.ValidationConfig;
 import org.glassfish.jersey.server.validation.internal.InjectingConstraintValidatorFactory;
 
-import io.onedev.commons.loader.AppLoader;
+import io.cheeta.commons.loader.AppLoader;
 
 @Provider
 public class ValidationConfigurationContextResolver implements ContextResolver<ValidationConfig> {

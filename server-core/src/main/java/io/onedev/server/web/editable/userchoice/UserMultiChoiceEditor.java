@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.userchoice;
+package io.cheeta.server.web.editable.userchoice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -18,17 +18,17 @@ import org.apache.wicket.util.convert.ConversionException;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.UserChoice;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.util.facade.UserFacade;
-import io.onedev.server.web.component.user.choice.UserMultiChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.UserChoice;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.util.facade.UserFacade;
+import io.cheeta.server.web.component.user.choice.UserMultiChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class UserMultiChoiceEditor extends PropertyEditor<List<String>> {
 	
@@ -127,7 +127,7 @@ public class UserMultiChoiceEditor extends PropertyEditor<List<String>> {
 	}
 	
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
-package io.onedev.server.attachment;
+package io.cheeta.server.attachment;
 
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Project;
 
 public interface AttachmentStorageSupport {
 	

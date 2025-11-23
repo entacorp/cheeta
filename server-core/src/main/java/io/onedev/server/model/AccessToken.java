@@ -1,10 +1,10 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.onedev.server.rest.annotation.Immutable;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.util.facade.AccessTokenFacade;
+import io.cheeta.server.rest.annotation.Immutable;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.util.facade.AccessTokenFacade;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
@@ -18,8 +18,8 @@ import java.util.Collection;
 import java.util.Date;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
-import static io.onedev.server.security.SecurityUtils.asAccessTokenPrincipal;
-import static io.onedev.server.security.SecurityUtils.asPrincipals;
+import static io.cheeta.server.security.SecurityUtils.asAccessTokenPrincipal;
+import static io.cheeta.server.security.SecurityUtils.asPrincipals;
 
 @Entity
 @Table(

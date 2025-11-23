@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.agent;
+package io.cheeta.server.search.entity.agent;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,10 +8,10 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Subquery;
 
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.AgentAttribute;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.AgentAttribute;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class AttributeCriteria extends Criteria<Agent> {
 

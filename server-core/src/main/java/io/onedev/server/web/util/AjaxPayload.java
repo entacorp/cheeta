@@ -1,4 +1,4 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.translation;
+package io.cheeta.server.web.translation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,8 +23,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("(on behalf of <b>{0}</b>)", "(per conto di <b>{0}</b>)");
 		m.put("** Enterprise edition is disabled as the subscription was expired. Renew to enable **", 
 			"** L'edizione Enterprise è disabilitata poiché l'abbonamento è scaduto. Rinnova per abilitare **");
-		m.put("** Enterprise edition is disabled as the trial subscription was expired, order subscription to enable or contact support@onedev.io if you need to extend your trial **", 
-			"** L'edizione Enterprise è disabilitata poiché l'abbonamento di prova è scaduto, ordina un abbonamento per abilitarla o contatta support@onedev.io se hai bisogno di estendere la prova **");
+		m.put("** Enterprise edition is disabled as the trial subscription was expired, order subscription to enable or contact support@cheeta.io if you need to extend your trial **", 
+			"** L'edizione Enterprise è disabilitata poiché l'abbonamento di prova è scaduto, ordina un abbonamento per abilitarla o contatta support@cheeta.io se hai bisogno di estendere la prova **");
 		m.put("** Enterprise edition is disabled as there is no remaining user months. Order more to enable **", 
 			"** L'edizione Enterprise è disabilitata poiché non ci sono mesi utente rimanenti. Ordina di più per abilitarla **");
 		m.put("1. To use this package, add below to project pom.xml", "1. Per utilizzare questo pacchetto, aggiungi quanto segue al file pom.xml del progetto");
@@ -40,22 +40,22 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("7 days", "7 giorni");
 		m.put("<a href=\"/~administration/settings/lite-ai-model\" target=\"_blank\">Set up AI</a> to mark the most likely", 
 			"<a href=\"/~administration/settings/lite-ai-model\" target=\"_blank\">Configura AI</a> per contrassegnare il più probabile");
-		m.put("<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">user</a> to reset password for", 
-			"<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">utente</a> per reimpostare la password");
-		m.put("<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">user</a> to verify email for", 
-			"<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">utente</a> per verificare l'email");
-		m.put("<a href=\"https://guides.github.com/features/mastering-markdown/\" target=\"_blank\">GitHub flavored markdown</a> is accepted, with <a href=\"https://docs.onedev.io/appendix/markdown-syntax\" target=\"_blank\">mermaid and katex support</a>.", 
-			"<a href=\"https://guides.github.com/features/mastering-markdown/\" target=\"_blank\">Markdown stile GitHub</a> è accettato, con <a href=\"https://docs.onedev.io/appendix/markdown-syntax\" target=\"_blank\">supporto mermaid e katex</a>.");
+		m.put("<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">user</a> to reset password for", 
+			"<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">utente</a> per reimpostare la password");
+		m.put("<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">user</a> to verify email for", 
+			"<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">utente</a> per verificare l'email");
+		m.put("<a href=\"https://guides.github.com/features/mastering-markdown/\" target=\"_blank\">GitHub flavored markdown</a> is accepted, with <a href=\"https://docs.cheeta.io/appendix/markdown-syntax\" target=\"_blank\">mermaid and katex support</a>.", 
+			"<a href=\"https://guides.github.com/features/mastering-markdown/\" target=\"_blank\">Markdown stile GitHub</a> è accettato, con <a href=\"https://docs.cheeta.io/appendix/markdown-syntax\" target=\"_blank\">supporto mermaid e katex</a>.");
 		m.put("<a href='/~administration/settings/lite-ai-model' target='_blank'>Set up AI</a> to query with natural language", 
 			"<a href='/~administration/settings/lite-ai-model' target='_blank'>Configura AI</a> per interrogare con linguaggio naturale");
 		m.put("<a href='/~administration/settings/lite-ai-model' target='_blank'>Set up AI</a> to query with natural language</a>", 
 			"<a href='/~administration/settings/lite-ai-model' target='_blank'>Configura AI</a> per interrogare con linguaggio naturale</a>");
-		m.put("<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/event/Event.java' target='_blank'>event object</a> triggering the notification", 
-			"<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/event/Event.java' target='_blank'>oggetto evento</a> che ha attivato la notifica");
-		m.put("<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Alert.java'>alert</a> to display", 
-			"<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Alert.java'>alert</a> da visualizzare");
-		m.put("<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Stopwatch.java'>Stopwatch</a> overdue", 
-			"<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Stopwatch.java'>cronometro</a> scaduto");
+		m.put("<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/event/Event.java' target='_blank'>event object</a> triggering the notification", 
+			"<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/event/Event.java' target='_blank'>oggetto evento</a> che ha attivato la notifica");
+		m.put("<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Alert.java'>alert</a> to display", 
+			"<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Alert.java'>alert</a> da visualizzare");
+		m.put("<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Stopwatch.java'>Stopwatch</a> overdue", 
+			"<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Stopwatch.java'>cronometro</a> scaduto");
 		m.put("<a wicket:id=\"author\" class=\"name link-gray\"></a> committed <span wicket:id=\"date\"></span>", 
 			"<a wicket:id=\"author\" class=\"name link-gray\"></a> ha effettuato il commit <span wicket:id=\"date\"></span>");
 		m.put("<a wicket:id=\"author\" class=\"name link-gray\"></a> committed with <a wicket:id=\"committer\" class=\"name link-gray\"></a> <span wicket:id=\"date\"></span>", 
@@ -65,21 +65,21 @@ public class Translation_it extends TranslationResourceBundle {
 			"<a wicket:id=\"removePassword\">Rimuovi password</a> per forzare l'utente ad autenticarsi tramite sistema esterno");
 		m.put("<a wicket:id=\"verifyRecoveryCode\">Verify by recovery code</a> if you can not access your TOTP authenticator", 
 			"<a wicket:id=\"verifyRecoveryCode\">Verifica tramite codice di recupero</a> se non puoi accedere al tuo autenticatore TOTP");
-		m.put("<b class='text-danger'>NOTE: </b> This requires an enterprise subscription. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"<b class='text-danger'>NOTA: </b> Questo richiede un abbonamento Enterprise. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
-		m.put("<b class='text-danger'>NOTE: </b> This step requires an enterprise subscription. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"<b class='text-danger'>NOTA: </b> Questo step richiede un abbonamento Enterprise. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
-		m.put("<b class='text-danger'>NOTE: </b>SendGrid integration is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"<b class='text-danger'>NOTA: </b>L'integrazione con SendGrid è una funzionalità Enterprise. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
-		m.put("<b class='text-warning'>NOTE: </b><a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>Time tracking</a> is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"<b class='text-warning'>NOTA: </b><a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>Il tracciamento del tempo</a> è una funzionalità Enterprise. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("<b class='text-danger'>NOTE: </b> This requires an enterprise subscription. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"<b class='text-danger'>NOTA: </b> Questo richiede un abbonamento Enterprise. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("<b class='text-danger'>NOTE: </b> This step requires an enterprise subscription. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"<b class='text-danger'>NOTA: </b> Questo step richiede un abbonamento Enterprise. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("<b class='text-danger'>NOTE: </b>SendGrid integration is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"<b class='text-danger'>NOTA: </b>L'integrazione con SendGrid è una funzionalità Enterprise. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("<b class='text-warning'>NOTE: </b><a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>Time tracking</a> is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"<b class='text-warning'>NOTA: </b><a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>Il tracciamento del tempo</a> è una funzionalità Enterprise. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
 		m.put("<b>NOTE: </b> Service desk only takes effect if <a wicket:id=\"mailConnector\">mail service</a> is defined and its <tt>check incoming email</tt> option is enabled. Also <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>sub addressing</a> needs to be enabled for the system email address. Check <a href=\"https://medium.com/p/e56d62c27e57\" target='_blank'>this tutorial</a> for details", 
 			"<b>NOTA: </b> Il service desk ha effetto solo se <a wicket:id=\"mailConnector\">il servizio di posta</a> è definito e l'opzione <tt>controlla email in arrivo</tt> è abilitata. Inoltre, <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>il sub addressing</a> deve essere abilitato per l'indirizzo email del sistema. Consulta <a href=\"https://medium.com/p/e56d62c27e57\" target='_blank'>questo tutorial</a> per i dettagli");
 		m.put("<b>NOTE:</b> Batch editing issues will not cause state transitions of other issues even if transition rule matches", 
 			"<b>NOTA:</b> La modifica in batch delle issue non causerà transizioni di stato di altre issue anche se la regola di transizione corrisponde");
 		m.put("<b>Project Owner</b> is a built-in role with full permission over projects", "<b>Proprietario del progetto</b> è un ruolo integrato con pieno permesso sui progetti");
-		m.put("<b>Tips: </b> Type <tt>@</tt> to <a href='https://docs.onedev.io/appendix/job-variables' target='_blank' tabindex='-1'>insert variable</a>. Use <tt>@@</tt> for literal <tt>@</tt>", 
-			"<b>Consigli: </b> Digita <tt>@</tt> per <a href='https://docs.onedev.io/appendix/job-variables' target='_blank' tabindex='-1'>inserire una variabile</a>. Usa <tt>@@</tt> per il simbolo <tt>@</tt> letterale");
+		m.put("<b>Tips: </b> Type <tt>@</tt> to <a href='https://docs.cheeta.io/appendix/job-variables' target='_blank' tabindex='-1'>insert variable</a>. Use <tt>@@</tt> for literal <tt>@</tt>", 
+			"<b>Consigli: </b> Digita <tt>@</tt> per <a href='https://docs.cheeta.io/appendix/job-variables' target='_blank' tabindex='-1'>inserire una variabile</a>. Usa <tt>@@</tt> per il simbolo <tt>@</tt> letterale");
 		m.put("<div><span>Search Files</span> <span class='font-size-sm text-muted'>in default branch</span></div>", 
 			"<div><span>Cerca file</span> <span class='font-size-sm text-muted'>nel branch predefinito</span></div>");
 		m.put("<div><span>Search Symbols</span> <span class='font-size-sm text-muted'>in default branch</span></div>", 
@@ -383,8 +383,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Authorized Roles", "Ruoli autorizzati");
 		m.put("Auto Merge", "Unione automatica");
 		m.put("Auto Spec", "Specifica automatica");
-		m.put("Auto update check is performed by requesting an image in your browser from onedev.io indicating new version availability, with color indicating severity of the update. It works the same way as how gravatar requests avatar images. If disabled, you are highly recommended to check update manually from time to time (can be done via help menu on left bottom of the screen) to see if there are any security/critical fixes", 
-			"Il controllo di aggiornamento automatico viene eseguito richiedendo un'immagine nel browser da onedev.io che indica la disponibilità di una nuova versione, con un colore che indica la gravità dell'aggiornamento. Funziona allo stesso modo delle richieste di immagini avatar di gravatar. Se disabilitato, si consiglia vivamente di controllare manualmente gli aggiornamenti di tanto in tanto (può essere fatto tramite il menu di aiuto in basso a sinistra dello schermo) per verificare se ci sono correzioni di sicurezza/critiche");
+		m.put("Auto update check is performed by requesting an image in your browser from cheeta.io indicating new version availability, with color indicating severity of the update. It works the same way as how gravatar requests avatar images. If disabled, you are highly recommended to check update manually from time to time (can be done via help menu on left bottom of the screen) to see if there are any security/critical fixes", 
+			"Il controllo di aggiornamento automatico viene eseguito richiedendo un'immagine nel browser da cheeta.io che indica la disponibilità di una nuova versione, con un colore che indica la gravità dell'aggiornamento. Funziona allo stesso modo delle richieste di immagini avatar di gravatar. Se disabilitato, si consiglia vivamente di controllare manualmente gli aggiornamenti di tanto in tanto (può essere fatto tramite il menu di aiuto in basso a sinistra dello schermo) per verificare se ci sono correzioni di sicurezza/critiche");
 		m.put("Auto-discovered executor", "Esecutore auto-scoperto");
 		m.put("Available Agent Tokens", "Token agente disponibili");
 		m.put("Available Choices", "Scelte disponibili");
@@ -514,8 +514,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Build spec not defined", "Specifica della build non definita");
 		m.put("Build spec not defined (import project: {0}, import revision: {1})", "Specifica della build non definita (importa progetto: {0}, importa revisione: {1})");
 		m.put("Build spec not found in commit of this build", "Specifica della build non trovata nel commit di questa build");
-		m.put("Build statistics is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"Le statistiche di build sono una funzionalità enterprise. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("Build statistics is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"Le statistiche di build sono una funzionalità enterprise. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
 		m.put("Build version", "Versione della build");
 		m.put("Build with Persistent Volume", "Build con Volume Persistente");
 		m.put("Builds", "Build");
@@ -528,8 +528,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("By Group", "Per gruppo");
 		m.put("By User", "Per utente");
 		m.put("By day", "Per giorno");
-		m.put("By default code is cloned via an auto-generated credential, which only has read permission over current project. In case the job needs to <a href='https://docs.onedev.io/tutorials/cicd/commit-and-push' target='_blank'>push code to server</a>, you should supply custom credential with appropriate permissions here", 
-			"Per impostazione predefinita, il codice viene clonato tramite una credenziale generata automaticamente, che ha solo permessi di lettura sul progetto corrente. Nel caso in cui il job debba <a href='https://docs.onedev.io/tutorials/cicd/commit-and-push' target='_blank'>inviare codice al server</a>, dovresti fornire una credenziale personalizzata con i permessi appropriati qui");
+		m.put("By default code is cloned via an auto-generated credential, which only has read permission over current project. In case the job needs to <a href='https://docs.cheeta.io/tutorials/cicd/commit-and-push' target='_blank'>push code to server</a>, you should supply custom credential with appropriate permissions here", 
+			"Per impostazione predefinita, il codice viene clonato tramite una credenziale generata automaticamente, che ha solo permessi di lettura sul progetto corrente. Nel caso in cui il job debba <a href='https://docs.cheeta.io/tutorials/cicd/commit-and-push' target='_blank'>inviare codice al server</a>, dovresti fornire una credenziale personalizzata con i permessi appropriati qui");
 		m.put("By default issues of parent and child projects will also be listed. Use query <code>&quot;Project&quot; is current</code> to show issues only belong to this project", 
 			"Per impostazione predefinita, verranno elencati anche i problemi dei progetti padre e figlio. Usa la query <code>&quot;Project&quot; is current</code> per mostrare solo i problemi appartenenti a questo progetto");
 		m.put("By month", "Per mese");
@@ -582,8 +582,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Change To", "Cambia in");
 		m.put("Change already merged", "Modifica già unita");
 		m.put("Change not updated yet", "Modifica non ancora aggiornata");
-		m.put("Change property <code>serverUrl</code> in file <code>conf/agent.properties</code> if necessary. The default value is taken from OneDev server url specified in <i>Administration / System Setting</i>", 
-			"Modifica la proprietà <code>serverUrl</code> nel file <code>conf/agent.properties</code> se necessario. Il valore predefinito è preso dall'URL del server OneDev specificato in <i>Amministrazione / Impostazioni di sistema</i>");
+		m.put("Change property <code>serverUrl</code> in file <code>conf/agent.properties</code> if necessary. The default value is taken from Cheeta server url specified in <i>Administration / System Setting</i>", 
+			"Modifica la proprietà <code>serverUrl</code> nel file <code>conf/agent.properties</code> se necessario. Il valore predefinito è preso dall'URL del server Cheeta specificato in <i>Amministrazione / Impostazioni di sistema</i>");
 		m.put("Change to another field", "Cambia in un altro campo");
 		m.put("Change to another state", "Cambia in un altro stato");
 		m.put("Change to another value", "Cambia in un altro valore");
@@ -595,10 +595,10 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Chart Metadata", "Metadati del grafico");
 		m.put("Check <a href=\"https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification\" target=\"_blank\">GitHub's guide</a> on how to generate and use GPG keys to sign your commits", 
 			"Consulta <a href=\"https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification\" target=\"_blank\">la guida di GitHub</a> su come generare e utilizzare le chiavi GPG per firmare i tuoi commit");
-		m.put("Check <a href=\"https://docs.onedev.io/administration-guide/agent-management\" target=\"_blank\">agent management</a> for details, including instructions on how to run agent as service", 
-			"Consulta <a href=\"https://docs.onedev.io/administration-guide/agent-management\" target=\"_blank\">la gestione degli agenti</a> per i dettagli, incluse le istruzioni su come eseguire l'agente come servizio");
-		m.put("Check <a href=\"https://docs.onedev.io/administration-guide/agent-management\" target=\"_blank\">agent management</a> for details, including list of supported environment variables", 
-			"Consulta <a href=\"https://docs.onedev.io/administration-guide/agent-management\" target=\"_blank\">la gestione degli agenti</a> per i dettagli, inclusa la lista delle variabili di ambiente supportate");
+		m.put("Check <a href=\"https://docs.cheeta.io/administration-guide/agent-management\" target=\"_blank\">agent management</a> for details, including instructions on how to run agent as service", 
+			"Consulta <a href=\"https://docs.cheeta.io/administration-guide/agent-management\" target=\"_blank\">la gestione degli agenti</a> per i dettagli, incluse le istruzioni su come eseguire l'agente come servizio");
+		m.put("Check <a href=\"https://docs.cheeta.io/administration-guide/agent-management\" target=\"_blank\">agent management</a> for details, including list of supported environment variables", 
+			"Consulta <a href=\"https://docs.cheeta.io/administration-guide/agent-management\" target=\"_blank\">la gestione degli agenti</a> per i dettagli, inclusa la lista delle variabili di ambiente supportate");
 		m.put("Check Commit Message Footer", "Controlla il piè di pagina del messaggio di commit");
 		m.put("Check Incoming Email", "Controlla email in arrivo");
 		m.put("Check Issue Integrity", "Controlla l'integrità dei problemi");
@@ -663,10 +663,10 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Click to select a commit, or shift-click to select multiple commit", "Clicca per selezionare un commit, o shift-clicca per selezionare più commit");
 		m.put("Click to show comment of marked text", "Clicca per mostrare il commento del testo evidenziato");
 		m.put("Click to show issue details", "Clicca per mostrare i dettagli del problema");
-		m.put("Client ID of this OneDev instance registered in Google cloud", "ID client di questa istanza di OneDev registrata nel cloud di Google");
+		m.put("Client ID of this Cheeta instance registered in Google cloud", "ID client di questa istanza di Cheeta registrata nel cloud di Google");
 		m.put("Client Id", "ID client");
 		m.put("Client Secret", "Segreto client");
-		m.put("Client secret of this OneDev instance registered in Google cloud", "Segreto client di questa istanza di OneDev registrata nel cloud di Google");
+		m.put("Client secret of this Cheeta instance registered in Google cloud", "Segreto client di questa istanza di Cheeta registrata nel cloud di Google");
 		m.put("Clippy Report", "Report di Clippy");
 		m.put("Clone", "Clona");
 		m.put("Clone Credential", "Credenziali di clonazione");
@@ -757,8 +757,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Commit suggestion", "Suggerimento di commit");
 		m.put("Commits", "Commit");
 		m.put("Commits are taken from default branch of non-forked repositories", "I commit sono presi dal branch predefinito dei repository non forkati");
-		m.put("Commits generated by OneDev previously will be shown as unverified if this key is deleted. Type <code>yes</code> below if you want to continue.", 
-			"I commit generati precedentemente da OneDev saranno mostrati come non verificati se questa chiave viene eliminata. Digita <code>yes</code> qui sotto se vuoi continuare.");
+		m.put("Commits generated by Cheeta previously will be shown as unverified if this key is deleted. Type <code>yes</code> below if you want to continue.", 
+			"I commit generati precedentemente da Cheeta saranno mostrati come non verificati se questa chiave viene eliminata. Digita <code>yes</code> qui sotto se vuoi continuare.");
 		m.put("Commits were merged into target branch", "I commit sono stati uniti nel branch di destinazione");
 		m.put("Commits were merged into target branch outside of this pull request", "I commit sono stati uniti nel branch di destinazione al di fuori di questa pull request");
 		m.put("Commits were rebased onto target branch", "I commit sono stati rebaseati sul branch di destinazione");
@@ -1150,10 +1150,10 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Empty file added.", "File vuoto aggiunto.");
 		m.put("Empty file removed.", "File vuoto rimosso.");
 		m.put("Enable", "Abilita");
-		m.put("Enable <a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>time tracking</a> for this project to track progress and generate timesheets", 
-			"Abilita <a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>il monitoraggio del tempo</a> per questo progetto per monitorare i progressi e generare timesheet");
-		m.put("Enable <a href='https://docs.onedev.io/tutorials/package/working-with-packages' target='_blank'>package management</a> for this project", 
-			"Abilita <a href='https://docs.onedev.io/tutorials/package/working-with-packages' target='_blank'>gestione dei pacchetti</a> per questo progetto");
+		m.put("Enable <a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>time tracking</a> for this project to track progress and generate timesheets", 
+			"Abilita <a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>il monitoraggio del tempo</a> per questo progetto per monitorare i progressi e generare timesheet");
+		m.put("Enable <a href='https://docs.cheeta.io/tutorials/package/working-with-packages' target='_blank'>package management</a> for this project", 
+			"Abilita <a href='https://docs.cheeta.io/tutorials/package/working-with-packages' target='_blank'>gestione dei pacchetti</a> per questo progetto");
 		m.put("Enable Account Self Removal", "Abilita Rimozione Autonoma dell'Account");
 		m.put("Enable Account Self Sign-Up", "Abilita Registrazione Autonoma dell'Account");
 		m.put("Enable All Queried Users", "Abilita Tutti gli Utenti Interrogati");
@@ -1171,15 +1171,15 @@ public class Translation_it extends TranslationResourceBundle {
 			"Abilita questa opzione per unire automaticamente la pull request quando pronta (tutti i revisori hanno approvato, tutti i lavori richiesti sono passati, ecc.)");
 		m.put("Enable this to allow to run html report publish step. To avoid XSS attack, make sure this executor can only be used by trusted jobs", 
 			"Abilita questa opzione per consentire l'esecuzione del passaggio di pubblicazione del report html. Per evitare attacchi XSS, assicurati che questo executor possa essere utilizzato solo da lavori fidati");
-		m.put("Enable this to allow to run site publish step. OneDev will serve project site files as is. To avoid XSS attack, make sure this executor can only be used by trusted jobs", 
-			"Abilita questa opzione per consentire l'esecuzione del passaggio di pubblicazione del sito. OneDev servirà i file del sito del progetto così come sono. Per evitare attacchi XSS, assicurati che questo executor possa essere utilizzato solo da lavori fidati");
+		m.put("Enable this to allow to run site publish step. Cheeta will serve project site files as is. To avoid XSS attack, make sure this executor can only be used by trusted jobs", 
+			"Abilita questa opzione per consentire l'esecuzione del passaggio di pubblicazione del sito. Cheeta servirà i file del sito del progetto così come sono. Per evitare attacchi XSS, assicurati che questo executor possa essere utilizzato solo da lavori fidati");
 		m.put("Enable this to place intermediate files required by job execution on dynamically allocated persistent volume instead of emptyDir", 
 			"Abilita questa opzione per posizionare i file intermedi richiesti dall'esecuzione del lavoro su un volume persistente allocato dinamicamente invece di emptyDir");
 		m.put("Enable this to process issue or pull request comments posted via email", "Abilita questa opzione per elaborare commenti su problemi o pull request inviati via email");
-		m.put("Enable this to process issue or pull request comments posted via email. <b class='text-danger'>NOTE:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>Sub addressing</a> needs to be enabled for system email address above, as OneDev uses it to track issue and pull request contexts", 
-			"Abilita questa opzione per elaborare commenti su problemi o pull request inviati via email. <b class='text-danger'>NOTA:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>Il sub addressing</a> deve essere abilitato per l'indirizzo email di sistema sopra, poiché OneDev lo utilizza per tracciare contesti di problemi e pull request");
-		m.put("Enable this to process issue or pull request comments posted via email. <b class='text-danger'>NOTE:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>Sub addressing</a> needs to be enabled for system email address above, as OneDev uses it to track issue and pull request contexts", 
-			"Abilita questa opzione per elaborare commenti su problemi o pull request inviati via email. <b class='text-danger'>NOTA:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>Il sub addressing</a> deve essere abilitato per l'indirizzo email di sistema sopra, poiché OneDev lo utilizza per tracciare contesti di problemi e pull request");
+		m.put("Enable this to process issue or pull request comments posted via email. <b class='text-danger'>NOTE:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>Sub addressing</a> needs to be enabled for system email address above, as Cheeta uses it to track issue and pull request contexts", 
+			"Abilita questa opzione per elaborare commenti su problemi o pull request inviati via email. <b class='text-danger'>NOTA:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>Il sub addressing</a> deve essere abilitato per l'indirizzo email di sistema sopra, poiché Cheeta lo utilizza per tracciare contesti di problemi e pull request");
+		m.put("Enable this to process issue or pull request comments posted via email. <b class='text-danger'>NOTE:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>Sub addressing</a> needs to be enabled for system email address above, as Cheeta uses it to track issue and pull request contexts", 
+			"Abilita questa opzione per elaborare commenti su problemi o pull request inviati via email. <b class='text-danger'>NOTA:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>Il sub addressing</a> deve essere abilitato per l'indirizzo email di sistema sopra, poiché Cheeta lo utilizza per tracciare contesti di problemi e pull request");
 		m.put("Enable to allow to upload build cache generated during CI/CD job. Uploaded cache can be used by subsequent builds of the project as long as cache key matches", 
 			"Abilita per consentire il caricamento della cache di build generata durante il lavoro CI/CD. La cache caricata può essere utilizzata dalle build successive del progetto finché la chiave della cache corrisponde");
 		m.put("End Point", "Punto di Accesso");
@@ -1196,8 +1196,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Enumeration", "Enumerazione");
 		m.put("Env Var", "Var Ambiente");
 		m.put("Environment Variables", "Variabili d'Ambiente");
-		m.put("Environment variable <code>serverUrl</code> in above command is taken from OneDev server url specified in <i>Administration / System Setting</i>. Change it if necessary", 
-			"La variabile d'ambiente <code>serverUrl</code> nel comando sopra è presa dall'URL del server OneDev specificato in <i>Amministrazione / Impostazioni di Sistema</i>. Modificala se necessario");
+		m.put("Environment variable <code>serverUrl</code> in above command is taken from Cheeta server url specified in <i>Administration / System Setting</i>. Change it if necessary", 
+			"La variabile d'ambiente <code>serverUrl</code> nel comando sopra è presa dall'URL del server Cheeta specificato in <i>Amministrazione / Impostazioni di Sistema</i>. Modificala se necessario");
 		m.put("Equal", "Uguale");
 		m.put("Error authenticating user", "Errore nell'autenticazione dell'utente");
 		m.put("Error calculating commits: check log for details", "Errore nel calcolo dei commit: controlla il log per i dettagli");
@@ -1359,23 +1359,23 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("For CI/CD job, run below via a command step", "Per il lavoro CI/CD, esegui il comando seguente tramite un passaggio del comando");
 		m.put("For a particular project, the first matching entry will be used", "Per un progetto particolare, verrà utilizzata la prima voce corrispondente");
 		m.put("For all issues", "Per tutti i problemi");
-		m.put("For build commit not reachable from default branch, a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create branch permission", 
-			"Per il commit di build non raggiungibile dal ramo predefinito, un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> dovrebbe essere specificato come token di accesso con permesso di creare rami");
-		m.put("For build commit not reachable from default branch, a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create tag permission", 
-			"Per il commit di build non raggiungibile dal ramo predefinito, un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> dovrebbe essere specificato come token di accesso con permesso di creare tag");
-		m.put("For build commit not reachable from default branch, a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with manage issue permission", 
-			"Per il commit di build non raggiungibile dal ramo predefinito, un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> dovrebbe essere specificato come token di accesso con permesso di gestire problemi");
-		m.put("For docker aware executors, this path is inside container, and accepts both absolute path and relative path (relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>). For shell related executors which runs on host machine directly, only relative path is accepted", 
-			"Per gli esecutori consapevoli di Docker, questo percorso è all'interno del container e accetta sia percorsi assoluti che relativi (relativi a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>spazio di lavoro del lavoro</a>). Per gli esecutori correlati alla shell che funzionano direttamente sulla macchina host, è accettato solo il percorso relativo");
-		m.put("For each build, OneDev calculates a list of fixed issues since previous build automatically. This setting provides a default query to further filter/order this list. For a given job, the first matching entry will be used.", 
-			"Per ogni build, OneDev calcola automaticamente un elenco di problemi risolti dalla build precedente. Questa impostazione fornisce una query predefinita per filtrare/ordinare ulteriormente questo elenco. Per un determinato lavoro, verrà utilizzata la prima voce corrispondente.");
+		m.put("For build commit not reachable from default branch, a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create branch permission", 
+			"Per il commit di build non raggiungibile dal ramo predefinito, un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> dovrebbe essere specificato come token di accesso con permesso di creare rami");
+		m.put("For build commit not reachable from default branch, a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create tag permission", 
+			"Per il commit di build non raggiungibile dal ramo predefinito, un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> dovrebbe essere specificato come token di accesso con permesso di creare tag");
+		m.put("For build commit not reachable from default branch, a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with manage issue permission", 
+			"Per il commit di build non raggiungibile dal ramo predefinito, un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> dovrebbe essere specificato come token di accesso con permesso di gestire problemi");
+		m.put("For docker aware executors, this path is inside container, and accepts both absolute path and relative path (relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>). For shell related executors which runs on host machine directly, only relative path is accepted", 
+			"Per gli esecutori consapevoli di Docker, questo percorso è all'interno del container e accetta sia percorsi assoluti che relativi (relativi a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>spazio di lavoro del lavoro</a>). Per gli esecutori correlati alla shell che funzionano direttamente sulla macchina host, è accettato solo il percorso relativo");
+		m.put("For each build, Cheeta calculates a list of fixed issues since previous build automatically. This setting provides a default query to further filter/order this list. For a given job, the first matching entry will be used.", 
+			"Per ogni build, Cheeta calcola automaticamente un elenco di problemi risolti dalla build precedente. Questa impostazione fornisce una query predefinita per filtrare/ordinare ulteriormente questo elenco. Per un determinato lavoro, verrà utilizzata la prima voce corrispondente.");
 		m.put("For each selected branch/tag, a separate build will be generated with branch/tag set to corresponding value", 
 			"Per ogni ramo/tag selezionato, verrà generata una build separata con ramo/tag impostato sul valore corrispondente");
 		m.put("For issues matching: ", "Per problemi corrispondenti:");
 		m.put("For very large git repository, you may need to tune options here to reduce memory usage", 
 			"Per repository git molto grandi, potrebbe essere necessario regolare le opzioni qui per ridurre l'utilizzo della memoria");
-		m.put("For web hooks defined here and in parent projects, OneDev will post event data in JSON format to specified URLs when subscribed events happen", 
-			"Per i webhook definiti qui e nei progetti principali, OneDev invierà i dati dell'evento in formato JSON agli URL specificati quando si verificano eventi sottoscritti");
+		m.put("For web hooks defined here and in parent projects, Cheeta will post event data in JSON format to specified URLs when subscribed events happen", 
+			"Per i webhook definiti qui e nei progetti principali, Cheeta invierà i dati dell'evento in formato JSON agli URL specificati quando si verificano eventi sottoscritti");
 		m.put("Force", "Forza");
 		m.put("Force Garbage Collection", "Forza Raccolta Garbage");
 		m.put("Forgot Password?", "Password Dimenticata?");
@@ -1397,8 +1397,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("GPG Trusted Keys", "Chiavi GPG Fidate");
 		m.put("GPG key deleted", "Chiave GPG eliminata");
 		m.put("GPG public key begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'", "La chiave pubblica GPG inizia con '-----BEGIN PGP PUBLIC KEY BLOCK-----'");
-		m.put("GPG signing key will be used to sign commits generated by OneDev, including pull request merge commits, user commits created via web UI or RESTful api.", 
-			"La chiave di firma GPG verrà utilizzata per firmare i commit generati da OneDev, inclusi i commit di merge delle richieste di pull, i commit utente creati tramite l'interfaccia web o l'API RESTful.");
+		m.put("GPG signing key will be used to sign commits generated by Cheeta, including pull request merge commits, user commits created via web UI or RESTful api.", 
+			"La chiave di firma GPG verrà utilizzata per firmare i commit generati da Cheeta, inclusi i commit di merge delle richieste di pull, i commit utente creati tramite l'interfaccia web o l'API RESTful.");
 		m.put("Gem Info", "Informazioni Gemma");
 		m.put("General", "Generale");
 		m.put("General Settings", "Impostazioni Generali");
@@ -1457,28 +1457,28 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Great, your mail service configuration is working", "Ottimo, la configurazione del servizio di posta funziona");
 		m.put("Groovy Script", "Script Groovy");
 		m.put("Groovy Scripts", "Script Groovy");
-		m.put("Groovy script to be evaluated. It should return a <i>Date</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Dovrebbe restituire un valore <i>Date</i>. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. It should return a <i>Float</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Dovrebbe restituire un valore <i>Float</i>. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. It should return a <i>Integer</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Dovrebbe restituire un valore <i>Integer</i>. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. It should return a <i>String</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Dovrebbe restituire un valore <i>String</i>. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. It should return a <i>boolean</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Dovrebbe restituire un valore <i>boolean</i>. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. It should return a <i>string</i> value. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Dovrebbe restituire un valore <i>string</i>. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. It should return name of a group. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Dovrebbe restituire il nome di un gruppo. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. It should return string or list of string. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Dovrebbe restituire una stringa o un elenco di stringhe. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. The return value should be a list of group facade object to be used as choices. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Il valore restituito dovrebbe essere un elenco di oggetti facciata di gruppo da utilizzare come scelte. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. The return value should be a list of user login names to be used as choices. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Il valore restituito dovrebbe essere un elenco di nomi di login utente da utilizzare come scelte. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
-		m.put("Groovy script to be evaluated. The return value should be a value to color map, for instance:<br><code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, Use <tt>null</tt> if the value does not have a color. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
-			"Script Groovy da valutare. Il valore restituito dovrebbe essere una mappa valore-colore, ad esempio:<br><code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, Usa <tt>null</tt> se il valore non ha un colore. Controlla <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. It should return a <i>Date</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Dovrebbe restituire un valore <i>Date</i>. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. It should return a <i>Float</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Dovrebbe restituire un valore <i>Float</i>. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. It should return a <i>Integer</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Dovrebbe restituire un valore <i>Integer</i>. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. It should return a <i>String</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Dovrebbe restituire un valore <i>String</i>. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. It should return a <i>boolean</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Dovrebbe restituire un valore <i>boolean</i>. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. It should return a <i>string</i> value. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Dovrebbe restituire un valore <i>string</i>. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. It should return name of a group. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Dovrebbe restituire il nome di un gruppo. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. It should return string or list of string. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Dovrebbe restituire una stringa o un elenco di stringhe. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. The return value should be a list of group facade object to be used as choices. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Il valore restituito dovrebbe essere un elenco di oggetti facciata di gruppo da utilizzare come scelte. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. The return value should be a list of user login names to be used as choices. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Il valore restituito dovrebbe essere un elenco di nomi di login utente da utilizzare come scelte. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
+		m.put("Groovy script to be evaluated. The return value should be a value to color map, for instance:<br><code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, Use <tt>null</tt> if the value does not have a color. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details", 
+			"Script Groovy da valutare. Il valore restituito dovrebbe essere una mappa valore-colore, ad esempio:<br><code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, Usa <tt>null</tt> se il valore non ha un colore. Controlla <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>aiuto scripting</a> per i dettagli");
 		m.put("Groovy scripts", "Script Groovy");
 		m.put("Group", "Gruppo");
 		m.put("Group \"{0}\" deleted", "Gruppo \"{0}\" eliminato");
@@ -1531,15 +1531,15 @@ public class Translation_it extends TranslationResourceBundle {
 			"Se abilitato, il backup programmato verrà eseguito sul server principale che è attualmente <span wicket:id=\"leadServer\"></span>");
 		m.put("If enabled, source branch will be deleted automatically after merge the pull request if user has permission to do that", 
 			"Se abilitato, il branch sorgente verrà eliminato automaticamente dopo la fusione della pull request se l'utente ha il permesso di farlo");
-		m.put("If specified, OneDev will only display iterations with this prefix", "Se specificato, OneDev mostrerà solo le iterazioni con questo prefisso");
+		m.put("If specified, Cheeta will only display iterations with this prefix", "Se specificato, Cheeta mostrerà solo le iterazioni con questo prefisso");
 		m.put("If specified, all public and internal projects imported from GitLab will use these as default roles. Private projects are not affected", 
 			"Se specificato, tutti i progetti pubblici e interni importati da GitLab utilizzeranno questi come ruoli predefiniti. I progetti privati non sono interessati");
 		m.put("If specified, all public repositories imported from GitHub will use these as default roles. Private repositories are not affected", 
 			"Se specificato, tutti i repository pubblici importati da GitHub utilizzeranno questi come ruoli predefiniti. I repository privati non sono interessati");
 		m.put("If specified, total estimated/spent time of an issue will also include linked issues of this type", 
 			"Se specificato, il tempo totale stimato/speso di un problema includerà anche i problemi collegati di questo tipo");
-		m.put("If this option is enabled, git lfs command needs to be installed on OneDev server (even this step runs on other node)", 
-			"Se questa opzione è abilitata, il comando git lfs deve essere installato sul server OneDev (anche se questo passaggio viene eseguito su un altro nodo)");
+		m.put("If this option is enabled, git lfs command needs to be installed on Cheeta server (even this step runs on other node)", 
+			"Se questa opzione è abilitata, il comando git lfs deve essere installato sul server Cheeta (anche se questo passaggio viene eseguito su un altro nodo)");
 		m.put("If ticked, group indicated by this field will be able to edit estimated time of corresponding issues if time tracking is enabled", 
 			"Se selezionato, il gruppo indicato da questo campo sarà in grado di modificare il tempo stimato dei problemi corrispondenti se il tracciamento del tempo è abilitato");
 		m.put("Ignore", "Ignora");
@@ -1589,14 +1589,14 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Importing projects from {0}", "Importazione di progetti da {0}");
 		m.put("Imports", "Importazioni");
 		m.put("In Projects", "Nei progetti");
-		m.put("In case IMAP host certificate is self-signed or its CA root is not accepted, you may tell OneDev to bypass certificate check. <b class='text-danger'>WARNING: </b> In an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the certificate into OneDev</a> instead", 
-			"Nel caso in cui il certificato host IMAP sia autofirmato o la sua radice CA non sia accettata, puoi dire a OneDev di ignorare il controllo del certificato. <b class='text-danger'>ATTENZIONE: </b> In una rete non affidabile, ciò potrebbe portare ad un attacco man-in-the-middle, e dovresti <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>importare il certificato in OneDev</a> invece");
-		m.put("In case SMTP host certificate is self-signed or its CA root is not accepted, you may tell OneDev to bypass certificate check. <b class='text-danger'>WARNING: </b> In an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the certificate into OneDev</a> instead", 
-			"Nel caso in cui il certificato host SMTP sia autofirmato o la sua radice CA non sia accettata, puoi dire a OneDev di ignorare il controllo del certificato. <b class='text-danger'>ATTENZIONE: </b> In una rete non affidabile, ciò potrebbe portare ad un attacco man-in-the-middle, e dovresti <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>importare il certificato in OneDev</a> invece");
+		m.put("In case IMAP host certificate is self-signed or its CA root is not accepted, you may tell Cheeta to bypass certificate check. <b class='text-danger'>WARNING: </b> In an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the certificate into Cheeta</a> instead", 
+			"Nel caso in cui il certificato host IMAP sia autofirmato o la sua radice CA non sia accettata, puoi dire a Cheeta di ignorare il controllo del certificato. <b class='text-danger'>ATTENZIONE: </b> In una rete non affidabile, ciò potrebbe portare ad un attacco man-in-the-middle, e dovresti <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>importare il certificato in Cheeta</a> invece");
+		m.put("In case SMTP host certificate is self-signed or its CA root is not accepted, you may tell Cheeta to bypass certificate check. <b class='text-danger'>WARNING: </b> In an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the certificate into Cheeta</a> instead", 
+			"Nel caso in cui il certificato host SMTP sia autofirmato o la sua radice CA non sia accettata, puoi dire a Cheeta di ignorare il controllo del certificato. <b class='text-danger'>ATTENZIONE: </b> In una rete non affidabile, ciò potrebbe portare ad un attacco man-in-the-middle, e dovresti <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>importare il certificato in Cheeta</a> invece");
 		m.put("In case anonymous access is disabled or anonymous user does not have enough permission for a resource operation, you will need to authenticate by providing user name and password (or access token) via http basic auth header", 
 			"Nel caso in cui l'accesso anonimo sia disabilitato o l'utente anonimo non abbia abbastanza permessi per un'operazione di risorsa, sarà necessario autenticarsi fornendo nome utente e password (o token di accesso) tramite l'intestazione di autenticazione di base http");
-		m.put("In case cache is not hit via above key, OneDev will loop through load keys defined here in order until a matching cache is found in project hierarchy. A cache is considered matching if its key is prefixed with the load key. If multiple caches matches, the most recent cache will be returned", 
-			"Nel caso in cui la cache non venga colpita tramite la chiave sopra, OneDev scorrerà le chiavi di caricamento definite qui in ordine fino a trovare una cache corrispondente nella gerarchia del progetto. Una cache è considerata corrispondente se la sua chiave è prefissata con la chiave di caricamento. Se più cache corrispondono, verrà restituita la cache più recente");
+		m.put("In case cache is not hit via above key, Cheeta will loop through load keys defined here in order until a matching cache is found in project hierarchy. A cache is considered matching if its key is prefixed with the load key. If multiple caches matches, the most recent cache will be returned", 
+			"Nel caso in cui la cache non venga colpita tramite la chiave sopra, Cheeta scorrerà le chiavi di caricamento definite qui in ordine fino a trovare una cache corrispondente nella gerarchia del progetto. Una cache è considerata corrispondente se la sua chiave è prefissata con la chiave di caricamento. Se più cache corrispondono, verrà restituita la cache più recente");
 		m.put("In case cache needs to be uploaded, this property specifies target project for the upload. Leave empty for current project", 
 			"Nel caso in cui la cache debba essere caricata, questa proprietà specifica il progetto di destinazione per il caricamento. Lascia vuoto per il progetto corrente");
 		m.put("In case the pull request status is out of sync with underlying repository, you may synchronize them manually here", 
@@ -1635,8 +1635,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Insert this image", "Inserisci questa immagine");
 		m.put("Install Subscription Key", "Installa chiave di abbonamento");
 		m.put("Integer", "Intero");
-		m.put("Interactive web shell access to running jobs is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"Accesso alla shell web interattiva per i lavori in esecuzione è una funzionalità aziendale. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("Interactive web shell access to running jobs is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"Accesso alla shell web interattiva per i lavori in esecuzione è una funzionalità aziendale. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
 		m.put("Internal Database", "Database Interno");
 		m.put("Interpreter", "Interprete");
 		m.put("Invalid GPG signature", "Firma GPG non valida");
@@ -1653,8 +1653,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Invalid selection, click for details", "Selezione non valida, clicca per dettagli");
 		m.put("Invalid ssh signature", "Firma ssh non valida");
 		m.put("Invalid state response", "Risposta di stato non valida");
-		m.put("Invalid state. Please make sure you are visiting OneDev using server url specified in system setting", 
-			"Stato non valido. Assicurati di visitare OneDev utilizzando l'url del server specificato nelle impostazioni di sistema");
+		m.put("Invalid state. Please make sure you are visiting Cheeta using server url specified in system setting", 
+			"Stato non valido. Assicurati di visitare Cheeta utilizzando l'url del server specificato nelle impostazioni di sistema");
 		m.put("Invalid subscription key", "Chiave di abbonamento non valida");
 		m.put("Invalid working period", "Periodo di lavoro non valido");
 		m.put("Invitation sent to \"{0}\"", "Invito inviato a \"{0}\"");
@@ -1731,8 +1731,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Issue state duration statistics", "Statistiche durata stato problema");
 		m.put("Issue state frequency statistics", "Statistiche frequenza stato problema");
 		m.put("Issue state trend statistics", "Statistiche trend stato problema");
-		m.put("Issue statistics is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"Le statistiche dei problemi sono una funzionalità aziendale. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("Issue statistics is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"Le statistiche dei problemi sono una funzionalità aziendale. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
 		m.put("Issue workflow changed, <a wicket:id=\"reconcile\" class=\"link-primary\">reconciliation</a> needs to be performed to make data consistent. You may do this after making all necessary changes", 
 			"Il workflow dei problemi è cambiato, <a wicket:id=\"reconcile\" class=\"link-primary\">riconciliazione</a> deve essere eseguita per rendere i dati consistenti. Puoi farlo dopo aver apportato tutte le modifiche necessarie");
 		m.put("Issues", "Problemi");
@@ -1898,7 +1898,7 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Login name already used by another account", "Nome di accesso già utilizzato da un altro account");
 		m.put("Login name or email", "Nome di accesso o email");
 		m.put("Login name or email address", "Nome di accesso o indirizzo email");
-		m.put("Login to OneDev docker registry", "Accedi al registro docker di OneDev");
+		m.put("Login to Cheeta docker registry", "Accedi al registro docker di Cheeta");
 		m.put("Login to comment", "Accedi per commentare");
 		m.put("Login to comment on selection", "Accedi per commentare la selezione");
 		m.put("Login to vote", "Accedi per votare");
@@ -2160,8 +2160,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("No one", "Nessuno");
 		m.put("No packages to delete", "Nessun pacchetto da eliminare");
 		m.put("No parent", "Nessun genitore");
-		m.put("No previous successful build on <a href=\"https://docs.onedev.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">same stream</a> to calculate fixed issues since", 
-			"Nessuna build precedente riuscita su <a href=\"https://docs.onedev.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">stesso stream</a> per calcolare i problemi risolti da allora");
+		m.put("No previous successful build on <a href=\"https://docs.cheeta.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">same stream</a> to calculate fixed issues since", 
+			"Nessuna build precedente riuscita su <a href=\"https://docs.cheeta.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">stesso stream</a> per calcolare i problemi risolti da allora");
 		m.put("No projects found", "Nessun progetto trovato");
 		m.put("No projects to delete", "Nessun progetto da eliminare");
 		m.put("No projects to modify", "Nessun progetto da modificare");
@@ -2251,16 +2251,16 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Old Password", "Vecchia Password");
 		m.put("On Behalf Of", "Per Conto di");
 		m.put("On Branches", "Su Branches");
-		m.put("OneDev Issue Field", "Campo Problema OneDev");
-		m.put("OneDev Issue Link", "Collegamento Problema OneDev");
-		m.put("OneDev Issue State", "Stato Problema OneDev");
-		m.put("OneDev analyzes repository files for code search, line statistics, and code contribution statistics. This setting tells which files should be analyzed, and expects space-separated <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path patterns</a>. A pattern can be excluded by prefixing with '-', for instance <code>-**/vendors/**</code> will exclude all files with vendors in path. <b>NOTE: </b> Changing this setting only affects new commits. To apply the change to history commits, please stop the server and delete folder <code>index</code> and <code>info/commit</code> under <a href='https://docs.onedev.io/concepts#project-storage' target='_blank'>project's storage directory</a>. The repository will be re-analyzed when server is started", 
-			"OneDev analizza i file del repository per la ricerca del codice, statistiche di linea e statistiche di contributo al codice. Questa impostazione indica quali file devono essere analizzati e si aspetta <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>pattern di percorso</a> separati da spazi. Un pattern può essere escluso anteponendo '-', ad esempio <code>-**/vendors/**</code> escluderà tutti i file con vendors nel percorso. <b>NOTA: </b> Cambiare questa impostazione influisce solo sui nuovi commit. Per applicare la modifica ai commit storici, interrompere il server ed eliminare la cartella <code>index</code> e <code>info/commit</code> sotto la <a href='https://docs.onedev.io/concepts#project-storage' target='_blank'>directory di archiviazione del progetto</a>. Il repository sarà rianalizzato quando il server verrà avviato");
-		m.put("OneDev configures git hooks to communicate with itself via curl", "OneDev configura i git hooks per comunicare con se stesso tramite curl");
-		m.put("OneDev needs to search and determine user DN, as well as searching user group information if group retrieval is enabled. Tick this option and specify 'manager' DN and password if these operations needs to be authenticated", 
-			"OneDev deve cercare e determinare il DN dell'utente, oltre a cercare informazioni sul gruppo utente se il recupero del gruppo è abilitato. Seleziona questa opzione e specifica il DN e la password del 'manager' se queste operazioni devono essere autenticate");
-		m.put("OneDev requires git command line to manage repositories. The minimum required version is 2.11.1. Also make sure that git-lfs is installed if you want to retrieve LFS files in build job", 
-			"OneDev richiede la linea di comando git per gestire i repository. La versione minima richiesta è 2.11.1. Assicurati anche che git-lfs sia installato se desideri recuperare file LFS nel job di build");
+		m.put("Cheeta Issue Field", "Campo Problema Cheeta");
+		m.put("Cheeta Issue Link", "Collegamento Problema Cheeta");
+		m.put("Cheeta Issue State", "Stato Problema Cheeta");
+		m.put("Cheeta analyzes repository files for code search, line statistics, and code contribution statistics. This setting tells which files should be analyzed, and expects space-separated <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path patterns</a>. A pattern can be excluded by prefixing with '-', for instance <code>-**/vendors/**</code> will exclude all files with vendors in path. <b>NOTE: </b> Changing this setting only affects new commits. To apply the change to history commits, please stop the server and delete folder <code>index</code> and <code>info/commit</code> under <a href='https://docs.cheeta.io/concepts#project-storage' target='_blank'>project's storage directory</a>. The repository will be re-analyzed when server is started", 
+			"Cheeta analizza i file del repository per la ricerca del codice, statistiche di linea e statistiche di contributo al codice. Questa impostazione indica quali file devono essere analizzati e si aspetta <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>pattern di percorso</a> separati da spazi. Un pattern può essere escluso anteponendo '-', ad esempio <code>-**/vendors/**</code> escluderà tutti i file con vendors nel percorso. <b>NOTA: </b> Cambiare questa impostazione influisce solo sui nuovi commit. Per applicare la modifica ai commit storici, interrompere il server ed eliminare la cartella <code>index</code> e <code>info/commit</code> sotto la <a href='https://docs.cheeta.io/concepts#project-storage' target='_blank'>directory di archiviazione del progetto</a>. Il repository sarà rianalizzato quando il server verrà avviato");
+		m.put("Cheeta configures git hooks to communicate with itself via curl", "Cheeta configura i git hooks per comunicare con se stesso tramite curl");
+		m.put("Cheeta needs to search and determine user DN, as well as searching user group information if group retrieval is enabled. Tick this option and specify 'manager' DN and password if these operations needs to be authenticated", 
+			"Cheeta deve cercare e determinare il DN dell'utente, oltre a cercare informazioni sul gruppo utente se il recupero del gruppo è abilitato. Seleziona questa opzione e specifica il DN e la password del 'manager' se queste operazioni devono essere autenticate");
+		m.put("Cheeta requires git command line to manage repositories. The minimum required version is 2.11.1. Also make sure that git-lfs is installed if you want to retrieve LFS files in build job", 
+			"Cheeta richiede la linea di comando git per gestire i repository. La versione minima richiesta è 2.11.1. Assicurati anche che git-lfs sia installato se desideri recuperare file LFS nel job di build");
 		m.put("Online", "Online");
 		m.put("Only create merge commit if target branch can not be fast-forwarded to source branch", 
 			"Crea il commit di merge solo se il branch di destinazione non può essere avanzato velocemente al branch sorgente");
@@ -2272,10 +2272,10 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Open new pull request", "Apri nuova pull request");
 		m.put("Open terminal of current running step", "Apri terminale del passo corrente in esecuzione");
 		m.put("OpenID", "OpenID");
-		m.put("OpenID client identification will be assigned by your OpenID provider when registering this OneDev instance as client application", 
-			"L'identificazione del client OpenID sarà assegnata dal tuo provider OpenID durante la registrazione di questa istanza OneDev come applicazione client");
-		m.put("OpenID client secret will be generated by your OpenID provider when registering this OneDev instance as client application", 
-			"Il segreto del client OpenID sarà generato dal tuo provider OpenID durante la registrazione di questa istanza OneDev come applicazione client");
+		m.put("OpenID client identification will be assigned by your OpenID provider when registering this Cheeta instance as client application", 
+			"L'identificazione del client OpenID sarà assegnata dal tuo provider OpenID durante la registrazione di questa istanza Cheeta come applicazione client");
+		m.put("OpenID client secret will be generated by your OpenID provider when registering this Cheeta instance as client application", 
+			"Il segreto del client OpenID sarà generato dal tuo provider OpenID durante la registrazione di questa istanza Cheeta come applicazione client");
 		m.put("OpenSSH Public Key", "Chiave Pubblica OpenSSH");
 		m.put("OpenSSH public key begins with 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', 'ecdsa-sha2-nistp521', 'ssh-ed25519', 'sk-ecdsa-sha2-nistp256@openssh.com', or 'sk-ssh-ed25519@openssh.com'", 
 			"La chiave pubblica OpenSSH inizia con 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', 'ecdsa-sha2-nistp521', 'ssh-ed25519', 'sk-ecdsa-sha2-nistp256@openssh.com' o 'sk-ssh-ed25519@openssh.com'");
@@ -2315,8 +2315,8 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica opzionalmente il nome dell'attributo all'interno della voce LDAP dell'utente il cui valore sarà preso come email dell'utente. Questo campo è normalmente impostato su <i>mail</i> secondo RFC 2798");
 		m.put("Optionally specifies name of the attribute inside the user LDAP entry whose value will be taken as user full name. This field is normally set to <i>displayName</i> according to RFC 2798. If left empty, full name of the user will not be retrieved", 
 			"Specifica opzionalmente il nome dell'attributo all'interno della voce LDAP dell'utente il cui valore sarà preso come nome completo dell'utente. Questo campo è normalmente impostato su <i>displayName</i> secondo RFC 2798. Se lasciato vuoto, il nome completo dell'utente non sarà recuperato");
-		m.put("Optionally specify <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as GitHub access token. This is used to retrieve release notes of dependencies hosted on GitHub, and the authenticated access will get a higher rate limit", 
-			"Specifica facoltativamente <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>il segreto del job</a> da utilizzare come token di accesso a GitHub. Questo viene utilizzato per recuperare le note di rilascio delle dipendenze ospitate su GitHub, e l'accesso autenticato avrà un limite di velocità più alto");
+		m.put("Optionally specify <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as GitHub access token. This is used to retrieve release notes of dependencies hosted on GitHub, and the authenticated access will get a higher rate limit", 
+			"Specifica facoltativamente <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>il segreto del job</a> da utilizzare come token di accesso a GitHub. Questo viene utilizzato per recuperare le note di rilascio delle dipendenze ospitate su GitHub, e l'accesso autenticato avrà un limite di velocità più alto");
 		m.put("Optionally specify <a href='https://github.com/GoogleContainerTools/kaniko?tab=readme-ov-file#additional-flags' target='_blank'>additional options</a> of kaniko", 
 			"Specifica facoltativamente <a href='https://github.com/GoogleContainerTools/kaniko?tab=readme-ov-file#additional-flags' target='_blank'>opzioni aggiuntive</a> di kaniko");
 		m.put("Optionally specify <a href='https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane_pull.md' target='_blank'>additional options</a> of crane", 
@@ -2327,37 +2327,37 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica facoltativamente <span class='text-info'>piattaforme separate da virgola</span> da costruire, ad esempio <tt>linux/amd64,linux/arm64</tt>. Lascia vuoto per costruire per la piattaforma del nodo che esegue il job");
 		m.put("Optionally specify <span class='text-info'>comma separated</span> platforms to scan, for instance <tt>linux/amd64,linux/arm64</tt>. Leave empty to scan all platforms in OCI layout", 
 			"Specifica facoltativamente <span class='text-info'>piattaforme separate da virgola</span> da scansionare, ad esempio <tt>linux/amd64,linux/arm64</tt>. Lascia vuoto per scansionare tutte le piattaforme nel layout OCI");
-		m.put("Optionally specify Dockerfile relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use file <tt>Dockerfile</tt> under build path specified above", 
-			"Specifica facoltativamente il Dockerfile relativo a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Lascia vuoto per utilizzare il file <tt>Dockerfile</tt> sotto il percorso di build specificato sopra");
+		m.put("Optionally specify Dockerfile relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use file <tt>Dockerfile</tt> under build path specified above", 
+			"Specifica facoltativamente il Dockerfile relativo a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Lascia vuoto per utilizzare il file <tt>Dockerfile</tt> sotto il percorso di build specificato sopra");
 		m.put("Optionally specify JavaScript config to be used by Renovate CLI", "Specifica facoltativamente la configurazione JavaScript da utilizzare con la CLI di Renovate");
 		m.put("Optionally specify SSH root URL, which will be used to construct project clone url via SSH protocol. Leave empty to derive from server url", 
 			"Specifica facoltativamente l'URL root SSH, che verrà utilizzato per costruire l'URL di clonazione del progetto tramite protocollo SSH. Lascia vuoto per derivarlo dall'URL del server");
 		m.put("Optionally specify a <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>regular expression pattern</a> for valid values of the text input", 
 			"Specifica facoltativamente un <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>modello di espressione regolare</a> per valori validi dell'input di testo");
-		m.put("Optionally specify a OneDev project to be used as parent of imported projects. Leave empty to import as root projects", 
-			"Specifica facoltativamente un progetto OneDev da utilizzare come genitore dei progetti importati. Lascia vuoto per importare come progetti root");
-		m.put("Optionally specify a OneDev project to be used as parent of imported repositories. Leave empty to import as root projects", 
-			"Specifica facoltativamente un progetto OneDev da utilizzare come genitore dei repository importati. Lascia vuoto per importare come progetti root");
+		m.put("Optionally specify a Cheeta project to be used as parent of imported projects. Leave empty to import as root projects", 
+			"Specifica facoltativamente un progetto Cheeta da utilizzare come genitore dei progetti importati. Lascia vuoto per importare come progetti root");
+		m.put("Optionally specify a Cheeta project to be used as parent of imported repositories. Leave empty to import as root projects", 
+			"Specifica facoltativamente un progetto Cheeta da utilizzare come genitore dei repository importati. Lascia vuoto per importare come progetti root");
 		m.put("Optionally specify a base query for the list", "Specifica facoltativamente una query di base per la lista");
 		m.put("Optionally specify a base query to filter/order issues in backlog. Backlog issues are those not associating with current iteration", 
 			"Specifica facoltativamente una query di base per filtrare/ordinare i problemi nel backlog. I problemi nel backlog sono quelli non associati all'iterazione corrente");
 		m.put("Optionally specify a base query to filter/order issues of the board", "Specifica facoltativamente una query di base per filtrare/ordinare i problemi della board");
-		m.put("Optionally specify a cron expression to schedule database auto-backup. The cron expression format is <em>&lt;seconds&gt; &lt;minutes&gt; &lt;hours&gt; &lt;day-of-month&gt; &lt;month&gt; &lt;day-of-week&gt;</em>.For example, <em>0 0 1 * * ?</em> means 1:00am every day. For details of the format, refer to <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>Quartz tutorial</a>.The backup files will be placed into <em>db-backup</em> folder under OneDev installation directory. In case multiple servers connect to form a cluster, auto-backup takes place on the <a href='https://docs.onedev.io/concepts#lead-server' target='_blank'>lead server</a>. Leave this property empty if you do not want to enable database auto backup.", 
-			"Specifica facoltativamente un'espressione cron per programmare il backup automatico del database. Il formato dell'espressione cron è <em>&lt;secondi&gt; &lt;minuti&gt; &lt;ore&gt; &lt;giorno-del-mese&gt; &lt;mese&gt; &lt;giorno-della-settimana&gt;</em>. Ad esempio, <em>0 0 1 * * ?</em> significa alle 1:00 di ogni giorno. Per i dettagli sul formato, consulta il <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>tutorial di Quartz</a>. I file di backup verranno posizionati nella cartella <em>db-backup</em> sotto la directory di installazione di OneDev. Nel caso in cui più server si connettano per formare un cluster, il backup automatico avviene sul <a href='https://docs.onedev.io/concepts#lead-server' target='_blank'>server principale</a>. Lascia questa proprietà vuota se non vuoi abilitare il backup automatico del database.");
-		m.put("Optionally specify a date field to hold due date information.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica facoltativamente un campo data per contenere informazioni sulla data di scadenza.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Optionally specify a path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to put retrieved artifacts. Leave empty to use job workspace itself", 
-			"Specifica facoltativamente un percorso relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> per posizionare gli artefatti recuperati. Lascia vuoto per utilizzare il job workspace stesso");
+		m.put("Optionally specify a cron expression to schedule database auto-backup. The cron expression format is <em>&lt;seconds&gt; &lt;minutes&gt; &lt;hours&gt; &lt;day-of-month&gt; &lt;month&gt; &lt;day-of-week&gt;</em>.For example, <em>0 0 1 * * ?</em> means 1:00am every day. For details of the format, refer to <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>Quartz tutorial</a>.The backup files will be placed into <em>db-backup</em> folder under Cheeta installation directory. In case multiple servers connect to form a cluster, auto-backup takes place on the <a href='https://docs.cheeta.io/concepts#lead-server' target='_blank'>lead server</a>. Leave this property empty if you do not want to enable database auto backup.", 
+			"Specifica facoltativamente un'espressione cron per programmare il backup automatico del database. Il formato dell'espressione cron è <em>&lt;secondi&gt; &lt;minuti&gt; &lt;ore&gt; &lt;giorno-del-mese&gt; &lt;mese&gt; &lt;giorno-della-settimana&gt;</em>. Ad esempio, <em>0 0 1 * * ?</em> significa alle 1:00 di ogni giorno. Per i dettagli sul formato, consulta il <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>tutorial di Quartz</a>. I file di backup verranno posizionati nella cartella <em>db-backup</em> sotto la directory di installazione di Cheeta. Nel caso in cui più server si connettano per formare un cluster, il backup automatico avviene sul <a href='https://docs.cheeta.io/concepts#lead-server' target='_blank'>server principale</a>. Lascia questa proprietà vuota se non vuoi abilitare il backup automatico del database.");
+		m.put("Optionally specify a date field to hold due date information.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica facoltativamente un campo data per contenere informazioni sulla data di scadenza.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Optionally specify a path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to put retrieved artifacts. Leave empty to use job workspace itself", 
+			"Specifica facoltativamente un percorso relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> per posizionare gli artefatti recuperati. Lascia vuoto per utilizzare il job workspace stesso");
 		m.put("Optionally specify a storage class to allocate build volume dynamically. Leave empty to use default storage class. <b class='text-warning'>NOTE:</b> Reclaim policy of the storage class should be set to <code>Delete</code>, as the volume is only used to hold temporary build files", 
 			"Specifica facoltativamente una classe di archiviazione per allocare dinamicamente il volume di build. Lascia vuoto per utilizzare la classe di archiviazione predefinita. <b class='text-warning'>NOTA:</b> La politica di recupero della classe di archiviazione dovrebbe essere impostata su <code>Delete</code>, poiché il volume viene utilizzato solo per contenere file di build temporanei");
-		m.put("Optionally specify a working period field to hold estimated time infomration.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica facoltativamente un campo di periodo lavorativo per contenere informazioni sul tempo stimato.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Optionally specify a working period field to hold spent time infomration.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica facoltativamente un campo di periodo lavorativo per contenere informazioni sul tempo trascorso.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Optionally specify a working period field to hold time estimate infomration.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica facoltativamente un campo di periodo lavorativo per contenere informazioni sulla stima del tempo.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Optionally specify a working period field to hold time spent infomration.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica facoltativamente un campo di periodo lavorativo per contenere informazioni sul tempo trascorso.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
+		m.put("Optionally specify a working period field to hold estimated time infomration.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica facoltativamente un campo di periodo lavorativo per contenere informazioni sul tempo stimato.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Optionally specify a working period field to hold spent time infomration.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica facoltativamente un campo di periodo lavorativo per contenere informazioni sul tempo trascorso.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Optionally specify a working period field to hold time estimate infomration.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica facoltativamente un campo di periodo lavorativo per contenere informazioni sulla stima del tempo.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Optionally specify a working period field to hold time spent infomration.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica facoltativamente un campo di periodo lavorativo per contenere informazioni sul tempo trascorso.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
 		m.put("Optionally specify additional options for buildx build command", "Specifica facoltativamente opzioni aggiuntive per il comando di buildx build");
 		m.put("Optionally specify allowed <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank'>CORS</a> origins. For a CORS simple or preflight request, if value of request header <code>Origin</code> is included here, the response header <code>Access-Control-Allow-Origin</code> will be set to the same value", 
 			"Specifica facoltativamente origini <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank'>CORS</a> consentite. Per una richiesta CORS semplice o preflight, se il valore dell'intestazione della richiesta <code>Origin</code> è incluso qui, l'intestazione della risposta <code>Access-Control-Allow-Origin</code> verrà impostata sullo stesso valore");
@@ -2368,17 +2368,17 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Optionally specify applicable jobs of this executor", "Specifica facoltativamente i lavori applicabili di questo executor");
 		m.put("Optionally specify applicable users who pushed the change", "Specifica facoltativamente gli utenti applicabili che hanno effettuato il push della modifica");
 		m.put("Optionally specify arguments to run above image", "Specifica facoltativamente gli argomenti per eseguire l'immagine sopra");
-		m.put("Optionally specify artifacts to retrieve from the dependency into <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Only published artifacts (via artifact publish step) can be retrieved. Leave empty to not retrieve any artifacts", 
-			"Specifica facoltativamente gli artefatti da recuperare dalla dipendenza in <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Possono essere recuperati solo artefatti pubblicati (tramite il passaggio di pubblicazione degli artefatti). Lascia vuoto per non recuperare alcun artefatto");
+		m.put("Optionally specify artifacts to retrieve from the dependency into <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Only published artifacts (via artifact publish step) can be retrieved. Leave empty to not retrieve any artifacts", 
+			"Specifica facoltativamente gli artefatti da recuperare dalla dipendenza in <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Possono essere recuperati solo artefatti pubblicati (tramite il passaggio di pubblicazione degli artefatti). Lascia vuoto per non recuperare alcun artefatto");
 		m.put("Optionally specify authorized roles to press this button. If not specified, all users are allowed", 
 			"Specifica facoltativamente i ruoli autorizzati per premere questo pulsante. Se non specificato, tutti gli utenti sono autorizzati");
 		m.put("Optionally specify base query of the list", "Specifica facoltativamente la query di base della lista");
 		m.put("Optionally specify branches/users/groups allowed to access this secret. If left empty, any job can access this secret, including those triggered via external pull requests", 
 			"Specifica facoltativamente i rami/utenti/gruppi autorizzati ad accedere a questo segreto. Se lasciato vuoto, qualsiasi job può accedere a questo segreto, inclusi quelli attivati tramite richieste pull esterne");
-		m.put("Optionally specify build context path relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use job workspace itself. The file <code>Dockerfile</code> is expected to exist in build context directory, unless you specify a different location with option <code>--dockerfile</code>", 
-			"Specifica facoltativamente il percorso del contesto di build relativo a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Lascia vuoto per utilizzare il job workspace stesso. Il file <code>Dockerfile</code> dovrebbe esistere nella directory del contesto di build, a meno che tu non specifichi una posizione diversa con l'opzione <code>--dockerfile</code>");
-		m.put("Optionally specify build path relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use job workspace itself", 
-			"Specifica facoltativamente il percorso di build relativo a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Lascia vuoto per utilizzare il job workspace stesso");
+		m.put("Optionally specify build context path relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use job workspace itself. The file <code>Dockerfile</code> is expected to exist in build context directory, unless you specify a different location with option <code>--dockerfile</code>", 
+			"Specifica facoltativamente il percorso del contesto di build relativo a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Lascia vuoto per utilizzare il job workspace stesso. Il file <code>Dockerfile</code> dovrebbe esistere nella directory del contesto di build, a meno che tu non specifichi una posizione diversa con l'opzione <code>--dockerfile</code>");
+		m.put("Optionally specify build path relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Leave empty to use job workspace itself", 
+			"Specifica facoltativamente il percorso di build relativo a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Lascia vuoto per utilizzare il job workspace stesso");
 		m.put("Optionally specify cluster role the job pods service account binding to. This is necessary if you want to do things such as running other Kubernetes pods in job command", 
 			"Specifica facoltativamente il ruolo del cluster a cui è associato l'account di servizio dei pod del job. Questo è necessario se vuoi fare cose come eseguire altri pod Kubernetes nel comando del job");
 		m.put("Optionally specify comma separated licenses to be ignored", "Specifica facoltativamente le licenze separate da virgola da ignorare");
@@ -2414,10 +2414,10 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica facoltativamente l'executor per questo lavoro. Lascia vuoto per utilizzare l'executor rilevato automaticamente");
 		m.put("Optionally specify executor for this job. Leave empty to use first applicable executor", 
 			"Specifica facoltativamente l'executor per questo lavoro. Lascia vuoto per utilizzare il primo executor applicabile");
-		m.put("Optionally specify files relative to cache path to ignore when detect cache changes. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Multiple files should be separated by space, and single file containing space should be quoted", 
-			"Specifica facoltativamente i file relativi al percorso della cache da ignorare quando si rilevano modifiche alla cache. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Più file dovrebbero essere separati da spazio, e un singolo file contenente spazi dovrebbe essere quotato");
-		m.put("Optionally specify group search base if you want to retrieve group membership information of the user. For example: <i>cn=Users, dc=example, dc=com</i>. To give appropriate permissions to a Active Directory group, a OneDev group with same name should be defined. Leave empty to manage group memberships at OneDev side", 
-			"Specifica facoltativamente la base di ricerca del gruppo se vuoi recuperare informazioni sull'appartenenza al gruppo dell'utente. Ad esempio: <i>cn=Users, dc=example, dc=com</i>. Per assegnare permessi appropriati a un gruppo di Active Directory, dovrebbe essere definito un gruppo OneDev con lo stesso nome. Lascia vuoto per gestire le appartenenze ai gruppi sul lato OneDev");
+		m.put("Optionally specify files relative to cache path to ignore when detect cache changes. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Multiple files should be separated by space, and single file containing space should be quoted", 
+			"Specifica facoltativamente i file relativi al percorso della cache da ignorare quando si rilevano modifiche alla cache. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Più file dovrebbero essere separati da spazio, e un singolo file contenente spazi dovrebbe essere quotato");
+		m.put("Optionally specify group search base if you want to retrieve group membership information of the user. For example: <i>cn=Users, dc=example, dc=com</i>. To give appropriate permissions to a Active Directory group, a Cheeta group with same name should be defined. Leave empty to manage group memberships at Cheeta side", 
+			"Specifica facoltativamente la base di ricerca del gruppo se vuoi recuperare informazioni sull'appartenenza al gruppo dell'utente. Ad esempio: <i>cn=Users, dc=example, dc=com</i>. Per assegnare permessi appropriati a un gruppo di Active Directory, dovrebbe essere definito un gruppo Cheeta con lo stesso nome. Lascia vuoto per gestire le appartenenze ai gruppi sul lato Cheeta");
 		m.put("Optionally specify issue links allowed to edit", "Specifica facoltativamente i collegamenti ai problemi consentiti per la modifica");
 		m.put("Optionally specify issues applicable for this template. Leave empty for all", "Specifica facoltativamente i problemi applicabili per questo modello. Lascia vuoto per tutti");
 		m.put("Optionally specify issues applicable for this transition. Leave empty for all issues", 
@@ -2442,15 +2442,15 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica facoltativamente le opzioni per il comando ssh. Più opzioni devono essere separate da spazio");
 		m.put("Optionally specify options passed to renovate cli. Multiple options should be separated by space, and single option containing spaces should be quoted", 
 			"Specifica facoltativamente le opzioni passate alla CLI di Renovate. Più opzioni dovrebbero essere separate da spazio, e una singola opzione contenente spazi dovrebbe essere quotata");
-		m.put("Optionally specify osv scanner <a href='https://google.github.io/osv-scanner/configuration/' target='_blank'>config file</a> under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. You may ignore particular vulnerabilities via this file", 
-			"Specifica facoltativamente il file di configurazione dello scanner osv <a href='https://google.github.io/osv-scanner/configuration/' target='_blank'>config file</a> sotto <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>. Puoi ignorare particolari vulnerabilità tramite questo file");
+		m.put("Optionally specify osv scanner <a href='https://google.github.io/osv-scanner/configuration/' target='_blank'>config file</a> under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. You may ignore particular vulnerabilities via this file", 
+			"Specifica facoltativamente il file di configurazione dello scanner osv <a href='https://google.github.io/osv-scanner/configuration/' target='_blank'>config file</a> sotto <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>. Puoi ignorare particolari vulnerabilità tramite questo file");
 		m.put("Optionally specify path protection rules", "Specifica facoltativamente le regole di protezione del percorso");
-		m.put("Optionally specify path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be used as trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/configuration/filtering/#by-finding-ids' target='_blank'>ignore file</a>", 
-			"Specifica facoltativamente il percorso relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> da utilizzare come file di ignoranza di trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/configuration/filtering/#by-finding-ids' target='_blank'>ignore file</a>");
-		m.put("Optionally specify path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be used as trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/scanner/secret/#configuration' target='_blank'>secret config</a>", 
-			"Specifica facoltativamente il percorso relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> da utilizzare come configurazione segreta di trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/scanner/secret/#configuration' target='_blank'>secret config</a>");
-		m.put("Optionally specify path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to publish artifacts from. Leave empty to use job workspace itself", 
-			"Specifica facoltativamente il percorso relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> per pubblicare gli artefatti. Lascia vuoto per utilizzare il job workspace stesso");
+		m.put("Optionally specify path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be used as trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/configuration/filtering/#by-finding-ids' target='_blank'>ignore file</a>", 
+			"Specifica facoltativamente il percorso relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> da utilizzare come file di ignoranza di trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/configuration/filtering/#by-finding-ids' target='_blank'>ignore file</a>");
+		m.put("Optionally specify path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be used as trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/scanner/secret/#configuration' target='_blank'>secret config</a>", 
+			"Specifica facoltativamente il percorso relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> da utilizzare come configurazione segreta di trivy <a href='https://aquasecurity.github.io/trivy/v0.50/docs/scanner/secret/#configuration' target='_blank'>secret config</a>");
+		m.put("Optionally specify path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to publish artifacts from. Leave empty to use job workspace itself", 
+			"Specifica facoltativamente il percorso relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> per pubblicare gli artefatti. Lascia vuoto per utilizzare il job workspace stesso");
 		m.put("Optionally specify platform to pull, for instance <tt>linux/amd64</tt>. Leave empty to pull all platforms in image", 
 			"Specifica facoltativamente la piattaforma da pullare, ad esempio <tt>linux/amd64</tt>. Lascia vuoto per pullare tutte le piattaforme nell'immagine");
 		m.put("Optionally specify project to show builds of. Leave empty to show builds of all projects with permissions", 
@@ -2464,12 +2464,12 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Optionally specify registry logins to override those defined in job executor. For built-in registry, use <code>@server_url@</code> for registry url, <code>@job_token@</code> for user name, and access token secret for password secret", 
 			"Specifica facoltativamente i login al registro per sovrascrivere quelli definiti nell'esecutore del job. Per il registro integrato, usa <code>@server_url@</code> per l'URL del registro, <code>@job_token@</code> per il nome utente e il segreto del token di accesso per la password");
 		m.put("Optionally specify relative directory to put uploaded files", "Specifica facoltativamente la directory relativa per posizionare i file caricati");
-		m.put("Optionally specify relative path under <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to clone code into. Leave empty to use job workspace itself", 
-			"Specifica facoltativamente il percorso relativo sotto <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> per clonare il codice. Lascia vuoto per utilizzare il job workspace stesso");
-		m.put("Optionally specify relative path under <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to scan. Leave empty to use job workspace itself", 
-			"Specifica facoltativamente il percorso relativo sotto <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> per scansionare. Lascia vuoto per utilizzare il job workspace stesso");
-		m.put("Optionally specify relative paths under <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to scan dependency vulnerabilities. Multiple paths can be specified and should be separated with space. Leave empty to use job workspace itself", 
-			"Specifica facoltativamente i percorsi relativi sotto <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> per scansionare le vulnerabilità delle dipendenze. Più percorsi possono essere specificati e dovrebbero essere separati da spazio. Lascia vuoto per utilizzare il job workspace stesso");
+		m.put("Optionally specify relative path under <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to clone code into. Leave empty to use job workspace itself", 
+			"Specifica facoltativamente il percorso relativo sotto <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> per clonare il codice. Lascia vuoto per utilizzare il job workspace stesso");
+		m.put("Optionally specify relative path under <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to scan. Leave empty to use job workspace itself", 
+			"Specifica facoltativamente il percorso relativo sotto <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> per scansionare. Lascia vuoto per utilizzare il job workspace stesso");
+		m.put("Optionally specify relative paths under <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to scan dependency vulnerabilities. Multiple paths can be specified and should be separated with space. Leave empty to use job workspace itself", 
+			"Specifica facoltativamente i percorsi relativi sotto <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> per scansionare le vulnerabilità delle dipendenze. Più percorsi possono essere specificati e dovrebbero essere separati da spazio. Lascia vuoto per utilizzare il job workspace stesso");
 		m.put("Optionally specify required reviewers for changes of specified branch", "Specifica facoltativamente i revisori richiesti per le modifiche del ramo specificato");
 		m.put("Optionally specify revision to create branch from. Leave empty to create from build commit", 
 			"Specifica facoltativamente la revisione da cui creare il ramo. Lascia vuoto per creare dal commit del build");
@@ -2481,32 +2481,32 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica facoltativamente una directory separata per archiviare i file dei pacchetti. Una directory non assoluta è considerata relativa alla directory del sito");
 		m.put("Optionally specify services required by this job. <b class='text-warning'>NOTE:</b> Services are only supported by docker aware executors (server docker executor, remote docker executor, or kubernetes executor)", 
 			"Specifica facoltativamente i servizi richiesti da questo job. <b class='text-warning'>NOTA:</b> I servizi sono supportati solo dagli esecutori consapevoli di docker (esecutore docker del server, esecutore docker remoto o esecutore Kubernetes)");
-		m.put("Optionally specify space-separated branches applicable for this transition. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all", 
-			"Specifica facoltativamente i rami separati da spazio applicabili per questa transizione. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti");
-		m.put("Optionally specify space-separated branches applicable for this trigger. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for default branch", 
-			"Specifica facoltativamente i rami separati da spazio applicabili per questo trigger. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per il ramo predefinito");
-		m.put("Optionally specify space-separated branches to check. Use '**' or '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
-			"Specifica facoltativamente i rami separati da spazio da controllare. Usa '**' o '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i rami");
+		m.put("Optionally specify space-separated branches applicable for this transition. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all", 
+			"Specifica facoltativamente i rami separati da spazio applicabili per questa transizione. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti");
+		m.put("Optionally specify space-separated branches applicable for this trigger. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for default branch", 
+			"Specifica facoltativamente i rami separati da spazio applicabili per questo trigger. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per il ramo predefinito");
+		m.put("Optionally specify space-separated branches to check. Use '**' or '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
+			"Specifica facoltativamente i rami separati da spazio da controllare. Usa '**' o '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i rami");
 		m.put("Optionally specify space-separated commit messages applicable for this transition. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all", 
 			"Specifica facoltativamente messaggi di commit separati da spazi applicabili per questa transizione. Usa '*' o '?' per corrispondenza jolly. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti");
-		m.put("Optionally specify space-separated files to check. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all files", 
-			"Specifica facoltativamente i file separati da spazio da controllare. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i file");
+		m.put("Optionally specify space-separated files to check. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all files", 
+			"Specifica facoltativamente i file separati da spazio da controllare. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i file");
 		m.put("Optionally specify space-separated jobs applicable for this transition. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all", 
 			"Specifica facoltativamente i job separati da spazio applicabili per questa transizione. Usa '*' o '?' per la corrispondenza dei modelli. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti");
-		m.put("Optionally specify space-separated projects applicable for this trigger. This is useful for instance when you want to prevent the job from being triggered in forked projects. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all projects", 
-			"Specifica facoltativamente i progetti separati da spazio applicabili per questo trigger. Questo è utile, ad esempio, quando vuoi impedire che il job venga attivato nei progetti forkati. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i progetti");
-		m.put("Optionally specify space-separated projects to search in. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to search in all projects with code read permission", 
-			"Specifica facoltativamente i progetti separati da spazio in cui cercare. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per cercare in tutti i progetti con permesso di lettura del codice");
+		m.put("Optionally specify space-separated projects applicable for this trigger. This is useful for instance when you want to prevent the job from being triggered in forked projects. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all projects", 
+			"Specifica facoltativamente i progetti separati da spazio applicabili per questo trigger. Questo è utile, ad esempio, quando vuoi impedire che il job venga attivato nei progetti forkati. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i progetti");
+		m.put("Optionally specify space-separated projects to search in. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to search in all projects with code read permission", 
+			"Specifica facoltativamente i progetti separati da spazio in cui cercare. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza dei modelli di percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per cercare in tutti i progetti con permesso di lettura del codice");
 		m.put("Optionally specify space-separated reports. Use '*' or '?' for wildcard match. Prefix with '-' to exclude", 
 			"Specifica facoltativamente report separati da spazio. Usa '*' o '?' per corrispondenza con caratteri jolly. Prefissa con '-' per escludere");
-		m.put("Optionally specify space-separated service images applicable for this locator. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all", 
-			"Specifica facoltativamente immagini di servizio separati da spazio applicabili per questo localizzatore. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>corrispondenza con caratteri jolly nel percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti");
+		m.put("Optionally specify space-separated service images applicable for this locator. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all", 
+			"Specifica facoltativamente immagini di servizio separati da spazio applicabili per questo localizzatore. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>corrispondenza con caratteri jolly nel percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti");
 		m.put("Optionally specify space-separated service names applicable for this locator. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all", 
 			"Specifica facoltativamente nomi di servizio separati da spazio applicabili per questo localizzatore. Usa '*' o '?' per corrispondenza con caratteri jolly. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti");
-		m.put("Optionally specify space-separated tags to check. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all tags", 
-			"Specifica facoltativamente tag separati da spazio da controllare. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>corrispondenza con caratteri jolly nel percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i tag");
-		m.put("Optionally specify space-separated target branches of the pull requests to check. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
-			"Specifica facoltativamente rami di destinazione separati da spazio delle pull request da controllare. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>corrispondenza con caratteri jolly nel percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i rami");
+		m.put("Optionally specify space-separated tags to check. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all tags", 
+			"Specifica facoltativamente tag separati da spazio da controllare. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>corrispondenza con caratteri jolly nel percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i tag");
+		m.put("Optionally specify space-separated target branches of the pull requests to check. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
+			"Specifica facoltativamente rami di destinazione separati da spazio delle pull request da controllare. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>corrispondenza con caratteri jolly nel percorso</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i rami");
 		m.put("Optionally specify the OpenID claim to retrieve groups of authenticated user. Depending on the provider, you may need to request additional scopes above to make this claim available", 
 			"Specifica facoltativamente la richiesta OpenID per recuperare i gruppi dell'utente autenticato. A seconda del provider, potrebbe essere necessario richiedere ambiti aggiuntivi sopra per rendere disponibile questa richiesta");
 		m.put("Optionally specify the maximum value allowed.", "Specifica facoltativamente il valore massimo consentito.");
@@ -2582,7 +2582,7 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Params & Triggers", "Parametri & Trigger");
 		m.put("Params to Display", "Parametri da Visualizzare");
 		m.put("Parent Bean", "Bean Genitore");
-		m.put("Parent OneDev Project", "Progetto OneDev Genitore");
+		m.put("Parent Cheeta Project", "Progetto Cheeta Genitore");
 		m.put("Parent Project", "Progetto Genitore");
 		m.put("Parent project not found", "Progetto genitore non trovato");
 		m.put("Parents", "Genitori");
@@ -2793,8 +2793,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Projects deleted", "Progetti eliminati");
 		m.put("Projects modified", "Progetti modificati");
 		m.put("Projects moved", "Progetti spostati");
-		m.put("Projects need to be redistributed when cluster members are added/removed. OneDev does not do this automatically as this is resource intensive, and you may only want to do it after cluster is finalized and stable.", 
-			"I progetti devono essere ridistribuiti quando i membri del cluster vengono aggiunti/rimossi. OneDev non lo fa automaticamente poiché è intensivo in termini di risorse, e potresti volerlo fare solo dopo che il cluster è stato finalizzato e stabilizzato.");
+		m.put("Projects need to be redistributed when cluster members are added/removed. Cheeta does not do this automatically as this is resource intensive, and you may only want to do it after cluster is finalized and stable.", 
+			"I progetti devono essere ridistribuiti quando i membri del cluster vengono aggiunti/rimossi. Cheeta non lo fa automaticamente poiché è intensivo in termini di risorse, e potresti volerlo fare solo dopo che il cluster è stato finalizzato e stabilizzato.");
 		m.put("Promotions", "Promozioni");
 		m.put("Prompt Fields", "Campi di prompt");
 		m.put("Properties", "Proprietà");
@@ -2875,8 +2875,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Pull request query watch only affects new pull requests. To manage watch status of existing pull requests in batch, filter pull requests by watch status in pull requests page, and then take appropriate action", 
 			"La query di osservazione delle pull request influisce solo sulle nuove pull request. Per gestire lo stato di osservazione delle pull request esistenti in batch, filtra le pull request per stato di osservazione nella pagina delle pull request e poi prendi l'azione appropriata");
 		m.put("Pull request settings updated", "Impostazioni della pull request aggiornate");
-		m.put("Pull request statistics is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"Le statistiche delle pull request sono una funzionalità aziendale. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("Pull request statistics is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"Le statistiche delle pull request sono una funzionalità aziendale. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
 		m.put("Pull request synchronization submitted", "Sincronizzazione della pull request inviata");
 		m.put("Pull request will be merged automatically when ready. This option will be disabled upon adding new commits, changing merge strategy, or switching target branch", 
 			"La pull request sarà unita automaticamente quando pronta. Questa opzione sarà disabilitata aggiungendo nuovi commit, cambiando la strategia di unione o cambiando il branch di destinazione");
@@ -2931,10 +2931,10 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Redundant", "Redundante");
 		m.put("Ref", "Ref");
 		m.put("Ref Name", "Nome del ref");
-		m.put("Refer to this <a href='https://docs.onedev.io/tutorials/security/sso-with-github' target='_blank'>tutorial</a> for an example setup", 
-			"Consulta questo <a href='https://docs.onedev.io/tutorials/security/sso-with-github' target='_blank'>tutorial</a> per un esempio di configurazione");
-		m.put("Refer to this <a href='https://docs.onedev.io/tutorials/security/sso-with-okta' target='_blank'>tutorial</a> for an example setup", 
-			"Consulta questo <a href='https://docs.onedev.io/tutorials/security/sso-with-okta' target='_blank'>tutorial</a> per un esempio di configurazione");
+		m.put("Refer to this <a href='https://docs.cheeta.io/tutorials/security/sso-with-github' target='_blank'>tutorial</a> for an example setup", 
+			"Consulta questo <a href='https://docs.cheeta.io/tutorials/security/sso-with-github' target='_blank'>tutorial</a> per un esempio di configurazione");
+		m.put("Refer to this <a href='https://docs.cheeta.io/tutorials/security/sso-with-okta' target='_blank'>tutorial</a> for an example setup", 
+			"Consulta questo <a href='https://docs.cheeta.io/tutorials/security/sso-with-okta' target='_blank'>tutorial</a> per un esempio di configurazione");
 		m.put("Reference", "Riferimento");
 		m.put("Reference Build", "Build di riferimento");
 		m.put("Reference Issue", "Problema di riferimento");
@@ -3086,8 +3086,8 @@ public class Translation_it extends TranslationResourceBundle {
 			"Esegui lo scanner osv per analizzare le licenze violate utilizzate da varie <a href='https://deps.dev/' target='_blank'>dipendenze</a>. Può essere eseguito solo da un esecutore consapevole di Docker.");
 		m.put("Run osv scanner to scan vulnerabilities in <a href='https://google.github.io/osv-scanner/supported-languages-and-lockfiles/' target='_blank'>various lock files</a>. It can only be executed by docker aware executor.", 
 			"Esegui lo scanner osv per analizzare le vulnerabilità in <a href='https://google.github.io/osv-scanner/supported-languages-and-lockfiles/' target='_blank'>vari file di blocco</a>. Può essere eseguito solo da un esecutore consapevole di Docker.");
-		m.put("Run specified docker container. <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>Job workspace</a> is mounted into the container and its path is placed in environment variable <code>ONEDEV_WORKSPACE</code>. <b class='text-warning'>Note: </b> this step can only be executed by server docker executor or remote docker executor", 
-			"Esegui il contenitore Docker specificato. <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>Workspace del lavoro</a> è montato nel contenitore e il suo percorso è posizionato nella variabile di ambiente <code>ONEDEV_WORKSPACE</code>. <b class='text-warning'>Nota: </b> questo passaggio può essere eseguito solo dall'esecutore docker del server o dall'esecutore docker remoto");
+		m.put("Run specified docker container. <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>Job workspace</a> is mounted into the container and its path is placed in environment variable <code>ONEDEV_WORKSPACE</code>. <b class='text-warning'>Note: </b> this step can only be executed by server docker executor or remote docker executor", 
+			"Esegui il contenitore Docker specificato. <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>Workspace del lavoro</a> è montato nel contenitore e il suo percorso è posizionato nella variabile di ambiente <code>ONEDEV_WORKSPACE</code>. <b class='text-warning'>Nota: </b> questo passaggio può essere eseguito solo dall'esecutore docker del server o dall'esecutore docker remoto");
 		m.put("Run specified step template", "Esegui il modello di passaggio specificato");
 		m.put("Run this job", "Esegui questo lavoro");
 		m.put("Run trivy container image scanner to find issues in specified image. For vulnerabilities, it checks various <a href='https://aquasecurity.github.io/trivy/v0.50/docs/coverage/language/#supported-languages' target='_blank'>distribution files</a>. It can only be executed by docker aware executor.", 
@@ -3237,8 +3237,8 @@ public class Translation_it extends TranslationResourceBundle {
 			"Configura le impostazioni di notifica di Microsoft Teams. Le impostazioni saranno ereditate dai progetti figli e possono essere sovrascritte definendo impostazioni con lo stesso URL webhook.");
 		m.put("Set up discord notification settings. Settings will be inherited by child projects, and can be overridden by defining settings with same webhook url", 
 			"Configura le impostazioni di notifica di Discord. Le impostazioni saranno ereditate dai progetti figli e possono essere sovrascritte definendo impostazioni con lo stesso URL webhook.");
-		m.put("Set up job cache to speed up job execution. Check <a href='https://docs.onedev.io/tutorials/cicd/job-cache' target='_blank'>this tutorial</a> on how to use job cache", 
-			"Configura la cache dei job per velocizzare l'esecuzione dei job. Consulta <a href='https://docs.onedev.io/tutorials/cicd/job-cache' target='_blank'>questo tutorial</a> per sapere come utilizzare la cache dei job.");
+		m.put("Set up job cache to speed up job execution. Check <a href='https://docs.cheeta.io/tutorials/cicd/job-cache' target='_blank'>this tutorial</a> on how to use job cache", 
+			"Configura la cache dei job per velocizzare l'esecuzione dei job. Consulta <a href='https://docs.cheeta.io/tutorials/cicd/job-cache' target='_blank'>questo tutorial</a> per sapere come utilizzare la cache dei job.");
 		m.put("Set up ntfy.sh notification settings. Settings will be inherited by child projects, and can be overridden by defining settings with same webhook url", 
 			"Configura le impostazioni di notifica di ntfy.sh. Le impostazioni saranno ereditate dai progetti figli e possono essere sovrascritte definendo impostazioni con lo stesso URL webhook.");
 		m.put("Set up slack notification settings. Settings will be inherited by child projects, and can be overridden by defining settings with same webhook url", 
@@ -3297,7 +3297,7 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Sign in", "Accedi");
 		m.put("Signature required for this change, but no signing key is specified", "Firma richiesta per questa modifica, ma non è specificata alcuna chiave di firma");
 		m.put("Signature required for this change, please generate system GPG signing key first", "Firma richiesta per questa modifica, genera prima la chiave di firma GPG di sistema");
-		m.put("Signature verified successfully with OneDev GPG key", "Firma verificata con successo con la chiave GPG di OneDev");
+		m.put("Signature verified successfully with Cheeta GPG key", "Firma verificata con successo con la chiave GPG di Cheeta");
 		m.put("Signature verified successfully with committer's GPG key", "Firma verificata con successo con la chiave GPG del committer");
 		m.put("Signature verified successfully with committer's SSH key", "Firma verificata con successo con la chiave SSH del committer");
 		m.put("Signature verified successfully with tagger's GPG key", "Firma verificata con successo con la chiave GPG del tagger");
@@ -3344,58 +3344,58 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Specified choices", "Scelte specificate");
 		m.put("Specified default value", "Valore predefinito specificato");
 		m.put("Specified fields", "Campi specificati");
-		m.put("Specifies LDAP URL of the Active Directory server, for example: <i>ldap://ad-server</i>, or <i>ldaps://ad-server</i>. In case your ldap server is using a self-signed certificate for ldaps connection, you will need to <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure OneDev to trust the certificate</a>", 
-			"Specifica l'URL LDAP del server Active Directory, ad esempio: <i>ldap://ad-server</i>, o <i>ldaps://ad-server</i>. Nel caso in cui il server LDAP utilizzi un certificato autofirmato per la connessione ldaps, sarà necessario <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>configurare OneDev per fidarsi del certificato</a>");
-		m.put("Specifies LDAP URL, for example: <i>ldap://localhost</i>, or <i>ldaps://localhost</i>. In caseyour ldap server is using a self-signed certificate for ldaps connection, you will need to <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure OneDev to trust the certificate</a>", 
-			"Specifica l'URL LDAP, ad esempio: <i>ldap://localhost</i>, o <i>ldaps://localhost</i>. Nel caso in cui il server LDAP utilizzi un certificato autofirmato per la connessione ldaps, sarà necessario <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>configurare OneDev per fidarsi del certificato</a>");
+		m.put("Specifies LDAP URL of the Active Directory server, for example: <i>ldap://ad-server</i>, or <i>ldaps://ad-server</i>. In case your ldap server is using a self-signed certificate for ldaps connection, you will need to <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure Cheeta to trust the certificate</a>", 
+			"Specifica l'URL LDAP del server Active Directory, ad esempio: <i>ldap://ad-server</i>, o <i>ldaps://ad-server</i>. Nel caso in cui il server LDAP utilizzi un certificato autofirmato per la connessione ldaps, sarà necessario <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>configurare Cheeta per fidarsi del certificato</a>");
+		m.put("Specifies LDAP URL, for example: <i>ldap://localhost</i>, or <i>ldaps://localhost</i>. In caseyour ldap server is using a self-signed certificate for ldaps connection, you will need to <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure Cheeta to trust the certificate</a>", 
+			"Specifica l'URL LDAP, ad esempio: <i>ldap://localhost</i>, o <i>ldaps://localhost</i>. Nel caso in cui il server LDAP utilizzi un certificato autofirmato per la connessione ldaps, sarà necessario <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>configurare Cheeta per fidarsi del certificato</a>");
 		m.put("Specifies base nodes for user search. For example: <i>ou=users, dc=example, dc=com</i>", 
 			"Specifica i nodi base per la ricerca degli utenti. Ad esempio: <i>ou=users, dc=example, dc=com</i>");
 		m.put("Specifies name of the attribute inside the user LDAP entry whose value contains distinguished names of belonging groups. For instance some LDAP servers uses attribute <i>memberOf</i> to list groups", 
 			"Specifica il nome dell'attributo all'interno della voce LDAP dell'utente il cui valore contiene i nomi distinti dei gruppi di appartenenza. Ad esempio, alcuni server LDAP utilizzano l'attributo <i>memberOf</i> per elencare i gruppi");
 		m.put("Specifies password of above manager DN", "Specifica la password del DN del manager sopra indicato");
-		m.put("Specifies the attribute containing group name inside the found group LDAP entry. Value of this attribute will be mapped to a OneDev group. This attribute is normally set to <i>cn</i>", 
-			"Specifica l'attributo contenente il nome del gruppo all'interno della voce LDAP del gruppo trovato. Il valore di questo attributo sarà mappato a un gruppo OneDev. Questo attributo è normalmente impostato su <i>cn</i>");
-		m.put("Specify .net TRX test result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance <tt>TestResults/*.trx</tt>. Use * or ? for pattern match", 
-			"Specifica il file di risultati del test .net TRX relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio <tt>TestResults/*.trx</tt>. Usa * o ? per la corrispondenza del pattern");
-		m.put("Specify <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is access token with code write permission over above projects. Commits, issues, and pull requests will also be created under name of the access token owner", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> il cui valore è un token di accesso con permesso di scrittura del codice sui progetti sopra indicati. I commit, i problemi e le richieste di pull saranno creati anche sotto il nome del proprietario del token di accesso");
-		m.put("Specify <a href='https://github.com/rust-lang/rust-clippy'>rust clippy</a> json output file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with clippy json output option, for instance <code>cargo clippy --message-format json>check-result.json</code>. Use * or ? for pattern match", 
-			"Specifica il file di output json di <a href='https://github.com/rust-lang/rust-clippy'>rust clippy</a> relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione di output json di clippy, ad esempio <code>cargo clippy --message-format json>check-result.json</code>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specifies the attribute containing group name inside the found group LDAP entry. Value of this attribute will be mapped to a Cheeta group. This attribute is normally set to <i>cn</i>", 
+			"Specifica l'attributo contenente il nome del gruppo all'interno della voce LDAP del gruppo trovato. Il valore di questo attributo sarà mappato a un gruppo Cheeta. Questo attributo è normalmente impostato su <i>cn</i>");
+		m.put("Specify .net TRX test result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance <tt>TestResults/*.trx</tt>. Use * or ? for pattern match", 
+			"Specifica il file di risultati del test .net TRX relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio <tt>TestResults/*.trx</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is access token with code write permission over above projects. Commits, issues, and pull requests will also be created under name of the access token owner", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> il cui valore è un token di accesso con permesso di scrittura del codice sui progetti sopra indicati. I commit, i problemi e le richieste di pull saranno creati anche sotto il nome del proprietario del token di accesso");
+		m.put("Specify <a href='https://github.com/rust-lang/rust-clippy'>rust clippy</a> json output file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with clippy json output option, for instance <code>cargo clippy --message-format json>check-result.json</code>. Use * or ? for pattern match", 
+			"Specifica il file di output json di <a href='https://github.com/rust-lang/rust-clippy'>rust clippy</a> relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione di output json di clippy, ad esempio <code>cargo clippy --message-format json>check-result.json</code>. Usa * o ? per la corrispondenza del pattern");
 		m.put("Specify Build Options", "Specifica le opzioni di build");
-		m.put("Specify CPD result xml file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/cpd.xml</tt>. Use * or ? for pattern match", 
-			"Specifica il file xml dei risultati CPD relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/cpd.xml</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify CPD result xml file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/cpd.xml</tt>. Use * or ? for pattern match", 
+			"Specifica il file xml dei risultati CPD relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/cpd.xml</tt>. Usa * o ? per la corrispondenza del pattern");
 		m.put("Specify Commit Message", "Specifica il messaggio di commit");
-		m.put("Specify ESLint report file in checkstyle format under <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with ESLint option <tt>'-f checkstyle'</tt> and <tt>'-o'</tt>. Use * or ? for pattern match", 
-			"Specifica il file di report ESLint in formato checkstyle sotto <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione ESLint <tt>'-f checkstyle'</tt> e <tt>'-o'</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify ESLint report file in checkstyle format under <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with ESLint option <tt>'-f checkstyle'</tt> and <tt>'-o'</tt>. Use * or ? for pattern match", 
+			"Specifica il file di report ESLint in formato checkstyle sotto <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione ESLint <tt>'-f checkstyle'</tt> e <tt>'-o'</tt>. Usa * o ? per la corrispondenza del pattern");
 		m.put("Specify GitHub API url, for instance <tt>https://api.github.com</tt>", "Specifica l'URL API di GitHub, ad esempio <tt>https://api.github.com</tt>");
 		m.put("Specify GitLab API url, for instance <tt>https://gitlab.example.com/api/v4</tt>", "Specifica l'URL API di GitLab, ad esempio <tt>https://gitlab.example.com/api/v4</tt>");
 		m.put("Specify Gitea API url, for instance <tt>https://gitea.example.com/api/v1</tt>", "Specifica l'URL API di Gitea, ad esempio <tt>https://gitea.example.com/api/v1</tt>");
-		m.put("Specify GoogleTest XML result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This report can be generated with environment variable <tt>GTEST_OUTPUT</tt> when running tests, For instance, <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. Use * or ? for pattern match", 
-			"Specifica il file XML dei risultati di GoogleTest relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo report può essere generato con la variabile di ambiente <tt>GTEST_OUTPUT</tt> durante l'esecuzione dei test, ad esempio, <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify GoogleTest XML result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This report can be generated with environment variable <tt>GTEST_OUTPUT</tt> when running tests, For instance, <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. Use * or ? for pattern match", 
+			"Specifica il file XML dei risultati di GoogleTest relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo report può essere generato con la variabile di ambiente <tt>GTEST_OUTPUT</tt> durante l'esecuzione dei test, ad esempio, <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. Usa * o ? per la corrispondenza del pattern");
 		m.put("Specify IMAP user name.<br><b class='text-danger'>NOTE: </b> This account should be able to receive emails sent to system email address specified above", 
 			"Specifica il nome utente IMAP.<br><b class='text-danger'>NOTA: </b> Questo account dovrebbe essere in grado di ricevere email inviate all'indirizzo email di sistema specificato sopra");
-		m.put("Specify JUnit test result file in XML format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance <tt>target/surefire-reports/TEST-*.xml</tt>. Use * or ? for pattern match", 
-			"Specifica il file dei risultati del test JUnit in formato XML relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio <tt>target/surefire-reports/TEST-*.xml</tt>. Usa * o ? per la corrispondenza del pattern");
-		m.put("Specify JaCoCo coverage xml report file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/jacoco/jacoco.xml</tt>. Use * or ? for pattern match", 
-			"Specifica il file di report di copertura xml JaCoCo relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/site/jacoco/jacoco.xml</tt>. Usa * o ? per la corrispondenza del pattern");
-		m.put("Specify Jest coverage report file in clover format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance <tt>coverage/clover.xml</tt>. This file can be generated with Jest option <tt>'--coverage'</tt>. Use * or ? for pattern match", 
-			"Specifica il file di report di copertura Jest in formato clover relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio <tt>coverage/clover.xml</tt>. Questo file può essere generato con l'opzione Jest <tt>'--coverage'</tt>. Usa * o ? per la corrispondenza del pattern");
-		m.put("Specify Jest test result file in json format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated via Jest option <tt>'--json'</tt> and <tt>'--outputFile'</tt>. Use * or ? for pattern match", 
-			"Specifica il file dei risultati del test Jest in formato json relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato tramite l'opzione Jest <tt>'--json'</tt> e <tt>'--outputFile'</tt>. Usa * o ? per la corrispondenza del pattern");
-		m.put("Specify OCI layout directory of the image to scan. This directory can be generated via build image step or pull image step. It should be relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"Specifica la directory di layout OCI dell'immagine da scansionare. Questa directory può essere generata tramite il passaggio di build dell'immagine o il passaggio di pull dell'immagine. Dovrebbe essere relativa a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>");
-		m.put("Specify OCI layout directory relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to push from", 
-			"Specifica la directory di layout OCI relativa a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> da cui eseguire il push");
+		m.put("Specify JUnit test result file in XML format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance <tt>target/surefire-reports/TEST-*.xml</tt>. Use * or ? for pattern match", 
+			"Specifica il file dei risultati del test JUnit in formato XML relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio <tt>target/surefire-reports/TEST-*.xml</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify JaCoCo coverage xml report file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/jacoco/jacoco.xml</tt>. Use * or ? for pattern match", 
+			"Specifica il file di report di copertura xml JaCoCo relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/site/jacoco/jacoco.xml</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify Jest coverage report file in clover format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance <tt>coverage/clover.xml</tt>. This file can be generated with Jest option <tt>'--coverage'</tt>. Use * or ? for pattern match", 
+			"Specifica il file di report di copertura Jest in formato clover relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio <tt>coverage/clover.xml</tt>. Questo file può essere generato con l'opzione Jest <tt>'--coverage'</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify Jest test result file in json format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated via Jest option <tt>'--json'</tt> and <tt>'--outputFile'</tt>. Use * or ? for pattern match", 
+			"Specifica il file dei risultati del test Jest in formato json relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato tramite l'opzione Jest <tt>'--json'</tt> e <tt>'--outputFile'</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify OCI layout directory of the image to scan. This directory can be generated via build image step or pull image step. It should be relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"Specifica la directory di layout OCI dell'immagine da scansionare. Questa directory può essere generata tramite il passaggio di build dell'immagine o il passaggio di pull dell'immagine. Dovrebbe essere relativa a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>");
+		m.put("Specify OCI layout directory relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to push from", 
+			"Specifica la directory di layout OCI relativa a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> da cui eseguire il push");
 		m.put("Specify OpenID scopes to request", "Specifica gli scope OpenID da richiedere");
-		m.put("Specify PMD result xml file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/pmd.xml</tt>. Use * or ? for pattern match", 
-			"Specifica il file xml dei risultati PMD relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/pmd.xml</tt>. Usa * o ? per la corrispondenza del pattern");
-		m.put("Specify PowerShell commands to execute under the <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>.<br><b class='text-warning'>NOTE: </b> OneDev checks exit code of the script to determine if step is successful. Since PowerShell always exit with 0 even if there are script errors, you should handle errors in the script and exit with non-zero code, or add line <code>$ErrorActionPreference = &quot;Stop&quot;</code> at start of your script<br>", 
-			"Specifica i comandi PowerShell da eseguire sotto <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>.<br><b class='text-warning'>NOTA: </b> OneDev controlla il codice di uscita dello script per determinare se il passaggio è riuscito. Poiché PowerShell esce sempre con 0 anche se ci sono errori nello script, dovresti gestire gli errori nello script e uscire con un codice diverso da zero, o aggiungere la riga <code>$ErrorActionPreference = &quot;Stop&quot;</code> all'inizio del tuo script<br>");
-		m.put("Specify Roslynator diagnostics output file in XML format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with <i>-o</i> option. Use * or ? for pattern match", 
-			"Specifica il file di output delle diagnosi Roslynator in formato XML relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione <i>-o</i>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify PMD result xml file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/pmd.xml</tt>. Use * or ? for pattern match", 
+			"Specifica il file xml dei risultati PMD relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/pmd.xml</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify PowerShell commands to execute under the <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>.<br><b class='text-warning'>NOTE: </b> Cheeta checks exit code of the script to determine if step is successful. Since PowerShell always exit with 0 even if there are script errors, you should handle errors in the script and exit with non-zero code, or add line <code>$ErrorActionPreference = &quot;Stop&quot;</code> at start of your script<br>", 
+			"Specifica i comandi PowerShell da eseguire sotto <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>.<br><b class='text-warning'>NOTA: </b> Cheeta controlla il codice di uscita dello script per determinare se il passaggio è riuscito. Poiché PowerShell esce sempre con 0 anche se ci sono errori nello script, dovresti gestire gli errori nello script e uscire con un codice diverso da zero, o aggiungere la riga <code>$ErrorActionPreference = &quot;Stop&quot;</code> all'inizio del tuo script<br>");
+		m.put("Specify Roslynator diagnostics output file in XML format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with <i>-o</i> option. Use * or ? for pattern match", 
+			"Specifica il file di output delle diagnosi Roslynator in formato XML relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione <i>-o</i>. Usa * o ? per la corrispondenza del pattern");
 		m.put("Specify Shell/Batch Commands to Run", "Specifica i comandi Shell/Batch da eseguire");
-		m.put("Specify SpotBugs result xml file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/spotbugsXml.xml</tt>. Use * or ? for pattern match", 
-			"Specifica il file xml dei risultati SpotBugs relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/spotbugsXml.xml</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify SpotBugs result xml file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/spotbugsXml.xml</tt>. Use * or ? for pattern match", 
+			"Specifica il file xml dei risultati SpotBugs relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/spotbugsXml.xml</tt>. Usa * o ? per la corrispondenza del pattern");
 		m.put("Specify System Settings", "Specifica le impostazioni di sistema");
 		m.put("Specify URL of remote git repository. Only http/https protocol is supported", "Specifica l'URL del repository git remoto. Sono supportati solo i protocolli http/https");
 		m.put("Specify YouTrack login name. This account should have permission to:<ul><li>Read full information and issues of the projects you want to import<li>Read issue tags<li>Read user basic information</ul>", 
@@ -3407,35 +3407,35 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica una <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>espressione regolare</a> dopo il numero del problema");
 		m.put("Specify a <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>regular expression</a> before issue number", 
 			"Specifica una <a href='http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html'>espressione regolare</a> prima del numero del problema");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as SSH private key", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come chiave privata SSH");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come token di accesso");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token to import build spec from above project if its code is not publicly accessible", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come token di accesso per importare la specifica di build dal progetto sopra indicato se il suo codice non è accessibile pubblicamente");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token of the registry", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come password o token di accesso del registro");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token to access remote repository", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come password o token di accesso per accedere al repository remoto");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key for SSH authentication. <b class='text-info'>NOTE:</b> Private key with passphrase is not supported", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come chiave privata per l'autenticazione SSH. <b class='text-info'>NOTA:</b> La chiave privata con passphrase non è supportata");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key of above user for SSH authentication. <b class='text-info'>NOTE:</b> Private key with passphrase is not supported", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come chiave privata dell'utente sopra indicato per l'autenticazione SSH. <b class='text-info'>NOTA:</b> La chiave privata con passphrase non è supportata");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with management permission for above project. Note that access token is not required if sync to current or child project and build commit is reachable from default branch", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> il cui valore è un token di accesso con permesso di gestione per il progetto sopra indicato. Nota che il token di accesso non è richiesto se la sincronizzazione è con il progetto corrente o figlio e il commit di build è raggiungibile dal branch predefinito");
-		m.put("Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with upload cache permission for above project. Note that this property is not required if upload cache to current or child project and build commit is reachable from default branch", 
-			"Specifica un <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> il cui valore è un token di accesso con permesso di caricamento della cache per il progetto sopra indicato. Nota che questa proprietà non è richiesta se il caricamento della cache è nel progetto corrente o figlio e il commit di build è raggiungibile dal branch predefinito");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as SSH private key", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come chiave privata SSH");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come token di accesso");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token to import build spec from above project if its code is not publicly accessible", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come token di accesso per importare la specifica di build dal progetto sopra indicato se il suo codice non è accessibile pubblicamente");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token of the registry", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come password o token di accesso del registro");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token to access remote repository", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come password o token di accesso per accedere al repository remoto");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key for SSH authentication. <b class='text-info'>NOTE:</b> Private key with passphrase is not supported", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come chiave privata per l'autenticazione SSH. <b class='text-info'>NOTA:</b> La chiave privata con passphrase non è supportata");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key of above user for SSH authentication. <b class='text-info'>NOTE:</b> Private key with passphrase is not supported", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> da utilizzare come chiave privata dell'utente sopra indicato per l'autenticazione SSH. <b class='text-info'>NOTA:</b> La chiave privata con passphrase non è supportata");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with management permission for above project. Note that access token is not required if sync to current or child project and build commit is reachable from default branch", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> il cui valore è un token di accesso con permesso di gestione per il progetto sopra indicato. Nota che il token di accesso non è richiesto se la sincronizzazione è con il progetto corrente o figlio e il commit di build è raggiungibile dal branch predefinito");
+		m.put("Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with upload cache permission for above project. Note that this property is not required if upload cache to current or child project and build commit is reachable from default branch", 
+			"Specifica un <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>segreto di lavoro</a> il cui valore è un token di accesso con permesso di caricamento della cache per il progetto sopra indicato. Nota che questa proprietà non è richiesta se il caricamento della cache è nel progetto corrente o figlio e il commit di build è raggiungibile dal branch predefinito");
 		m.put("Specify a <a target='_blank' href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format'>cron schedule</a> to fire the job automatically. <b class='text-info'>Note:</b> To save resource, seconds in cron expression will be ignored, and the minimum schedule interval is one minute", 
 			"Specifica un <a target='_blank' href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format'>cron schedule</a> per avviare automaticamente il lavoro. <b class='text-info'>Nota:</b> Per risparmiare risorse, i secondi nell'espressione cron saranno ignorati e l'intervallo minimo di pianificazione è di un minuto");
 		m.put("Specify a Docker Image to Test Against", "Specifica un'immagine Docker da testare");
 		m.put("Specify a custom field of Enum type", "Specifica un campo personalizzato di tipo Enum");
 		m.put("Specify a default query to filter/order fixed issues of specified jobs", "Specifica una query predefinita per filtrare/ordinare i problemi risolti dei lavori specificati");
-		m.put("Specify a file relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to write checksum into", 
-			"Specifica un file relativo a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> in cui scrivere il checksum");
-		m.put("Specify a multi-value user field to hold assignees information.<b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica un campo utente multi-valore per contenere le informazioni sugli assegnatari.<b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso in cui non ci sia un'opzione appropriata qui");
-		m.put("Specify a multi-value user field to hold assignees information.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica un campo utente multi-valore per contenere le informazioni sugli assegnatari.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso in cui non ci sia un'opzione appropriata qui");
+		m.put("Specify a file relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to write checksum into", 
+			"Specifica un file relativo a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> in cui scrivere il checksum");
+		m.put("Specify a multi-value user field to hold assignees information.<b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica un campo utente multi-valore per contenere le informazioni sugli assegnatari.<b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso in cui non ci sia un'opzione appropriata qui");
+		m.put("Specify a multi-value user field to hold assignees information.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica un campo utente multi-valore per contenere le informazioni sugli assegnatari.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso in cui non ci sia un'opzione appropriata qui");
 		m.put("Specify a path inside container to be used as mount target", "Specifica un percorso all'interno del container da utilizzare come target di montaggio");
 		m.put("Specify a path relative to job workspace to be used as mount source. Leave empty to mount job workspace itself", 
 			"Specifica un percorso relativo al job workspace da utilizzare come sorgente di montaggio. Lascia vuoto per montare il job workspace stesso");
@@ -3448,8 +3448,8 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica un segreto il cui valore è un token di accesso con permesso di caricamento della cache per il progetto sopra indicato. Nota che questa proprietà non è richiesta se il caricamento della cache è nel progetto corrente o figlio e il commit di build è raggiungibile dal branch predefinito");
 		m.put("Specify absolute path to the config file used by kubectl to access the cluster. Leave empty to have kubectl determining cluster access information automatically", 
 			"Specifica il percorso assoluto al file di configurazione utilizzato da kubectl per accedere al cluster. Lascia vuoto per consentire a kubectl di determinare automaticamente le informazioni di accesso al cluster");
-		m.put("Specify absolute path to the kubectl utility, for instance: <i>/usr/bin/kubectl</i>. If left empty, OneDev will try to find the utility from system path", 
-			"Specifica il percorso assoluto all'utilità kubectl, ad esempio: <i>/usr/bin/kubectl</i>. Se lasciato vuoto, OneDev cercherà di trovare l'utilità dal percorso di sistema");
+		m.put("Specify absolute path to the kubectl utility, for instance: <i>/usr/bin/kubectl</i>. If left empty, Cheeta will try to find the utility from system path", 
+			"Specifica il percorso assoluto all'utilità kubectl, ad esempio: <i>/usr/bin/kubectl</i>. Se lasciato vuoto, Cheeta cercherà di trovare l'utilità dal percorso di sistema");
 		m.put("Specify account name to login to Gmail to send/receive email", "Specifica il nome dell'account per accedere a Gmail per inviare/ricevere email");
 		m.put("Specify additional users able to access this confidential issue besides those granted via role. Users mentioned in the issue will be authorized automatically", 
 			"Specifica utenti aggiuntivi in grado di accedere a questo problema confidenziale oltre a quelli autorizzati tramite ruolo. Gli utenti menzionati nel problema saranno autorizzati automaticamente");
@@ -3458,17 +3458,17 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica gli identificatori di licenza <a href='https://spdx.org/licenses/' target='_blank'>spdx consentiti</a> <span class='text-warning'>separati da virgola</span>");
 		m.put("Specify an email address sharing same inbox as the system email address in mail setting definition. Emails sent to this address will be created as issues in this project. The default value takes form of <tt>&lt;system email address name&gt;+&lt;project path&gt;@&lt;system email address domain&gt;</tt>", 
 			"Specifica un indirizzo email che condivide la stessa casella di posta dell'indirizzo email di sistema nella definizione delle impostazioni di posta. Le email inviate a questo indirizzo saranno create come problemi in questo progetto. Il valore predefinito assume la forma di <tt>&lt;nome indirizzo email di sistema&gt;+&lt;percorso progetto&gt;@&lt;dominio indirizzo email di sistema&gt;</tt>");
-		m.put("Specify applicable projects for above option. Multiple projects should be separated by space. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for all projects", 
-			"Specifica i progetti applicabili per l'opzione sopra indicata. Più progetti dovrebbero essere separati da spazio. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>corrispondenza del pattern del percorso</a>. Prefisso con '-' per escludere. Lascia vuoto per tutti i progetti");
-		m.put("Specify applicable projects separated by space. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for all projects", 
-			"Specifica i progetti applicabili separati da spazio. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>corrispondenza del pattern del percorso</a>. Prefisso con '-' per escludere. Lascia vuoto per tutti i progetti");
+		m.put("Specify applicable projects for above option. Multiple projects should be separated by space. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for all projects", 
+			"Specifica i progetti applicabili per l'opzione sopra indicata. Più progetti dovrebbero essere separati da spazio. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>corrispondenza del pattern del percorso</a>. Prefisso con '-' per escludere. Lascia vuoto per tutti i progetti");
+		m.put("Specify applicable projects separated by space. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty for all projects", 
+			"Specifica i progetti applicabili separati da spazio. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>corrispondenza del pattern del percorso</a>. Prefisso con '-' per escludere. Lascia vuoto per tutti i progetti");
 		m.put("Specify application (client) ID of the app registered in Entra ID", "Specifica l'ID applicazione (client) dell'app registrata in Entra ID");
 		m.put("Specify arguments for imagetools. For instance <code>create -t myorg/myrepo:1.0.0 myorg/myrepo@&lt;arm64 manifest digest&gt; myorg/myrepo@&lt;amd64 manifest digest&gt;</code>", 
 			"Specifica gli argomenti per imagetools. Ad esempio <code>create -t myorg/myrepo:1.0.0 myorg/myrepo@&lt;arm64 manifest digest&gt; myorg/myrepo@&lt;amd64 manifest digest&gt;</code>");
-		m.put("Specify artifacts to retrieve into <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Only published artifacts (via artifact publish step) can be retrieved.", 
-			"Specifica gli artefatti da recuperare in <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Solo gli artefatti pubblicati (tramite il passaggio di pubblicazione degli artefatti) possono essere recuperati.");
-		m.put("Specify at least 10 alphanumeric chars to be used as secret, and then add an inbound parse entry at SendGrid side:<ul><li><code>Destination URL</code> should be set to <i>&lt;OneDev root url&gt;/~sendgrid/&lt;secret&gt;</i>, for instance, <i>https://onedev.example.com/~sendgrid/1234567890</i>. Note that in production environment, <a href='https://docs.onedev.io/administration-guide/https-setup' target='_blank'>https should be enabled</a> to protect the secret</li><li><code>Receiving domain</code> should be the same as domain part of system email address specified above</li><li>Option <code>POST the raw, full MIME message</code> is enabled</li></ul>", 
-			"Specifica almeno 10 caratteri alfanumerici da utilizzare come segreto, e poi aggiungi una voce di analisi in entrata sul lato SendGrid:<ul><li><code>URL di destinazione</code> dovrebbe essere impostato su <i>&lt;URL root di OneDev&gt;/~sendgrid/&lt;segreto&gt;</i>, ad esempio, <i>https://onedev.example.com/~sendgrid/1234567890</i>. Nota che in ambiente di produzione, <a href='https://docs.onedev.io/administration-guide/https-setup' target='_blank'>https dovrebbe essere abilitato</a> per proteggere il segreto</li><li><code>Dominio di ricezione</code> dovrebbe essere lo stesso della parte di dominio dell'indirizzo email di sistema specificato sopra</li><li>L'opzione <code>POST il messaggio MIME completo e grezzo</code> è abilitata</li></ul>");
+		m.put("Specify artifacts to retrieve into <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Only published artifacts (via artifact publish step) can be retrieved.", 
+			"Specifica gli artefatti da recuperare in <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Solo gli artefatti pubblicati (tramite il passaggio di pubblicazione degli artefatti) possono essere recuperati.");
+		m.put("Specify at least 10 alphanumeric chars to be used as secret, and then add an inbound parse entry at SendGrid side:<ul><li><code>Destination URL</code> should be set to <i>&lt;Cheeta root url&gt;/~sendgrid/&lt;secret&gt;</i>, for instance, <i>https://cheeta.example.com/~sendgrid/1234567890</i>. Note that in production environment, <a href='https://docs.cheeta.io/administration-guide/https-setup' target='_blank'>https should be enabled</a> to protect the secret</li><li><code>Receiving domain</code> should be the same as domain part of system email address specified above</li><li>Option <code>POST the raw, full MIME message</code> is enabled</li></ul>", 
+			"Specifica almeno 10 caratteri alfanumerici da utilizzare come segreto, e poi aggiungi una voce di analisi in entrata sul lato SendGrid:<ul><li><code>URL di destinazione</code> dovrebbe essere impostato su <i>&lt;URL root di Cheeta&gt;/~sendgrid/&lt;segreto&gt;</i>, ad esempio, <i>https://cheeta.example.com/~sendgrid/1234567890</i>. Nota che in ambiente di produzione, <a href='https://docs.cheeta.io/administration-guide/https-setup' target='_blank'>https dovrebbe essere abilitato</a> per proteggere il segreto</li><li><code>Dominio di ricezione</code> dovrebbe essere lo stesso della parte di dominio dell'indirizzo email di sistema specificato sopra</li><li>L'opzione <code>POST il messaggio MIME completo e grezzo</code> è abilitata</li></ul>");
 		m.put("Specify base nodes for user search. For example: <i>cn=Users, dc=example, dc=com</i>", 
 			"Specifica i nodi base per la ricerca degli utenti. Ad esempio: <i>cn=Users, dc=example, dc=com</i>");
 		m.put("Specify branch to commit suggested change", "Specifica il branch per il commit della modifica suggerita");
@@ -3482,13 +3482,13 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica il certificato da fidarsi se stai utilizzando un certificato autofirmato per il repository remoto");
 		m.put("Specify certificates to trust if you are using self-signed certificates for your docker registries", 
 			"Specifica i certificati da fidarsi se stai utilizzando certificati autofirmati per i tuoi registri Docker");
-		m.put("Specify checkstyle result xml file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/checkstyle-result.xml</tt>. Refer to <a href='https://checkstyle.org/'>checkstyle documentation</a> on how to generate the result xml file. Use * or ? for pattern match", 
-			"Specifica il file xml dei risultati checkstyle relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/checkstyle-result.xml</tt>. Consulta la <a href='https://checkstyle.org/'>documentazione di checkstyle</a> su come generare il file xml dei risultati. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify checkstyle result xml file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/checkstyle-result.xml</tt>. Refer to <a href='https://checkstyle.org/'>checkstyle documentation</a> on how to generate the result xml file. Use * or ? for pattern match", 
+			"Specifica il file xml dei risultati checkstyle relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/checkstyle-result.xml</tt>. Consulta la <a href='https://checkstyle.org/'>documentazione di checkstyle</a> su come generare il file xml dei risultati. Usa * o ? per la corrispondenza del pattern");
 		m.put("Specify client secret of the app registered in Entra ID", "Specifica il segreto client dell'app registrata in Entra ID");
-		m.put("Specify clover coverage xml report file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/clover/clover.xml</tt>. Refer to <a href='https://openclover.org/documentation'>OpenClover documentation</a> on how to generate clover xml file. Use * or ? for pattern match", 
-			"Specifica il file di report di copertura xml clover relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/site/clover/clover.xml</tt>. Consulta la <a href='https://openclover.org/documentation'>documentazione di OpenClover</a> su come generare il file xml clover. Usa * o ? per la corrispondenza del pattern");
-		m.put("Specify cobertura coverage xml report file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/cobertura/coverage.xml</tt>. Use * or ? for pattern match", 
-			"Specifica il file di report di copertura xml cobertura relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/site/cobertura/coverage.xml</tt>. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify clover coverage xml report file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/clover/clover.xml</tt>. Refer to <a href='https://openclover.org/documentation'>OpenClover documentation</a> on how to generate clover xml file. Use * or ? for pattern match", 
+			"Specifica il file di report di copertura xml clover relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/site/clover/clover.xml</tt>. Consulta la <a href='https://openclover.org/documentation'>documentazione di OpenClover</a> su come generare il file xml clover. Usa * o ? per la corrispondenza del pattern");
+		m.put("Specify cobertura coverage xml report file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance, <tt>target/site/cobertura/coverage.xml</tt>. Use * or ? for pattern match", 
+			"Specifica il file di report di copertura xml cobertura relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio, <tt>target/site/cobertura/coverage.xml</tt>. Usa * o ? per la corrispondenza del pattern");
 		m.put("Specify color of the state for displaying purpose", "Specifica il colore dello stato per scopi di visualizzazione");
 		m.put("Specify columns of the board. Each column corresponds to a value of the issue field specified above", 
 			"Specifica le colonne della board. Ogni colonna corrisponde a un valore del campo problema specificato sopra");
@@ -3497,12 +3497,12 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Specify commands to be executed on remote machine. <b class='text-warning'>Note:</b> user environments will not be picked up when execute these commands, set up them explicitly in commands if necessary", 
 			"Specifica i comandi da eseguire sulla macchina remota. <b class='text-warning'>Nota:</b> gli ambienti utente non verranno rilevati durante l'esecuzione di questi comandi, configurali esplicitamente nei comandi se necessario");
 		m.put("Specify condition to retry build upon failure", "Specifica la condizione per riprovare la build in caso di errore");
-		m.put("Specify configuration discovery url of your OpenID provider, for instance: <code>https://openid.example.com/.well-known/openid-configuration</code>. Make sure to use HTTPS protocol as OneDev relies on TLS encryption to ensure token validity", 
-			"Specifica l'URL di scoperta della configurazione del tuo provider OpenID, ad esempio: <code>https://openid.example.com/.well-known/openid-configuration</code>. Assicurati di utilizzare il protocollo HTTPS poiché OneDev si basa sulla crittografia TLS per garantire la validità del token");
+		m.put("Specify configuration discovery url of your OpenID provider, for instance: <code>https://openid.example.com/.well-known/openid-configuration</code>. Make sure to use HTTPS protocol as Cheeta relies on TLS encryption to ensure token validity", 
+			"Specifica l'URL di scoperta della configurazione del tuo provider OpenID, ad esempio: <code>https://openid.example.com/.well-known/openid-configuration</code>. Assicurati di utilizzare il protocollo HTTPS poiché Cheeta si basa sulla crittografia TLS per garantire la validità del token");
 		m.put("Specify container image to execute commands inside", "Specifica l'immagine del container per eseguire i comandi all'interno");
 		m.put("Specify container image to run", "Specifica l'immagine del container da eseguire");
-		m.put("Specify cppcheck xml result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with cppcheck xml output option, for instance <code>cppcheck src --xml 2>check-result.xml</code>. Use * or ? for pattern match", 
-			"Specifica il file di risultati xml di cppcheck relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione di output xml di cppcheck, ad esempio <code>cppcheck src --xml 2>check-result.xml</code>. Usa * o ? per la corrispondenza dei pattern");
+		m.put("Specify cppcheck xml result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with cppcheck xml output option, for instance <code>cppcheck src --xml 2>check-result.xml</code>. Use * or ? for pattern match", 
+			"Specifica il file di risultati xml di cppcheck relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione di output xml di cppcheck, ad esempio <code>cppcheck src --xml 2>check-result.xml</code>. Usa * o ? per la corrispondenza dei pattern");
 		m.put("Specify cpu request for each job/service using this executor. Check <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/' target='_blank'>Kubernetes resource management</a> for details", 
 			"Specifica la richiesta di CPU per ogni job/servizio utilizzando questo executor. Controlla <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/' target='_blank'>la gestione delle risorse di Kubernetes</a> per i dettagli");
 		m.put("Specify default assignees of pull requests submitted to this project. Only users with the write code permission to the project can be selected", 
@@ -3511,11 +3511,11 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Specify destinations, for instance <tt>registry-server:5000/myorg/myrepo:latest</tt>. Make sure to use <b>same host</b> as specified in server url of system settings if you want to push to built-in registry, or simply use the form <tt>@server@/&lt;project path&gt;/&lt;repo name&gt;:&lt;tag name&gt;</tt>. Multiple destinations should be separated with space", 
 			"Specifica le destinazioni, ad esempio <tt>registry-server:5000/myorg/myrepo:latest</tt>. Assicurati di utilizzare <b>lo stesso host</b> specificato nell'URL del server delle impostazioni di sistema se desideri inviare al registro integrato, oppure usa semplicemente la forma <tt>@server@/&lt;project path&gt;/&lt;repo name&gt;:&lt;tag name&gt;</tt>. Le destinazioni multiple devono essere separate da uno spazio");
 		m.put("Specify directory (tenant) ID of the app registered in Entra ID", "Specifica l'ID della directory (tenant) dell'app registrata in Entra ID");
-		m.put("Specify directory relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout", 
-			"Specifica la directory relativa a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> per archiviare il layout OCI");
+		m.put("Specify directory relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout", 
+			"Specifica la directory relativa a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> per archiviare il layout OCI");
 		m.put("Specify docker image of the service", "Specifica l'immagine Docker del servizio");
-		m.put("Specify dockerx builder used to build docker image. OneDev will create the builder automatically if it does not exist. Check <a href='https://docs.onedev.io/tutorials/cicd/insecure-docker-registry' target='_blank'>this tutorial</a> on how to customize the builder for instance to allow publishing to insecure registries", 
-			"Specifica il builder dockerx utilizzato per costruire l'immagine Docker. OneDev creerà automaticamente il builder se non esiste. Controlla <a href='https://docs.onedev.io/tutorials/cicd/insecure-docker-registry' target='_blank'>questo tutorial</a> su come personalizzare il builder, ad esempio per consentire la pubblicazione su registri non sicuri");
+		m.put("Specify dockerx builder used to build docker image. Cheeta will create the builder automatically if it does not exist. Check <a href='https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry' target='_blank'>this tutorial</a> on how to customize the builder for instance to allow publishing to insecure registries", 
+			"Specifica il builder dockerx utilizzato per costruire l'immagine Docker. Cheeta creerà automaticamente il builder se non esiste. Controlla <a href='https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry' target='_blank'>questo tutorial</a> su come personalizzare il builder, ad esempio per consentire la pubblicazione su registri non sicuri");
 		m.put("Specify email addresses to send invitations, with one per line", "Specifica gli indirizzi email a cui inviare gli inviti, uno per riga");
 		m.put("Specify estimated time <b class='text-warning'>only for this issue</b>, not counting \"{0}\"", 
 			"Specifica il tempo stimato <b class='text-warning'>solo per questo problema</b>, senza contare \"{0}\"");
@@ -3523,35 +3523,35 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica i campi di vari problemi creati da Renovate per orchestrare l'aggiornamento delle dipendenze");
 		m.put("Specify fields to be displayed in the issue list", "Specifica i campi da visualizzare nella lista dei problemi");
 		m.put("Specify fields to display in board card", "Specifica i campi da visualizzare nella scheda della board");
-		m.put("Specify files relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be published. Use * or ? for pattern match", 
-			"Specifica i file relativi a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> da pubblicare. Usa * o ? per la corrispondenza dei pattern");
-		m.put("Specify files to create md5 checksum from. Multiple files should be separated by space. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>Globstar</a> patterns accepted. Non-absolute file is considered to be relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"Specifica i file da cui creare il checksum md5. I file multipli devono essere separati da uno spazio. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>I pattern Globstar</a> sono accettati. I file non assoluti sono considerati relativi a <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>");
+		m.put("Specify files relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be published. Use * or ? for pattern match", 
+			"Specifica i file relativi a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> da pubblicare. Usa * o ? per la corrispondenza dei pattern");
+		m.put("Specify files to create md5 checksum from. Multiple files should be separated by space. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>Globstar</a> patterns accepted. Non-absolute file is considered to be relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"Specifica i file da cui creare il checksum md5. I file multipli devono essere separati da uno spazio. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>I pattern Globstar</a> sono accettati. I file non assoluti sono considerati relativi a <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>");
 		m.put("Specify files under above directory to be published", "Specifica i file sotto la directory sopra da pubblicare");
 		m.put("Specify files under above directory to be published. Use * or ? for pattern match. <b>NOTE:</b> <code>index.html</code> should be included in these files to be served as site start page", 
 			"Specifica i file sotto la directory sopra da pubblicare. Usa * o ? per la corrispondenza dei pattern. <b>NOTA:</b> <code>index.html</code> deve essere incluso in questi file per essere servito come pagina iniziale del sito");
 		m.put("Specify group to import from. Leave empty to import from projects under current account", 
 			"Specifica il gruppo da importare. Lascia vuoto per importare dai progetti sotto l'account corrente");
-		m.put("Specify how to map GitHub issue labels to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica come mappare le etichette dei problemi di GitHub ai campi personalizzati di OneDev.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify how to map GitLab issue labels to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica come mappare le etichette dei problemi di GitLab ai campi personalizzati di OneDev.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify how to map Gitea issue labels to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica come mappare le etichette dei problemi di Gitea ai campi personalizzati di OneDev.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify how to map JIRA issue priorities to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica come mappare le priorità dei problemi di JIRA ai campi personalizzati di OneDev.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify how to map JIRA issue statuses to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"Specifica come mappare gli stati dei problemi di JIRA ai campi personalizzati di OneDev.<br><b>NOTA: </b> Puoi personalizzare gli stati dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify how to map JIRA issue types to OneDev custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica come mappare i tipi di problemi di JIRA ai campi personalizzati di OneDev.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify how to map YouTrack issue fields to OneDev. Unmapped fields will be reflected in issue description.<br><b>Note: </b><ul><li>Enum field needs to be mapped in form of <tt>&lt;Field Name&gt;::&lt;Field Value&gt;</tt>, for instance <tt>Priority::Critical</tt><li>You may customize OneDev issue fields in case there is no appropriate option here</ul>", 
-			"Specifica come mappare i campi dei problemi di YouTrack a OneDev. I campi non mappati saranno riflessi nella descrizione del problema.<br><b>Nota: </b><ul><li>Il campo Enum deve essere mappato nella forma <tt>&lt;Field Name&gt;::&lt;Field Value&gt;</tt>, ad esempio <tt>Priority::Critical</tt><li>Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui</ul>");
-		m.put("Specify how to map YouTrack issue links to OneDev issue links.<br><b>NOTE: </b> You may customize OneDev issue links in case there is no appropriate option here", 
-			"Specifica come mappare i collegamenti dei problemi di YouTrack ai collegamenti dei problemi di OneDev.<br><b>NOTA: </b> Puoi personalizzare i collegamenti dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify how to map YouTrack issue state to OneDev issue state. Unmapped states will use the initial state in OneDev.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"Specifica come mappare lo stato dei problemi di YouTrack allo stato dei problemi di OneDev. Gli stati non mappati utilizzeranno lo stato iniziale in OneDev.<br><b>NOTA: </b> Puoi personalizzare gli stati dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify how to map YouTrack issue tags to OneDev issue custom fields.<br><b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here", 
-			"Specifica come mappare i tag dei problemi di YouTrack ai campi personalizzati dei problemi di OneDev.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di OneDev nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map GitHub issue labels to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica come mappare le etichette dei problemi di GitHub ai campi personalizzati di Cheeta.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map GitLab issue labels to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica come mappare le etichette dei problemi di GitLab ai campi personalizzati di Cheeta.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map Gitea issue labels to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica come mappare le etichette dei problemi di Gitea ai campi personalizzati di Cheeta.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map JIRA issue priorities to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica come mappare le priorità dei problemi di JIRA ai campi personalizzati di Cheeta.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map JIRA issue statuses to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"Specifica come mappare gli stati dei problemi di JIRA ai campi personalizzati di Cheeta.<br><b>NOTA: </b> Puoi personalizzare gli stati dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map JIRA issue types to Cheeta custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica come mappare i tipi di problemi di JIRA ai campi personalizzati di Cheeta.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map YouTrack issue fields to Cheeta. Unmapped fields will be reflected in issue description.<br><b>Note: </b><ul><li>Enum field needs to be mapped in form of <tt>&lt;Field Name&gt;::&lt;Field Value&gt;</tt>, for instance <tt>Priority::Critical</tt><li>You may customize Cheeta issue fields in case there is no appropriate option here</ul>", 
+			"Specifica come mappare i campi dei problemi di YouTrack a Cheeta. I campi non mappati saranno riflessi nella descrizione del problema.<br><b>Nota: </b><ul><li>Il campo Enum deve essere mappato nella forma <tt>&lt;Field Name&gt;::&lt;Field Value&gt;</tt>, ad esempio <tt>Priority::Critical</tt><li>Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui</ul>");
+		m.put("Specify how to map YouTrack issue links to Cheeta issue links.<br><b>NOTE: </b> You may customize Cheeta issue links in case there is no appropriate option here", 
+			"Specifica come mappare i collegamenti dei problemi di YouTrack ai collegamenti dei problemi di Cheeta.<br><b>NOTA: </b> Puoi personalizzare i collegamenti dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map YouTrack issue state to Cheeta issue state. Unmapped states will use the initial state in Cheeta.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"Specifica come mappare lo stato dei problemi di YouTrack allo stato dei problemi di Cheeta. Gli stati non mappati utilizzeranno lo stato iniziale in Cheeta.<br><b>NOTA: </b> Puoi personalizzare gli stati dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify how to map YouTrack issue tags to Cheeta issue custom fields.<br><b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here", 
+			"Specifica come mappare i tag dei problemi di YouTrack ai campi personalizzati dei problemi di Cheeta.<br><b>NOTA: </b> Puoi personalizzare i campi dei problemi di Cheeta nel caso non ci sia un'opzione appropriata qui");
 		m.put("Specify image on the login button", "Specifica l'immagine sul pulsante di login");
 		m.put("Specify image tag to pull from, for instance <tt>registry-server:5000/myorg/myrepo:latest</tt>. Make sure to use <b>same host</b> as specified in server url of system settings if you want to pull from built-in registry, or simply use the form <tt>@server@/&lt;project path&gt;/&lt;repo name&gt;:&lt;tag name&gt;</tt>", 
 			"Specifica il tag dell'immagine da scaricare, ad esempio <tt>registry-server:5000/myorg/myrepo:latest</tt>. Assicurati di utilizzare <b>lo stesso host</b> specificato nell'URL del server delle impostazioni di sistema se desideri scaricare dal registro integrato, oppure usa semplicemente la forma <tt>@server@/&lt;project path&gt;/&lt;repo name&gt;:&lt;tag name&gt;</tt>");
@@ -3567,11 +3567,11 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica il campo del problema per identificare le diverse colonne della board. Solo lo stato e il campo di enumerazione a valore singolo possono essere utilizzati qui");
 		m.put("Specify links to be displayed in the issue list", "Specifica i collegamenti da visualizzare nella lista dei problemi");
 		m.put("Specify links to display in board card", "Specifica i collegamenti da visualizzare nella scheda della board");
-		m.put("Specify manager DN to authenticate OneDev itself to Active Directory. The manager DN should be specified in form of <i>&lt;account name&gt;@&lt;domain&gt;</i>, for instance: <i>manager@example.com</i>", 
-			"Specifica il DN del manager per autenticare OneDev stesso con Active Directory. Il DN del manager deve essere specificato nella forma <i>&lt;account name&gt;@&lt;domain&gt;</i>, ad esempio: <i>manager@example.com</i>");
-		m.put("Specify manager DN to authenticate OneDev itself to LDAP server", "Specifica il DN del manager per autenticare OneDev stesso con il server LDAP");
-		m.put("Specify markdown file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be published", 
-			"Specifica il file markdown relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> da pubblicare");
+		m.put("Specify manager DN to authenticate Cheeta itself to Active Directory. The manager DN should be specified in form of <i>&lt;account name&gt;@&lt;domain&gt;</i>, for instance: <i>manager@example.com</i>", 
+			"Specifica il DN del manager per autenticare Cheeta stesso con Active Directory. Il DN del manager deve essere specificato nella forma <i>&lt;account name&gt;@&lt;domain&gt;</i>, ad esempio: <i>manager@example.com</i>");
+		m.put("Specify manager DN to authenticate Cheeta itself to LDAP server", "Specifica il DN del manager per autenticare Cheeta stesso con il server LDAP");
+		m.put("Specify markdown file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be published", 
+			"Specifica il file markdown relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> da pubblicare");
 		m.put("Specify max git LFS file size in mega bytes", "Specifica la dimensione massima del file git LFS in megabyte");
 		m.put("Specify max number of CPU intensive tasks the server can run concurrently, such as Git repository pull/push, repository index, etc.", 
 			"Specifica il numero massimo di attività intensive per la CPU che il server può eseguire contemporaneamente, come il pull/push del repository Git, l'indicizzazione del repository, ecc.");
@@ -3587,8 +3587,8 @@ public class Translation_it extends TranslationResourceBundle {
 			"Specifica la dimensione massima del file caricato in megabyte tramite l'interfaccia web. Questo si applica ai file caricati nel repository, al contenuto markdown (commenti sui problemi, ecc.) e agli artefatti di build");
 		m.put("Specify memory request for each job/service using this executor. Check <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/' target='_blank'>Kubernetes resource management</a> for details", 
 			"Specifica la richiesta di memoria per ogni job/servizio utilizzando questo executor. Controlla <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/' target='_blank'>la gestione delle risorse di Kubernetes</a> per i dettagli");
-		m.put("Specify mypy output file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated by redirecting mypy output <b>without option '--pretty'</b>, for instance <code>mypy --exclude=.git --exclude=.venv . > mypy-output</code>. Use * or ? for pattern match", 
-			"Specifica il file di output mypy relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato reindirizzando l'output di mypy <b>senza l'opzione '--pretty'</b>, ad esempio <code>mypy --exclude=.git --exclude=.venv . > mypy-output</code>. Usa * o ? per la corrispondenza dei pattern");
+		m.put("Specify mypy output file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated by redirecting mypy output <b>without option '--pretty'</b>, for instance <code>mypy --exclude=.git --exclude=.venv . > mypy-output</code>. Use * or ? for pattern match", 
+			"Specifica il file di output mypy relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato reindirizzando l'output di mypy <b>senza l'opzione '--pretty'</b>, ad esempio <code>mypy --exclude=.git --exclude=.venv . > mypy-output</code>. Usa * o ? per la corrispondenza dei pattern");
 		m.put("Specify name of the branch", "Specifica il nome del branch");
 		m.put("Specify name of the environment variable", "Specifica il nome della variabile di ambiente");
 		m.put("Specify name of the iteration", "Specifica il nome dell'iterazione");
@@ -3606,50 +3606,50 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Specify path to git executable, for instance: <tt>/usr/bin/git</tt>", "Specifica il percorso dell'eseguibile git, ad esempio: <tt>/usr/bin/git</tt>");
 		m.put("Specify powershell executable to be used", "Specifica l'eseguibile powershell da utilizzare");
 		m.put("Specify project to import build spec from", "Specifica il progetto da cui importare la specifica della build");
-		m.put("Specify project to import into at OneDev side", "Specifica il progetto da importare nel lato OneDev");
+		m.put("Specify project to import into at Cheeta side", "Specifica il progetto da importare nel lato Cheeta");
 		m.put("Specify project to retrieve artifacts from", "Specifica il progetto da cui recuperare gli artefatti");
 		m.put("Specify project to run job in", "Specifica il progetto in cui eseguire il lavoro");
 		m.put("Specify projects", "Specifica i progetti");
 		m.put("Specify projects to update dependencies. Leave empty for current project", "Specifica i progetti per aggiornare le dipendenze. Lascia vuoto per il progetto corrente");
-		m.put("Specify pylint json result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with pylint json output format option, for instance <code>--exit-zero --output-format=json:pylint-result.json</code>. Note that we do not fail pylint command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match", 
-			"Specifica il file di risultati json di pylint relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione di formato di output json di pylint, ad esempio <code>--exit-zero --output-format=json:pylint-result.json</code>. Nota che non falliamo il comando pylint in caso di violazioni, poiché questo passaggio fallirà la build in base alla soglia configurata. Usa * o ? per la corrispondenza dei pattern");
+		m.put("Specify pylint json result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with pylint json output format option, for instance <code>--exit-zero --output-format=json:pylint-result.json</code>. Note that we do not fail pylint command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match", 
+			"Specifica il file di risultati json di pylint relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione di formato di output json di pylint, ad esempio <code>--exit-zero --output-format=json:pylint-result.json</code>. Nota che non falliamo il comando pylint in caso di violazioni, poiché questo passaggio fallirà la build in base alla soglia configurata. Usa * o ? per la corrispondenza dei pattern");
 		m.put("Specify registry logins if necessary. For built-in registry, use <code>@server_url@</code> for registry url, <code>@job_token@</code> for user name, and access token for password", 
 			"Specifica i login del registro se necessario. Per il registro integrato, usa <code>@server_url@</code> per l'URL del registro, <code>@job_token@</code> per il nome utente e il token di accesso per la password");
 		m.put("Specify registry url. Leave empty for official registry", "Specifica l'URL del registro. Lascia vuoto per il registro ufficiale");
-		m.put("Specify relative path under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout", 
-			"Specifica il percorso relativo sotto <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> per archiviare il layout OCI");
+		m.put("Specify relative path under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to store OCI layout", 
+			"Specifica il percorso relativo sotto <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> per archiviare il layout OCI");
 		m.put("Specify repositories", "Specifica i repository");
 		m.put("Specify required reviewers if specified path is changed. Note that the user submitting the change is considered to reviewed the change automatically", 
 			"Specifica i revisori richiesti se il percorso specificato viene modificato. Nota che l'utente che invia la modifica è considerato automaticamente come revisore della modifica");
 		m.put("Specify root URL to access this server", "Specifica l'URL radice per accedere a questo server");
-		m.put("Specify ruff json result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. This file can be generated with ruff json output format option, for instance <code>--exit-zero --output-format json --output-file ruff-result.json</code>. Note that we do not fail ruff command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match", 
-			"Specifica il file di risultati json di ruff relativo a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione di formato di output json di ruff, ad esempio <code>--exit-zero --output-format json --output-file ruff-result.json</code>. Nota che non falliamo il comando ruff in caso di violazioni, poiché questo passaggio fallirà la build in base alla soglia configurata. Usa * o ? per la corrispondenza dei pattern");
-		m.put("Specify shell commands (on Linux/Unix) or batch commands (on Windows) to execute under the <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"Specifica i comandi shell (su Linux/Unix) o batch (su Windows) da eseguire sotto <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>");
-		m.put("Specify shell commands to execute under the <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"Specifica i comandi shell da eseguire sotto <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>");
+		m.put("Specify ruff json result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. This file can be generated with ruff json output format option, for instance <code>--exit-zero --output-format json --output-file ruff-result.json</code>. Note that we do not fail ruff command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match", 
+			"Specifica il file di risultati json di ruff relativo a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. Questo file può essere generato con l'opzione di formato di output json di ruff, ad esempio <code>--exit-zero --output-format json --output-file ruff-result.json</code>. Nota che non falliamo il comando ruff in caso di violazioni, poiché questo passaggio fallirà la build in base alla soglia configurata. Usa * o ? per la corrispondenza dei pattern");
+		m.put("Specify shell commands (on Linux/Unix) or batch commands (on Windows) to execute under the <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"Specifica i comandi shell (su Linux/Unix) o batch (su Windows) da eseguire sotto <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>");
+		m.put("Specify shell commands to execute under the <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"Specifica i comandi shell da eseguire sotto <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>");
 		m.put("Specify shell to be used", "Specifica la shell da utilizzare");
 		m.put("Specify source param for SCP command, for instance <code>app.tar.gz</code>", "Specifica il parametro di origine per il comando SCP, ad esempio <code>app.tar.gz</code>");
 		m.put("Specify space separated refs to pull from remote. '*' can be used in ref name for wildcard match<br><b class='text-danger'>NOTE:</b> branch/tag protection rule will be ignored when update branches/tags via this step", 
 			"Specifica i ref separati da spazio da scaricare dal remoto. '*' può essere utilizzato nel nome del ref per la corrispondenza con caratteri jolly<br><b class='text-danger'>NOTA:</b> la regola di protezione di branch/tag verrà ignorata durante l'aggiornamento di branch/tag tramite questo passaggio");
-		m.put("Specify space-separated branches to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
-			"Specifica i branch separati da spazio da proteggere. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza con caratteri jolly</a>. Prefissa con '-' per escludere");
+		m.put("Specify space-separated branches to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
+			"Specifica i branch separati da spazio da proteggere. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza con caratteri jolly</a>. Prefissa con '-' per escludere");
 		m.put("Specify space-separated jobs. Use '*' or '?' for wildcard match. Prefix with '-' to exclude", 
 			"Specifica i job separati da spazio. Usa '*' o '?' per la corrispondenza con caratteri jolly. Prefissa con '-' per escludere");
 		m.put("Specify space-separated jobs. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. <b class='text-danger'>NOTE: </b> Permission to access build artifacts will be granted implicitly in matched jobs even if no other permissions are specified here", 
 			"Specifica i job separati da spazio. Usa '*' o '?' per la corrispondenza con caratteri jolly. Prefissa con '-' per escludere. <b class='text-danger'>NOTA: </b> Il permesso di accedere agli artefatti di build verrà concesso implicitamente nei job corrispondenti anche se non vengono specificati altri permessi qui");
-		m.put("Specify space-separated paths to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
-			"Specifica i percorsi separati da spazio da proteggere. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza con caratteri jolly</a>. Prefissa con '-' per escludere");
+		m.put("Specify space-separated paths to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
+			"Specifica i percorsi separati da spazio da proteggere. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza con caratteri jolly</a>. Prefissa con '-' per escludere");
 		m.put("Specify space-separated projects applicable for this entry. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all projects", 
 			"Specifica i progetti separati da spazio applicabili per questa voce. Usa '*' o '?' per la corrispondenza con caratteri jolly. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i progetti");
 		m.put("Specify space-separated sender email addresses applicable for this entry. Use '*' or '?' for wildcard match. Prefix with '-' to exclude. Leave empty to match all senders", 
 			"Specifica gli indirizzi email del mittente separati da spazio applicabili per questa voce. Usa '*' o '?' per la corrispondenza con caratteri jolly. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i mittenti");
-		m.put("Specify space-separated tags to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
-			"Specifica i tag separati da spazio da proteggere. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza con caratteri jolly</a>. Prefissa con '-' per escludere");
-		m.put("Specify start page of the report relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance: <tt>manual/index.md</tt>", 
-			"Specifica la pagina iniziale del report relativa a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio: <tt>manual/index.md</tt>");
-		m.put("Specify start page of the report relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance: api/index.html", 
-			"Specifica la pagina iniziale del report relativa a <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, ad esempio: api/index.html");
+		m.put("Specify space-separated tags to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
+			"Specifica i tag separati da spazio da proteggere. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza con caratteri jolly</a>. Prefissa con '-' per escludere");
+		m.put("Specify start page of the report relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance: <tt>manual/index.md</tt>", 
+			"Specifica la pagina iniziale del report relativa a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio: <tt>manual/index.md</tt>");
+		m.put("Specify start page of the report relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance: api/index.html", 
+			"Specifica la pagina iniziale del report relativa a <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, ad esempio: api/index.html");
 		m.put("Specify storage size to request for the build volume. The size should conform to <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#setting-requests-and-limits-for-local-ephemeral-storage' target='_blank'>Kubernetes resource capacity format</a>, for instance <i>10Gi</i>", 
 			"Specifica la dimensione di archiviazione da richiedere per il volume di build. La dimensione deve conformarsi al <a href='https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#setting-requests-and-limits-for-local-ephemeral-storage' target='_blank'>formato di capacità delle risorse di Kubernetes</a>, ad esempio <i>10Gi</i>");
 		m.put("Specify tab width used to calculate column value of found problems in provided report", 
@@ -3664,8 +3664,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Specify the condition preserved builds must match", "Specifica la condizione che i build preservati devono soddisfare");
 		m.put("Specify the private key (in PEM format) used by SSH server to establish connections with client", 
 			"Specifica la chiave privata (in formato PEM) utilizzata dal server SSH per stabilire connessioni con il client");
-		m.put("Specify the strategy to retrieve group membership information. To give appropriate permissions to a LDAP group, a OneDev group with same name should be defined. Use strategy <tt>Do Not Retrieve Groups</tt> if you want to manage group memberships at OneDev side", 
-			"Specifica la strategia per recuperare informazioni sull'appartenenza ai gruppi. Per assegnare permessi appropriati a un gruppo LDAP, deve essere definito un gruppo OneDev con lo stesso nome. Usa la strategia <tt>Non Recuperare Gruppi</tt> se desideri gestire le appartenenze ai gruppi sul lato OneDev");
+		m.put("Specify the strategy to retrieve group membership information. To give appropriate permissions to a LDAP group, a Cheeta group with same name should be defined. Use strategy <tt>Do Not Retrieve Groups</tt> if you want to manage group memberships at Cheeta side", 
+			"Specifica la strategia per recuperare informazioni sull'appartenenza ai gruppi. Per assegnare permessi appropriati a un gruppo LDAP, deve essere definito un gruppo Cheeta con lo stesso nome. Usa la strategia <tt>Non Recuperare Gruppi</tt> se desideri gestire le appartenenze ai gruppi sul lato Cheeta");
 		m.put("Specify timeout in seconds when communicating with mail server", "Specifica il timeout in secondi durante la comunicazione con il server di posta");
 		m.put("Specify timeout in seconds. It counts from the time when job is submitted", "Specifica il timeout in secondi. Si conta dal momento in cui il job viene inviato");
 		m.put("Specify title of the issue", "Specifica il titolo dell'issue");
@@ -3678,14 +3678,14 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Specify web UI session timeout in minutes. Existing sessions will not be affected after changing this value.", 
 			"Specifica il timeout della sessione dell'interfaccia web in minuti. Le sessioni esistenti non saranno influenzate dopo aver modificato questo valore.");
 		m.put("Specify webhook url to post events", "Specifica l'URL del webhook per pubblicare eventi");
-		m.put("Specify which issue state to use for closed GitHub issues.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"Specifica quale stato dell'issue utilizzare per le issue chiuse su GitHub.<br><b>NOTA: </b> Puoi personalizzare gli stati delle issue di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify which issue state to use for closed GitLab issues.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"Specifica quale stato dell'issue utilizzare per le issue chiuse su GitLab.<br><b>NOTA: </b> Puoi personalizzare gli stati delle issue di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify which issue state to use for closed Gitea issues.<br><b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here", 
-			"Specifica quale stato dell'issue utilizzare per le issue chiuse su Gitea.<br><b>NOTA: </b> Puoi personalizzare gli stati delle issue di OneDev nel caso non ci sia un'opzione appropriata qui");
-		m.put("Specify which states are considered as closed for various issues created by Renovate to orchestrate dependency update. Additionally, when Renovate closes the issue, OneDev will transit the issue to first state specified here", 
-			"Specifica quali stati sono considerati chiusi per le varie issue create da Renovate per orchestrare l'aggiornamento delle dipendenze. Inoltre, quando Renovate chiude l'issue, OneDev transiterà l'issue al primo stato specificato qui");
+		m.put("Specify which issue state to use for closed GitHub issues.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"Specifica quale stato dell'issue utilizzare per le issue chiuse su GitHub.<br><b>NOTA: </b> Puoi personalizzare gli stati delle issue di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify which issue state to use for closed GitLab issues.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"Specifica quale stato dell'issue utilizzare per le issue chiuse su GitLab.<br><b>NOTA: </b> Puoi personalizzare gli stati delle issue di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify which issue state to use for closed Gitea issues.<br><b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here", 
+			"Specifica quale stato dell'issue utilizzare per le issue chiuse su Gitea.<br><b>NOTA: </b> Puoi personalizzare gli stati delle issue di Cheeta nel caso non ci sia un'opzione appropriata qui");
+		m.put("Specify which states are considered as closed for various issues created by Renovate to orchestrate dependency update. Additionally, when Renovate closes the issue, Cheeta will transit the issue to first state specified here", 
+			"Specifica quali stati sono considerati chiusi per le varie issue create da Renovate per orchestrare l'aggiornamento delle dipendenze. Inoltre, quando Renovate chiude l'issue, Cheeta transiterà l'issue al primo stato specificato qui");
 		m.put("Specify working days per week. This will affect parsing and displaying of working periods. For instance <tt>1w</tt> is the same as <tt>5d</tt> if this property is set to <tt>5</tt>", 
 			"Specifica i giorni lavorativi per settimana. Questo influenzerà l'analisi e la visualizzazione dei periodi lavorativi. Ad esempio <tt>1w</tt> è lo stesso di <tt>5d</tt> se questa proprietà è impostata su <tt>5</tt>");
 		m.put("Specify working hours per day. This will affect parsing and displaying of working periods. For instance <tt>1d</tt> is the same as <tt>8h</tt> if this property is set to <tt>8</tt>", 
@@ -3735,8 +3735,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Step Templates", "Template dei Passaggi");
 		m.put("Step {0} of {1}: ", "Passaggio {0} di {1}:");
 		m.put("Steps", "Passaggi");
-		m.put("Steps will be executed serially on same node, sharing the same <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>", 
-			"I passaggi verranno eseguiti in serie sullo stesso nodo, condividendo lo stesso <a href='https://docs.onedev.io/concepts#job-workspace'>workspace del job</a>");
+		m.put("Steps will be executed serially on same node, sharing the same <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>", 
+			"I passaggi verranno eseguiti in serie sullo stesso nodo, condividendo lo stesso <a href='https://docs.cheeta.io/concepts#job-workspace'>workspace del job</a>");
 		m.put("Stop work", "Ferma il lavoro");
 		m.put("Stopwatch Overdue", "Cronometro Scaduto");
 		m.put("Storage Settings", "Impostazioni di archiviazione");
@@ -3798,8 +3798,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("System Maintenance", "Manutenzione del Sistema");
 		m.put("System Setting", "Impostazione del Sistema");
 		m.put("System Settings", "Impostazioni del Sistema");
-		m.put("System email address defined in mail setting should be used as recipient of such email, and project name may be appended to this address using to indicate where to create issues. For instance, if system email address is specified as <tt>support@example.com</tt>, sending email to <tt>support+myproject@example.com</tt> will create issue in <tt>myproject</tt>. If project name is not appended, OneDev will look up the project using project designation information below", 
-			"L'indirizzo email di sistema definito nelle impostazioni della posta dovrebbe essere utilizzato come destinatario di tale email, e il nome del progetto può essere aggiunto a questo indirizzo per indicare dove creare le questioni. Ad esempio, se l'indirizzo email di sistema è specificato come <tt>support@example.com</tt>, inviare un'email a <tt>support+myproject@example.com</tt> creerà una questione in <tt>myproject</tt>. Se il nome del progetto non è aggiunto, OneDev cercherà il progetto utilizzando le informazioni di designazione del progetto qui sotto");
+		m.put("System email address defined in mail setting should be used as recipient of such email, and project name may be appended to this address using to indicate where to create issues. For instance, if system email address is specified as <tt>support@example.com</tt>, sending email to <tt>support+myproject@example.com</tt> will create issue in <tt>myproject</tt>. If project name is not appended, Cheeta will look up the project using project designation information below", 
+			"L'indirizzo email di sistema definito nelle impostazioni della posta dovrebbe essere utilizzato come destinatario di tale email, e il nome del progetto può essere aggiunto a questo indirizzo per indicare dove creare le questioni. Ad esempio, se l'indirizzo email di sistema è specificato come <tt>support@example.com</tt>, inviare un'email a <tt>support+myproject@example.com</tt> creerà una questione in <tt>myproject</tt>. Se il nome del progetto non è aggiunto, Cheeta cercherà il progetto utilizzando le informazioni di designazione del progetto qui sotto");
 		m.put("System settings have been saved", "Le impostazioni di sistema sono state salvate");
 		m.put("System uuid", "UUID di sistema");
 		m.put("TIMED_OUT", "TEMPO_SCADUTO");
@@ -3858,10 +3858,10 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("The permission to access build pipeline", "Il permesso di accedere alla pipeline di build");
 		m.put("The permission to run job manually. It also implies the permission to access build log, build pipeline and all published reports", 
 			"Il permesso di eseguire manualmente un job. Implica anche il permesso di accedere al log di build, alla pipeline di build e a tutti i report pubblicati");
-		m.put("The secret which allows you to ensure that POST requests sent to the payload URL are from OneDev. When you set a secret you'll receive the X-OneDev-Signature header in the webhook POST request", 
-			"Il segreto che ti permette di garantire che le richieste POST inviate all'URL del payload provengano da OneDev. Quando imposti un segreto, riceverai l'intestazione X-OneDev-Signature nella richiesta POST del webhook");
-		m.put("The service desk feature enables user to create issues by sending emails to OneDev. Issues can be discussed over email completely, without the need of logging to OneDev.", 
-			"La funzione del service desk consente agli utenti di creare questioni inviando email a OneDev. Le questioni possono essere discusse completamente via email, senza la necessità di accedere a OneDev.");
+		m.put("The secret which allows you to ensure that POST requests sent to the payload URL are from Cheeta. When you set a secret you'll receive the X-Cheeta-Signature header in the webhook POST request", 
+			"Il segreto che ti permette di garantire che le richieste POST inviate all'URL del payload provengano da Cheeta. Quando imposti un segreto, riceverai l'intestazione X-Cheeta-Signature nella richiesta POST del webhook");
+		m.put("The service desk feature enables user to create issues by sending emails to Cheeta. Issues can be discussed over email completely, without the need of logging to Cheeta.", 
+			"La funzione del service desk consente agli utenti di creare questioni inviando email a Cheeta. Le questioni possono essere discusse completamente via email, senza la necessità di accedere a Cheeta.");
 		m.put("Then enter the passcode shown in the TOTP authenticator to verify", "Quindi inserisci il codice mostrato nell'autenticatore TOTP per verificare");
 		m.put("Then publish package from project directory like below", "Quindi pubblica il pacchetto dalla directory del progetto come mostrato di seguito");
 		m.put("Then push gem to the source", "Quindi invia il gem alla sorgente");
@@ -3895,20 +3895,20 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("This date is using <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO 8601 format</a>", 
 			"Questa data utilizza il <a href=\"https://www.w3.org/TR/NOTE-datetime\">formato ISO 8601</a>");
 		m.put("This email address is being used", "Questo indirizzo email è già in uso");
-		m.put("This executor runs build jobs as docker containers on OneDev server", "Questo executor esegue i lavori di build come container docker sul server OneDev");
+		m.put("This executor runs build jobs as docker containers on Cheeta server", "Questo executor esegue i lavori di build come container docker sul server Cheeta");
 		m.put("This executor runs build jobs as docker containers on remote machines via <a href='/~administration/agents' target='_blank'>agents</a>", 
 			"Questo executor esegue i lavori di build come container docker su macchine remote tramite <a href='/~administration/agents' target='_blank'>agenti</a>");
 		m.put("This executor runs build jobs as pods in a kubernetes cluster. No any agents are required.<b class='text-danger'>Note:</b> Make sure server url is specified correctly in system settings as job pods need to access it to download source and artifacts", 
 			"Questo executor esegue i lavori di build come pod in un cluster Kubernetes. Non sono richiesti agenti.<b class='text-danger'>Nota:</b> Assicurati che l'URL del server sia specificato correttamente nelle impostazioni di sistema poiché i pod di lavoro devono accedervi per scaricare sorgenti e artefatti");
-		m.put("This executor runs build jobs with OneDev server's shell facility.<br><b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as OneDev server process. Make sure it can only be used by trusted jobs", 
-			"Questo executor esegue lavori di build con la funzionalità shell del server OneDev.<br><b class='text-danger'>ATTENZIONE</b>: I lavori eseguiti con questo executor hanno gli stessi permessi del processo del server OneDev. Assicurati che possa essere utilizzato solo da lavori fidati");
-		m.put("This executor runs build jobs with remote machines's shell facility via <a href='/~administration/agents' target='_blank'>agents</a><br><b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as OneDev agent process. Make sure it can only be used by trusted jobs", 
-			"Questo executor esegue lavori di build con la funzionalità shell di macchine remote tramite <a href='/~administration/agents' target='_blank'>agenti</a><br><b class='text-danger'>ATTENZIONE</b>: I lavori eseguiti con questo executor hanno gli stessi permessi del processo dell'agente OneDev. Assicurati che possa essere utilizzato solo da lavori fidati");
+		m.put("This executor runs build jobs with Cheeta server's shell facility.<br><b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as Cheeta server process. Make sure it can only be used by trusted jobs", 
+			"Questo executor esegue lavori di build con la funzionalità shell del server Cheeta.<br><b class='text-danger'>ATTENZIONE</b>: I lavori eseguiti con questo executor hanno gli stessi permessi del processo del server Cheeta. Assicurati che possa essere utilizzato solo da lavori fidati");
+		m.put("This executor runs build jobs with remote machines's shell facility via <a href='/~administration/agents' target='_blank'>agents</a><br><b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as Cheeta agent process. Make sure it can only be used by trusted jobs", 
+			"Questo executor esegue lavori di build con la funzionalità shell di macchine remote tramite <a href='/~administration/agents' target='_blank'>agenti</a><br><b class='text-danger'>ATTENZIONE</b>: I lavori eseguiti con questo executor hanno gli stessi permessi del processo dell'agente Cheeta. Assicurati che possa essere utilizzato solo da lavori fidati");
 		m.put("This field is required", "Questo campo è obbligatorio");
 		m.put("This filter is used to determine the LDAP entry for current user. For example: <i>(&(uid={0})(objectclass=person))</i>. In this example, <i>{0}</i> represents login name of current user.", 
 			"Questo filtro viene utilizzato per determinare la voce LDAP per l'utente corrente. Ad esempio: <i>(&(uid={0})(objectclass=person))</i>. In questo esempio, <i>{0}</i> rappresenta il nome di login dell'utente corrente.");
-		m.put("This installation does not have an active subscription and runs as community edition. To access <a href=\"https://onedev.io/pricing\">enterprise features</a>, an active subscription is required", 
-			"Questa installazione non ha un abbonamento attivo e funziona come edizione comunitaria. Per accedere alle <a href=\"https://onedev.io/pricing\">funzionalità enterprise</a>, è necessario un abbonamento attivo");
+		m.put("This installation does not have an active subscription and runs as community edition. To access <a href=\"https://cheeta.io/pricing\">enterprise features</a>, an active subscription is required", 
+			"Questa installazione non ha un abbonamento attivo e funziona come edizione comunitaria. Per accedere alle <a href=\"https://cheeta.io/pricing\">funzionalità enterprise</a>, è necessario un abbonamento attivo");
 		m.put("This installation has a trial subscription and is now running as enterprise edition", 
 			"Questa installazione ha un abbonamento di prova ed è attualmente in esecuzione come edizione enterprise");
 		m.put("This installation has an active subscription and runs as enterprise edition", "Questa installazione ha un abbonamento attivo e funziona come edizione enterprise");
@@ -3923,8 +3923,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("This is a layer cache. To use the cache, add below option to your docker buildx command", 
 			"Questo è un cache di livello. Per utilizzare il cache, aggiungi l'opzione seguente al tuo comando docker buildx");
 		m.put("This is a service account for task automation purpose", "Questo è un account di servizio per scopi di automazione delle attività");
-		m.put("This is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"Questa è una funzionalità enterprise. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("This is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"Questa è una funzionalità enterprise. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
 		m.put("This key has already been used by another project", "Questa chiave è già stata utilizzata da un altro progetto");
 		m.put("This key is associated with {0}, however it is NOT a verified email address of this user", 
 			"Questa chiave è associata a {0}, tuttavia NON è un indirizzo email verificato di questo utente");
@@ -3952,8 +3952,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("This name has already been used by another script", "Questo nome è già stato utilizzato da un altro script");
 		m.put("This name has already been used by another state", "Questo nome è già stato utilizzato da un altro stato");
 		m.put("This operation is disallowed by branch protection rule", "Questa operazione è vietata dalla regola di protezione del branch");
-		m.put("This page lists changes since previous build on <a href=\"https://docs.onedev.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">same stream</a>", 
-			"Questa pagina elenca le modifiche rispetto alla build precedente sul <a href=\"https://docs.onedev.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">stesso stream</a>");
+		m.put("This page lists changes since previous build on <a href=\"https://docs.cheeta.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">same stream</a>", 
+			"Questa pagina elenca le modifiche rispetto alla build precedente sul <a href=\"https://docs.cheeta.io/concepts#build-stream\" class=\"link-primary\" target=\"_blank\">stesso stream</a>");
 		m.put("This page lists recent commits fixing the issue", "Questa pagina elenca i commit recenti che risolvono il problema");
 		m.put("This permission enables one to access confidential issues", "Questo permesso consente di accedere ai problemi confidenziali");
 		m.put("This permission enables one to schedule issues into iterations", "Questo permesso consente di pianificare i problemi nelle iterazioni");
@@ -3961,20 +3961,20 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("This pull request has been discarded", "Questa pull request è stata scartata");
 		m.put("This report will be displayed in pull request overview page if build is triggered by pull request", 
 			"Questo report verrà visualizzato nella pagina di panoramica della pull request se la build è attivata dalla pull request");
-		m.put("This server is currently accessed via http protocol, please configure your docker daemon or buildx builder to <a href=\"https://docs.onedev.io/tutorials/cicd/insecure-docker-registry\" target=\"_blank\">work with insecure registry</a>", 
-			"Questo server è attualmente accessibile tramite protocollo http, configura il tuo demone docker o builder buildx per <a href=\"https://docs.onedev.io/tutorials/cicd/insecure-docker-registry\" target=\"_blank\">lavorare con un registro non sicuro</a>");
+		m.put("This server is currently accessed via http protocol, please configure your docker daemon or buildx builder to <a href=\"https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry\" target=\"_blank\">work with insecure registry</a>", 
+			"Questo server è attualmente accessibile tramite protocollo http, configura il tuo demone docker o builder buildx per <a href=\"https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry\" target=\"_blank\">lavorare con un registro non sicuro</a>");
 		m.put("This shows average duration of different states over time", "Questo mostra la durata media dei diversi stati nel tempo");
 		m.put("This shows average duration of merged pull requests over time", "Questo mostra la durata media delle pull request unite nel tempo");
 		m.put("This shows number of <b>new</b> issues in different states over time", "Questo mostra il numero di <b>nuovi</b> problemi in diversi stati nel tempo");
 		m.put("This shows number of issues in various states over time", "Questo mostra il numero di problemi in vari stati nel tempo");
 		m.put("This shows number of open and merged pull requests over time", "Questo mostra il numero di pull request aperte e unite nel tempo");
 		m.put("This step can only be executed by a docker aware executor", "Questo step può essere eseguito solo da un executor compatibile con docker");
-		m.put("This step can only be executed by a docker aware executor. It runs under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
-			"Questo step può essere eseguito solo da un executor compatibile con docker. Viene eseguito sotto <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>workspace del lavoro</a>");
+		m.put("This step can only be executed by a docker aware executor. It runs under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>", 
+			"Questo step può essere eseguito solo da un executor compatibile con docker. Viene eseguito sotto <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>workspace del lavoro</a>");
 		m.put("This step copies files from job workspace to build artifacts directory, so that they can be accessed after job is completed", 
 			"Questo passo copia i file dalla workspace del job alla directory degli artefatti di build, in modo che possano essere accessibili dopo il completamento del job");
-		m.put("This step publishes specified files to be served as project web site. Project web site can be accessed publicly via <code>http://&lt;onedev base url&gt;/path/to/project/~site</code>", 
-			"Questo step pubblica i file specificati per essere serviti come sito web del progetto. Il sito web del progetto può essere accessibile pubblicamente tramite <code>http://&lt;onedev base url&gt;/path/to/project/~site</code>");
+		m.put("This step publishes specified files to be served as project web site. Project web site can be accessed publicly via <code>http://&lt;cheeta base url&gt;/path/to/project/~site</code>", 
+			"Questo step pubblica i file specificati per essere serviti come sito web del progetto. Il sito web del progetto può essere accessibile pubblicamente tramite <code>http://&lt;cheeta base url&gt;/path/to/project/~site</code>");
 		m.put("This step pulls specified refs from remote", "Questo passaggio estrae i ref specificati dal remoto");
 		m.put("This step pushes current commit to same ref on remote", "Questo step spinge il commit corrente allo stesso ref sul remoto");
 		m.put("This step sets up Renovate cache. Place it before Renovate step if you want to use it", 
@@ -3983,10 +3983,10 @@ public class Translation_it extends TranslationResourceBundle {
 			"Questo step configura il cache del database di trivy per velocizzare vari step dello scanner. Posizionalo prima degli step dello scanner se desideri utilizzarlo");
 		m.put("This subscription key was already used", "Questa chiave di abbonamento è già stata utilizzata");
 		m.put("This subscription key was expired", "Questa chiave di abbonamento è scaduta");
-		m.put("This tab shows the pipeline containing current build. Check <a href=\"https://robinshen.medium.com/understanding-onedev-pipeline-db0bb0e54aa7\" target=\"_blank\">this article</a> to understand how build pipeline works", 
-			"Questa scheda mostra la pipeline contenente la build corrente. Consulta <a href=\"https://robinshen.medium.com/understanding-onedev-pipeline-db0bb0e54aa7\" target=\"_blank\">questo articolo</a> per capire come funziona la pipeline di build");
-		m.put("This trigger will only be applicable if tagged commit is reachable from branches specified here. Multiple branches should be separated with spaces. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
-			"Questo trigger sarà applicabile solo se il commit taggato è raggiungibile dai branch specificati qui. I branch multipli devono essere separati da spazi. Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>corrispondenza con caratteri jolly</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i branch");
+		m.put("This tab shows the pipeline containing current build. Check <a href=\"https://robinshen.medium.com/understanding-cheeta-pipeline-db0bb0e54aa7\" target=\"_blank\">this article</a> to understand how build pipeline works", 
+			"Questa scheda mostra la pipeline contenente la build corrente. Consulta <a href=\"https://robinshen.medium.com/understanding-cheeta-pipeline-db0bb0e54aa7\" target=\"_blank\">questo articolo</a> per capire come funziona la pipeline di build");
+		m.put("This trigger will only be applicable if tagged commit is reachable from branches specified here. Multiple branches should be separated with spaces. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude. Leave empty to match all branches", 
+			"Questo trigger sarà applicabile solo se il commit taggato è raggiungibile dai branch specificati qui. I branch multipli devono essere separati da spazi. Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>corrispondenza con caratteri jolly</a>. Prefissa con '-' per escludere. Lascia vuoto per corrispondere a tutti i branch");
 		m.put("This user is authenticating via external system.", "Questo utente si sta autenticando tramite sistema esterno.");
 		m.put("This user is authenticating via internal database.", "Questo utente si sta autenticando tramite database interno.");
 		m.put("This user is currently authenticating via external system. Setting password will switch to use internal database", 
@@ -4067,8 +4067,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Two-factor Authentication", "Autenticazione a due fattori");
 		m.put("Two-factor authentication already set up. <a wicket:id=\"requestToSetupAgain\"><wicket:t>Request to set up again", 
 			"Autenticazione a due fattori già configurata. <a wicket:id=\"requestToSetupAgain\"><wicket:t>Richiedi di configurare di nuovo");
-		m.put("Two-factor authentication is enabled. Please input passcode displayed on your TOTP authenticator. If you encounter problems, make sure time of OneDev server and your device running TOTP authenticator is in sync", 
-			"L'autenticazione a due fattori è abilitata. Inserisci il codice visualizzato sul tuo autenticatore TOTP. Se riscontri problemi, assicurati che l'orario del server OneDev e del tuo dispositivo con l'autenticatore TOTP siano sincronizzati");
+		m.put("Two-factor authentication is enabled. Please input passcode displayed on your TOTP authenticator. If you encounter problems, make sure time of Cheeta server and your device running TOTP authenticator is in sync", 
+			"L'autenticazione a due fattori è abilitata. Inserisci il codice visualizzato sul tuo autenticatore TOTP. Se riscontri problemi, assicurati che l'orario del server Cheeta e del tuo dispositivo con l'autenticatore TOTP siano sincronizzati");
 		m.put("Two-factor authentication is enforced for your account to enhance security. Please follow below procedure to set it up", 
 			"L'autenticazione a due fattori è obbligatoria per il tuo account per migliorare la sicurezza. Segui la procedura qui sotto per configurarla");
 		m.put("Two-factor authentication is now configured", "L'autenticazione a due fattori è ora configurata");
@@ -4193,12 +4193,12 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Url", "Url");
 		m.put("Use '*' for wildcard match", "Usa '*' per la corrispondenza wildcard");
 		m.put("Use '*' or '?' for wildcard match. Prefix with '-' to exclude", "Usa '*' o '?' per la corrispondenza wildcard. Prefisso con '-' per escludere");
-		m.put("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>", 
-			"Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza wildcard del percorso</a>");
-		m.put("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
-			"Usa '**', '*' o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza wildcard del percorso</a>. Prefisso con '-' per escludere");
-		m.put("Use '**', '*', or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>", 
-			"Usa '**', '*', o '?' per <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>la corrispondenza wildcard del percorso</a>");
+		m.put("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>", 
+			"Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza wildcard del percorso</a>");
+		m.put("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude", 
+			"Usa '**', '*' o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza wildcard del percorso</a>. Prefisso con '-' per escludere");
+		m.put("Use '**', '*', or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>", 
+			"Usa '**', '*', o '?' per <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>la corrispondenza wildcard del percorso</a>");
 		m.put("Use '\\' to escape brackets", "Usa '\\' per escludere parentesi");
 		m.put("Use '\\' to escape quotes", "Usa '\\' per escludere virgolette");
 		m.put("Use @@ to reference scope in job commands to avoid being interpreted as variable", "Usa @@ per fare riferimento all'ambito nei comandi di lavoro per evitare che venga interpretato come variabile");
@@ -4214,12 +4214,12 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Use curl in System Path", "Usa curl nel percorso di sistema");
 		m.put("Use default", "Usa predefinito");
 		m.put("Use default storage class", "Usa la classe di archiviazione predefinita");
-		m.put("Use job token as user name so that OneDev can know which build is ${permission.equals(\"write\")? \"deploying\": \"using\"} packages", 
-			"Usa il token di lavoro come nome utente in modo che OneDev possa sapere quale build sta ${permission.equals(\"write\")? \"distribuendo\": \"utilizzando\"} i pacchetti");
-		m.put("Use job token to tell OneDev the build publishing the package", "Usa il token di lavoro per dire a OneDev la build che pubblica il pacchetto");
-		m.put("Use job token to tell OneDev the build pushing the chart", "Usa il token di lavoro per dire a OneDev la build che spinge il grafico");
-		m.put("Use job token to tell OneDev the build pushing the package", "Usa il token di lavoro per dire a OneDev la build che spinge il pacchetto");
-		m.put("Use job token to tell OneDev the build using the package", "Usa il token di lavoro per dire a OneDev la build che utilizza il pacchetto");
+		m.put("Use job token as user name so that Cheeta can know which build is ${permission.equals(\"write\")? \"deploying\": \"using\"} packages", 
+			"Usa il token di lavoro come nome utente in modo che Cheeta possa sapere quale build sta ${permission.equals(\"write\")? \"distribuendo\": \"utilizzando\"} i pacchetti");
+		m.put("Use job token to tell Cheeta the build publishing the package", "Usa il token di lavoro per dire a Cheeta la build che pubblica il pacchetto");
+		m.put("Use job token to tell Cheeta the build pushing the chart", "Usa il token di lavoro per dire a Cheeta la build che spinge il grafico");
+		m.put("Use job token to tell Cheeta the build pushing the package", "Usa il token di lavoro per dire a Cheeta la build che spinge il pacchetto");
+		m.put("Use job token to tell Cheeta the build using the package", "Usa il token di lavoro per dire a Cheeta la build che utilizza il pacchetto");
 		m.put("Use project dependency to retrieve artifacts from other projects", "Usa la dipendenza del progetto per recuperare artefatti da altri progetti");
 		m.put("Use specified choices", "Usa le scelte specificate");
 		m.put("Use specified default value", "Usa il valore predefinito specificato");
@@ -4311,8 +4311,8 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("When determine if the user is author/committer of a git commit, all emails listed here will be checked", 
 			"Quando si determina se l'utente è autore/committente di un commit git, tutte le email elencate qui saranno verificate");
 		m.put("When evaluating this template, below variables will be available:", "Quando si valuta questo template, le variabili sottostanti saranno disponibili:");
-		m.put("When login via OneDev's built-in form, submitted user credentials can be checked against authenticator defined here, besides the internal database", 
-			"Quando si accede tramite il modulo integrato di OneDev, le credenziali utente inviate possono essere verificate contro l'autenticatore definito qui, oltre al database interno");
+		m.put("When login via Cheeta's built-in form, submitted user credentials can be checked against authenticator defined here, besides the internal database", 
+			"Quando si accede tramite il modulo integrato di Cheeta, le credenziali utente inviate possono essere verificate contro l'autenticatore definito qui, oltre al database interno");
 		m.put("When target branch of a pull request has new commits, merge commit of the pull request will be recalculated, and this option tells whether or not to accept pull request builds ran on previous merged commit. If enabled, you will need to re-run required builds on the new merge commit. This setting takes effect only when required builds are specified", 
 			"Quando il branch di destinazione di una richiesta di pull ha nuovi commit, il commit di merge della richiesta di pull sarà ricalcolato, e questa opzione indica se accettare o meno le build della richiesta di pull eseguite sul commit di merge precedente. Se abilitato, sarà necessario rieseguire le build richieste sul nuovo commit di merge. Questa impostazione ha effetto solo quando sono specificate build richieste");
 		m.put("When this work starts", "Quando inizia questo lavoro");
@@ -4341,14 +4341,14 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Whether or not to be able to access time tracking info of issues", "Se essere in grado di accedere alle informazioni di tracciamento del tempo dei problemi o meno");
 		m.put("Whether or not to create as a service account for task automation purpose. Service account does not have password and email addresses, and will not generate notifications for its activities", 
 			"Se creare come account di servizio per scopi di automazione delle attività o meno. L'account di servizio non ha password e indirizzi email, e non genererà notifiche per le sue attività");
-		m.put("Whether or not to create as a service account for task automation purpose. Service account does not have password and email addresses, and will not generate notifications for its activities. <b class='text-warning'>NOTE:</b> Service account is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days", 
-			"Se creare come account di servizio per scopi di automazione delle attività o meno. L'account di servizio non ha password e indirizzi email, e non genererà notifiche per le sue attività. <b class='text-warning'>NOTA:</b> L'account di servizio è una funzionalità aziendale. <a href='https://onedev.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
+		m.put("Whether or not to create as a service account for task automation purpose. Service account does not have password and email addresses, and will not generate notifications for its activities. <b class='text-warning'>NOTE:</b> Service account is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days", 
+			"Se creare come account di servizio per scopi di automazione delle attività o meno. L'account di servizio non ha password e indirizzi email, e non genererà notifiche per le sue attività. <b class='text-warning'>NOTA:</b> L'account di servizio è una funzionalità aziendale. <a href='https://cheeta.io/pricing' target='_blank'>Prova gratis</a> per 30 giorni");
 		m.put("Whether or not to enable code management for the project", "Se abilitare la gestione del codice per il progetto o meno");
 		m.put("Whether or not to enable issue management for the project", "Se abilitare la gestione dei problemi per il progetto o meno");
 		m.put("Whether or not to fetch LFS objects if pull request is opened from a different project.", 
 			"Se recuperare oggetti LFS se la richiesta di pull è aperta da un progetto diverso o meno");
-		m.put("Whether or not to fetch LFS objects if pull request is opened from a different project. If this option is enabled, git lfs command needs to be installed on OneDev server", 
-			"Se recuperare oggetti LFS se la richiesta di pull è aperta da un progetto diverso o meno. Se questa opzione è abilitata, il comando git lfs deve essere installato sul server OneDev");
+		m.put("Whether or not to fetch LFS objects if pull request is opened from a different project. If this option is enabled, git lfs command needs to be installed on Cheeta server", 
+			"Se recuperare oggetti LFS se la richiesta di pull è aperta da un progetto diverso o meno. Se questa opzione è abilitata, il comando git lfs deve essere installato sul server Cheeta");
 		m.put("Whether or not to import forked Bitbucket repositories", "Se importare repository Bitbucket forkati o meno");
 		m.put("Whether or not to import forked GitHub repositories", "Se importare repository GitHub forkati o meno");
 		m.put("Whether or not to import forked GitLab projects", "Se importare progetti GitLab forkati o meno");
@@ -4357,15 +4357,15 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Whether or not to include this field when issue is initially opened. If not, you may include this field later when issue is transited to other states via issue transition rule", 
 			"Se includere questo campo quando il problema è inizialmente aperto o meno. In caso contrario, puoi includere questo campo successivamente quando il problema viene transitato ad altri stati tramite regola di transizione del problema");
 		m.put("Whether or not to input and display estimated/spent time in hours/minutes only", "Se inserire e visualizzare il tempo stimato/speso solo in ore/minuti o meno");
-		m.put("Whether or not to mount docker sock into job container to support docker operations in job commands<br><b class='text-danger'>WARNING</b>: Malicious jobs can take control of whole OneDev by operating the mounted docker sock. Make sure this executor can only be used by trusted jobs if this option is enabled", 
-			"Se montare o meno il socket docker nel container del lavoro per supportare le operazioni docker nei comandi del lavoro<br><b class='text-danger'>ATTENZIONE</b>: I lavori dannosi possono prendere il controllo dell'intero OneDev operando sul socket docker montato. Assicurati che questo executor possa essere utilizzato solo da lavori fidati se questa opzione è abilitata");
+		m.put("Whether or not to mount docker sock into job container to support docker operations in job commands<br><b class='text-danger'>WARNING</b>: Malicious jobs can take control of whole Cheeta by operating the mounted docker sock. Make sure this executor can only be used by trusted jobs if this option is enabled", 
+			"Se montare o meno il socket docker nel container del lavoro per supportare le operazioni docker nei comandi del lavoro<br><b class='text-danger'>ATTENZIONE</b>: I lavori dannosi possono prendere il controllo dell'intero Cheeta operando sul socket docker montato. Assicurati che questo executor possa essere utilizzato solo da lavori fidati se questa opzione è abilitata");
 		m.put("Whether or not to pre-populate tag mappings in next page. You may want to disable this if there are too many tags to display", 
 			"Se pre-popolare le mappature dei tag nella pagina successiva o meno. Potresti voler disabilitare questo se ci sono troppi tag da visualizzare");
 		m.put("Whether or not to require this dependency to be successful", "Se richiedere che questa dipendenza abbia successo o meno");
 		m.put("Whether or not to retrieve groups of login user. Make sure to add groups claim via token configuration of the app registered in Entra ID if this option is enabled. The groups claim should return group id (the default option) via various token types in this case", 
 			"Se recuperare i gruppi dell'utente di login o meno. Assicurati di aggiungere il claim dei gruppi tramite la configurazione del token dell'app registrata in Entra ID se questa opzione è abilitata. Il claim dei gruppi dovrebbe restituire l'id del gruppo (l'opzione predefinita) tramite vari tipi di token in questo caso");
-		m.put("Whether or not to retrieve submodules. Refer to <a href='https://docs.onedev.io/tutorials/cicd/clone-submodules' target='_blank'>this tutorial</a> on how to set up clone credential above to retrieve submodules", 
-			"Se recuperare i sottomoduli o meno. Consulta <a href='https://docs.onedev.io/tutorials/cicd/clone-submodules' target='_blank'>questo tutorial</a> su come configurare le credenziali di clone sopra per recuperare i sottomoduli");
+		m.put("Whether or not to retrieve submodules. Refer to <a href='https://docs.cheeta.io/tutorials/cicd/clone-submodules' target='_blank'>this tutorial</a> on how to set up clone credential above to retrieve submodules", 
+			"Se recuperare i sottomoduli o meno. Consulta <a href='https://docs.cheeta.io/tutorials/cicd/clone-submodules' target='_blank'>questo tutorial</a> su come configurare le credenziali di clone sopra per recuperare i sottomoduli");
 		m.put("Whether or not to run this step inside container", "Se eseguire questo passaggio all'interno del container o meno");
 		m.put("Whether or not to scan recursively in above paths", "Se eseguire la scansione ricorsiva nei percorsi sopra o meno");
 		m.put("Whether or not to send notifications for events generated by yourself", "Se inviare notifiche per eventi generati da te stesso o meno");
@@ -4420,7 +4420,7 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("Your email address is now verified", "Il tuo indirizzo email è ora verificato");
 		m.put("Your primary email address is not verified", "Il tuo indirizzo email principale non è verificato");
 		m.put("[Any state]", "[Qualsiasi stato]");
-		m.put("[Reset Password] Please Reset Your OneDev Password", "[Reset Password] Per favore reimposta la tua password di OneDev");
+		m.put("[Reset Password] Please Reset Your Cheeta Password", "[Reset Password] Per favore reimposta la tua password di Cheeta");
 		m.put("a boolean indiciating whether or not topic comment can be created directly by replying the email", 
 			"un booleano che indica se il commento del topic può essere creato direttamente rispondendo all'email");
 		m.put("a new agent token will be generated each time this button is pressed", "un nuovo token agente sarà generato ogni volta che questo pulsante viene premuto");
@@ -4430,10 +4430,10 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("access [{0}]", "accesso [{0}]");
 		m.put("active", "attivo");
 		m.put("add another order", "aggiungi un altro ordine");
-		m.put("adding .onedev-buildspec.yml", "aggiungendo .onedev-buildspec.yml");
+		m.put("adding .cheeta-buildspec.yml", "aggiungendo .cheeta-buildspec.yml");
 		m.put("after specified date", "dopo la data specificata");
-		m.put("an <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/notification/Unsubscribable.java' target='_blank'>object</a> holding unsubscribe information.  A <code>null</code> value means that the notification can not be unsubscribed", 
-			"un <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/notification/Unsubscribable.java' target='_blank'>oggetto</a> che contiene informazioni di disiscrizione. Un valore <code>null</code> significa che la notifica non può essere disiscritta");
+		m.put("an <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/notification/Unsubscribable.java' target='_blank'>object</a> holding unsubscribe information.  A <code>null</code> value means that the notification can not be unsubscribed", 
+			"un <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/notification/Unsubscribable.java' target='_blank'>oggetto</a> che contiene informazioni di disiscrizione. Un valore <code>null</code> significa che la notifica non può essere disiscritta");
 		m.put("and more", "e altro");
 		m.put("archived", "archiviato");
 		m.put("artifacts", "artefatti");
@@ -4570,26 +4570,26 @@ public class Translation_it extends TranslationResourceBundle {
 		m.put("pull requests", "pull request");
 		m.put("reconciliation (need administrator permission)", "riconciliazione (richiede permessi di amministratore)");
 		m.put("reports", "report");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Build.java' target='_blank'>build</a> object to be notified", 
-			"rappresenta l'oggetto <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Build.java' target='_blank'>build</a> da notificare");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>issue</a> being opened via service desk", 
-			"rappresenta il <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>problema</a> aperto tramite il service desk");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>issue</a> object to be notified", 
-			"rappresenta l'oggetto <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>problema</a> da notificare");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Pack.java' target='_blank'>package</a> object to be notified", 
-			"rappresenta l'oggetto <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Pack.java' target='_blank'>pacchetto</a> da notificare");
-		m.put("represents the <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/PullRequest.java' target='_blank'>pull request</a> object to be notified", 
-			"rappresenta l'oggetto <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/PullRequest.java' target='_blank'>pull request</a> da notificare");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Build.java' target='_blank'>build</a> object to be notified", 
+			"rappresenta l'oggetto <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Build.java' target='_blank'>build</a> da notificare");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>issue</a> being opened via service desk", 
+			"rappresenta il <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>problema</a> aperto tramite il service desk");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>issue</a> object to be notified", 
+			"rappresenta l'oggetto <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>problema</a> da notificare");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Pack.java' target='_blank'>package</a> object to be notified", 
+			"rappresenta l'oggetto <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Pack.java' target='_blank'>pacchetto</a> da notificare");
+		m.put("represents the <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/PullRequest.java' target='_blank'>pull request</a> object to be notified", 
+			"rappresenta l'oggetto <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/PullRequest.java' target='_blank'>pull request</a> da notificare");
 		m.put("represents the <a href='https://javadoc.io/static/org.eclipse.jgit/org.eclipse.jgit/5.13.0.202109080827-r/org/eclipse/jgit/revwalk/RevCommit.html' target='_blank'>commit</a> object to be notified", 
 			"rappresenta l'oggetto <a href='https://javadoc.io/static/org.eclipse.jgit/org.eclipse.jgit/5.13.0.202109080827-r/org/eclipse/jgit/revwalk/RevCommit.html' target='_blank'>commit</a> da notificare");
 		m.put("represents the exception encountered when open issue via service desk", "rappresenta l'eccezione incontrata durante l'apertura del problema tramite il service desk");
-		m.put("represents the unsubscribed <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>issue</a>", 
-			"rappresenta il <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Issue.java' target='_blank'>problema</a> non sottoscritto");
-		m.put("represents the unsubscribed <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/PullRequest.java' target='_blank'>pull request</a>", 
-			"rappresenta la <a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/PullRequest.java' target='_blank'>pull request</a> non sottoscritta");
+		m.put("represents the unsubscribed <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>issue</a>", 
+			"rappresenta il <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Issue.java' target='_blank'>problema</a> non sottoscritto");
+		m.put("represents the unsubscribed <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/PullRequest.java' target='_blank'>pull request</a>", 
+			"rappresenta la <a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/PullRequest.java' target='_blank'>pull request</a> non sottoscritta");
 		m.put("request to change", "richiesta di modifica");
 		m.put("root", "radice");
-		m.put("root url of OneDev server", "url radice del server OneDev");
+		m.put("root url of Cheeta server", "url radice del server Cheeta");
 		m.put("run job", "esegui lavoro");
 		m.put("search in this revision will be accurate after indexed", "la ricerca in questa revisione sarà accurata dopo l'indicizzazione");
 		m.put("service", "servizio");

@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.diff;
+package io.cheeta.server.web.component.diff;
 
 import org.jspecify.annotations.Nullable;
 
 import org.apache.tika.mime.MediaType;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.server.git.BlobChange;
-import io.onedev.server.web.component.diff.revision.DiffViewMode;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.server.git.BlobChange;
+import io.cheeta.server.web.component.diff.revision.DiffViewMode;
 
 @ExtensionPoint
 public interface DiffRenderer {

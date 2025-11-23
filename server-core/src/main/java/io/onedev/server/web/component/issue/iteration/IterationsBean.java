@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.issue.iteration;
+package io.cheeta.server.web.component.issue.iteration;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.IterationChoice;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.IterationChoice;
 
 import java.io.Serializable;
 import java.util.List;

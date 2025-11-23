@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.codecomment;
+package io.cheeta.server.search.entity.codecomment;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -9,11 +9,11 @@ import javax.persistence.criteria.Predicate;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class OnCommitCriteria extends Criteria<CodeComment>  {
 

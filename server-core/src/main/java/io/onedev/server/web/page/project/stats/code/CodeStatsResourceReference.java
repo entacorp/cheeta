@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.stats.code;
+package io.cheeta.server.web.page.project.stats.code;
 
-import io.onedev.server.web.asset.doneevents.DoneEventsResourceReference;
-import io.onedev.server.web.asset.echarts.EChartsResourceReference;
-import io.onedev.server.web.asset.hover.HoverResourceReference;
-import io.onedev.server.web.asset.jsjoda.JsJodaResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.doneevents.DoneEventsResourceReference;
+import io.cheeta.server.web.asset.echarts.EChartsResourceReference;
+import io.cheeta.server.web.asset.hover.HoverResourceReference;
+import io.cheeta.server.web.asset.jsjoda.JsJodaResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;

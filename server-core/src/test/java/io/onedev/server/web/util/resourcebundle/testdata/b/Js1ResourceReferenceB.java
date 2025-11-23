@@ -1,8 +1,8 @@
-package io.onedev.server.web.util.resourcebundle.testdata.b;
+package io.cheeta.server.web.util.resourcebundle.testdata.b;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-import io.onedev.server.web.resourcebundle.ResourceBundle;
+import io.cheeta.server.web.resourcebundle.ResourceBundle;
 
 @ResourceBundle
 public class Js1ResourceReferenceB extends JavaScriptResourceReference {

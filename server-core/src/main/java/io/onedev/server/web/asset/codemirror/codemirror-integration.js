@@ -1,4 +1,4 @@
-onedev.server.codemirror = {
+cheeta.server.codemirror = {
 	clearMark: function(cm) {
 		var marks = cm.getAllMarks();
 		for (var i=0; i<marks.length; i++)  {
@@ -9,7 +9,7 @@ onedev.server.codemirror = {
     	cm.setCursor(cm.getCursor("from"));
 	},
 	mark: function(cm, range) {
-        onedev.server.codemirror.clearMark(cm);
+        cheeta.server.codemirror.clearMark(cm);
 		if (Array.isArray(range)) {
 			for (var i in range) {
 				cm.markText(
@@ -29,7 +29,7 @@ onedev.server.codemirror = {
 		cm.scrollTo(null, top - 50); 			
 	},
 	highlightSyntax: function(text, modeInfo, highlighted, startCallback, stopCallback) {
-		var modeMime = onedev.server.codemirror.getModeMime(modeInfo);
+		var modeMime = cheeta.server.codemirror.getModeMime(modeInfo);
 		if (!CodeMirror.modes.hasOwnProperty(modeInfo.mode)) {
 			CodeMirror.requireMode(modeInfo.mode, function() {
 				if (startCallback)
@@ -53,7 +53,7 @@ onedev.server.codemirror = {
 			return CodeMirror.findModeByName("jsx");
 		else if (fileName.endsWith(".ld") || fileName.endsWith(".asm")) 
 			return CodeMirror.findModeByName("gas");			
-		else if (fileName == ".onedev-buildspec") 
+		else if (fileName == ".cheeta-buildspec") 
 			return CodeMirror.findModeByName("xml");			
 		else 
 		    return CodeMirror.findModeByFileName(fileName);
@@ -64,12 +64,12 @@ onedev.server.codemirror = {
 	setModeByName: function(cm, modeName) {
 	    var modeInfo = CodeMirror.findModeByName(modeName);
         if (modeInfo) 
-            onedev.server.codemirror.setMode(cm, modeInfo);
+            cheeta.server.codemirror.setMode(cm, modeInfo);
 	},
 	setModeByFileName: function(cm, fileName) {
-		var modeInfo = onedev.server.codemirror.findModeByFileName(fileName);
+		var modeInfo = cheeta.server.codemirror.findModeByFileName(fileName);
 		if (modeInfo)
-			onedev.server.codemirror.setMode(cm, modeInfo);
+			cheeta.server.codemirror.setMode(cm, modeInfo);
 	},
 	getModeMime: function(modeInfo) {
         if (modeInfo.mode === "gfm")
@@ -78,7 +78,7 @@ onedev.server.codemirror = {
             return modeInfo.mime;
 	},
 	setMode: function(cm, modeInfo) {
-		var modeMime = onedev.server.codemirror.getModeMime(modeInfo);
+		var modeMime = cheeta.server.codemirror.getModeMime(modeInfo);
 		if (!CodeMirror.modes.hasOwnProperty(modeInfo.mode)) {
 			CodeMirror.requireMode(modeInfo.mode, function() {
 		    	cm.setOption("mode", modeMime);
@@ -118,7 +118,7 @@ onedev.server.codemirror = {
 				}
 	        }
 		});
-		if (onedev.server.util.isMac()) {
+		if (cheeta.server.util.isMac()) {
 		    CodeMirror.keyMap.default["Cmd-L"] = "gotoLine";
 		} else {
 		    CodeMirror.keyMap.default["Ctrl-L"] = "gotoLine";
@@ -187,7 +187,7 @@ onedev.server.codemirror = {
 					return false;
 				}
 			}
-			if (onedev.server.util.isMac()) {
+			if (cheeta.server.util.isMac()) {
 				$(document).bind("keydown", "Meta+f", find);
 				$(document).bind("keydown", "Meta+g", findNext);
 				$(document).bind("keydown", "Meta+Shift+g", findPrev);
@@ -222,4 +222,4 @@ $(document).on("beforeElementReplace", function(event, componentId) {
 	});
 });
 
-CodeMirror.modeURL = '/wicket/resource/io.onedev.server.web.asset.codemirror.codemirrorresourcereference/mode/%N/%N.js';
+CodeMirror.modeURL = '/wicket/resource/io.cheeta.server.web.asset.codemirror.codemirrorresourcereference/mode/%N/%N.js';

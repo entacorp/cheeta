@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.comment;
+package io.cheeta.server.web.component.comment;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ import org.apache.wicket.markup.html.panel.Panel;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.support.CommentRevision;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.diff.DiffRenderer;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.web.asset.diff.DiffResourceReference;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.support.CommentRevision;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.diff.DiffRenderer;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.web.asset.diff.DiffResourceReference;
 
 abstract class CommentRevisionPanel extends Panel {
 

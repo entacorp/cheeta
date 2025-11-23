@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.project.pullrequests.detail;
+package io.cheeta.server.web.page.project.pullrequests.detail;
 
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT_IF_NECESSARY;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.REBASE_SOURCE_BRANCH_COMMITS;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.SQUASH_SOURCE_BRANCH_COMMITS;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT_IF_NECESSARY;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.REBASE_SOURCE_BRANCH_COMMITS;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.SQUASH_SOURCE_BRANCH_COMMITS;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
 import java.io.Serializable;
@@ -66,114 +66,114 @@ import org.jetbrains.annotations.Nullable;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.PullRequestAssignmentService;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.service.PullRequestLabelService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.PullRequestReactionService;
-import io.onedev.server.service.PullRequestReviewService;
-import io.onedev.server.service.PullRequestWatchService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.entityreference.EntityReference;
-import io.onedev.server.entityreference.LinkTransformer;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestAssignment;
-import io.onedev.server.model.PullRequestLabel;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.model.PullRequestWatch;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CommentRevision;
-import io.onedev.server.model.support.EntityReaction;
-import io.onedev.server.model.support.EntityWatch;
-import io.onedev.server.model.support.code.BuildRequirement;
-import io.onedev.server.model.support.pullrequest.AutoMerge;
-import io.onedev.server.model.support.pullrequest.MergePreview;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.ReferenceInputBehavior;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.branch.BranchLink;
-import io.onedev.server.web.component.comment.CommentHistoryLink;
-import io.onedev.server.web.component.comment.CommentPanel;
-import io.onedev.server.web.component.comment.ReactionSupport;
-import io.onedev.server.web.component.entity.labels.EntityLabelsPanel;
-import io.onedev.server.web.component.entity.nav.EntityNavPanel;
-import io.onedev.server.web.component.entity.reference.EntityReferencePanel;
-import io.onedev.server.web.component.entity.watches.EntityWatchesPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.job.RunJobLink;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.markdown.ContentVersionSupport;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.component.project.gitprotocol.GitProtocolPanel;
-import io.onedev.server.web.component.pullrequest.assignment.AssignmentListPanel;
-import io.onedev.server.web.component.pullrequest.build.PullRequestJobsPanel;
-import io.onedev.server.web.component.pullrequest.review.ReviewListPanel;
-import io.onedev.server.web.component.sideinfo.SideInfoLink;
-import io.onedev.server.web.component.sideinfo.SideInfoPanel;
-import io.onedev.server.web.component.tabbable.PageTab;
-import io.onedev.server.web.component.tabbable.PageTabHead;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.editable.InplacePropertyEditLink;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.page.project.compare.RevisionComparePage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.pullrequests.InvalidPullRequestPage;
-import io.onedev.server.web.page.project.pullrequests.ProjectPullRequestsPage;
-import io.onedev.server.web.page.project.pullrequests.create.NewPullRequestPage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
-import io.onedev.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
-import io.onedev.server.web.page.project.pullrequests.detail.codecomments.PullRequestCodeCommentsPage;
-import io.onedev.server.web.page.project.pullrequests.detail.operationdlg.MergePullRequestOptionPanel;
-import io.onedev.server.web.page.project.pullrequests.detail.operationdlg.OperationCommentPanel;
-import io.onedev.server.web.util.ConfirmClickModifier;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.CursorSupport;
-import io.onedev.server.web.util.DeleteCallback;
-import io.onedev.server.web.util.PullRequestAware;
-import io.onedev.server.web.util.TextUtils;
-import io.onedev.server.web.util.editbean.CommitMessageBean;
-import io.onedev.server.web.util.editbean.LabelsBean;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.PullRequestAssignmentService;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.service.PullRequestLabelService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.PullRequestReactionService;
+import io.cheeta.server.service.PullRequestReviewService;
+import io.cheeta.server.service.PullRequestWatchService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.entityreference.EntityReference;
+import io.cheeta.server.entityreference.LinkTransformer;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestAssignment;
+import io.cheeta.server.model.PullRequestLabel;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.model.PullRequestWatch;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CommentRevision;
+import io.cheeta.server.model.support.EntityReaction;
+import io.cheeta.server.model.support.EntityWatch;
+import io.cheeta.server.model.support.code.BuildRequirement;
+import io.cheeta.server.model.support.pullrequest.AutoMerge;
+import io.cheeta.server.model.support.pullrequest.MergePreview;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.ReferenceInputBehavior;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.branch.BranchLink;
+import io.cheeta.server.web.component.comment.CommentHistoryLink;
+import io.cheeta.server.web.component.comment.CommentPanel;
+import io.cheeta.server.web.component.comment.ReactionSupport;
+import io.cheeta.server.web.component.entity.labels.EntityLabelsPanel;
+import io.cheeta.server.web.component.entity.nav.EntityNavPanel;
+import io.cheeta.server.web.component.entity.reference.EntityReferencePanel;
+import io.cheeta.server.web.component.entity.watches.EntityWatchesPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.job.RunJobLink;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.markdown.ContentVersionSupport;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.component.project.gitprotocol.GitProtocolPanel;
+import io.cheeta.server.web.component.pullrequest.assignment.AssignmentListPanel;
+import io.cheeta.server.web.component.pullrequest.build.PullRequestJobsPanel;
+import io.cheeta.server.web.component.pullrequest.review.ReviewListPanel;
+import io.cheeta.server.web.component.sideinfo.SideInfoLink;
+import io.cheeta.server.web.component.sideinfo.SideInfoPanel;
+import io.cheeta.server.web.component.tabbable.PageTab;
+import io.cheeta.server.web.component.tabbable.PageTabHead;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.editable.InplacePropertyEditLink;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.compare.RevisionComparePage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.pullrequests.InvalidPullRequestPage;
+import io.cheeta.server.web.page.project.pullrequests.ProjectPullRequestsPage;
+import io.cheeta.server.web.page.project.pullrequests.create.NewPullRequestPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.codecomments.PullRequestCodeCommentsPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.operationdlg.MergePullRequestOptionPanel;
+import io.cheeta.server.web.page.project.pullrequests.detail.operationdlg.OperationCommentPanel;
+import io.cheeta.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.CursorSupport;
+import io.cheeta.server.web.util.DeleteCallback;
+import io.cheeta.server.web.util.PullRequestAware;
+import io.cheeta.server.web.util.TextUtils;
+import io.cheeta.server.web.util.editbean.CommitMessageBean;
+import io.cheeta.server.web.util.editbean.LabelsBean;
+import io.cheeta.server.xodus.VisitInfoService;
 
 public abstract class PullRequestDetailPage extends ProjectPage implements PullRequestAware {
 
 	public static final String PARAM_REQUEST = "request";
 
-	private static final String KEY_SCROLL_TOP = "onedev.pullRequest.scrollTop";
+	private static final String KEY_SCROLL_TOP = "cheeta.pullRequest.scrollTop";
 
 	protected final IModel<PullRequest> requestModel;
 
@@ -226,19 +226,19 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 	}
 
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 
 	private PullRequestService getPullRequestService() {
-		return OneDev.getInstance(PullRequestService.class);
+		return Cheeta.getInstance(PullRequestService.class);
 	}
 
 	private PullRequestReviewService getPullRequestReviewService() {
-		return OneDev.getInstance(PullRequestReviewService.class);
+		return Cheeta.getInstance(PullRequestReviewService.class);
 	}
 
 	private PullRequestChangeService getPullRequestChangeService() {
-		return OneDev.getInstance(PullRequestChangeService.class);
+		return Cheeta.getInstance(PullRequestChangeService.class);
 	}
 
 	private WebMarkupContainer newRequestHead() {
@@ -340,7 +340,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 				super.onSubmit(target, form);
 
 				var user = SecurityUtils.getUser();
-				OneDev.getInstance(PullRequestChangeService.class).changeTitle(user, getPullRequest(), title);
+				Cheeta.getInstance(PullRequestChangeService.class).changeTitle(user, getPullRequest(), title);
 				notifyPullRequestChange(target);
 				isEditingTitle = false;
 
@@ -385,7 +385,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				response.render(OnDomReadyHeaderItem.forScript("onedev.server.pullRequestDetail.onSummaryDomReady();"));
+				response.render(OnDomReadyHeaderItem.forScript("cheeta.server.pullRequestDetail.onSummaryDomReady();"));
 			}
 
 		};
@@ -919,7 +919,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 			@Override
 			public void onEndRequest(RequestCycle cycle) {
 				if (SecurityUtils.getAuthUser() != null)
-					OneDev.getInstance(VisitInfoService.class).visitPullRequest(SecurityUtils.getAuthUser(), getPullRequest());
+					Cheeta.getInstance(VisitInfoService.class).visitPullRequest(SecurityUtils.getAuthUser(), getPullRequest());
 			}
 
 		});
@@ -980,7 +980,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 											@Override
 											public void onClick(AjaxRequestTarget target) {
 												var user = SecurityUtils.getUser();
-												OneDev.getInstance(PullRequestChangeService.class).changeTargetBranch(user, getPullRequest(), branch);
+												Cheeta.getInstance(PullRequestChangeService.class).changeTargetBranch(user, getPullRequest(), branch);
 												notifyPullRequestChange(target);
 												dropdown.close();
 											}
@@ -1087,7 +1087,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 						var assignment = new PullRequestAssignment();
 						assignment.setRequest(getPullRequest());
 						assignment.setUser(SecurityUtils.getUser());
-						OneDev.getInstance(PullRequestAssignmentService.class).create(assignment);
+						Cheeta.getInstance(PullRequestAssignmentService.class).create(assignment);
 						((BasePage)getPage()).notifyObservableChange(target,
 								PullRequest.getChangeObservable(getPullRequest().getId()));
 					}
@@ -1137,7 +1137,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 						@Override
 						protected void onUpdated(IPartialPageRequestHandler handler, Serializable bean, String propertyName) {
 							LabelsBean labelsBean = (LabelsBean) bean;
-							OneDev.getInstance(PullRequestLabelService.class).sync(getPullRequest(), labelsBean.getLabels());
+							Cheeta.getInstance(PullRequestLabelService.class).sync(getPullRequest(), labelsBean.getLabels());
 							handler.add(labelsContainer);
 						}
 
@@ -1184,12 +1184,12 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 
 					@Override
 					protected void onSaveWatch(EntityWatch watch) {
-						OneDev.getInstance(PullRequestWatchService.class).createOrUpdate((PullRequestWatch) watch);
+						Cheeta.getInstance(PullRequestWatchService.class).createOrUpdate((PullRequestWatch) watch);
 					}
 
 					@Override
 					protected void onDeleteWatch(EntityWatch watch) {
-						OneDev.getInstance(PullRequestWatchService.class).delete((PullRequestWatch) watch);
+						Cheeta.getInstance(PullRequestWatchService.class).delete((PullRequestWatch) watch);
 					}
 
 					@Override
@@ -1347,7 +1347,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 			@Override
 			protected void onUpdate(AjaxRequestTarget target) {
 				var user = SecurityUtils.getUser();
-				OneDev.getInstance(PullRequestChangeService.class).changeMergeStrategy(user, getPullRequest(), mergeStrategy);
+				Cheeta.getInstance(PullRequestChangeService.class).changeMergeStrategy(user, getPullRequest(), mergeStrategy);
 				notifyPullRequestChange(target);
 			}
 
@@ -1420,7 +1420,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 										@Override
 										protected String onSave(AjaxRequestTarget target, CommitMessageBean bean) {
 											var request = getPullRequest();
-											var system = OneDev.getInstance(UserService.class).getSystem();
+											var system = Cheeta.getInstance(UserService.class).getSystem();
 											var branchProtection = getProject().getBranchProtection(request.getTargetBranch(), system);
 											var errorMessage = branchProtection.checkCommitMessage(bean.getCommitMessage(),
 													request.getMergeStrategy() != SQUASH_SOURCE_BRANCH_COMMITS);
@@ -1683,7 +1683,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 			@Override
 			protected void onSaveComment(AjaxRequestTarget target, String comment) {
 				var user = SecurityUtils.getUser();
-				OneDev.getInstance(PullRequestChangeService.class).changeDescription(user, getPullRequest(), comment);
+				Cheeta.getInstance(PullRequestChangeService.class).changeDescription(user, getPullRequest(), comment);
 				((BasePage)getPage()).notifyObservableChange(target,
 						PullRequest.getChangeObservable(getPullRequest().getId()));
 			}
@@ -1753,7 +1753,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 	
 					@Override
 					public void onToggleEmoji(AjaxRequestTarget target, String emoji) {
-						OneDev.getInstance(PullRequestReactionService.class).toggleEmoji(
+						Cheeta.getInstance(PullRequestReactionService.class).toggleEmoji(
 								SecurityUtils.getUser(), 
 								getPullRequest(), 
 								emoji);
@@ -1800,7 +1800,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 			@Override
 			protected List<PullRequestSummaryPart> load() {
 				List<PullRequestSummaryContribution> contributions =
-						new ArrayList<>(OneDev.getExtensions(PullRequestSummaryContribution.class));
+						new ArrayList<>(Cheeta.getExtensions(PullRequestSummaryContribution.class));
 				contributions.sort(Comparator.comparing(PullRequestSummaryContribution::getOrder));
 
 				List<PullRequestSummaryPart> parts = new ArrayList<>();
@@ -1889,7 +1889,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 												return errorMessage;
 											if (targetHead.equals(request.getTarget().getObjectId())
 													&& sourceHead.equals(request.getSourceHead())) {
-												var gitService = OneDev.getInstance(GitService.class);
+												var gitService = Cheeta.getInstance(GitService.class);
 												var amendedCommitId = gitService.amendCommit(request.getProject(), mergeCommit.copy(),
 														mergeCommit.getAuthorIdent(), mergeCommit.getCommitterIdent(),
 														bean.getCommitMessage());
@@ -2301,7 +2301,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 			return _T("No valid signature for head commit of target branch");
 		}
 		if (protection.isCommitSignatureRequired()
-				&& OneDev.getInstance(SettingService.class).getGpgSetting().getSigningKey() == null) {
+				&& Cheeta.getInstance(SettingService.class).getGpgSetting().getSigningKey() == null) {
 			return _T("Commit signature required but no GPG signing key specified");
 		}
 		var error = gitService.checkCommitMessages(protection, project, sourceHead, mergeCommitId, new HashMap<>());
@@ -2345,7 +2345,7 @@ public abstract class PullRequestDetailPage extends ProjectPage implements PullR
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new PullRequestDetailResourceReference()));		
-		response.render(OnDomReadyHeaderItem.forScript(String.format( "onedev.server.pullRequestDetail.onDomReady('%s');", KEY_SCROLL_TOP)));
+		response.render(OnDomReadyHeaderItem.forScript(String.format( "cheeta.server.pullRequestDetail.onDomReady('%s');", KEY_SCROLL_TOP)));
 	}
 
 	@Override

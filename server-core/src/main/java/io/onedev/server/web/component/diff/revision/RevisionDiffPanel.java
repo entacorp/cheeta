@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.diff.revision;
+package io.cheeta.server.web.component.diff.revision;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.nio.charset.StandardCharsets;
@@ -68,72 +68,72 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.service.PendingSuggestionApplyService;
-import io.onedev.server.event.project.CommitIndexed;
-import io.onedev.server.git.BlobChange;
-import io.onedev.server.git.BlobEdits;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.exception.ObsoleteCommitException;
-import io.onedev.server.git.service.DiffEntryFacade;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.PendingSuggestionApply;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.search.code.CodeIndexService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.PathComparator;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.ajaxlistener.TrackViewStateListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.PatternSetAssistBehavior;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.codecomment.CodeCommentPanel;
-import io.onedev.server.web.component.comment.CommentInput;
-import io.onedev.server.web.component.diff.blob.BlobAnnotationSupport;
-import io.onedev.server.web.component.diff.blob.BlobDiffPanel;
-import io.onedev.server.web.component.diff.blob.BlobDiffReviewSupport;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.markdown.OutdatedSuggestionException;
-import io.onedev.server.web.component.markdown.SuggestionSupport;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.suggestionapply.PullRequestSuggestionApplyBean;
-import io.onedev.server.web.component.suggestionapply.SuggestionApplyBean;
-import io.onedev.server.web.component.suggestionapply.SuggestionApplyModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
-import io.onedev.server.web.resource.PatchResource;
-import io.onedev.server.web.resource.PatchResourceReference;
-import io.onedev.server.web.util.DiffPlanarRange;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.web.util.TextUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.service.PendingSuggestionApplyService;
+import io.cheeta.server.event.project.CommitIndexed;
+import io.cheeta.server.git.BlobChange;
+import io.cheeta.server.git.BlobEdits;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.exception.ObsoleteCommitException;
+import io.cheeta.server.git.service.DiffEntryFacade;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.PendingSuggestionApply;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.search.code.CodeIndexService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.PathComparator;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.ajaxlistener.TrackViewStateListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.PatternSetAssistBehavior;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.codecomment.CodeCommentPanel;
+import io.cheeta.server.web.component.comment.CommentInput;
+import io.cheeta.server.web.component.diff.blob.BlobAnnotationSupport;
+import io.cheeta.server.web.component.diff.blob.BlobDiffPanel;
+import io.cheeta.server.web.component.diff.blob.BlobDiffReviewSupport;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.markdown.OutdatedSuggestionException;
+import io.cheeta.server.web.component.markdown.SuggestionSupport;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.suggestionapply.PullRequestSuggestionApplyBean;
+import io.cheeta.server.web.component.suggestionapply.SuggestionApplyBean;
+import io.cheeta.server.web.component.suggestionapply.SuggestionApplyModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
+import io.cheeta.server.web.resource.PatchResource;
+import io.cheeta.server.web.resource.PatchResourceReference;
+import io.cheeta.server.web.util.DiffPlanarRange;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.web.util.TextUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 /**
  * Make sure to add only one revision diff panel on a page
@@ -143,7 +143,7 @@ import io.onedev.server.web.util.WicketUtils;
  */
 public abstract class RevisionDiffPanel extends Panel {
 
-	private static final String COOKIE_VIEW_MODE = "onedev.server.diff.viewmode";
+	private static final String COOKIE_VIEW_MODE = "cheeta.server.diff.viewmode";
 	
 	private static final String COOKIE_COMMENT_WIDTH = "revisionDiff.comment.width";
 
@@ -300,7 +300,7 @@ public abstract class RevisionDiffPanel extends Panel {
 
 				@Override
 				protected List<PendingSuggestionApply> load() {
-					return OneDev.getInstance(PendingSuggestionApplyService.class)
+					return Cheeta.getInstance(PendingSuggestionApplyService.class)
 							.query(SecurityUtils.getAuthUser(), getPullRequest());
 				}
 
@@ -402,7 +402,7 @@ public abstract class RevisionDiffPanel extends Panel {
 			protected void onConfigure() {
 				super.onConfigure();
 
-				CodeIndexService indexService = OneDev.getInstance(CodeIndexService.class);
+				CodeIndexService indexService = Cheeta.getInstance(CodeIndexService.class);
 				ObjectId oldCommit = getOldCommitId();
 				ObjectId newCommit = getNewCommitId();
 				boolean oldCommitIndexed = oldCommit.equals(ObjectId.zeroId()) 
@@ -479,7 +479,7 @@ public abstract class RevisionDiffPanel extends Panel {
 												PullRequest request = getPullRequest();
 												ObjectId commitId = request.getLatestUpdate().getHeadCommit().copy();
 												try {
-													ObjectId newCommitId = OneDev.getInstance(PendingSuggestionApplyService.class)
+													ObjectId newCommitId = Cheeta.getInstance(PendingSuggestionApplyService.class)
 															.apply(SecurityUtils.getAuthUser(), request, commitMessage);
 													
 													PullRequestChangesPage.State state = new PullRequestChangesPage.State();
@@ -532,7 +532,7 @@ public abstract class RevisionDiffPanel extends Panel {
 
 									@Override
 									public void onClick(AjaxRequestTarget target) {
-										OneDev.getInstance(PendingSuggestionApplyService.class)
+										Cheeta.getInstance(PendingSuggestionApplyService.class)
 												.discard(SecurityUtils.getAuthUser(), getPullRequest());
 										target.add(commentContainer);
 										target.add(RevisionDiffPanel.this.get("operations"));
@@ -659,7 +659,7 @@ public abstract class RevisionDiffPanel extends Panel {
 			protected List<String> getHints(TerminalExpect terminalExpect) {
 				return Lists.newArrayList(
 						_T("Path containing spaces or starting with dash needs to be quoted"),
-						_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude")
+						_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude")
 						);
 			}
 			
@@ -745,7 +745,7 @@ public abstract class RevisionDiffPanel extends Panel {
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				response.render(OnDomReadyHeaderItem.forScript("onedev.server.revisionDiff.onBodyDomReady();"));
+				response.render(OnDomReadyHeaderItem.forScript("cheeta.server.revisionDiff.onBodyDomReady();"));
 			}
 		};
 		body.setOutputMarkupId(true);
@@ -1182,7 +1182,7 @@ public abstract class RevisionDiffPanel extends Panel {
 						selectedPath = change.getPath();
 						var encodedPath = encodePath(selectedPath);
 						target.appendJavaScript(String.format(
-								"onedev.server.revisionDiff.setDiffLinkActive('diff-link-%s');$('#diff-link-%s')[0].scrollIntoViewIfNeeded(false);", 
+								"cheeta.server.revisionDiff.setDiffLinkActive('diff-link-%s');$('#diff-link-%s')[0].scrollIntoViewIfNeeded(false);", 
 								encodedPath, encodedPath));
 					}
 					
@@ -1227,7 +1227,7 @@ public abstract class RevisionDiffPanel extends Panel {
 		cookie.setMaxAge(Integer.MAX_VALUE);
 		response.addCookie(cookie);
 		target.add(navigationContainer);
-		target.appendJavaScript("onedev.server.revisionDiff.onToggleNavigation();");
+		target.appendJavaScript("cheeta.server.revisionDiff.onToggleNavigation();");
 	}
 	
 	private boolean isNavigationVisibleInitially() {
@@ -1367,7 +1367,7 @@ public abstract class RevisionDiffPanel extends Panel {
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	private WebMarkupContainer newNavigationContainer() {
@@ -1376,7 +1376,7 @@ public abstract class RevisionDiffPanel extends Panel {
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				response.render(OnDomReadyHeaderItem.forScript("onedev.server.revisionDiff.initNavigation();"));
+				response.render(OnDomReadyHeaderItem.forScript("cheeta.server.revisionDiff.initNavigation();"));
 			}
 			
 		};
@@ -1468,7 +1468,7 @@ public abstract class RevisionDiffPanel extends Panel {
 								selectedPath = path;
 								var encodedPath = encodePath(selectedPath);
 								target.appendJavaScript(String.format(
-										"onedev.server.revisionDiff.setDiffLinkActive('diff-link-%s');$('#diff-%s')[0].scrollIntoView();",
+										"cheeta.server.revisionDiff.setDiffLinkActive('diff-link-%s');$('#diff-%s')[0].scrollIntoView();",
 										encodedPath, encodedPath));
 							}
 						};
@@ -1554,7 +1554,7 @@ public abstract class RevisionDiffPanel extends Panel {
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				response.render(OnDomReadyHeaderItem.forScript("onedev.server.revisionDiff.initComment();"));
+				response.render(OnDomReadyHeaderItem.forScript("cheeta.server.revisionDiff.initComment();"));
 			}
 
 		};
@@ -1882,7 +1882,7 @@ public abstract class RevisionDiffPanel extends Panel {
 										private void onBatchChange(AjaxRequestTarget target) {
 											target.add(RevisionDiffPanel.this.get("operations"));
 											target.add(commentContainer);
-											target.appendJavaScript("onedev.server.revisionDiff.onSuggestionBatchChanged();");
+											target.appendJavaScript("cheeta.server.revisionDiff.onSuggestionBatchChanged();");
 										}
 										
 										@Override
@@ -1892,7 +1892,7 @@ public abstract class RevisionDiffPanel extends Panel {
 											pendingApply.setRequest(getPullRequest());
 											pendingApply.setUser(SecurityUtils.getAuthUser());
 											pendingApply.setSuggestion(new ArrayList<String>(suggestion));
-											OneDev.getInstance(PendingSuggestionApplyService.class).create(pendingApply);
+											Cheeta.getInstance(PendingSuggestionApplyService.class).create(pendingApply);
 											onBatchChange(target);
 										}
 
@@ -1905,7 +1905,7 @@ public abstract class RevisionDiffPanel extends Panel {
 														&& pendingApply.getUser().equals(SecurityUtils.getAuthUser())
 														&& pendingApply.getComment().equals(annotationSupport.getOpenComment())) {
 													it.remove();
-													OneDev.getInstance(PendingSuggestionApplyService.class).delete(pendingApply);
+													Cheeta.getInstance(PendingSuggestionApplyService.class).delete(pendingApply);
 													break;
 												}
 											}

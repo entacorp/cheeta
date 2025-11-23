@@ -1,4 +1,4 @@
-package io.onedev.server.data.migration;
+package io.cheeta.server.data.migration;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -15,8 +15,8 @@ import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 public class MigrationHelper {
 	

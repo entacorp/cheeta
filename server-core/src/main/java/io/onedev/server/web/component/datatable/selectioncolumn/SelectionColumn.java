@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.datatable.selectioncolumn;
+package io.cheeta.server.web.component.datatable.selectioncolumn;
 
 import java.util.HashSet;
 import java.util.Set;

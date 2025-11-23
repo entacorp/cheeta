@@ -1,9 +1,9 @@
-package io.onedev.server.web.behavior.inputassist;
+package io.cheeta.server.web.behavior.inputassist;
 
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.chat.ChatModel;
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExplicitException;
 
 public abstract class NaturalLanguageTranslator {
 

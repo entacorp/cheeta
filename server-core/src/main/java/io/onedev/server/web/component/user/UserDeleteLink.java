@@ -1,20 +1,20 @@
-package io.onedev.server.web.component.user;
+package io.cheeta.server.web.component.user;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.flow.RedirectToUrlException;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.page.admin.usermanagement.UserListPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.page.admin.usermanagement.UserListPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public abstract class UserDeleteLink extends Link<Void> {
 
@@ -31,8 +31,8 @@ public abstract class UserDeleteLink extends Link<Void> {
 
 	@Override
 	public void onClick() {
-		var userService = OneDev.getInstance(UserService.class);
-		var auditService = OneDev.getInstance(AuditService.class);
+		var userService = Cheeta.getInstance(UserService.class);
+		var auditService = Cheeta.getInstance(AuditService.class);
 		var oldAuditContent = VersionedXmlDoc.fromBean(getUser()).toXML();
 		if (getUser().equals(SecurityUtils.getAuthUser())) {
 			userService.delete(getUser());

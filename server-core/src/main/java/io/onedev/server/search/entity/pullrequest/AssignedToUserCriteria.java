@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pullrequest;
+package io.cheeta.server.search.entity.pullrequest;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,10 +8,10 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Subquery;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestAssignment;
-import io.onedev.server.model.User;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestAssignment;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.ProjectScope;
 
 public class AssignedToUserCriteria extends AssignedToCriteria {
 

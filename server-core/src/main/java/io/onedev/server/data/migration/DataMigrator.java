@@ -1,6 +1,6 @@
-package io.onedev.server.data.migration;
+package io.cheeta.server.data.migration;
 
-import static io.onedev.server.util.DateUtils.toLocalDate;
+import static io.cheeta.server.util.DateUtils.toLocalDate;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.naturalOrder;
@@ -50,29 +50,29 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Preconditions;
 import com.thoughtworks.xstream.core.JVM;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.markdown.MarkdownService;
-import io.onedev.server.markdown.MentionParser;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueStateHistory;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.TimeGroups;
-import io.onedev.server.ssh.SshKeyUtils;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.DirectoryVersionUtils;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.ParsedEmailAddress;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.markdown.MarkdownService;
+import io.cheeta.server.markdown.MentionParser;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueStateHistory;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.TimeGroups;
+import io.cheeta.server.ssh.SshKeyUtils;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.DirectoryVersionUtils;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.ParsedEmailAddress;
+import io.cheeta.server.util.patternset.PatternSet;
 import oshi.SystemInfo;
 import oshi.hardware.HardwareAbstractionLayer;
 
@@ -454,11 +454,11 @@ public class DataMigrator {
 		for (File file : dataDir.listFiles()) {
 			try {
 				String content = FileUtils.readFileToString(file, UTF_8);
-				content = StringUtils.replace(content, "com.turbodev", "io.onedev");
-				content = StringUtils.replace(content, "com/turbodev", "io/onedev");
-				content = StringUtils.replace(content, "turbodev.com", "onedev.io");
-				content = StringUtils.replace(content, "turbodev", "onedev");
-				content = StringUtils.replace(content, "TurboDev", "OneDev");
+				content = StringUtils.replace(content, "com.turbodev", "io.cheeta");
+				content = StringUtils.replace(content, "com/turbodev", "io/cheeta");
+				content = StringUtils.replace(content, "turbodev.com", "cheeta.io");
+				content = StringUtils.replace(content, "turbodev", "cheeta");
+				content = StringUtils.replace(content, "TurboDev", "Cheeta");
 				FileUtils.writeFile(file, content, UTF_8);
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -680,11 +680,11 @@ public class DataMigrator {
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
-				content = StringUtils.replace(content, "io.onedev.server.security.authenticator.",
-						"io.onedev.server.model.support.authenticator.");
+				content = StringUtils.replace(content, "io.cheeta.server.security.authenticator.",
+						"io.cheeta.server.model.support.authenticator.");
 				VersionedXmlDoc dom = VersionedXmlDoc.fromXML(content);
 				for (Element element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.Setting");
+					element.setName("io.cheeta.server.model.Setting");
 					Element settingElement = element.element("setting");
 					if (settingElement != null) {
 						settingElement.setName("value");
@@ -745,15 +745,15 @@ public class DataMigrator {
 							if (configurationId == null) {
 								configurationId = ++configurationCount;
 								configurations.put(verification, configurationId);
-								Element configurationElement = configurationListElement.addElement("io.onedev.server.model.Configuration");
+								Element configurationElement = configurationListElement.addElement("io.cheeta.server.model.Configuration");
 								configurationElement.addAttribute("revision", "0.0");
 								configurationElement.addElement("id").setText(String.valueOf(configurationId));
 								configurationElement.addElement("project").setText(project);
 								configurationElement.addElement("name").setText(verification);
-								configurationElement.addElement("buildCleanupRule").addAttribute("class", "io.onedev.server.model.support.configuration.DoNotCleanup");
+								configurationElement.addElement("buildCleanupRule").addAttribute("class", "io.cheeta.server.model.support.configuration.DoNotCleanup");
 							}
 							for (String request : openRequests) {
-								Element requestBuildElement = requestBuildListElement.addElement("io.onedev.server.model.PullRequestBuild");
+								Element requestBuildElement = requestBuildListElement.addElement("io.cheeta.server.model.PullRequestBuild");
 								requestBuildElement.addAttribute("revision", "0.0");
 								requestBuildElement.addElement("id").setText(String.valueOf(++requestBuildCount));
 								requestBuildElement.addElement("request").setText(request);
@@ -762,8 +762,8 @@ public class DataMigrator {
 						}
 						Element submitterElement = branchProtectionElement.element("submitter");
 						String submitterClass = submitterElement.attributeValue("class");
-						submitterClass = submitterClass.replace("io.onedev.server.model.support.submitter.",
-								"io.onedev.server.model.support.usermatcher.");
+						submitterClass = submitterClass.replace("io.cheeta.server.model.support.submitter.",
+								"io.cheeta.server.model.support.usermatcher.");
 						submitterElement.attribute("class").setValue(submitterClass);
 
 						Element reviewRequirementSpecElement = branchProtectionElement.element("reviewRequirementSpec");
@@ -779,8 +779,8 @@ public class DataMigrator {
 					for (Element tagProtectionElement : element.element("tagProtections").elements()) {
 						Element submitterElement = tagProtectionElement.element("submitter");
 						String submitterClass = submitterElement.attributeValue("class");
-						submitterClass = submitterClass.replace("io.onedev.server.model.support.submitter.",
-								"io.onedev.server.model.support.usermatcher.");
+						submitterClass = submitterClass.replace("io.cheeta.server.model.support.submitter.",
+								"io.cheeta.server.model.support.usermatcher.");
 						submitterElement.attribute("class").setValue(submitterClass);
 					}
 				}
@@ -840,7 +840,7 @@ public class DataMigrator {
 					Element commitMessageTransformSettingElement = element.element("commitMessageTransformSetting");
 					if (commitMessageTransformSettingElement != null) {
 						commitMessageTransformSettingElement.detach();
-						commitMessageTransformSettingElement.setName("io.onedev.server.model.support.CommitMessageTransform");
+						commitMessageTransformSettingElement.setName("io.cheeta.server.model.support.CommitMessageTransform");
 						commitMessageTransformsElement.add(commitMessageTransformSettingElement);
 					}
 				}
@@ -858,7 +858,7 @@ public class DataMigrator {
 						Element valueElement = element.element("value");
 						if (valueElement != null) {
 							for (Element fieldElement : valueElement.element("fieldSpecs").elements()) {
-								fieldElement.addElement("canBeChangedBy").addAttribute("class", "io.onedev.server.model.support.usermatcher.Anyone");
+								fieldElement.addElement("canBeChangedBy").addAttribute("class", "io.cheeta.server.model.support.usermatcher.Anyone");
 							}
 						}
 					}
@@ -888,7 +888,7 @@ public class DataMigrator {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
 					if (element.elementTextTrim("key").equals("LICENSE")) {
-						element.element("value").addAttribute("class", "io.onedev.commons.utils.license.LicenseDetail");
+						element.element("value").addAttribute("class", "io.cheeta.commons.utils.license.LicenseDetail");
 					}
 				}
 				dom.writeToFile(file, false);
@@ -907,7 +907,7 @@ public class DataMigrator {
 				}
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(renamedFile);
 				for (Element element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.IssueFieldEntity");
+					element.setName("io.cheeta.server.model.IssueFieldEntity");
 				}
 				dom.writeToFile(renamedFile, false);
 			}
@@ -1226,8 +1226,8 @@ public class DataMigrator {
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
-				content = content.replace("io.onedev.server.model.IssueFieldEntity",
-						"io.onedev.server.model.IssueField");
+				content = content.replace("io.cheeta.server.model.IssueFieldEntity",
+						"io.cheeta.server.model.IssueField");
 
 				FileUtils.deleteFile(file);
 
@@ -1343,7 +1343,7 @@ public class DataMigrator {
 					Element editableIssueFieldsElement = element.element("editableIssueFields");
 					editableIssueFieldsElement.detach();
 					element.addElement("editableIssueFields").addAttribute(
-							"class", "io.onedev.server.model.support.role.AllIssueFields");
+							"class", "io.cheeta.server.model.support.role.AllIssueFields");
 				}
 				dom.writeToFile(file, false);
 			}
@@ -1478,14 +1478,14 @@ public class DataMigrator {
 					Element namedQueriesElement = buildSettingElement.element("namedQueries");
 					if (namedQueriesElement != null) {
 						for (Element queryElement : namedQueriesElement.elements())
-							queryElement.setName("io.onedev.server.model.support.build.NamedBuildQuery");
+							queryElement.setName("io.cheeta.server.model.support.build.NamedBuildQuery");
 					}
 					Element secretsElement = buildSettingElement.element("secrets");
 					secretsElement.setName("jobSecrets");
 					for (Element secretElement : secretsElement.elements())
-						secretElement.setName("io.onedev.server.model.support.build.JobSecret");
+						secretElement.setName("io.cheeta.server.model.support.build.JobSecret");
 					for (Element buildPreservationElement : buildSettingElement.element("buildPreservations").elements())
-						buildPreservationElement.setName("io.onedev.server.model.support.build.BuildPreservation");
+						buildPreservationElement.setName("io.cheeta.server.model.support.build.BuildPreservation");
 					buildSettingElement.addElement("actionAuthorizations");
 
 					for (Element tagProtectionElement : element.element("tagProtections").elements()) {
@@ -1499,14 +1499,14 @@ public class DataMigrator {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
 					for (Element queryElement : element.element("userBuildQueries").elements())
-						queryElement.setName("io.onedev.server.model.support.build.NamedBuildQuery");
+						queryElement.setName("io.cheeta.server.model.support.build.NamedBuildQuery");
 					Element buildSettingElement = element.element("buildSetting");
 					Element secretsElement = buildSettingElement.element("secrets");
 					secretsElement.setName("jobSecrets");
 					for (Element secretElement : secretsElement.elements())
-						secretElement.setName("io.onedev.server.model.support.build.JobSecret");
+						secretElement.setName("io.cheeta.server.model.support.build.JobSecret");
 					for (Element buildPreservationElement : buildSettingElement.element("buildPreservations").elements())
-						buildPreservationElement.setName("io.onedev.server.model.support.build.BuildPreservation");
+						buildPreservationElement.setName("io.cheeta.server.model.support.build.BuildPreservation");
 					buildSettingElement.addElement("actionAuthorizations");
 					Element passwordElement = element.element("password");
 					if (passwordElement == null)
@@ -1519,7 +1519,7 @@ public class DataMigrator {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
 					for (Element queryElement : element.element("userQueries").elements())
-						queryElement.setName("io.onedev.server.model.support.build.NamedBuildQuery");
+						queryElement.setName("io.cheeta.server.model.support.build.NamedBuildQuery");
 				}
 				dom.writeToFile(file, false);
 			} else if (file.getName().startsWith("Settings.xml")) {
@@ -1536,7 +1536,7 @@ public class DataMigrator {
 						Element valueElement = element.element("value");
 						if (valueElement != null) {
 							for (Element queryElement : valueElement.element("namedQueries").elements())
-								queryElement.setName("io.onedev.server.model.support.build.NamedBuildQuery");
+								queryElement.setName("io.cheeta.server.model.support.build.NamedBuildQuery");
 						}
 					}
 				}
@@ -1584,28 +1584,28 @@ public class DataMigrator {
 		for (File file : dataDir.listFiles()) {
 			if (file.getName().contains(".xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.pullrequest.NamedPullRequestQuery")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.pullrequest.NamedPullRequestQuery")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
 						if (element.elementTextTrim("query").equals("all"))
 							element.element("query").detach();
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.issue.NamedIssueQuery")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.issue.NamedIssueQuery")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
 						if (element.elementTextTrim("query").equals("all"))
 							element.element("query").detach();
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.build.NamedBuildQuery")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.build.NamedBuildQuery")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
 						if (element.elementTextTrim("query").equals("all"))
 							element.element("query").detach();
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.NamedProjectQuery")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.NamedProjectQuery")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
 						if (element.elementTextTrim("query").equals("all"))
@@ -1619,7 +1619,7 @@ public class DataMigrator {
 							element.detach();
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.build.BuildPreservation")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.build.BuildPreservation")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
 						Element conditionElement = element.element("condition");
@@ -1784,10 +1784,10 @@ public class DataMigrator {
 			if (file.getName().contains(".xml")) {
 				try {
 					String content = FileUtils.readFileToString(file, UTF_8);
-					content = StringUtils.replace(content, "io.onedev.server.issue.",
-							"io.onedev.server.model.support.issue.");
-					content = StringUtils.replace(content, "io.onedev.server.util.inputspec.",
-							"io.onedev.server.model.support.inputspec.");
+					content = StringUtils.replace(content, "io.cheeta.server.issue.",
+							"io.cheeta.server.model.support.issue.");
+					content = StringUtils.replace(content, "io.cheeta.server.util.inputspec.",
+							"io.cheeta.server.model.support.inputspec.");
 					FileUtils.writeFile(file, content, UTF_8);
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1837,7 +1837,7 @@ public class DataMigrator {
 				dom.addElement("list");
 			}
 
-			Element ownerRoleElement = dom.getRootElement().addElement("io.onedev.server.model.Role");
+			Element ownerRoleElement = dom.getRootElement().addElement("io.cheeta.server.model.Role");
 			ownerRoleElement.addAttribute("revision", "0.0");
 			ownerRoleElement.addElement("id").setText("1");
 			ownerRoleElement.addElement("name").setText("Owner");
@@ -1848,7 +1848,7 @@ public class DataMigrator {
 			ownerRoleElement.addElement("manageIssues").setText("false");
 			ownerRoleElement.addElement("scheduleIssues").setText("false");
 			ownerRoleElement.addElement("editableIssueFields").addAttribute("class",
-					"io.onedev.server.model.support.role.AllIssueFields");
+					"io.cheeta.server.model.support.role.AllIssueFields");
 			ownerRoleElement.addElement("manageBuilds").setText("false");
 			ownerRoleElement.addElement("jobPrivileges");
 			dom.writeToFile(dataFile, false);
@@ -1976,7 +1976,7 @@ public class DataMigrator {
 			dom.addElement("list");
 		}
 		for (Map.Entry<String, String> entry : projectOwners.entrySet()) {
-			Element userAuthorizationElement = dom.getRootElement().addElement("io.onedev.server.model.UserAuthorization");
+			Element userAuthorizationElement = dom.getRootElement().addElement("io.cheeta.server.model.UserAuthorization");
 			userAuthorizationElement.addAttribute("revision", "0.0");
 			userAuthorizationElement.addElement("id").setText(String.valueOf(++maxUserAuthorizationId));
 			userAuthorizationElement.addElement("project").setText(entry.getKey());
@@ -2039,17 +2039,17 @@ public class DataMigrator {
 				try {
 					String content = FileUtils.readFileToString(file, UTF_8.name());
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.administration.authenticator.ldap.",
-							"io.onedev.server.plugin.authenticator.ldap.");
+							"io.cheeta.server.model.support.administration.authenticator.ldap.",
+							"io.cheeta.server.plugin.authenticator.ldap.");
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.issue.transitiontrigger.DiscardPullRequest",
-							"io.onedev.server.model.support.issue.transitiontrigger.DiscardPullRequestTrigger");
+							"io.cheeta.server.model.support.issue.transitiontrigger.DiscardPullRequest",
+							"io.cheeta.server.model.support.issue.transitiontrigger.DiscardPullRequestTrigger");
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.issue.transitiontrigger.MergePullRequest",
-							"io.onedev.server.model.support.issue.transitiontrigger.MergePullRequestTrigger");
+							"io.cheeta.server.model.support.issue.transitiontrigger.MergePullRequest",
+							"io.cheeta.server.model.support.issue.transitiontrigger.MergePullRequestTrigger");
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.issue.transitiontrigger.OpenPullRequest",
-							"io.onedev.server.model.support.issue.transitiontrigger.OpenPullRequestTrigger");
+							"io.cheeta.server.model.support.issue.transitiontrigger.OpenPullRequest",
+							"io.cheeta.server.model.support.issue.transitiontrigger.OpenPullRequestTrigger");
 					FileUtils.writeFile(file, content, UTF_8);
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2073,8 +2073,8 @@ public class DataMigrator {
 					Element buildSettingElement = element.element("buildSetting");
 					Element actionAuthorizationsElement = buildSettingElement.element("actionAuthorizations");
 					if (actionAuthorizationsElement.elements().isEmpty()) {
-						actionAuthorizationsElement.addElement("io.onedev.server.model.support.build.actionauthorization.CreateTagAuthorization");
-						actionAuthorizationsElement.addElement("io.onedev.server.model.support.build.actionauthorization.CloseMilestoneAuthorization");
+						actionAuthorizationsElement.addElement("io.cheeta.server.model.support.build.actionauthorization.CreateTagAuthorization");
+						actionAuthorizationsElement.addElement("io.cheeta.server.model.support.build.actionauthorization.CloseMilestoneAuthorization");
 					}
 					element.addElement("issueManagementEnabled").setText("true");
 				}
@@ -2357,17 +2357,17 @@ public class DataMigrator {
 			try {
 				String content = FileUtils.readFileToString(file, UTF_8);
 				content = StringUtils.replace(content,
-						"io.onedev.server.model.support.issue.fieldspec.",
-						"io.onedev.server.model.support.issue.field.spec.");
+						"io.cheeta.server.model.support.issue.fieldspec.",
+						"io.cheeta.server.model.support.issue.field.spec.");
 				content = StringUtils.replace(content,
-						"io.onedev.server.model.support.issue.fieldsupply.",
-						"io.onedev.server.model.support.issue.field.supply.");
+						"io.cheeta.server.model.support.issue.fieldsupply.",
+						"io.cheeta.server.model.support.issue.field.supply.");
 				content = StringUtils.replace(content,
 						"org.server.plugin.report.checkstyle.",
-						"io.onedev.server.plugin.report.checkstyle.");
+						"io.cheeta.server.plugin.report.checkstyle.");
 				content = StringUtils.replace(content,
 						"org.server.plugin.report.clover.",
-						"io.onedev.server.plugin.report.clover.");
+						"io.cheeta.server.plugin.report.clover.");
 
 				FileUtils.writeStringToFile(file, content, UTF_8);
 
@@ -2471,8 +2471,8 @@ public class DataMigrator {
 			try {
 				String content = FileUtils.readFileToString(file, UTF_8);
 				content = StringUtils.replace(content,
-						"io.onedev.server.model.support.inputspec.numberinput.",
-						"io.onedev.server.model.support.inputspec.integerinput.");
+						"io.cheeta.server.model.support.inputspec.numberinput.",
+						"io.cheeta.server.model.support.inputspec.integerinput.");
 				FileUtils.writeStringToFile(file, content, UTF_8);
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -2505,9 +2505,9 @@ public class DataMigrator {
 						Element valueElement = element.element("value");
 						if (valueElement != null) {
 							for (Element fieldSpecElement : valueElement.element("fieldSpecs").elements()) {
-								if (fieldSpecElement.getName().equals("io.onedev.server.model.support.issue.field.spec.NumberField"))
-									fieldSpecElement.setName("io.onedev.server.model.support.issue.field.spec.IntegerField");
-								else if (fieldSpecElement.getName().equals("io.onedev.server.model.support.issue.field.spec.TextField"))
+								if (fieldSpecElement.getName().equals("io.cheeta.server.model.support.issue.field.spec.NumberField"))
+									fieldSpecElement.setName("io.cheeta.server.model.support.issue.field.spec.IntegerField");
+								else if (fieldSpecElement.getName().equals("io.cheeta.server.model.support.issue.field.spec.TextField"))
 									fieldSpecElement.addElement("multiline").setText("false");
 							}
 						}
@@ -2549,7 +2549,7 @@ public class DataMigrator {
 								} catch (UnknownHostException e) {
 									hostName = "localhost";
 								}
-								valueElement.addElement("emailAddress").setText("onedev@" + hostName);
+								valueElement.addElement("emailAddress").setText("cheeta@" + hostName);
 							}
 						}
 					}
@@ -2568,8 +2568,8 @@ public class DataMigrator {
 						Element valueElement = element.element("value");
 						if (valueElement != null) {
 							for (Element executorElement : valueElement.elements()) {
-								if (executorElement.getName().equals("io.onedev.server.plugin.docker.DockerExecutor"))
-									executorElement.setName("io.onedev.server.plugin.executor.docker.DockerExecutor");
+								if (executorElement.getName().equals("io.cheeta.server.plugin.docker.DockerExecutor"))
+									executorElement.setName("io.cheeta.server.plugin.executor.docker.DockerExecutor");
 							}
 						}
 					}
@@ -2658,7 +2658,7 @@ public class DataMigrator {
 						element.element("email").setText("system email");
 				}
 				if (file.getName().equals("Users.xml")) {
-					Element element = dom.getRootElement().addElement("io.onedev.server.model.User");
+					Element element = dom.getRootElement().addElement("io.cheeta.server.model.User");
 					element.addAttribute("revision", "0.0");
 					element.addElement("id").setText("-2");
 					element.addElement("name").setText("Unknown");
@@ -2704,22 +2704,22 @@ public class DataMigrator {
 				}
 
 				if (oldSenderAuthorizationElements != null && !oldSenderAuthorizationElements.isEmpty()) {
-					Element serviceDeskSettingElement = dom.getRootElement().addElement("io.onedev.server.model.Setting");
+					Element serviceDeskSettingElement = dom.getRootElement().addElement("io.cheeta.server.model.Setting");
 					serviceDeskSettingElement.addAttribute("revision", "0.0");
 					serviceDeskSettingElement.addElement("id").setText(String.valueOf(maxId + 1));
 					serviceDeskSettingElement.addElement("key").setText("SERVICE_DESK_SETTING");
 					Element valueElement = serviceDeskSettingElement.addElement("value");
-					valueElement.addAttribute("class", "io.onedev.server.model.support.administration.ServiceDeskSetting");
+					valueElement.addAttribute("class", "io.cheeta.server.model.support.administration.ServiceDeskSetting");
 					Element senderAuthorizationsElement = valueElement.addElement("senderAuthorizations");
 					Element projectDesignationsElement = valueElement.addElement("projectDesignations");
 					Element issueCreationSettingsElement = valueElement.addElement("issueCreationSettings");
 					for (Element oldSenderAuthorizationElement : oldSenderAuthorizationElements) {
 						Element senderAuthorizationElement = senderAuthorizationsElement
-								.addElement("io.onedev.server.model.support.administration.SenderAuthorization");
+								.addElement("io.cheeta.server.model.support.administration.SenderAuthorization");
 						Element projectDesignationElement = projectDesignationsElement
-								.addElement("io.onedev.server.model.support.administration.ProjectDesignation");
+								.addElement("io.cheeta.server.model.support.administration.ProjectDesignation");
 						Element issueCreationSettingElement = issueCreationSettingsElement
-								.addElement("io.onedev.server.model.support.administration.IssueCreationSetting");
+								.addElement("io.cheeta.server.model.support.administration.IssueCreationSetting");
 
 						Element senderEmailsElement = oldSenderAuthorizationElement.element("senderEmails");
 						if (senderEmailsElement != null) {
@@ -2773,7 +2773,7 @@ public class DataMigrator {
 						if (valueElement != null) {
 							for (Element executorElement : valueElement.elements()) {
 								if (executorElement.getName().contains("DockerExecutor")) {
-									executorElement.setName("io.onedev.server.plugin.executor.serverdocker.ServerDockerExecutor");
+									executorElement.setName("io.cheeta.server.plugin.executor.serverdocker.ServerDockerExecutor");
 									executorElement.element("capacity").detach();
 								}
 							}
@@ -2840,7 +2840,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("IssueQuerySettings.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.IssueQueryPersonalization");
+					element.setName("io.cheeta.server.model.IssueQueryPersonalization");
 					element.element("userQueries").setName("queries");
 					Element queryWatchesElement = element.element("queryWatches");
 					for (Element queryWatchElement : queryWatchesElement.elements()) {
@@ -2861,7 +2861,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("PullRequestQuerySettings.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.PullRequestQueryPersonalization");
+					element.setName("io.cheeta.server.model.PullRequestQueryPersonalization");
 					element.element("userQueries").setName("queries");
 					Element queryWatchesElement = element.element("queryWatches");
 					for (Element queryWatchElement : queryWatchesElement.elements()) {
@@ -2882,7 +2882,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("BuildQuerySettings.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.BuildQueryPersonalization");
+					element.setName("io.cheeta.server.model.BuildQueryPersonalization");
 					element.element("userQueries").setName("queries");
 					Element querySubscriptionsElement = element.element("querySubscriptions");
 					for (Element queryNameElement : querySubscriptionsElement.elements())
@@ -2900,7 +2900,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("CodeCommentQuerySettings.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.CodeCommentQueryPersonalization");
+					element.setName("io.cheeta.server.model.CodeCommentQueryPersonalization");
 					element.element("userQueries").setName("queries");
 				}
 				FileUtils.deleteFile(file);
@@ -2908,7 +2908,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("CommitQuerySettings.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.CommitQueryPersonalization");
+					element.setName("io.cheeta.server.model.CommitQueryPersonalization");
 					element.element("userQueries").setName("queries");
 					Element querySubscriptionsElement = element.element("projectQuerySubscriptions");
 					querySubscriptionsElement.setName("querySubscriptions");
@@ -3067,7 +3067,7 @@ public class DataMigrator {
 			if (file.getName().startsWith("JestTestMetric.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements())
-					element.setName("io.onedev.server.model.UnitTestMetric");
+					element.setName("io.cheeta.server.model.UnitTestMetric");
 
 				String newFileName = file.getName().replace("Jest", "Unit");
 				dom.writeToFile(new File(dataDir, newFileName), false);
@@ -3075,7 +3075,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("CloverMetric.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements())
-					element.setName("io.onedev.server.model.CoverageMetric");
+					element.setName("io.cheeta.server.model.CoverageMetric");
 
 				String newFileName = file.getName().replace("Clover", "Coverage");
 				dom.writeToFile(new File(dataDir, newFileName), false);
@@ -3083,7 +3083,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("CheckstyleMetric.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements())
-					element.setName("io.onedev.server.model.ProblemMetric");
+					element.setName("io.cheeta.server.model.ProblemMetric");
 
 				String newFileName = file.getName().replace("Checkstyle", "Problem");
 				dom.writeToFile(new File(dataDir, newFileName), false);
@@ -3217,7 +3217,7 @@ public class DataMigrator {
 					String issueSubmitDate = element.elementTextTrim("submitDate");
 					Element milestoneElement = element.element("milestone");
 					if (milestoneElement != null) {
-						Element scheduleElement = listElement.addElement("io.onedev.server.model.IssueSchedule");
+						Element scheduleElement = listElement.addElement("io.cheeta.server.model.IssueSchedule");
 						scheduleElement.addAttribute("revision", "0.0");
 						scheduleElement.addElement("id").setText(String.valueOf(scheduleId++));
 						scheduleElement.addElement("issue").setText(issueId);
@@ -3608,7 +3608,7 @@ public class DataMigrator {
 					Element commentElement = element.element("comment");
 					if (commentElement != null) {
 						Element pullRequestCommentElement = pullRequestCommentsDom.getRootElement()
-								.addElement("io.onedev.server.model.PullRequestComment");
+								.addElement("io.cheeta.server.model.PullRequestComment");
 						pullRequestCommentElement.addElement("content").setText(commentElement.getText().trim());
 						pullRequestCommentElement.addAttribute("revision", "0.0");
 						pullRequestCommentElement.addElement("id").setText(String.valueOf(++maxPullRequestCommentId));
@@ -3630,7 +3630,7 @@ public class DataMigrator {
 					Element commentElement = element.element("comment");
 					if (commentElement != null) {
 						Element issueCommentElement = issueCommentsDom.getRootElement()
-								.addElement("io.onedev.server.model.IssueComment");
+								.addElement("io.cheeta.server.model.IssueComment");
 						issueCommentElement.addElement("content").setText(commentElement.getText().trim());
 						issueCommentElement.addAttribute("revision", "0.0");
 						issueCommentElement.addElement("id").setText(String.valueOf(++maxIssueCommentId));
@@ -3802,7 +3802,7 @@ public class DataMigrator {
 					else
 						throw new ExplicitException("Duplicated login names found when convert '" + name + "' to lowercase");
 					if (userId.equals("-1")) {
-						element.addElement("fullName").setText("OneDev");
+						element.addElement("fullName").setText("Cheeta");
 						element.element("email").detach();
 						element.element("alternateEmails").detach();
 					} else if (userId.equals("-2")) {
@@ -3893,7 +3893,7 @@ public class DataMigrator {
 		long id = 1;
 		Map<String, Element> primaryEmailElements = new HashMap<>();
 		for (Map.Entry<String, String> entry : primaryEmails.entrySet()) {
-			Element emailAddressElement = listElement.addElement("io.onedev.server.model.EmailAddress");
+			Element emailAddressElement = listElement.addElement("io.cheeta.server.model.EmailAddress");
 			emailAddressElement.addAttribute("revision", "0.0");
 			emailAddressElement.addElement("id").setText(String.valueOf(id++));
 			emailAddressElement.addElement("primary").setText("true");
@@ -3905,7 +3905,7 @@ public class DataMigrator {
 
 		for (Map.Entry<String, String> entry : gitEmails.entrySet()) {
 			if (!primaryEmails.containsKey(entry.getKey())) {
-				Element emailAddressElement = listElement.addElement("io.onedev.server.model.EmailAddress");
+				Element emailAddressElement = listElement.addElement("io.cheeta.server.model.EmailAddress");
 				emailAddressElement.addAttribute("revision", "0.0");
 				emailAddressElement.addElement("id").setText(String.valueOf(id++));
 				emailAddressElement.addElement("primary").setText("false");
@@ -3918,7 +3918,7 @@ public class DataMigrator {
 
 		for (Map.Entry<String, String> entry : alternateEmails.entrySet()) {
 			if (!primaryEmails.containsKey(entry.getKey()) && !gitEmails.containsKey(entry.getKey())) {
-				Element emailAddressElement = listElement.addElement("io.onedev.server.model.EmailAddress");
+				Element emailAddressElement = listElement.addElement("io.cheeta.server.model.EmailAddress");
 				emailAddressElement.addAttribute("revision", "0.0");
 				emailAddressElement.addElement("id").setText(String.valueOf(id++));
 				emailAddressElement.addElement("primary").setText("false");
@@ -4222,7 +4222,7 @@ public class DataMigrator {
 					if (key.equals("MAIL")) {
 						Element valueElement = element.element("value");
 						if (valueElement != null) {
-							valueElement.addAttribute("class", "io.onedev.server.model.support.administration.mailsetting.OtherMailSetting");
+							valueElement.addAttribute("class", "io.cheeta.server.model.support.administration.mailsetting.OtherMailSetting");
 							Element receiveMailSettingElement = valueElement.element("receiveMailSetting");
 							if (receiveMailSettingElement != null)
 								receiveMailSettingElement.setName("otherInboxPollSetting");
@@ -4382,7 +4382,7 @@ public class DataMigrator {
 					Element updateDateElement = element.element("updateDate");
 					element.addElement("update").setText(projectId);
 
-					Element updateElement = listElement.addElement("io.onedev.server.model.ProjectUpdate");
+					Element updateElement = listElement.addElement("io.cheeta.server.model.ProjectUpdate");
 					updateElement.addAttribute("revision", "0.0");
 					updateElement.addElement("id").setText(projectId);
 					updateElement.addElement("date").setText(updateDateElement.getText().trim());
@@ -4530,15 +4530,15 @@ public class DataMigrator {
 							var gitConfigElement = valueElement.element("gitConfig");
 							gitConfigElement.setName("gitLocation");
 							var clazz = gitConfigElement.attributeValue("class").replace(
-									"io.onedev.server.git.config.",
-									"io.onedev.server.git.location.");
+									"io.cheeta.server.git.config.",
+									"io.cheeta.server.git.location.");
 							gitConfigElement.addAttribute("class", clazz);
 
 							var curlConfigElement = valueElement.element("curlConfig");
 							curlConfigElement.setName("curlLocation");
 							clazz = curlConfigElement.attributeValue("class").replace(
-									"io.onedev.server.git.config.",
-									"io.onedev.server.git.location.");
+									"io.cheeta.server.git.config.",
+									"io.cheeta.server.git.location.");
 							curlConfigElement.addAttribute("class", clazz);
 						}
 					} else if (key.equals("SSO_CONNECTORS")) {
@@ -4584,12 +4584,12 @@ public class DataMigrator {
 					element.addElement("gitPackConfig");
 
 					for (var branchProtectionElement : element.element("branchProtections").elements()) {
-						branchProtectionElement.setName("io.onedev.server.model.support.code.BranchProtection");
+						branchProtectionElement.setName("io.cheeta.server.model.support.code.BranchProtection");
 						for (var fileProtectionElement : branchProtectionElement.element("fileProtections").elements())
-							fileProtectionElement.setName("io.onedev.server.model.support.code.FileProtection");
+							fileProtectionElement.setName("io.cheeta.server.model.support.code.FileProtection");
 					}
 					for (var tagProtectionElement : element.element("tagProtections").elements()) {
-						tagProtectionElement.setName("io.onedev.server.model.support.code.TagProtection");
+						tagProtectionElement.setName("io.cheeta.server.model.support.code.TagProtection");
 					}
 				}
 				dom.writeToFile(file, false);
@@ -4608,7 +4608,7 @@ public class DataMigrator {
 
 	private Set<String> getMentioned108(Map<String, String> userIds, String content) {
 		Set<String> mentioned = new HashSet<>();
-		MarkdownService markdownService = OneDev.getInstance(MarkdownService.class);
+		MarkdownService markdownService = Cheeta.getInstance(MarkdownService.class);
 		for (String userName : new MentionParser().parseMentions(markdownService.render(content))) {
 			String userId = userIds.get(userName);
 			if (userId != null)
@@ -4709,7 +4709,7 @@ public class DataMigrator {
 
 		Long id = 1L;
 		for (Pair<String, String> issueMention : issueMentions) {
-			Element mentionElement = mentionsElement.addElement("io.onedev.server.model.IssueMention");
+			Element mentionElement = mentionsElement.addElement("io.cheeta.server.model.IssueMention");
 			mentionElement.addElement("id").setText(String.valueOf(id++));
 			mentionElement.addAttribute("revision", "0.0");
 			mentionElement.addElement("issue").setText(issueMention.getLeft());
@@ -4723,7 +4723,7 @@ public class DataMigrator {
 
 		id = 1L;
 		for (Pair<String, String> it : pullRequestMentions) {
-			Element mentionElement = mentionsElement.addElement("io.onedev.server.model.PullRequestMention");
+			Element mentionElement = mentionsElement.addElement("io.cheeta.server.model.PullRequestMention");
 			mentionElement.addElement("id").setText(String.valueOf(id++));
 			mentionElement.addAttribute("revision", "0.0");
 			mentionElement.addElement("request").setText(it.getLeft());
@@ -4737,7 +4737,7 @@ public class DataMigrator {
 
 		id = 1L;
 		for (Pair<String, String> it : codeCommentMentions) {
-			Element mentionElement = mentionsElement.addElement("io.onedev.server.model.CodeCommentMention");
+			Element mentionElement = mentionsElement.addElement("io.cheeta.server.model.CodeCommentMention");
 			mentionElement.addElement("id").setText(String.valueOf(id++));
 			mentionElement.addAttribute("revision", "0.0");
 			mentionElement.addElement("comment").setText(it.getLeft());
@@ -4767,7 +4767,7 @@ public class DataMigrator {
 						element.detach();
 					} else {
 						element.element("date").setName("lastActivityDate");
-						element.setName("io.onedev.server.model.ProjectDynamics");
+						element.setName("io.cheeta.server.model.ProjectDynamics");
 					}
 				}
 				FileUtils.deleteFile(file);
@@ -4789,10 +4789,10 @@ public class DataMigrator {
 			if (file.getName().contains(".xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				List<Node> selectedNodes = new ArrayList<>();
-				selectedNodes.addAll(dom.selectNodes("//io.onedev.server.model.support.pullrequest.NamedPullRequestQuery"));
-				selectedNodes.addAll(dom.selectNodes("//io.onedev.server.model.support.issue.NamedIssueQuery"));
-				selectedNodes.addAll(dom.selectNodes("//io.onedev.server.model.support.NamedCodeCommentQuery"));
-				selectedNodes.addAll(dom.selectNodes("//io.onedev.server.model.support.NamedProjectQuery"));
+				selectedNodes.addAll(dom.selectNodes("//io.cheeta.server.model.support.pullrequest.NamedPullRequestQuery"));
+				selectedNodes.addAll(dom.selectNodes("//io.cheeta.server.model.support.issue.NamedIssueQuery"));
+				selectedNodes.addAll(dom.selectNodes("//io.cheeta.server.model.support.NamedCodeCommentQuery"));
+				selectedNodes.addAll(dom.selectNodes("//io.cheeta.server.model.support.NamedProjectQuery"));
 				for (Node node : selectedNodes) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
@@ -4850,14 +4850,14 @@ public class DataMigrator {
 						Element valueElement = element.element("value");
 						if (valueElement != null) {
 							for (Element fieldSpecElement : valueElement.element("fieldSpecs").elements()) {
-								if (fieldSpecElement.getName().equals("io.onedev.server.model.support.issue.field.spec.ChoiceField")) {
+								if (fieldSpecElement.getName().equals("io.cheeta.server.model.support.issue.field.spec.ChoiceField")) {
 									Element defaultValueProviderElement = fieldSpecElement.element("defaultValueProvider");
 									if (defaultValueProviderElement != null
 											&& defaultValueProviderElement.attributeValue("class").contains("SpecifiedDefaultValue")) {
 										Element defaultValueElement = defaultValueProviderElement.element("value");
 										Element defaultValuesElement = defaultValueProviderElement.addElement("defaultValues");
 										defaultValueElement.detach();
-										defaultValuesElement.addElement("io.onedev.server.model.support.inputspec.choiceinput.defaultvalueprovider.DefaultValue").add(defaultValueElement);
+										defaultValuesElement.addElement("io.cheeta.server.model.support.inputspec.choiceinput.defaultvalueprovider.DefaultValue").add(defaultValueElement);
 									}
 									Element defaultMultiValueProviderElement = fieldSpecElement.element("defaultMultiValueProvider");
 									if (defaultMultiValueProviderElement != null
@@ -4865,7 +4865,7 @@ public class DataMigrator {
 										Element defaultValueElement = defaultMultiValueProviderElement.element("value");
 										Element defaultValuesElement = defaultMultiValueProviderElement.addElement("defaultValues");
 										defaultValueElement.detach();
-										defaultValuesElement.addElement("io.onedev.server.model.support.inputspec.choiceinput.defaultmultivalueprovider.DefaultMultiValue").add(defaultValueElement);
+										defaultValuesElement.addElement("io.cheeta.server.model.support.inputspec.choiceinput.defaultmultivalueprovider.DefaultMultiValue").add(defaultValueElement);
 									}
 								}
 							}
@@ -4904,10 +4904,10 @@ public class DataMigrator {
 		for (File file : dataDir.listFiles()) {
 			if (file.getName().startsWith("Settings.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.issue.field.spec.ChoiceField")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.issue.field.spec.ChoiceField")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
-						element.setName("io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField");
+						element.setName("io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField");
 					}
 				}
 				for (Node node : dom.selectNodes("//defaultValueProvider")) {
@@ -4916,8 +4916,8 @@ public class DataMigrator {
 						String clazz = element.attributeValue("class");
 						if (clazz != null) {
 							clazz = clazz.replace(
-									"io.onedev.server.model.support.inputspec.choiceinput.defaultvalueprovider.",
-									"io.onedev.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.");
+									"io.cheeta.server.model.support.inputspec.choiceinput.defaultvalueprovider.",
+									"io.cheeta.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.");
 							element.addAttribute("class", clazz);
 						}
 					}
@@ -4928,22 +4928,22 @@ public class DataMigrator {
 						String clazz = element.attributeValue("class");
 						if (clazz != null) {
 							clazz = clazz.replace(
-									"io.onedev.server.model.support.inputspec.choiceinput.defaultmultivalueprovider.",
-									"io.onedev.server.model.support.issue.field.spec.choicefield.defaultmultivalueprovider.");
+									"io.cheeta.server.model.support.inputspec.choiceinput.defaultmultivalueprovider.",
+									"io.cheeta.server.model.support.issue.field.spec.choicefield.defaultmultivalueprovider.");
 							element.addAttribute("class", clazz);
 						}
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.inputspec.choiceinput.defaultvalueprovider.DefaultValue")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.inputspec.choiceinput.defaultvalueprovider.DefaultValue")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
-						element.setName("io.onedev.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.DefaultValue");
+						element.setName("io.cheeta.server.model.support.issue.field.spec.choicefield.defaultvalueprovider.DefaultValue");
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.inputspec.choiceinput.defaultmultivalueprovider.DefaultMultiValue")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.inputspec.choiceinput.defaultmultivalueprovider.DefaultMultiValue")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
-						element.setName("io.onedev.server.model.support.issue.field.spec.choicefield.defaultmultivalueprovider.DefaultMultiValue");
+						element.setName("io.cheeta.server.model.support.issue.field.spec.choicefield.defaultmultivalueprovider.DefaultMultiValue");
 					}
 				}
 				dom.writeToFile(file, false);
@@ -4965,8 +4965,8 @@ public class DataMigrator {
 			try {
 				String content = FileUtils.readFileToString(file, UTF_8);
 				content = StringUtils.replace(content,
-						"io.onedev.server.model.support.inputspec.",
-						"io.onedev.server.buildspecmodel.inputspec.");
+						"io.cheeta.server.model.support.inputspec.",
+						"io.cheeta.server.buildspecmodel.inputspec.");
 				FileUtils.writeStringToFile(file, content, UTF_8);
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -5075,14 +5075,14 @@ public class DataMigrator {
 						Element valueElement = element.element("value");
 						if (valueElement != null) {
 							for (Element fieldSpecElement : valueElement.element("fieldSpecs").elements()) {
-								if (fieldSpecElement.getName().equals("io.onedev.server.model.support.issue.field.spec.UserChoiceField")) {
+								if (fieldSpecElement.getName().equals("io.cheeta.server.model.support.issue.field.spec.UserChoiceField")) {
 									Element defaultValueProviderElement = fieldSpecElement.element("defaultValueProvider");
 									if (defaultValueProviderElement != null
 											&& defaultValueProviderElement.attributeValue("class").contains("SpecifiedDefaultValue")) {
 										Element defaultValueElement = defaultValueProviderElement.element("value");
 										Element defaultValuesElement = defaultValueProviderElement.addElement("defaultValues");
 										defaultValueElement.detach();
-										defaultValuesElement.addElement("io.onedev.server.buildspecmodel.inputspec.userchoiceinput.defaultvalueprovider.DefaultValue").add(defaultValueElement);
+										defaultValuesElement.addElement("io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.defaultvalueprovider.DefaultValue").add(defaultValueElement);
 									}
 									Element defaultMultiValueProviderElement = fieldSpecElement.element("defaultMultiValueProvider");
 									if (defaultMultiValueProviderElement != null
@@ -5090,7 +5090,7 @@ public class DataMigrator {
 										Element defaultValueElement = defaultMultiValueProviderElement.element("value");
 										Element defaultValuesElement = defaultMultiValueProviderElement.addElement("defaultValues");
 										defaultValueElement.detach();
-										defaultValuesElement.addElement("io.onedev.server.buildspecmodel.inputspec.userchoiceinput.defaultmultivalueprovider.DefaultMultiValue").add(defaultValueElement);
+										defaultValuesElement.addElement("io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.defaultmultivalueprovider.DefaultMultiValue").add(defaultValueElement);
 									}
 								}
 							}
@@ -5106,10 +5106,10 @@ public class DataMigrator {
 		for (File file : dataDir.listFiles()) {
 			if (file.getName().startsWith("Settings.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
-				for (Node node : dom.selectNodes("//io.onedev.server.model.support.issue.field.spec.UserChoiceField")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.model.support.issue.field.spec.UserChoiceField")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
-						element.setName("io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField");
+						element.setName("io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField");
 					}
 				}
 				for (Node node : dom.selectNodes("//defaultValueProvider")) {
@@ -5118,8 +5118,8 @@ public class DataMigrator {
 						String clazz = element.attributeValue("class");
 						if (clazz != null) {
 							clazz = clazz.replace(
-									"io.onedev.server.buildspecmodel.inputspec.userchoiceinput.defaultvalueprovider.",
-									"io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider.");
+									"io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.defaultvalueprovider.",
+									"io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider.");
 							element.addAttribute("class", clazz);
 						}
 					}
@@ -5130,22 +5130,22 @@ public class DataMigrator {
 						String clazz = element.attributeValue("class");
 						if (clazz != null) {
 							clazz = clazz.replace(
-									"io.onedev.server.buildspecmodel.inputspec.userchoiceinput.defaultmultivalueprovider.",
-									"io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider.");
+									"io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.defaultmultivalueprovider.",
+									"io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider.");
 							element.addAttribute("class", clazz);
 						}
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.buildspecmodel.inputspec.userchoiceinput.defaultvalueprovider.DefaultValue")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.defaultvalueprovider.DefaultValue")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
-						element.setName("io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider.DefaultValue");
+						element.setName("io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider.DefaultValue");
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.buildspecmodel.inputspec.userchoiceinput.defaultmultivalueprovider.DefaultMultiValue")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.defaultmultivalueprovider.DefaultMultiValue")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
-						element.setName("io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider.DefaultMultiValue");
+						element.setName("io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider.DefaultMultiValue");
 					}
 				}
 				dom.writeToFile(file, false);
@@ -5197,7 +5197,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("ProjectDynamicss.xml")) {
 				var dom = VersionedXmlDoc.fromFile(file);
 				for (var element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.ProjectLastEventDate");
+					element.setName("io.cheeta.server.model.ProjectLastEventDate");
 					element.element("lastActivityDate").setName("activity");
 					var lastCommitDateElement = element.element("lastCommitDate");
 					if (lastCommitDateElement != null)
@@ -5218,7 +5218,7 @@ public class DataMigrator {
 					}
 					lastUsedDateElement.setText(String.valueOf(agentLastUsedDateId));
 
-					lastUsedDateElement = agentLastUsedDatesElement.addElement("io.onedev.server.model.AgentLastUsedDate");
+					lastUsedDateElement = agentLastUsedDatesElement.addElement("io.cheeta.server.model.AgentLastUsedDate");
 					lastUsedDateElement.addAttribute("revision", "0.0");
 					lastUsedDateElement.addElement("id").setText(String.valueOf(agentLastUsedDateId));
 					if (lastUsedDate != null)
@@ -5230,7 +5230,7 @@ public class DataMigrator {
 					if (!agentTokenIds.remove(tokenId)) {
 						tokenId = ++maxAgentTokenId;
 						tokenElement.setText(String.valueOf(tokenId));
-						var agentTokenElement = partialAgentTokensElement.addElement("io.onedev.server.model.AgentToken");
+						var agentTokenElement = partialAgentTokensElement.addElement("io.cheeta.server.model.AgentToken");
 						agentTokenElement.addAttribute("revision", "0.0");
 						agentTokenElement.addElement("id").setText(String.valueOf(tokenId));
 						agentTokenElement.addElement("value").setText(UUID.randomUUID().toString());
@@ -5284,10 +5284,10 @@ public class DataMigrator {
 						if (valueElement != null) {
 							var commitMessageFixPatternsElement = valueElement.addElement("commitMessageFixPatterns");
 							var entriesElement = commitMessageFixPatternsElement.addElement("entries");
-							var entryElement = entriesElement.addElement("io.onedev.server.model.support.issue.CommitMessageFixPatterns_-Entry");
+							var entryElement = entriesElement.addElement("io.cheeta.server.model.support.issue.CommitMessageFixPatterns_-Entry");
 							entryElement.addElement("prefix").setText("(^|\\W)(fix|fixed|fixes|fixing|resolve|resolved|resolves|resolving|close|closed|closes|closing)[\\s:]+");
 							entryElement.addElement("suffix").setText("(?=$|\\W)");
-							entryElement = entriesElement.addElement("io.onedev.server.model.support.issue.CommitMessageFixPatterns_-Entry");
+							entryElement = entriesElement.addElement("io.cheeta.server.model.support.issue.CommitMessageFixPatterns_-Entry");
 							entryElement.addElement("prefix").setText("\\(\\s*");
 							entryElement.addElement("suffix").setText("\\s*\\)\\s*$");
 						}
@@ -5330,7 +5330,7 @@ public class DataMigrator {
 			if (file.getName().startsWith("Issues.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					var issueTouchElement = issueTouchesElement.addElement("io.onedev.server.model.IssueTouch");
+					var issueTouchElement = issueTouchesElement.addElement("io.cheeta.server.model.IssueTouch");
 					issueTouchElement.addAttribute("revision", "0.0.0");
 					issueTouchElement.addElement("id").setText(String.valueOf(issueTouchId++));
 					issueTouchElement.addElement("project").setText(element.elementTextTrim("project"));
@@ -5339,7 +5339,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("PullRequests.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					var pullRequestTouchElement = pullRequestTouchesElement.addElement("io.onedev.server.model.PullRequestTouch");
+					var pullRequestTouchElement = pullRequestTouchesElement.addElement("io.cheeta.server.model.PullRequestTouch");
 					pullRequestTouchElement.addAttribute("revision", "0.0.0");
 					pullRequestTouchElement.addElement("id").setText(String.valueOf(pullRequestTouchId++));
 					pullRequestTouchElement.addElement("project").setText(element.elementTextTrim("targetProject"));
@@ -5348,7 +5348,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("CodeComments.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					var codeCommentTouchElement = codeCommentTouchesElement.addElement("io.onedev.server.model.CodeCommentTouch");
+					var codeCommentTouchElement = codeCommentTouchesElement.addElement("io.cheeta.server.model.CodeCommentTouch");
 					codeCommentTouchElement.addAttribute("revision", "0.0.0");
 					codeCommentTouchElement.addElement("id").setText(String.valueOf(codeCommentTouchId++));
 					codeCommentTouchElement.addElement("project").setText(element.elementTextTrim("project"));
@@ -5373,7 +5373,7 @@ public class DataMigrator {
 				for (Element element : dom.getRootElement().elements()) {
 					var accessTokenElement = element.element("accessToken");
 					var accessTokensElement = element.addElement("accessTokens");
-					var newAccessTokenElement = accessTokensElement.addElement("io.onedev.server.model.support.AccessToken");
+					var newAccessTokenElement = accessTokensElement.addElement("io.cheeta.server.model.support.AccessToken");
 					newAccessTokenElement.addElement("value").setText(accessTokenElement.getText().trim());
 					newAccessTokenElement.addElement("createDate").setText("2023-05-28T22:07:56.311+01:00");
 					accessTokenElement.detach();
@@ -5461,7 +5461,7 @@ public class DataMigrator {
 								if (executorElement.getName().contains("KubernetesExecutor")
 										|| executorElement.getName().contains("DockerExecutor")) {
 									for (var registryLoginElement : executorElement.element("registryLogins").elements()) {
-										registryLoginElement.setName("io.onedev.server.model.support.administration.jobexecutor.RegistryLogin");
+										registryLoginElement.setName("io.cheeta.server.model.support.administration.jobexecutor.RegistryLogin");
 									}
 								}
 							}
@@ -5537,7 +5537,7 @@ public class DataMigrator {
 						emailTemplatesElement.element("issueNotification").setText(issueNotificationTemplate);
 						emailTemplatesElement.element("pullRequestNotification").setText(pullRequestNotificationTemplate);
 						emailTemplatesElement.setName("value");
-						emailTemplatesElement.addAttribute("class", "io.onedev.server.model.support.administration.emailtemplates.EmailTemplates");
+						emailTemplatesElement.addAttribute("class", "io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates");
 						element.add(emailTemplatesElement);
 						break;
 					}
@@ -5613,10 +5613,10 @@ public class DataMigrator {
 								var enableStartTLSElement = valueElement.element("enableStartTLS");
 								var sslSettingElement = valueElement.addElement("sslSetting");
 								if (enableStartTLSElement.getTextTrim().equals("true")) {
-									sslSettingElement.addAttribute("class", "io.onedev.server.model.support.administration.mailsetting.SmtpExplicitSsl");
+									sslSettingElement.addAttribute("class", "io.cheeta.server.model.support.administration.mailsetting.SmtpExplicitSsl");
 									sslSettingElement.addElement("trustAll").setText("false");
 								} else {
-									sslSettingElement.addAttribute("class", "io.onedev.server.model.support.administration.mailsetting.SmtpWithoutSsl");
+									sslSettingElement.addAttribute("class", "io.cheeta.server.model.support.administration.mailsetting.SmtpWithoutSsl");
 								}
 								enableStartTLSElement.detach();
 								var portElement = valueElement.element("smtpPort");
@@ -5629,10 +5629,10 @@ public class DataMigrator {
 									var enableSSLElement = pollSettingElement.element("enableSSL");
 									sslSettingElement = pollSettingElement.addElement("sslSetting");
 									if (enableSSLElement.getTextTrim().equals("true")) {
-										sslSettingElement.addAttribute("class", "io.onedev.server.model.support.administration.mailsetting.ImapImplicitSsl");
+										sslSettingElement.addAttribute("class", "io.cheeta.server.model.support.administration.mailsetting.ImapImplicitSsl");
 										sslSettingElement.addElement("trustAll").setText("false");
 									} else {
-										sslSettingElement.addAttribute("class", "io.onedev.server.model.support.administration.mailsetting.ImapWithoutSsl");
+										sslSettingElement.addAttribute("class", "io.cheeta.server.model.support.administration.mailsetting.ImapWithoutSsl");
 									}
 									enableSSLElement.detach();
 									portElement = pollSettingElement.element("imapPort");
@@ -5784,8 +5784,8 @@ public class DataMigrator {
 				try {
 					content = FileUtils.readFileToString(file, UTF_8);
 					content = StringUtils.replace(content,
-							"io.onedev.server.util.channelnotification.",
-							"io.onedev.server.model.support.channelnotification.");
+							"io.cheeta.server.util.channelnotification.",
+							"io.cheeta.server.model.support.channelnotification.");
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
@@ -5809,7 +5809,7 @@ public class DataMigrator {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
 					var dataElement = element.element("data");
-					if (dataElement.attributeValue("class").startsWith("io.onedev.server.model.support.issue.changedata.IssueLink"))
+					if (dataElement.attributeValue("class").startsWith("io.cheeta.server.model.support.issue.changedata.IssueLink"))
 						element.detach();
 				}
 				dom.writeToFile(file, false);
@@ -5818,17 +5818,17 @@ public class DataMigrator {
 				try {
 					content = FileUtils.readFileToString(file, UTF_8);
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.administration.mailsetting.Office365Setting",
-							"io.onedev.server.plugin.mailservice.office365.Office365MailService");
+							"io.cheeta.server.model.support.administration.mailsetting.Office365Setting",
+							"io.cheeta.server.plugin.mailservice.office365.Office365MailService");
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.administration.mailsetting.GmailSetting",
-							"io.onedev.server.plugin.mailservice.gmail.GmailMailService");
+							"io.cheeta.server.model.support.administration.mailsetting.GmailSetting",
+							"io.cheeta.server.plugin.mailservice.gmail.GmailMailService");
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.administration.mailsetting.OtherMailSetting",
-							"io.onedev.server.plugin.mailservice.smtpimap.SmtpImapMailService");
+							"io.cheeta.server.model.support.administration.mailsetting.OtherMailSetting",
+							"io.cheeta.server.plugin.mailservice.smtpimap.SmtpImapMailService");
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.administration.mailsetting.",
-							"io.onedev.server.model.support.administration.mailservice.");
+							"io.cheeta.server.model.support.administration.mailsetting.",
+							"io.cheeta.server.model.support.administration.mailservice.");
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
@@ -6046,17 +6046,17 @@ public class DataMigrator {
 			try {
 				var content = FileUtils.readFileToString(file, UTF_8);
 				content = StringUtils.replace(content,
-						"io.onedev.server.model.support.issue.field.supply.FieldSupply",
-						"io.onedev.server.model.support.issue.field.instance.FieldInstance");
+						"io.cheeta.server.model.support.issue.field.supply.FieldSupply",
+						"io.cheeta.server.model.support.issue.field.instance.FieldInstance");
 				content = StringUtils.replace(content,
-						"io.onedev.server.model.support.issue.field.supply.Ignore",
-						"io.onedev.server.model.support.issue.field.instance.IgnoreValue");
+						"io.cheeta.server.model.support.issue.field.supply.Ignore",
+						"io.cheeta.server.model.support.issue.field.instance.IgnoreValue");
 				content = StringUtils.replace(content,
-						"io.onedev.server.model.support.issue.field.supply.ScriptingValue",
-						"io.onedev.server.model.support.issue.field.instance.ScriptingValue");
+						"io.cheeta.server.model.support.issue.field.supply.ScriptingValue",
+						"io.cheeta.server.model.support.issue.field.instance.ScriptingValue");
 				content = StringUtils.replace(content,
-						"io.onedev.server.model.support.issue.field.supply.SpecifiedValue",
-						"io.onedev.server.model.support.issue.field.instance.SpecifiedValue");
+						"io.cheeta.server.model.support.issue.field.supply.SpecifiedValue",
+						"io.cheeta.server.model.support.issue.field.instance.SpecifiedValue");
 				FileUtils.writeStringToFile(file, content, UTF_8.name());
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -6113,8 +6113,8 @@ public class DataMigrator {
 				try {
 					var content = FileUtils.readFileToString(file, UTF_8);
 					content = StringUtils.replace(content,
-							"io.onedev.server.ee.pack.",
-							"io.onedev.server.plugin.pack.");
+							"io.cheeta.server.ee.pack.",
+							"io.cheeta.server.plugin.pack.");
 					FileUtils.writeStringToFile(file, content, UTF_8.name());
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -6165,7 +6165,7 @@ public class DataMigrator {
 						if (widgetElement.getName().contains("CompositeWidget"))
 							continue;
 
-						var newWidgetElement = widgetsElement.addElement("io.onedev.server.model.support.widget.Widget");
+						var newWidgetElement = widgetsElement.addElement("io.cheeta.server.model.support.widget.Widget");
 
 						var leftElement = widgetElement.element("left");
 						leftElement.detach();
@@ -6228,7 +6228,7 @@ public class DataMigrator {
 					} else if (key.equals("BRANDING")) {
 						Element valueElement = element.element("value");
 						if (valueElement != null)
-							valueElement.addElement("url").setText("https://onedev.io");
+							valueElement.addElement("url").setText("https://cheeta.io");
 					} else if (key.equals("SECURITY")) {
 						Element valueElement = element.element("value");
 						if (valueElement != null)
@@ -6342,7 +6342,7 @@ public class DataMigrator {
 							for (Element executorElement : valueElement.elements()) {
 								if (executorElement.getName().contains("ServerDockerExecutor")
 										|| executorElement.getName().contains("RemoteDockerExecutor")) {
-									executorElement.addElement("dockerBuilder").setText("onedev");
+									executorElement.addElement("dockerBuilder").setText("cheeta");
 								}
 								executorElement.element("shellAccessEnabled").detach();
 							}
@@ -6426,7 +6426,7 @@ public class DataMigrator {
 					var nameIndex = 1;
 					var accessTokensElement = element.element("accessTokens");
 					for (var accessTokenElement : accessTokensElement.elements()) {
-						var newAccessTokenElement = listElement.addElement("io.onedev.server.model.AccessToken");
+						var newAccessTokenElement = listElement.addElement("io.cheeta.server.model.AccessToken");
 						newAccessTokenElement.addAttribute("revision", "0.0");
 						newAccessTokenElement.addElement("id").setText(String.valueOf(accessTokenId++));
 						newAccessTokenElement.addElement("owner").setText(ownerId);
@@ -6503,7 +6503,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("Iterations.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements())
-					element.setName("io.onedev.server.model.Iteration");
+					element.setName("io.cheeta.server.model.Iteration");
 				dom.writeToFile(file, false);
 			} else if (file.getName().startsWith("Settings.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
@@ -6512,7 +6512,7 @@ public class DataMigrator {
 					if (key.equals("ISSUE")) {
 						for (var fieldSpecElement : element.element("value").element("fieldSpecs").elements()) {
 							if (fieldSpecElement.getName().contains("MilestoneChoiceField"))
-								fieldSpecElement.setName("io.onedev.server.model.support.issue.field.spec.IterationChoiceField");
+								fieldSpecElement.setName("io.cheeta.server.model.support.issue.field.spec.IterationChoiceField");
 						}
 					}
 				}
@@ -6524,13 +6524,13 @@ public class DataMigrator {
 				dom.writeToFile(file, false);
 			} else if (file.getName().startsWith("Dashboards.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
-				for (Node node : dom.selectNodes("//io.onedev.server.ee.dashboard.widgets.MilestoneListWidget")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.ee.dashboard.widgets.MilestoneListWidget")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
-						element.setName("io.onedev.server.ee.dashboard.widgets.IterationListWidget");
+						element.setName("io.cheeta.server.ee.dashboard.widgets.IterationListWidget");
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.ee.dashboard.widgets.BurnDownChartWidget")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.ee.dashboard.widgets.BurnDownChartWidget")) {
 					if (node instanceof Element) {
 						Element element = (Element) node;
 						var milestoneNameElement = element.element("milestoneName");
@@ -6538,7 +6538,7 @@ public class DataMigrator {
 							milestoneNameElement.setName("iterationName");
 					}
 				}
-				for (Node node : dom.selectNodes("//io.onedev.server.ee.dashboard.widgets.BuildListWidget")) {
+				for (Node node : dom.selectNodes("//io.cheeta.server.ee.dashboard.widgets.BuildListWidget")) {
 					if (node instanceof Element)
 						((Element) node).addElement("showDuration").setText("false");
 				}
@@ -6556,11 +6556,11 @@ public class DataMigrator {
 				for (Element element : dom.getRootElement().elements()) {
 					var dataElement = element.element("data");
 					if (dataElement.attributeValue("class").contains("IssueMilestoneAddData"))
-						dataElement.addAttribute("class", "io.onedev.server.model.support.issue.changedata.IssueIterationAddData");
+						dataElement.addAttribute("class", "io.cheeta.server.model.support.issue.changedata.IssueIterationAddData");
 					else if (dataElement.attributeValue("class").contains("IssueMilestoneRemoveData"))
-						dataElement.addAttribute("class", "io.onedev.server.model.support.issue.changedata.IssueIterationRemoveData");
+						dataElement.addAttribute("class", "io.cheeta.server.model.support.issue.changedata.IssueIterationRemoveData");
 					else if (dataElement.attributeValue("class").contains("IssueMilestoneChangeData"))
-						dataElement.addAttribute("class", "io.onedev.server.model.support.issue.changedata.IssueIterationChangeData");
+						dataElement.addAttribute("class", "io.cheeta.server.model.support.issue.changedata.IssueIterationChangeData");
 					var milestoneElement = dataElement.element("milestone");
 					if (milestoneElement != null)
 						milestoneElement.setName("iteration");
@@ -6684,40 +6684,40 @@ public class DataMigrator {
 			try {
 				var content = StringUtils.replace(
 						FileUtils.readFileToString(file, UTF_8),
-						"io.onedev.server.ee.dashboard.widgets.BuildListWidget",
-						"io.onedev.server.ee.dashboard.widgets.build.BuildListWidget");
+						"io.cheeta.server.ee.dashboard.widgets.BuildListWidget",
+						"io.cheeta.server.ee.dashboard.widgets.build.BuildListWidget");
 				content = StringUtils.replace(
 						content,
-						"io.onedev.server.ee.dashboard.widgets.BurnDownChartWidget",
-						"io.onedev.server.ee.dashboard.widgets.iteration.BurnDownChartWidget");
+						"io.cheeta.server.ee.dashboard.widgets.BurnDownChartWidget",
+						"io.cheeta.server.ee.dashboard.widgets.iteration.BurnDownChartWidget");
 				content = StringUtils.replace(
 						content,
-						"io.onedev.server.ee.dashboard.widgets.IssueListWidget",
-						"io.onedev.server.ee.dashboard.widgets.issue.IssueListWidget");
+						"io.cheeta.server.ee.dashboard.widgets.IssueListWidget",
+						"io.cheeta.server.ee.dashboard.widgets.issue.IssueListWidget");
 				content = StringUtils.replace(
 						content,
-						"io.onedev.server.ee.dashboard.widgets.IterationListWidget",
-						"io.onedev.server.ee.dashboard.widgets.iteration.IterationListWidget");
+						"io.cheeta.server.ee.dashboard.widgets.IterationListWidget",
+						"io.cheeta.server.ee.dashboard.widgets.iteration.IterationListWidget");
 				content = StringUtils.replace(
 						content,
-						"io.onedev.server.ee.dashboard.widgets.MarkdownBlobWidget",
-						"io.onedev.server.ee.dashboard.widgets.markdown.MarkdownBlobWidget");
+						"io.cheeta.server.ee.dashboard.widgets.MarkdownBlobWidget",
+						"io.cheeta.server.ee.dashboard.widgets.markdown.MarkdownBlobWidget");
 				content = StringUtils.replace(
 						content,
-						"io.onedev.server.ee.dashboard.widgets.MarkdownWidget",
-						"io.onedev.server.ee.dashboard.widgets.markdown.MarkdownWidget");
+						"io.cheeta.server.ee.dashboard.widgets.MarkdownWidget",
+						"io.cheeta.server.ee.dashboard.widgets.markdown.MarkdownWidget");
 				content = StringUtils.replace(
 						content,
-						"io.onedev.server.ee.dashboard.widgets.ProjectListWidget",
-						"io.onedev.server.ee.dashboard.widgets.project.ProjectListWidget");
+						"io.cheeta.server.ee.dashboard.widgets.ProjectListWidget",
+						"io.cheeta.server.ee.dashboard.widgets.project.ProjectListWidget");
 				content = StringUtils.replace(
 						content,
-						"io.onedev.server.ee.dashboard.widgets.PullRequestListWidget",
-						"io.onedev.server.ee.dashboard.widgets.pullrequest.PullRequestListWidget");
+						"io.cheeta.server.ee.dashboard.widgets.PullRequestListWidget",
+						"io.cheeta.server.ee.dashboard.widgets.pullrequest.PullRequestListWidget");
 				content = StringUtils.replace(
 						content,
-						"io.onedev.server.ee.dashboard.widgets.projectoverview.ProjectOverviewWidget",
-						"io.onedev.server.ee.dashboard.widgets.project.ProjectOverviewWidget");
+						"io.cheeta.server.ee.dashboard.widgets.projectoverview.ProjectOverviewWidget",
+						"io.cheeta.server.ee.dashboard.widgets.project.ProjectOverviewWidget");
 				FileUtils.writeStringToFile(file, content, UTF_8);
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -6828,7 +6828,7 @@ public class DataMigrator {
 	}
 
 	private Element migrate171_createHistoryElement(Element parentElement, IssueStateHistory history) {
-		var historyElement = parentElement.addElement("io.onedev.server.model.IssueStateHistory");
+		var historyElement = parentElement.addElement("io.cheeta.server.model.IssueStateHistory");
 		historyElement.addAttribute("revision", "0.0");
 		historyElement.addElement("id").setText(history.getId().toString());
 		historyElement.addElement("issue").setText(history.getIssue().getId().toString());
@@ -6989,21 +6989,21 @@ public class DataMigrator {
 							if (triggerClass.contains("PressButtonTrigger")) {
 								transitionSpecElement.addElement("toStates").addElement("string").setText(toStateElement.getText().trim());
 								toStateElement.detach();
-								transitionSpecElement.setName("io.onedev.server.model.support.issue.transitionspec.ManualSpec");
+								transitionSpecElement.setName("io.cheeta.server.model.support.issue.transitionspec.ManualSpec");
 							} else if (triggerClass.contains("BranchUpdateTrigger")) {
-								transitionSpecElement.setName("io.onedev.server.model.support.issue.transitionspec.BranchUpdatedSpec");
+								transitionSpecElement.setName("io.cheeta.server.model.support.issue.transitionspec.BranchUpdatedSpec");
 							} else if (triggerClass.contains("BuildSuccessfulTrigger")) {
-								transitionSpecElement.setName("io.onedev.server.model.support.issue.transitionspec.BuildSuccessfulSpec");
+								transitionSpecElement.setName("io.cheeta.server.model.support.issue.transitionspec.BuildSuccessfulSpec");
 							} else if (triggerClass.contains("DiscardPullRequestTrigger")) {
-								transitionSpecElement.setName("io.onedev.server.model.support.issue.transitionspec.PullRequestDiscardedSpec");
+								transitionSpecElement.setName("io.cheeta.server.model.support.issue.transitionspec.PullRequestDiscardedSpec");
 							} else if (triggerClass.contains("MergePullRequestTrigger")) {
-								transitionSpecElement.setName("io.onedev.server.model.support.issue.transitionspec.PullRequestMergedSpec");
+								transitionSpecElement.setName("io.cheeta.server.model.support.issue.transitionspec.PullRequestMergedSpec");
 							} else if (triggerClass.contains("NoActivityTrigger")) {
-								transitionSpecElement.setName("io.onedev.server.model.support.issue.transitionspec.NoActivitySpec");
+								transitionSpecElement.setName("io.cheeta.server.model.support.issue.transitionspec.NoActivitySpec");
 							} else if (triggerClass.contains("OpenPullRequestTrigger")) {
-								transitionSpecElement.setName("io.onedev.server.model.support.issue.transitionspec.PullRequestOpenedSpec");
+								transitionSpecElement.setName("io.cheeta.server.model.support.issue.transitionspec.PullRequestOpenedSpec");
 							} else {
-								transitionSpecElement.setName("io.onedev.server.model.support.issue.transitionspec.IssueStateTransitedSpec");
+								transitionSpecElement.setName("io.cheeta.server.model.support.issue.transitionspec.IssueStateTransitedSpec");
 							}
 							for (var childElement : triggerElement.elements()) {
 								if (!childElement.getName().equals("buttonLabel")) {
@@ -7013,7 +7013,7 @@ public class DataMigrator {
 							}
 							triggerElement.detach();
 						}
-						var transitionSpecElement = transitionSpecsElement.addElement("io.onedev.server.model.support.issue.transitionspec.ManualSpec");
+						var transitionSpecElement = transitionSpecsElement.addElement("io.cheeta.server.model.support.issue.transitionspec.ManualSpec");
 						transitionSpecElement.addElement("fromStates");
 						transitionSpecElement.addElement("toStates");
 						transitionSpecElement.addElement("removeFields");
@@ -7192,7 +7192,7 @@ public class DataMigrator {
 							var projectDesignationsElement = valueElement.element("projectDesignations"); 
 							projectDesignationsElement.setName("defaultProjectSettings");
 							for (var projectDesignationElement: projectDesignationsElement.elements()) {
-								projectDesignationElement.setName("io.onedev.server.model.support.administration.DefaultProjectSetting");
+								projectDesignationElement.setName("io.cheeta.server.model.support.administration.DefaultProjectSetting");
 							}
 						}
 					} else if (key.equals("JOB_EXECUTORS")) {
@@ -7353,7 +7353,7 @@ public class DataMigrator {
 						for (var tabElement: widgetElement.element("tabs").elements()) {
 							if (tabElement.getName().endsWith("CompositeWidget")) {
 								tabElement.element("tabs").detach();
-								tabElement.setName("io.onedev.server.ee.dashboard.widgets.markdown.MarkdownWidget");
+								tabElement.setName("io.cheeta.server.ee.dashboard.widgets.markdown.MarkdownWidget");
 								tabElement.addElement("markdown").setText("Composite widget is removed, please add child tabs to top level instead");
 							}
 						}
@@ -7436,7 +7436,7 @@ public class DataMigrator {
 
 		long touchId = 1;
 		for (var entry : pullRequestIdToProjectId.entrySet()) {
-			var pullRequestTouchElement = listElement.addElement("io.onedev.server.model.PullRequestTouch");
+			var pullRequestTouchElement = listElement.addElement("io.cheeta.server.model.PullRequestTouch");
 			pullRequestTouchElement.addAttribute("revision", "0.0.0");
 			pullRequestTouchElement.addElement("project").setText(entry.getValue());
 			pullRequestTouchElement.addElement("requestId").setText(entry.getKey());
@@ -7451,7 +7451,7 @@ public class DataMigrator {
 
 		touchId = 1;
 		for (var entry : codeCommentIdToProjectId.entrySet()) {
-			var codeCommentTouchElement = listElement.addElement("io.onedev.server.model.CodeCommentTouch");
+			var codeCommentTouchElement = listElement.addElement("io.cheeta.server.model.CodeCommentTouch");
 			codeCommentTouchElement.addAttribute("revision", "0.0.0");
 			codeCommentTouchElement.addElement("project").setText(entry.getValue());
 			codeCommentTouchElement.addElement("commentId").setText(entry.getKey());
@@ -7552,7 +7552,7 @@ public class DataMigrator {
 							var valueElement = element.element("value");
 							if (valueElement != null) {
 								for (var entryElement: valueElement.elements()) {
-									var storageSettingElement = entryElement.element("io.onedev.server.ee.storage.StorageSetting");
+									var storageSettingElement = entryElement.element("io.cheeta.server.ee.storage.StorageSetting");
 									if (storageSettingElement != null) {
 										var packStoreElement = storageSettingElement.element("packStore");
 										if (packStoreElement != null)
@@ -7619,7 +7619,7 @@ public class DataMigrator {
 								currentPath = currentPath.getParent();
 							}
 					
-							var targetPackBlobElement = packBlobsDom.getRootElement().addElement("io.onedev.server.model.PackBlob");
+							var targetPackBlobElement = packBlobsDom.getRootElement().addElement("io.cheeta.server.model.PackBlob");
 							targetPackBlobElement.addAttribute("revision", "0.0");
 							targetPackBlobElement.addElement("id").setText(packBlobCopyId);
 							targetPackBlobElement.addElement("project").setText(targetProjectId);
@@ -7648,8 +7648,8 @@ public class DataMigrator {
 								var buttonImageUrlElement = connectorElement.element("buttonImageUrl");
 								if (buttonImageUrlElement != null) {
 									var buttonImageUrl = buttonImageUrlElement.getText().trim();
-									if (buttonImageUrl.startsWith("/wicket/resource/io.onedev.server.plugin.sso.openid.openidconnector")) {
-										buttonImageUrl = "/wicket/resource/io.onedev.server.plugin.sso.openid.OpenIdConnector/openid.png";
+									if (buttonImageUrl.startsWith("/wicket/resource/io.cheeta.server.plugin.sso.openid.openidconnector")) {
+										buttonImageUrl = "/wicket/resource/io.cheeta.server.plugin.sso.openid.OpenIdConnector/openid.png";
 										buttonImageUrlElement.setText(buttonImageUrl);
 									}
 								}
@@ -7781,11 +7781,11 @@ public class DataMigrator {
 				try {
 					String content = FileUtils.readFileToString(file, UTF_8);
 					content = StringUtils.replace(content,
-							"io.onedev.server.model.support.issue.field.spec.WorkingPeriodField",
-							"io.onedev.server.model.support.issue.field.spec.IntegerField");
+							"io.cheeta.server.model.support.issue.field.spec.WorkingPeriodField",
+							"io.cheeta.server.model.support.issue.field.spec.IntegerField");
 					content = StringUtils.replace(content,
-							"io.onedev.server.buildspecmodel.inputspec.workingperiodinput",
-							"io.onedev.server.buildspecmodel.inputspec.integerinput");
+							"io.cheeta.server.buildspecmodel.inputspec.workingperiodinput",
+							"io.cheeta.server.buildspecmodel.inputspec.integerinput");
 					FileUtils.writeFile(file, content, UTF_8);
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -7938,7 +7938,7 @@ public class DataMigrator {
 			var listElement = membershipsDom.addElement("list");
 		
 			for (String userId: userIdsNotInDefaultLoginGroup) {
-				var membershipElement = listElement.addElement("io.onedev.server.model.Membership");
+				var membershipElement = listElement.addElement("io.cheeta.server.model.Membership");
 				membershipElement.addAttribute("revision", "0.0.0");
 				membershipElement.addElement("user").setText(userId);
 				membershipElement.addElement("group").setText(defaultLoginGroupId);
@@ -8001,49 +8001,49 @@ public class DataMigrator {
 							for (Element fieldSpecElement : valueElement.element("fieldSpecs").elements()) {
 								var name = fieldSpecElement.elementText("name").trim();
 								switch (fieldSpecElement.getName()) {
-									case "io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField":
+									case "io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField":
 										fieldTypes.put(name, InputSpec.ENUMERATION);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.IntegerField":
+									case "io.cheeta.server.model.support.issue.field.spec.IntegerField":
 										fieldTypes.put(name, InputSpec.INTEGER);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.FloatField":
+									case "io.cheeta.server.model.support.issue.field.spec.FloatField":
 										fieldTypes.put(name, InputSpec.FLOAT);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.BooleanField":
+									case "io.cheeta.server.model.support.issue.field.spec.BooleanField":
 										fieldTypes.put(name, InputSpec.BOOLEAN);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.DateField":
+									case "io.cheeta.server.model.support.issue.field.spec.DateField":
 										fieldTypes.put(name, InputSpec.DATE);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.DateTimeField":
+									case "io.cheeta.server.model.support.issue.field.spec.DateTimeField":
 										fieldTypes.put(name, InputSpec.DATE_TIME);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.SecretField":
+									case "io.cheeta.server.model.support.issue.field.spec.SecretField":
 										fieldTypes.put(name, InputSpec.SECRET);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField":
+									case "io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField":
 										fieldTypes.put(name, InputSpec.USER);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.GroupChoiceField":
+									case "io.cheeta.server.model.support.issue.field.spec.GroupChoiceField":
 										fieldTypes.put(name, InputSpec.GROUP);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.BuildChoiceField":
+									case "io.cheeta.server.model.support.issue.field.spec.BuildChoiceField":
 										fieldTypes.put(name, InputSpec.BUILD);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.PullRequestChoiceField":
+									case "io.cheeta.server.model.support.issue.field.spec.PullRequestChoiceField":
 										fieldTypes.put(name, InputSpec.PULL_REQUEST);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.CommitField":
+									case "io.cheeta.server.model.support.issue.field.spec.CommitField":
 										fieldTypes.put(name, InputSpec.COMMIT);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.IssueChoiceField":
+									case "io.cheeta.server.model.support.issue.field.spec.IssueChoiceField":
 										fieldTypes.put(name, InputSpec.ISSUE);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.IterationChoiceField":
+									case "io.cheeta.server.model.support.issue.field.spec.IterationChoiceField":
 										fieldTypes.put(name, InputSpec.ITERATION);
 										break;
-									case "io.onedev.server.model.support.issue.field.spec.TextField":
+									case "io.cheeta.server.model.support.issue.field.spec.TextField":
 										fieldTypes.put(name, InputSpec.TEXT);
 										break;
 								}
@@ -8063,13 +8063,13 @@ public class DataMigrator {
 					if (dataClass.contains("IssueBatchUpdateData") || dataClass.contains("IssueFieldChangeData")
 							|| dataClass.contains("IssueStateChangeData")) {
 						for (Element entryElement : dataElement.element("oldFields").elements()) {
-							var inputElement = entryElement.element("io.onedev.server.util.Input");
+							var inputElement = entryElement.element("io.cheeta.server.util.Input");
 							var nameElement = inputElement.element("name");
 							if (nameElement != null) 
 								inputElement.addElement("type").setText(fieldTypes.getOrDefault(nameElement.getText().trim(), "Unknown"));
 						}
 						for (Element entryElement : dataElement.element("newFields").elements()) {
-							var inputElement = entryElement.element("io.onedev.server.util.Input");
+							var inputElement = entryElement.element("io.cheeta.server.util.Input");
 							var nameElement = inputElement.element("name");
 							if (nameElement != null) 
 								inputElement.addElement("type").setText(fieldTypes.getOrDefault(nameElement.getText().trim(), "Unknown"));
@@ -8092,7 +8092,7 @@ public class DataMigrator {
 				for (Element element : dom.getRootElement().elements()) {
 					var defaultRoleElement = element.element("defaultRole");
 					if (defaultRoleElement != null) {
-						var baseAuthorizationElement = baseAuthorizationsListElement.addElement("io.onedev.server.model.BaseAuthorization");
+						var baseAuthorizationElement = baseAuthorizationsListElement.addElement("io.cheeta.server.model.BaseAuthorization");
 						baseAuthorizationElement.addAttribute("revision", "0.0");
 						baseAuthorizationElement.addElement("id").setText(String.valueOf(baseAuthorizationId++));
 						baseAuthorizationElement.addElement("project").setText(element.elementText("id").trim());
@@ -8142,7 +8142,7 @@ public class DataMigrator {
 					if (key.equals("SYSTEM_UUID")) {
 						Element valueElement = element.element("value");
 						if (valueElement != null) {
-							valueElement.setText(OneDev.getInstance(SettingService.class).encryptUUID(valueElement.getText().trim()));
+							valueElement.setText(Cheeta.getInstance(SettingService.class).encryptUUID(valueElement.getText().trim()));
 						}
 					} else if (key.equals("ALERT")) {
 						Element valueElement = element.element("value");
@@ -8168,7 +8168,7 @@ public class DataMigrator {
 			} else if (file.getName().startsWith("ProjectLastEventDates.xml")) {
 				VersionedXmlDoc dom = VersionedXmlDoc.fromFile(file);
 				for (Element element : dom.getRootElement().elements()) {
-					element.setName("io.onedev.server.model.ProjectLastActivityDate");
+					element.setName("io.cheeta.server.model.ProjectLastActivityDate");
 					var commitElement = element.element("commit");
 					if (commitElement != null) 
 						commitElement.detach();
@@ -8203,8 +8203,8 @@ public class DataMigrator {
 				try {
 					var content = FileUtils.readFileToString(file, UTF_8);
 					content = StringUtils.replace(content,
-							"io.onedev.server.util.Input",
-							"io.onedev.server.buildspecmodel.inputspec.Input");
+							"io.cheeta.server.util.Input",
+							"io.cheeta.server.buildspecmodel.inputspec.Input");
 					FileUtils.writeStringToFile(file, content, UTF_8.name());
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -8225,7 +8225,7 @@ public class DataMigrator {
 								var nameElement = connectorElement.element("name");
 								var defaultGroupElement = connectorElement.element("defaultGroup");
 
-								var ssoProviderElement = ssoProvidersListElement.addElement("io.onedev.server.model.SsoProvider");
+								var ssoProviderElement = ssoProvidersListElement.addElement("io.cheeta.server.model.SsoProvider");
 								ssoProviderElement.addAttribute("revision", "0.0");
 								ssoProviderElement.addElement("id").setText(String.valueOf(ssoProviderId++));
 								nameElement.detach();

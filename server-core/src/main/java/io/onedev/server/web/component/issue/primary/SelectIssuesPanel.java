@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.primary;
+package io.cheeta.server.web.component.issue.primary;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,11 +8,11 @@ import org.apache.wicket.feedback.FencedFeedbackPanel;
 import org.apache.wicket.markup.html.form.FormComponentPanel;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.web.component.issue.choice.IssueChoiceProvider;
-import io.onedev.server.web.component.issue.choice.IssueMultiChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.web.component.issue.choice.IssueChoiceProvider;
+import io.cheeta.server.web.component.issue.choice.IssueMultiChoice;
 
 abstract class SelectIssuesPanel extends FormComponentPanel<Collection<Issue>> {
 
@@ -77,7 +77,7 @@ abstract class SelectIssuesPanel extends FormComponentPanel<Collection<Issue>> {
     protected abstract IssueChoiceProvider getChoiceProvider();
 
     private IssueService getIssueService() {
-        return OneDev.getInstance(IssueService.class);
+        return Cheeta.getInstance(IssueService.class);
     }
 
 }

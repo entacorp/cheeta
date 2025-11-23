@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.edit.plain;
+package io.cheeta.server.web.page.project.blob.render.edit.plain;
 
 import java.io.Serializable;
 

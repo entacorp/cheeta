@@ -1,11 +1,11 @@
-package io.onedev.server.buildspecmodel.inputspec;
+package io.cheeta.server.buildspecmodel.inputspec;
 
 import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.util.WicketUtils;
 
 public interface InputContext {
 

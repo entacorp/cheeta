@@ -1,10 +1,10 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.JobMatch;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.JobMatch;
 
 public class JobMatchValidator implements ConstraintValidator<JobMatch, String> {
 
@@ -27,7 +27,7 @@ public class JobMatchValidator implements ConstraintValidator<JobMatch, String> 
 			return true;
 		} else {
 			try {
-				io.onedev.server.job.match.JobMatch.parse(value, withProjectCriteria, withJobCriteria);
+				io.cheeta.server.job.match.JobMatch.parse(value, withProjectCriteria, withJobCriteria);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

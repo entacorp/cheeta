@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.notification.slack;
+package io.cheeta.server.plugin.notification.slack;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -25,14 +25,14 @@ import com.vladsch.flexmark.formatter.NodeFormatterContext;
 import com.vladsch.flexmark.formatter.NodeFormattingHandler;
 import com.vladsch.flexmark.formatter.NodeFormattingHandler.CustomNodeFormatter;
 
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.markdown.MarkdownService;
-import io.onedev.server.notification.ActivityDetail;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.notification.ChannelNotificationManager;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
-import io.onedev.server.util.commenttext.PlainText;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.markdown.MarkdownService;
+import io.cheeta.server.notification.ActivityDetail;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.notification.ChannelNotificationManager;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
+import io.cheeta.server.util.commenttext.PlainText;
 
 @Singleton
 public class SlackNotificationManager extends ChannelNotificationManager<SlackNotificationSetting> {

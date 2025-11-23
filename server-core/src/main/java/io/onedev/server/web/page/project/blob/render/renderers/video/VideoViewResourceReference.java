@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.renderers.video;
+package io.cheeta.server.web.page.project.blob.render.renderers.video;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

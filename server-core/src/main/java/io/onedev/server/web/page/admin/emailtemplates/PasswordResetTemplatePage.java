@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.admin.emailtemplates;
+package io.cheeta.server.web.page.admin.emailtemplates;
 
-import static io.onedev.server.model.support.administration.emailtemplates.EmailTemplates.DEFAULT_PASSWORD_RESET;
-import static io.onedev.server.model.support.administration.emailtemplates.EmailTemplates.PROP_PASSWORD_RESET;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates.DEFAULT_PASSWORD_RESET;
+import static io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates.PROP_PASSWORD_RESET;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.Map;
@@ -11,7 +11,7 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.util.CollectionUtils;
+import io.cheeta.server.util.CollectionUtils;
 
 public class PasswordResetTemplatePage extends AbstractTemplatePage {
 
@@ -37,7 +37,7 @@ public class PasswordResetTemplatePage extends AbstractTemplatePage {
 	@Override
 	protected Map<String, String> getVariableHelp() {
 		return CollectionUtils.newLinkedHashMap(
-				"user", _T("<a href=\"https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/User.java\">user</a> to reset password for"),
+				"user", _T("<a href=\"https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/User.java\">user</a> to reset password for"),
 				"passwordResetUrl", _T("url to reset password"));
 	}
 

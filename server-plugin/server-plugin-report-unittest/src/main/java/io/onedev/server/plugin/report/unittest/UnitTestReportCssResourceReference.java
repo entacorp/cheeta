@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.unittest;
+package io.cheeta.server.plugin.report.unittest;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class UnitTestReportCssResourceReference extends BaseDependentCssResourceReference {
 

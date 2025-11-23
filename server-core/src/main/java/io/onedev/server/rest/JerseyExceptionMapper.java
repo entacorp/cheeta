@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import static javax.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 
@@ -11,7 +11,7 @@ import org.eclipse.jetty.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.exception.ExceptionUtils;
+import io.cheeta.server.exception.ExceptionUtils;
 
 @Provider
 public class JerseyExceptionMapper implements ExceptionMapper<Throwable> {

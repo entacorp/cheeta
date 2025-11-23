@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec;
+package io.cheeta.server.buildspecmodel.inputspec;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,8 @@ import java.util.Map;
 import javax.validation.ValidationException;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
 
 public class IterationChoiceInput {
 	

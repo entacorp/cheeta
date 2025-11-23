@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.blob;
+package io.cheeta.server.web.component.blob;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,14 +16,14 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public abstract class BlobPicker extends DropdownLink {
 

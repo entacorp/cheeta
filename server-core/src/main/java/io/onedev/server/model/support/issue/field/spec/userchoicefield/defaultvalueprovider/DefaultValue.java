@@ -1,13 +1,13 @@
-package io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider;
+package io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.model.User;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 import javax.validation.Validator;
 import javax.validation.constraints.NotEmpty;
@@ -26,7 +26,7 @@ public class DefaultValue implements Serializable {
 	private String applicableProjects;
 
 	@Editable(order=100, name="Literal value")
-	@io.onedev.server.annotation.ChoiceProvider("getValueChoices")
+	@io.cheeta.server.annotation.ChoiceProvider("getValueChoices")
 	@NotEmpty
 	public String getValue() {
 		return value;
@@ -37,7 +37,7 @@ public class DefaultValue implements Serializable {
 	}
 	
 	@Editable(order=200, placeholder="All projects", description="Specify applicable projects separated by space. "
-			+ "Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty for all projects")
 	@Patterns(suggester="suggestProjects", path=true)
 	public String getApplicableProjects() {
@@ -56,7 +56,7 @@ public class DefaultValue implements Serializable {
 	@SuppressWarnings("unused")
 	private static List<String> getValueChoices() {
 		ChoiceProvider choiceProvider = (ChoiceProvider) EditContext.get(1).getInputValue("choiceProvider");
-		if (choiceProvider != null && OneDev.getInstance(Validator.class).validate(choiceProvider).isEmpty())
+		if (choiceProvider != null && Cheeta.getInstance(Validator.class).validate(choiceProvider).isEmpty())
 			return choiceProvider.getChoices(true).stream().map(User::getName).collect(Collectors.toList());
 		else
 			return new ArrayList<>();

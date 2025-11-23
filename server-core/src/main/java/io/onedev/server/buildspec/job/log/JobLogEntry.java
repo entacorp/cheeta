@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.log;
+package io.cheeta.server.buildspec.job.log;
 
 import java.io.Serializable;
 import java.util.Date;

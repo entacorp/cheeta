@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-#if (\${groupId} == "io.onedev")
+#if (\${groupId} == "io.cheeta")
 	<artifactId>\${artifactId}</artifactId>
 	<parent>
-		<groupId>io.onedev</groupId>
+		<groupId>io.cheeta</groupId>
 		<artifactId>server-plugin</artifactId>
 		<version>${project.version}</version>
 	</parent>
@@ -31,7 +31,7 @@
         </pluginManagement>  
         <plugins>
 			<plugin>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>plugin-maven</artifactId>
 				<version>2.7.0</version>
 				<executions>
@@ -97,15 +97,15 @@
 	</build>	
 	<dependencies>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>server-product</artifactId>
-			<version>\${onedev.version}</version>
+			<version>\${cheeta.version}</version>
 		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
-			<id>onedev</id>
-			<url>https://code.onedev.io/onedev/~maven</url>
+			<id>cheeta</id>
+			<url>https://code.cheeta.io/cheeta/~maven</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
@@ -120,8 +120,8 @@
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
-			<id>onedev</id>
-			<url>https://code.onedev.io/onedev/~maven</url>
+			<id>cheeta</id>
+			<url>https://code.cheeta.io/cheeta/~maven</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
@@ -137,7 +137,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<onedev.version>${project.version}</onedev.version>
+		<cheeta.version>${project.version}</cheeta.version>
 		<moduleClass>\${package}.PluginModule</moduleClass>
 	</properties>
 #end

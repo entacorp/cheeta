@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.createtag;
+package io.cheeta.server.web.component.createtag;
 
 import java.io.Serializable;
 
@@ -8,11 +8,11 @@ import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.Repository;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable
 @ClassValidating

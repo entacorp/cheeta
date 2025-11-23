@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.comment;
+package io.cheeta.server.web.component.comment;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -13,15 +13,15 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.hibernate.proxy.HibernateProxyHelper;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.support.CommentRevision;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.support.CommentRevision;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
 
 public abstract class CommentHistoryLink extends MenuLink {
 
@@ -88,7 +88,7 @@ public abstract class CommentHistoryLink extends MenuLink {
     }
 
     private Dao getDao() {
-        return OneDev.getInstance(Dao.class);
+        return Cheeta.getInstance(Dao.class);
     }
 
     protected abstract Collection<? extends CommentRevision> getCommentRevisions();

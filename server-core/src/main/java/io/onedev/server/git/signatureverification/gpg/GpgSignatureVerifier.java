@@ -1,11 +1,11 @@
-package io.onedev.server.git.signatureverification.gpg;
+package io.cheeta.server.git.signatureverification.gpg;
 
-import io.onedev.server.service.GpgKeyService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.git.signatureverification.SignatureVerifier;
-import io.onedev.server.git.signatureverification.VerificationResult;
-import io.onedev.server.model.support.administration.GpgSetting;
-import io.onedev.server.util.GpgUtils;
+import io.cheeta.server.service.GpgKeyService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.git.signatureverification.SignatureVerifier;
+import io.cheeta.server.git.signatureverification.VerificationResult;
+import io.cheeta.server.model.support.administration.GpgSetting;
+import io.cheeta.server.util.GpgUtils;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.openpgp.*;
 import org.bouncycastle.openpgp.jcajce.JcaPGPObjectFactory;
@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

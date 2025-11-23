@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pack;
+package io.cheeta.server.search.entity.pack;
 
 import java.util.Date;
 
@@ -9,10 +9,10 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.Pack;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class PublishDateCriteria extends Criteria<Pack> {
 

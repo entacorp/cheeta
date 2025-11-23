@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.datatable.selectioncolumn;
+package io.cheeta.server.web.component.datatable.selectioncolumn;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -18,7 +18,7 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.util.visit.IVisit;
 import org.apache.wicket.util.visit.IVisitor;
 
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
 
 abstract class HeaderSelector<T> extends Panel {
 

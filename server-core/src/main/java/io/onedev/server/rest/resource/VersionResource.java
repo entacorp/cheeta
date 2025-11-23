@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import java.io.Serializable;
 
@@ -8,8 +8,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.rest.annotation.Api;
 
 @Api(description = "Version info for server and various tools")
 @Path("/version")
@@ -21,7 +21,7 @@ public class VersionResource {
 	@Path("/server")
 	@GET
 	public String getServerVersion() {
-		return OneDev.getInstance().getVersion();
+		return Cheeta.getInstance().getVersion();
 	}
 	
 	@Api(description = "Get tod version range compatible with this server")

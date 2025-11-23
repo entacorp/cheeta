@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
 import static java.lang.Long.parseLong;
 import static java.lang.String.format;
@@ -19,20 +19,20 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.util.visit.IVisitor;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.WicketUtils;
 
 abstract class CardListPanel extends Panel {
 
@@ -102,7 +102,7 @@ abstract class CardListPanel extends Panel {
 									behavior.check(handler);
 									handler.appendJavaScript(format("" +
 											"$('#%s').remove();" +
-											"onedev.server.issueBoards.changeCardCount('%s', -1);", 
+											"cheeta.server.issueBoards.changeCardCount('%s', -1);", 
 											card.getMarkupId(), getMarkupId()));
 								}
 							}
@@ -159,7 +159,7 @@ abstract class CardListPanel extends Panel {
 	}
 		
 	private IssueService getIssueService() {
-		return OneDev.getInstance(IssueService.class);
+		return Cheeta.getInstance(IssueService.class);
 	}
 
 	private List<Issue> queryIssues(int offset, int count) {
@@ -192,7 +192,7 @@ abstract class CardListPanel extends Panel {
 				break;
 			}
 		}
-		handler.appendJavaScript(format("onedev.server.issueBoards.changeCardCount('%s', -1);", getMarkupId()));
+		handler.appendJavaScript(format("cheeta.server.issueBoards.changeCardCount('%s', -1);", getMarkupId()));
 	}
 
 	void onCardAdded(AjaxRequestTarget target, Long issueId) {
@@ -201,7 +201,7 @@ abstract class CardListPanel extends Panel {
 		target.add(card);
 		var script = format("" +
 				"$(\"<div id='%s'></div>\").insertAfter($('#%s').children().eq(0));" +
-				"onedev.server.issueBoards.changeCardCount('%s', 1);", 
+				"cheeta.server.issueBoards.changeCardCount('%s', 1);", 
 				card.getMarkupId(), getMarkupId(), getMarkupId());
 		target.prependJavaScript(script);		
 	}
@@ -236,7 +236,7 @@ abstract class CardListPanel extends Panel {
 						target.add(card);
 					}
 					target.appendJavaScript(format(
-							"onedev.server.issueBoards.onCardDropped('%s', %d, '%s', %d, %b);", 
+							"cheeta.server.issueBoards.onCardDropped('%s', %d, '%s', %d, %b);", 
 							cardListPanel.getMarkupId(), i, 
 							CardListPanel.this.getMarkupId(), cardIndex, 
 							accepted));
@@ -270,7 +270,7 @@ abstract class CardListPanel extends Panel {
 		else 
 			baseIndex = index;
 		basePosition = getIssue(baseIndex).getBoardPosition();
-		OneDev.getInstance(TransactionService.class).run(() -> {
+		Cheeta.getInstance(TransactionService.class).run(() -> {
 			for (var i=0; i<baseIndex; i++)
 				getIssue(i).setBoardPosition(basePosition-baseIndex+i);
 		});

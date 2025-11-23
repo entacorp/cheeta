@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.chart.pie;
+package io.cheeta.server.web.component.chart.pie;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.page.base.BasePage;
 
 public abstract class PieChartPanel extends GenericPanel<List<PieSlice>> {
 
@@ -58,7 +58,7 @@ public abstract class PieChartPanel extends GenericPanel<List<PieSlice>> {
 		
 		String jsonOfSlices;
 		try {
-			jsonOfSlices = OneDev.getInstance(ObjectMapper.class).writeValueAsString(getSlices());
+			jsonOfSlices = Cheeta.getInstance(ObjectMapper.class).writeValueAsString(getSlices());
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
@@ -66,7 +66,7 @@ public abstract class PieChartPanel extends GenericPanel<List<PieSlice>> {
 		BasePage page = (BasePage) getPage();
 		CallbackParameter param = CallbackParameter.explicit("sliceName");
 		String callback = selectionBehavior.getCallbackFunction(param).toString();
-		String script = String.format("onedev.server.pieChart.onDomReady('%s', %s, %s, %b);", 
+		String script = String.format("cheeta.server.pieChart.onDomReady('%s', %s, %s, %b);", 
 				getMarkupId(true), jsonOfSlices, callback, page.isDarkMode());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

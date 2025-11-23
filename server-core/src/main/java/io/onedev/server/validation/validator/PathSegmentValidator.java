@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.nio.file.Paths;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.annotation.PathSegment;
+import io.cheeta.server.annotation.PathSegment;
 
 public class PathSegmentValidator implements ConstraintValidator<PathSegment, String> {
 

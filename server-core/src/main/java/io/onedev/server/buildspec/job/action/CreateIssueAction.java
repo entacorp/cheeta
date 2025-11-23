@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.action;
+package io.cheeta.server.buildspec.job.action;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,34 +14,34 @@ import javax.validation.constraints.NotEmpty;
 import org.apache.shiro.subject.Subject;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.FieldNamesProvider;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.model.support.issue.field.instance.FieldInstance;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.FieldNamesProvider;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.model.support.issue.field.instance.FieldInstance;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable(name="Create issue", order=300)
 public class CreateIssueAction extends PostBuildAction {
@@ -73,7 +73,7 @@ public class CreateIssueAction extends PostBuildAction {
 	
 	@SuppressWarnings("unused")
 	private static List<String> getProjectChoices() {
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		Project project = ((ProjectPage) WicketUtils.getPage()).getProject();
 
 		Collection<Project> projects = SecurityUtils.getAuthorizedProjects(new AccessProject());
@@ -155,15 +155,15 @@ public class CreateIssueAction extends PostBuildAction {
 	}
 	
 	private static Collection<String> getFieldNames() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getFieldNames();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldNames();
 	}
 	
 	@Override
 	public void execute(Build build) {
-		OneDev.getInstance(TransactionService.class).run(() -> {
+		Cheeta.getInstance(TransactionService.class).run(() -> {
 			Project project;
 			if (getProjectPath() != null) {
-				project = OneDev.getInstance(ProjectService.class).findByPath(getProjectPath());
+				project = Cheeta.getInstance(ProjectService.class).findByPath(getProjectPath());
 				if (project == null) 
 					throw new ExplicitException("Unable to find project: " + projectPath);
 				Subject subject = JobAuthorizationContext.get().getSubject(getAccessTokenSecret());
@@ -177,7 +177,7 @@ public class CreateIssueAction extends PostBuildAction {
 			issue.setTitle(getIssueTitle());
 			issue.setSubmitter(SecurityUtils.getUser());
 			issue.setSubmitDate(new Date());
-			SettingService settingService = OneDev.getInstance(SettingService.class);
+			SettingService settingService = Cheeta.getInstance(SettingService.class);
 			GlobalIssueSetting issueSetting = settingService.getIssueSetting();
 			issue.setState(issueSetting.getInitialStateSpec().getName());
 			
@@ -188,7 +188,7 @@ public class CreateIssueAction extends PostBuildAction {
 						.convertToObject(instance.getValueProvider().getValue());
 				issue.setFieldValue(instance.getName(), fieldValue);
 			}
-			OneDev.getInstance(IssueService.class).open(issue);
+			Cheeta.getInstance(IssueService.class).open(issue);
 		});
 		
 	}
@@ -202,7 +202,7 @@ public class CreateIssueAction extends PostBuildAction {
 	public void validateWith(BuildSpec buildSpec, Job job) {
 		super.validateWith(buildSpec, job);
 		
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		try {
 			FieldUtils.validateFields(issueSetting.getFieldSpecMap(getFieldNames()), issueFields);
 		} catch (ValidationException e) {

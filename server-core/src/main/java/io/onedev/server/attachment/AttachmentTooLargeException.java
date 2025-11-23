@@ -1,6 +1,6 @@
-package io.onedev.server.attachment;
+package io.cheeta.server.attachment;
 
-import io.onedev.server.exception.HttpResponseAwareException;
+import io.cheeta.server.exception.HttpResponseAwareException;
 
 import javax.servlet.http.HttpServletResponse;
 

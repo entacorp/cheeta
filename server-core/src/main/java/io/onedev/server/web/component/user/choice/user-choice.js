@@ -1,4 +1,4 @@
-onedev.server.userChoiceFormatter = {
+cheeta.server.userChoiceFormatter = {
 	formatSelection: function(user) {
 		return "<img class='avatar' src='" + user.avatar + "'/> <span class='name'>" + user.name + "</span>";
 	},

@@ -1,4 +1,4 @@
-package io.onedev.server.util.jackson.git;
+package io.cheeta.server.util.jackson.git;
 
 import java.io.IOException;
 

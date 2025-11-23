@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.io.File;
 import java.util.Collection;
@@ -17,18 +17,18 @@ import org.apache.shiro.subject.Subject;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
 
-import io.onedev.server.annotation.NoDBAccess;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.code.GitPackConfig;
-import io.onedev.server.replica.ProjectReplica;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.artifact.ArtifactInfo;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.util.facade.ProjectFacade;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.server.annotation.NoDBAccess;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.code.GitPackConfig;
+import io.cheeta.server.replica.ProjectReplica;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.artifact.ArtifactInfo;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.util.facade.ProjectFacade;
+import io.cheeta.server.util.patternset.PatternSet;
 
 public interface ProjectService extends EntityService<Project> {
 

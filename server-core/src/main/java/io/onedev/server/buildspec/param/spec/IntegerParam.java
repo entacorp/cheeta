@@ -1,13 +1,13 @@
-package io.onedev.server.buildspec.param.spec;
+package io.cheeta.server.buildspec.param.spec;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
-import io.onedev.server.buildspecmodel.inputspec.integerinput.IntegerInput;
-import io.onedev.server.buildspecmodel.inputspec.integerinput.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.integerinput.IntegerInput;
+import io.cheeta.server.buildspecmodel.inputspec.integerinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=400, name=ParamSpec.INTEGER)
 public class IntegerParam extends ParamSpec {

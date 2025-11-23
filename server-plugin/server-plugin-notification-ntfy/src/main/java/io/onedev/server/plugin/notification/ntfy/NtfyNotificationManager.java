@@ -1,16 +1,16 @@
-package io.onedev.server.plugin.notification.ntfy;
+package io.cheeta.server.plugin.notification.ntfy;
 
 import com.vladsch.flexmark.ast.Image;
 import com.vladsch.flexmark.ast.Link;
 import com.vladsch.flexmark.formatter.NodeFormattingHandler;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.markdown.ExternalLinkFormatter;
-import io.onedev.server.markdown.MarkdownService;
-import io.onedev.server.notification.ActivityDetail;
-import io.onedev.server.notification.ChannelNotificationManager;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
-import io.onedev.server.util.commenttext.PlainText;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.markdown.ExternalLinkFormatter;
+import io.cheeta.server.markdown.MarkdownService;
+import io.cheeta.server.notification.ActivityDetail;
+import io.cheeta.server.notification.ChannelNotificationManager;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
+import io.cheeta.server.util.commenttext.PlainText;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 

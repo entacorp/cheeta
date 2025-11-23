@@ -1,7 +1,7 @@
-package io.onedev.server.web;
+package io.cheeta.server.web;
 
-import io.onedev.server.model.*;
-import io.onedev.server.util.ProjectAndRevision;
+import io.cheeta.server.model.*;
+import io.cheeta.server.util.ProjectAndRevision;
 import org.eclipse.jgit.lib.ObjectId;
 
 public interface UrlService {

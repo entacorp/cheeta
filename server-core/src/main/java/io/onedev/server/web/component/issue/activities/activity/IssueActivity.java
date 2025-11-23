@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.activities.activity;
+package io.cheeta.server.web.component.issue.activities.activity;
 
 import java.io.Serializable;
 import java.util.Date;

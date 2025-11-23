@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.bean;
+package io.cheeta.server.web.editable.bean;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -16,15 +16,15 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.BeanUpdating;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.ValueEditor;
-import io.onedev.server.annotation.ExcludedProperties;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.BeanUpdating;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.ValueEditor;
+import io.cheeta.server.annotation.ExcludedProperties;
 
 public class BeanPropertyEditor extends PropertyEditor<Serializable> {
 

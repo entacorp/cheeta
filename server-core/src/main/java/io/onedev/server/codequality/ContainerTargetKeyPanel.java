@@ -1,4 +1,4 @@
-package io.onedev.server.codequality;
+package io.cheeta.server.codequality;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;

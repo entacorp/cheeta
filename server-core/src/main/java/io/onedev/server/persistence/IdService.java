@@ -1,4 +1,4 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 public interface IdService {
 	

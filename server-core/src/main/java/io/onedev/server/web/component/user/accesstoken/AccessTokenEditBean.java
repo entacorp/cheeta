@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.accesstoken;
+package io.cheeta.server.web.component.user.accesstoken;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Secret;
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.model.AccessTokenAuthorization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.Role;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Secret;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.model.AccessTokenAuthorization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.security.SecurityUtils;
 
 @Editable
 public class AccessTokenEditBean implements Serializable {

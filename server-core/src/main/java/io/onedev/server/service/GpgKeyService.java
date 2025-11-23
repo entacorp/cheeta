@@ -1,9 +1,9 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.git.signatureverification.gpg.GpgSigningKey;
-import io.onedev.server.model.GpgKey;
+import io.cheeta.server.git.signatureverification.gpg.GpgSigningKey;
+import io.cheeta.server.model.GpgKey;
 
 public interface GpgKeyService extends EntityService<GpgKey> {
 

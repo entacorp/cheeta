@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.buildspec.job.projectdependency;
+package io.cheeta.server.web.editable.buildspec.job.projectdependency;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class ProjectDependencyCssResourceReference extends BaseDependentCssResourceReference {
 

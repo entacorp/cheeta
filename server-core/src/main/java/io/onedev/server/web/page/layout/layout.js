@@ -1,4 +1,4 @@
-onedev.server.layout = {
+cheeta.server.layout = {
 	onDomReady: function(commandPaletteCallback, macCommandPaletteTooltip, nonMacCommandPaletteTooltip) {
 		var $body = $("body");
 		var $sidebar = $(".sidebar");
@@ -53,7 +53,7 @@ onedev.server.layout = {
 		});
 		
 		$sidebar.find(".menu-link:not('.menu-toggle')").click(function() {
-			window.sessionStorage.setItem("onedev.sidebar.scrollTop", $sidebarBody.scrollTop());	
+			window.sessionStorage.setItem("cheeta.sidebar.scrollTop", $sidebarBody.scrollTop());	
 		});		
 
 		var processTimer;		
@@ -135,7 +135,7 @@ onedev.server.layout = {
 			return false;
 		});
 		
-		if (onedev.server.util.isMac()) {
+		if (cheeta.server.util.isMac()) {
 			$("a.command-palette").attr("data-tippy-content", macCommandPaletteTooltip).html("<span class='keycap'>⌘</span> <span class='keycap'>k</span>");
 		}
 		else
@@ -150,9 +150,9 @@ onedev.server.layout = {
 	},
 	onLoad: function() {
 		var $sidebarBody = $(".sidebar-body");
-		var scrollTop = window.sessionStorage.getItem("onedev.sidebar.scrollTop");
+		var scrollTop = window.sessionStorage.getItem("cheeta.sidebar.scrollTop");
 		if (scrollTop) {
-			window.sessionStorage.removeItem("onedev.sidebar.scrollTop");
+			window.sessionStorage.removeItem("cheeta.sidebar.scrollTop");
 			$sidebarBody.scrollTop(scrollTop);	
 		} else {
 			var $lastActive = $(".sidebar-menu .menu-link.active:visible").last();

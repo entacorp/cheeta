@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.workflowreconcile;
+package io.cheeta.server.web.component.issue.workflowreconcile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,13 +7,13 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
 
 @Editable
 public class UndefinedFieldResolution implements Serializable {
@@ -53,7 +53,7 @@ public class UndefinedFieldResolution implements Serializable {
 	@SuppressWarnings("unused")
 	private static List<String> getFieldChoices() {
 		List<String> fields = new ArrayList<>();
-		for (FieldSpec field: OneDev.getInstance(SettingService.class).getIssueSetting().getFieldSpecs())
+		for (FieldSpec field: Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldSpecs())
 			fields.add(field.getName());
 		return fields;
 	}

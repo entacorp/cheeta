@@ -1,21 +1,21 @@
-package io.onedev.server.buildspec.job.projectdependency;
+package io.cheeta.server.buildspec.job.projectdependency;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.util.WicketUtils;
 
 import org.jspecify.annotations.Nullable;
 import javax.validation.constraints.NotEmpty;
@@ -57,7 +57,7 @@ public class ProjectDependency implements Serializable {
 		List<String> choices = new ArrayList<>();
 		Project currentProject = ((ProjectPage)WicketUtils.getPage()).getProject();
 		
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		ProjectCache cache = projectService.cloneCache();
 		for (Project project: SecurityUtils.getAuthorizedProjects(new AccessProject())) {
 			if (!project.equals(currentProject))
@@ -83,14 +83,14 @@ public class ProjectDependency implements Serializable {
 	static Project getInputProject(EditContext editContext) {
 		String projectPath = (String) editContext.getInputValue("projectPath");
 		if (projectPath != null) {
-			Project project = OneDev.getInstance(ProjectService.class).findByPath(projectPath);
+			Project project = Cheeta.getInstance(ProjectService.class).findByPath(projectPath);
 			if (project != null && SecurityUtils.canReadCode(project))
 				return project;
 		}
 		return null;
 	}
 	
-	@Editable(order=400, name="Artifacts to Retrieve", description="Specify artifacts to retrieve into <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. "
+	@Editable(order=400, name="Artifacts to Retrieve", description="Specify artifacts to retrieve into <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. "
 			+ "Only published artifacts (via artifact publish step) can be retrieved.")
 	@Interpolative(variableSuggester="suggestVariables")
 	@Patterns(path=true)
@@ -104,7 +104,7 @@ public class ProjectDependency implements Serializable {
 	}
 	
 	@Editable(order=500, placeholder="Job workspace", description=""
-			+ "Optionally specify a path relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> "
+			+ "Optionally specify a path relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> "
 			+ "to put retrieved artifacts. Leave empty to use job workspace itself")
 	@Interpolative(variableSuggester="suggestVariables")
 	public String getDestinationPath() {

@@ -1,4 +1,4 @@
-package io.onedev.server.web.util.resourcebundle.testdata.b;
+package io.cheeta.server.web.util.resourcebundle.testdata.b;
 
 import java.util.ArrayList;
 import java.util.List;

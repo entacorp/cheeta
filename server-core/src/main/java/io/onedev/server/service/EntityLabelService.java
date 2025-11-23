@@ -1,9 +1,9 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 
-import io.onedev.server.model.support.EntityLabel;
-import io.onedev.server.model.support.LabelSupport;
+import io.cheeta.server.model.support.EntityLabel;
+import io.cheeta.server.model.support.LabelSupport;
 
 public interface EntityLabelService<T extends EntityLabel> extends EntityService<T> {
 	

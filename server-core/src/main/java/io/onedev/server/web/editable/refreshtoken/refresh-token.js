@@ -1,4 +1,4 @@
-onedev.server.refreshToken = {
+cheeta.server.refreshToken = {
 	onGenerate: function(containerId, targetUrl, state, callback) {
 		var width = 900;
 		var height = 600;
@@ -14,7 +14,7 @@ onedev.server.refreshToken = {
 		$container.data("popup").close();
 		if (refreshToken) {
 			$container.find("input").val(refreshToken);
-			onedev.server.form.markDirty($container.closest("form"));
+			cheeta.server.form.markDirty($container.closest("form"));
 		}
 	}
 }

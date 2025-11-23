@@ -1,9 +1,9 @@
-package io.onedev.server.exception.handler;
+package io.cheeta.server.exception.handler;
 
 import javax.servlet.http.HttpServletResponse;
 
-import io.onedev.server.exception.HttpResponse;
-import io.onedev.server.exception.ServerNotReadyException;
+import io.cheeta.server.exception.HttpResponse;
+import io.cheeta.server.exception.ServerNotReadyException;
 
 public class ServerNotReadyExceptionHandler extends AbstractExceptionHandler<ServerNotReadyException> {
 	

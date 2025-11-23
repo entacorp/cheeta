@@ -1,4 +1,4 @@
-package io.onedev.server.web.ajaxlistener;
+package io.cheeta.server.web.ajaxlistener;
 
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.wicket.Component;

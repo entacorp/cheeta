@@ -1,9 +1,9 @@
-package io.onedev.server.web.editable.verticalbeanlist;
+package io.cheeta.server.web.editable.verticalbeanlist;
 
-import io.onedev.server.annotation.ExcludedProperties;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.annotation.ExcludedProperties;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.list.ListItem;

@@ -1,18 +1,18 @@
-package io.onedev.server.web.avatar;
+package io.cheeta.server.web.avatar;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.util.facade.EmailAddressFacade;
-import io.onedev.server.util.facade.UserFacade;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.facade.EmailAddressFacade;
+import io.cheeta.server.util.facade.UserFacade;
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.jgit.lib.PersonIdent;
 
@@ -26,11 +26,11 @@ import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
-import static io.onedev.commons.utils.FileUtils.createDir;
-import static io.onedev.commons.utils.LockUtils.read;
-import static io.onedev.commons.utils.LockUtils.write;
-import static io.onedev.server.web.avatar.AvatarGenerator.generate;
-import static io.onedev.server.web.component.avatarupload.AvatarUploadField.writeToFile;
+import static io.cheeta.commons.utils.FileUtils.createDir;
+import static io.cheeta.commons.utils.LockUtils.read;
+import static io.cheeta.commons.utils.LockUtils.write;
+import static io.cheeta.server.web.avatar.AvatarGenerator.generate;
+import static io.cheeta.server.web.component.avatarupload.AvatarUploadField.writeToFile;
 import static javax.imageio.ImageIO.write;
 
 @Singleton
@@ -70,7 +70,7 @@ public class DefaultAvatarService implements AvatarService, Serializable {
 		if (userId.equals(User.UNKNOWN_ID)) {
 			return AVATARS_BASE_URL + "user.png";
 		} else if (userId.equals(User.SYSTEM_ID)) {
-			return AVATARS_BASE_URL + "onedev.png";
+			return AVATARS_BASE_URL + "cheeta.png";
 		} else {
 			File uploadedFile = getUserUploadedFile(userId, null);
 			if (uploadedFile.exists())
@@ -90,7 +90,7 @@ public class DefaultAvatarService implements AvatarService, Serializable {
 	@Override
 	public String getPersonAvatarUrl(PersonIdent personIdent) {
 		if (personIdent.getName().equals(User.SYSTEM_NAME)) { 
-			return AVATARS_BASE_URL + "onedev.png";
+			return AVATARS_BASE_URL + "cheeta.png";
 		} else {
 			EmailAddressFacade emailAddress = emailAddressService.findFacadeByValue(personIdent.getEmailAddress());
 			if (emailAddress != null && emailAddress.isVerified()) { 

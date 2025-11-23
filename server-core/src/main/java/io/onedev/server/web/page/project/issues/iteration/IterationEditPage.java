@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.issues.iteration;
+package io.cheeta.server.web.page.project.issues.iteration;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.Session;
@@ -13,18 +13,18 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.editbean.IterationEditBean;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.editbean.IterationEditBean;
 
 public class IterationEditPage extends ProjectPage {
 
@@ -96,7 +96,7 @@ public class IterationEditPage extends ProjectPage {
 	}
 
 	private IterationService getIterationService() {
-		return OneDev.getInstance(IterationService.class);
+		return Cheeta.getInstance(IterationService.class);
 	}
 
 	@Override

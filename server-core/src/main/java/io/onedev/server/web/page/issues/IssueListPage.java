@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.issues;
+package io.cheeta.server.web.page.issues;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,29 +16,29 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.NamedIssueQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.issue.list.IssueListPanel;
-import io.onedev.server.web.component.issue.workflowreconcile.WorkflowChangeAlertPanel;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.PersonalQuerySupport;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.util.NamedIssueQueriesBean;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.NamedIssueQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.issue.list.IssueListPanel;
+import io.cheeta.server.web.component.issue.workflowreconcile.WorkflowChangeAlertPanel;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.PersonalQuerySupport;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.util.NamedIssueQueriesBean;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class IssueListPage extends LayoutPage {
 
@@ -58,7 +58,7 @@ public class IssueListPage extends LayoutPage {
 	}
 	
 	private static GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	@Override
@@ -97,7 +97,7 @@ public class IssueListPage extends LayoutPage {
 				var oldAuditContent = VersionedXmlDoc.fromBean(getIssueSetting().getNamedQueries()).toXML();
 				getIssueSetting().setNamedQueries(queries);
 				var newAuditContent = VersionedXmlDoc.fromBean(getIssueSetting().getNamedQueries()).toXML();
-				OneDev.getInstance(SettingService.class).saveIssueSetting(getIssueSetting());
+				Cheeta.getInstance(SettingService.class).saveIssueSetting(getIssueSetting());
 				auditService.audit(null, "changed issue queries", oldAuditContent, newAuditContent);
 			}
 
@@ -172,7 +172,7 @@ public class IssueListPage extends LayoutPage {
 										} else {
 											namedQuery.setQuery(query);
 										}
-										OneDev.getInstance(UserService.class).update(getLoginUser(), null);
+										Cheeta.getInstance(UserService.class).update(getLoginUser(), null);
 										target.add(savedQueries);
 										close();
 									}
@@ -195,7 +195,7 @@ public class IssueListPage extends LayoutPage {
 											verb = "changed";
 										}
 										var newAuditContent = VersionedXmlDoc.fromBean(namedQuery).toXML();
-										OneDev.getInstance(SettingService.class).saveIssueSetting(issueSetting);
+										Cheeta.getInstance(SettingService.class).saveIssueSetting(issueSetting);
 										auditService.audit(null, verb + " issue query \"" + name + "\"", oldAuditContent, newAuditContent);
 										target.add(savedQueries);
 										close();
@@ -263,7 +263,7 @@ public class IssueListPage extends LayoutPage {
 	
 	@Override
 	protected String getPageTitle() {
-		return _T("Issues") + " - " + OneDev.getInstance(SettingService.class).getBrandingSetting().getName();
+		return _T("Issues") + " - " + Cheeta.getInstance(SettingService.class).getBrandingSetting().getName();
 	}
 	
 }

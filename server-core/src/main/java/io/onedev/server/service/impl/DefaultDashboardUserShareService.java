@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,12 +14,12 @@ import org.slf4j.LoggerFactory;
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
 
-import io.onedev.server.service.DashboardUserShareService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Dashboard;
-import io.onedev.server.model.DashboardUserShare;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.DashboardUserShareService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Dashboard;
+import io.cheeta.server.model.DashboardUserShare;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Transactional;
 
 @Singleton
 public class DefaultDashboardUserShareService extends BaseEntityService<DashboardUserShare>

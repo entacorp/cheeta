@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,21 +13,21 @@ import javax.persistence.criteria.Root;
 import com.google.common.base.Preconditions;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentStatusChangeService;
-import io.onedev.server.service.PendingSuggestionApplyService;
-import io.onedev.server.git.BlobEdits;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.PendingSuggestionApply;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentStatusChangeService;
+import io.cheeta.server.service.PendingSuggestionApplyService;
+import io.cheeta.server.git.BlobEdits;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.PendingSuggestionApply;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.security.SecurityUtils;
 
 @Singleton
 public class DefaultPendingSuggestionApplyService extends BaseEntityService<PendingSuggestionApply>
@@ -77,7 +77,7 @@ public class DefaultPendingSuggestionApplyService extends BaseEntityService<Pend
 			compareContext.setOldCommitHash(comment.getMark().getCommitHash());
 			compareContext.setNewCommitHash(newCommitId.name());
 			change.setCompareContext(compareContext);
-			OneDev.getInstance(CodeCommentStatusChangeService.class).create(change, "Suggestion applied");
+			Cheeta.getInstance(CodeCommentStatusChangeService.class).create(change, "Suggestion applied");
 		}
 
 		return newCommitId;

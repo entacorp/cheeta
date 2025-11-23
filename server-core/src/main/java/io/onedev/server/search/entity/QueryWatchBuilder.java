@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity;
+package io.cheeta.server.search.entity;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,12 +10,12 @@ import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
 
 
 public abstract class QueryWatchBuilder<T extends AbstractEntity> {

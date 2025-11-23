@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.lang.reflect.AnnotatedElement;
 
@@ -8,7 +8,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.util.ComponentContext;
+import io.cheeta.server.util.ComponentContext;
 
 public abstract class EmptyValueLabel extends Label {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.oneline;
+package io.cheeta.server.web.asset.oneline;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,13 +1,13 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.event.project.build.BuildEvent;
-import io.onedev.server.event.project.codecomment.CodeCommentEvent;
-import io.onedev.server.event.project.issue.IssueEvent;
-import io.onedev.server.event.project.pack.PackEvent;
-import io.onedev.server.event.project.pullrequest.PullRequestEvent;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.event.project.build.BuildEvent;
+import io.cheeta.server.event.project.codecomment.CodeCommentEvent;
+import io.cheeta.server.event.project.issue.IssueEvent;
+import io.cheeta.server.event.project.pack.PackEvent;
+import io.cheeta.server.event.project.pullrequest.PullRequestEvent;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.annotation.Editable;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -100,7 +100,7 @@ public class WebHook implements Serializable {
 	}
 
 	@Editable(order=300, description="The secret which allows you to ensure that POST requests sent to the payload URL are "
-			+ "from OneDev. When you set a secret you'll receive the X-OneDev-Signature header in the webhook POST request")
+			+ "from Cheeta. When you set a secret you'll receive the X-Cheeta-Signature header in the webhook POST request")
 	@NotEmpty
 	public String getSecret() {
 		return secret;

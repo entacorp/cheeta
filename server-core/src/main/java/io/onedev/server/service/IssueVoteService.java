@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.IssueVote;
+import io.cheeta.server.model.IssueVote;
 
 public interface IssueVoteService extends EntityService<IssueVote> {
 

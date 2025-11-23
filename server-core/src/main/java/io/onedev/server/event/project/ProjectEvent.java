@@ -1,15 +1,15 @@
-package io.onedev.server.event.project;
+package io.cheeta.server.event.project;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.event.Event;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.LastActivity;
-import io.onedev.server.notification.ActivityDetail;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.event.Event;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.LastActivity;
+import io.cheeta.server.notification.ActivityDetail;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.web.UrlService;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;
@@ -35,12 +35,12 @@ public abstract class ProjectEvent extends Event implements Serializable {
 	}
 	
 	public Project getProject() {
-		return OneDev.getInstance(ProjectService.class).load(projectId);
+		return Cheeta.getInstance(ProjectService.class).load(projectId);
 	}
 	
 	@Nullable
 	public User getUser() {
-		return userId != null? OneDev.getInstance(UserService.class).load(userId): null;
+		return userId != null? Cheeta.getInstance(UserService.class).load(userId): null;
 	}
 
 	public Date getDate() {
@@ -105,7 +105,7 @@ public abstract class ProjectEvent extends Event implements Serializable {
 	}
 	
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getProject(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getProject(), true);
 	}
 	
 	@Nullable

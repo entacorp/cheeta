@@ -1,7 +1,7 @@
-package io.onedev.server.job;
+package io.cheeta.server.job;
 
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.search.entity.agent.AgentQuery;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.search.entity.agent.AgentQuery;
 
 public interface ResourceAllocator {
 

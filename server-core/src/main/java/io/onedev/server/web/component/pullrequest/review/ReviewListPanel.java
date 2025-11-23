@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.pullrequest.review;
+package io.cheeta.server.web.component.pullrequest.review;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,19 +18,19 @@ import org.apache.wicket.model.LoadableDetachableModel;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.PullRequestReviewService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.PullRequestReviewService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.page.base.BasePage;
 
 public abstract class ReviewListPanel extends Panel {
 
@@ -113,7 +113,7 @@ public abstract class ReviewListPanel extends Panel {
 					public void onClick(AjaxRequestTarget target) {
 						PullRequestReview review = item.getModelObject();
 						review.setStatus(Status.PENDING);
-						OneDev.getInstance(PullRequestReviewService.class).createOrUpdate(SecurityUtils.getUser(), review);
+						Cheeta.getInstance(PullRequestReviewService.class).createOrUpdate(SecurityUtils.getUser(), review);
 						notifyPullRequestChange(target);
 					}
 
@@ -148,7 +148,7 @@ public abstract class ReviewListPanel extends Panel {
 						PullRequest request = getPullRequest();
 						PullRequestReview review = item.getModelObject();
 						review.setStatus(Status.EXCLUDED);
-						OneDev.getInstance(PullRequestService.class).checkReviews(request, false);
+						Cheeta.getInstance(PullRequestService.class).checkReviews(request, false);
 						User reviewer = review.getUser();
 						boolean reviewerRequired = false;
 						if (request.isNew()) {
@@ -219,7 +219,7 @@ public abstract class ReviewListPanel extends Panel {
 	}
 
 	private PullRequestReviewService getReviewService() {
-		return OneDev.getInstance(PullRequestReviewService.class);
+		return Cheeta.getInstance(PullRequestReviewService.class);
 	}
 
 	@Override

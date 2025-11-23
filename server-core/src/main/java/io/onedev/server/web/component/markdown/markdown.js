@@ -1,4 +1,4 @@
-onedev.server.markdown = {
+cheeta.server.markdown = {
 	shortcuts: { // cmd (Mac) or ctrl (non-Mac) plus below keys
 		"b": ".do-bold",
 		"shift-k": ".do-link",
@@ -65,7 +65,7 @@ onedev.server.markdown = {
 	onDomReady: function(containerId, callback, atWhoLimit, attachmentUploadUrl, 
 			attachmentMaxSize, canMentionUser, canReferenceEntity, 
 			projectPathPattern, projectKeyPattern, autosaveKey, translations) {
-		onedev.server.markdown.translations = translations;
+		cheeta.server.markdown.translations = translations;
 		var $container = $("#" + containerId);
 		var useFixedWidthFontCookieName = "markdownEditor.useFixedWidthFont";
 		var useFixedWidthFont = Cookies.get(useFixedWidthFontCookieName);
@@ -90,12 +90,12 @@ onedev.server.markdown = {
 		$head.find(".dropdown>a").dropdown();
 		
 		if ($suggestion.attr("disabled") == "disabled") {
-			$suggestion.attr("data-tippy-content", onedev.server.markdown.translations["commented-code-outdated"]);
+			$suggestion.attr("data-tippy-content", cheeta.server.markdown.translations["commented-code-outdated"]);
 		} else {
-			if (onedev.server.util.isMac())		
-				$suggestion.attr("data-tippy-content", onedev.server.markdown.translations["suggest-changes"] + " (cmd-g)");
+			if (cheeta.server.util.isMac())		
+				$suggestion.attr("data-tippy-content", cheeta.server.markdown.translations["suggest-changes"] + " (cmd-g)");
 			else
-				$suggestion.attr("data-tippy-content", onedev.server.markdown.translations["suggest-changes"] + " (ctrl-g)");
+				$suggestion.attr("data-tippy-content", cheeta.server.markdown.translations["suggest-changes"] + " (ctrl-g)");
 				
 			$suggestion.click(function() {
 				var content = $(this).data("content");
@@ -104,13 +104,13 @@ onedev.server.markdown = {
 				var langHint = "suggestion";
 				$input.focus();
 				var selected = $input.range();
-				var prefix = onedev.server.markdown.getBlockPrefix($input);
-				var suffix = onedev.server.markdown.getBlockSuffix($input);
+				var prefix = cheeta.server.markdown.getBlockPrefix($input);
+				var suffix = cheeta.server.markdown.getBlockSuffix($input);
 				if (suffix == "")
 					suffix = "\n";
 				document.execCommand("insertText", false, prefix + "```" + langHint + "\n" + content + "\n```" + suffix);		
 				$input.range(selected.start + prefix.length + 4 + langHint.length + from, selected.start + prefix.length + 4 + langHint.length + to);
-				onedev.server.markdown.fireInputEvent($input);
+				cheeta.server.markdown.fireInputEvent($input);
 			});
 		}
 
@@ -120,7 +120,7 @@ onedev.server.markdown = {
 			$editLink.addClass("active");
 			$previewLink.removeClass("active");
 			$splitLink.removeClass("active");
-			Cookies.set(onedev.server.markdown.getCookiePrefix($container)+".split", false, {expires: Infinity});
+			Cookies.set(cheeta.server.markdown.getCookiePrefix($container)+".split", false, {expires: Infinity});
 		});
 		$previewLink.click(function() {
 			$container.removeClass("edit-mode").removeClass("split-mode").addClass("preview-mode");
@@ -139,8 +139,8 @@ onedev.server.markdown = {
 			$rendered.data("caret", caret);
 			$rendered.data("caretOffset", caretOffset);
 			
-			onedev.server.perfectScrollbar.empty($rendered);
-			$rendered.html("<div class='message'>" + onedev.server.markdown.translations["loading"] + "</div>");
+			cheeta.server.perfectScrollbar.empty($rendered);
+			$rendered.html("<div class='message'>" + cheeta.server.markdown.translations["loading"] + "</div>");
 			
 			$editLink.removeClass("active");
 			$previewLink.addClass("active");
@@ -152,16 +152,16 @@ onedev.server.markdown = {
 			
 			$input.focus();
 			
-			$rendered.html("<div class='message'>" + onedev.server.markdown.translations["loading"] + "</div>");
+			$rendered.html("<div class='message'>" + cheeta.server.markdown.translations["loading"] + "</div>");
 			
 			$editLink.removeClass("active");
 			$previewLink.removeClass("active");
 			$splitLink.addClass("active");
 			callback("render", $input.val());
-			Cookies.set(onedev.server.markdown.getCookiePrefix($container)+".split", true, {expires: Infinity});
+			Cookies.set(cheeta.server.markdown.getCookiePrefix($container)+".split", true, {expires: Infinity});
 		});
 		
-		onedev.server.markdown.setupActionMenu($container, $head.find(".normal-mode"));
+		cheeta.server.markdown.setupActionMenu($container, $head.find(".normal-mode"));
 
 		var previewTimeout = 500;
 		$input.doneEvents("input inserted.atwho", function() {
@@ -178,7 +178,7 @@ onedev.server.markdown = {
 				 * in case an ajax call is ongoing we postpone the render 
 				 * as the ongoing call may alter the component layout
 				 */
-				if (onedev.server.ajaxRequests.count != 0) {  
+				if (cheeta.server.ajaxRequests.count != 0) {  
 					setTimeout(render, 10);
 				} else if ($preview.is(":visible")) {
 					callback("render", $input.val());
@@ -192,13 +192,13 @@ onedev.server.markdown = {
 			if (e.keyCode>=33 && e.keyCode<=40 && $preview.is(":visible") 
 					&& $(".atwho-view").filter(":visible").length == 0) {
 				// Only sync preview scroll when we moved cursor
-				onedev.server.markdown.syncPreviewScroll(containerId);
+				cheeta.server.markdown.syncPreviewScroll(containerId);
 			}
 		}, previewTimeout);
 		
 		$input.doneEvents("click focus", function(e) {
 			if ($preview.is(":visible")) {
-				onedev.server.markdown.syncPreviewScroll(containerId);
+				cheeta.server.markdown.syncPreviewScroll(containerId);
 			}
 		}, previewTimeout);
 		
@@ -354,7 +354,7 @@ onedev.server.markdown = {
 			 * change the directory structure of the file being edited as well, hence
 			 * affect the relative path rendering
 			 */
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 		});
 		
 		var minHeight = 75;
@@ -363,7 +363,7 @@ onedev.server.markdown = {
 			handles: {"s": $body.children(".ui-resizable-handle")},
 			minHeight: minHeight,
 			stop: function() {
-				Cookies.set(onedev.server.markdown.getCookiePrefix($container)+".bodyHeight", 
+				Cookies.set(cheeta.server.markdown.getCookiePrefix($container)+".bodyHeight", 
 						$body.height(), {expires: Infinity});
 			}
 		});
@@ -373,7 +373,7 @@ onedev.server.markdown = {
 			handles: {"s": $edit.children(".ui-resizable-handle")},
 			minHeight: minHeight,
 			stop: function() {
-				Cookies.set(onedev.server.markdown.getCookiePrefix($container)+".editHeight", 
+				Cookies.set(cheeta.server.markdown.getCookiePrefix($container)+".editHeight", 
 						$edit.height(), {expires: Infinity});
 			}
 		});
@@ -383,7 +383,7 @@ onedev.server.markdown = {
 			handles: {"s": $preview.children(".ui-resizable-handle")},
 			minHeight: minHeight,
 			stop: function() {
-				Cookies.set(onedev.server.markdown.getCookiePrefix($container)+".previewHeight", 
+				Cookies.set(cheeta.server.markdown.getCookiePrefix($container)+".previewHeight", 
 						$preview.height(), {expires: Infinity});
 			}
 		});
@@ -439,7 +439,7 @@ onedev.server.markdown = {
 
 		$input.on("keydown", function(e) {
 			if ($(".atwho-view").filter(":visible").length == 0) {
-				if (onedev.server.util.isMac() && e.metaKey || !onedev.server.util.isMac() && e.ctrlKey) {
+				if (cheeta.server.util.isMac() && e.metaKey || !cheeta.server.util.isMac() && e.ctrlKey) {
 					var key;
 					if (e.keyCode >= 48 && e.keyCode <= 57)
 						key = String.fromCharCode(e.keyCode);
@@ -455,7 +455,7 @@ onedev.server.markdown = {
 						e.preventDefault();
 						$suggestion.click();						
 					} else {
-						var selector = onedev.server.markdown.shortcuts[key];
+						var selector = cheeta.server.markdown.shortcuts[key];
 						if (selector) {
 							e.preventDefault();
 							$head.find(selector).click();
@@ -645,15 +645,15 @@ onedev.server.markdown = {
 			
 			function uploadFile(file) {
 				if (file.size> attachmentMaxSize) {
-					var message = "!!" + onedev.server.markdown.translations["upload-should-be-less-than"] + "!!";
-					onedev.server.markdown.updateUploadMessage($input, message.replace("{0}", Math.round(attachmentMaxSize/1024/1024)));
+					var message = "!!" + cheeta.server.markdown.translations["upload-should-be-less-than"] + "!!";
+					cheeta.server.markdown.updateUploadMessage($input, message.replace("{0}", Math.round(attachmentMaxSize/1024/1024)));
 				} else {
 					var xhr = new XMLHttpRequest();
 					var val = $input.val();
 					var i=1;
-					var message = "[" + onedev.server.markdown.translations["uploading-file"] + "...]";
+					var message = "[" + cheeta.server.markdown.translations["uploading-file"] + "...]";
 					while (val.indexOf(message) != -1) {
-						message = "[" + onedev.server.markdown.translations["uploading-file"] + (++i) + "...]";
+						message = "[" + cheeta.server.markdown.translations["uploading-file"] + (++i) + "...]";
 					}
 
 					xhr.replaceMessage = message;
@@ -673,13 +673,13 @@ onedev.server.markdown = {
 						if (xhr.status == 200) { 
 							callback("insertUrl", response, xhr.replaceMessage);
 						} else { 
-							onedev.server.markdown.updateUploadMessage($input, 
+							cheeta.server.markdown.updateUploadMessage($input, 
 									"!!" + response + "!!", xhr.replaceMessage);
 						}
 					};
 					xhr.onerror = function() {
-						onedev.server.markdown.updateUploadMessage($input, 
-								"!!" + onedev.server.markdown.translations["unable-to-connect-to-server"] + "!!", xhr.replaceMessage);
+						cheeta.server.markdown.updateUploadMessage($input, 
+								"!!" + cheeta.server.markdown.translations["unable-to-connect-to-server"] + "!!", xhr.replaceMessage);
 					};
 					
 					xhr.open("POST", attachmentUploadUrl, true);
@@ -788,7 +788,7 @@ onedev.server.markdown = {
 				$input.caret(selected.start + 2);
 			}
 			closeMenu();
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 		});
 		
 		$actionMenu.find(".do-italic").click(function() {
@@ -801,14 +801,14 @@ onedev.server.markdown = {
 				$input.caret(selected.start + 1);
 			}
 			closeMenu();			
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 		});
 		
 		$actionMenu.find(".do-header").click(function() {
 			$input.focus();
 			var selected = $input.range();
-			var prefix = onedev.server.markdown.getBlockPrefix($input);
-			var suffix = onedev.server.markdown.getBlockSuffix($input);
+			var prefix = cheeta.server.markdown.getBlockPrefix($input);
+			var suffix = cheeta.server.markdown.getBlockSuffix($input);
 			if (selected.length != 0) {
 				document.execCommand("insertText", false, prefix + "### " + selected.text + suffix);
 			} else {
@@ -816,7 +816,7 @@ onedev.server.markdown = {
 				$input.caret(selected.start + prefix.length + 4);
 			}
 			closeMenu();			
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 		});
 		
 		$actionMenu.find(".do-list, .do-orderlist, .do-tasklist").click(function() {
@@ -828,8 +828,8 @@ onedev.server.markdown = {
 				leading = "1. ";
 			else
 				leading = "- [ ] ";
-			var prefix = onedev.server.markdown.getBlockPrefix($input);
-			var suffix = onedev.server.markdown.getBlockSuffix($input);
+			var prefix = cheeta.server.markdown.getBlockPrefix($input);
+			var suffix = cheeta.server.markdown.getBlockSuffix($input);
 			var selected = $input.range();
 			if (selected.length != 0) {
 				var splitted = selected.text.split("\n");
@@ -847,15 +847,15 @@ onedev.server.markdown = {
 				$input.caret(selected.start + prefix.length + leading.length);
 			}
 			closeMenu();			
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 		});
 
 		$actionMenu.find(".do-code").click(function() {
 			$input.focus();
-			var langHint = onedev.server.markdown.translations["programming-language"];
+			var langHint = cheeta.server.markdown.translations["programming-language"];
 			var selected = $input.range();
-			var prefix = onedev.server.markdown.getBlockPrefix($input);
-			var suffix = onedev.server.markdown.getBlockSuffix($input);
+			var prefix = cheeta.server.markdown.getBlockPrefix($input);
+			var suffix = cheeta.server.markdown.getBlockSuffix($input);
 			if (suffix == "")
 				suffix = "\n";
 			if (selected.length != 0) {
@@ -866,17 +866,17 @@ onedev.server.markdown = {
 				$input.range(selected.start + prefix.length + 3, selected.start + prefix.length + 3 + langHint.length);
 			}
 			closeMenu();			
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 		});
 		
 		$actionMenu.find(".do-quote").click(function() {
 			$input.focus();
 			var selected = $input.range();
-			var prefix = onedev.server.markdown.getBlockPrefix($input);
-			var suffix = onedev.server.markdown.getBlockSuffix($input);
+			var prefix = cheeta.server.markdown.getBlockPrefix($input);
+			var suffix = cheeta.server.markdown.getBlockSuffix($input);
 			if (selected.length != 0) {
 				document.execCommand("insertText", false, 
-					prefix + onedev.server.markdown.getQuoted(selected.text) + suffix);				
+					prefix + cheeta.server.markdown.getQuoted(selected.text) + suffix);				
 			} else {
 				document.execCommand("insertText", false, 
 					prefix + "> " + suffix);				
@@ -884,13 +884,13 @@ onedev.server.markdown = {
 			}
 			
 			closeMenu();			
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 		});
 		
 		$actionMenu.find(".do-emoji").click(function() {
 			if (!$emojis.hasClass("loaded") && !$emojis.hasClass("loading")) {
 				$emojis.addClass("loading");
-				$emojis.html(onedev.server.markdown.translations["loading-emojis"]);
+				$emojis.html(cheeta.server.markdown.translations["loading-emojis"]);
 				callback("loadEmojis");
 			}
 			$emojis.toggle();
@@ -902,17 +902,17 @@ onedev.server.markdown = {
 			closeMenu();
 			if (!$edit.is(":visible")) 
 				return;
-			var prefix = onedev.server.markdown.getAtWhoPrefix($input);
+			var prefix = cheeta.server.markdown.getAtWhoPrefix($input);
 			$input.focus();
 			document.execCommand("insertText", false, prefix + "@");
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 			$input.atwho("run");
 		});
 		$actionMenu.find(".do-reference").click(function() {
 			closeMenu();
 			if (!$edit.is(":visible"))
 				return;
-			var text = onedev.server.markdown.getAtWhoPrefix($input);
+			var text = cheeta.server.markdown.getAtWhoPrefix($input);
 			var type = $(this).data("type");
 			if (type !== undefined)
 				text += type + " ";
@@ -923,7 +923,7 @@ onedev.server.markdown = {
 				text += "#";
 			$input.focus();
 			document.execCommand("insertText", false, text);
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 			$input.atwho("run");
 		});
 		
@@ -935,9 +935,9 @@ onedev.server.markdown = {
 			closeMenu();			
 		});
 
-		var prefix = onedev.server.util.isMac()?"cmd-":"ctrl-";		
-		for (var key in onedev.server.markdown.shortcuts) {
-			var selector = onedev.server.markdown.shortcuts[key];
+		var prefix = cheeta.server.util.isMac()?"cmd-":"ctrl-";		
+		for (var key in cheeta.server.markdown.shortcuts) {
+			var selector = cheeta.server.markdown.shortcuts[key];
 			var $action = $actionMenu.find(selector);
 			if ($actionMenu.closest(".floating").length != 0) 
 				$action.append("<span class='float-right ml-4 text-monospace font-size-sm'>" + prefix + key + "</span>");
@@ -958,19 +958,19 @@ onedev.server.markdown = {
 		if ($body.find(".ui-resizable-handle:visible").length != 0) {
 			var defaultHeight = 200;
 			if ($container.hasClass("normal-mode")) {
-				var bodyHeight = Cookies.get(onedev.server.markdown.getCookiePrefix($container)+".bodyHeight");
+				var bodyHeight = Cookies.get(cheeta.server.markdown.getCookiePrefix($container)+".bodyHeight");
 				if (bodyHeight) 
 					$body.height(parseInt(bodyHeight));
 				else 
 					$body.height(defaultHeight);
 			} else {
-				var editHeight = Cookies.get(onedev.server.markdown.getCookiePrefix($container)+".editHeight");
+				var editHeight = Cookies.get(cheeta.server.markdown.getCookiePrefix($container)+".editHeight");
 				if (editHeight) 
 					$edit.height(parseInt(editHeight));
 				else
 					$edit.height(defaultHeight);
 					
-				var previewHeight = Cookies.get(onedev.server.markdown.getCookiePrefix($container)+".previewHeight");
+				var previewHeight = Cookies.get(cheeta.server.markdown.getCookiePrefix($container)+".previewHeight");
 				if (previewHeight) 
 					$preview.height(parseInt(previewHeight));
 				else
@@ -983,7 +983,7 @@ onedev.server.markdown = {
 			if (autosaveValue && $input.val() != autosaveValue) {
 				$input.val(autosaveValue);
 				$warning.show();
-				onedev.server.markdown.fireInputEvent($input);
+				cheeta.server.markdown.fireInputEvent($input);
 			}
 		}
 		
@@ -1004,7 +1004,7 @@ onedev.server.markdown = {
 		
 		$rendered.html(html);
 		
-		onedev.server.markdown.initRendered(containerId);
+		cheeta.server.markdown.initRendered(containerId);
 
 		// Avoid loading existing image
 		$rendered.find("img").each(function() {
@@ -1019,15 +1019,15 @@ onedev.server.markdown = {
 			}
 		});
 		
-		onedev.server.markdown.syncPreviewScroll(containerId);
+		cheeta.server.markdown.syncPreviewScroll(containerId);
 		
 		$rendered.find("img").on("load", function() {
-            onedev.server.markdown.syncPreviewScroll(containerId);
+            cheeta.server.markdown.syncPreviewScroll(containerId);
         });
 	},
 	initRendered: function(containerId, translations) {
 		if (translations)
-			onedev.server.markdown.translations = translations;
+			cheeta.server.markdown.translations = translations;
 
 		var $container = $("#" + containerId);
 		var $rendered = $container.find(".markdown-rendered");
@@ -1037,11 +1037,11 @@ onedev.server.markdown = {
 			var $headerAnchor = $(this);
 			$headerAnchor.before("<a href='" + $headerAnchor.attr("href") 
 				+ "' class='header-link'><svg class='icon'><use xlink:href='" 
-				+ onedev.server.icons + "#link'/></svg></a>");
+				+ cheeta.server.icons + "#link'/></svg></a>");
 		});
 		
 		$rendered.find("a").click(function() {
-			onedev.server.viewState.getFromViewAndSetToHistory();
+			cheeta.server.viewState.getFromViewAndSetToHistory();
 		});
 		
 		$rendered.find("img").each(function() {
@@ -1095,13 +1095,13 @@ onedev.server.markdown = {
 			var $this = $(this);
 			var suggestionFile = $this.data("suggestionfile");
 			if (suggestionFile) {
-				onedev.server.diff.highlightSyntax($this.children(".text-diff"), suggestionFile);
+				cheeta.server.diff.highlightSyntax($this.children(".text-diff"), suggestionFile);
 			} else {
 				var modeName = $this.data("language");
 				if (modeName) {
 				    var modeInfo = CodeMirror.findModeByName(modeName);
 			        if (modeInfo) { 
-						onedev.server.codemirror.highlightSyntax($this.text(), modeInfo, this);
+						cheeta.server.codemirror.highlightSyntax($this.text(), modeInfo, this);
 						$this.addClass("cm-s-eclipse");
 					}
 				}
@@ -1110,8 +1110,8 @@ onedev.server.markdown = {
 			$this.parent().append($actions);
 			
 			if (!$this.parent().hasClass("suggestion")) {
-				var icon = "<svg class='icon'><use xlink:href='" + onedev.server.icons + "#copy'/></svg>";
-				var $copy = $("<a class='pressable' data-tippy-content='" + onedev.server.markdown.translations["copy-to-clipboard"] + "'>" + icon + "</a>");
+				var icon = "<svg class='icon'><use xlink:href='" + cheeta.server.icons + "#copy'/></svg>";
+				var $copy = $("<a class='pressable' data-tippy-content='" + cheeta.server.markdown.translations["copy-to-clipboard"] + "'>" + icon + "</a>");
 				$actions.append($copy);
 				var options = {
 					text: function() {
@@ -1127,27 +1127,27 @@ onedev.server.markdown = {
 			var suggestionCallback = $container.data("suggestionCallback");
 			if (suggestionCallback) {
 				if ($this.data("suggestionoutdated")) {
-					var icon = "<svg class='icon icon-sm'><use xlink:href='" + onedev.server.icons + "#warning'/></svg>";
-					var $warning = $("<a class='ml-2 link-gray' data-tippy-content='" + onedev.server.markdown.translations["suggestion-outdated"] + "'>" + icon + "</a>");
+					var icon = "<svg class='icon icon-sm'><use xlink:href='" + cheeta.server.icons + "#warning'/></svg>";
+					var $warning = $("<a class='ml-2 link-gray' data-tippy-content='" + cheeta.server.markdown.translations["suggestion-outdated"] + "'>" + icon + "</a>");
 					$actions.append($warning);
 				} else if ($this.data("suggestionapplyinbatch")) {
-					var icon = "<svg class='icon'><use xlink:href='" + onedev.server.icons + "#minus-square'/></svg>";
-					var $removeFromBatch = $("<a class='pressable ml-2' data-tippy-content='" + onedev.server.markdown.translations["remove-from-batch"] + "'>" + icon + "</a>");
+					var icon = "<svg class='icon'><use xlink:href='" + cheeta.server.icons + "#minus-square'/></svg>";
+					var $removeFromBatch = $("<a class='pressable ml-2' data-tippy-content='" + cheeta.server.markdown.translations["remove-from-batch"] + "'>" + icon + "</a>");
 					$removeFromBatch.click(function() {
 						suggestionCallback("removeFromBatch");
 					});
 					$actions.append($removeFromBatch);
 				} else if ($this.data("suggestionappliable")) {
-					var icon = "<svg class='icon'><use xlink:href='" + onedev.server.icons + "#add-to-git'/></svg>";
-					var $apply = $("<a class='pressable ml-2' data-tippy-content='" + onedev.server.markdown.translations["commit-suggestion"] + "'>" + icon + "</a>");
+					var icon = "<svg class='icon'><use xlink:href='" + cheeta.server.icons + "#add-to-git'/></svg>";
+					var $apply = $("<a class='pressable ml-2' data-tippy-content='" + cheeta.server.markdown.translations["commit-suggestion"] + "'>" + icon + "</a>");
 					$actions.append($apply);
 					$apply.click(function() {
 						suggestionCallback("apply", $this.data("suggestion"));
 					});
 					
 					if ($this.data("suggestionbatchappliable")) {
-						var icon = "<svg class='icon flip-x'><use xlink:href='" + onedev.server.icons + "#plus-square'/></svg>";
-						var $addToBatch = $("<a class='pressable ml-2' data-tippy-content='" + onedev.server.markdown.translations["add-to-batch"] + "'>" + icon + "</a>");
+						var icon = "<svg class='icon flip-x'><use xlink:href='" + cheeta.server.icons + "#plus-square'/></svg>";
+						var $addToBatch = $("<a class='pressable ml-2' data-tippy-content='" + cheeta.server.markdown.translations["add-to-batch"] + "'>" + icon + "</a>");
 						$addToBatch.click(function() {
 							suggestionCallback("addToBatch", $this.data("suggestion"));
 						});
@@ -1169,7 +1169,7 @@ onedev.server.markdown = {
 	},
 	onViewerDomReady: function(containerId, taskCallback, taskSourcePositionDataAttribute, referenceCallback, 
 			suggestionCallback, translations) {
-		onedev.server.markdown.translations = translations;
+		cheeta.server.markdown.translations = translations;
 		var $container = $("#" + containerId);
 		$container.data("suggestionCallback", suggestionCallback);
 		
@@ -1206,7 +1206,7 @@ onedev.server.markdown = {
 				referenceType = "commit";
 			}
 			if (referenceType) {
-				var $tooltip = $("<div id='reference-tooltip'>" + onedev.server.markdown.translations["loading"] + "</div>");
+				var $tooltip = $("<div id='reference-tooltip'>" + cheeta.server.markdown.translations["loading"] + "</div>");
 				$tooltip.data("trigger", this);
 				$tooltip.data("alignment", alignment);
 				$("body").append($tooltip);
@@ -1215,7 +1215,7 @@ onedev.server.markdown = {
 			}
 		}, alignment);
 		
-		onedev.server.markdown.initRendered(containerId);
+		cheeta.server.markdown.initRendered(containerId);
 		
 		var $img = $rendered.find("img");
 		$img.each(function() {
@@ -1240,7 +1240,7 @@ onedev.server.markdown = {
 			}).text(state);
 			$tooltip.find(".title").text(title);
 		} else {
-			$tooltip.empty().append("<i>" + onedev.server.markdown.translations["issue-not-exist-or-access-denied"] + "</i>");			
+			$tooltip.empty().append("<i>" + cheeta.server.markdown.translations["issue-not-exist-or-access-denied"] + "</i>");			
 		}
 		$tooltip.align({placement: $tooltip.data("alignment"), target: {element: $tooltip.data("trigger")}});
 	},
@@ -1254,7 +1254,7 @@ onedev.server.markdown = {
 			$tooltip.find(".status").addClass(statusCss).text(status);
 			$tooltip.find(".title").text(title);
 		} else {
-			$tooltip.empty().append("<i>" + onedev.server.markdown.translations["pull-request-not-exist-or-access-denied"] + "</i>");			
+			$tooltip.empty().append("<i>" + cheeta.server.markdown.translations["pull-request-not-exist-or-access-denied"] + "</i>");			
 		}
 		$tooltip.align({placement: $tooltip.data("alignment"), target: {element: $tooltip.data("trigger")}});
 	},
@@ -1267,7 +1267,7 @@ onedev.server.markdown = {
 					"</div>");
 			$tooltip.find(".title").text(title);
 		} else {
-			$tooltip.empty().append("<i>" + onedev.server.markdown.translations["build-not-exist-or-access-denied"] + "</i>");			
+			$tooltip.empty().append("<i>" + cheeta.server.markdown.translations["build-not-exist-or-access-denied"] + "</i>");			
 		}
 		$tooltip.align({placement: $tooltip.data("alignment"), target: {element: $tooltip.data("trigger")}});
 	},
@@ -1291,7 +1291,7 @@ onedev.server.markdown = {
 			$tooltip.find(".date").text(date);
 			$tooltip.find(".body").text(commitMessage);
 		} else {
-			$tooltip.empty().append("<i>" + onedev.server.markdown.translations["commit-not-exist-or-access-denied"] + "</i>");			
+			$tooltip.empty().append("<i>" + cheeta.server.markdown.translations["commit-not-exist-or-access-denied"] + "</i>");			
 		}
 		$tooltip.align({placement: $tooltip.data("alignment"), target: {element: $tooltip.data("trigger")}});
 	},
@@ -1319,9 +1319,9 @@ onedev.server.markdown = {
 			if (!$edit.is(":visible")) 
 				return;
 			$input.focus();
-			var prefix = onedev.server.markdown.getAtWhoPrefix($input);
+			var prefix = cheeta.server.markdown.getAtWhoPrefix($input);
 			document.execCommand("insertText", false, prefix + ":" + $(this).data("tippy-content") + ": ");
-			onedev.server.markdown.fireInputEvent($input);
+			cheeta.server.markdown.fireInputEvent($input);
 		});
 	},
 	insertText: function(containerId, text) {
@@ -1329,7 +1329,7 @@ onedev.server.markdown = {
 		var $input = $body.find(">.edit>textarea");
 		$input.focus();
 		document.execCommand("insertText", false, text);
-		onedev.server.markdown.fireInputEvent($input);
+		cheeta.server.markdown.fireInputEvent($input);
 	},
 	insertUrl: function(containerId, isImage, url, name, replaceMessage) {
 		var $body = $("#" + containerId + ">.body");
@@ -1337,7 +1337,7 @@ onedev.server.markdown = {
 
     	var sanitizedUrl = $('<div>'+url+'</div>').text();
     	var message;
-    	var defaultDescription = onedev.server.markdown.translations["enter-description-here"];
+    	var defaultDescription = cheeta.server.markdown.translations["enter-description-here"];
     	if (name)
     		message = '['+name+']('+sanitizedUrl+')';
     	else
@@ -1346,7 +1346,7 @@ onedev.server.markdown = {
     	if (isImage)
     		message = "!" + message;
     	
-    	onedev.server.markdown.updateUploadMessage($input, message, replaceMessage);
+    	cheeta.server.markdown.updateUploadMessage($input, message, replaceMessage);
     	
     	if (!name) {
     		var offset = isImage?2:1;
@@ -1380,14 +1380,14 @@ onedev.server.markdown = {
 					$input.range($input.caret()-message.length, $input.caret());
 			}
 		} 
-		onedev.server.markdown.fireInputEvent($input);
+		cheeta.server.markdown.fireInputEvent($input);
 	},
 	onInputUrlDomReady: function(containerId) {
 		var $container = $("#"+containerId);
 		var $url = $container.find(".url");
 		var $text = $container.find(".text");
 		$url.on("input", function() {
-			$text.attr("placeholder", onedev.server.util.describeUrl($url.val()));
+			$text.attr("placeholder", cheeta.server.util.describeUrl($url.val()));
 		});
 	},
 	getQuoted: function(content) {
@@ -1398,11 +1398,11 @@ onedev.server.markdown = {
 		return quoted.join('\n');
 	},
 	onQuote: function(containerId, content) {
-		var quoted = onedev.server.markdown.getQuoted(content).replace(/\r/g, "");
+		var quoted = cheeta.server.markdown.getQuoted(content).replace(/\r/g, "");
 		var $input = $("#" + containerId + ">.body>.edit>textarea");
 		$input.focus();
 		document.execCommand("insertText", false, quoted + "\n\n");
-		onedev.server.markdown.fireInputEvent($input);
+		cheeta.server.markdown.fireInputEvent($input);
 		$input.blur();
 		$input.focus();
 	}

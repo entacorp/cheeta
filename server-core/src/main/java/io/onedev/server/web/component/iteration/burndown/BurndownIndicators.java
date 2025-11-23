@@ -1,18 +1,18 @@
-package io.onedev.server.web.component.iteration.burndown;
+package io.cheeta.server.web.component.iteration.burndown;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.web.util.WicketUtils;
 
 public class BurndownIndicators {
 
@@ -23,7 +23,7 @@ public class BurndownIndicators {
 	public static final String ESTIMATED_TIME = "Estimated Time";
 
 	private static GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	public static List<String> getChoices(Project project) {

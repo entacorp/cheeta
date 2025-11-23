@@ -1,10 +1,10 @@
-package io.onedev.server.git.location;
+package io.cheeta.server.git.location;
 
 import java.io.File;
 
 import org.apache.commons.lang3.SystemUtils;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(name="Use Git in System Path", order=100)
 public class SystemGit extends GitLocation {

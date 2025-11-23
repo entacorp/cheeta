@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import static org.hibernate.criterion.Restrictions.eq;
 
@@ -15,26 +15,26 @@ import org.hibernate.criterion.Restrictions;
 import com.google.common.base.Preconditions;
 import com.hazelcast.core.HazelcastInstance;
 
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.model.support.code.TagProtection;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.IssueFieldService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.facade.GroupCache;
-import io.onedev.server.util.facade.GroupFacade;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.model.support.code.TagProtection;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.IssueFieldService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.facade.GroupCache;
+import io.cheeta.server.util.facade.GroupFacade;
+import io.cheeta.server.util.usage.Usage;
 
 @Singleton
 public class DefaultGroupService extends BaseEntityService<Group> implements GroupService {

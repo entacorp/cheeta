@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pullrequest;
+package io.cheeta.server.search.entity.pullrequest;
 
 import java.util.Objects;
 
@@ -9,9 +9,9 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.ProjectScope;
 
 public class SubmittedByUserCriteria extends SubmittedByCriteria {
 

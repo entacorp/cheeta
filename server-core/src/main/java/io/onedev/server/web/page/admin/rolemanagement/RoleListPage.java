@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.rolemanagement;
+package io.cheeta.server.web.page.admin.rolemanagement;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -32,21 +32,21 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.model.Role;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.link.ActionablePageLink;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.link.ActionablePageLink;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class RoleListPage extends AdministrationPage {
 
@@ -205,9 +205,9 @@ public class RoleListPage extends AdministrationPage {
 					@Override
 					public void onClick(AjaxRequestTarget target) {
 						Role role = rowModel.getObject();
-						OneDev.getInstance(RoleService.class).delete(role);
+						Cheeta.getInstance(RoleService.class).delete(role);
 						var oldAuditContent = VersionedXmlDoc.fromBean(role).toXML();
-						OneDev.getInstance(AuditService.class).audit(null, "deleted role \"" + role.getName() + "\"", oldAuditContent, null);
+						Cheeta.getInstance(AuditService.class).audit(null, "deleted role \"" + role.getName() + "\"", oldAuditContent, null);
 						Session.get().success(MessageFormat.format(_T("Role \"{0}\" deleted"), role.getName()));
 						target.add(rolesTable);
 					}
@@ -243,12 +243,12 @@ public class RoleListPage extends AdministrationPage {
 
 			@Override
 			public Iterator<? extends Role> iterator(long first, long count) {
-				return OneDev.getInstance(RoleService.class).query(query, (int)first, (int)count).iterator();
+				return Cheeta.getInstance(RoleService.class).query(query, (int)first, (int)count).iterator();
 			}
 
 			@Override
 			public long size() {
-				return OneDev.getInstance(RoleService.class).count(query);
+				return Cheeta.getInstance(RoleService.class).count(query);
 			}
 
 			@Override
@@ -258,7 +258,7 @@ public class RoleListPage extends AdministrationPage {
 
 					@Override
 					protected Role load() {
-						return OneDev.getInstance(RoleService.class).load(id);
+						return Cheeta.getInstance(RoleService.class).load(id);
 					}
 					
 				};

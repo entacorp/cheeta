@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.IssueDescriptionRevision;
+import io.cheeta.server.model.IssueDescriptionRevision;
 
 public interface IssueDescriptionRevisionService extends EntityService<IssueDescriptionRevision> {
 

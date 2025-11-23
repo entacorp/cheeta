@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.tabbable;
+package io.cheeta.server.web.component.tabbable;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import io.onedev.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.PlanarRange;
 
 public class DiffPlanarRange extends PlanarRange {
 

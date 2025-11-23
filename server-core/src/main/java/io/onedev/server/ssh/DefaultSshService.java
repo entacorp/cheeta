@@ -1,4 +1,4 @@
-package io.onedev.server.ssh;
+package io.cheeta.server.ssh;
 
 import static com.google.common.collect.Lists.newArrayList;
 
@@ -24,17 +24,17 @@ import org.apache.sshd.server.auth.pubkey.CachingPublicKeyAuthenticator;
 import org.apache.sshd.server.command.Command;
 import org.apache.sshd.server.shell.UnknownCommand;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.server.ServerConfig;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.model.Setting;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.TransactionService;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.server.ServerConfig;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.model.Setting;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.TransactionService;
 
 @Singleton
 public class DefaultSshService implements SshService, Serializable {

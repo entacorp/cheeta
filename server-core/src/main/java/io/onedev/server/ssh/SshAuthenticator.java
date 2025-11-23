@@ -1,4 +1,4 @@
-package io.onedev.server.ssh;
+package io.cheeta.server.ssh;
 
 import org.apache.sshd.server.auth.pubkey.PublickeyAuthenticator;
 import org.apache.sshd.server.session.ServerSession;

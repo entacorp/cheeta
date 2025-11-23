@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.pipeline;
+package io.cheeta.server.web.component.pipeline;
 
 import java.io.Serializable;
 

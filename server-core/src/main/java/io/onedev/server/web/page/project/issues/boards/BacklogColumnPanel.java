@@ -1,22 +1,22 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IterationCriteria;
-import io.onedev.server.search.entity.issue.IterationEmptyCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.issue.create.CreateIssuePanel;
-import io.onedev.server.web.component.issue.progress.QueriedIssuesProgressPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IterationCriteria;
+import io.cheeta.server.search.entity.issue.IterationEmptyCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.issue.create.CreateIssuePanel;
+import io.cheeta.server.web.component.issue.progress.QueriedIssuesProgressPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.wicket.Component;
@@ -39,10 +39,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.IsEmpty;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.IsNot;
-import static io.onedev.server.security.SecurityUtils.canManageIssues;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.IsEmpty;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.IsNot;
+import static io.cheeta.server.security.SecurityUtils.canManageIssues;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
 abstract class BacklogColumnPanel extends AbstractColumnPanel {
@@ -216,7 +216,7 @@ abstract class BacklogColumnPanel extends AbstractColumnPanel {
 				super.renderHead(response);
 				CharSequence callback = ajaxBehavior.getCallbackFunction(
 						explicit("issueId"), explicit("cardIndex"));
-				String script = String.format("onedev.server.issueBoards.onColumnDomReady('%s', %s);", 
+				String script = String.format("cheeta.server.issueBoards.onColumnDomReady('%s', %s);", 
 						getMarkupId(), (getQuery() != null && canManageIssues(getProject()))? callback:"undefined");
 				// Use OnLoad instead of OnDomReady as otherwise perfect scrollbar is not shown unless resized 
 				response.render(OnDomReadyHeaderItem.forScript(script));

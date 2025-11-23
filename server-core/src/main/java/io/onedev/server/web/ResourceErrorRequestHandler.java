@@ -1,6 +1,6 @@
-package io.onedev.server.web;
+package io.cheeta.server.web;
 
-import io.onedev.server.exception.ExceptionUtils;
+import io.cheeta.server.exception.ExceptionUtils;
 import org.apache.wicket.request.IRequestCycle;
 import org.apache.wicket.request.IRequestHandler;
 import org.slf4j.Logger;

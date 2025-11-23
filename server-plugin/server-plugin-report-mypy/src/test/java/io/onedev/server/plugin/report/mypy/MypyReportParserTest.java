@@ -1,10 +1,10 @@
-package io.onedev.server.plugin.report.mypy;
+package io.cheeta.server.plugin.report.mypy;
 
 import com.google.common.io.Resources;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.model.Build;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.model.Build;
 import org.apache.commons.io.IOUtils;
 import org.eclipse.jgit.lib.ObjectId;
 import org.jetbrains.annotations.Nullable;

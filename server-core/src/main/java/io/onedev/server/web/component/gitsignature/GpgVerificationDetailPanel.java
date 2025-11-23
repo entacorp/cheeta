@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.gitsignature;
+package io.cheeta.server.web.component.gitsignature;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.GpgUtils;
-import io.onedev.server.web.component.MultilineLabel;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.GpgUtils;
+import io.cheeta.server.web.component.MultilineLabel;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;

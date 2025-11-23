@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.model.Agent;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public class AgentIcon extends SpriteImage {
 

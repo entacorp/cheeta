@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.packs;
+package io.cheeta.server.web.page.packs;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,28 +16,28 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.administration.GlobalPackSetting;
-import io.onedev.server.model.support.pack.NamedPackQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.pack.list.PackListPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.PersonalQuerySupport;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.util.NamedPackQueriesBean;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.administration.GlobalPackSetting;
+import io.cheeta.server.model.support.pack.NamedPackQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.pack.list.PackListPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.PersonalQuerySupport;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.util.NamedPackQueriesBean;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class PackListPage extends LayoutPage {
 
@@ -57,7 +57,7 @@ public class PackListPage extends LayoutPage {
 	}
 
 	private static GlobalPackSetting getPackSetting() {
-		return OneDev.getInstance(SettingService.class).getPackSetting();
+		return Cheeta.getInstance(SettingService.class).getPackSetting();
 	}
 	
 	@Override
@@ -92,7 +92,7 @@ public class PackListPage extends LayoutPage {
 				var oldAuditContent = VersionedXmlDoc.fromBean(getPackSetting().getNamedQueries()).toXML();
 				getPackSetting().setNamedQueries(namedQueries);
 				var newAuditContent = VersionedXmlDoc.fromBean(getPackSetting().getNamedQueries()).toXML();
-				OneDev.getInstance(SettingService.class).savePackSetting(getPackSetting());
+				Cheeta.getInstance(SettingService.class).savePackSetting(getPackSetting());
 				auditService.audit(null, "changed package queries", oldAuditContent, newAuditContent);
 			}
 
@@ -160,7 +160,7 @@ public class PackListPage extends LayoutPage {
 										} else {
 											namedQuery.setQuery(query);
 										}
-										OneDev.getInstance(UserService.class).update(getLoginUser(), null);
+										Cheeta.getInstance(UserService.class).update(getLoginUser(), null);
 										target.add(savedQueries);
 										close();
 									}
@@ -183,7 +183,7 @@ public class PackListPage extends LayoutPage {
 											verb = "changed";
 										}
 										var newAuditContent = VersionedXmlDoc.fromBean(namedQuery).toXML();
-										OneDev.getInstance(SettingService.class).savePackSetting(packSetting);
+										Cheeta.getInstance(SettingService.class).savePackSetting(packSetting);
 										auditService.audit(null, verb + " package query \"" + name + "\"", oldAuditContent, newAuditContent);
 										target.add(savedQueries);
 										close();
@@ -250,7 +250,7 @@ public class PackListPage extends LayoutPage {
 	
 	@Override
 	protected String getPageTitle() {
-		return _T("Packages") + " - " + OneDev.getInstance(SettingService.class).getBrandingSetting().getName();
+		return _T("Packages") + " - " + Cheeta.getInstance(SettingService.class).getBrandingSetting().getName();
 	}
 	
 }

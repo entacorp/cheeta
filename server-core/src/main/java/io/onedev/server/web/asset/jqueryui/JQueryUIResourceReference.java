@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.jqueryui;
+package io.cheeta.server.web.asset.jqueryui;
 
 import java.util.ArrayList;
 import java.util.List;

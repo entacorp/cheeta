@@ -1,4 +1,4 @@
-package io.onedev.server.util.criteria;
+package io.cheeta.server.util.criteria;
 
 import java.util.Collection;
 import java.util.List;
@@ -11,11 +11,11 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 public class NotCriteria<T> extends Criteria<T> {
 	

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.groupchoice;
+package io.cheeta.server.web.component.groupchoice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 
@@ -8,8 +8,8 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Group;
-import io.onedev.server.web.component.select2.Select2Choice;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.web.component.select2.Select2Choice;
 
 public class GroupSingleChoice extends Select2Choice<Group> {
 
@@ -26,9 +26,9 @@ public class GroupSingleChoice extends Select2Choice<Group> {
 			getSettings().setPlaceholder(_T("Choose group..."));
 		else
 			getSettings().setPlaceholder(_T("Not specified"));
-		getSettings().setFormatResult("onedev.server.groupChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.groupChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.groupChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.groupChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.groupChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.groupChoiceFormatter.escapeMarkup");
 		setConvertEmptyInputStringToNull(true);
 	}
 	

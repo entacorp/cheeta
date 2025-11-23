@@ -1,15 +1,15 @@
-package io.onedev.server.web.component.codecomment.referencedfrom;
+package io.cheeta.server.web.component.codecomment.referencedfrom;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.UrlService;
 
 public class ReferencedFromCodeCommentPanel extends GenericPanel<CodeComment> {
 
@@ -18,7 +18,7 @@ public class ReferencedFromCodeCommentPanel extends GenericPanel<CodeComment> {
 
 			@Override
 			protected CodeComment load() {
-				return OneDev.getInstance(CodeCommentService.class).load(commentId);
+				return Cheeta.getInstance(CodeCommentService.class).load(commentId);
 			}
 			
 		});
@@ -32,7 +32,7 @@ public class ReferencedFromCodeCommentPanel extends GenericPanel<CodeComment> {
 		
 		if (SecurityUtils.canReadCode(comment.getProject())) {
 			String title = String.format("<a href='%s'>%s</a>",
-					OneDev.getInstance(UrlService.class).urlFor(comment, false),
+					Cheeta.getInstance(UrlService.class).urlFor(comment, false),
 					HtmlEscape.escapeHtml5(comment.getMark().getPath()));
 			add(new Label("title", title).setEscapeModelStrings(false));
 		} else {

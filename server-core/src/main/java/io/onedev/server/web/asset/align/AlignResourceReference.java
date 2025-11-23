@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.align;
+package io.cheeta.server.web.asset.align;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-import io.onedev.server.web.asset.textareacaretposition.TextareaCaretPositionResourceReference;
+import io.cheeta.server.web.asset.textareacaretposition.TextareaCaretPositionResourceReference;
 
 public class AlignResourceReference extends JavaScriptResourceReference {
 

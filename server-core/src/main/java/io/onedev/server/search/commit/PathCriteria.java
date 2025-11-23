@@ -1,4 +1,4 @@
-package io.onedev.server.search.commit;
+package io.cheeta.server.search.commit;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,13 +11,13 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Project;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Project;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
 
 public class PathCriteria extends CommitCriteria {
 
@@ -45,7 +45,7 @@ public class PathCriteria extends CommitCriteria {
 		Project project = event.getProject();
 		RevCommit commit = project.getRevCommit(event.getNewCommitId(), true);
 		
-		GitService gitService = OneDev.getInstance(GitService.class);
+		GitService gitService = Cheeta.getInstance(GitService.class);
 		Collection<String> changedFiles;
 		if (!event.getOldCommitId().equals(ObjectId.zeroId())) 
 			changedFiles = gitService.getChangedFiles(project, event.getOldCommitId(), event.getNewCommitId(), null);

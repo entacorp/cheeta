@@ -1,12 +1,12 @@
-package io.onedev.server.git.signatureverification.ssh;
+package io.cheeta.server.git.signatureverification.ssh;
 
 import com.trilead.ssh2.packets.TypesReader;
 import com.trilead.ssh2.packets.TypesWriter;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.SshKeyService;
-import io.onedev.server.git.signatureverification.SignatureVerifier;
-import io.onedev.server.git.signatureverification.VerificationResult;
-import io.onedev.server.exception.ExceptionUtils;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.SshKeyService;
+import io.cheeta.server.git.signatureverification.SignatureVerifier;
+import io.cheeta.server.git.signatureverification.VerificationResult;
+import io.cheeta.server.exception.ExceptionUtils;
 import org.apache.sshd.common.digest.BuiltinDigests;
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.digests.SHA256Digest;
@@ -19,7 +19,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.io.StringReader;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.sshd.common.digest.DigestUtils.getFingerPrint;
 import static org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil.parsePublicKey;
 

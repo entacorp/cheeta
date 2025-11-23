@@ -1,4 +1,4 @@
-package io.onedev.server.job;
+package io.cheeta.server.job;
 
 import java.io.File;
 import java.util.List;
@@ -8,17 +8,17 @@ import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.terminal.Shell;
-import io.onedev.server.terminal.Terminal;
-import io.onedev.server.terminal.WebShell;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.terminal.Shell;
+import io.cheeta.server.terminal.Terminal;
+import io.cheeta.server.terminal.WebShell;
 
 public interface JobService {
 	

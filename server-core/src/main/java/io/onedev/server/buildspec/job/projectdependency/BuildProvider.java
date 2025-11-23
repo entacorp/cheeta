@@ -1,12 +1,12 @@
-package io.onedev.server.buildspec.job.projectdependency;
+package io.cheeta.server.buildspec.job.projectdependency;
 
 import java.io.Serializable;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public interface BuildProvider extends Serializable {

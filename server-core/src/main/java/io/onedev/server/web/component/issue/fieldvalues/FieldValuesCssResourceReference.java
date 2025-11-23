@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.fieldvalues;
+package io.cheeta.server.web.component.issue.fieldvalues;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class FieldValuesCssResourceReference extends BaseDependentCssResourceReference {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.cluster;
+package io.cheeta.server.cluster;
 
 import java.io.Serializable;
 import java.util.concurrent.Callable;

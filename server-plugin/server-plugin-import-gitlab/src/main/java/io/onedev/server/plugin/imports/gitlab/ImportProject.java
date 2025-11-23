@@ -1,10 +1,10 @@
-package io.onedev.server.plugin.imports.gitlab;
+package io.cheeta.server.plugin.imports.gitlab;
 
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.pullrequests;
+package io.cheeta.server.web.page.pullrequests;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,28 +16,28 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.administration.GlobalPullRequestSetting;
-import io.onedev.server.model.support.pullrequest.NamedPullRequestQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.pullrequest.list.PullRequestListPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.PersonalQuerySupport;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.util.NamedPullRequestQueriesBean;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.administration.GlobalPullRequestSetting;
+import io.cheeta.server.model.support.pullrequest.NamedPullRequestQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.pullrequest.list.PullRequestListPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.PersonalQuerySupport;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.util.NamedPullRequestQueriesBean;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class PullRequestListPage extends LayoutPage {
 
@@ -57,7 +57,7 @@ public class PullRequestListPage extends LayoutPage {
 	}
 	
 	private static GlobalPullRequestSetting getPullRequestSetting() {
-		return OneDev.getInstance(SettingService.class).getPullRequestSetting();
+		return Cheeta.getInstance(SettingService.class).getPullRequestSetting();
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class PullRequestListPage extends LayoutPage {
 				var oldAuditContent = VersionedXmlDoc.fromBean(getPullRequestSetting().getNamedQueries()).toXML();
 				getPullRequestSetting().setNamedQueries(queries);
 				var newAuditContent = VersionedXmlDoc.fromBean(getPullRequestSetting().getNamedQueries()).toXML();
-				OneDev.getInstance(SettingService.class).savePullRequestSetting(getPullRequestSetting());
+				Cheeta.getInstance(SettingService.class).savePullRequestSetting(getPullRequestSetting());
 				auditService.audit(null, "changed pull request queries", oldAuditContent, newAuditContent);
 			}
 
@@ -162,7 +162,7 @@ public class PullRequestListPage extends LayoutPage {
 										} else {
 											namedQuery.setQuery(query);
 										}
-										OneDev.getInstance(UserService.class).update(getLoginUser(), null);
+										Cheeta.getInstance(UserService.class).update(getLoginUser(), null);
 										target.add(savedQueries);
 										close();
 									}
@@ -185,7 +185,7 @@ public class PullRequestListPage extends LayoutPage {
 											verb = "changed";
 										}
 										var newAuditContent = VersionedXmlDoc.fromBean(namedQuery).toXML();
-										OneDev.getInstance(SettingService.class).savePullRequestSetting(pullRequestSetting);
+										Cheeta.getInstance(SettingService.class).savePullRequestSetting(pullRequestSetting);
 										auditService.audit(null, verb + " pull request query \"" + name + "\"", oldAuditContent, newAuditContent);
 										target.add(savedQueries);
 										close();
@@ -237,7 +237,7 @@ public class PullRequestListPage extends LayoutPage {
 	
 	@Override
 	protected String getPageTitle() {
-		return _T("Pull Requests") + " - " + OneDev.getInstance(SettingService.class).getBrandingSetting().getName();
+		return _T("Pull Requests") + " - " + Cheeta.getInstance(SettingService.class).getBrandingSetting().getName();
 	}
 	
 	public static PageParameters paramsOf(int page) {

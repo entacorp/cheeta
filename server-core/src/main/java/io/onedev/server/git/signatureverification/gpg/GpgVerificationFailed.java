@@ -1,7 +1,7 @@
-package io.onedev.server.git.signatureverification.gpg;
+package io.cheeta.server.git.signatureverification.gpg;
 
-import io.onedev.server.git.signatureverification.VerificationFailed;
-import io.onedev.server.web.component.gitsignature.GpgVerificationDetailPanel;
+import io.cheeta.server.git.signatureverification.VerificationFailed;
+import io.cheeta.server.web.component.gitsignature.GpgVerificationDetailPanel;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.basic.Label;
@@ -9,7 +9,7 @@ import org.eclipse.jgit.revwalk.RevObject;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.util.GpgUtils.getEmailAddresses;
+import static io.cheeta.server.util.GpgUtils.getEmailAddresses;
 
 public class GpgVerificationFailed implements VerificationFailed {
 	

@@ -1,18 +1,18 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.server.util.usermatch.UserMatchParser;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.server.util.usermatch.UserMatchParser;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 import java.util.List;
 
-import static io.onedev.server.util.usermatch.UserMatchLexer.GROUP;
-import static io.onedev.server.util.usermatch.UserMatchLexer.USER;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.util.usermatch.UserMatchLexer.GROUP;
+import static io.cheeta.server.util.usermatch.UserMatchLexer.USER;
+import static io.cheeta.server.web.translation.Translation._T;
 
 public class UserMatchBehavior extends ANTLRAssistBehavior {
 	

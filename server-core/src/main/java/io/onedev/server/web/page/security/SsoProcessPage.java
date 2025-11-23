@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.security;
+package io.cheeta.server.web.page.security;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -28,32 +28,32 @@ import org.slf4j.LoggerFactory;
 
 import com.nimbusds.oauth2.sdk.ParseException;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.MembershipService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.SshKeyService;
-import io.onedev.server.service.SsoAccountService;
-import io.onedev.server.service.SsoProviderService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.SsoAccount;
-import io.onedev.server.model.SsoProvider;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.sso.SsoAuthenticated;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.realm.PasswordAuthenticatingRealm;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.component.tabbable.ActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.HomePage;
-import io.onedev.server.web.page.simple.SimplePage;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.MembershipService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.SshKeyService;
+import io.cheeta.server.service.SsoAccountService;
+import io.cheeta.server.service.SsoProviderService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.SsoAccount;
+import io.cheeta.server.model.SsoProvider;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.sso.SsoAuthenticated;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.realm.PasswordAuthenticatingRealm;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.component.tabbable.ActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.HomePage;
+import io.cheeta.server.web.page.simple.SimplePage;
 
 public class SsoProcessPage extends SimplePage {
 
@@ -88,7 +88,7 @@ public class SsoProcessPage extends SimplePage {
 			providerModel = new LoadableDetachableModel<SsoProvider>() {
 				@Override
 				protected SsoProvider load() {
-					return OneDev.getInstance(SsoProviderService.class).find(providerName);
+					return Cheeta.getInstance(SsoProviderService.class).find(providerName);
 				}
 			};
 			
@@ -385,34 +385,34 @@ public class SsoProcessPage extends SimplePage {
 	}
 	
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 
 	private SsoAccountService getSsoAccountService() {
-		return OneDev.getInstance(SsoAccountService.class);
+		return Cheeta.getInstance(SsoAccountService.class);
 	}
 
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 
 	private EmailAddressService getEmailAddressService() {
-		return OneDev.getInstance(EmailAddressService.class);
+		return Cheeta.getInstance(EmailAddressService.class);
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	private MembershipService getMembershipService() {
-		return OneDev.getInstance(MembershipService.class);
+		return Cheeta.getInstance(MembershipService.class);
 	}
 
 	private SshKeyService getSshKeyService() {
-		return OneDev.getInstance(SshKeyService.class);
+		return Cheeta.getInstance(SshKeyService.class);
 	}
 
 	private PasswordAuthenticatingRealm getPasswordAuthenticatingRealm() {
-		return OneDev.getInstance(PasswordAuthenticatingRealm.class);
+		return Cheeta.getInstance(PasswordAuthenticatingRealm.class);
 	}
 }

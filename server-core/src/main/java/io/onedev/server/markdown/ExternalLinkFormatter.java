@@ -1,11 +1,11 @@
-package io.onedev.server.markdown;
+package io.cheeta.server.markdown;
 
 import com.vladsch.flexmark.ast.InlineLinkNode;
 import com.vladsch.flexmark.formatter.MarkdownWriter;
 import com.vladsch.flexmark.formatter.NodeFormatterContext;
 import com.vladsch.flexmark.formatter.NodeFormattingHandler;
 
-import io.onedev.server.OneDev;
+import io.cheeta.server.Cheeta;
 
 public class ExternalLinkFormatter<N extends InlineLinkNode> implements NodeFormattingHandler.CustomNodeFormatter<N> {
 
@@ -14,7 +14,7 @@ public class ExternalLinkFormatter<N extends InlineLinkNode> implements NodeForm
 		markdown.append("[");
 		context.renderChildren(node);
 		markdown.append("](");
-		markdown.append(OneDev.getInstance(MarkdownService.class).toExternal(node.getUrl().toString()));
+		markdown.append(Cheeta.getInstance(MarkdownService.class).toExternal(node.getUrl().toString()));
 		markdown.append(")");
 	}
 

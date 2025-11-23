@@ -1,6 +1,6 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
-import io.onedev.server.annotation.SubPath;
+import io.cheeta.server.annotation.SubPath;
 import org.apache.commons.io.FilenameUtils;
 
 import javax.validation.ConstraintValidator;

@@ -1,11 +1,11 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
 
-import io.onedev.server.service.SettingService;
-import io.onedev.server.git.location.GitLocation;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.git.location.GitLocation;
 
 @Singleton
 public class GitLocationProvider implements Provider<GitLocation> {

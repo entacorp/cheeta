@@ -1,20 +1,20 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.service.CodeCommentMentionService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.codecomment.CodeCommentEdited;
-import io.onedev.server.event.project.codecomment.CodeCommentEvent;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.markdown.MentionParser;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.EntityComment;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.util.commenttext.MarkdownText;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.service.CodeCommentMentionService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.codecomment.CodeCommentEdited;
+import io.cheeta.server.event.project.codecomment.CodeCommentEvent;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.markdown.MentionParser;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.EntityComment;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.util.commenttext.MarkdownText;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -22,7 +22,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import static io.onedev.server.notification.NotificationUtils.getEmailBody;
+import static io.cheeta.server.notification.NotificationUtils.getEmailBody;
 import static java.util.stream.Collectors.toSet;
 
 @Singleton
@@ -82,7 +82,7 @@ public class CodeCommentNotificationManager {
 						event.getUser().getDisplayName(), event.getActivity());
 
 				String threadingReferences = "<" + comment.getProject().getPath()
-						+ "-codecomment-" + comment.getId() + "@onedev>";
+						+ "-codecomment-" + comment.getId() + "@cheeta>";
 
 				mailService.sendMailAsync(emailAddresses, Lists.newArrayList(),
 						Lists.newArrayList(), subject,

@@ -1,4 +1,4 @@
-package io.onedev.server.web.translation;
+package io.cheeta.server.web.translation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.commit.message;
+package io.cheeta.server.web.component.commit.message;
 
-import io.onedev.server.entityreference.LinkTransformer;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.Highlighter;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.entityreference.LinkTransformer;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.Highlighter;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
 
 public abstract class CommitMessagePanel extends Panel {
 

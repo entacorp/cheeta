@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob;
+package io.cheeta.server.web.page.project.blob;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.cookies.CookiesResourceReference;
-import io.onedev.server.web.asset.jqueryui.JQueryUIResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.cookies.CookiesResourceReference;
+import io.cheeta.server.web.asset.jqueryui.JQueryUIResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class ProjectBlobResourceReference extends BaseDependentResourceReference {
 

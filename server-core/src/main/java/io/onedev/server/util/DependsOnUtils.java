@@ -1,6 +1,6 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.server.annotation.DependsOn;
+import io.cheeta.server.annotation.DependsOn;
 
 public class DependsOnUtils {
     

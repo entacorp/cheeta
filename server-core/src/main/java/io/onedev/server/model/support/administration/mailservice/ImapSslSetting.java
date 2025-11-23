@@ -1,6 +1,6 @@
-package io.onedev.server.model.support.administration.mailservice;
+package io.cheeta.server.model.support.administration.mailservice;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 import java.io.Serializable;
 import java.util.Properties;

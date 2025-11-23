@@ -1,6 +1,6 @@
-package io.onedev.server.event.entity;
+package io.cheeta.server.event.entity;
 
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.server.model.AbstractEntity;
 
 public class EntityPersisted extends EntityEvent {
 	

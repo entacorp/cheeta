@@ -1,14 +1,14 @@
-package io.onedev.server.buildspec.job;
+package io.cheeta.server.buildspec.job;
 
-import static io.onedev.server.model.Build.NAME_BRANCH;
-import static io.onedev.server.model.Build.NAME_COMMIT;
-import static io.onedev.server.model.Build.NAME_JOB;
-import static io.onedev.server.model.Build.NAME_PULL_REQUEST;
-import static io.onedev.server.model.Build.NAME_TAG;
-import static io.onedev.server.search.entity.build.BuildQuery.getRuleName;
-import static io.onedev.server.search.entity.build.BuildQueryLexer.And;
-import static io.onedev.server.search.entity.build.BuildQueryLexer.Is;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.Build.NAME_BRANCH;
+import static io.cheeta.server.model.Build.NAME_COMMIT;
+import static io.cheeta.server.model.Build.NAME_JOB;
+import static io.cheeta.server.model.Build.NAME_PULL_REQUEST;
+import static io.cheeta.server.model.Build.NAME_TAG;
+import static io.cheeta.server.search.entity.build.BuildQuery.getRuleName;
+import static io.cheeta.server.search.entity.build.BuildQueryLexer.And;
+import static io.cheeta.server.search.entity.build.BuildQueryLexer.Is;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -26,40 +26,40 @@ import javax.validation.constraints.NotEmpty;
 import org.apache.wicket.Component;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputStatus;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.RetryCondition;
-import io.onedev.server.annotation.SuggestionProvider;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.BuildSpecAware;
-import io.onedev.server.buildspec.NamedElement;
-import io.onedev.server.buildspec.job.action.PostBuildAction;
-import io.onedev.server.buildspec.job.projectdependency.ProjectDependency;
-import io.onedev.server.buildspec.job.trigger.JobTrigger;
-import io.onedev.server.buildspec.param.ParamUtils;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspec.step.Step;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.job.match.JobMatch;
-import io.onedev.server.job.match.JobMatchContext;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputStatus;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.RetryCondition;
+import io.cheeta.server.annotation.SuggestionProvider;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.BuildSpecAware;
+import io.cheeta.server.buildspec.NamedElement;
+import io.cheeta.server.buildspec.job.action.PostBuildAction;
+import io.cheeta.server.buildspec.job.projectdependency.ProjectDependency;
+import io.cheeta.server.buildspec.job.trigger.JobTrigger;
+import io.cheeta.server.buildspec.param.ParamUtils;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.step.Step;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.job.match.JobMatch;
+import io.cheeta.server.job.match.JobMatchContext;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable
 @ClassValidating
@@ -150,7 +150,7 @@ public class Job implements NamedElement, Validatable {
 
 	@SuppressWarnings("unused")
 	private static String getJobExecutorPlaceholder() {
-		if (OneDev.getInstance(SettingService.class).getJobExecutors().isEmpty())
+		if (Cheeta.getInstance(SettingService.class).getJobExecutors().isEmpty())
 			return _T("Auto-discovered executor");
 		else 
 			return _T("First applicable executor");
@@ -158,7 +158,7 @@ public class Job implements NamedElement, Validatable {
 
 	@SuppressWarnings("unused")
 	private static String getJobExecutorDescription() {
-		if (OneDev.getInstance(SettingService.class).getJobExecutors().isEmpty())
+		if (Cheeta.getInstance(SettingService.class).getJobExecutors().isEmpty())
 			return _T("Optionally specify executor for this job. Leave empty to use auto-discover executor");
 		else 
 			return _T("Optionally specify executor for this job. Leave empty to use first applicable executor");
@@ -174,7 +174,7 @@ public class Job implements NamedElement, Validatable {
 			if (branch == null)
 				branch = "main";
 			JobMatchContext context = new JobMatchContext(page.getProject(), branch, null, jobName);
-			for (JobExecutor executor: OneDev.getInstance(SettingService.class).getJobExecutors()) {
+			for (JobExecutor executor: Cheeta.getInstance(SettingService.class).getJobExecutors()) {
 				if (executor.isEnabled()) {
 					if (executor.getJobMatch() == null) {
 						applicableJobExecutors.add(executor.getName());
@@ -189,7 +189,7 @@ public class Job implements NamedElement, Validatable {
 		return SuggestionUtils.suggest(applicableJobExecutors, matchWith);
 	}
 	
-	@Editable(order=200, description="Steps will be executed serially on same node, sharing the same <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>")
+	@Editable(order=200, description="Steps will be executed serially on same node, sharing the same <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>")
 	@Valid
 	public List<Step> getSteps() {
 		return steps;
@@ -351,7 +351,7 @@ public class Job implements NamedElement, Validatable {
 	public boolean isValid(ConstraintValidatorContext context) {
 		boolean isValid = true;
 		
-		var jobExecutors = OneDev.getInstance(SettingService.class).getJobExecutors();
+		var jobExecutors = Cheeta.getInstance(SettingService.class).getJobExecutors();
 		if (jobExecutor != null && !jobExecutor.contains("@") 
 				&& jobExecutors.stream().noneMatch(it->it.getName().equals(jobExecutor))) {
 			isValid = false;
@@ -378,7 +378,7 @@ public class Job implements NamedElement, Validatable {
 		}
 		
 		try {
-			io.onedev.server.buildspec.job.retrycondition.RetryCondition.parse(this, getRetryCondition());
+			io.cheeta.server.buildspec.job.retrycondition.RetryCondition.parse(this, getRetryCondition());
 		} catch (Exception e) {
 			String message = e.getMessage();
 			if (message == null)

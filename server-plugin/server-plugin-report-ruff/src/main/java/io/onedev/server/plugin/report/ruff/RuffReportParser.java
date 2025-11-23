@@ -1,11 +1,11 @@
-package io.onedev.server.plugin.report.ruff;
+package io.cheeta.server.plugin.report.ruff;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.model.Build;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.model.Build;
 
 import java.util.*;
 

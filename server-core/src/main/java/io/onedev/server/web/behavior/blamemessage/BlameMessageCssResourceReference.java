@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior.blamemessage;
+package io.cheeta.server.web.behavior.blamemessage;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class BlameMessageCssResourceReference extends BaseDependentCssResourceReference {
 

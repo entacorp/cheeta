@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 import java.util.Date;
@@ -9,13 +9,13 @@ import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.criteria.Criteria;
 
 public interface CodeCommentService extends EntityService<CodeComment> {
 	

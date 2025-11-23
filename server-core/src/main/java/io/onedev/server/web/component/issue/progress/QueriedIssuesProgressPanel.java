@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.issue.progress;
+package io.cheeta.server.web.component.issue.progress;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IssueTimes;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.behavior.CompletionRateBehavior;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IssueTimes;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.behavior.CompletionRateBehavior;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -25,7 +25,7 @@ public abstract class QueriedIssuesProgressPanel extends Panel {
 		@Override
 		protected IssueTimes load() {
 			var subject = SecurityUtils.getSubject();
-			return OneDev.getInstance(IssueService.class).queryTimes(subject, getProjectScope(), getQuery().getCriteria());
+			return Cheeta.getInstance(IssueService.class).queryTimes(subject, getProjectScope(), getQuery().getCriteria());
 		}
 	};
 	
@@ -51,7 +51,7 @@ public abstract class QueriedIssuesProgressPanel extends Panel {
 				}
 			}));
 
-			var timeTrackingSetting = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+			var timeTrackingSetting = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 			fragment.add(new Label("estimatedTime", timeTrackingSetting.formatWorkingPeriod(timesModel.getObject().getEstimatedTime(), true)));
 			fragment.add(new Label("spentTime", timeTrackingSetting.formatWorkingPeriod(timesModel.getObject().getSpentTime(), true)));
 			add(fragment);

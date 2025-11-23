@@ -1,9 +1,9 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import static io.onedev.server.security.SecurityUtils.canAccessIssue;
-import static io.onedev.server.security.SecurityUtils.canModifyOrDelete;
-import static io.onedev.server.security.SecurityUtils.getUser;
-import static io.onedev.server.security.SecurityUtils.isAdministrator;
+import static io.cheeta.server.security.SecurityUtils.canAccessIssue;
+import static io.cheeta.server.security.SecurityUtils.canModifyOrDelete;
+import static io.cheeta.server.security.SecurityUtils.getUser;
+import static io.cheeta.server.security.SecurityUtils.isAdministrator;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -20,12 +20,12 @@ import javax.ws.rs.core.Response;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.service.IssueCommentService;
-import io.onedev.server.service.IssueCommentRevisionService;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueCommentRevision;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.service.IssueCommentService;
+import io.cheeta.server.service.IssueCommentRevisionService;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueCommentRevision;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 
 @Path("/issue-comments")
 @Consumes(MediaType.APPLICATION_JSON)

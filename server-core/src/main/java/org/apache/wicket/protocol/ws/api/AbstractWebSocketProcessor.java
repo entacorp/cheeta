@@ -67,9 +67,9 @@ import org.apache.wicket.util.string.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.websocket.WebSocketMessages;
-import io.onedev.server.web.websocket.WebSocketService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.websocket.WebSocketMessages;
+import io.cheeta.server.web.websocket.WebSocketService;
 
 /**
  * The base implementation of IWebSocketProcessor. Provides the common logic
@@ -185,7 +185,7 @@ public abstract class AbstractWebSocketProcessor implements IWebSocketProcessor
 		}
 
 		broadcastMessage(new ConnectedMessage(getApplication(), getSessionId(), key));		
-		OneDev.getInstance(WebSocketService.class).onConnect(connection);
+		Cheeta.getInstance(WebSocketService.class).onConnect(connection);
 	}
 
 	@Override

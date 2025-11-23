@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.stats.code;
+package io.cheeta.server.web.page.project.stats.code;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
@@ -21,12 +21,12 @@ import org.eclipse.jgit.lib.PersonIdent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.git.GitContribution;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.user.card.PersonCardPanel;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.GitContribution;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.user.card.PersonCardPanel;
+import io.cheeta.server.xodus.CommitInfoService;
 
 public class CodeContribsPage extends CodeStatsPage {
 
@@ -64,7 +64,7 @@ public class CodeContribsPage extends CodeStatsPage {
 				userCard.setOutputMarkupId(true);
 				replace(userCard);
 				target.add(userCard);
-				target.appendJavaScript("onedev.server.codeStats.contribs.onUserCardAvailable();");
+				target.appendJavaScript("cheeta.server.codeStats.contribs.onUserCardAvailable();");
 			}
 			
 		});
@@ -74,7 +74,7 @@ public class CodeContribsPage extends CodeStatsPage {
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
 
-		CommitInfoService commitInfoService = OneDev.getInstance(CommitInfoService.class);
+		CommitInfoService commitInfoService = Cheeta.getInstance(CommitInfoService.class);
 		Map<Integer, Integer[]> data = new HashMap<>();
 		Map<Integer, GitContribution> overallContributions = 
 				commitInfoService.getOverallContributions(getProject().getId());
@@ -86,7 +86,7 @@ public class CodeContribsPage extends CodeStatsPage {
 		
 		PageParameters params = TopContributorsResource.paramsOf(getProject()); 
 		String topContributorsUrl = urlFor(new TopContributorsResourceReference(), params).toString();
-		var mapper = OneDev.getInstance(ObjectMapper.class);
+		var mapper = Cheeta.getInstance(ObjectMapper.class);
 		try {
 			var jsonOfData = mapper.writeValueAsString(data);
 			var translations = new HashMap<String, String>();
@@ -95,7 +95,7 @@ public class CodeContribsPage extends CodeStatsPage {
 			var jsonOfTranslations = mapper.writeValueAsString(translations);			
 			CharSequence callback = userCardBehavior.getCallbackFunction(
 					CallbackParameter.explicit("name"), CallbackParameter.explicit("emailAddress"));
-			String script = String.format("onedev.server.codeStats.contribs.onDomReady(%s, '%s', %s, %b, %s);", 
+			String script = String.format("cheeta.server.codeStats.contribs.onDomReady(%s, '%s', %s, %b, %s);", 
 					jsonOfData, topContributorsUrl, callback, isDarkMode(), jsonOfTranslations);
 			response.render(OnDomReadyHeaderItem.forScript(script));
 		} catch (JsonProcessingException e) {

@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.pagenavigator;
+package io.cheeta.server.web.component.pagenavigator;
 
-import io.onedev.server.web.util.paginghistory.AjaxPagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.AjaxPagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.navigation.paging.AjaxPagingNavigation;
@@ -156,7 +156,7 @@ public class OnePagingNavigator extends AjaxPagingNavigator {
 		
 		response.render(JavaScriptHeaderItem.forReference(new PagingNavigatorResourceReference()));
 		
-		String script = String.format("onedev.server.pagingNavigator.onDomReady('%s');", getMarkupId());
+		String script = String.format("cheeta.server.pagingNavigator.onDomReady('%s');", getMarkupId());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
 

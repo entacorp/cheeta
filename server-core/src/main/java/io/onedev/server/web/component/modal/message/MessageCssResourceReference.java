@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.modal.message;
+package io.cheeta.server.web.component.modal.message;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class MessageCssResourceReference extends BaseDependentCssResourceReference {
 

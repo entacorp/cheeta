@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.error;
+package io.cheeta.server.web.page.error;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 
@@ -13,9 +13,9 @@ import org.apache.wicket.request.http.WebResponse;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.util.usage.InUseException;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.simple.SimplePage;
+import io.cheeta.server.util.usage.InUseException;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.simple.SimplePage;
 
 public class InUseErrorPage extends SimplePage {
 	

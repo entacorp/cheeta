@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.project.issues.iteration;
+package io.cheeta.server.web.page.project.issues.iteration;
 
-import static io.onedev.server.web.component.iteration.burndown.BurndownIndicators.getChoices;
-import static io.onedev.server.web.component.iteration.burndown.BurndownIndicators.getDefault;
+import static io.cheeta.server.web.component.iteration.burndown.BurndownIndicators.getChoices;
+import static io.cheeta.server.web.component.iteration.burndown.BurndownIndicators.getDefault;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,10 +16,10 @@ import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.component.iteration.burndown.BurndownIndicators;
-import io.onedev.server.web.component.iteration.burndown.IterationBurndownPanel;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.component.iteration.burndown.BurndownIndicators;
+import io.cheeta.server.web.component.iteration.burndown.IterationBurndownPanel;
 
 public class IterationBurndownPage extends IterationDetailPage {
 

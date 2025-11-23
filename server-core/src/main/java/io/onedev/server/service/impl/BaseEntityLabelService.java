@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.model.support.EntityLabel;
-import io.onedev.server.model.support.LabelSupport;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.LabelSpecService;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.model.support.EntityLabel;
+import io.cheeta.server.model.support.LabelSupport;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.LabelSpecService;
 
 public abstract class BaseEntityLabelService<T extends EntityLabel> extends BaseEntityService<T> {
 

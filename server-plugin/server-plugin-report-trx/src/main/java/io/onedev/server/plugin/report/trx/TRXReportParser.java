@@ -1,17 +1,17 @@
-package io.onedev.server.plugin.report.trx;
+package io.cheeta.server.plugin.report.trx;
 
 import com.google.common.base.Splitter;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.Status;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestCase;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestSuite;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.StringTransformer;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.Status;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestCase;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestSuite;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.StringTransformer;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.cycle.RequestCycle;
@@ -24,7 +24,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static io.onedev.server.plugin.report.unittest.UnitTestReport.Status.getOverallStatus;
+import static io.cheeta.server.plugin.report.unittest.UnitTestReport.Status.getOverallStatus;
 import static java.util.stream.Collectors.toSet;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.apache.commons.lang3.StringUtils.substringBefore;

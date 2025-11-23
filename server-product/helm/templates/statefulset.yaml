@@ -5,14 +5,14 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels: {{ include "ods.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.onedev.replicas }}
+  replicas: {{ .Values.cheeta.replicas }}
   selector:
     matchLabels:
   {{- include "ods.template-labels" . | nindent 6 }}
   serviceName: {{ template "ods.fullname" . }}
-  {{- if .Values.onedev.updateStrategy}}
+  {{- if .Values.cheeta.updateStrategy}}
   updateStrategy:
-    {{- toYaml .Values.onedev.updateStrategy | nindent 4 }}
+    {{- toYaml .Values.cheeta.updateStrategy | nindent 4 }}
   {{- end}}
   template:
     metadata:

@@ -1,18 +1,18 @@
-package io.onedev.server.plugin.report.unittest;
+package io.cheeta.server.plugin.report.unittest;
 
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.tabbable.PageTabHead;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
-import io.onedev.server.web.page.project.builds.detail.BuildTab;
-import io.onedev.server.web.page.project.builds.detail.report.BuildReportPage;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.tabbable.PageTabHead;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.web.page.project.builds.detail.BuildTab;
+import io.cheeta.server.web.page.project.builds.detail.report.BuildReportPage;
 import org.apache.commons.lang3.SerializationException;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
@@ -26,7 +26,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public abstract class UnitTestReportPage extends BuildReportPage {
 			try {
 				Long projectId = getProject().getId();
 				Long buildNumber = getBuild().getNumber();
-				return OneDev.getInstance(ProjectService.class).runOnActiveServer(projectId, new GetUnitTestReport(projectId, buildNumber, getReportName()));
+				return Cheeta.getInstance(ProjectService.class).runOnActiveServer(projectId, new GetUnitTestReport(projectId, buildNumber, getReportName()));
 			} catch (Exception e) {
 				if (ExceptionUtils.find(e, SerializationException.class) != null)
 					return null;
@@ -133,7 +133,7 @@ public abstract class UnitTestReportPage extends BuildReportPage {
 		@Override
 		public UnitTestReport call() throws Exception {
 			return LockUtils.read(UnitTestReport.getReportLockName(projectId, buildNumber), () -> {
-				File reportDir = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), UnitTestReport.CATEGORY + "/" + reportName);
+				File reportDir = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), UnitTestReport.CATEGORY + "/" + reportName);
 				return UnitTestReport.readFrom(reportDir);
 			});
 		}

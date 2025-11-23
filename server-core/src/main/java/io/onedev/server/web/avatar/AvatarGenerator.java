@@ -1,4 +1,4 @@
-package io.onedev.server.web.avatar;
+package io.cheeta.server.web.avatar;
 
 import java.awt.Color;
 import java.awt.Font;

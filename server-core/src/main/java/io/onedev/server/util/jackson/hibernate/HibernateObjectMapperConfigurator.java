@@ -1,11 +1,11 @@
-package io.onedev.server.util.jackson.hibernate;
+package io.cheeta.server.util.jackson.hibernate;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.util.jackson.ObjectMapperConfigurator;
+import io.cheeta.server.util.jackson.ObjectMapperConfigurator;
 
 @Singleton
 public class HibernateObjectMapperConfigurator implements ObjectMapperConfigurator {

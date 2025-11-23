@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import java.io.Serializable;
 
@@ -6,10 +6,10 @@ import org.jspecify.annotations.Nullable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class LinkSpecOpposite implements Serializable {
@@ -46,7 +46,7 @@ public class LinkSpecOpposite implements Serializable {
 
 	@Editable(order=300, name="Linkable Issues On the Other Side", placeholder="All issues", 
 			description="Optionally specify criteria of issues which can be linked on the other side")
-	@io.onedev.server.annotation.IssueQuery
+	@io.cheeta.server.annotation.IssueQuery
 	public String getIssueQuery() {
 		return issueQuery;
 	}

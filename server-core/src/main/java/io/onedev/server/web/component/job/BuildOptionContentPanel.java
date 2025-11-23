@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.job;
+package io.cheeta.server.web.component.job;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Project;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
@@ -21,8 +21,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.web.editable.BeanContext;
 
 abstract class BuildOptionContentPanel extends Panel {
 

@@ -1,6 +1,6 @@
-package io.onedev.server.search.entity.pack;
+package io.cheeta.server.search.entity.pack;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -9,11 +9,11 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
 
 public class PublishedByMeCriteria extends PublishedByCriteria {
 

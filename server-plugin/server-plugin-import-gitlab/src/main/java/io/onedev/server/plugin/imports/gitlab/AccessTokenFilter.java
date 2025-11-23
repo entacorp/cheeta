@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.gitlab;
+package io.cheeta.server.plugin.imports.gitlab;
 
 import javax.annotation.Priority;
 import javax.ws.rs.Priorities;

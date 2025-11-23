@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.JobCache;
+import io.cheeta.server.model.JobCache;
 import org.apache.commons.lang3.tuple.Pair;
 
 import org.jspecify.annotations.Nullable;

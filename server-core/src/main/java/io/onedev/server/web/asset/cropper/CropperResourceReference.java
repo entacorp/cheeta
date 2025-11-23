@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.cropper;
+package io.cheeta.server.web.asset.cropper;
 
 import java.util.List;
 

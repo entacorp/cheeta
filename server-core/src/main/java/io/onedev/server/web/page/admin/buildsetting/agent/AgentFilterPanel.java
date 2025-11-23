@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -17,26 +17,26 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.model.Agent;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.agent.AgentQueryLexer;
-import io.onedev.server.search.entity.agent.EverUsedSinceCriteria;
-import io.onedev.server.search.entity.agent.HasRunningBuildsCriteria;
-import io.onedev.server.search.entity.agent.NotUsedSinceCriteria;
-import io.onedev.server.search.entity.agent.OfflineCriteria;
-import io.onedev.server.search.entity.agent.OnlineCriteria;
-import io.onedev.server.search.entity.agent.OsArchCriteria;
-import io.onedev.server.search.entity.agent.OsCriteria;
-import io.onedev.server.search.entity.agent.PausedCriteria;
-import io.onedev.server.search.entity.agent.StatusCriteria;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.datepicker.DatePicker;
-import io.onedev.server.web.component.filteredit.FilterEditPanel;
-import io.onedev.server.web.component.stringchoice.StringMultiChoice;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.agent.AgentQueryLexer;
+import io.cheeta.server.search.entity.agent.EverUsedSinceCriteria;
+import io.cheeta.server.search.entity.agent.HasRunningBuildsCriteria;
+import io.cheeta.server.search.entity.agent.NotUsedSinceCriteria;
+import io.cheeta.server.search.entity.agent.OfflineCriteria;
+import io.cheeta.server.search.entity.agent.OnlineCriteria;
+import io.cheeta.server.search.entity.agent.OsArchCriteria;
+import io.cheeta.server.search.entity.agent.OsCriteria;
+import io.cheeta.server.search.entity.agent.PausedCriteria;
+import io.cheeta.server.search.entity.agent.StatusCriteria;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.datepicker.DatePicker;
+import io.cheeta.server.web.component.filteredit.FilterEditPanel;
+import io.cheeta.server.web.component.stringchoice.StringMultiChoice;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
 
 class AgentFilterPanel extends FilterEditPanel<Agent> {
 	
@@ -297,7 +297,7 @@ class AgentFilterPanel extends FilterEditPanel<Agent> {
 	}
 	
 	private static AgentService getAgentService() {
-		return OneDev.getInstance(AgentService.class);
+		return Cheeta.getInstance(AgentService.class);
 	}
 
 }

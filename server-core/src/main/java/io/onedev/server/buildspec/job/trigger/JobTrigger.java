@@ -1,22 +1,22 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.annotation.*;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobAware;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.buildspec.param.instance.ParamInstances;
-import io.onedev.server.buildspec.param.instance.ParamMap;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.annotation.*;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobAware;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.buildspec.param.instance.ParamInstances;
+import io.cheeta.server.buildspec.param.instance.ParamMap;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.wicket.Component;
 import org.eclipse.jgit.revwalk.RevCommit;
 
@@ -47,7 +47,7 @@ public abstract class JobTrigger implements Serializable {
 	@Editable(name="Applicable Projects", order=900, placeholder="Any project", description=""
 			+ "Optionally specify space-separated projects applicable for this trigger. "
 			+ "This is useful for instance when you want to prevent the job from being "
-			+ "triggered in forked projects. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "triggered in forked projects. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty to match all projects")
 	@Patterns(suggester="suggestProjects", path=true)
 	public String getProjects() {

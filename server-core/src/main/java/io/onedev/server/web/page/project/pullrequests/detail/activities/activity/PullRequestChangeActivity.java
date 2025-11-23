@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.project.pullrequests.detail.activities.activity;
+package io.cheeta.server.web.page.project.pullrequests.detail.activities.activity;
 
 import java.util.Date;
 
 import org.apache.wicket.Component;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivity;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivity;
 
 public class PullRequestChangeActivity implements PullRequestActivity {
 
@@ -23,7 +23,7 @@ public class PullRequestChangeActivity implements PullRequestActivity {
 	}
 
 	public PullRequestChange getChange() {
-		return OneDev.getInstance(PullRequestChangeService.class).load(changeId);
+		return Cheeta.getInstance(PullRequestChangeService.class).load(changeId);
 	}
 
 	@Override

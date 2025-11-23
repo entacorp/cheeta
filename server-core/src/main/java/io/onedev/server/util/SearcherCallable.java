@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import org.apache.lucene.search.IndexSearcher;
 

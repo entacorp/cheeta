@@ -1,10 +1,10 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.validation.Validatable;
 
 public class ClassValidatingValidator implements ConstraintValidator<ClassValidating, Validatable> {
 

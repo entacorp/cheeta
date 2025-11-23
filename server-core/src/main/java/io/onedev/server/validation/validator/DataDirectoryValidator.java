@@ -1,12 +1,12 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.io.File;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.server.annotation.DataDirectory;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.server.annotation.DataDirectory;
 
 public class DataDirectoryValidator implements ConstraintValidator<DataDirectory, String> {
 
@@ -41,7 +41,7 @@ public class DataDirectoryValidator implements ConstraintValidator<DataDirectory
 				constraintContext.disableDefaultConstraintViolation();
 				String message = annotation.message();
 				if (message.length() == 0)
-					message = "Specified directory should be either under site directory or outside of OneDev " +
+					message = "Specified directory should be either under site directory or outside of Cheeta " +
 							"installation directory";
 				constraintContext.buildConstraintViolationWithTemplate(message).addConstraintViolation();
 				return false;

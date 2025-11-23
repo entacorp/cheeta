@@ -1,10 +1,10 @@
-package io.onedev.server.plugin.report.unittest;
+package io.cheeta.server.plugin.report.unittest;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.patternset.PatternSet;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.wicket.Component;
 
@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static java.util.stream.Collectors.toList;
 
 public class UnitTestReport implements Serializable {

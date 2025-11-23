@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AbstractDefaultAjaxBehavior;
@@ -6,7 +6,7 @@ import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
 
 public abstract class CtrlAwareOnClickAjaxBehavior extends AbstractDefaultAjaxBehavior {
 

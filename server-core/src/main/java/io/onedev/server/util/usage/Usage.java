@@ -1,4 +1,4 @@
-package io.onedev.server.util.usage;
+package io.cheeta.server.util.usage;
 
 import java.io.Serializable;
 import java.util.ArrayList;

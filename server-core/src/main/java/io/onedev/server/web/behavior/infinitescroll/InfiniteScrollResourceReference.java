@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior.infinitescroll;
+package io.cheeta.server.web.behavior.infinitescroll;
 
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class InfiniteScrollResourceReference extends BaseDependentResourceReference {
 

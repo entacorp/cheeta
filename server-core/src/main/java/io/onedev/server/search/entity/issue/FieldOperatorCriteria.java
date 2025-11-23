@@ -1,20 +1,20 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.model.*;
-import io.onedev.server.model.support.issue.field.spec.BuildChoiceField;
-import io.onedev.server.model.support.issue.field.spec.CommitField;
-import io.onedev.server.model.support.issue.field.spec.PullRequestChoiceField;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.model.*;
+import io.cheeta.server.model.support.issue.field.spec.BuildChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.CommitField;
+import io.cheeta.server.model.support.issue.field.spec.PullRequestChoiceField;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.criteria.Criteria;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.nio.channels.IllegalSelectorException;
 import java.util.ArrayList;

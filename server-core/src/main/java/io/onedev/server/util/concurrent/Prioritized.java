@@ -1,4 +1,4 @@
-package io.onedev.server.util.concurrent;
+package io.cheeta.server.util.concurrent;
 
 public class Prioritized implements Comparable<Prioritized> {
 

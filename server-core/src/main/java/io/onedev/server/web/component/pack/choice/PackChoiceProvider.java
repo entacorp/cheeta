@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.pack.choice;
+package io.cheeta.server.web.component.pack.choice;
 
 import com.google.common.collect.Lists;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PackService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.web.component.select2.ChoiceProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.web.component.select2.ChoiceProvider;
 import org.hibernate.Hibernate;
 import org.json.JSONException;
 import org.json.JSONWriter;
@@ -36,7 +36,7 @@ public abstract class PackChoiceProvider extends ChoiceProvider<Pack> {
 	}
 	
 	private PackService getPackService() {
-		return OneDev.getInstance(PackService.class);
+		return Cheeta.getInstance(PackService.class);
 	}
 	
 }

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.twofactorauthentication;
+package io.cheeta.server.web.component.user.twofactorauthentication;
 
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -25,13 +25,13 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.resource.AbstractResource;
 import org.apache.wicket.request.resource.ContentDisposition;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.TwoFactorAuthentication;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.web.page.security.LoginPage;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.TwoFactorAuthentication;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.web.page.security.LoginPage;
 
 public abstract class TwoFactorAuthenticationSetupPanel extends GenericPanel<User> {
 
@@ -116,7 +116,7 @@ public abstract class TwoFactorAuthenticationSetupPanel extends GenericPanel<Use
 					target.add(form);
 				} else {
 					getUser().setTwoFactorAuthentication(authentication);
-					OneDev.getInstance(UserService.class).update(getUser(), null);
+					Cheeta.getInstance(UserService.class).update(getUser(), null);
 					
 					Fragment fragment = new Fragment("content", "verifiedFrag", TwoFactorAuthenticationSetupPanel.this);
 					RepeatingView recoveryCodesView = new RepeatingView("recoveryCodes");
@@ -129,7 +129,7 @@ public abstract class TwoFactorAuthenticationSetupPanel extends GenericPanel<Use
 						protected ResourceResponse newResourceResponse(Attributes attributes) {
 							ResourceResponse response = new ResourceResponse();
 							response.setContentType(MediaType.TEXT_PLAIN.toString());
-							response.setFileName("onedev-recovery-codes.txt");
+							response.setFileName("cheeta-recovery-codes.txt");
 							response.setContentDisposition(ContentDisposition.ATTACHMENT);
 							response.disableCaching();
 							

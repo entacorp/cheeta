@@ -1,12 +1,12 @@
-package io.onedev.server.model.support.administration.mailservice;
+package io.cheeta.server.model.support.administration.mailservice;
 
 import java.io.Serializable;
 import java.util.Collection;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.mail.InboxMonitor;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.mail.InboxMonitor;
 
 @Editable
 public interface MailConnector extends Serializable {

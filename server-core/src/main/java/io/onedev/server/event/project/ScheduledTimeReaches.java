@@ -1,8 +1,8 @@
-package io.onedev.server.event.project;
+package io.cheeta.server.event.project;
 
 import java.util.Date;
 
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Project;
 
 public class ScheduledTimeReaches extends ProjectEvent {
 	

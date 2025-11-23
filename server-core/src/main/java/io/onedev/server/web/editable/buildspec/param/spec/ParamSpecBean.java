@@ -1,11 +1,11 @@
-package io.onedev.server.web.editable.buildspec.param.spec;
+package io.cheeta.server.web.editable.buildspec.param.spec;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class ParamSpecBean implements Serializable {

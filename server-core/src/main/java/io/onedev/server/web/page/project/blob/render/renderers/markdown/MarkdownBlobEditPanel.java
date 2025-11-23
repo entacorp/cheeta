@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.project.blob.render.renderers.markdown;
+package io.cheeta.server.web.page.project.blob.render.renderers.markdown;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.form.FormComponentPanel;
 
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.edit.BlobEditPanel;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.edit.BlobEditPanel;
 
 public class MarkdownBlobEditPanel extends BlobEditPanel {
 

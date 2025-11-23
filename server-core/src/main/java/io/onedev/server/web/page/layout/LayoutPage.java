@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.layout;
+package io.cheeta.server.web.page.layout;
 
-import static io.onedev.server.model.Alert.PROP_DATE;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.Alert.PROP_DATE;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
 import java.io.File;
@@ -59,112 +59,112 @@ import org.hibernate.criterion.Order;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.OneDev;
-import io.onedev.server.ServerConfig;
-import io.onedev.server.SubscriptionService;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.model.Alert;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.AlertService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.updatecheck.UpdateCheckService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.brandlogo.BrandLogoPanel;
-import io.onedev.server.web.component.commandpalette.CommandPalettePanel;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.modal.message.MessageModal;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.user.UserAvatar;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.page.HomePage;
-import io.onedev.server.web.page.admin.aisetting.LiteModelPage;
-import io.onedev.server.web.page.admin.alertsettings.AlertSettingPage;
-import io.onedev.server.web.page.admin.authenticator.AuthenticatorPage;
-import io.onedev.server.web.page.admin.brandingsetting.BrandingSettingPage;
-import io.onedev.server.web.page.admin.buildsetting.agent.AgentDetailPage;
-import io.onedev.server.web.page.admin.buildsetting.agent.AgentListPage;
-import io.onedev.server.web.page.admin.buildsetting.jobexecutor.JobExecutorsPage;
-import io.onedev.server.web.page.admin.databasebackup.DatabaseBackupPage;
-import io.onedev.server.web.page.admin.emailtemplates.AlertTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.BuildNotificationTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.CommitNotificationTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.EmailVerificationTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.IssueNotificationTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.IssueNotificationUnsubscribedTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.PackNotificationTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.PasswordResetTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.PullRequestNotificationTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.PullRequestNotificationUnsubscribedTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.ServiceDeskIssueOpenFailedTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.ServiceDeskIssueOpenedTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.StopwatchOverdueTemplatePage;
-import io.onedev.server.web.page.admin.emailtemplates.UserInvitationTemplatePage;
-import io.onedev.server.web.page.admin.gpgsigningkey.GpgSigningKeyPage;
-import io.onedev.server.web.page.admin.gpgtrustedkeys.GpgTrustedKeysPage;
-import io.onedev.server.web.page.admin.groovyscript.GroovyScriptListPage;
-import io.onedev.server.web.page.admin.groupmanagement.GroupListPage;
-import io.onedev.server.web.page.admin.groupmanagement.GroupPage;
-import io.onedev.server.web.page.admin.groupmanagement.create.NewGroupPage;
-import io.onedev.server.web.page.admin.issuesetting.commitmessagefixpatterns.CommitMessageFixPatternsPage;
-import io.onedev.server.web.page.admin.issuesetting.defaultboard.DefaultBoardListPage;
-import io.onedev.server.web.page.admin.issuesetting.externalissuepattern.ExternalIssueTransformersPage;
-import io.onedev.server.web.page.admin.issuesetting.fieldspec.IssueFieldListPage;
-import io.onedev.server.web.page.admin.issuesetting.integritycheck.CheckIssueIntegrityPage;
-import io.onedev.server.web.page.admin.issuesetting.issuetemplate.IssueTemplateListPage;
-import io.onedev.server.web.page.admin.issuesetting.linkspec.LinkSpecListPage;
-import io.onedev.server.web.page.admin.issuesetting.statespec.IssueStateListPage;
-import io.onedev.server.web.page.admin.issuesetting.timetracking.TimeTrackingSettingPage;
-import io.onedev.server.web.page.admin.issuesetting.transitionspec.StateTransitionListPage;
-import io.onedev.server.web.page.admin.labelmanagement.LabelManagementPage;
-import io.onedev.server.web.page.admin.mailservice.MailConnectorPage;
-import io.onedev.server.web.page.admin.performancesetting.PerformanceSettingPage;
-import io.onedev.server.web.page.admin.pluginsettings.ContributedAdministrationSettingPage;
-import io.onedev.server.web.page.admin.rolemanagement.NewRolePage;
-import io.onedev.server.web.page.admin.rolemanagement.RoleDetailPage;
-import io.onedev.server.web.page.admin.rolemanagement.RoleListPage;
-import io.onedev.server.web.page.admin.securitysetting.SecuritySettingPage;
-import io.onedev.server.web.page.admin.serverinformation.ServerInformationPage;
-import io.onedev.server.web.page.admin.serverlog.ServerLogPage;
-import io.onedev.server.web.page.admin.servicedesk.ServiceDeskSettingPage;
-import io.onedev.server.web.page.admin.sshserverkey.SshServerKeyPage;
-import io.onedev.server.web.page.admin.ssosetting.SsoProviderListPage;
-import io.onedev.server.web.page.admin.systemsetting.SystemSettingPage;
-import io.onedev.server.web.page.admin.usermanagement.InvitationListPage;
-import io.onedev.server.web.page.admin.usermanagement.NewInvitationPage;
-import io.onedev.server.web.page.admin.usermanagement.NewUserPage;
-import io.onedev.server.web.page.admin.usermanagement.UserListPage;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.help.IncompatibilitiesPage;
-import io.onedev.server.web.page.my.MyPage;
-import io.onedev.server.web.page.my.accesstoken.MyAccessTokensPage;
-import io.onedev.server.web.page.my.avatar.MyAvatarPage;
-import io.onedev.server.web.page.my.basicsetting.MyBasicSettingPage;
-import io.onedev.server.web.page.my.emailaddresses.MyEmailAddressesPage;
-import io.onedev.server.web.page.my.gpgkeys.MyGpgKeysPage;
-import io.onedev.server.web.page.my.password.MyPasswordPage;
-import io.onedev.server.web.page.my.profile.MyProfilePage;
-import io.onedev.server.web.page.my.querywatch.MyQueryWatchesPage;
-import io.onedev.server.web.page.my.sshkeys.MySshKeysPage;
-import io.onedev.server.web.page.my.ssoaccounts.MySsoAccountsPage;
-import io.onedev.server.web.page.my.twofactorauthentication.MyTwoFactorAuthenticationPage;
-import io.onedev.server.web.page.security.LoginPage;
-import io.onedev.server.web.page.security.LogoutPage;
-import io.onedev.server.web.page.user.UserPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ServerConfig;
+import io.cheeta.server.SubscriptionService;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.model.Alert;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.AlertService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.updatecheck.UpdateCheckService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.brandlogo.BrandLogoPanel;
+import io.cheeta.server.web.component.commandpalette.CommandPalettePanel;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.modal.message.MessageModal;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.user.UserAvatar;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.page.HomePage;
+import io.cheeta.server.web.page.admin.aisetting.LiteModelPage;
+import io.cheeta.server.web.page.admin.alertsettings.AlertSettingPage;
+import io.cheeta.server.web.page.admin.authenticator.AuthenticatorPage;
+import io.cheeta.server.web.page.admin.brandingsetting.BrandingSettingPage;
+import io.cheeta.server.web.page.admin.buildsetting.agent.AgentDetailPage;
+import io.cheeta.server.web.page.admin.buildsetting.agent.AgentListPage;
+import io.cheeta.server.web.page.admin.buildsetting.jobexecutor.JobExecutorsPage;
+import io.cheeta.server.web.page.admin.databasebackup.DatabaseBackupPage;
+import io.cheeta.server.web.page.admin.emailtemplates.AlertTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.BuildNotificationTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.CommitNotificationTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.EmailVerificationTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.IssueNotificationTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.IssueNotificationUnsubscribedTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.PackNotificationTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.PasswordResetTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.PullRequestNotificationTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.PullRequestNotificationUnsubscribedTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.ServiceDeskIssueOpenFailedTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.ServiceDeskIssueOpenedTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.StopwatchOverdueTemplatePage;
+import io.cheeta.server.web.page.admin.emailtemplates.UserInvitationTemplatePage;
+import io.cheeta.server.web.page.admin.gpgsigningkey.GpgSigningKeyPage;
+import io.cheeta.server.web.page.admin.gpgtrustedkeys.GpgTrustedKeysPage;
+import io.cheeta.server.web.page.admin.groovyscript.GroovyScriptListPage;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupListPage;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupPage;
+import io.cheeta.server.web.page.admin.groupmanagement.create.NewGroupPage;
+import io.cheeta.server.web.page.admin.issuesetting.commitmessagefixpatterns.CommitMessageFixPatternsPage;
+import io.cheeta.server.web.page.admin.issuesetting.defaultboard.DefaultBoardListPage;
+import io.cheeta.server.web.page.admin.issuesetting.externalissuepattern.ExternalIssueTransformersPage;
+import io.cheeta.server.web.page.admin.issuesetting.fieldspec.IssueFieldListPage;
+import io.cheeta.server.web.page.admin.issuesetting.integritycheck.CheckIssueIntegrityPage;
+import io.cheeta.server.web.page.admin.issuesetting.issuetemplate.IssueTemplateListPage;
+import io.cheeta.server.web.page.admin.issuesetting.linkspec.LinkSpecListPage;
+import io.cheeta.server.web.page.admin.issuesetting.statespec.IssueStateListPage;
+import io.cheeta.server.web.page.admin.issuesetting.timetracking.TimeTrackingSettingPage;
+import io.cheeta.server.web.page.admin.issuesetting.transitionspec.StateTransitionListPage;
+import io.cheeta.server.web.page.admin.labelmanagement.LabelManagementPage;
+import io.cheeta.server.web.page.admin.mailservice.MailConnectorPage;
+import io.cheeta.server.web.page.admin.performancesetting.PerformanceSettingPage;
+import io.cheeta.server.web.page.admin.pluginsettings.ContributedAdministrationSettingPage;
+import io.cheeta.server.web.page.admin.rolemanagement.NewRolePage;
+import io.cheeta.server.web.page.admin.rolemanagement.RoleDetailPage;
+import io.cheeta.server.web.page.admin.rolemanagement.RoleListPage;
+import io.cheeta.server.web.page.admin.securitysetting.SecuritySettingPage;
+import io.cheeta.server.web.page.admin.serverinformation.ServerInformationPage;
+import io.cheeta.server.web.page.admin.serverlog.ServerLogPage;
+import io.cheeta.server.web.page.admin.servicedesk.ServiceDeskSettingPage;
+import io.cheeta.server.web.page.admin.sshserverkey.SshServerKeyPage;
+import io.cheeta.server.web.page.admin.ssosetting.SsoProviderListPage;
+import io.cheeta.server.web.page.admin.systemsetting.SystemSettingPage;
+import io.cheeta.server.web.page.admin.usermanagement.InvitationListPage;
+import io.cheeta.server.web.page.admin.usermanagement.NewInvitationPage;
+import io.cheeta.server.web.page.admin.usermanagement.NewUserPage;
+import io.cheeta.server.web.page.admin.usermanagement.UserListPage;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.help.IncompatibilitiesPage;
+import io.cheeta.server.web.page.my.MyPage;
+import io.cheeta.server.web.page.my.accesstoken.MyAccessTokensPage;
+import io.cheeta.server.web.page.my.avatar.MyAvatarPage;
+import io.cheeta.server.web.page.my.basicsetting.MyBasicSettingPage;
+import io.cheeta.server.web.page.my.emailaddresses.MyEmailAddressesPage;
+import io.cheeta.server.web.page.my.gpgkeys.MyGpgKeysPage;
+import io.cheeta.server.web.page.my.password.MyPasswordPage;
+import io.cheeta.server.web.page.my.profile.MyProfilePage;
+import io.cheeta.server.web.page.my.querywatch.MyQueryWatchesPage;
+import io.cheeta.server.web.page.my.sshkeys.MySshKeysPage;
+import io.cheeta.server.web.page.my.ssoaccounts.MySsoAccountsPage;
+import io.cheeta.server.web.page.my.twofactorauthentication.MyTwoFactorAuthenticationPage;
+import io.cheeta.server.web.page.security.LoginPage;
+import io.cheeta.server.web.page.security.LogoutPage;
+import io.cheeta.server.web.page.user.UserPage;
+import io.cheeta.server.web.util.WicketUtils;
 
 public abstract class LayoutPage extends BasePage {
 	
@@ -188,7 +188,7 @@ public abstract class LayoutPage extends BasePage {
 			sidebar.add(AttributeAppender.append("class", "sidebar-minimized"));
 		add(sidebar);
 
-		MainMenuCustomization customization = OneDev.getInstance(MainMenuCustomization.class);
+		MainMenuCustomization customization = Cheeta.getInstance(MainMenuCustomization.class);
 
 		sidebar.add(new BookmarkablePageLink<Void>("brandLink", HomePage.class) {
 
@@ -239,7 +239,7 @@ public abstract class LayoutPage extends BasePage {
 
 					administrationMenuItems.add(new SidebarMenuItem.SubMenu(null, _T("External Authentication"), authenticationMenuItems));
 
-					var sshPort = OneDev.getInstance(ServerConfig.class).getSshPort();
+					var sshPort = Cheeta.getInstance(ServerConfig.class).getSshPort();
 					List<SidebarMenuItem> keyManagementMenuItems = new ArrayList<>();
 					if (sshPort != 0) {
 						keyManagementMenuItems.add(new SidebarMenuItem.Page(null, _T("SSH Server Key"),
@@ -380,7 +380,7 @@ public abstract class LayoutPage extends BasePage {
 
 				if (SecurityUtils.isAdministrator()) {
 					List<Class<? extends ContributedAdministrationSetting>> contributedSettingClasses = new ArrayList<>();
-					for (AdministrationSettingContribution contribution : OneDev.getExtensions(AdministrationSettingContribution.class)) {
+					for (AdministrationSettingContribution contribution : Cheeta.getExtensions(AdministrationSettingContribution.class)) {
 						for (Class<? extends ContributedAdministrationSetting> settingClass : contribution.getSettingClasses())
 							contributedSettingClasses.add(settingClass);
 					}
@@ -400,7 +400,7 @@ public abstract class LayoutPage extends BasePage {
 							menu.insertMenuItem(new SidebarMenuItem.SubMenu("gear", _T("Administration"), Lists.newArrayList(menuItem)));
 					}
 
-					var contributions = new ArrayList<>(OneDev.getExtensions(AdministrationMenuContribution.class));
+					var contributions = new ArrayList<>(Cheeta.getExtensions(AdministrationMenuContribution.class));
 					contributions.sort(Comparator.comparing(AdministrationMenuContribution::getOrder));
 					
 					for (AdministrationMenuContribution contribution: contributions) 
@@ -470,7 +470,7 @@ public abstract class LayoutPage extends BasePage {
 
 												@Override
 												protected Component newMessageContent(String componentId) {
-													return new Label(componentId, _T("This is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days")).setEscapeModelStrings(false);
+													return new Label(componentId, _T("This is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days")).setEscapeModelStrings(false);
 												}
 											};																
 										}
@@ -519,7 +519,7 @@ public abstract class LayoutPage extends BasePage {
 		});
 
 		var version = AppLoader.getProduct().getVersion();
-		sidebar.add(new ExternalLink("productVersion", "https://onedev.io", "OneDev " + version));
+		sidebar.add(new ExternalLink("productVersion", "https://cheeta.io", "Cheeta " + version));
 		
 		sidebar.add(new WebMarkupContainer("tryEE") {
 			@Override
@@ -538,7 +538,7 @@ public abstract class LayoutPage extends BasePage {
 			throw new RuntimeException(e);
 		}
 
-		var checkUpdateUrl = "https://onedev.io/check-update/" + commitHash + "-"
+		var checkUpdateUrl = "https://cheeta.io/check-update/" + commitHash + "-"
 				+ (WicketUtils.isSubscriptionActive()? "1": "0");
 		sidebar.add(new AjaxLink<Void>("checkUpdate") {
 
@@ -781,10 +781,10 @@ public abstract class LayoutPage extends BasePage {
 						var newVersionStatus = getUpdateCheckService().getNewVersionStatus();
 						if (newVersionStatus != null) {
 							tag.put("src", "/~img/new-" + newVersionStatus + ".svg");
-							tag.put("onload", "onedev.server.layout.onNewVersionStatusIconLoaded();");
+							tag.put("onload", "cheeta.server.layout.onNewVersionStatusIconLoaded();");
 						} else {
 							tag.put("src", checkUpdateUrl + "/icon.svg");
-							var script = String.format("onedev.server.layout.onNewVersionStatusIconLoaded(%s);",
+							var script = String.format("cheeta.server.layout.onNewVersionStatusIconLoaded(%s);",
 									newVersionStatusBehavior.getCallbackFunction(explicit("newVersionStatus")));
 							tag.put("onload", script);
 						}
@@ -1108,7 +1108,7 @@ public abstract class LayoutPage extends BasePage {
 			userInfo.add(new WebMarkupContainer("myPassword").setVisible(false));
 		}
 
-		if (OneDev.getInstance(ServerConfig.class).getSshPort() != 0 && loginUser != null && !loginUser.isDisabled()) {
+		if (Cheeta.getInstance(ServerConfig.class).getSshPort() != 0 && loginUser != null && !loginUser.isDisabled()) {
 			userInfo.add(item = new ViewStateAwarePageLink<Void>("mySshKeys", MySshKeysPage.class));
 			if (getPage() instanceof MySshKeysPage)
 				item.add(AttributeAppender.append("class", "active"));
@@ -1221,15 +1221,15 @@ public abstract class LayoutPage extends BasePage {
 	}
 
 	private SubscriptionService getSubscriptionService() {
-		return OneDev.getInstance(SubscriptionService.class);
+		return Cheeta.getInstance(SubscriptionService.class);
 	}
 
 	private AlertService getAlertService() {
-		return OneDev.getInstance(AlertService.class);
+		return Cheeta.getInstance(AlertService.class);
 	}
 
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 
 	@Override
@@ -1238,22 +1238,22 @@ public abstract class LayoutPage extends BasePage {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	private UpdateCheckService getUpdateCheckService() {
-		return OneDev.getInstance(UpdateCheckService.class);
+		return Cheeta.getInstance(UpdateCheckService.class);
 	}
 
 	@Override
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new LayoutResourceReference()));
-		response.render(OnDomReadyHeaderItem.forScript(String.format("onedev.server.layout.onDomReady(%s, '%s', '%s');",
+		response.render(OnDomReadyHeaderItem.forScript(String.format("cheeta.server.layout.onDomReady(%s, '%s', '%s');",
 				commandPaletteBehavior.getCallbackFunction(), 
 				_T("cmd-k to show command palette"), 
 				_T("ctrl-k to show command palette"))));
-		response.render(OnLoadHeaderItem.forScript("onedev.server.layout.onLoad();"));
+		response.render(OnLoadHeaderItem.forScript("cheeta.server.layout.onLoad();"));
 	}
 
 	protected List<SidebarMenu> getSidebarMenus() {

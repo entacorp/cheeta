@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity;
+package io.cheeta.server.search.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,35 +14,35 @@ import org.jspecify.annotations.Nullable;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.entityreference.BuildReference;
-import io.onedev.server.entityreference.IssueReference;
-import io.onedev.server.entityreference.PullRequestReference;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.ProjectScopedRevision;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.entityreference.BuildReference;
+import io.cheeta.server.entityreference.IssueReference;
+import io.cheeta.server.entityreference.PullRequestReference;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.ProjectScopedRevision;
+import io.cheeta.server.util.criteria.Criteria;
 
 public abstract class EntityQuery<T extends AbstractEntity> implements Serializable {
 
@@ -112,7 +112,7 @@ public abstract class EntityQuery<T extends AbstractEntity> implements Serializa
 	}
 	
 	public static LabelSpec getLabelSpec(String labelName) {
-		var labelSpec = OneDev.getInstance(LabelSpecService.class).find(labelName);
+		var labelSpec = Cheeta.getInstance(LabelSpecService.class).find(labelName);
 		if (labelSpec != null) 
 			return labelSpec;
 		else
@@ -121,7 +121,7 @@ public abstract class EntityQuery<T extends AbstractEntity> implements Serializa
 	
 	public static int getWorkingPeriodValue(String value) {
 		try {
-			var timeTrackingSetting = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+			var timeTrackingSetting = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 			return timeTrackingSetting.parseWorkingPeriod(value);
 		} catch (ValidationException e) {
 			throw new ExplicitException("Invalid working period: " + value);
@@ -137,21 +137,21 @@ public abstract class EntityQuery<T extends AbstractEntity> implements Serializa
 	}
 	
 	public static User getUser(String loginName) {
-		User user = OneDev.getInstance(UserService.class).findByName(loginName);
+		User user = Cheeta.getInstance(UserService.class).findByName(loginName);
 		if (user == null)
 			throw new ExplicitException("Unable to find user with login: " + loginName);
 		return user;
 	}
 
 	public static Group getGroup(String groupName) {
-		Group group = OneDev.getInstance(GroupService.class).find(groupName);
+		Group group = Cheeta.getInstance(GroupService.class).find(groupName);
 		if (group == null)
 			throw new ExplicitException("Unable to find group: " + groupName);
 		return group;
 	}
 	
 	public static Project getProject(String projectPath) {
-		Project project = OneDev.getInstance(ProjectService.class).findByPath(projectPath);
+		Project project = Cheeta.getInstance(ProjectService.class).findByPath(projectPath);
 		if (project == null)
 			throw new ExplicitException("Unable to find project '" + projectPath + "'");
 		return project;
@@ -195,7 +195,7 @@ public abstract class EntityQuery<T extends AbstractEntity> implements Serializa
 	
 	public static Issue getIssue(@Nullable Project project, String value) {
 		var reference = IssueReference.of(value, project);
-		var issue = OneDev.getInstance(IssueService.class).find(reference.getProject(), reference.getNumber());
+		var issue = Cheeta.getInstance(IssueService.class).find(reference.getProject(), reference.getNumber());
 		if (issue != null)
 			return issue;
 		else
@@ -204,7 +204,7 @@ public abstract class EntityQuery<T extends AbstractEntity> implements Serializa
 	
 	public static PullRequest getPullRequest(@Nullable Project project, String value) {
 		var reference = PullRequestReference.of(value, project);
-		var pullRequest = OneDev.getInstance(PullRequestService.class).find(reference.getProject(), reference.getNumber());
+		var pullRequest = Cheeta.getInstance(PullRequestService.class).find(reference.getProject(), reference.getNumber());
 		if (pullRequest != null)
 			return pullRequest;
 		else
@@ -213,7 +213,7 @@ public abstract class EntityQuery<T extends AbstractEntity> implements Serializa
 	
 	public static Build getBuild(@Nullable Project project, String value) {
 		var reference = BuildReference.of(value, project);
-		var build = OneDev.getInstance(BuildService.class).find(reference.getProject(), reference.getNumber());
+		var build = Cheeta.getInstance(BuildService.class).find(reference.getProject(), reference.getNumber());
 		if (build != null)
 			return build;
 		else
@@ -223,7 +223,7 @@ public abstract class EntityQuery<T extends AbstractEntity> implements Serializa
 	public static Iteration getIteration(@Nullable Project project, String value) {
 		if (project != null && !value.contains(":")) 
 			value = project.getPath() + ":" + value;
-		Iteration iteration = OneDev.getInstance(IterationService.class).findInHierarchy(value);
+		Iteration iteration = Cheeta.getInstance(IterationService.class).findInHierarchy(value);
 		if (iteration != null)
 			return iteration;
 		else

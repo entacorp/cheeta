@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.sortedit;
+package io.cheeta.server.web.component.sortedit;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.EntitySort.Direction;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static io.onedev.server.search.entity.EntitySort.Direction.ASCENDING;
+import static io.cheeta.server.search.entity.EntitySort.Direction.ASCENDING;
 
 public class SortEditPanel<T extends AbstractEntity> extends GenericPanel<List<EntitySort>> {
 

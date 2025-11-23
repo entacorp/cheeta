@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.imports;
+package io.cheeta.server.web.page.project.imports;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -13,17 +13,17 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.imports.ProjectImporter;
-import io.onedev.server.imports.ProjectImporterContribution;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.taskbutton.TaskButton;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.wizard.WizardPanel;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.page.project.ProjectListPage;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.imports.ProjectImporter;
+import io.cheeta.server.imports.ProjectImporterContribution;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.taskbutton.TaskButton;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.wizard.WizardPanel;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.page.project.ProjectListPage;
 
 public class ProjectImportPage extends LayoutPage {
 
@@ -35,7 +35,7 @@ public class ProjectImportPage extends LayoutPage {
 		super(params);
 		
 		String importerName = params.get(PARAM_IMPORTER).toString();
-		for (ProjectImporterContribution contribution: OneDev.getExtensions(ProjectImporterContribution.class)) {
+		for (ProjectImporterContribution contribution: Cheeta.getExtensions(ProjectImporterContribution.class)) {
 			for (ProjectImporter importer: contribution.getImporters()) {
 				if (importer.getName().equals(importerName)) {
 					this.importer = importer;

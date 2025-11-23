@@ -1,11 +1,11 @@
-package io.onedev.server.plugin.report.problem;
+package io.cheeta.server.plugin.report.problem;
 
-import static io.onedev.commons.utils.LockUtils.read;
-import static io.onedev.server.model.Build.getProjectRelativeDirPath;
-import static io.onedev.server.plugin.report.problem.ProblemReport.CATEGORY;
-import static io.onedev.server.plugin.report.problem.ProblemReport.getReportLockName;
-import static io.onedev.server.util.DirectoryVersionUtils.isVersionFile;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.commons.utils.LockUtils.read;
+import static io.cheeta.server.model.Build.getProjectRelativeDirPath;
+import static io.cheeta.server.plugin.report.problem.ProblemReport.CATEGORY;
+import static io.cheeta.server.plugin.report.problem.ProblemReport.getReportLockName;
+import static io.cheeta.server.util.DirectoryVersionUtils.isVersionFile;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -29,26 +29,26 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CodeProblemContribution;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.BuildMetricService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.ProblemMetric;
-import io.onedev.server.model.Project;
-import io.onedev.server.replica.BuildStorageSyncer;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebApplicationConfigurator;
-import io.onedev.server.web.mapper.ProjectPageMapper;
-import io.onedev.server.web.page.layout.SidebarMenuItem;
-import io.onedev.server.web.page.project.ProjectMenuContribution;
-import io.onedev.server.web.page.project.builds.detail.BuildTab;
-import io.onedev.server.web.page.project.builds.detail.BuildTabContribution;
-import io.onedev.server.web.page.project.builds.detail.report.BuildReportTab;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CodeProblemContribution;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.BuildMetricService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.ProblemMetric;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.replica.BuildStorageSyncer;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebApplicationConfigurator;
+import io.cheeta.server.web.mapper.ProjectPageMapper;
+import io.cheeta.server.web.page.layout.SidebarMenuItem;
+import io.cheeta.server.web.page.project.ProjectMenuContribution;
+import io.cheeta.server.web.page.project.builds.detail.BuildTab;
+import io.cheeta.server.web.page.project.builds.detail.BuildTabContribution;
+import io.cheeta.server.web.page.project.builds.detail.report.BuildReportTab;
 
 /**
  * NOTE: Do not forget to rename moduleClass property defined in the pom if you've renamed this class.
@@ -68,7 +68,7 @@ public class ProblemModule extends AbstractPluginModule {
 			@Override
 			public List<SidebarMenuItem> getMenuItems(Project project) {
 				List<SidebarMenuItem> menuItems = new ArrayList<>();
-				if (!OneDev.getInstance(BuildMetricService.class).getAccessibleReportNames(project, ProblemMetric.class).isEmpty()) {
+				if (!Cheeta.getInstance(BuildMetricService.class).getAccessibleReportNames(project, ProblemMetric.class).isEmpty()) {
 					PageParameters params = ProblemStatsPage.paramsOf(project);
 					menuItems.add(new SidebarMenuItem.Page(null, "Checkstyle", ProblemStatsPage.class, params));
 				}
@@ -124,14 +124,14 @@ public class ProblemModule extends AbstractPluginModule {
 		});
 
 		contribute(BuildStorageSyncer.class, ((projectId, buildNumber, activeServer) -> {
-			OneDev.getInstance(ProjectService.class).syncDirectory(projectId,
+			Cheeta.getInstance(ProjectService.class).syncDirectory(projectId,
 					getProjectRelativeDirPath(buildNumber) + "/" + CATEGORY,
 					getReportLockName(projectId, buildNumber), activeServer);
 		}));
 	}
 
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private static class GetCodeProblems implements ClusterTask<Map<String, Collection<CodeProblem>>> {
@@ -158,7 +158,7 @@ public class ProblemModule extends AbstractPluginModule {
 		public Map<String, Collection<CodeProblem>> call() {
 			return read(getReportLockName(projectId, buildNumber), () -> {
 				Map<String, Collection<CodeProblem>> problems = new HashMap<>();
-				File categoryDir = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), CATEGORY);
+				File categoryDir = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), CATEGORY);
 				if (categoryDir.exists()) {
 					for (File reportDir: categoryDir.listFiles()) {
 						if (!isVersionFile(reportDir) && (reportName == null || reportName.equals(reportDir.getName()))) { 
@@ -196,7 +196,7 @@ public class ProblemModule extends AbstractPluginModule {
 		public List<BuildTab> call() {
 			return read(getReportLockName(projectId, buildNumber), () -> {
 				List<BuildTab> tabs = new ArrayList<>();
-				File categoryDir = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), CATEGORY);
+				File categoryDir = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), CATEGORY);
 				if (categoryDir.exists()) {
 					for (File reportDir: categoryDir.listFiles()) {
 						if (!reportDir.isHidden() && !isVersionFile(reportDir)) {

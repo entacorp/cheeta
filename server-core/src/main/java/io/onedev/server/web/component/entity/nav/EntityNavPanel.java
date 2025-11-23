@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.entity.nav;
+package io.cheeta.server.web.component.entity.nav;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -15,14 +15,14 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.protocol.http.WebSession;
 
-import io.onedev.commons.utils.WordUtils;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.CursorSupport;
+import io.cheeta.commons.utils.WordUtils;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.CursorSupport;
 
 public abstract class EntityNavPanel<T extends AbstractEntity> extends Panel {
 

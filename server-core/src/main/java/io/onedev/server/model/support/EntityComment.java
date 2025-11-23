@@ -1,9 +1,9 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.User;
-import io.onedev.server.rest.annotation.Immutable;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.User;
+import io.cheeta.server.rest.annotation.Immutable;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;

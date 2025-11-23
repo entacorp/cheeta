@@ -1,4 +1,4 @@
-onedev.server.symboltooltip = {
+cheeta.server.symboltooltip = {
 	init: function(containerId, callback, symbolPositionCalcFunction) {
 		var container = document.getElementById(containerId);
 		
@@ -16,7 +16,7 @@ onedev.server.symboltooltip = {
 				if (container.tooltip.hideTimer) 
 					clearTimeout(container.tooltip.hideTimer);
 				container.tooltip.hideTimer = setTimeout(function(){
-					onedev.server.symboltooltip.removeTooltip(container);
+					cheeta.server.symboltooltip.removeTooltip(container);
 				}, 200);
 			}
 		};
@@ -30,7 +30,7 @@ onedev.server.symboltooltip = {
 		
 		container.onMouseOverSymbol = function(revision, symbolEl) {
 			var $symbol = $(symbolEl);
-			if (onedev.server.mouseState.pressed || !onedev.server.mouseState.moved || $symbol.text() == "@")
+			if (cheeta.server.mouseState.pressed || !cheeta.server.mouseState.moved || $symbol.text() == "@")
 				return;
 			
 			cancelShow();
@@ -50,7 +50,7 @@ onedev.server.symboltooltip = {
 					if (container.tooltip.symbolEl == symbolEl)
 						return;
 					else 
-						onedev.server.symboltooltip.removeTooltip(container);
+						cheeta.server.symboltooltip.removeTooltip(container);
 				}
 
 				var $tooltip = $("<div class='symbol-tooltip d-none overflow-auto' id='" + containerId + "-symbol-tooltip'></div>");
@@ -83,7 +83,7 @@ onedev.server.symboltooltip = {
 		$tooltip.removeClass("d-none");
 		var $definitions = $content.children(".definitions");
 		if (callback) {
-			var icon = onedev.server.isDarkMode()? "sparkle.gif": "sparkle-dark.gif";
+			var icon = cheeta.server.isDarkMode()? "sparkle.gif": "sparkle-dark.gif";
 			var $indicator = $(`<div class="definition-inferring-indicator mb-2 ajax-loading-indicator"><img src="/~img/${icon}"/> ${translations["inferring-the-most-likely"]}</div>`);
 			$indicator.insertBefore($definitions);
 			callback("infer");
@@ -117,7 +117,7 @@ onedev.server.symboltooltip = {
 $(function() {
 	function closeAll() {
 		$(".symbol-tooltip-container").each(function() {
-			onedev.server.symboltooltip.removeTooltip(this);
+			cheeta.server.symboltooltip.removeTooltip(this);
 		});
 	}
 	

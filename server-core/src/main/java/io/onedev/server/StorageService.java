@@ -1,6 +1,6 @@
-package io.onedev.server;
+package io.cheeta.server;
 
-import io.onedev.server.annotation.NoDBAccess;
+import io.cheeta.server.annotation.NoDBAccess;
 
 import java.io.File;
 

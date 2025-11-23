@@ -1,10 +1,10 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import io.onedev.server.annotation.PackQuery;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.behavior.PackQueryBehavior;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.annotation.PackQuery;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.behavior.PackQueryBehavior;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.AbstractReadOnlyModel;

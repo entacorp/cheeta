@@ -1,8 +1,8 @@
-package io.onedev.server.event;
+package io.cheeta.server.event;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.onedev.server.web.util.WicketUtils;
-import io.onedev.server.web.websocket.PageKey;
+import io.cheeta.server.web.util.WicketUtils;
+import io.cheeta.server.web.websocket.PageKey;
 
 import org.jspecify.annotations.Nullable;
 

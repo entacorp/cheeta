@@ -1,10 +1,10 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.Group;
+import io.cheeta.server.model.Group;
 
 public interface GroupService extends EntityService<Group> {
 	

@@ -1,12 +1,12 @@
-package io.onedev.server.buildspec.step.commandinterpreter;
+package io.cheeta.server.buildspec.step.commandinterpreter;
 
-import io.onedev.k8shelper.CommandFacade;
-import io.onedev.k8shelper.PowerShellFacade;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.server.annotation.Code;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.k8shelper.CommandFacade;
+import io.cheeta.k8shelper.PowerShellFacade;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.server.annotation.Code;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
@@ -31,8 +31,8 @@ public class PowerShellInterpreter extends Interpreter {
 	}
 
 	@Editable(order=110, description="Specify PowerShell commands to execute "
-			+ "under the <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>.<br>"
-			+ "<b class='text-warning'>NOTE: </b> OneDev checks exit code of the script to determine if step is successful. "
+			+ "under the <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>.<br>"
+			+ "<b class='text-warning'>NOTE: </b> Cheeta checks exit code of the script to determine if step is successful. "
 			+ "Since PowerShell always exit with 0 even if there are script errors, you should handle errors in the script "
 			+ "and exit with non-zero code, or add line <code>$ErrorActionPreference = &quot;Stop&quot;</code> at start of "
 			+ "your script<br>")

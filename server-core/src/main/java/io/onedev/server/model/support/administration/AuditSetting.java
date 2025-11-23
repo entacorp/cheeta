@@ -1,11 +1,11 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.Min;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable
 public class AuditSetting implements Serializable {

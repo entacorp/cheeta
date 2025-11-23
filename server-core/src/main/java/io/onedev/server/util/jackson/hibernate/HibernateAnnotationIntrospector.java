@@ -1,4 +1,4 @@
-package io.onedev.server.util.jackson.hibernate;
+package io.cheeta.server.util.jackson.hibernate;
 
 import java.lang.reflect.Field;
 
@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.PropertyName;
 import com.fasterxml.jackson.databind.introspect.Annotated;
 import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
 
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.server.model.AbstractEntity;
 
 public class HibernateAnnotationIntrospector extends AnnotationIntrospector {
 

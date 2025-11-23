@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.codecomment;
+package io.cheeta.server.web.component.codecomment;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -42,36 +42,36 @@ import org.apache.wicket.util.visit.IVisitor;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.service.CodeCommentReplyService;
-import io.onedev.server.service.CodeCommentStatusChangeService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.comment.CommentInput;
-import io.onedev.server.web.component.markdown.ContentQuoted;
-import io.onedev.server.web.component.markdown.MarkdownEditor;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.component.markdown.SuggestionSupport;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.service.CodeCommentReplyService;
+import io.cheeta.server.service.CodeCommentStatusChangeService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.comment.CommentInput;
+import io.cheeta.server.web.component.markdown.ContentQuoted;
+import io.cheeta.server.web.component.markdown.MarkdownEditor;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.component.markdown.SuggestionSupport;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.xodus.VisitInfoService;
 
 public abstract class CodeCommentPanel extends Panel {
 
@@ -95,7 +95,7 @@ public abstract class CodeCommentPanel extends Panel {
 	}
 
 	public CodeComment getComment() {
-		return OneDev.getInstance(CodeCommentService.class).load(commentId);
+		return Cheeta.getInstance(CodeCommentService.class).load(commentId);
 	}
 	
 	private WebMarkupContainer newCommentOrReplyContainer() {
@@ -121,7 +121,7 @@ public abstract class CodeCommentPanel extends Panel {
 		viewFragment.add(new Label("date", DateUtils.formatAge(getComment().getCreateDate()))
 				.add(new AttributeAppender("title", DateUtils.formatDateTime(getComment().getCreateDate()))));
 		if (isContextDifferent(getComment().getCompareContext())) {
-			String url = OneDev.getInstance(UrlService.class).urlFor(getComment(), false);
+			String url = Cheeta.getInstance(UrlService.class).urlFor(getComment(), false);
 			viewFragment.add(new ExternalLink("context", url) {
 
 				@Override
@@ -150,7 +150,7 @@ public abstract class CodeCommentPanel extends Panel {
 			public void setObject(String object) {
 				CodeComment comment = getComment();
 				comment.setContent(object);
-				OneDev.getInstance(CodeCommentService.class).update(comment);
+				Cheeta.getInstance(CodeCommentService.class).update(comment);
 			}
 			
 		}, null) {
@@ -358,11 +358,11 @@ public abstract class CodeCommentPanel extends Panel {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				OneDev.getInstance(TransactionService.class).run(() -> {
+				Cheeta.getInstance(TransactionService.class).run(() -> {
 					onDeleteComment(target, getComment());
 					var oldAuditContent = VersionedXmlDoc.fromBean(getComment()).toXML();
-					OneDev.getInstance(AuditService.class).audit(getComment().getProject(), "deleted code comment on file \"" + getComment().getMark().getPath() + "\"", oldAuditContent, null);
-					OneDev.getInstance(CodeCommentService.class).delete(getComment());
+					Cheeta.getInstance(AuditService.class).audit(getComment().getProject(), "deleted code comment on file \"" + getComment().getMark().getPath() + "\"", oldAuditContent, null);
+					Cheeta.getInstance(CodeCommentService.class).delete(getComment());
 				});
 			}
 
@@ -485,7 +485,7 @@ public abstract class CodeCommentPanel extends Panel {
 			@Override
 			public void onEndRequest(RequestCycle cycle) {
 				if (SecurityUtils.getAuthUser() != null)
-					OneDev.getInstance(VisitInfoService.class).visitCodeComment(SecurityUtils.getAuthUser(), getComment());
+					Cheeta.getInstance(VisitInfoService.class).visitCodeComment(SecurityUtils.getAuthUser(), getComment());
 			}
 
 		});
@@ -697,7 +697,7 @@ public abstract class CodeCommentPanel extends Panel {
 			fragment.add(new Label("date", DateUtils.formatAge(getChange().getDate()))
 					.add(new AttributeAppender("title", DateUtils.formatDateTime(getChange().getDate()))));
 			if (isContextDifferent(getChange().getCompareContext())) {
-				String url = OneDev.getInstance(UrlService.class).urlFor(getChange(), false);
+				String url = Cheeta.getInstance(UrlService.class).urlFor(getChange(), false);
 				fragment.add(new ExternalLink("context", url) {
 
 					@Override
@@ -719,7 +719,7 @@ public abstract class CodeCommentPanel extends Panel {
 		}
 
 		public CodeCommentStatusChange getChange() {
-			return OneDev.getInstance(CodeCommentStatusChangeService.class).load(changeId);
+			return Cheeta.getInstance(CodeCommentStatusChangeService.class).load(changeId);
 		}
 		
 		@Override
@@ -762,7 +762,7 @@ public abstract class CodeCommentPanel extends Panel {
 			viewFragment.add(new Label("date", DateUtils.formatAge(reply.getDate()))
 					.add(new AttributeAppender("title", DateUtils.formatDateTime(reply.getDate()))));
 			if (isContextDifferent(reply.getCompareContext())) {
-				String url = OneDev.getInstance(UrlService.class).urlFor(reply, false);
+				String url = Cheeta.getInstance(UrlService.class).urlFor(reply, false);
 				viewFragment.add(new ExternalLink("context", url) {
 
 					@Override
@@ -946,7 +946,7 @@ public abstract class CodeCommentPanel extends Panel {
 				@Override
 				public void onClick(AjaxRequestTarget target) {
 					viewFragment.remove();
-					OneDev.getInstance(CodeCommentReplyService.class).delete(getReply());
+					Cheeta.getInstance(CodeCommentReplyService.class).delete(getReply());
 					target.appendJavaScript(String.format("$('#%s').remove();", viewFragment.getMarkupId()));
 					notifyCodeCommentChange(target, getComment());					
 				}
@@ -968,7 +968,7 @@ public abstract class CodeCommentPanel extends Panel {
 		}
 		
 		public CodeCommentReply getReply() {
-			return OneDev.getInstance(CodeCommentReplyService.class).load(replyId);
+			return Cheeta.getInstance(CodeCommentReplyService.class).load(replyId);
 		}
 
 		@Override

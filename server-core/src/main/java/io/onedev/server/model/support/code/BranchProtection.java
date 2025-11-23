@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.code;
+package io.cheeta.server.model.support.code;
 
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static java.util.regex.Pattern.UNICODE_CHARACTER_CLASS;
@@ -25,26 +25,26 @@ import org.eclipse.jgit.lib.ObjectId;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.JobChoice;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Build.Status;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.util.reviewrequirement.ReviewRequirement;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.util.usermatch.Anyone;
-import io.onedev.server.util.usermatch.UserMatch;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.JobChoice;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Build.Status;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.util.reviewrequirement.ReviewRequirement;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.util.usermatch.Anyone;
+import io.cheeta.server.util.usermatch.UserMatch;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 @Editable
 public class BranchProtection implements Serializable {
@@ -103,7 +103,7 @@ public class BranchProtection implements Serializable {
 		this.enabled = enabled;
 	}
 
-	@Editable(order=100, description="Specify space-separated branches to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+	@Editable(order=100, description="Specify space-separated branches to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude")
 	@Patterns(suggester = "suggestBranches", path=true)
 	@NotEmpty
@@ -121,7 +121,7 @@ public class BranchProtection implements Serializable {
 	}
 	
 	@Editable(order=150, name="Applicable Users", description="Rule will apply only if the user changing the branch matches criteria specified here")
-	@io.onedev.server.annotation.UserMatch
+	@io.cheeta.server.annotation.UserMatch
 	@NotEmpty(message="may not be empty")
 	public String getUserMatch() {
 		return userMatch;
@@ -245,7 +245,7 @@ public class BranchProtection implements Serializable {
 	
 	@Editable(order=400, name="Required Reviewers", placeholder="No one", description="Optionally specify "
 			+ "required reviewers for changes of specified branch")
-	@io.onedev.server.annotation.ReviewRequirement
+	@io.cheeta.server.annotation.ReviewRequirement
 	public String getReviewRequirement() {
 		return reviewRequirement;
 	}
@@ -455,14 +455,14 @@ public class BranchProtection implements Serializable {
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	public boolean isBuildRequiredForPush(Project project, ObjectId oldObjectId, ObjectId newObjectId, 
 			Map<String, String> gitEnvs) {
 		Collection<String> requiredJobs = getBuildRequirement(project, oldObjectId, newObjectId, gitEnvs).getRequiredJobs();
 
-		Collection<Build> builds = OneDev.getInstance(BuildService.class).query(project, newObjectId, null);
+		Collection<Build> builds = Cheeta.getInstance(BuildService.class).query(project, newObjectId, null);
 		for (Build build: builds) {
 			if (requiredJobs.contains(build.getJobName()) && build.getStatus() != Status.SUCCESSFUL)
 				return true;

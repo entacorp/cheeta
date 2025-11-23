@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.commits;
+package io.cheeta.server.web.page.project.commits;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,27 +16,27 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.CommitQueryPersonalizationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.CommitQueryPersonalization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.NamedCommitQuery;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.commit.list.CommitListPanel;
-import io.onedev.server.web.component.commit.status.CommitStatusSupport;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.PersonalQuerySupport;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.QuerySaveSupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.CommitQueryPersonalizationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.CommitQueryPersonalization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.NamedCommitQuery;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.commit.list.CommitListPanel;
+import io.cheeta.server.web.component.commit.status.CommitStatusSupport;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.PersonalQuerySupport;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.QuerySaveSupport;
 
 public class ProjectCommitsPage extends ProjectPage {
 
@@ -59,7 +59,7 @@ public class ProjectCommitsPage extends ProjectPage {
 	}
 
 	private CommitQueryPersonalizationService getCommitQueryPersonalizationService() {
-		return OneDev.getInstance(CommitQueryPersonalizationService.class);
+		return Cheeta.getInstance(CommitQueryPersonalizationService.class);
 	}
 	
 	@Override
@@ -101,7 +101,7 @@ public class ProjectCommitsPage extends ProjectPage {
 				var oldAuditContent = VersionedXmlDoc.fromBean(getProject().getNamedCommitQueries()).toXML();
 				getProject().setNamedCommitQueries(projectQueries);
 				var newAuditContent = VersionedXmlDoc.fromBean(getProject().getNamedCommitQueries()).toXML();
-				OneDev.getInstance(ProjectService.class).update(getProject());
+				Cheeta.getInstance(ProjectService.class).update(getProject());
 				auditService.audit(getProject(), "changed commit queries", oldAuditContent, newAuditContent);
 			}
 
@@ -174,7 +174,7 @@ public class ProjectCommitsPage extends ProjectPage {
 											verb = "changed";
 										}
 										var newAuditContent = VersionedXmlDoc.fromBean(namedQuery).toXML();
-										OneDev.getInstance(ProjectService.class).update(getProject());
+										Cheeta.getInstance(ProjectService.class).update(getProject());
 										auditService.audit(getProject(), verb + " commit query \"" + name + "\"", oldAuditContent, newAuditContent);
 										target.add(savedQueries);
 										close();

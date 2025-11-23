@@ -1,4 +1,4 @@
-package io.onedev.server.util.jackson.hibernate;
+package io.cheeta.server.util.jackson.hibernate;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -14,10 +14,10 @@ import com.fasterxml.jackson.databind.deser.BeanDeserializer;
 import com.fasterxml.jackson.databind.deser.SettableBeanProperty;
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.rest.annotation.Immutable;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.rest.annotation.Immutable;
 
 public class EntityDeserializer extends BeanDeserializer {
 

@@ -1,7 +1,7 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.ProjectLabel;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.ProjectLabel;
 
 import java.util.Collection;
 

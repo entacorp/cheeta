@@ -1,4 +1,4 @@
-onedev.server.issueBoards = {
+cheeta.server.issueBoards = {
 	onColumnDomReady: function(containerId, callback) {
 		if (callback) {
 			var $body = $("#" + containerId);
@@ -40,7 +40,7 @@ onedev.server.issueBoards = {
 				scroll: false,
 				start: function(event, ui) {
 					// pretend that we are in ajax operation to prevent websocket auto-update while dragging
-					onedev.server.ajaxRequests.count++;
+					cheeta.server.ajaxRequests.count++;
 					$card.addClass("placeholder");
 					$(ui.helper).outerWidth($card.outerWidth());
 					callback($card.data("issue"));
@@ -200,14 +200,14 @@ onedev.server.issueBoards = {
 	onCardDropped: function(fromDroppableId, fromIndex, toDroppableId, toIndex, accepted) {
 		var $fromDroppable = $("#" + fromDroppableId);
 		var $toDroppable = $("#" + toDroppableId);
-		onedev.server.ajaxRequests.count--;
+		cheeta.server.ajaxRequests.count--;
 		if (accepted) {
 			var $cardCount = $fromDroppable.parent().find(".card-count");
 			$cardCount.text(parseInt($cardCount.text()) - 1);
-			onedev.server.issueBoards.updateAddToIteration(fromDroppableId);
+			cheeta.server.issueBoards.updateAddToIteration(fromDroppableId);
 			$cardCount = $toDroppable.parent().find(".card-count");
 			$cardCount.text(parseInt($cardCount.text()) + 1);
-			onedev.server.issueBoards.updateAddToIteration(toDroppableId);
+			cheeta.server.issueBoards.updateAddToIteration(toDroppableId);
 		} else {
 			var $card = $toDroppable.children().eq(toIndex+1);
 			var $insertBeforeCard = $fromDroppable.children().eq(fromIndex + 1);
@@ -220,7 +220,7 @@ onedev.server.issueBoards = {
 	changeCardCount: function(droppableId, change) {
 		var $cardCount = $("#" + droppableId).parent().find(".card-count");
 		$cardCount.text(parseInt($cardCount.text()) + change);
-		onedev.server.issueBoards.updateAddToIteration(droppableId);
+		cheeta.server.issueBoards.updateAddToIteration(droppableId);
 	},
 	updateAddToIteration: function(droppableId) {
 		var $droppable = $("#" + droppableId);

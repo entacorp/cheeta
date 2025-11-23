@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec;
+package io.cheeta.server.buildspec;
 
 import org.jspecify.annotations.Nullable;
 

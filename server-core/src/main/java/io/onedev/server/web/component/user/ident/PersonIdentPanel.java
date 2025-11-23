@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.ident;
+package io.cheeta.server.web.component.user.ident;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
@@ -12,15 +12,15 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.User;
-import io.onedev.server.web.behavior.dropdown.DropdownHoverBehavior;
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.user.UserAvatar;
-import io.onedev.server.web.component.user.card.PersonCardPanel;
-import io.onedev.server.web.page.user.profile.UserProfilePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.behavior.dropdown.DropdownHoverBehavior;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.user.UserAvatar;
+import io.cheeta.server.web.component.user.card.PersonCardPanel;
+import io.cheeta.server.web.page.user.profile.UserProfilePage;
 
 public class PersonIdentPanel extends Panel {
 
@@ -40,7 +40,7 @@ public class PersonIdentPanel extends Panel {
 		userModel = new LoadableDetachableModel<User>() {
 			@Override
 			protected User load() {
-				EmailAddressService emailAddressService = OneDev.getInstance(EmailAddressService.class);
+				EmailAddressService emailAddressService = Cheeta.getInstance(EmailAddressService.class);
 				EmailAddress emailAddress = emailAddressService.findByValue(personIdent.getEmailAddress());
 				if (emailAddress != null && emailAddress.isVerified())
 					return emailAddress.getOwner();

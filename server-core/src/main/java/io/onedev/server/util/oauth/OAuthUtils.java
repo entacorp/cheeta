@@ -1,7 +1,7 @@
-package io.onedev.server.util.oauth;
+package io.cheeta.server.util.oauth;
 
 import com.nimbusds.oauth2.sdk.ErrorObject;
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;

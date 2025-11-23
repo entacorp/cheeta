@@ -1,16 +1,16 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.entityreference.IssueReference;
-import io.onedev.server.model.Project;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.validation.validator.ProjectKeyValidator;
-import io.onedev.server.validation.validator.ProjectPathValidator;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.entityreference.IssueReference;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.validation.validator.ProjectKeyValidator;
+import io.cheeta.server.validation.validator.ProjectPathValidator;
 
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraints.NotEmpty;
@@ -22,7 +22,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static io.onedev.server.entityreference.ReferenceUtils.mayContainReferences;
+import static io.cheeta.server.entityreference.ReferenceUtils.mayContainReferences;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static org.unbescape.java.JavaEscape.unescapeJava;
 
@@ -108,7 +108,7 @@ public class CommitMessageFixPatterns implements Serializable, Validatable {
 	public List<IssueReference> parseFixedIssues(String commitMessage, Project currentProject) {
 		Set<IssueReference> references = new LinkedHashSet<>();
 		
-		var projectService = OneDev.getInstance(ProjectService.class);
+		var projectService = Cheeta.getInstance(ProjectService.class);
 		for (var line: StringUtils.splitAndTrim(commitMessage, "\n")) {
 			if (mayContainReferences(commitMessage)) {
 				for (var pattern: getPatterns()) {

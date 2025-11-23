@@ -1,14 +1,14 @@
-package io.onedev.server.web.component.suggestionapply;
+package io.cheeta.server.web.component.suggestionapply;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.BranchChoice;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
+import io.cheeta.server.annotation.BranchChoice;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
 
 @Editable(name="Commit Suggestion")
 public class SuggestionApplyBean implements Serializable {

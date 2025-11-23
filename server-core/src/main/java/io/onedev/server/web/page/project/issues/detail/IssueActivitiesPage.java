@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.issues.detail;
+package io.cheeta.server.web.page.project.issues.detail;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.web.component.issue.activities.IssueActivitiesPanel;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.web.component.issue.activities.IssueActivitiesPanel;
 
 public class IssueActivitiesPage extends IssueDetailPage {
 

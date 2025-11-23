@@ -1,17 +1,17 @@
-package io.onedev.server.git.hook;
+package io.cheeta.server.git.hook;
 
 import com.google.common.base.Preconditions;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.UrlService;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.UrlService;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 import org.apache.shiro.util.ThreadContext;
@@ -33,8 +33,8 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import static io.onedev.server.security.SecurityUtils.asPrincipals;
-import static io.onedev.server.security.SecurityUtils.asSubject;
+import static io.cheeta.server.security.SecurityUtils.asPrincipals;
+import static io.cheeta.server.security.SecurityUtils.asSubject;
 
 @Singleton
 public class GitPostReceiveCallback extends HttpServlet {
@@ -71,7 +71,7 @@ public class GitPostReceiveCallback extends HttpServlet {
         
         if (!fields.get(2).equals(HookUtils.HOOK_TOKEN)) {
             response.sendError(HttpServletResponse.SC_FORBIDDEN,
-                    "Git hook callbacks can only be accessed by OneDev itself");
+                    "Git hook callbacks can only be accessed by Cheeta itself");
             return;
         }
 		

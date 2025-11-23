@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -34,8 +34,8 @@ import org.bouncycastle.openpgp.operator.bc.BcPGPContentSignerBuilder;
 import org.bouncycastle.openpgp.operator.bc.BcPGPDigestCalculatorProvider;
 import org.bouncycastle.openpgp.operator.bc.BcPGPKeyPair;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
 
 public class GpgUtils {
 

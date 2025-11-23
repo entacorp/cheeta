@@ -1,16 +1,16 @@
-package io.onedev.server.buildspec.param;
+package io.cheeta.server.buildspec.param;
 
 import com.google.common.base.Preconditions;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.param.instance.*;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspec.param.spec.SecretParam;
-import io.onedev.server.buildspecmodel.inputspec.SecretInput;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.HtmlUtils;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.param.instance.*;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.param.spec.SecretParam;
+import io.cheeta.server.buildspecmodel.inputspec.SecretInput;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.HtmlUtils;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.PropertyDescriptor;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang.SerializationUtils;

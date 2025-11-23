@@ -1,15 +1,15 @@
-package io.onedev.server.web.component.groupchoice;
+package io.cheeta.server.web.component.groupchoice;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Group;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
 
 public class GroupChoiceProvider extends AbstractGroupChoiceProvider {
 

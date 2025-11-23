@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.polymorphiceditor;
+package io.cheeta.server.web.component.polymorphiceditor;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -26,19 +26,19 @@ import org.apache.wicket.util.convert.ConversionException;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.loader.ImplementationRegistry;
-import io.onedev.server.annotation.ImplementationProvider;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.BeanUpdating;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.ValueEditor;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.loader.ImplementationRegistry;
+import io.cheeta.server.annotation.ImplementationProvider;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.BeanUpdating;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.ValueEditor;
 
 public class PolymorphicEditor extends ValueEditor<Serializable> {
 

@@ -1,14 +1,14 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.artifact.ArtifactInfo;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.artifact.ArtifactInfo;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.glassfish.jersey.client.ClientProperties;
 
@@ -25,17 +25,17 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 import java.io.InputStream;
 
-import static io.onedev.k8shelper.KubernetesHelper.BEARER;
-import static io.onedev.k8shelper.KubernetesHelper.checkStatus;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.k8shelper.KubernetesHelper.BEARER;
+import static io.cheeta.k8shelper.KubernetesHelper.checkStatus;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static javax.ws.rs.client.Entity.entity;
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 import static javax.ws.rs.core.MediaType.APPLICATION_OCTET_STREAM;
 import static javax.ws.rs.core.Response.ok;
-import static io.onedev.server.util.IOUtils.copy;
+import static io.cheeta.server.util.IOUtils.copy;
 
 @Api(description="In most cases, artifact resource is operated with build id, which is different from build number. "
-		+ "To get build id of a particular build number, use the <a href='/~help/api/io.onedev.server.rest.BuildResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
+		+ "To get build id of a particular build number, use the <a href='/~help/api/io.cheeta.server.rest.BuildResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
 		+ "instance <code>&quot;Number&quot; is &quot;path/to/project#100&quot;</code> or <code>&quot;Number&quot; is &quot;PROJECTKEY-100&quot;</code>")
 @Path("/artifacts")
 @Consumes(MediaType.APPLICATION_JSON)

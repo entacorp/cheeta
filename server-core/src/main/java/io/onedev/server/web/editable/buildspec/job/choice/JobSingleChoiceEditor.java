@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.buildspec.job.choice;
+package io.cheeta.server.web.editable.buildspec.job.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +11,11 @@ import org.apache.wicket.util.convert.ConversionException;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.annotation.JobChoice;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.component.job.JobSingleChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.JobChoice;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.component.job.JobSingleChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class JobSingleChoiceEditor extends PropertyEditor<String> {
 	

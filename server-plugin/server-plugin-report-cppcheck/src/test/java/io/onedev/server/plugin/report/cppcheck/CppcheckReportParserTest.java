@@ -1,11 +1,11 @@
-package io.onedev.server.plugin.report.cppcheck;
+package io.cheeta.server.plugin.report.cppcheck;
 
 import com.google.common.io.Resources;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.XmlUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.XmlUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;

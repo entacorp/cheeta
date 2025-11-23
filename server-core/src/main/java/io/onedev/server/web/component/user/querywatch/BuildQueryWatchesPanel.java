@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.user.querywatch;
+package io.cheeta.server.web.component.user.querywatch;
 
-import static io.onedev.server.model.support.NamedQuery.COMMON_NAME_PREFIX;
-import static io.onedev.server.model.support.NamedQuery.PERSONAL_NAME_PREFIX;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.support.NamedQuery.COMMON_NAME_PREFIX;
+import static io.cheeta.server.model.support.NamedQuery.PERSONAL_NAME_PREFIX;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,22 +27,22 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.BuildQueryPersonalizationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.datatable.selectioncolumn.SelectionColumn;
-import io.onedev.server.web.page.builds.BuildListPage;
-import io.onedev.server.web.page.project.builds.ProjectBuildsPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.user.UserPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.BuildQueryPersonalizationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.datatable.selectioncolumn.SelectionColumn;
+import io.cheeta.server.web.page.builds.BuildListPage;
+import io.cheeta.server.web.page.project.builds.ProjectBuildsPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.user.UserPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 class BuildQueryWatchesPanel extends GenericPanel<User> {
 
@@ -93,8 +93,8 @@ class BuildQueryWatchesPanel extends GenericPanel<User> {
 
             @Override
             public void onClick() {
-                OneDev.getInstance(TransactionService.class).run(() -> {
-                    var auditService = OneDev.getInstance(AuditService.class);
+                Cheeta.getInstance(TransactionService.class).run(() -> {
+                    var auditService = Cheeta.getInstance(AuditService.class);
                     for (IModel<QueryInfo> each: selectionColumn.getSelections()) {
                         var queryInfo = each.getObject();
                         if (queryInfo.projectId == null) {
@@ -227,19 +227,19 @@ class BuildQueryWatchesPanel extends GenericPanel<User> {
     }
 
     private ProjectService getProjectService() {
-        return OneDev.getInstance(ProjectService.class);
+        return Cheeta.getInstance(ProjectService.class);
     }
 
     private SettingService getSettingService() {
-        return OneDev.getInstance(SettingService.class);
+        return Cheeta.getInstance(SettingService.class);
     }
 
     private BuildQueryPersonalizationService getBuildQueryPersonalizationService() {
-        return OneDev.getInstance(BuildQueryPersonalizationService.class);
+        return Cheeta.getInstance(BuildQueryPersonalizationService.class);
     }
     
     private UserService getUserService() {
-        return OneDev.getInstance(UserService.class);
+        return Cheeta.getInstance(UserService.class);
     }
 
     private User getUser() {

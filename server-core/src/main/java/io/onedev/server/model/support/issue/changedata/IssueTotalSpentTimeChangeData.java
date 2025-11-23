@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.issue.changedata;
+package io.cheeta.server.model.support.issue.changedata;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.User;
-import io.onedev.server.notification.ActivityDetail;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.User;
+import io.cheeta.server.notification.ActivityDetail;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -50,7 +50,7 @@ public class IssueTotalSpentTimeChangeData extends IssueChangeData {
 
 	@Override
 	public ActivityDetail getActivityDetail() {
-		var timeTrackingSetting = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+		var timeTrackingSetting = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 		Map<String, String> oldFieldValues = new HashMap<>();
 		oldFieldValues.put("Total Spent Time", timeTrackingSetting.formatWorkingPeriod(oldValue, true));
 		Map<String, String> newFieldValues = new HashMap<>();

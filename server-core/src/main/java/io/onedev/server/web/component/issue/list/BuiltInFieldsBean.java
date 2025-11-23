@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.list;
+package io.cheeta.server.web.component.issue.list;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.IterationChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.IterationChoice;
 
 @Editable
 public class BuiltInFieldsBean implements Serializable {
@@ -68,7 +68,7 @@ public class BuiltInFieldsBean implements Serializable {
 	
 	@SuppressWarnings("unused")
 	private static List<String> getStateChoices() {
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		return issueSetting.getStateSpecs().stream().map(it->it.getName()).collect(Collectors.toList());
 	}
 	

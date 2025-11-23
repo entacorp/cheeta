@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.sideinfo;
+package io.cheeta.server.web.component.sideinfo;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -10,7 +10,7 @@ import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.web.asset.jqueryui.JQueryUIResourceReference;
+import io.cheeta.server.web.asset.jqueryui.JQueryUIResourceReference;
 
 public abstract class SideInfoPanel extends Panel {
 
@@ -57,7 +57,7 @@ public abstract class SideInfoPanel extends Panel {
 		
 		response.render(JavaScriptHeaderItem.forReference(new JQueryUIResourceReference()));
 		response.render(JavaScriptHeaderItem.forReference(new SideInfoResourceReference()));
-		response.render(OnDomReadyHeaderItem.forScript("onedev.server.sideInfo.onDomReady('" + getMarkupId() + "');"));
+		response.render(OnDomReadyHeaderItem.forScript("cheeta.server.sideInfo.onDomReady('" + getMarkupId() + "');"));
 	}
 
 	protected abstract Component newTitle(String componentId);

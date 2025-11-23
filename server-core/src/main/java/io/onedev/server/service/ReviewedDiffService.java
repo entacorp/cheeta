@@ -1,7 +1,7 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.ReviewedDiff;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.ReviewedDiff;
+import io.cheeta.server.model.User;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.diff.blob.text;
+package io.cheeta.server.web.component.diff.blob.text;
 
-import static io.onedev.server.codequality.BlobTarget.groupByLine;
-import static io.onedev.server.util.diff.DiffRenderer.toHtml;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.codequality.BlobTarget.groupByLine;
+import static io.cheeta.server.util.diff.DiffRenderer.toHtml;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 import static org.unbescape.javascript.JavaScriptEscape.escapeJavaScript;
 
@@ -38,41 +38,41 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 import com.ibm.icu.text.SpoofChecker;
 
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.git.BlameBlock;
-import io.onedev.server.git.BlameCommit;
-import io.onedev.server.git.BlobChange;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.diff.DiffBlock;
-import io.onedev.server.util.diff.DiffMatchPatch.Operation;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.blamemessage.BlameMessageBehavior;
-import io.onedev.server.web.component.diff.blob.BlobAnnotationSupport;
-import io.onedev.server.web.component.diff.revision.DiffViewMode;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.symboltooltip.SymbolContext;
-import io.onedev.server.web.component.symboltooltip.SymbolTooltipPanel;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.util.AnnotationInfo;
-import io.onedev.server.web.util.CodeCommentInfo;
-import io.onedev.server.web.util.DiffPlanarRange;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.git.BlameBlock;
+import io.cheeta.server.git.BlameCommit;
+import io.cheeta.server.git.BlobChange;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.diff.DiffBlock;
+import io.cheeta.server.util.diff.DiffMatchPatch.Operation;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.blamemessage.BlameMessageBehavior;
+import io.cheeta.server.web.component.diff.blob.BlobAnnotationSupport;
+import io.cheeta.server.web.component.diff.revision.DiffViewMode;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.symboltooltip.SymbolContext;
+import io.cheeta.server.web.component.symboltooltip.SymbolTooltipPanel;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.util.AnnotationInfo;
+import io.cheeta.server.web.util.CodeCommentInfo;
+import io.cheeta.server.web.util.DiffPlanarRange;
 
 public class BlobTextDiffPanel extends Panel {
 
@@ -140,7 +140,7 @@ public class BlobTextDiffPanel extends Panel {
 
 	private String convertToJson(Object obj) {
 		try {
-			return OneDev.getInstance(ObjectMapper.class).writeValueAsString(obj);
+			return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(obj);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
@@ -166,7 +166,7 @@ public class BlobTextDiffPanel extends Panel {
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	private BlameInfo getBlameInfo() {
@@ -268,7 +268,7 @@ public class BlobTextDiffPanel extends Panel {
 						appendEquals(builder, index, lastContextSize, contextSize);
 						
 						String expanded = StringUtils.replace(builder.toString(), "\n", "");
-						String script = String.format("onedev.server.blobTextDiff.expand('%s', %d, \"%s\");",
+						String script = String.format("cheeta.server.blobTextDiff.expand('%s', %d, \"%s\");",
 								getMarkupId(), index, escapeJavaScript(expanded));
 						target.appendJavaScript(script);
 						break;
@@ -288,7 +288,7 @@ public class BlobTextDiffPanel extends Panel {
 						} else {
 							markUrl = "undefined";
 						}
-						script = String.format("onedev.server.blobTextDiff.openSelectionPopover('%s', %s, %s, %s, '%s', %s);", 
+						script = String.format("cheeta.server.blobTextDiff.openSelectionPopover('%s', %s, %s, %s, '%s', %s);", 
 								getMarkupId(), jsonOfPosition, convertToJson(commentRange), markUrl, 
 								escapeJavaScript(getMarkedText(commentRange)),
 								SecurityUtils.getAuthUser()!=null);
@@ -299,16 +299,16 @@ public class BlobTextDiffPanel extends Panel {
 						
 						commentRange = getRange(params, "param1", "param2", "param3", "param4", "param5");
 						getAnnotationSupport().onAddComment(target, commentRange);
-						script = String.format("onedev.server.blobTextDiff.onAddComment($('#%s'), %s);", 
+						script = String.format("cheeta.server.blobTextDiff.onAddComment($('#%s'), %s);", 
 								getMarkupId(), convertToJson(commentRange));
 						target.appendJavaScript(script);
 						break;
 					case "openComment": 
 						Long commentId = params.getParameterValue("param1").toLong();
 						commentRange = getRange(params, "param2", "param3", "param4", "param5", "param6");
-						CodeComment comment = OneDev.getInstance(CodeCommentService.class).load(commentId);
+						CodeComment comment = Cheeta.getInstance(CodeCommentService.class).load(commentId);
 						getAnnotationSupport().onOpenComment(target, comment, commentRange);
-						script = String.format("onedev.server.blobTextDiff.onCommentOpened($('#%s'), %s);", 
+						script = String.format("cheeta.server.blobTextDiff.onCommentOpened($('#%s'), %s);", 
 								getMarkupId(), convertToJson(new DiffCodeCommentInfo(comment, commentRange)));
 						target.appendJavaScript(script);
 						break;
@@ -482,7 +482,7 @@ public class BlobTextDiffPanel extends Panel {
 			translations.put(severity.name(), _T("severity:" + severity.name()));
 		translations.put("add-problem-comment", _T("Add comment"));
 
-		String script = String.format("onedev.server.blobTextDiff.onDomReady('%s', '%s', '%s', '%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s);", 
+		String script = String.format("cheeta.server.blobTextDiff.onDomReady('%s', '%s', '%s', '%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s);", 
 				getMarkupId(), symbolTooltip.getMarkupId(), 
 				change.getOldBlobIdent().revision, 
 				change.getNewBlobIdent().revision,
@@ -500,7 +500,7 @@ public class BlobTextDiffPanel extends Panel {
 			jsonOfMarkRange = convertToJson(markRange);
 		else
 			jsonOfMarkRange = "undefined";
-		script = String.format("onedev.server.blobTextDiff.onLoad('%s', %s);", getMarkupId(), jsonOfMarkRange);
+		script = String.format("cheeta.server.blobTextDiff.onLoad('%s', %s);", getMarkupId(), jsonOfMarkRange);
 		response.render(OnLoadHeaderItem.forScript(script));
 	}
 	
@@ -671,12 +671,12 @@ public class BlobTextDiffPanel extends Panel {
 				PageParameters params = CommitDetailPage.paramsOf(change.getProject(), state);
 				String url = urlFor(CommitDetailPage.class, params).toString();
 				if (diffMode == DiffViewMode.UNIFIED) {
-					builder.append(String.format("<td class='blame noselect'><a class='hash' href='%s' onclick='onedev.server.viewState.getFromViewAndSetToHistory();' data-hash='%s'>%s</a><span class='date'>%s</span><span class='author'>%s</span></td>",
+					builder.append(String.format("<td class='blame noselect'><a class='hash' href='%s' onclick='cheeta.server.viewState.getFromViewAndSetToHistory();' data-hash='%s'>%s</a><span class='date'>%s</span><span class='author'>%s</span></td>",
 							url, commit.getHash(), GitUtils.abbreviateSHA(commit.getHash()),
 							DateUtils.formatDate(commit.getCommitter().getWhen()),
 							HtmlEscape.escapeHtml5(commit.getAuthor().getName())));
 				} else {
-					builder.append(String.format("<td class='abbr blame noselect'><a class='hash' href='%s' onclick='onedev.server.viewState.getFromViewAndSetToHistory();' data-hash='%s'>%s</a></td>",
+					builder.append(String.format("<td class='abbr blame noselect'><a class='hash' href='%s' onclick='cheeta.server.viewState.getFromViewAndSetToHistory();' data-hash='%s'>%s</a></td>",
 							url, commit.getHash(), GitUtils.abbreviateSHA(commit.getHash())));
 				}
 			} else {
@@ -1019,19 +1019,19 @@ public class BlobTextDiffPanel extends Panel {
 	}
 
 	public void onCommentDeleted(AjaxRequestTarget target) {
-		String script = String.format("onedev.server.blobTextDiff.onCommentDeleted($('#%s'));", getMarkupId());
+		String script = String.format("cheeta.server.blobTextDiff.onCommentDeleted($('#%s'));", getMarkupId());
 		target.appendJavaScript(script);
 		unmark(target);
 	}
 
 	public void onCommentClosed(AjaxRequestTarget target) {
-		String script = String.format("onedev.server.blobTextDiff.onCommentClosed($('#%s'));", getMarkupId());
+		String script = String.format("cheeta.server.blobTextDiff.onCommentClosed($('#%s'));", getMarkupId());
 		target.appendJavaScript(script);
 		unmark(target);
 	}
 
 	public void onCommentAdded(AjaxRequestTarget target, CodeComment comment, DiffPlanarRange range) {
-		String script = String.format("onedev.server.blobTextDiff.onCommentAdded($('#%s'), %s);", 
+		String script = String.format("cheeta.server.blobTextDiff.onCommentAdded($('#%s'), %s);", 
 				getMarkupId(), convertToJson(new DiffCodeCommentInfo(comment, range)));
 		target.appendJavaScript(script);
 	}
@@ -1040,8 +1040,8 @@ public class BlobTextDiffPanel extends Panel {
 		String script = String.format(""
 			+ "var $container = $('#%s');"
 			+ "var markRange = %s;"
-			+ "onedev.server.blobTextDiff.scrollTo($container, markRange);"
-			+ "onedev.server.blobTextDiff.mark($container, markRange);", 
+			+ "cheeta.server.blobTextDiff.scrollTo($container, markRange);"
+			+ "cheeta.server.blobTextDiff.mark($container, markRange);", 
 			getMarkupId(), convertToJson(markRange));
 		target.appendJavaScript(script);
 	}
@@ -1049,7 +1049,7 @@ public class BlobTextDiffPanel extends Panel {
 	public void unmark(AjaxRequestTarget target) {
 		String script = String.format(""
 			+ "var $container = $('#%s');"
-			+ "onedev.server.blobTextDiff.clearMark($container);"
+			+ "cheeta.server.blobTextDiff.clearMark($container);"
 			+ "$container.removeData('markRange');", 
 			getMarkupId());
 		target.appendJavaScript(script);

@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
 import java.util.List;
 
-import io.onedev.server.model.User;
+import io.cheeta.server.model.User;
 
 public interface UserMentionSupport {
 

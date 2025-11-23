@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.iteration.burndown;
+package io.cheeta.server.web.component.iteration.burndown;
 
-import static io.onedev.server.util.DateUtils.toLocalDate;
-import static io.onedev.server.web.component.iteration.burndown.BurndownIndicators.ESTIMATED_TIME;
-import static io.onedev.server.web.component.iteration.burndown.BurndownIndicators.ISSUE_COUNT;
-import static io.onedev.server.web.component.iteration.burndown.BurndownIndicators.REMAINING_TIME;
-import static io.onedev.server.web.component.iteration.burndown.BurndownIndicators.getDefault;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.util.DateUtils.toLocalDate;
+import static io.cheeta.server.web.component.iteration.burndown.BurndownIndicators.ESTIMATED_TIME;
+import static io.cheeta.server.web.component.iteration.burndown.BurndownIndicators.ISSUE_COUNT;
+import static io.cheeta.server.web.component.iteration.burndown.BurndownIndicators.REMAINING_TIME;
+import static io.cheeta.server.web.component.iteration.burndown.BurndownIndicators.getDefault;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.time.LocalDate;
@@ -25,17 +25,17 @@ import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.StateSpec;
-import io.onedev.server.web.component.chart.line.Line;
-import io.onedev.server.web.component.chart.line.LineChartPanel;
-import io.onedev.server.web.component.chart.line.LineSeries;
-import io.onedev.server.xodus.IssueInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.StateSpec;
+import io.cheeta.server.web.component.chart.line.Line;
+import io.cheeta.server.web.component.chart.line.LineChartPanel;
+import io.cheeta.server.web.component.chart.line.LineSeries;
+import io.cheeta.server.xodus.IssueInfoService;
 
 public class IterationBurndownPanel extends GenericPanel<Iteration> {
 
@@ -49,7 +49,7 @@ public class IterationBurndownPanel extends GenericPanel<Iteration> {
 	}
 
 	private static GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	@Override
@@ -83,7 +83,7 @@ public class IterationBurndownPanel extends GenericPanel<Iteration> {
 						long scheduleDay = toLocalDate(schedule.getDate(), ZoneId.systemDefault()).toEpochDay();
 
 						Map<Long, Integer> dailyMetrics = new HashMap<>();
-						var issueInfoService = OneDev.getInstance(IssueInfoService.class);
+						var issueInfoService = Cheeta.getInstance(IssueInfoService.class);
 						var fromDay = Math.max(getIteration().getStartDay(), scheduleDay);
 						var dailyStates = issueInfoService.getDailyStates(issue, fromDay, getIteration().getDueDay());
 						if (getIndicator().equals(REMAINING_TIME)) {
@@ -117,7 +117,7 @@ public class IterationBurndownPanel extends GenericPanel<Iteration> {
 
 					int initialIssueMetric = 0;
 					var today = LocalDate.now().toEpochDay();
-					for (StateSpec spec : OneDev.getInstance(SettingService.class).getIssueSetting().getStateSpecs()) {
+					for (StateSpec spec : Cheeta.getInstance(SettingService.class).getIssueSetting().getStateSpecs()) {
 						List<Integer> yAxisValues = new ArrayList<>();
 						for (Map.Entry<Long, Map<String, Integer>> entry : dailyStateMetrics.entrySet()) {
 							if (entry.getKey() <= today) {
@@ -153,7 +153,7 @@ public class IterationBurndownPanel extends GenericPanel<Iteration> {
 						yAxisValueFormatter = String.format(""
 								+ "function(value) {"
 								+ "  if (value != undefined) "
-								+ "    return onedev.server.util.formatWorkingPeriod(value, %b);"
+								+ "    return cheeta.server.util.formatWorkingPeriod(value, %b);"
 								+ "  else "
 								+ "    return '-';"
 								+ "}", getIssueSetting().getTimeTrackingSetting().isUseHoursAndMinutesOnly());
@@ -165,7 +165,7 @@ public class IterationBurndownPanel extends GenericPanel<Iteration> {
 
 			}));
 
-			var aggregationLink = OneDev.getInstance(SettingService.class).getIssueSetting()
+			var aggregationLink = Cheeta.getInstance(SettingService.class).getIssueSetting()
 					.getTimeTrackingSetting().getAggregationLink();
 			fragment.add(new Label("message", new AbstractReadOnlyModel<String>() {
 				@Override

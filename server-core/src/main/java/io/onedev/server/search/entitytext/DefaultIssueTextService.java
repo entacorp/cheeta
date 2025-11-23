@@ -1,6 +1,6 @@
-package io.onedev.server.search.entitytext;
+package io.cheeta.server.search.entitytext;
 
-import static io.onedev.server.util.criteria.Criteria.forManyValues;
+import static io.cheeta.server.util.criteria.Criteria.forManyValues;
 import static java.lang.String.valueOf;
 import static java.util.stream.Collectors.toSet;
 import static org.apache.lucene.document.Field.Store.NO;
@@ -31,23 +31,23 @@ import org.apache.lucene.search.BoostQuery;
 import org.apache.lucene.search.PrefixQuery;
 import org.apache.lucene.search.Query;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.issue.IssuesTouched;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.support.EntityTouch;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessConfidentialIssues;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IssueTouchService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.lucene.BooleanQueryBuilder;
-import io.onedev.server.util.lucene.LuceneUtils;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.issue.IssuesTouched;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.support.EntityTouch;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessConfidentialIssues;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IssueTouchService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.lucene.BooleanQueryBuilder;
+import io.cheeta.server.util.lucene.LuceneUtils;
 
 @Singleton
 public class DefaultIssueTextService extends EntityTextService<Issue> implements IssueTextService {

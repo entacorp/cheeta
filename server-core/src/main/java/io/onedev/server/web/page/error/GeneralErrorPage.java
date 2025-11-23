@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.error;
+package io.cheeta.server.web.page.error;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static javax.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 
 import java.io.Serializable;
@@ -21,17 +21,17 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Throwables;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.exception.ServerNotFoundException;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.HomePage;
-import io.onedev.server.web.page.simple.SimplePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.exception.ServerNotFoundException;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.HomePage;
+import io.cheeta.server.web.page.simple.SimplePage;
 
 public class GeneralErrorPage extends SimplePage {
 
@@ -78,7 +78,7 @@ public class GeneralErrorPage extends SimplePage {
 
 				@Override
 				public void onClick() {
-					OneDev.getInstance(ProjectService.class).updateActiveServers();
+					Cheeta.getInstance(ProjectService.class).updateActiveServers();
 					setResponsePage(HomePage.class);
 				}
 				

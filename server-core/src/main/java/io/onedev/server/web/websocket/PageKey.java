@@ -1,4 +1,4 @@
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.admin.authenticator;
+package io.cheeta.server.web.page.admin.authenticator;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
 
 @Editable
 public class AuthenticationToken implements Serializable {

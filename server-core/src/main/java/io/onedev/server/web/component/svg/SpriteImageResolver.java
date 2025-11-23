@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.svg;
+package io.cheeta.server.web.component.svg;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.MarkupContainer;

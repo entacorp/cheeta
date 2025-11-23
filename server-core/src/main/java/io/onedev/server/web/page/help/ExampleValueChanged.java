@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.web.util.AjaxPayload;
 
 public class ExampleValueChanged extends AjaxPayload {
 

@@ -1,7 +1,7 @@
-package io.onedev.server.security.permission;
+package io.cheeta.server.security.permission;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.util.facade.UserFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.facade.UserFacade;
 import org.apache.shiro.authz.Permission;
 import org.jetbrains.annotations.Nullable;
 

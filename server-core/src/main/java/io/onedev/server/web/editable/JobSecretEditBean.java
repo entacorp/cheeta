@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,11 +6,11 @@ import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.model.support.build.JobSecret;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.model.support.build.JobSecret;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable
 public class JobSecretEditBean implements Serializable {

@@ -1,12 +1,12 @@
-onedev.server.issueChoiceFormatter = {
+cheeta.server.issueChoiceFormatter = {
 	formatIssue: function(issue) {
 		return issue.title + " (" + issue.reference +")";
 	},
 	formatSelection: function(issue) {
-		return onedev.server.issueChoiceFormatter.formatIssue(issue);
+		return cheeta.server.issueChoiceFormatter.formatIssue(issue);
 	},
 	formatResult: function(issue) {
-		return onedev.server.issueChoiceFormatter.formatIssue(issue);
+		return cheeta.server.issueChoiceFormatter.formatIssue(issue);
 	},
 	escapeMarkup: function(m) {
 		return m;

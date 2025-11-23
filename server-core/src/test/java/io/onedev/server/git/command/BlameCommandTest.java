@@ -1,4 +1,4 @@
-package io.onedev.server.git.command;
+package io.cheeta.server.git.command;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,9 +7,9 @@ import java.util.Collection;
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.Test;
 
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.server.git.AbstractGitTest;
-import io.onedev.server.git.BlameBlock;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.server.git.AbstractGitTest;
+import io.cheeta.server.git.BlameBlock;
 
 public class BlameCommandTest extends AbstractGitTest {
 

@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.base.BasePage;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.ComponentTag;

@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.security;
+package io.cheeta.server.web.page.security;
 
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.page.base.BasePage;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.request.mapper.parameter.PageParameters;

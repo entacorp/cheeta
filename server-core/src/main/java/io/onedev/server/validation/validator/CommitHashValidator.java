@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.annotation.CommitHash;
+import io.cheeta.server.annotation.CommitHash;
 
 public class CommitHashValidator implements ConstraintValidator<CommitHash, String> {
 

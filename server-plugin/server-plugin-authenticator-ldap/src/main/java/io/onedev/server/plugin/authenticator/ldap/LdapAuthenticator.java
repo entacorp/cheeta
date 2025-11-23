@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.authenticator.ldap;
+package io.cheeta.server.plugin.authenticator.ldap;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,14 +29,14 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.model.support.administration.authenticator.Authenticated;
-import io.onedev.server.model.support.administration.authenticator.Authenticator;
-import io.onedev.server.security.TrustCertsSSLSocketFactory;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.model.support.administration.authenticator.Authenticated;
+import io.cheeta.server.model.support.administration.authenticator.Authenticator;
+import io.cheeta.server.security.TrustCertsSSLSocketFactory;
 
 @Editable(name="Generic LDAP", order=200)
 public class LdapAuthenticator extends Authenticator {
@@ -70,7 +70,7 @@ public class LdapAuthenticator extends Authenticator {
     @Editable(order=100, name="LDAP URL", description="" +
 			"Specifies LDAP URL, for example: <i>ldap://localhost</i>, or <i>ldaps://localhost</i>. In case" +
 			"your ldap server is using a self-signed certificate for ldaps connection, you will need " +
-			"to <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure OneDev to trust the certificate</a>")
+			"to <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates' target='_blank'>configure Cheeta to trust the certificate</a>")
     @NotEmpty
 	public String getLdapUrl() {
 		return ldapUrl;
@@ -80,7 +80,7 @@ public class LdapAuthenticator extends Authenticator {
 		this.ldapUrl = ldapUrl;
 	}
 
-	@Editable(order=200, description="OneDev needs to search and determine user DN, as well as searching user group "
+	@Editable(order=200, description="Cheeta needs to search and determine user DN, as well as searching user group "
 			+ "information if group retrieval is enabled. Tick this option and specify 'manager' DN and password if "
 			+ "these operations needs to be authenticated")
 	public boolean isAuthenticationRequired() {
@@ -91,7 +91,7 @@ public class LdapAuthenticator extends Authenticator {
 		this.authenticationRequired = authenticationRequired;
 	}
 	
-	@Editable(order=300, description="Specify manager DN to authenticate OneDev itself to LDAP server")
+	@Editable(order=300, description="Specify manager DN to authenticate Cheeta itself to LDAP server")
 	@DependsOn(property=PROP_AUTHENTICATION_REQUIRED)
 	@NotEmpty
 	public String getManagerDN() {
@@ -173,9 +173,9 @@ public class LdapAuthenticator extends Authenticator {
 	}
 
 	@Editable(order=900, description="Specify the strategy to retrieve group membership information. "
-			+ "To give appropriate permissions to a LDAP group, a OneDev group with same name should "
+			+ "To give appropriate permissions to a LDAP group, a Cheeta group with same name should "
 			+ "be defined. Use strategy <tt>Do Not Retrieve Groups</tt> if you want to manage group "
-			+ "memberships at OneDev side")
+			+ "memberships at Cheeta side")
 	@NotNull(message="may not be empty")
 	public GroupRetrieval getGroupRetrieval() {
 		return groupRetrieval;

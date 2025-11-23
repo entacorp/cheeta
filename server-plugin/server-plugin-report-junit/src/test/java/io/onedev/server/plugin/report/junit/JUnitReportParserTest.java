@@ -1,8 +1,8 @@
-package io.onedev.server.plugin.report.junit;
+package io.cheeta.server.plugin.report.junit;
 
 import com.google.common.io.Resources;
-import io.onedev.server.plugin.report.unittest.UnitTestReport;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.Status;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.Status;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;

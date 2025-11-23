@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,19 +13,19 @@ import java.util.Set;
 import org.jspecify.annotations.Nullable;
 import javax.validation.Valid;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.search.entity.issue.IssueQueryUpdater;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.component.issue.workflowreconcile.ReconcileUtils;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.search.entity.issue.IssueQueryUpdater;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.component.issue.workflowreconcile.ReconcileUtils;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 @Editable
 public class ProjectIssueSetting implements Serializable {
@@ -46,7 +46,7 @@ public class ProjectIssueSetting implements Serializable {
 	
 	private GlobalIssueSetting getGlobalSetting() {
 		if (setting == null)
-			setting = OneDev.getInstance(SettingService.class).getIssueSetting();
+			setting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		return setting;
 	}
 

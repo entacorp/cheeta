@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestChangeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestChangeData;
 
 @Entity
 @Table(indexes={@Index(columnList="o_request_id"), @Index(columnList="o_user_id")})

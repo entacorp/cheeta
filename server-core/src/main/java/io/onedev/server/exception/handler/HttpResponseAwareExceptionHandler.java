@@ -1,7 +1,7 @@
-package io.onedev.server.exception.handler;
+package io.cheeta.server.exception.handler;
 
-import io.onedev.server.exception.HttpResponse;
-import io.onedev.server.exception.HttpResponseAwareException;
+import io.cheeta.server.exception.HttpResponse;
+import io.cheeta.server.exception.HttpResponseAwareException;
 
 public class HttpResponseAwareExceptionHandler extends AbstractExceptionHandler<HttpResponseAwareException> {
 	

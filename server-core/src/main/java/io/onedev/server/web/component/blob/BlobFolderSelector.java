@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.blob;
+package io.cheeta.server.web.component.blob;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,10 +24,10 @@ import org.apache.wicket.model.Model;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
 
 public abstract class BlobFolderSelector extends Panel {
 

@@ -1,9 +1,9 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 public class DateRange implements Serializable {
 

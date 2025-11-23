@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.jiracloud;
+package io.cheeta.server.plugin.imports.jiracloud;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class IssueStatusMapping implements Serializable {
@@ -31,20 +31,20 @@ public class IssueStatusMapping implements Serializable {
 		this.jiraIssueStatus = jiraIssueStatus;
 	}
 
-	@Editable(order=200, name="OneDev Issue State", description="OneDev Issue State")
-	@ChoiceProvider("getOneDevIssueStateChoices")
+	@Editable(order=200, name="Cheeta Issue State", description="Cheeta Issue State")
+	@ChoiceProvider("getCheetaIssueStateChoices")
 	@NotEmpty
-	public String getOneDevIssueState() {
+	public String getCheetaIssueState() {
 		return oneDevIssueState;
 	}
 
-	public void setOneDevIssueState(String oneDevIssueState) {
+	public void setCheetaIssueState(String oneDevIssueState) {
 		this.oneDevIssueState = oneDevIssueState;
 	}
 
 	@SuppressWarnings("unused")
-	private static List<String> getOneDevIssueStateChoices() {
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+	private static List<String> getCheetaIssueStateChoices() {
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		return issueSetting.getStateSpecs().stream().map(it->it.getName()).collect(Collectors.toList());
 	}
 	

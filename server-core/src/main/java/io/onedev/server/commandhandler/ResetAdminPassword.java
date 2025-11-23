@@ -1,13 +1,13 @@
-package io.onedev.server.commandhandler;
+package io.cheeta.server.commandhandler;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.HibernateConfig;
-import io.onedev.server.data.DataService;
-import io.onedev.server.persistence.SessionFactoryService;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.HibernateConfig;
+import io.cheeta.server.data.DataService;
+import io.cheeta.server.persistence.SessionFactoryService;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.shiro.authc.credential.PasswordService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.sql.SQLException;
 
-import static io.onedev.server.persistence.PersistenceUtils.callWithTransaction;
+import static io.cheeta.server.persistence.PersistenceUtils.callWithTransaction;
 
 @Singleton
 public class ResetAdminPassword extends CommandHandler {

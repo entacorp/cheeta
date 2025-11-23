@@ -1,4 +1,4 @@
-package io.onedev.server.util.criteria;
+package io.cheeta.server.util.criteria;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newHashSet;
@@ -10,7 +10,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import io.onedev.server.util.Pair;
+import io.cheeta.server.util.Pair;
 
 public class CriteriaTest {
 

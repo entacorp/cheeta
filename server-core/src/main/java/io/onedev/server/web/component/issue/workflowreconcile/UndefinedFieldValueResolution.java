@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.workflowreconcile;
+package io.cheeta.server.web.component.issue.workflowreconcile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,17 +9,17 @@ import javax.validation.constraints.NotNull;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.component.issue.workflowreconcile.WorkflowReconcilePanel.UndefinedFieldValueContainer;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.component.issue.workflowreconcile.WorkflowReconcilePanel.UndefinedFieldValueContainer;
 
 @Editable
 public class UndefinedFieldValueResolution implements Serializable {
@@ -60,7 +60,7 @@ public class UndefinedFieldValueResolution implements Serializable {
 	private static List<String> getValueChoices() {
 		UndefinedFieldValueContainer container = ComponentContext.get().getComponent()
 				.findParent(UndefinedFieldValueContainer.class); 
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		FieldSpec fieldSpec = Preconditions.checkNotNull(issueSetting.getFieldSpec(container.getFieldName()));
 		ComponentContext.push(new ComponentContext(container));
 		try {

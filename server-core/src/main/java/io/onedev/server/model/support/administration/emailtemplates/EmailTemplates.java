@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.administration.emailtemplates;
+package io.cheeta.server.model.support.administration.emailtemplates;
 
 import com.google.common.io.Resources;
-import io.onedev.server.annotation.Code;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.util.GroovyUtils;
+import io.cheeta.server.annotation.Code;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.util.GroovyUtils;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.IOException;

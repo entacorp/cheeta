@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.gitcredential;
+package io.cheeta.server.buildspec.job.gitcredential;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -11,19 +11,19 @@ import org.apache.sshd.common.config.keys.KeyUtils;
 import org.apache.sshd.common.config.keys.PublicKeyEntry;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.k8shelper.CloneInfo;
-import io.onedev.k8shelper.SshCloneInfo;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.SshSetting;
-import io.onedev.server.model.support.administration.SystemSetting;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.k8shelper.CloneInfo;
+import io.cheeta.k8shelper.SshCloneInfo;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.SshSetting;
+import io.cheeta.server.model.support.administration.SystemSetting;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(name="SSH", order=300)
 @ClassValidating
@@ -33,7 +33,7 @@ public class SshCredential implements GitCredential, Validatable {
 
 	private String keySecret;
 
-	@Editable(order=100, description="Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as SSH private key")
+	@Editable(order=100, description="Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as SSH private key")
 	@ChoiceProvider("getKeySecretChoices")
 	@NotEmpty
 	public String getKeySecret() {
@@ -52,8 +52,8 @@ public class SshCredential implements GitCredential, Validatable {
 
 	@Override
 	public CloneInfo newCloneInfo(Build build, String jobToken) {
-		String cloneUrl = OneDev.getInstance(UrlService.class).cloneUrlFor(build.getProject(), true);
-		SettingService settingService = OneDev.getInstance(SettingService.class);
+		String cloneUrl = Cheeta.getInstance(UrlService.class).cloneUrlFor(build.getProject(), true);
+		SettingService settingService = Cheeta.getInstance(SettingService.class);
 		SystemSetting systemSetting = settingService.getSystemSetting();
 		SshSetting sshSetting = settingService.getSshSetting();
 		StringBuilder knownHosts = new StringBuilder(systemSetting.getSshServerName()).append(" ");

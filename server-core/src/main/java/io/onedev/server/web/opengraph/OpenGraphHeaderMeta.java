@@ -1,4 +1,4 @@
-package io.onedev.server.web.opengraph;
+package io.cheeta.server.web.opengraph;
 
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.MetaDataHeaderItem;

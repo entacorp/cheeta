@@ -1,8 +1,8 @@
-package io.onedev.server.job.match;
+package io.cheeta.server.job.match;
 
-import static io.onedev.commons.codeassist.AntlrUtils.getLexerRuleName;
-import static io.onedev.server.job.match.JobMatchParser.IsNot;
-import static io.onedev.server.job.match.JobMatchParser.OnBranch;
+import static io.cheeta.commons.codeassist.AntlrUtils.getLexerRuleName;
+import static io.cheeta.server.job.match.JobMatchParser.IsNot;
+import static io.cheeta.server.job.match.JobMatchParser.OnBranch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +21,15 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.AndCriteria;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.criteria.NotCriteria;
-import io.onedev.server.util.criteria.OrCriteria;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.AndCriteria;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.criteria.NotCriteria;
+import io.cheeta.server.util.criteria.OrCriteria;
 
 public class JobMatch extends Criteria<JobMatchContext> {
 
@@ -64,20 +64,20 @@ public class JobMatch extends Criteria<JobMatchContext> {
 		parser.setErrorHandler(new BailErrorStrategy());
 		JobMatchParser.JobMatchContext JobMatchContext = parser.jobMatch();
 
-		Criteria<io.onedev.server.job.match.JobMatchContext> criteria = new JobMatchBaseVisitor<Criteria<io.onedev.server.job.match.JobMatchContext>>() {
+		Criteria<io.cheeta.server.job.match.JobMatchContext> criteria = new JobMatchBaseVisitor<Criteria<io.cheeta.server.job.match.JobMatchContext>>() {
 
 			@Override
-			public Criteria<io.onedev.server.job.match.JobMatchContext> visitParensCriteria(JobMatchParser.ParensCriteriaContext ctx) {
+			public Criteria<io.cheeta.server.job.match.JobMatchContext> visitParensCriteria(JobMatchParser.ParensCriteriaContext ctx) {
 				return visit(ctx.criteria()).withParens(true);
 			}
 
 			@Override
-			public Criteria<io.onedev.server.job.match.JobMatchContext> visitFieldOperatorValueCriteria(JobMatchParser.FieldOperatorValueCriteriaContext ctx) {
+			public Criteria<io.cheeta.server.job.match.JobMatchContext> visitFieldOperatorValueCriteria(JobMatchParser.FieldOperatorValueCriteriaContext ctx) {
 				int operator = ctx.operator.getType();
 				String fieldName = getValue(ctx.criteriaField.getText());
 				checkField(fieldName, withProjectCriteria, withJobCriteria);
 				
-				var criterias = new ArrayList<Criteria<io.onedev.server.job.match.JobMatchContext>>();
+				var criterias = new ArrayList<Criteria<io.cheeta.server.job.match.JobMatchContext>>();
 				for (var quoted: ctx.criteriaValue.Quoted()) {
 					String fieldValue = getValue(quoted.getText());
 
@@ -90,8 +90,8 @@ public class JobMatch extends Criteria<JobMatchContext> {
 			}
 			
 			@Override
-			public Criteria<io.onedev.server.job.match.JobMatchContext> visitOperatorValueCriteria(JobMatchParser.OperatorValueCriteriaContext ctx) {
-				var criterias = new ArrayList<Criteria<io.onedev.server.job.match.JobMatchContext>>();
+			public Criteria<io.cheeta.server.job.match.JobMatchContext> visitOperatorValueCriteria(JobMatchParser.OperatorValueCriteriaContext ctx) {
+				var criterias = new ArrayList<Criteria<io.cheeta.server.job.match.JobMatchContext>>();
 				for (var quoted: ctx.criteriaValue.Quoted()) {
 					String fieldValue = getValue(quoted.getText());
 					switch (ctx.operator.getType()) {
@@ -106,23 +106,23 @@ public class JobMatch extends Criteria<JobMatchContext> {
 			}
 			
 			@Override
-			public Criteria<io.onedev.server.job.match.JobMatchContext> visitOrCriteria(JobMatchParser.OrCriteriaContext ctx) {
-				List<Criteria<io.onedev.server.job.match.JobMatchContext>> childCriterias = new ArrayList<>();
+			public Criteria<io.cheeta.server.job.match.JobMatchContext> visitOrCriteria(JobMatchParser.OrCriteriaContext ctx) {
+				List<Criteria<io.cheeta.server.job.match.JobMatchContext>> childCriterias = new ArrayList<>();
 				for (JobMatchParser.CriteriaContext childCtx: ctx.criteria())
 					childCriterias.add(visit(childCtx));
 				return new OrCriteria<>(childCriterias);
 			}
 
 			@Override
-			public Criteria<io.onedev.server.job.match.JobMatchContext> visitAndCriteria(JobMatchParser.AndCriteriaContext ctx) {
-				List<Criteria<io.onedev.server.job.match.JobMatchContext>> childCriterias = new ArrayList<>();
+			public Criteria<io.cheeta.server.job.match.JobMatchContext> visitAndCriteria(JobMatchParser.AndCriteriaContext ctx) {
+				List<Criteria<io.cheeta.server.job.match.JobMatchContext>> childCriterias = new ArrayList<>();
 				for (JobMatchParser.CriteriaContext childCtx: ctx.criteria())
 					childCriterias.add(visit(childCtx));
 				return new AndCriteria<>(childCriterias);
 			}
 
 			@Override
-			public Criteria<io.onedev.server.job.match.JobMatchContext> visitNotCriteria(JobMatchParser.NotCriteriaContext ctx) {
+			public Criteria<io.cheeta.server.job.match.JobMatchContext> visitNotCriteria(JobMatchParser.NotCriteriaContext ctx) {
 				return new NotCriteria<>(visit(ctx.criteria()));
 			}
 

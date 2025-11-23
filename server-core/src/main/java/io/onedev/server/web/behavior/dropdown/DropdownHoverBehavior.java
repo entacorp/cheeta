@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior.dropdown;
+package io.cheeta.server.web.behavior.dropdown;
 
 import org.jspecify.annotations.Nullable;
 
@@ -9,11 +9,11 @@ import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.floating.Alignment;
-import io.onedev.server.web.component.floating.ComponentTarget;
-import io.onedev.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.floating.Alignment;
+import io.cheeta.server.web.component.floating.ComponentTarget;
+import io.cheeta.server.web.component.floating.FloatingPanel;
 
 public abstract class DropdownHoverBehavior extends AbstractPostAjaxBehavior {
 
@@ -75,7 +75,7 @@ public abstract class DropdownHoverBehavior extends AbstractPostAjaxBehavior {
 	
 					AjaxRequestTarget target = RequestCycle.get().find(AjaxRequestTarget.class);
 					if (target != null) {
-						String script = String.format("onedev.server.dropdownHover.closed('%s', '%s');", 
+						String script = String.format("cheeta.server.dropdownHover.closed('%s', '%s');", 
 								getComponent().getMarkupId(true), getMarkupId(true));
 						target.appendJavaScript(script);
 					}
@@ -84,7 +84,7 @@ public abstract class DropdownHoverBehavior extends AbstractPostAjaxBehavior {
 				}
 	
 			};
-			String script = String.format("onedev.server.dropdownHover.opened('%s', '%s');", 
+			String script = String.format("cheeta.server.dropdownHover.opened('%s', '%s');", 
 					getComponent().getMarkupId(true), dropdown.getMarkupId(true));
 			target.appendJavaScript(script);
 		}
@@ -100,7 +100,7 @@ public abstract class DropdownHoverBehavior extends AbstractPostAjaxBehavior {
 		super.renderHead(component, response);
 		
 		response.render(JavaScriptHeaderItem.forReference(new DropdownHoverResourceReference()));
-		String script = String.format("onedev.server.dropdownHover.onDomReady('%s', %s, %s);", 
+		String script = String.format("cheeta.server.dropdownHover.onDomReady('%s', %s, %s);", 
 				getComponent().getMarkupId(true), hoverDelay, getCallbackFunction());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

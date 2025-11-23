@@ -1,4 +1,4 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.model.CodeComment;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.model.CodeComment;
 
 public class CodeCommentInfo implements Serializable {
 	

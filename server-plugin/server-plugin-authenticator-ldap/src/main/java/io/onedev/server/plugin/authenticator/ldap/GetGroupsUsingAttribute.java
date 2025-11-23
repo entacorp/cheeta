@@ -1,8 +1,8 @@
-package io.onedev.server.plugin.authenticator.ldap;
+package io.cheeta.server.plugin.authenticator.ldap;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=200)
 public class GetGroupsUsingAttribute implements GroupRetrieval {
@@ -27,7 +27,7 @@ public class GetGroupsUsingAttribute implements GroupRetrieval {
 	
 	@Editable(order=200, description=""
 			+ "Specifies the attribute containing group name inside the found group LDAP entry. Value of this attribute "
-			+ "will be mapped to a OneDev group. This attribute is normally set to <i>cn</i>")
+			+ "will be mapped to a Cheeta group. This attribute is normally set to <i>cn</i>")
 	@NotEmpty
 	public String getGroupNameAttribute() {
 		return groupNameAttribute;

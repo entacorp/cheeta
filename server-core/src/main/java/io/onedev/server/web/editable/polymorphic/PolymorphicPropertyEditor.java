@@ -1,13 +1,13 @@
-package io.onedev.server.web.editable.polymorphic;
+package io.cheeta.server.web.editable.polymorphic;
 
-import io.onedev.server.annotation.ExcludedProperties;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.component.polymorphiceditor.PolymorphicEditor;
-import io.onedev.server.web.editable.BeanUpdating;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.ExcludedProperties;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.component.polymorphiceditor.PolymorphicEditor;
+import io.cheeta.server.web.editable.BeanUpdating;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.event.IEvent;

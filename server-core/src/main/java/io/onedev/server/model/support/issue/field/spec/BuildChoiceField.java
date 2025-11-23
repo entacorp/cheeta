@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.issue.field.spec;
+package io.cheeta.server.model.support.issue.field.spec;
 
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.server.buildspecmodel.inputspec.BuildChoiceInput;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.BuildChoiceInput;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=1200, name=FieldSpec.BUILD)
 public class BuildChoiceField extends FieldSpec {

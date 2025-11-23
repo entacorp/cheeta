@@ -1,4 +1,4 @@
-package io.onedev.server.web.util.paginghistory;
+package io.cheeta.server.web.util.paginghistory;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 

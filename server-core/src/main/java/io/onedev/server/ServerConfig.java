@@ -1,7 +1,7 @@
-package io.onedev.server;
+package io.cheeta.server;
 
 import com.google.common.base.Splitter;
-import io.onedev.server.persistence.HibernateConfig;
+import io.cheeta.server.persistence.HibernateConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import static io.onedev.commons.utils.FileUtils.loadProperties;
+import static io.cheeta.commons.utils.FileUtils.loadProperties;
 import static java.lang.Integer.parseInt;
 
 public class ServerConfig {

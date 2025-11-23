@@ -1,26 +1,26 @@
-package io.onedev.server.plugin.report.markdown;
+package io.cheeta.server.plugin.report.markdown;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.step.PublishReportStep;
-import io.onedev.server.buildspec.step.StepGroup;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.persistence.SessionService;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.step.PublishReportStep;
+import io.cheeta.server.buildspec.step.StepGroup;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.persistence.SessionService;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static io.onedev.commons.utils.LockUtils.write;
+import static io.cheeta.commons.utils.LockUtils.write;
 
 @Editable(order=1100, group=StepGroup.PUBLISH, name="Markdown Report")
 public class PublishMarkdownReportStep extends PublishReportStep {
@@ -29,11 +29,11 @@ public class PublishMarkdownReportStep extends PublishReportStep {
 	
 	public static final String CATEGORY = "markdown";
 	
-	public static final String START_PAGE = "$onedev-startpage$";
+	public static final String START_PAGE = "$cheeta-startpage$";
 	
 	private String startPage;
 	
-	@Editable(order=1100, description="Specify start page of the report relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance: <tt>manual/index.md</tt>")
+	@Editable(order=1100, description="Specify start page of the report relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance: <tt>manual/index.md</tt>")
 	@Interpolative(variableSuggester="suggestVariables")
 	@NotEmpty
 	public String getStartPage() {
@@ -59,8 +59,8 @@ public class PublishMarkdownReportStep extends PublishReportStep {
 	
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger logger) {
-		OneDev.getInstance(SessionService.class).run(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
+		Cheeta.getInstance(SessionService.class).run(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
 			write(getReportLockName(build), () -> {
 				File startPage = new File(inputDir, getStartPage());
 				if (startPage.exists()) {
@@ -78,7 +78,7 @@ public class PublishMarkdownReportStep extends PublishReportStep {
 							throw new RuntimeException(e);
 						}
 					}
-					OneDev.getInstance(ProjectService.class).directoryModified(
+					Cheeta.getInstance(ProjectService.class).directoryModified(
 							build.getProject().getId(), reportDir.getParentFile());
 				} else {
 					logger.warning("Markdown report start page not found: " + startPage.getAbsolutePath());

@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.user.basicsetting;
+package io.cheeta.server.web.page.user.basicsetting;
 
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.web.component.user.basicsetting.BasicSettingPanel;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.web.component.user.basicsetting.BasicSettingPanel;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserBasicSettingPage extends UserPage {
 

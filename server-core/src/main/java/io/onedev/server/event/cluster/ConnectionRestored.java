@@ -1,4 +1,4 @@
-package io.onedev.server.event.cluster;
+package io.cheeta.server.event.cluster;
 
 public class ConnectionRestored extends ConnectionEvent {
 	

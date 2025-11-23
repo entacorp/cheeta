@@ -1,4 +1,4 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -9,9 +9,9 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.exception.ServerNotReadyException;
-import io.onedev.server.util.ObjectReference;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.exception.ServerNotReadyException;
+import io.cheeta.server.util.ObjectReference;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

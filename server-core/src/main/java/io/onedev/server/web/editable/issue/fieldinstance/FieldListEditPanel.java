@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.issue.fieldinstance;
+package io.cheeta.server.web.editable.issue.fieldinstance;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -27,25 +27,25 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.SecretField;
-import io.onedev.server.model.support.issue.field.instance.FieldInstance;
-import io.onedev.server.model.support.issue.field.instance.IgnoreValue;
-import io.onedev.server.model.support.issue.field.instance.ScriptingValue;
-import io.onedev.server.model.support.issue.field.instance.SpecifiedValue;
-import io.onedev.server.model.support.issue.field.instance.ValueProvider;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.JobSecretEditBean;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.annotation.FieldNamesProvider;
-import io.onedev.server.annotation.Password;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.SecretField;
+import io.cheeta.server.model.support.issue.field.instance.FieldInstance;
+import io.cheeta.server.model.support.issue.field.instance.IgnoreValue;
+import io.cheeta.server.model.support.issue.field.instance.ScriptingValue;
+import io.cheeta.server.model.support.issue.field.instance.SpecifiedValue;
+import io.cheeta.server.model.support.issue.field.instance.ValueProvider;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.JobSecretEditBean;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.FieldNamesProvider;
+import io.cheeta.server.annotation.Password;
 
 class FieldListEditPanel extends PropertyEditor<List<Serializable>> {
 
@@ -84,7 +84,7 @@ class FieldListEditPanel extends PropertyEditor<List<Serializable>> {
 	}
 	
 	private GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	private Serializable getDefaultFieldBean() {
@@ -297,7 +297,7 @@ class FieldListEditPanel extends PropertyEditor<List<Serializable>> {
 		response.render(CssHeaderItem.forReference(new FieldListCssResourceReference()));
 		validate();
 		if (!getModelObject().equals(getConvertedInput())) {
-			String script = String.format("onedev.server.form.markDirty($('#%s').closest('form'));", getMarkupId());
+			String script = String.format("cheeta.server.form.markDirty($('#%s').closest('form'));", getMarkupId());
 			response.render(OnDomReadyHeaderItem.forScript(script));
 		}
 	}

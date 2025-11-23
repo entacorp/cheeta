@@ -1,9 +1,9 @@
-package io.onedev.server.search.code;
+package io.cheeta.server.search.code;
 
-import static io.onedev.server.search.code.FieldConstants.BLOB_HASH;
-import static io.onedev.server.search.code.FieldConstants.BLOB_INDEX_VERSION;
-import static io.onedev.server.search.code.FieldConstants.BLOB_PATH;
-import static io.onedev.server.search.code.FieldConstants.BLOB_SYMBOL_LIST;
+import static io.cheeta.server.search.code.FieldConstants.BLOB_HASH;
+import static io.cheeta.server.search.code.FieldConstants.BLOB_INDEX_VERSION;
+import static io.cheeta.server.search.code.FieldConstants.BLOB_PATH;
+import static io.cheeta.server.search.code.FieldConstants.BLOB_SYMBOL_LIST;
 
 import java.io.IOException;
 import java.io.ObjectStreamException;
@@ -46,23 +46,23 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.jsymbol.Symbol;
-import io.onedev.commons.jsymbol.SymbolExtractorRegistry;
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.event.project.CommitIndexed;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.hit.SymbolHit;
-import io.onedev.server.search.code.query.BlobQuery;
-import io.onedev.server.search.code.query.SymbolQuery;
+import io.cheeta.commons.jsymbol.Symbol;
+import io.cheeta.commons.jsymbol.SymbolExtractorRegistry;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.event.project.CommitIndexed;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.hit.SymbolHit;
+import io.cheeta.server.search.code.query.BlobQuery;
+import io.cheeta.server.search.code.query.SymbolQuery;
 
 @Singleton
 public class DefaultCodeSearchService implements CodeSearchService, Serializable {

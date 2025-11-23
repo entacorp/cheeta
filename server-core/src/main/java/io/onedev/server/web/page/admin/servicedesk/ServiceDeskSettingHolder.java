@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.admin.servicedesk;
+package io.cheeta.server.web.page.admin.servicedesk;
 
 import java.io.Serializable;
 
-import io.onedev.server.model.support.administration.ServiceDeskSetting;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.model.support.administration.ServiceDeskSetting;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class ServiceDeskSettingHolder implements Serializable {

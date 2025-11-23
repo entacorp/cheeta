@@ -1,14 +1,14 @@
-package io.onedev.server.web.page.project.blob;
+package io.cheeta.server.web.page.project.blob;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.behavior.ReferenceInputBehavior;
-import io.onedev.server.web.component.dropzonefield.DropzoneField;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.upload.UploadService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.behavior.ReferenceInputBehavior;
+import io.cheeta.server.web.component.dropzonefield.DropzoneField;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.upload.UploadService;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -43,7 +43,7 @@ public abstract class BlobUploadPanel extends Panel {
 	protected void onInitialize() {
 		super.onInitialize();
 		
-		int maxUploadFileSize = OneDev.getInstance(SettingService.class)
+		int maxUploadFileSize = Cheeta.getInstance(SettingService.class)
 				.getPerformanceSetting().getMaxUploadFileSize();
 		
 		Form<?> form = new Form<Void>("form");
@@ -121,7 +121,7 @@ public abstract class BlobUploadPanel extends Panel {
 	}
 	
 	private UploadService getUploadService() {
-		return OneDev.getInstance(UploadService.class);
+		return Cheeta.getInstance(UploadService.class);
 	}
 
 	public abstract void onCommitted(AjaxRequestTarget target, ObjectId commitId);

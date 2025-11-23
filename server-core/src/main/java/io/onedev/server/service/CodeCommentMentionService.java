@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentMention;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentMention;
+import io.cheeta.server.model.User;
 
 public interface CodeCommentMentionService extends EntityService<CodeCommentMention> {
 

@@ -1,10 +1,10 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import java.util.Date;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Build;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Build;
 
 public class PullRequestBuildEvent extends PullRequestEvent {
 
@@ -23,7 +23,7 @@ public class PullRequestBuildEvent extends PullRequestEvent {
 	}
 	
 	public Build getBuild() {
-		return OneDev.getInstance(BuildService.class).load(buildId);
+		return Cheeta.getInstance(BuildService.class).load(buildId);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.numeric;
+package io.cheeta.server.web.editable.numeric;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
@@ -7,16 +7,16 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.EmptyValueLabel;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
-import io.onedev.server.annotation.BuildChoice;
-import io.onedev.server.annotation.IssueChoice;
-import io.onedev.server.annotation.PullRequestChoice;
-import io.onedev.server.annotation.WorkingPeriod;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.EmptyValueLabel;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.BuildChoice;
+import io.cheeta.server.annotation.IssueChoice;
+import io.cheeta.server.annotation.PullRequestChoice;
+import io.cheeta.server.annotation.WorkingPeriod;
 
 public class NumericEditSupport implements EditSupport {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.filteredit;
+package io.cheeta.server.web.component.filteredit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +13,12 @@ import org.apache.wicket.model.IModel;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.criteria.AndCriteria;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.criteria.OrCriteria;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.criteria.AndCriteria;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.criteria.OrCriteria;
 
 public abstract class FilterEditPanel<T extends AbstractEntity> extends GenericPanel<EntityQuery<T>> {
 	

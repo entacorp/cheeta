@@ -1,4 +1,4 @@
-package io.onedev.server.search.commit;
+package io.cheeta.server.search.commit;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -17,15 +17,15 @@ import org.mockito.stubbing.Answer;
 
 import static org.mockito.Mockito.*;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.AbstractGitTest;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.AbstractGitTest;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
 
 public class CommitQueryTest extends AbstractGitTest {
 
@@ -43,7 +43,7 @@ public class CommitQueryTest extends AbstractGitTest {
 		addFileAndCommit("main/file2", "", "main2");
 		
 		GitService gitService = mock(GitService.class);
-		when(OneDev.getInstance(GitService.class)).thenReturn(gitService);
+		when(Cheeta.getInstance(GitService.class)).thenReturn(gitService);
 		when(gitService.getChangedFiles(any(), any(), any(), any())).thenAnswer(new Answer<Collection<String>>() {
 
 			@Override

@@ -1,4 +1,4 @@
-package io.onedev.server.validation;
+package io.cheeta.server.validation;
 
 import javax.inject.Inject;
 import javax.inject.Provider;

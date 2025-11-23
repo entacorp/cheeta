@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.userchoiceinput;
+package io.cheeta.server.buildspecmodel.inputspec.userchoiceinput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,15 +7,15 @@ import java.util.stream.Collectors;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.service.UserService;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
 
 public class UserChoiceInput {
 	
 	public static List<String> getPossibleValues() {
-		return OneDev.getInstance(UserService.class).cloneCache().values().stream()
+		return Cheeta.getInstance(UserService.class).cloneCache().values().stream()
 				.map(it->it.getName())
 				.sorted()
 				.collect(Collectors.toList());

@@ -1,11 +1,11 @@
-package io.onedev.server.web.editable.secret;
+package io.cheeta.server.web.editable.secret;
 
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -92,7 +92,7 @@ public class SecretPropertyEditor extends PropertyEditor<String> {
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new SecretEditorResourceReference()));
-		response.render(OnDomReadyHeaderItem.forScript(String.format("onedev.server.secretEditor.onDomReady('%s');", getMarkupId())));
+		response.render(OnDomReadyHeaderItem.forScript(String.format("cheeta.server.secretEditor.onDomReady('%s');", getMarkupId())));
 	}
 
 	@Override

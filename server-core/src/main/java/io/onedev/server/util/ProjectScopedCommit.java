@@ -1,11 +1,11 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.eclipse.jgit.lib.ObjectId;
@@ -50,7 +50,7 @@ public class ProjectScopedCommit implements Serializable {
 
 	@Nullable
 	public Project getProject(boolean mustExist) {
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		if (mustExist)
 			return projectService.load(projectId);
 		else 

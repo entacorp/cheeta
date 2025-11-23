@@ -1,7 +1,7 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.AgentAttribute.PROP_NAME;
-import static io.onedev.server.model.AgentAttribute.PROP_VALUE;
+import static io.cheeta.server.model.AgentAttribute.PROP_NAME;
+import static io.cheeta.server.model.AgentAttribute.PROP_VALUE;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +16,8 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.AttributeName;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.AttributeName;
+import io.cheeta.server.annotation.Editable;
 
 /**
  * @author robin

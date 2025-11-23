@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,12 +12,12 @@ import javax.persistence.criteria.Root;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueField;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.IssueFieldService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueField;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.IssueFieldService;
 
 @Singleton
 public class DefaultIssueFieldService extends BaseEntityService<IssueField> implements IssueFieldService {

@@ -1,6 +1,6 @@
-package io.onedev.server.search.commit;
+package io.cheeta.server.search.commit;
 
-import static io.onedev.commons.utils.match.WildcardUtils.matchString;
+import static io.cheeta.commons.utils.match.WildcardUtils.matchString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,10 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.model.Project;
 
 public class FuzzyCriteria extends CommitCriteria {
 

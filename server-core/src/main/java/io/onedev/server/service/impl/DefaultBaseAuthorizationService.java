@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 import java.util.List;
@@ -7,11 +7,11 @@ import javax.inject.Singleton;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.BaseAuthorization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.Role;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.BaseAuthorizationService;
+import io.cheeta.server.model.BaseAuthorization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.BaseAuthorizationService;
 
 @Singleton
 public class DefaultBaseAuthorizationService extends BaseEntityService<BaseAuthorization>

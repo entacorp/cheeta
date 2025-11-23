@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.deleteWhitespace;
@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputStatus;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.server.model.Project;
-import io.onedev.server.validation.validator.ProjectKeyValidator;
-import io.onedev.server.validation.validator.ProjectPathValidator;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputStatus;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.validation.validator.ProjectKeyValidator;
+import io.cheeta.server.validation.validator.ProjectPathValidator;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public abstract class ReferenceInputBehavior extends InputAssistBehavior {
 

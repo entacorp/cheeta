@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.revision;
+package io.cheeta.server.web.component.revision;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.jspecify.annotations.Nullable;
 
@@ -13,14 +13,14 @@ import org.apache.wicket.model.Model;
 import org.eclipse.jgit.lib.ObjectId;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ProjectAndRevision;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ProjectAndRevision;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public abstract class RevisionPicker extends DropdownLink {
 

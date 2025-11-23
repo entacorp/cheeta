@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import java.io.IOException;
 import java.lang.reflect.Parameter;
@@ -17,7 +17,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.Provider;
 
-import io.onedev.server.rest.resource.TriggerJobResource;
+import io.cheeta.server.rest.resource.TriggerJobResource;
 
 @Provider
 public class ParamCheckFilter implements ContainerRequestFilter {

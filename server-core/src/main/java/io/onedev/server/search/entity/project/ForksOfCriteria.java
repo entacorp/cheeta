@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.project;
+package io.cheeta.server.search.entity.project;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,12 +8,12 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Subquery;
 
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class ForksOfCriteria extends Criteria<Project> {
 
@@ -35,7 +35,7 @@ public class ForksOfCriteria extends Criteria<Project> {
 		Root<Project> forkedFromRoot = forkedFromQuery.from(Project.class);
 		forkedFromQuery.select(forkedFromRoot);
 
-		ProjectService manager = OneDev.getInstance(ProjectService.class);
+		ProjectService manager = Cheeta.getInstance(ProjectService.class);
 		return builder.exists(forkedFromQuery.where(
 				builder.equal(from.get(Project.PROP_FORKED_FROM), forkedFromRoot), 
 				manager.getPathMatchPredicate(builder, forkedFromRoot, forkedFromPath)));

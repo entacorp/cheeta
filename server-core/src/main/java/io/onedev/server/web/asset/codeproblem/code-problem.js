@@ -1,4 +1,4 @@
-onedev.server.codeProblem = {
+cheeta.server.codeProblem = {
 	getSeverityInfo: function(problems) {
 		if (Array.isArray(problems)) {
 			var hasCriticalSeverities = false;
@@ -35,13 +35,13 @@ onedev.server.codeProblem = {
 		var $container = $("<div></div>");
 		for (var i in problems) {
 			var problem = problems[i];
-			var severityInfo = onedev.server.codeProblem.getSeverityInfo(problem);
+			var severityInfo = cheeta.server.codeProblem.getSeverityInfo(problem);
 			var $content = $("<pre class='problem-content mb-0 font-size-sm'></pre>");
 			$container.append($content);
 			$content.html(problem.message);
 			
 			$content.prepend(`<span class='badge badge-sm mr-2 ${severityInfo}'>${translations[problem.severity]}</span>`);
-			$content.append(`<a data-tippy-content='${translations["add-problem-comment"]}' class='add-comment ml-2'><svg class='icon icon-sm mr-2'><use xlink:href='${onedev.server.icons}#comment'/></svg></a>`);
+			$content.append(`<a data-tippy-content='${translations["add-problem-comment"]}' class='add-comment ml-2'><svg class='icon icon-sm mr-2'><use xlink:href='${cheeta.server.icons}#comment'/></svg></a>`);
 		}
 		return $container.html();
 	} 

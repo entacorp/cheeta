@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.buildspec.golang;
+package io.cheeta.server.plugin.buildspec.golang;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,24 +9,24 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.k8shelper.ExecuteCondition;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobSuggestion;
-import io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger;
-import io.onedev.server.buildspec.job.trigger.PullRequestUpdateTrigger;
-import io.onedev.server.buildspec.step.CheckoutStep;
-import io.onedev.server.buildspec.step.CommandStep;
-import io.onedev.server.buildspec.step.GenerateChecksumStep;
-import io.onedev.server.buildspec.step.SetupCacheStep;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GroovyScript;
-import io.onedev.server.plugin.report.checkstyle.PublishCheckstyleReportStep;
-import io.onedev.server.plugin.report.cobertura.PublishCoberturaReportStep;
-import io.onedev.server.plugin.report.coverage.PublishCoverageReportStep;
-import io.onedev.server.plugin.report.junit.PublishJUnitReportStep;
-import io.onedev.server.util.interpolative.VariableInterpolator;
+import io.cheeta.k8shelper.ExecuteCondition;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobSuggestion;
+import io.cheeta.server.buildspec.job.trigger.BranchUpdateTrigger;
+import io.cheeta.server.buildspec.job.trigger.PullRequestUpdateTrigger;
+import io.cheeta.server.buildspec.step.CheckoutStep;
+import io.cheeta.server.buildspec.step.CommandStep;
+import io.cheeta.server.buildspec.step.GenerateChecksumStep;
+import io.cheeta.server.buildspec.step.SetupCacheStep;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GroovyScript;
+import io.cheeta.server.plugin.report.checkstyle.PublishCheckstyleReportStep;
+import io.cheeta.server.plugin.report.cobertura.PublishCoberturaReportStep;
+import io.cheeta.server.plugin.report.coverage.PublishCoverageReportStep;
+import io.cheeta.server.plugin.report.junit.PublishJUnitReportStep;
+import io.cheeta.server.util.interpolative.VariableInterpolator;
 
 public class GolangJobSuggestion implements JobSuggestion {
 
@@ -104,7 +104,7 @@ public class GolangJobSuggestion implements JobSuggestion {
 			buildAndTest.setImage("golang:@" + VariableInterpolator.PREFIX_SCRIPT + GroovyScript.BUILTIN_PREFIX + DETERMINE_GO_VERSION + "@");
 			buildAndTest.getInterpreter().setCommands("" +
 					"set -e\n" +
-					"# Use double at to avoid being interpreted as OneDev variable substitution\n" +
+					"# Use double at to avoid being interpreted as Cheeta variable substitution\n" +
 					"go install github.com/axw/gocov/gocov@@latest\n" + 
 					"go install github.com/AlekSi/gocov-xml@@latest\n" +
 					"go install github.com/jstemmer/go-junit-report/v2@@latest\n" +

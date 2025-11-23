@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -14,11 +14,11 @@ import javax.ws.rs.core.Response;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.ProjectLabelService;
-import io.onedev.server.model.ProjectLabel;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.ProjectLabelService;
+import io.cheeta.server.model.ProjectLabel;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 
 @Path("/project-labels")
 @Consumes(MediaType.APPLICATION_JSON)

@@ -1,6 +1,6 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
-import io.onedev.server.model.PullRequest;
+import io.cheeta.server.model.PullRequest;
 
 public interface PullRequestAware {
 	

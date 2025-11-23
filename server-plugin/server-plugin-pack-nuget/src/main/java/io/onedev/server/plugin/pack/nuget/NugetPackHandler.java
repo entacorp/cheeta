@@ -1,12 +1,12 @@
-package io.onedev.server.plugin.pack.nuget;
+package io.cheeta.server.plugin.pack.nuget;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static io.onedev.server.plugin.pack.nuget.NugetPackSupport.TYPE;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
-import static io.onedev.server.util.IOUtils.copyWithMaxSize;
-import static io.onedev.server.util.UrlUtils.decodePath;
-import static io.onedev.server.util.UrlUtils.decodeQuery;
-import static io.onedev.server.util.UrlUtils.encodePath;
+import static io.cheeta.server.plugin.pack.nuget.NugetPackSupport.TYPE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.copyWithMaxSize;
+import static io.cheeta.server.util.UrlUtils.decodePath;
+import static io.cheeta.server.util.UrlUtils.decodeQuery;
+import static io.cheeta.server.util.UrlUtils.encodePath;
 import static java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 import static java.util.stream.Collectors.toList;
 import static javax.servlet.http.HttpServletResponse.SC_BAD_REQUEST;
@@ -43,7 +43,7 @@ import javax.inject.Singleton;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.onedev.server.pack.PackHandler;
+import io.cheeta.server.pack.PackHandler;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
@@ -58,24 +58,24 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.PackBlobService;
-import io.onedev.server.service.PackService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.exception.DataTooLargeException;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.SemanticVersion;
-import io.onedev.server.util.XmlUtils;
-import io.onedev.server.web.UrlService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.PackBlobService;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.exception.DataTooLargeException;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.SemanticVersion;
+import io.cheeta.server.util.XmlUtils;
+import io.cheeta.server.web.UrlService;
 
 @Singleton
 public class NugetPackHandler implements PackHandler {

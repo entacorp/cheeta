@@ -1,6 +1,6 @@
-package io.onedev.server.mail;
+package io.cheeta.server.mail;
 
-import io.onedev.server.model.support.administration.mailservice.ImapSslSetting;
+import io.cheeta.server.model.support.administration.mailservice.ImapSslSetting;
 
 import java.io.Serializable;
 

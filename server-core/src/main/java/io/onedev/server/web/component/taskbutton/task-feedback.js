@@ -1,10 +1,10 @@
-onedev.server.taskFeedback = {
+cheeta.server.taskFeedback = {
 	processData: function(containerId, callback, data) {
 		const maxLogEntries = 2000;
 		
 		var $logEntries = $("#" + containerId).find(".task-log");
 		for (const logEntry of data.logEntries)
-			$logEntries.append(onedev.server.jobLogEntry.render(logEntry, false));
+			$logEntries.append(cheeta.server.jobLogEntry.render(logEntry, false));
 		
 		const $children = $logEntries.children();
 		const numOfLogEntriesToRemove = $children.length - maxLogEntries;

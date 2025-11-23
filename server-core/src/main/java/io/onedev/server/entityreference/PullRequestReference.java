@@ -1,6 +1,6 @@
-package io.onedev.server.entityreference;
+package io.cheeta.server.entityreference;
 
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Project;
 
 import org.jspecify.annotations.Nullable;
 

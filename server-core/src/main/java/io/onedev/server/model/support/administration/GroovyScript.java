@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import io.onedev.server.annotation.Code;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.JobMatch;
-import io.onedev.server.annotation.RegEx;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.annotation.Code;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.JobMatch;
+import io.cheeta.server.annotation.RegEx;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.util.usage.Usage;
 
 @Editable
 public class GroovyScript implements Serializable {
@@ -81,14 +81,14 @@ public class GroovyScript implements Serializable {
 	
 	public Usage onDeleteProject(String projectPath) {
 		Usage usage = new Usage();
-		if (authorization != null && io.onedev.server.job.match.JobMatch.parse(authorization, true, false).isUsingProject(projectPath))
+		if (authorization != null && io.cheeta.server.job.match.JobMatch.parse(authorization, true, false).isUsingProject(projectPath))
 			usage.add("authorization");
 		return usage;
 	}
 	
 	public void onMoveProject(String oldPath, String newPath) {
 		if (authorization != null) {
-			var jobMatch = io.onedev.server.job.match.JobMatch.parse(authorization, true, false);
+			var jobMatch = io.cheeta.server.job.match.JobMatch.parse(authorization, true, false);
 			jobMatch.onMoveProject(oldPath, newPath);
 			authorization = jobMatch.toString();
 		}

@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -8,9 +8,9 @@ import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraints.NotEmpty;
 import org.quartz.CronExpression;
 
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 @ClassValidating
@@ -24,8 +24,8 @@ public class BackupSetting implements Serializable, Validatable {
 			"<em>&lt;seconds&gt; &lt;minutes&gt; &lt;hours&gt; &lt;day-of-month&gt; &lt;month&gt; &lt;day-of-week&gt;</em>." +
 			"For example, <em>0 0 1 * * ?</em> means 1:00am every day. For details of the format, refer " +
 			"to <a href='http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#format' target='_blank'>Quartz tutorial</a>." +
-			"The backup files will be placed into <em>db-backup</em> folder under OneDev " +
-			"installation directory. In case multiple servers connect to form a cluster, auto-backup takes place on the <a href='https://docs.onedev.io/concepts#lead-server' target='_blank'>lead server</a>. " +
+			"The backup files will be placed into <em>db-backup</em> folder under Cheeta " +
+			"installation directory. In case multiple servers connect to form a cluster, auto-backup takes place on the <a href='https://docs.cheeta.io/concepts#lead-server' target='_blank'>lead server</a>. " +
 			"Leave this property empty if you do not want to enable database auto backup.")
 	@NotEmpty
 	public String getSchedule() {

@@ -1,10 +1,10 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.User.PROP_FULL_NAME;
-import static io.onedev.server.model.User.PROP_NAME;
-import static io.onedev.server.security.SecurityUtils.asPrincipals;
-import static io.onedev.server.security.SecurityUtils.asUserPrincipal;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.User.PROP_FULL_NAME;
+import static io.cheeta.server.model.User.PROP_NAME;
+import static io.cheeta.server.security.SecurityUtils.asPrincipals;
+import static io.cheeta.server.security.SecurityUtils.asUserPrincipal;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -36,28 +36,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.base.MoreObjects;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.annotation.SubscriptionRequired;
-import io.onedev.server.annotation.UserName;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.support.NamedProjectQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.TwoFactorAuthentication;
-import io.onedev.server.model.support.build.NamedBuildQuery;
-import io.onedev.server.model.support.issue.NamedIssueQuery;
-import io.onedev.server.model.support.pack.NamedPackQuery;
-import io.onedev.server.model.support.pullrequest.NamedPullRequestQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.facade.UserFacade;
-import io.onedev.server.util.watch.QuerySubscriptionSupport;
-import io.onedev.server.util.watch.QueryWatchSupport;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.annotation.SubscriptionRequired;
+import io.cheeta.server.annotation.UserName;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.support.NamedProjectQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.TwoFactorAuthentication;
+import io.cheeta.server.model.support.build.NamedBuildQuery;
+import io.cheeta.server.model.support.issue.NamedIssueQuery;
+import io.cheeta.server.model.support.pack.NamedPackQuery;
+import io.cheeta.server.model.support.pullrequest.NamedPullRequestQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.facade.UserFacade;
+import io.cheeta.server.util.watch.QuerySubscriptionSupport;
+import io.cheeta.server.util.watch.QueryWatchSupport;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Entity
 @Table(indexes={@Index(columnList=PROP_NAME), @Index(columnList=PROP_FULL_NAME)})
@@ -73,9 +73,9 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 	
 	public static final Long ROOT_ID = 1L;
 	
-	public static final String SYSTEM_NAME = "OneDev";
+	public static final String SYSTEM_NAME = "Cheeta";
 	
-	public static final String SYSTEM_EMAIL_ADDRESS = "system@onedev";
+	public static final String SYSTEM_EMAIL_ADDRESS = "system@cheeta";
 	
 	public static final String UNKNOWN_NAME = "unknown";
 	
@@ -319,7 +319,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 			
 			@Override
 			public void onUpdated() {
-				OneDev.getInstance(UserService.class).update(User.this, null);
+				Cheeta.getInstance(UserService.class).update(User.this, null);
 			}
 			
 		};
@@ -367,7 +367,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 
 			@Override
 			public void onUpdated() {
-				OneDev.getInstance(UserService.class).update(User.this, null);
+				Cheeta.getInstance(UserService.class).update(User.this, null);
 			}
 			
 		};
@@ -415,7 +415,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 
 			@Override
 			public void onUpdated() {
-				OneDev.getInstance(UserService.class).update(User.this, null);
+				Cheeta.getInstance(UserService.class).update(User.this, null);
 			}
 			
 		};
@@ -463,7 +463,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 
 			@Override
 			public void onUpdated() {
-				OneDev.getInstance(UserService.class).update(User.this, null);
+				Cheeta.getInstance(UserService.class).update(User.this, null);
 			}
 			
 		};
@@ -511,7 +511,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 
 			@Override
 			public void onUpdated() {
-				OneDev.getInstance(UserService.class).update(User.this, null);
+				Cheeta.getInstance(UserService.class).update(User.this, null);
 			}
 
 		};
@@ -555,7 +555,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 			return _T("" 
 				+ "Whether or not to create as a service account for task automation purpose. Service account does not have password and email addresses, and will not generate "
 				+ "notifications for its activities. <b class='text-warning'>NOTE:</b> Service account is an enterprise feature. " 
-				+ "<a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days");
+				+ "<a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days");
 		} else {
 			return _T("" 
 				+ "Whether or not to create as a service account for task automation purpose. Service account does not have password and email addresses, and will not generate "
@@ -576,7 +576,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 
 	/**
 	 * Password will be null if user is created by external authenticator. However, when 
-	 * created via OneDev, it is required. So it has @NotEmpty and @Nullable in the same 
+	 * created via Cheeta, it is required. So it has @NotEmpty and @Nullable in the same 
 	 * time
 	 */
 	@Editable(order=150)
@@ -1062,7 +1062,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 	}
 
 	public boolean isEnforce2FA() {
-		return OneDev.getInstance(SettingService.class).getSecuritySetting().isEnforce2FA()
+		return Cheeta.getInstance(SettingService.class).getSecuritySetting().isEnforce2FA()
 				|| getGroups().stream().anyMatch(it->it.isEnforce2FA());
 	}
 
@@ -1075,7 +1075,7 @@ public class User extends AbstractEntity implements AuthenticationInfo {
 	}
 	
 	private EmailAddressService getEmailAddressService() {
-		return OneDev.getInstance(EmailAddressService.class);
+		return Cheeta.getInstance(EmailAddressService.class);
 	}
 	
 	@Nullable

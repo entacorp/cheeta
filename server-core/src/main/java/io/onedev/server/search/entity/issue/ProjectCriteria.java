@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -7,13 +7,13 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class ProjectCriteria extends Criteria<Issue> {
 
@@ -30,7 +30,7 @@ public class ProjectCriteria extends Criteria<Issue> {
 
 	@Override
 	public Predicate getPredicate(@Nullable ProjectScope projectScope, CriteriaQuery<?> query, From<Issue, Issue> from, CriteriaBuilder builder) {
-		var predicate =  OneDev.getInstance(ProjectService.class).getPathMatchPredicate(
+		var predicate =  Cheeta.getInstance(ProjectService.class).getPathMatchPredicate(
 				builder, from.join(Issue.PROP_PROJECT, JoinType.INNER), projectPath);
 		if (operator == IssueQueryLexer.IsNot)
 			predicate = builder.not(predicate);

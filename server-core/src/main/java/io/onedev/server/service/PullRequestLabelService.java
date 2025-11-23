@@ -1,7 +1,7 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestLabel;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestLabel;
 
 import java.util.Collection;
 

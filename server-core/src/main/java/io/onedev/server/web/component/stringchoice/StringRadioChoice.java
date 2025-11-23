@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.stringchoice;
+package io.cheeta.server.web.component.stringchoice;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;

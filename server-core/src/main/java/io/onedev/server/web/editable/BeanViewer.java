@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
@@ -22,9 +22,9 @@ import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.annotation.OmitName;
 
 public class BeanViewer extends Panel {
 
@@ -129,7 +129,7 @@ public class BeanViewer extends Panel {
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new EditableResourceReference()));
-		String script = String.format("onedev.server.editable.onBeanViewerDomReady('%s');", getMarkupId());
+		String script = String.format("cheeta.server.editable.onBeanViewerDomReady('%s');", getMarkupId());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
 

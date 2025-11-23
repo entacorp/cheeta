@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.pullrequest.changedata;
+package io.cheeta.server.model.support.pullrequest.changedata;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.entityreference.ReferencedFromAware;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.notification.ActivityDetail;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.entityreference.ReferencedFromAware;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.notification.ActivityDetail;
 
 public class PullRequestReferencedFromCodeCommentData 
 		extends PullRequestChangeData implements ReferencedFromAware<CodeComment> {
@@ -33,7 +33,7 @@ public class PullRequestReferencedFromCodeCommentData
 
 	@Override
 	public CodeComment getReferencedFrom() {
-		return OneDev.getInstance(CodeCommentService.class).get(commentId);
+		return Cheeta.getInstance(CodeCommentService.class).get(commentId);
 	}
 
 	@Override

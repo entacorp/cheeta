@@ -1,15 +1,15 @@
-package io.onedev.server.web.page.project;
+package io.cheeta.server.web.page.project;
 
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
 import org.apache.wicket.Component;
 import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.web.page.project.builds.ProjectBuildsPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.page.project.builds.ProjectBuildsPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
 
 public class NoProjectStoragePage extends ProjectPage {
 

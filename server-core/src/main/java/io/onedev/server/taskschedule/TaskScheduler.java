@@ -1,4 +1,4 @@
-package io.onedev.server.taskschedule;
+package io.cheeta.server.taskschedule;
 
 public interface TaskScheduler {
 	

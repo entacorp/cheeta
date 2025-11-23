@@ -1,8 +1,8 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.web.util.AjaxPayload;
 
 public class PropertyUpdating extends AjaxPayload {
 

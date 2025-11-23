@@ -1,11 +1,11 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import javax.persistence.*;
 
 import java.util.Date;
 
-import static io.onedev.server.model.JobCache.PROP_ACCESS_DATE;
-import static io.onedev.server.model.JobCache.PROP_KEY;
+import static io.cheeta.server.model.JobCache.PROP_ACCESS_DATE;
+import static io.cheeta.server.model.JobCache.PROP_KEY;
 
 /**
  * @author robin

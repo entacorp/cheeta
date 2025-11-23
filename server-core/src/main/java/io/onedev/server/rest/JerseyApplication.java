@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import javax.inject.Inject;
 
@@ -11,7 +11,7 @@ import org.glassfish.jersey.server.ServerProperties;
 import org.jvnet.hk2.guice.bridge.api.GuiceBridge;
 import org.jvnet.hk2.guice.bridge.api.GuiceIntoHK2Bridge;
 
-import io.onedev.commons.loader.AppLoader;
+import io.cheeta.commons.loader.AppLoader;
 
 public class JerseyApplication extends ResourceConfig {
 	

@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +13,25 @@ import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildParamService;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.BuildMetric;
-import io.onedev.server.search.buildmetric.BuildMetricQuery;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.buildmetric.BuildMetricQueryParser;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildParamService;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.BuildMetric;
+import io.cheeta.server.search.buildmetric.BuildMetricQuery;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.buildmetric.BuildMetricQueryParser;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class BuildMetricQueryBehavior extends ANTLRAssistBehavior {
 
@@ -67,7 +67,7 @@ public class BuildMetricQueryBehavior extends ANTLRAssistBehavior {
 						Project project = getProject();
 						if ("criteriaField".equals(spec.getLabel())) {
 							List<String> fields = new ArrayList<>(Build.METRIC_QUERY_FIELDS);
-							BuildParamService buildParamService = OneDev.getInstance(BuildParamService.class);
+							BuildParamService buildParamService = Cheeta.getInstance(BuildParamService.class);
 							List<String> paramNames = new ArrayList<>(buildParamService.getParamNames(project));
 							Collections.sort(paramNames);
 							fields.addAll(paramNames);

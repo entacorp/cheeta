@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.branch.choice;
+package io.cheeta.server.web.component.branch.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.component.select2.Select2MultiChoice;
-import io.onedev.server.web.component.stringchoice.StringChoiceProvider;
+import io.cheeta.server.web.component.select2.Select2MultiChoice;
+import io.cheeta.server.web.component.stringchoice.StringChoiceProvider;
 
 public class BranchMultiChoice extends Select2MultiChoice<String> {
 
@@ -26,9 +26,9 @@ public class BranchMultiChoice extends Select2MultiChoice<String> {
 			getSettings().setPlaceholder(_T("Choose branches..."));
 		else
 			getSettings().setPlaceholder(_T("Not specified"));
-		getSettings().setFormatResult("onedev.server.branchChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.branchChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.branchChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.branchChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.branchChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.branchChoiceFormatter.escapeMarkup");
 		setConvertEmptyInputStringToNull(true);
 	}
 

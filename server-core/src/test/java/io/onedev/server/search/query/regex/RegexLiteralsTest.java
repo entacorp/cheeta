@@ -1,4 +1,4 @@
-package io.onedev.server.search.query.regex;
+package io.cheeta.server.search.query.regex;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.server.search.code.query.regex.RegexLiterals;
+import io.cheeta.server.search.code.query.regex.RegexLiterals;
 
 public class RegexLiteralsTest {
 

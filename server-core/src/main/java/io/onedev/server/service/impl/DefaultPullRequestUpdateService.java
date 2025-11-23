@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.List;
 
@@ -11,16 +11,16 @@ import org.hibernate.criterion.Restrictions;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.pullrequest.PullRequestUpdated;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestUpdate;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestUpdateService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.pullrequest.PullRequestUpdated;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestUpdate;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestUpdateService;
 
 @Singleton
 public class DefaultPullRequestUpdateService extends BaseEntityService<PullRequestUpdate>

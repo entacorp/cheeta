@@ -1,4 +1,4 @@
-onedev.server.roleChoiceFormatter = {
+cheeta.server.roleChoiceFormatter = {
 	formatSelection: function(role) {
 		return role.name;
 	},

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.avataredit;
+package io.cheeta.server.web.component.user.avataredit;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class AvatarEditCssResourceReference extends BaseDependentCssResourceReference {
 

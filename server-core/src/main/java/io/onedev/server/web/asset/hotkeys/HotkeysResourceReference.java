@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.hotkeys;
+package io.cheeta.server.web.asset.hotkeys;
 
 import java.util.ArrayList;
 import java.util.List;

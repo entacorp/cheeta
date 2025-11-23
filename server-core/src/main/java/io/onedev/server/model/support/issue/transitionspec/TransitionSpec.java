@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.transitionspec;
+package io.cheeta.server.model.support.issue.transitionspec;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,22 +7,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.StateSpec;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.search.entity.issue.IssueQueryUpdater;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.component.issue.workflowreconcile.ReconcileUtils;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution.FixType;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.StateSpec;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.search.entity.issue.IssueQueryUpdater;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.component.issue.workflowreconcile.ReconcileUtils;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution.FixType;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 @Editable
 public abstract class TransitionSpec implements Serializable {
@@ -47,7 +47,7 @@ public abstract class TransitionSpec implements Serializable {
 
 	@Editable(order=9900, name="Applicable Issues", placeholder="All", description=""
 			+ "Optionally specify issues applicable for this transition. Leave empty for all issues. ")
-	@io.onedev.server.annotation.IssueQuery(withOrder = false)
+	@io.cheeta.server.annotation.IssueQuery(withOrder = false)
 	public String getIssueQuery() {
 		return issueQuery;
 	}
@@ -109,7 +109,7 @@ public abstract class TransitionSpec implements Serializable {
 	}
 	
 	protected static GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 
 	public Collection<String> getUndefinedStates() {
@@ -125,7 +125,7 @@ public abstract class TransitionSpec implements Serializable {
 	public Collection<String> getUndefinedFields() {
 		Collection<String> undefinedFields = new HashSet<>();
 		undefinedFields.addAll(getQueryUpdater().getUndefinedFields());
-		GlobalIssueSetting setting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting setting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		for (String field: getRemoveFields()) {
 			if (setting.getFieldSpec(field) == null)
 				undefinedFields.add(field);

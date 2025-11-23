@@ -1,13 +1,13 @@
-package io.onedev.server.event.project.codecomment;
+package io.cheeta.server.event.project.codecomment;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentStatusChangeService;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentStatusChangeService;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
 
 public class CodeCommentStatusChanged extends CodeCommentEvent {
 
@@ -24,7 +24,7 @@ public class CodeCommentStatusChanged extends CodeCommentEvent {
 	}
 
 	public CodeCommentStatusChange getChange() {
-		return OneDev.getInstance(CodeCommentStatusChangeService.class).load(changeId);
+		return Cheeta.getInstance(CodeCommentStatusChangeService.class).load(changeId);
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class CodeCommentStatusChanged extends CodeCommentEvent {
 
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getChange(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getChange(), true);
 	}
 	
 }

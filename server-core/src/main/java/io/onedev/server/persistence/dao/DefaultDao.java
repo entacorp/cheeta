@@ -1,13 +1,13 @@
-package io.onedev.server.persistence.dao;
+package io.cheeta.server.persistence.dao;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;

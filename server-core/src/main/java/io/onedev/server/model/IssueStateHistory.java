@@ -1,14 +1,14 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import io.onedev.server.model.support.TimeGroups;
+import io.cheeta.server.model.support.TimeGroups;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.*;
 import java.util.Date;
 
-import static io.onedev.server.model.IssueStateHistory.PROP_DATE;
-import static io.onedev.server.model.IssueStateHistory.PROP_STATE;
-import static io.onedev.server.model.support.TimeGroups.*;
+import static io.cheeta.server.model.IssueStateHistory.PROP_DATE;
+import static io.cheeta.server.model.IssueStateHistory.PROP_STATE;
+import static io.cheeta.server.model.support.TimeGroups.*;
 
 @Entity
 @Table(indexes={

@@ -1,14 +1,14 @@
-package io.onedev.server.plugin.imports.github;
+package io.cheeta.server.plugin.imports.github;
 
 import java.util.Collection;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.server.imports.IssueImporter;
-import io.onedev.server.imports.IssueImporterContribution;
-import io.onedev.server.imports.ProjectImporter;
-import io.onedev.server.imports.ProjectImporterContribution;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.server.imports.IssueImporter;
+import io.cheeta.server.imports.IssueImporterContribution;
+import io.cheeta.server.imports.ProjectImporter;
+import io.cheeta.server.imports.ProjectImporterContribution;
 
 /**
  * NOTE: Do not forget to rename moduleClass property defined in the pom if you've renamed this class.

@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.user;
+package io.cheeta.server.web.component.user;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebComponent;
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.User;
-import io.onedev.server.web.avatar.AvatarService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.avatar.AvatarService;
 
 public class UserAvatar extends WebComponent {
 
@@ -27,7 +27,7 @@ public class UserAvatar extends WebComponent {
 	}
 	
 	private AvatarService getAvatarService() {
-		return OneDev.getInstance(AvatarService.class);
+		return Cheeta.getInstance(AvatarService.class);
 	}
 	
 	@Override

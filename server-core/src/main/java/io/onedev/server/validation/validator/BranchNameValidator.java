@@ -1,12 +1,12 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import org.eclipse.jgit.lib.Repository;
 
-import io.onedev.server.annotation.BranchName;
-import io.onedev.server.git.GitUtils;
+import io.cheeta.server.annotation.BranchName;
+import io.cheeta.server.git.GitUtils;
 
 public class BranchNameValidator implements ConstraintValidator<BranchName, String> {
 	

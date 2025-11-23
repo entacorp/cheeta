@@ -1,12 +1,12 @@
-package io.onedev.server.web.page.project.setting.general;
+package io.cheeta.server.web.page.project.setting.general;
 
 import java.io.Serializable;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.annotation.ProjectPath;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ParentChoice;
+import io.cheeta.server.annotation.ProjectPath;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ParentChoice;
 
 @Editable
 public class ParentBean implements Serializable {

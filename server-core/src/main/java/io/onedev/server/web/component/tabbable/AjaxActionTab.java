@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.tabbable;
+package io.cheeta.server.web.component.tabbable;
 
 import com.google.common.base.Preconditions;
 import org.apache.wicket.Component;

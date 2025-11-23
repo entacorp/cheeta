@@ -1,9 +1,9 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import com.google.common.collect.Sets;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.util.BeanUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.util.BeanUtils;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

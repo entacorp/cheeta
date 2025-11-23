@@ -1,11 +1,11 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import javax.inject.Singleton;
 
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentMention;
-import io.onedev.server.model.User;
-import io.onedev.server.service.CodeCommentMentionService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentMention;
+import io.cheeta.server.model.User;
+import io.cheeta.server.service.CodeCommentMentionService;
 
 @Singleton
 public class DefaultCodeCommentMentionService extends BaseEntityService<CodeCommentMention>

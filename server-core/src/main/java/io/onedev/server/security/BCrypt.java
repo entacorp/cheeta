@@ -1,4 +1,4 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;

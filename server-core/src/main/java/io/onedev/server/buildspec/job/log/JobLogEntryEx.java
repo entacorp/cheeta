@@ -1,9 +1,9 @@
-package io.onedev.server.buildspec.job.log;
+package io.cheeta.server.buildspec.job.log;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
-import io.onedev.server.job.log.StyleBuilder;
-import io.onedev.server.web.asset.emoji.Emojis;
+import io.cheeta.server.job.log.StyleBuilder;
+import io.cheeta.server.web.asset.emoji.Emojis;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

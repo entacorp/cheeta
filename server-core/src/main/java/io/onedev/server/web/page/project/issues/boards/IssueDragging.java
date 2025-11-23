@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.web.util.AjaxPayload;
 
 public class IssueDragging extends AjaxPayload {
 

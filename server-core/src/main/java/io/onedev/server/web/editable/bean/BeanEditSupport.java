@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.bean;
+package io.cheeta.server.web.editable.bean;
 
 import java.io.Serializable;
 import java.lang.reflect.AnnotatedElement;
@@ -8,16 +8,16 @@ import java.util.Set;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.EmptyValueLabel;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ExcludedProperties;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.EmptyValueLabel;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ExcludedProperties;
 
 public class BeanEditSupport implements EditSupport {
 

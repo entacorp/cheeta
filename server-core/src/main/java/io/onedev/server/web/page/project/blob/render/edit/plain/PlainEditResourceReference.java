@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.edit.plain;
+package io.cheeta.server.web.page.project.blob.render.edit.plain;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.codemirror.CodeMirrorResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.codemirror.CodeMirrorResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class PlainEditResourceReference extends BaseDependentResourceReference {
 

@@ -1,4 +1,4 @@
-onedev.server.copyToClipboard = {
+cheeta.server.copyToClipboard = {
 	onDomReady: function(buttonId, text, tooltip) {
 		var $button = $("#" + buttonId);
 		var options = {

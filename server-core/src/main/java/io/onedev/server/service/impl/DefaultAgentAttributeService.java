@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -13,15 +13,15 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.AgentAttribute;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.AgentAttributeService;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.AgentAttribute;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.AgentAttributeService;
 
 @Singleton
 public class DefaultAgentAttributeService extends BaseEntityService<AgentAttribute> implements AgentAttributeService {

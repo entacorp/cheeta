@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.admin.emailtemplates;
+package io.cheeta.server.web.page.admin.emailtemplates;
 
-import static io.onedev.server.model.support.administration.emailtemplates.EmailTemplates.DEFAULT_STOPWATCH_OVERDUE;
-import static io.onedev.server.model.support.administration.emailtemplates.EmailTemplates.PROP_STOPWATCH_OVERDUE;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates.DEFAULT_STOPWATCH_OVERDUE;
+import static io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates.PROP_STOPWATCH_OVERDUE;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.Map;
@@ -11,7 +11,7 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.util.CollectionUtils;
+import io.cheeta.server.util.CollectionUtils;
 
 public class StopwatchOverdueTemplatePage extends AbstractTemplatePage {
 
@@ -37,7 +37,7 @@ public class StopwatchOverdueTemplatePage extends AbstractTemplatePage {
 	@Override
 	protected Map<String, String> getVariableHelp() {
 		return CollectionUtils.newLinkedHashMap(
-				"stopwatch", _T("<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Stopwatch.java'>Stopwatch</a> overdue"));
+				"stopwatch", _T("<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Stopwatch.java'>Stopwatch</a> overdue"));
 	}
 
 	@Override

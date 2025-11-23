@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.brandlogo;
+package io.cheeta.server.web.component.brandlogo;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class BrandLogoCssResourceReference extends BaseDependentCssResourceReference {
 

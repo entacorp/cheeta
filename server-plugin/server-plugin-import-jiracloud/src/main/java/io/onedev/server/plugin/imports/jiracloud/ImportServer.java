@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.jiracloud;
+package io.cheeta.server.plugin.imports.jiracloud;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,43 +46,43 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.attachment.AttachmentService;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.entityreference.ReferenceMigrator;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.issue.IssuesImported;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueField;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.LastActivity;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.JerseyUtils;
-import io.onedev.server.util.JerseyUtils.PageDataConsumer;
-import io.onedev.server.util.Pair;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.taskbutton.TaskResult.HtmlMessgae;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.attachment.AttachmentService;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.entityreference.ReferenceMigrator;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.issue.IssuesImported;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueField;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.LastActivity;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.JerseyUtils;
+import io.cheeta.server.util.JerseyUtils.PageDataConsumer;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.taskbutton.TaskResult.HtmlMessgae;
 
 @Editable
 @ClassValidating
@@ -170,7 +170,7 @@ public class ImportServer implements Serializable, Validatable {
 	}
 	
 	private GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	@Nullable
@@ -182,13 +182,13 @@ public class ImportServer implements Serializable, Validatable {
 			if (userNode.hasNonNull("emailAddress"))
 				emailAddress = userNode.get("emailAddress").asText(null);
 			if (emailAddress != null) {
-				userIdOpt = Optional.ofNullable(User.idOf(OneDev.getInstance(UserService.class).findByVerifiedEmailAddress(emailAddress)));
+				userIdOpt = Optional.ofNullable(User.idOf(Cheeta.getInstance(UserService.class).findByVerifiedEmailAddress(emailAddress)));
 			} else {
 				String displayName = null;
 				if (userNode.hasNonNull("displayName"))
 					displayName = userNode.get("displayName").asText(null);
 				if (displayName != null)
-					userIdOpt = Optional.ofNullable(User.idOf(OneDev.getInstance(UserService.class).findByFullName(displayName)));
+					userIdOpt = Optional.ofNullable(User.idOf(Cheeta.getInstance(UserService.class).findByFullName(displayName)));
 				else
 					userIdOpt = Optional.empty();
 			}
@@ -353,16 +353,16 @@ public class ImportServer implements Serializable, Validatable {
 			Map<String, JsonNode> projectNodes = getProjectNodes(logger);
 			ImportResult result = new ImportResult();
 			for (var jiraProject: projects.getImportProjects()) {
-				OneDev.getInstance(TransactionService.class).run(() -> {
+				Cheeta.getInstance(TransactionService.class).run(() -> {
 					String oneDevProjectPath;
-					if (projects.getParentOneDevProject() != null)
-						oneDevProjectPath = projects.getParentOneDevProject() + "/" + jiraProject;
+					if (projects.getParentCheetaProject() != null)
+						oneDevProjectPath = projects.getParentCheetaProject() + "/" + jiraProject;
 					else
 						oneDevProjectPath = jiraProject;
 
 					logger.log("Importing from '" + jiraProject + "' to '" + oneDevProjectPath + "'...");
 
-					ProjectService projectService = OneDev.getInstance(ProjectService.class);
+					ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 					Project project = projectService.setup(SecurityUtils.getSubject(), oneDevProjectPath);
 
 					if (!project.isNew() && !SecurityUtils.canManageProject(project)) {
@@ -383,7 +383,7 @@ public class ImportServer implements Serializable, Validatable {
 
 					if (!dryRun && project.isNew()) {
 						projectService.create(SecurityUtils.getUser(), project);
-						OneDev.getInstance(AuditService.class).audit(project, "created project", null, VersionedXmlDoc.fromBean(project).toXML());
+						Cheeta.getInstance(AuditService.class).audit(project, "created project", null, VersionedXmlDoc.fromBean(project).toXML());
 					}
 
 					logger.log("Importing issues...");
@@ -410,8 +410,8 @@ public class ImportServer implements Serializable, Validatable {
 			JsonNode projectNode = projectNodes.get(jiraProject);
 			if (projectNode == null)
 				throw new ExplicitException("Unable to find project: " + jiraProject);
-			return OneDev.getInstance(TransactionService.class).call(() -> {
-				var project = OneDev.getInstance(ProjectService.class).load(projectId);
+			return Cheeta.getInstance(TransactionService.class).call(() -> {
+				var project = Cheeta.getInstance(ProjectService.class).load(projectId);
 				Map<String, Optional<Long>> userIds = new HashMap<>();
 				ImportResult result = importIssues(projectNode, project, option, userIds, dryRun, logger);
 				return new TaskResult(true, new HtmlMessgae(result.toHtml("Issues imported successfully")));
@@ -423,7 +423,7 @@ public class ImportServer implements Serializable, Validatable {
 	
 	private ImportResult importIssues(JsonNode jiraProject, Project oneDevProject, ImportOption option, 
 			Map<String, Optional<Long>> userIds, boolean dryRun, TaskLogger logger) {
-		IssueService issueService = OneDev.getInstance(IssueService.class);
+		IssueService issueService = Cheeta.getInstance(IssueService.class);
 		Client client = newClient();
 		try {
 			Set<String> unmappedIssueStatuses = new HashSet<>();
@@ -436,8 +436,8 @@ public class ImportServer implements Serializable, Validatable {
 			Map<String, Pair<FieldSpec, String>> typeMappings = new HashMap<>();
 			
 			for (IssueTypeMapping mapping: option.getIssueTypeMappings()) {
-				String oneDevFieldName = StringUtils.substringBefore(mapping.getOneDevIssueField(), "::");
-				String oneDevFieldValue = StringUtils.substringAfter(mapping.getOneDevIssueField(), "::");
+				String oneDevFieldName = StringUtils.substringBefore(mapping.getCheetaIssueField(), "::");
+				String oneDevFieldValue = StringUtils.substringAfter(mapping.getCheetaIssueField(), "::");
 				FieldSpec fieldSpec = getIssueSetting().getFieldSpec(oneDevFieldName);
 				if (fieldSpec == null)
 					throw new ExplicitException("No field spec found: " + oneDevFieldName);
@@ -447,8 +447,8 @@ public class ImportServer implements Serializable, Validatable {
 			Map<String, Pair<FieldSpec, String>> priorityMappings = new HashMap<>();
 			
 			for (IssuePriorityMapping mapping: option.getIssuePriorityMappings()) {
-				String oneDevFieldName = StringUtils.substringBefore(mapping.getOneDevIssueField(), "::");
-				String oneDevFieldValue = StringUtils.substringAfter(mapping.getOneDevIssueField(), "::");
+				String oneDevFieldName = StringUtils.substringBefore(mapping.getCheetaIssueField(), "::");
+				String oneDevFieldValue = StringUtils.substringAfter(mapping.getCheetaIssueField(), "::");
 				FieldSpec fieldSpec = getIssueSetting().getFieldSpec(oneDevFieldName);
 				if (fieldSpec == null)
 					throw new ExplicitException("No field spec found: " + oneDevFieldName);
@@ -463,7 +463,7 @@ public class ImportServer implements Serializable, Validatable {
 			
 			Map<String, String> statusMappings = new HashMap<>();
 			for (IssueStatusMapping mapping: option.getIssueStatusMappings())
-				statusMappings.put(mapping.getJiraIssueStatus(), mapping.getOneDevIssueState());
+				statusMappings.put(mapping.getJiraIssueStatus(), mapping.getCheetaIssueState());
 			
 			Map<String, String> untranslatedStatusNames = new HashMap<>();
 			String apiEndpoint = getApiEndpoint("/status");
@@ -616,7 +616,7 @@ public class ImportServer implements Serializable, Validatable {
 								extraIssueInfo.put("Labels", joinAsMultilineHtml(labels));
 						}
 						
-						var userService = OneDev.getInstance(UserService.class);
+						var userService = Cheeta.getInstance(UserService.class);
 						JsonNode authorNode = fieldsNode.get("reporter");
 						if (authorNode == null)
 							authorNode = fieldsNode.get("creator");
@@ -625,11 +625,11 @@ public class ImportServer implements Serializable, Validatable {
 							if (userId != null) {
 								issue.setSubmitter(userService.load(userId));
 							} else {
-								issue.setSubmitter(OneDev.getInstance(UserService.class).getUnknown());
+								issue.setSubmitter(Cheeta.getInstance(UserService.class).getUnknown());
 								nonExistentLogins.add(authorNode.get("displayName").asText());
 							}
 						} else {
-							issue.setSubmitter(OneDev.getInstance(UserService.class).getUnknown());
+							issue.setSubmitter(Cheeta.getInstance(UserService.class).getUnknown());
 						}
 						
 						if (fieldsNode.hasNonNull("assignee")) {
@@ -747,11 +747,11 @@ public class ImportServer implements Serializable, Validatable {
 										if (userId != null) {
 											comment.setUser(userService.load(userId));
 										} else {
-											comment.setUser(OneDev.getInstance(UserService.class).getUnknown());
+											comment.setUser(Cheeta.getInstance(UserService.class).getUnknown());
 											nonExistentLogins.add(authorNode.get("displayName").asText());
 										}
 									} else {
-										comment.setUser(OneDev.getInstance(UserService.class).getUnknown());
+										comment.setUser(Cheeta.getInstance(UserService.class).getUnknown());
 									}
 									
 									issue.getComments().add(comment);
@@ -792,7 +792,7 @@ public class ImportServer implements Serializable, Validatable {
 							List<String> attachments = new ArrayList<>();
 							
 							if (fieldsNode.hasNonNull("attachment")) {
-								long maxUploadFileSize = OneDev.getInstance(SettingService.class)
+								long maxUploadFileSize = Cheeta.getInstance(SettingService.class)
 										.getPerformanceSetting().getMaxUploadFileSize()*1L*1024*1024; 
 								for (JsonNode attachmentNode: fieldsNode.get("attachment")) {
 									String attachmentName = attachmentNode.get("filename").asText();
@@ -811,7 +811,7 @@ public class ImportServer implements Serializable, Validatable {
 														endpoint, errorMessage));
 											}
 											try (InputStream is = response.readEntity(InputStream.class)) {
-												AttachmentService attachmentService = OneDev.getInstance(AttachmentService.class);
+												AttachmentService attachmentService = Cheeta.getInstance(AttachmentService.class);
 												String oneDevAttachmentName = attachmentService.saveAttachment(
 														oneDevProject.getId(), issue.getUUID(), attachmentName, is);
 												String oneDevAttachmentUrl = oneDevProject.getAttachmentUrlPath(issue.getUUID(), oneDevAttachmentName);
@@ -849,7 +849,7 @@ public class ImportServer implements Serializable, Validatable {
 			if (!dryRun) {
 				ReferenceMigrator migrator = new ReferenceMigrator(Issue.class, issueNumberMappings);
 				String jiraProjectKey = jiraProject.get("key").asText();
-				Dao dao = OneDev.getInstance(Dao.class);
+				Dao dao = Cheeta.getInstance(Dao.class);
 				for (Issue issue: issues) {
 					if (issue.getDescription() != null) 
 						issue.setDescription(migrator.migratePrefixed(issue.getDescription(), jiraProjectKey + "-"));
@@ -875,7 +875,7 @@ public class ImportServer implements Serializable, Validatable {
 			result.errorAttachments.addAll(errorAttachments);
 			
 			if (!dryRun && !issues.isEmpty())
-				OneDev.getInstance(ListenerRegistry.class).post(new IssuesImported(oneDevProject, issues));
+				Cheeta.getInstance(ListenerRegistry.class).post(new IssuesImported(oneDevProject, issues));
 			
 			return result;
 		} catch (UnsupportedEncodingException e) {

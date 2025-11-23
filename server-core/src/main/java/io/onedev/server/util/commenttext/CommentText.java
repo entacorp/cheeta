@@ -1,4 +1,4 @@
-package io.onedev.server.util.commenttext;
+package io.cheeta.server.util.commenttext;
 
 public abstract class CommentText {
 

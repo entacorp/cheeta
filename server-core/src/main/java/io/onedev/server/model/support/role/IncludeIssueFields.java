@@ -1,15 +1,15 @@
-package io.onedev.server.model.support.role;
+package io.cheeta.server.model.support.role;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.Size;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(order=300, name="Specified fields")
 public class IncludeIssueFields implements IssueFieldSet {
@@ -32,7 +32,7 @@ public class IncludeIssueFields implements IssueFieldSet {
 	
 	@SuppressWarnings("unused")
 	private static List<String> getFieldChoices() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getFieldNames();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldNames();
 	}
 
 }

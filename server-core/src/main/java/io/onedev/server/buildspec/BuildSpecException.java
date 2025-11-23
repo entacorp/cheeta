@@ -1,7 +1,7 @@
-package io.onedev.server.buildspec;
+package io.cheeta.server.buildspec;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.util.Path;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.util.Path;
 
 public class BuildSpecException extends ExplicitException {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.report.gtest;
+package io.cheeta.server.plugin.report.gtest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +14,15 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.jetbrains.annotations.Nullable;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.Status;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestCase;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestSuite;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.Status;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestCase;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestSuite;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 
 public class GTestReportParser {
 

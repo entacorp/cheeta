@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import static java.util.stream.Collectors.toList;
 
@@ -38,29 +38,29 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobContent;
-import io.onedev.server.git.BlobEdits;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.command.LogCommand;
-import io.onedev.server.git.command.LogCommit;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.git.exception.ObjectNotFoundException;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.resource.support.FileCreateOrUpdateRequest;
-import io.onedev.server.rest.resource.support.FileEditRequest;
-import io.onedev.server.search.commit.CommitQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.RevisionAndPath;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobContent;
+import io.cheeta.server.git.BlobEdits;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.command.LogCommand;
+import io.cheeta.server.git.command.LogCommit;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.git.exception.ObjectNotFoundException;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.resource.support.FileCreateOrUpdateRequest;
+import io.cheeta.server.rest.resource.support.FileEditRequest;
+import io.cheeta.server.search.commit.CommitQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.RevisionAndPath;
 
 @Path("/repositories")
 @Consumes(MediaType.APPLICATION_JSON)

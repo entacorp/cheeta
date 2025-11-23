@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.project.childrentree;
+package io.cheeta.server.web.component.project.childrentree;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.util.facade.ProjectFacade;
-import io.onedev.server.web.component.project.ProjectAvatar;
+import io.cheeta.server.util.facade.ProjectFacade;
+import io.cheeta.server.web.component.project.ProjectAvatar;
 
 abstract class ChildLinkPanel extends Panel {
 

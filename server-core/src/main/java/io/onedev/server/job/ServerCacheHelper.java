@@ -1,19 +1,19 @@
-package io.onedev.server.job;
+package io.cheeta.server.job;
 
 import com.google.common.base.Joiner;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.CacheHelper;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.k8shelper.SetupCacheFacade;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.JobCacheService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.CacheHelper;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.k8shelper.SetupCacheFacade;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.JobCacheService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.glassfish.jersey.client.ClientProperties;
 
@@ -151,23 +151,23 @@ public class ServerCacheHelper extends CacheHelper {
 	}
 	
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 	
 	private SessionService getSessionService() {
-		return OneDev.getInstance(SessionService.class);
+		return Cheeta.getInstance(SessionService.class);
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private AccessTokenService getAccessTokenService() {
-		return OneDev.getInstance(AccessTokenService.class);
+		return Cheeta.getInstance(AccessTokenService.class);
 	}
 	
 	private JobCacheService getCacheService() {
-		return OneDev.getInstance(JobCacheService.class);
+		return Cheeta.getInstance(JobCacheService.class);
 	}
 	
 }

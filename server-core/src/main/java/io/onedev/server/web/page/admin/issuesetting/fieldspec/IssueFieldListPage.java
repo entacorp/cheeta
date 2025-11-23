@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.issuesetting.fieldspec;
+package io.cheeta.server.web.page.admin.issuesetting.fieldspec;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,23 +30,23 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.asset.inputspec.InputSpecCssResourceReference;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.component.issue.workflowreconcile.WorkflowChanged;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.page.admin.issuesetting.IssueSettingPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.asset.inputspec.InputSpecCssResourceReference;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.component.issue.workflowreconcile.WorkflowChanged;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.page.admin.issuesetting.IssueSettingPage;
 
 public class IssueFieldListPage extends IssueSettingPage {
 
@@ -155,7 +155,7 @@ public class IssueFieldListPage extends IssueSettingPage {
 						var oldAuditContent = VersionedXmlDoc.fromBean(field).toXML();
 						getSetting().setReconciled(false);
 						send(getPage(), Broadcast.BREADTH, new WorkflowChanged(target));
-						OneDev.getInstance(SettingService.class).saveIssueSetting(getSetting());
+						Cheeta.getInstance(SettingService.class).saveIssueSetting(getSetting());
 						auditService.audit(null, "deleted issue field \"" + field.getName() + "\"", oldAuditContent, null);
 						target.add(fieldsTable);
 					}
@@ -194,7 +194,7 @@ public class IssueFieldListPage extends IssueSettingPage {
 				var oldAuditContent = VersionedXmlDoc.fromBean(getSetting().getFieldSpecs()).toXML();
 				CollectionUtils.move(getSetting().getFieldSpecs(), from.getItemIndex(), to.getItemIndex());
 				var newAuditContent = VersionedXmlDoc.fromBean(getSetting().getFieldSpecs()).toXML();
-				OneDev.getInstance(SettingService.class).saveIssueSetting(getSetting());
+				Cheeta.getInstance(SettingService.class).saveIssueSetting(getSetting());
 				auditService.audit(null, "changed order of issue fields", oldAuditContent, newAuditContent);
 				target.add(fieldsTable);
 			}

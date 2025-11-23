@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,23 +11,23 @@ import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.codeassist.AntlrUtils;
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobAware;
-import io.onedev.server.buildspec.job.retrycondition.RetryCondition;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionLexer;
-import io.onedev.server.buildspec.job.retrycondition.RetryConditionParser;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.model.Build;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.AntlrUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobAware;
+import io.cheeta.server.buildspec.job.retrycondition.RetryCondition;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionLexer;
+import io.cheeta.server.buildspec.job.retrycondition.RetryConditionParser;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class RetryConditionBehavior extends ANTLRAssistBehavior {
 

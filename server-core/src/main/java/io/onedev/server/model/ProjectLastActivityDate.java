@@ -1,6 +1,6 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.ProjectLastActivityDate.PROP_VALUE;
+import static io.cheeta.server.model.ProjectLastActivityDate.PROP_VALUE;
 
 import java.util.Date;
 

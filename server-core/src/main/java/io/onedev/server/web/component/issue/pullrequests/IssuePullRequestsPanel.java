@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.pullrequests;
+package io.cheeta.server.web.component.issue.pullrequests;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -6,11 +6,11 @@ import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.pullrequest.IncludesIssueCriteria;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.web.component.pullrequest.list.PullRequestListPanel;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.pullrequest.IncludesIssueCriteria;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.web.component.pullrequest.list.PullRequestListPanel;
 
 public class IssuePullRequestsPanel extends GenericPanel<Issue> {
 

@@ -1,7 +1,7 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.form.FormComponentPanel;

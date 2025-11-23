@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.project.choice;
+package io.cheeta.server.web.editable.project.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,15 +13,15 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.web.component.project.choice.ProjectMultiChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.annotation.ProjectChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.web.component.project.choice.ProjectMultiChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.ProjectChoice;
 
 public class ProjectMultiChoiceEditor extends PropertyEditor<List<String>> {
 	
@@ -58,7 +58,7 @@ public class ProjectMultiChoiceEditor extends PropertyEditor<List<String>> {
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	@Override

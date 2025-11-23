@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="1" name="io.onedev.commons.utils.PathUtilsTest" time="0.007" errors="1">
+<testsuite tests="4" failures="1" name="io.cheeta.commons.utils.PathUtilsTest" time="0.007" errors="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home/jre/lib"/>
@@ -36,7 +36,7 @@
     <property name="os.version" value="10.16"/>
     <property name="library.jansi.path" value="/usr/local/Cellar/maven/3.8.1/libexec/lib/jansi-native"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|192.168/16|*.192.168/16|localhost|*.localhost|matrix|*.matrix|ubuntu|*.ubuntu|lark|*.lark|saturn.local|*.saturn.local|mimas|*.mimas"/>
-    <property name="user.home" value="/home/onedev"/>
+    <property name="user.home" value="/home/cheeta"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
@@ -63,12 +63,12 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|192.168/16|*.192.168/16|localhost|*.localhost|matrix|*.matrix|ubuntu|*.ubuntu|lark|*.lark|saturn.local|*.saturn.local|mimas|*.mimas"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="io.onedev.commons.utils.PathUtilsTest" name="shouldMatchSegments" time="0"/>
-  <testcase classname="io.onedev.commons.utils.PathUtilsTest" name="testResolveSibling" time="0.002">
+  <testcase classname="io.cheeta.commons.utils.PathUtilsTest" name="shouldMatchSegments" time="0"/>
+  <testcase classname="io.cheeta.commons.utils.PathUtilsTest" name="testResolveSibling" time="0.002">
     <failure message="expected:&lt;world[]&gt; but was:&lt;world[2]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;world[]&gt; but was:&lt;world[2]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at io.onedev.commons.utils.PathUtilsTest.testResolveSibling(PathUtilsTest.java:44)
+	at io.cheeta.commons.utils.PathUtilsTest.testResolveSibling(PathUtilsTest.java:44)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -100,12 +100,12 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
   </testcase>
-  <testcase classname="io.onedev.commons.utils.PathUtilsTest" name="shouldMatchLongest" time="0.002">
+  <testcase classname="io.cheeta.commons.utils.PathUtilsTest" name="shouldMatchLongest" time="0.002">
     <skipped/>
   </testcase>
-  <testcase classname="io.onedev.commons.utils.PathUtilsTest" name="shouldParseRelative" time="0.003">
+  <testcase classname="io.cheeta.commons.utils.PathUtilsTest" name="shouldParseRelative" time="0.003">
     <error message="OOPS!" type="java.lang.RuntimeException">java.lang.RuntimeException: OOPS!
-	at io.onedev.commons.utils.PathUtilsTest.shouldParseRelative(PathUtilsTest.java:58)
+	at io.cheeta.commons.utils.PathUtilsTest.shouldParseRelative(PathUtilsTest.java:58)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

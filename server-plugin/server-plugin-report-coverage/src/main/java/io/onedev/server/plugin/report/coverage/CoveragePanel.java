@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.coverage;
+package io.cheeta.server.plugin.report.coverage;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;

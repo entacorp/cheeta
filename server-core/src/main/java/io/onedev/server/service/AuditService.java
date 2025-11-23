@@ -1,12 +1,12 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.service.support.AuditQuery;
-import io.onedev.server.model.Audit;
-import io.onedev.server.model.Project;
+import io.cheeta.server.service.support.AuditQuery;
+import io.cheeta.server.model.Audit;
+import io.cheeta.server.model.Project;
 
 public interface AuditService extends EntityService<Audit> {
 		

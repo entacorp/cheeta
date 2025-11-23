@@ -1,4 +1,4 @@
-package io.onedev.server.search.commit;
+package io.cheeta.server.search.commit;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,10 +9,10 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.DateUtils;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.DateUtils;
 
 public class AfterCriteria extends CommitCriteria {
 

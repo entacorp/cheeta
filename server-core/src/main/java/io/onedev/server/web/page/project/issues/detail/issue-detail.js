@@ -1,4 +1,4 @@
-onedev.server.issueDetail = {
+cheeta.server.issueDetail = {
 	onDomReady: function(scrollTopKey) {
 		var scrollTop = localStorage.getItem(scrollTopKey);
 		if (scrollTop) {

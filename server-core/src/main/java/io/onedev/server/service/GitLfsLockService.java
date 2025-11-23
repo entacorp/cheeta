@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.GitLfsLock;
+import io.cheeta.server.model.GitLfsLock;
 
 public interface GitLfsLockService extends EntityService<GitLfsLock> {
 

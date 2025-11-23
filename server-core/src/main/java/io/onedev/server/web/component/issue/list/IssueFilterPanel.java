@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.issue.list;
+package io.cheeta.server.web.component.issue.list;
 
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.Is;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.IsSince;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.IsUntil;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.Is;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.IsSince;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.IsUntil;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -26,39 +26,39 @@ import org.apache.wicket.model.LoadableDetachableModel;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.field.spec.BooleanField;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.GroupChoiceField;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.issue.BooleanFieldCriteria;
-import io.onedev.server.search.entity.issue.ChoiceFieldCriteria;
-import io.onedev.server.search.entity.issue.ConfidentialCriteria;
-import io.onedev.server.search.entity.issue.FieldCriteria;
-import io.onedev.server.search.entity.issue.FieldOperatorCriteria;
-import io.onedev.server.search.entity.issue.IterationCriteria;
-import io.onedev.server.search.entity.issue.LastActivityDateCriteria;
-import io.onedev.server.search.entity.issue.StateCriteria;
-import io.onedev.server.search.entity.issue.SubmittedByCriteria;
-import io.onedev.server.search.entity.issue.SubmittedByUserCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.datepicker.DatePicker;
-import io.onedev.server.web.component.filteredit.FilterEditPanel;
-import io.onedev.server.web.component.groupchoice.GroupMultiChoice;
-import io.onedev.server.web.component.stringchoice.StringMultiChoice;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
-import io.onedev.server.web.component.user.choice.UserMultiChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.field.spec.BooleanField;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.GroupChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.issue.BooleanFieldCriteria;
+import io.cheeta.server.search.entity.issue.ChoiceFieldCriteria;
+import io.cheeta.server.search.entity.issue.ConfidentialCriteria;
+import io.cheeta.server.search.entity.issue.FieldCriteria;
+import io.cheeta.server.search.entity.issue.FieldOperatorCriteria;
+import io.cheeta.server.search.entity.issue.IterationCriteria;
+import io.cheeta.server.search.entity.issue.LastActivityDateCriteria;
+import io.cheeta.server.search.entity.issue.StateCriteria;
+import io.cheeta.server.search.entity.issue.SubmittedByCriteria;
+import io.cheeta.server.search.entity.issue.SubmittedByUserCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.datepicker.DatePicker;
+import io.cheeta.server.web.component.filteredit.FilterEditPanel;
+import io.cheeta.server.web.component.groupchoice.GroupMultiChoice;
+import io.cheeta.server.web.component.stringchoice.StringMultiChoice;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.web.component.user.choice.UserMultiChoice;
 
 abstract class IssueFilterPanel extends FilterEditPanel<Issue> {
 	
@@ -70,7 +70,7 @@ abstract class IssueFilterPanel extends FilterEditPanel<Issue> {
 	protected void onInitialize() {
 		super.onInitialize();
 
-		var issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		var issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
         var stateChoice = new StringMultiChoice("state", new IModel<Collection<String>>() {
 
 			@Override
@@ -509,11 +509,11 @@ abstract class IssueFilterPanel extends FilterEditPanel<Issue> {
 	protected abstract Project getProject();
 
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 
 	private GroupService getGroupService() {
-		return OneDev.getInstance(GroupService.class);
+		return Cheeta.getInstance(GroupService.class);
 	}
 
 	private <T extends FieldCriteria> Predicate<T> getFieldPredicate(FieldSpec field) {

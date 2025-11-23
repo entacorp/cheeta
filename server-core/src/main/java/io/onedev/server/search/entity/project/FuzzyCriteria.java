@@ -1,6 +1,6 @@
-package io.onedev.server.search.entity.project;
+package io.cheeta.server.search.entity.project;
 
-import static io.onedev.server.search.entity.project.ProjectQueryLexer.Is;
+import static io.cheeta.server.search.entity.project.ProjectQueryLexer.Is;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +15,11 @@ import javax.persistence.criteria.Predicate;
 import com.beust.jcommander.internal.Lists;
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.AndCriteria;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.AndCriteria;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class FuzzyCriteria extends Criteria<Project> {
 

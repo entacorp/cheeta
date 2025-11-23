@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.web.util.AjaxPayload;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
 public class ContentQuoted extends AjaxPayload {

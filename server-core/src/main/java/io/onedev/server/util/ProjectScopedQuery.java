@@ -1,8 +1,8 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
 
 import org.jspecify.annotations.Nullable;
 
@@ -64,7 +64,7 @@ public class ProjectScopedQuery {
 	}
 	
 	private static ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 }

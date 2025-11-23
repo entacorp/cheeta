@@ -1,4 +1,4 @@
-package io.onedev.server.git.command;
+package io.cheeta.server.git.command;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -15,10 +15,10 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.server.git.CommandUtils;
-import io.onedev.server.git.GitUtils;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.server.git.CommandUtils;
+import io.cheeta.server.git.GitUtils;
 
 public abstract class LogCommand {
 

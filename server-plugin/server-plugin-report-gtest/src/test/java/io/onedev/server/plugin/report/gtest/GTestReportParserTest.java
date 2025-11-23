@@ -1,9 +1,9 @@
-package io.onedev.server.plugin.report.gtest;
+package io.cheeta.server.plugin.report.gtest;
 
 import com.google.common.io.Resources;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.UnitTestReport;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.Status;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.Status;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 import org.eclipse.jgit.lib.ObjectId;

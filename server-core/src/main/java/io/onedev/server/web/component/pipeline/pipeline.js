@@ -1,6 +1,6 @@
-onedev.server.pipeline = {
+cheeta.server.pipeline = {
 	lineWidth: 2,
-	lineColor: onedev.server.isDarkMode()?"#535370":"#D1D3E0",
+	lineColor: cheeta.server.isDarkMode()?"#535370":"#D1D3E0",
 	onWindowLoad: function(containerId, dependencies, activeJobIndex) {
 		function getJobIndex(jobIndexString) {
 			var splitted = jobIndexString.split("-");	
@@ -17,20 +17,20 @@ onedev.server.pipeline = {
 			for (var i in dependencies[jobIndexString]) {
 				var dependencyJobIndexString = dependencies[jobIndexString][i];
 				var dependencyJobIndex = getJobIndex(dependencyJobIndexString);								
-				onedev.server.pipeline.drawDependencyLine($pipeline, dependencyJobIndex, jobIndex);
+				cheeta.server.pipeline.drawDependencyLine($pipeline, dependencyJobIndex, jobIndex);
 			}
 		}
 		
 		if (activeJobIndex)
-			onedev.server.pipeline.markJobActive($pipeline, activeJobIndex);
+			cheeta.server.pipeline.markJobActive($pipeline, activeJobIndex);
 	},
 	drawDependencyLine: function($pipeline, dependencyJobIndex, jobIndex) {
 		var dependencyJobIndexString = dependencyJobIndex.column + "-" + dependencyJobIndex.row;
 		var jobIndexString = jobIndex.column + "-" + jobIndex.row;
 		var $paper = $pipeline.children(".dependencies");
 		var paper = Snap($paper[0]);
-		var $dependencyJob = onedev.server.pipeline.getJob($pipeline, dependencyJobIndex);
-		var $job = onedev.server.pipeline.getJob($pipeline, jobIndex);
+		var $dependencyJob = cheeta.server.pipeline.getJob($pipeline, dependencyJobIndex);
+		var $job = cheeta.server.pipeline.getJob($pipeline, jobIndex);
 		var columnSpacing = parseInt($job.parent().css("margin-left"));
 		var rowSpacing = parseInt($job.css("margin-bottom"));
 		var dependencyStart = {
@@ -57,24 +57,24 @@ onedev.server.pipeline = {
 					left: dependencyStart.left + columnSpacing,
 					top: $dependencyJob.offset().top + $dependencyJob.outerHeight() + rowSpacing/2 - $paper.offset().top
 				}
-				onedev.server.pipeline.drawCurve(paper, dependencyStart, leftCurveStop, dependencyJobIndexString, jobIndexString);
+				cheeta.server.pipeline.drawCurve(paper, dependencyStart, leftCurveStop, dependencyJobIndexString, jobIndexString);
 
 				var rightCurveStart = {
 					left: dependencyStop.left - columnSpacing,
 					top: leftCurveStop.top
 				}				
-				onedev.server.pipeline.drawCurve(paper, rightCurveStart, dependencyStop, dependencyJobIndexString, jobIndexString);
+				cheeta.server.pipeline.drawCurve(paper, rightCurveStart, dependencyStop, dependencyJobIndexString, jobIndexString);
 				
 				paper.line(leftCurveStop.left, leftCurveStop.top, rightCurveStart.left, rightCurveStart.top).attr({
-					stroke: onedev.server.pipeline.lineColor,
-					strokeWidth: onedev.server.pipeline.lineWidth,
+					stroke: cheeta.server.pipeline.lineColor,
+					strokeWidth: cheeta.server.pipeline.lineWidth,
 					from: dependencyJobIndexString,
 					to: jobIndexString
 				});
 			} else {
 				paper.line(dependencyStart.left, dependencyStart.top, dependencyStop.left, dependencyStop.top).attr({
-					stroke: onedev.server.pipeline.lineColor,
-					strokeWidth: onedev.server.pipeline.lineWidth,
+					stroke: cheeta.server.pipeline.lineColor,
+					strokeWidth: cheeta.server.pipeline.lineWidth,
 					from: dependencyJobIndexString,
 					to: jobIndexString
 				});
@@ -85,17 +85,17 @@ onedev.server.pipeline = {
 					left: dependencyStart.left + columnSpacing,
 					top: $dependencyJob.offset().top - rowSpacing/2 - $paper.offset().top
 				}
-				onedev.server.pipeline.drawCurve(paper, dependencyStart, leftCurveStop, dependencyJobIndexString, jobIndexString);
+				cheeta.server.pipeline.drawCurve(paper, dependencyStart, leftCurveStop, dependencyJobIndexString, jobIndexString);
 				
 				var rightCurveStart = {
 					left: dependencyStop.left - columnSpacing,
 					top: leftCurveStop.top
 				}				
-				onedev.server.pipeline.drawCurve(paper, rightCurveStart, dependencyStop, dependencyJobIndexString, jobIndexString);
+				cheeta.server.pipeline.drawCurve(paper, rightCurveStart, dependencyStop, dependencyJobIndexString, jobIndexString);
 				
 				paper.line(leftCurveStop.left, leftCurveStop.top, rightCurveStart.left, rightCurveStart.top).attr({
-					stroke: onedev.server.pipeline.lineColor,
-					strokeWidth: onedev.server.pipeline.lineWidth,
+					stroke: cheeta.server.pipeline.lineColor,
+					strokeWidth: cheeta.server.pipeline.lineWidth,
 					from: dependencyJobIndexString,
 					to: jobIndexString
 				});
@@ -104,11 +104,11 @@ onedev.server.pipeline = {
 					left: dependencyStop.left - columnSpacing,
 					top: dependencyStart.top
 				}
-				onedev.server.pipeline.drawCurve(paper, curveStart, dependencyStop, dependencyJobIndexString, jobIndexString);
+				cheeta.server.pipeline.drawCurve(paper, curveStart, dependencyStop, dependencyJobIndexString, jobIndexString);
 				
 				paper.line(dependencyStart.left, dependencyStart.top, curveStart.left, curveStart.top).attr({
-					stroke: onedev.server.pipeline.lineColor,
-					strokeWidth: onedev.server.pipeline.lineWidth,
+					stroke: cheeta.server.pipeline.lineColor,
+					strokeWidth: cheeta.server.pipeline.lineWidth,
 					from: dependencyJobIndexString,
 					to: jobIndexString
 				});
@@ -119,17 +119,17 @@ onedev.server.pipeline = {
 					left: dependencyStart.left + columnSpacing,
 					top: $dependencyJob.offset().top + $dependencyJob.outerHeight() + rowSpacing/2 - $paper.offset().top
 				}
-				onedev.server.pipeline.drawCurve(paper, dependencyStart, leftCurveStop, dependencyJobIndexString, jobIndexString);
+				cheeta.server.pipeline.drawCurve(paper, dependencyStart, leftCurveStop, dependencyJobIndexString, jobIndexString);
 				
 				var rightCurveStart = {
 					left: dependencyStop.left - columnSpacing,
 					top: leftCurveStop.top
 				}				
-				onedev.server.pipeline.drawCurve(paper, rightCurveStart, dependencyStop, dependencyJobIndexString, jobIndexString);
+				cheeta.server.pipeline.drawCurve(paper, rightCurveStart, dependencyStop, dependencyJobIndexString, jobIndexString);
 				
 				paper.line(leftCurveStop.left, leftCurveStop.top, rightCurveStart.left, rightCurveStart.top).attr({
-					stroke: onedev.server.pipeline.lineColor,
-					strokeWidth: onedev.server.pipeline.lineWidth,
+					stroke: cheeta.server.pipeline.lineColor,
+					strokeWidth: cheeta.server.pipeline.lineWidth,
 					from: dependencyJobIndexString,
 					to: jobIndexString
 				});
@@ -138,11 +138,11 @@ onedev.server.pipeline = {
 					left: dependencyStart.left + columnSpacing,
 					top: dependencyStop.top
 				}
-				onedev.server.pipeline.drawCurve(paper, dependencyStart, curveStop, dependencyJobIndexString, jobIndexString);
+				cheeta.server.pipeline.drawCurve(paper, dependencyStart, curveStop, dependencyJobIndexString, jobIndexString);
 				
 				paper.line(curveStop.left, curveStop.top, dependencyStop.left, dependencyStop.top).attr({
-					stroke: onedev.server.pipeline.lineColor,
-					strokeWidth: onedev.server.pipeline.lineWidth,
+					stroke: cheeta.server.pipeline.lineColor,
+					strokeWidth: cheeta.server.pipeline.lineWidth,
 					from: dependencyJobIndexString,
 					to: jobIndexString
 				});
@@ -162,9 +162,9 @@ onedev.server.pipeline = {
 			"l" + "0," + arrowWidth + " " + 
 			"Z"
 		).attr({
-			fill: onedev.server.pipeline.lineColor,
-			stroke: onedev.server.pipeline.lineColor,
-			strokeWidth: onedev.server.pipeline.lineWidth,
+			fill: cheeta.server.pipeline.lineColor,
+			stroke: cheeta.server.pipeline.lineColor,
+			strokeWidth: cheeta.server.pipeline.lineWidth,
 			from: dependencyJobIndexString,
 			to: jobIndexString
 		});
@@ -180,8 +180,8 @@ onedev.server.pipeline = {
 				to.left + "," + to.top);
 		curve.attr({
 			fill: "none",
-			stroke: onedev.server.pipeline.lineColor,
-			strokeWidth: onedev.server.pipeline.lineWidth,
+			stroke: cheeta.server.pipeline.lineColor,
+			strokeWidth: cheeta.server.pipeline.lineWidth,
 			from: dependencyJobIndexString, 
 			to: jobIndexString
 		});
@@ -194,10 +194,10 @@ onedev.server.pipeline = {
 		var paper = Snap($pipeline.children(".dependencies")[0]);
 		paper.selectAll("path, line").forEach(function(e) {
 			e.attr({
-				stroke: onedev.server.pipeline.lineColor
+				stroke: cheeta.server.pipeline.lineColor
 			});
 		});
-		onedev.server.pipeline.getJob($pipeline, jobIndex).addClass("active");
+		cheeta.server.pipeline.getJob($pipeline, jobIndex).addClass("active");
 		var jobIndexString = jobIndex.column + "-" + jobIndex.row;
 		paper.selectAll("[from='" + jobIndexString + "'], [to='" + jobIndexString + "']").forEach(function(e) {
 			e.attr({
@@ -216,7 +216,7 @@ onedev.server.pipeline = {
 			});
 		});
 		$(".ui-sortable-placeholder").width($uiItem.width());
-		if (onedev.server.isDarkMode())
+		if (cheeta.server.isDarkMode())
 			$uiItem.parent().css("background", "#2b2b40");
 		else
 			$uiItem.parent().css("background", "#FFFFE8");
@@ -226,7 +226,7 @@ onedev.server.pipeline = {
 		var paper = Snap($pipeline.children(".dependencies")[0]);
 		paper.selectAll("path, line").forEach(function(e) {
 			e.attr({
-				strokeWidth: onedev.server.pipeline.lineWidth
+				strokeWidth: cheeta.server.pipeline.lineWidth
 			});
 		});
 		$uiItem.parent().css("background", "inherit");

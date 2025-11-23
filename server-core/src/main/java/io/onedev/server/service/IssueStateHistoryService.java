@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Date;
 import java.util.Map;
@@ -6,11 +6,11 @@ import java.util.Map;
 import org.apache.shiro.subject.Subject;
 import org.jetbrains.annotations.Nullable;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueStateHistory;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.util.StatsGroup;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueStateHistory;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.util.StatsGroup;
 
 public interface IssueStateHistoryService extends EntityService<IssueStateHistory> {
 	

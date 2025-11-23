@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.imagedata.upload;
+package io.cheeta.server.web.component.imagedata.upload;
 
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.ComponentTag;
@@ -89,7 +89,7 @@ public class ImageUploadField extends FormComponentPanel<String> {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new ImageUploadFieldResourceReference()));
 		
-		String script = String.format("onedev.server.imageUpload.onDomReady('%s', %s);", 
+		String script = String.format("cheeta.server.imageUpload.onDomReady('%s', %s);", 
 				getMarkupId(), behavior.getCallbackFunction());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

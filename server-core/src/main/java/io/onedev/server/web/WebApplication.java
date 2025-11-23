@@ -1,4 +1,4 @@
-package io.onedev.server.web;
+package io.cheeta.server.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,28 +62,28 @@ import org.apache.wicket.util.file.IResourceFinder;
 import org.apache.wicket.util.resource.IResourceStream;
 import org.apache.wicket.util.time.Duration;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.util.usage.InUseException;
-import io.onedev.server.web.component.svg.SpriteImageResolver;
-import io.onedev.server.web.mapper.BaseResourceMapper;
-import io.onedev.server.web.mapper.BaseUrlMapper;
-import io.onedev.server.web.page.HomePage;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.error.GeneralErrorPage;
-import io.onedev.server.web.page.error.InUseErrorPage;
-import io.onedev.server.web.resource.SpriteResourceReference;
-import io.onedev.server.web.resource.SpriteResourceStream;
-import io.onedev.server.web.resourcebundle.ResourceBundleReferences;
-import io.onedev.server.web.translation.TranslationResolver;
-import io.onedev.server.web.translation.TranslationStringResourceLoader;
-import io.onedev.server.web.translation.TranslationTagHandler;
-import io.onedev.server.web.util.AbsoluteUrlRenderer;
-import io.onedev.server.web.websocket.WebSocketService;
-import io.onedev.server.web.websocket.WebSocketMessages;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.util.usage.InUseException;
+import io.cheeta.server.web.component.svg.SpriteImageResolver;
+import io.cheeta.server.web.mapper.BaseResourceMapper;
+import io.cheeta.server.web.mapper.BaseUrlMapper;
+import io.cheeta.server.web.page.HomePage;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.error.GeneralErrorPage;
+import io.cheeta.server.web.page.error.InUseErrorPage;
+import io.cheeta.server.web.resource.SpriteResourceReference;
+import io.cheeta.server.web.resource.SpriteResourceStream;
+import io.cheeta.server.web.resourcebundle.ResourceBundleReferences;
+import io.cheeta.server.web.translation.TranslationResolver;
+import io.cheeta.server.web.translation.TranslationStringResourceLoader;
+import io.cheeta.server.web.translation.TranslationTagHandler;
+import io.cheeta.server.web.util.AbsoluteUrlRenderer;
+import io.cheeta.server.web.websocket.WebSocketService;
+import io.cheeta.server.web.websocket.WebSocketMessages;
 
 @Singleton
 public class WebApplication extends org.apache.wicket.protocol.http.WebApplication {
@@ -192,7 +192,7 @@ public class WebApplication extends org.apache.wicket.protocol.http.WebApplicati
 				if (!map.isEmpty()) {
 					AjaxRequestTarget target = RequestCycle.get().find(AjaxRequestTarget.class);
 					if (target != null)
-						OneDev.getInstance(WebSocketService.class).observe((BasePage) target.getPage());
+						Cheeta.getInstance(WebSocketService.class).observe((BasePage) target.getPage());
 				}
 			}
 

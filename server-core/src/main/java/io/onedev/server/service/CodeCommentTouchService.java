@@ -1,9 +1,9 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.List;
 
-import io.onedev.server.model.CodeCommentTouch;
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.CodeCommentTouch;
+import io.cheeta.server.model.Project;
 
 public interface CodeCommentTouchService extends EntityService<CodeCommentTouch> {
 	

@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.beanlist;
+package io.cheeta.server.web.editable.beanlist;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,13 +18,13 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.annotation.ExcludedProperties;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.annotation.ExcludedProperties;
 
 public class BeanListPropertyViewer extends Panel {
 

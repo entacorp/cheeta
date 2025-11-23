@@ -1,32 +1,32 @@
-package io.onedev.server.plugin.executor.remotedocker;
+package io.cheeta.server.plugin.executor.remotedocker;
 
-import io.onedev.agent.Message;
-import io.onedev.agent.MessageTypes;
-import io.onedev.agent.job.DockerJobData;
-import io.onedev.agent.job.TestDockerJobData;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Numeric;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.job.*;
-import io.onedev.server.job.log.LogService;
-import io.onedev.server.job.log.ServerJobLogger;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.plugin.executor.serverdocker.ServerDockerExecutor;
-import io.onedev.server.search.entity.agent.AgentQuery;
-import io.onedev.server.terminal.AgentShell;
-import io.onedev.server.terminal.Shell;
-import io.onedev.server.terminal.Terminal;
+import io.cheeta.agent.Message;
+import io.cheeta.agent.MessageTypes;
+import io.cheeta.agent.job.DockerJobData;
+import io.cheeta.agent.job.TestDockerJobData;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Numeric;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.job.*;
+import io.cheeta.server.job.log.LogService;
+import io.cheeta.server.job.log.ServerJobLogger;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.plugin.executor.serverdocker.ServerDockerExecutor;
+import io.cheeta.server.search.entity.agent.AgentQuery;
+import io.cheeta.server.terminal.AgentShell;
+import io.cheeta.server.terminal.Shell;
+import io.cheeta.server.terminal.Terminal;
 import org.eclipse.jetty.websocket.api.Session;
 
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
-import static io.onedev.agent.WebsocketUtils.call;
+import static io.cheeta.agent.WebsocketUtils.call;
 import static java.util.stream.Collectors.toList;
 
 @Editable(order=210, description="This executor runs build jobs as docker containers on remote machines via <a href='/~administration/agents' target='_blank'>agents</a>")
@@ -40,7 +40,7 @@ public class RemoteDockerExecutor extends ServerDockerExecutor {
 	
 	@Editable(order=390, name="Agent Selector", placeholder="Any agent", 
 			description="Specify agents applicable for this executor")
-	@io.onedev.server.annotation.AgentQuery(forExecutor=true)
+	@io.cheeta.server.annotation.AgentQuery(forExecutor=true)
 	public String getAgentQuery() {
 		return agentQuery;
 	}
@@ -64,15 +64,15 @@ public class RemoteDockerExecutor extends ServerDockerExecutor {
 	}
 	
 	private AgentService getAgentService() {
-		return OneDev.getInstance(AgentService.class);
+		return Cheeta.getInstance(AgentService.class);
 	}
 	
 	private JobService getJobService() {
-		return OneDev.getInstance(JobService.class);
+		return Cheeta.getInstance(JobService.class);
 	}
 
 	private SessionService getSessionService() {
-		return OneDev.getInstance(SessionService.class);
+		return Cheeta.getInstance(SessionService.class);
 	}
 	
 	private int getConcurrencyNumber() {
@@ -142,15 +142,15 @@ public class RemoteDockerExecutor extends ServerDockerExecutor {
 	}
 	
 	private LogService getLogService() {
-		return OneDev.getInstance(LogService.class);
+		return Cheeta.getInstance(LogService.class);
 	}
 	
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 	
 	private ResourceAllocator getResourceAllocator() {
-		return OneDev.getInstance(ResourceAllocator.class);
+		return Cheeta.getInstance(ResourceAllocator.class);
 	}
 	
 	@Override
@@ -173,7 +173,7 @@ public class RemoteDockerExecutor extends ServerDockerExecutor {
 
 				TestDockerJobData jobData = new TestDockerJobData(getName(), jobToken,
 						testData.getDockerImage(), getDockerSockPath(), getRegistryLogins(jobToken), 
-						OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl(),
+						Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl(),
 						getRunOptions());
 
 				long timeout = 300*1000L;

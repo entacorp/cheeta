@@ -1,15 +1,15 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Date;
 import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.pullrequest.AutoMerge;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.pullrequest.AutoMerge;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
 
 public interface PullRequestChangeService extends EntityService<PullRequestChange> {
 

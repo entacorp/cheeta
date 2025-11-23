@@ -1,4 +1,4 @@
-package io.onedev.server.updatecheck;
+package io.cheeta.server.updatecheck;
 
 import org.jspecify.annotations.Nullable;
 

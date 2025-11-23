@@ -1,8 +1,8 @@
-package io.onedev.server.plugin.pack.container;
+package io.cheeta.server.plugin.pack.container;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.onedev.server.OneDev;
+import io.cheeta.server.Cheeta;
 
 import org.jspecify.annotations.Nullable;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class ContainerManifest {
 	
 	public ContainerManifest(byte[] manifestBytes) {
 		try {
-			json = OneDev.getInstance(ObjectMapper.class).readTree(manifestBytes);
+			json = Cheeta.getInstance(ObjectMapper.class).readTree(manifestBytes);
 			var schemaVersionNode = json.get("schemaVersion");
 			if (schemaVersionNode == null || !schemaVersionNode.asText().equals("2"))
 				throw new BadRequestException("Invalid manifest schema version");

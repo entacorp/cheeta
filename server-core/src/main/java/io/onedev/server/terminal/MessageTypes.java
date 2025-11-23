@@ -1,4 +1,4 @@
-package io.onedev.server.terminal;
+package io.cheeta.server.terminal;
 
 public enum MessageTypes {
 

@@ -1,10 +1,10 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.commons.utils.match.WildcardUtils.matchPath;
-import static io.onedev.server.model.Project.PROP_NAME;
-import static io.onedev.server.model.Project.PROP_PATH;
-import static io.onedev.server.search.entity.EntitySort.Direction.DESCENDING;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.commons.utils.match.WildcardUtils.matchPath;
+import static io.cheeta.server.model.Project.PROP_NAME;
+import static io.cheeta.server.model.Project.PROP_PATH;
+import static io.cheeta.server.search.entity.EntitySort.Direction.DESCENDING;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.commons.lang3.StringUtils.replace;
 
 import java.io.File;
@@ -63,82 +63,82 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.PathUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.commons.utils.match.StringMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.ProjectKey;
-import io.onedev.server.annotation.ProjectName;
-import io.onedev.server.annotation.SubscriptionRequired;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.BuildQueryPersonalizationService;
-import io.onedev.server.service.CodeCommentQueryPersonalizationService;
-import io.onedev.server.service.CommitQueryPersonalizationService;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IssueQueryPersonalizationService;
-import io.onedev.server.service.PackQueryPersonalizationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestQueryPersonalizationService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.git.BlameBlock;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.LfsObject;
-import io.onedev.server.git.exception.ObjectNotFoundException;
-import io.onedev.server.git.service.CommitMessageError;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.git.signatureverification.SignatureVerificationService;
-import io.onedev.server.git.signatureverification.VerificationSuccessful;
-import io.onedev.server.model.Build.Status;
-import io.onedev.server.model.support.CodeAnalysisSetting;
-import io.onedev.server.model.support.LabelSupport;
-import io.onedev.server.model.support.NamedCodeCommentQuery;
-import io.onedev.server.model.support.NamedCommitQuery;
-import io.onedev.server.model.support.WebHook;
-import io.onedev.server.model.support.build.BuildPreservation;
-import io.onedev.server.model.support.build.DefaultFixedIssueFilter;
-import io.onedev.server.model.support.build.JobProperty;
-import io.onedev.server.model.support.build.JobSecret;
-import io.onedev.server.model.support.build.NamedBuildQuery;
-import io.onedev.server.model.support.build.ProjectBuildSetting;
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.model.support.code.GitPackConfig;
-import io.onedev.server.model.support.code.TagProtection;
-import io.onedev.server.model.support.issue.BoardSpec;
-import io.onedev.server.model.support.issue.NamedIssueQuery;
-import io.onedev.server.model.support.issue.ProjectIssueSetting;
-import io.onedev.server.model.support.issue.TimesheetSetting;
-import io.onedev.server.model.support.pack.NamedPackQuery;
-import io.onedev.server.model.support.pack.ProjectPackSetting;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.model.support.pullrequest.NamedPullRequestQuery;
-import io.onedev.server.model.support.pullrequest.ProjectPullRequestSetting;
-import io.onedev.server.search.entity.SortField;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.StatusInfo;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.util.facade.ProjectFacade;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.util.usermatch.UserMatch;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.web.page.project.setting.ContributedProjectSetting;
-import io.onedev.server.web.util.ProjectAware;
-import io.onedev.server.web.util.WicketUtils;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.PathUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.commons.utils.match.StringMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.ProjectKey;
+import io.cheeta.server.annotation.ProjectName;
+import io.cheeta.server.annotation.SubscriptionRequired;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.BuildQueryPersonalizationService;
+import io.cheeta.server.service.CodeCommentQueryPersonalizationService;
+import io.cheeta.server.service.CommitQueryPersonalizationService;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IssueQueryPersonalizationService;
+import io.cheeta.server.service.PackQueryPersonalizationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestQueryPersonalizationService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.git.BlameBlock;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.LfsObject;
+import io.cheeta.server.git.exception.ObjectNotFoundException;
+import io.cheeta.server.git.service.CommitMessageError;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.git.signatureverification.SignatureVerificationService;
+import io.cheeta.server.git.signatureverification.VerificationSuccessful;
+import io.cheeta.server.model.Build.Status;
+import io.cheeta.server.model.support.CodeAnalysisSetting;
+import io.cheeta.server.model.support.LabelSupport;
+import io.cheeta.server.model.support.NamedCodeCommentQuery;
+import io.cheeta.server.model.support.NamedCommitQuery;
+import io.cheeta.server.model.support.WebHook;
+import io.cheeta.server.model.support.build.BuildPreservation;
+import io.cheeta.server.model.support.build.DefaultFixedIssueFilter;
+import io.cheeta.server.model.support.build.JobProperty;
+import io.cheeta.server.model.support.build.JobSecret;
+import io.cheeta.server.model.support.build.NamedBuildQuery;
+import io.cheeta.server.model.support.build.ProjectBuildSetting;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.model.support.code.GitPackConfig;
+import io.cheeta.server.model.support.code.TagProtection;
+import io.cheeta.server.model.support.issue.BoardSpec;
+import io.cheeta.server.model.support.issue.NamedIssueQuery;
+import io.cheeta.server.model.support.issue.ProjectIssueSetting;
+import io.cheeta.server.model.support.issue.TimesheetSetting;
+import io.cheeta.server.model.support.pack.NamedPackQuery;
+import io.cheeta.server.model.support.pack.ProjectPackSetting;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.model.support.pullrequest.NamedPullRequestQuery;
+import io.cheeta.server.model.support.pullrequest.ProjectPullRequestSetting;
+import io.cheeta.server.search.entity.SortField;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.StatusInfo;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.util.facade.ProjectFacade;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.util.usermatch.UserMatch;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.web.page.project.setting.ContributedProjectSetting;
+import io.cheeta.server.web.util.ProjectAware;
+import io.cheeta.server.web.util.WicketUtils;
+import io.cheeta.server.xodus.CommitInfoService;
 
 @Entity
 @Table(
@@ -163,7 +163,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 
 	public static final String SITE_DIR = "site";
 	
-	public static final String SHARE_TEST_DIR = ".onedev-share-test";
+	public static final String SHARE_TEST_DIR = ".cheeta-share-test";
 	
 	public static final int MAX_DESCRIPTION_LEN = 15000;
 	
@@ -211,9 +211,9 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 	
 	public static final String PROP_SERVICE_DESK_EMAIL_ADDRESS = "serviceDeskEmailAddress";
 	
-	private static final String FAKED_GITHUB_REPO_PATH_SEPARATOR = "-path.separator.of.onedev.project-";
+	private static final String FAKED_GITHUB_REPO_PATH_SEPARATOR = "-path.separator.of.cheeta.project-";
 
-	private static final String FAKED_GITHUB_REPO_OWNER = "faked-owner-of-onedev-project";
+	private static final String FAKED_GITHUB_REPO_OWNER = "faked-owner-of-cheeta-project";
 	
 	public static final List<String> QUERY_FIELDS = Lists.newArrayList(
 			NAME_NAME, NAME_KEY, NAME_PATH, NAME_LABEL, NAME_SERVICE_DESK_EMAIL_ADDRESS, NAME_ID, NAME_DESCRIPTION, NAME_LAST_ACTIVITY_DATE);
@@ -709,23 +709,23 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 	}
 
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(this, true);
+		return Cheeta.getInstance(UrlService.class).urlFor(this, true);
 	}
 	
 	@Nullable
@@ -834,7 +834,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 												 @Nullable String refName) {
 		Map<String, Collection<StatusInfo>> commitStatusInfos = getCommitStatusCache().get(commitId);
 		if (commitStatusInfos == null) {
-			BuildService buildService = OneDev.getInstance(BuildService.class);
+			BuildService buildService = Cheeta.getInstance(BuildService.class);
 			commitStatusInfos = buildService.queryStatus(this, Sets.newHashSet(commitId)).get(commitId);
 			getCommitStatusCache().put(commitId, Preconditions.checkNotNull(commitStatusInfos));
 		}
@@ -883,7 +883,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 			if (blob != null) {  
 				buildSpec = BuildSpec.parse(blob.getBytes());
 			} else { 
-				Blob oldBlob = getBlob(new BlobIdent(commitId.name(), ".onedev-buildspec", FileMode.TYPE_FILE), false);
+				Blob oldBlob = getBlob(new BlobIdent(commitId.name(), ".cheeta-buildspec", FileMode.TYPE_FILE), false);
 				if (oldBlob != null)
 					buildSpec = BuildSpec.parse(oldBlob.getBytes());
 				else
@@ -1034,9 +1034,9 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 	@SuppressWarnings("unused")
 	private static String getTimeTrackingDescription() {
 		if (!WicketUtils.isSubscriptionActive()) {
-			return _T("<b class='text-warning'>NOTE: </b><a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>Time tracking</a> is an enterprise feature. <a href='https://onedev.io/pricing' target='_blank'>Try free</a> for 30 days");
+			return _T("<b class='text-warning'>NOTE: </b><a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>Time tracking</a> is an enterprise feature. <a href='https://cheeta.io/pricing' target='_blank'>Try free</a> for 30 days");
 		} else {
-			return _T("Enable <a href='https://docs.onedev.io/tutorials/issue/time-tracking' target='_blank'>time tracking</a> for this project to track progress and generate timesheets");
+			return _T("Enable <a href='https://docs.cheeta.io/tutorials/issue/time-tracking' target='_blank'>time tracking</a> for this project to track progress and generate timesheets");
 		}
 	}
 
@@ -1047,7 +1047,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 
 	@SuppressWarnings("unused")
 	private static String getPackManagementDescription() {
-		return _T("Enable <a href='https://docs.onedev.io/tutorials/package/working-with-packages' target='_blank'>package management</a> for this project");
+		return _T("Enable <a href='https://docs.cheeta.io/tutorials/package/working-with-packages' target='_blank'>package management</a> for this project");
 	}
 
 	public void setPackManagement(boolean packManagement) {
@@ -1382,7 +1382,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 
 	public List<User> getAuthors(String filePath, ObjectId commitId, @Nullable LinearRange range) {
 		List<User> authors = new ArrayList<>();
-		EmailAddressService emailAddressService = OneDev.getInstance(EmailAddressService.class);
+		EmailAddressService emailAddressService = Cheeta.getInstance(EmailAddressService.class);
 		for (BlameBlock block: getGitService().blame(this, commitId, filePath, range)) {
 			EmailAddress emailAddress = emailAddressService.findByPersonIdent(block.getCommit().getAuthor());
 			if (emailAddress != null && emailAddress.isVerified() && !authors.contains(emailAddress.getOwner()))
@@ -1397,7 +1397,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 			User user = SecurityUtils.getAuthUser();
 			if (user != null) {
 				IssueQueryPersonalization personalization = 
-						OneDev.getInstance(IssueQueryPersonalizationService.class).find(this, user);
+						Cheeta.getInstance(IssueQueryPersonalizationService.class).find(this, user);
 				if (personalization == null) {
 					personalization = new IssueQueryPersonalization();
 					personalization.setProject(this);
@@ -1416,7 +1416,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 			User user = SecurityUtils.getAuthUser();
 			if (user != null) {
 				CommitQueryPersonalization personalization = 
-						OneDev.getInstance(CommitQueryPersonalizationService.class).find(this, user);
+						Cheeta.getInstance(CommitQueryPersonalizationService.class).find(this, user);
 				if (personalization == null) {
 					personalization = new CommitQueryPersonalization();
 					personalization.setProject(this);
@@ -1436,7 +1436,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 			User user = SecurityUtils.getAuthUser();
 			if (user != null) {
 				PullRequestQueryPersonalization personalization = 
-						OneDev.getInstance(PullRequestQueryPersonalizationService.class).find(this, user);
+						Cheeta.getInstance(PullRequestQueryPersonalizationService.class).find(this, user);
 				if (personalization == null) {
 					personalization = new PullRequestQueryPersonalization();
 					personalization.setProject(this);
@@ -1456,7 +1456,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 			User user = SecurityUtils.getAuthUser();
 			if (user != null) {
 				CodeCommentQueryPersonalization personalization = 
-						OneDev.getInstance(CodeCommentQueryPersonalizationService.class).find(this, user);
+						Cheeta.getInstance(CodeCommentQueryPersonalizationService.class).find(this, user);
 				if (personalization == null) {
 					personalization = new CodeCommentQueryPersonalization();
 					personalization.setProject(this);
@@ -1476,7 +1476,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 			User user = SecurityUtils.getAuthUser();
 			if (user != null) {
 				BuildQueryPersonalization personalization = 
-						OneDev.getInstance(BuildQueryPersonalizationService.class).find(this, user);
+						Cheeta.getInstance(BuildQueryPersonalizationService.class).find(this, user);
 				if (personalization == null) {
 					personalization = new BuildQueryPersonalization();
 					personalization.setProject(this);
@@ -1496,7 +1496,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 			User user = SecurityUtils.getAuthUser();
 			if (user != null) {
 				PackQueryPersonalization personalization =
-						OneDev.getInstance(PackQueryPersonalizationService.class).find(this, user);
+						Cheeta.getInstance(PackQueryPersonalizationService.class).find(this, user);
 				if (personalization == null) {
 					personalization = new PackQueryPersonalization();
 					personalization.setProject(this);
@@ -1535,7 +1535,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 		if (reachableBranches == null) {
 			reachableBranches = new HashSet<>();
 			
-			CommitInfoService commitInfoService = OneDev.getInstance(CommitInfoService.class);
+			CommitInfoService commitInfoService = Cheeta.getInstance(CommitInfoService.class);
 			Collection<ObjectId> descendants = commitInfoService.getDescendants(
 					getId(), Sets.newHashSet(commitId));
 			descendants.add(commitId);
@@ -1670,7 +1670,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 		if (contributedSetting == null) {
 			try {
 				T value = settingClass.getDeclaredConstructor().newInstance();
-				if (OneDev.getInstance(Validator.class).validate(value).isEmpty()) 
+				if (Cheeta.getInstance(Validator.class).validate(value).isEmpty()) 
 					contributedSetting = value;
 			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException 
 					| InvocationTargetException | NoSuchMethodException | SecurityException e) {
@@ -1750,7 +1750,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 	}
 	
 	private SignatureVerificationService getSignatureVerificationService() {
-		return OneDev.getInstance(SignatureVerificationService.class);
+		return Cheeta.getInstance(SignatureVerificationService.class);
 	}
 	
 	public static boolean containsPath(@Nullable String patterns, String path) {
@@ -1880,7 +1880,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 	}
 	
 	public Collection<Long> parseFixedIssueIds(String commitMessage) {
-		return OneDev.getInstance(IssueService.class).parseFixedIssueIds(this, commitMessage);
+		return Cheeta.getInstance(IssueService.class).parseFixedIssueIds(this, commitMessage);
 	}
 	
 	public Collection<Project> getTree() {
@@ -1981,7 +1981,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 			buildsCache = new HashMap<>();
 		Collection<Build> builds = buildsCache.get(commitId);
 		if (builds == null) {
-			BuildService buildService = OneDev.getInstance(BuildService.class);
+			BuildService buildService = Cheeta.getInstance(BuildService.class);
 			builds = buildService.query(this, commitId, null, null, null, null, new HashMap<>());
 			buildsCache.put(commitId, builds);
 		}
@@ -1997,7 +1997,7 @@ public class Project extends AbstractEntity implements LabelSupport<ProjectLabel
 	}
 	
 	public File getDir() {
-		return OneDev.getInstance(ProjectService.class).getProjectDir(getId());
+		return Cheeta.getInstance(ProjectService.class).getProjectDir(getId());
 	}
 	
 	public static String encodePathAsRepoName(String projectPath) {

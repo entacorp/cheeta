@@ -95,7 +95,7 @@ import org.apache.wicket.util.visit.Visit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.util.ComponentContext;
+import io.cheeta.server.util.ComponentContext;
 
 
 /**

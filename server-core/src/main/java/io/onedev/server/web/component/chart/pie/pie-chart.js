@@ -1,4 +1,4 @@
-onedev.server.pieChart = {
+cheeta.server.pieChart = {
 	onDomReady: function(containerId, pieSlices, selectionCallback, darkMode) {
 		var $chart = $("#" + containerId + ">.pie-chart");
 		if (pieSlices) {

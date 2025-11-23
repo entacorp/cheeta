@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.code;
+package io.cheeta.server.model.support.code;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,17 +12,17 @@ import javax.validation.constraints.NotEmpty;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.util.usermatch.Anyone;
-import io.onedev.server.util.usermatch.UserMatch;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.util.usermatch.Anyone;
+import io.cheeta.server.util.usermatch.UserMatch;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 @Editable
 public class TagProtection implements Serializable {
@@ -53,7 +53,7 @@ public class TagProtection implements Serializable {
 		this.enabled = enabled;
 	}
 
-	@Editable(order=100, description="Specify space-separated tags to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+	@Editable(order=100, description="Specify space-separated tags to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude")
 	@Patterns(suggester = "suggestTags", path=true)
 	@NotEmpty
@@ -71,7 +71,7 @@ public class TagProtection implements Serializable {
 	}
 	
 	@Editable(order=150, name="Applicable Users", description="Rule will apply if user operating the tag matches criteria specified here")
-	@io.onedev.server.annotation.UserMatch
+	@io.cheeta.server.annotation.UserMatch
 	@NotEmpty(message="may not be empty")
 	public String getUserMatch() {
 		return userMatch;
@@ -177,7 +177,7 @@ public class TagProtection implements Serializable {
 	}
 
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 
 }

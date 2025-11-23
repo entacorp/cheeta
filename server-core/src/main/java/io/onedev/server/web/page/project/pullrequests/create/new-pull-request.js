@@ -1,9 +1,9 @@
-onedev.server.newPullRequest = {    
+cheeta.server.newPullRequest = {    
     onCanSendLoad: function(titleAndDescriptionSuggestionCallback, translations) {
         // Do below logic in onLoad as unsaved description will be set in onLoad event of markdown editor, 
         // and we do not want to suggest description if unsaved description is loaded
         if (titleAndDescriptionSuggestionCallback) {
-            var icon = onedev.server.isDarkMode()? "sparkle.gif": "sparkle-dark.gif";
+            var icon = cheeta.server.isDarkMode()? "sparkle.gif": "sparkle-dark.gif";
             var indicatorHtml = "<div class='ajax-loading-indicator suggesting-indicator'><img src='/~img/" + icon + "' width='16' height='16'></div>";
 
             var $title = $(".pull-request-title");

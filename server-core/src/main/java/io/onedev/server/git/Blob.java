@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,11 +17,11 @@ import org.eclipse.jgit.lib.ObjectReader;
 
 import com.google.common.base.Optional;
 
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.ContentDetector;
-import io.onedev.server.web.component.markdown.SuggestionSupport.Selection;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.ContentDetector;
+import io.cheeta.server.web.component.markdown.SuggestionSupport.Selection;
 
 public class Blob implements Serializable {
 	

@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.layout;
+package io.cheeta.server.web.page.layout;
 
 import java.io.Serializable;
 

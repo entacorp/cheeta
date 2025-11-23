@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.code;
+package io.cheeta.server.web.editable.code;
 
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnLoadHeaderItem;
@@ -45,7 +45,7 @@ public class CodePropertyViewer extends Panel {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new CodeSupportResourceReference()));
 		
-		String script = String.format("onedev.server.codeSupport.onViewerLoad('%s', '%s');", 
+		String script = String.format("cheeta.server.codeSupport.onViewerLoad('%s', '%s');", 
 				input.getMarkupId(), language);
 		
 		// Initialize codemirror via onLoad; otherwise, it will not be shown 

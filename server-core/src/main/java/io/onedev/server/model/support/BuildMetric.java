@@ -1,6 +1,6 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
-import io.onedev.server.model.Build;
+import io.cheeta.server.model.Build;
 
 public interface BuildMetric {
 

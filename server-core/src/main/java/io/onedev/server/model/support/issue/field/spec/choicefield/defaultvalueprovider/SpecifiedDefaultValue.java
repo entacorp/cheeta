@@ -1,11 +1,11 @@
-package io.onedev.server.model.support.issue.field.spec.choicefield.defaultvalueprovider;
+package io.cheeta.server.model.support.issue.field.spec.choicefield.defaultvalueprovider;
 
-import io.onedev.server.model.Project;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.model.Project;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 import javax.validation.constraints.Size;
 import java.util.ArrayList;

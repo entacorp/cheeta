@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.codequeryoption;
+package io.cheeta.server.web.component.codequeryoption;
 
-import io.onedev.server.search.code.query.TextQuery;
-import io.onedev.server.search.code.query.TextQueryOption;
-import io.onedev.server.search.code.query.TooGeneralQueryException;
+import io.cheeta.server.search.code.query.TextQuery;
+import io.cheeta.server.search.code.query.TextQueryOption;
+import io.cheeta.server.search.code.query.TooGeneralQueryException;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.feedback.FencedFeedbackPanel;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -14,7 +14,7 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.validation.IValidationError;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;

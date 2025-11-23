@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.buildspec.param.spec;
+package io.cheeta.server.web.editable.buildspec.param.spec;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,13 +30,13 @@ import org.apache.wicket.model.Model;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.web.asset.inputspec.InputSpecCssResourceReference;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.component.offcanvas.OffCanvasCardPanel;
-import io.onedev.server.web.component.offcanvas.OffCanvasPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.EditableUtils;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.web.asset.inputspec.InputSpecCssResourceReference;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.component.offcanvas.OffCanvasCardPanel;
+import io.cheeta.server.web.component.offcanvas.OffCanvasPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.EditableUtils;
 
 class ParamSpecListViewPanel extends Panel {
 

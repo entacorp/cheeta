@@ -1,4 +1,4 @@
-package io.onedev.server.event.system;
+package io.cheeta.server.event.system;
 
 public class SystemStarting {
 

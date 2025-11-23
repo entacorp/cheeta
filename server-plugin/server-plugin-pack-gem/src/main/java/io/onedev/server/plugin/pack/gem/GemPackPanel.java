@@ -1,10 +1,10 @@
-package io.onedev.server.plugin.pack.gem;
+package io.cheeta.server.plugin.pack.gem;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.util.UrlUtils;
-import io.onedev.server.web.component.codesnippet.CodeSnippetPanel;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.util.UrlUtils;
+import io.cheeta.server.web.component.codesnippet.CodeSnippetPanel;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -12,7 +12,7 @@ import org.apache.wicket.model.Model;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class GemPackPanel extends GenericPanel<Pack> {
@@ -34,7 +34,7 @@ public class GemPackPanel extends GenericPanel<Pack> {
 		} catch (MalformedURLException e) {
 			throw new RuntimeException(e);
 		}
-		var installCommand = String.format("$ gem install %s --version \"%s\" --source \"%s://<onedev_account_name>:<onedev_password>@%s/%s/~rubygems\"", 
+		var installCommand = String.format("$ gem install %s --version \"%s\" --source \"%s://<cheeta_account_name>:<cheeta_password>@%s/%s/~rubygems\"", 
 				pack.getName(), pack.getVersion(), protocol, UrlUtils.getServer(serverUrl), pack.getProject().getPath());
 		add(new CodeSnippetPanel("install", Model.of(installCommand)));
 		
@@ -45,7 +45,7 @@ public class GemPackPanel extends GenericPanel<Pack> {
 		add(new CodeSnippetPanel("gemfile", Model.of(gemfileContent)));
 		
 		var resolveDependencyCommands = String.format("" +
-				"# " + _T("Use job token to tell OneDev the build using the package") + "\n" +
+				"# " + _T("Use job token to tell Cheeta the build using the package") + "\n" +
 				"# " + _T("Job secret 'access-token' should be defined in project build setting as an access token with package read permission") + "\n\n" +
 				"bundle config set --global %s/%s/~rubygems/ @job_token@:@secret:access-token@\n" +
 				"bundle install", serverUrl, pack.getProject().getPath());
@@ -60,7 +60,7 @@ public class GemPackPanel extends GenericPanel<Pack> {
 	}
 
 	private String getServerUrl() {
-		return OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+		return Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 	}
 	
 }

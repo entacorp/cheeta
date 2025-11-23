@@ -1,6 +1,6 @@
-package io.onedev.server.web.asset.inputspec;
+package io.cheeta.server.web.asset.inputspec;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class InputSpecCssResourceReference extends BaseDependentCssResourceReference {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,18 +13,18 @@ import javax.persistence.criteria.Predicate;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.codecomment.CodeCommentReplyCreated;
-import io.onedev.server.event.project.codecomment.CodeCommentReplyDeleted;
-import io.onedev.server.event.project.codecomment.CodeCommentReplyEdited;
-import io.onedev.server.event.project.pullrequest.PullRequestCodeCommentReplyCreated;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.CodeCommentReplyService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.codecomment.CodeCommentReplyCreated;
+import io.cheeta.server.event.project.codecomment.CodeCommentReplyDeleted;
+import io.cheeta.server.event.project.codecomment.CodeCommentReplyEdited;
+import io.cheeta.server.event.project.pullrequest.PullRequestCodeCommentReplyCreated;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.CodeCommentReplyService;
 
 @Singleton
 public class DefaultCodeCommentReplyService extends BaseEntityService<CodeCommentReply>

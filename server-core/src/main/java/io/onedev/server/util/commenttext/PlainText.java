@@ -1,4 +1,4 @@
-package io.onedev.server.util.commenttext;
+package io.cheeta.server.util.commenttext;
 
 import org.unbescape.html.HtmlEscape;
 

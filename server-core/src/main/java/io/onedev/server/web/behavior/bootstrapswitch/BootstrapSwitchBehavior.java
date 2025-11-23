@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior.bootstrapswitch;
+package io.cheeta.server.web.behavior.bootstrapswitch;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
@@ -13,7 +13,7 @@ public class BootstrapSwitchBehavior extends Behavior {
 		super.renderHead(component, response);
 		response.render(JavaScriptHeaderItem.forReference(new BootstrapSwitchResourceReference()));
 		
-		String script = String.format("onedev.server.bootstrapSwitch.onDomReady('%s');", component.getMarkupId(true));
+		String script = String.format("cheeta.server.bootstrapSwitch.onDomReady('%s');", component.getMarkupId(true));
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
 

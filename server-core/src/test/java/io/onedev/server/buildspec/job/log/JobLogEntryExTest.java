@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.log;
+package io.cheeta.server.buildspec.job.log;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.job.log.StyleBuilder;
+import io.cheeta.server.job.log.StyleBuilder;
 
 public class JobLogEntryExTest {
 

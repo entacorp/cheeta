@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.buildspec.job.postbuildaction;
+package io.cheeta.server.web.editable.buildspec.job.postbuildaction;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.buildspec.BuildSpecAware;
-import io.onedev.server.buildspec.job.JobAware;
-import io.onedev.server.buildspec.job.action.PostBuildAction;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.buildspec.BuildSpecAware;
+import io.cheeta.server.buildspec.job.JobAware;
+import io.cheeta.server.buildspec.job.action.PostBuildAction;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 public abstract class PostBuildActionEditPanel extends Panel implements BuildSpecAware, JobAware {
 

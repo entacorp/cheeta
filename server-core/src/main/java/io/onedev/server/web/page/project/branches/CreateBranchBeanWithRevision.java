@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.project.branches;
+package io.cheeta.server.web.page.project.branches;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.RevisionChoice;
-import io.onedev.server.web.component.branch.create.CreateBranchBean;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.RevisionChoice;
+import io.cheeta.server.web.component.branch.create.CreateBranchBean;
 
 import javax.validation.constraints.NotEmpty;
 

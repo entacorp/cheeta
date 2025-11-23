@@ -1,14 +1,14 @@
-package io.onedev.server.web.page.my;
+package io.cheeta.server.web.page.my;
 
 import org.apache.wicket.RestartResponseAtInterceptPageException;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.User;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.page.security.LoginPage;
-import io.onedev.server.web.util.UserAware;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.page.security.LoginPage;
+import io.cheeta.server.web.util.UserAware;
 
 public abstract class MyPage extends LayoutPage implements UserAware {
 	
@@ -25,7 +25,7 @@ public abstract class MyPage extends LayoutPage implements UserAware {
 
 	@Override
 	protected String getPageTitle() {
-		return "My - " + OneDev.getInstance(SettingService.class).getBrandingSetting().getName();
+		return "My - " + Cheeta.getInstance(SettingService.class).getBrandingSetting().getName();
 	}
 	
 }

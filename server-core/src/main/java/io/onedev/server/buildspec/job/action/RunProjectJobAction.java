@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.action;
+package io.cheeta.server.buildspec.job.action;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,28 +16,28 @@ import javax.ws.rs.NotAcceptableException;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.util.ThreadContext;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.job.JobService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable(name="Run job in another project", order=150)
 @ClassValidating
@@ -252,19 +252,19 @@ public class RunProjectJobAction extends PostBuildAction implements Validatable 
 	}
 
 	private static ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	private static AccessTokenService getAccessTokenService() {
-		return OneDev.getInstance(AccessTokenService.class);
+		return Cheeta.getInstance(AccessTokenService.class);
 	}
 
 	private static JobService getJobService() {
-		return OneDev.getInstance(JobService.class);
+		return Cheeta.getInstance(JobService.class);
 	}
 
 	private static BuildService getBuildService() {
-		return OneDev.getInstance(BuildService.class);
+		return Cheeta.getInstance(BuildService.class);
 	}
 
 	@Editable

@@ -1,32 +1,32 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import io.onedev.server.service.PullRequestMentionService;
-import io.onedev.server.service.PullRequestWatchService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.pullrequest.*;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.markdown.MentionParser;
-import io.onedev.server.model.*;
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestApproveData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestChangeData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestDiscardData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestRequestedForChangesData;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.QueryWatchBuilder;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.util.commenttext.MarkdownText;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.server.service.PullRequestMentionService;
+import io.cheeta.server.service.PullRequestWatchService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.pullrequest.*;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.markdown.MentionParser;
+import io.cheeta.server.model.*;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestApproveData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestChangeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestDiscardData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestRequestedForChangesData;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.QueryWatchBuilder;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.util.commenttext.MarkdownText;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.xodus.VisitInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
 import org.apache.shiro.authz.Permission;
@@ -36,8 +36,8 @@ import javax.inject.Singleton;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static io.onedev.server.notification.NotificationUtils.getEmailBody;
-import static io.onedev.server.notification.NotificationUtils.isNotified;
+import static io.cheeta.server.notification.NotificationUtils.getEmailBody;
+import static io.cheeta.server.notification.NotificationUtils.isNotified;
 
 @Singleton
 public class PullRequestNotificationManager {
@@ -187,7 +187,7 @@ public class PullRequestNotificationManager {
 							request.getReference(),
 							WordUtils.capitalize(changeData.getActivity()), 
 							emojis.apply(request.getTitle()));
-					String threadingReferences = String.format("<%s-%s@onedev>",
+					String threadingReferences = String.format("<%s-%s@cheeta>",
 							changeData.getActivity().replace(' ', '-'), request.getUUID());
 					EmailAddress emailAddress = request.getSubmitter().getPrimaryEmailAddress();
 					if (emailAddress != null && emailAddress.isVerified()) {
@@ -213,7 +213,7 @@ public class PullRequestNotificationManager {
 							"[Pull Request %s] (Assigned) %s",
 							request.getReference(), 
 							emojis.apply(request.getTitle()));
-					String threadingReferences = String.format("<assigned-%s@onedev>", request.getUUID());
+					String threadingReferences = String.format("<assigned-%s@cheeta>", request.getUUID());
 					String assignmentSummary;
 					if (user != null)
 						assignmentSummary = user.getDisplayName() + " assigned to you";
@@ -239,7 +239,7 @@ public class PullRequestNotificationManager {
 							"[Pull Request %s] (Review Request) %s",
 							request.getReference(), 
 							emojis.apply(request.getTitle()));
-					String threadingReferences = String.format("<review-invitation-%s@onedev>", request.getUUID());
+					String threadingReferences = String.format("<review-invitation-%s@cheeta>", request.getUUID());
 					String reviewInvitationSummary;
 					if (user != null)
 						reviewInvitationSummary = user.getDisplayName() + " requested review from you";
@@ -271,7 +271,7 @@ public class PullRequestNotificationManager {
 									"[Pull Request %s] (Mentioned You) %s", 
 									request.getReference(), 
 									emojis.apply(request.getTitle()));
-							String threadingReferences = String.format("<mentioned-%s@onedev>", request.getUUID());
+							String threadingReferences = String.format("<mentioned-%s@cheeta>", request.getUUID());
 	
 							EmailAddress emailAddress = mentionedUser.getPrimaryEmailAddress();
 							if (emailAddress != null && emailAddress.isVerified()) {
@@ -316,7 +316,7 @@ public class PullRequestNotificationManager {
 							request.getReference(), 
 							(event instanceof PullRequestOpened) ? "Opened" : "Updated", 
 							emojis.apply(request.getTitle()));
-					String threadingReferences = "<" + request.getUUID() + "@onedev>";
+					String threadingReferences = "<" + request.getUUID() + "@cheeta>";
 					Unsubscribable unsubscribable = new Unsubscribable(mailService.getUnsubscribeAddress(request));
 					String htmlBody = getEmailBody(true, event, summary, event.getHtmlBody(), url, replyable, unsubscribable);
 					String textBody = getEmailBody(false, event, summary, event.getTextBody(), url, replyable, unsubscribable);

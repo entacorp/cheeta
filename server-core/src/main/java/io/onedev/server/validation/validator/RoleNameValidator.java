@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.util.regex.Pattern;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.annotation.RoleName;
+import io.cheeta.server.annotation.RoleName;
 
 public class RoleNameValidator implements ConstraintValidator<RoleName, String> {
 	

@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.base;
+package io.cheeta.server.web.page.base;
 
 import java.util.List;
 

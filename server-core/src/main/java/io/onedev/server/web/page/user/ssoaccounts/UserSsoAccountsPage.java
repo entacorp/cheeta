@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.user.ssoaccounts;
+package io.cheeta.server.web.page.user.ssoaccounts;
 
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.user.ssoaccount.SsoAccountListPanel;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.user.ssoaccount.SsoAccountListPanel;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserSsoAccountsPage extends UserPage {
 		

@@ -1,8 +1,8 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.io.Serializable;
 
-import io.onedev.commons.loader.ExtensionPoint;
+import io.cheeta.commons.loader.ExtensionPoint;
 
 import org.jspecify.annotations.Nullable;
 

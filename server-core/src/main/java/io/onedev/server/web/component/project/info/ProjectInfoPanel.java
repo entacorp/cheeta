@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.project.info;
+package io.cheeta.server.web.component.project.info;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -32,24 +32,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.replica.ProjectReplica;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.search.entity.project.ProjectQueryLexer;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ParsedEmailAddress;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.entity.labels.EntityLabelsPanel;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.project.forkoption.ForkOptionPanel;
-import io.onedev.server.web.page.project.ProjectListPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.replica.ProjectReplica;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.search.entity.project.ProjectQueryLexer;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ParsedEmailAddress;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.entity.labels.EntityLabelsPanel;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.project.forkoption.ForkOptionPanel;
+import io.cheeta.server.web.page.project.ProjectListPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
 
 public abstract class ProjectInfoPanel extends Panel {
 
@@ -132,7 +132,7 @@ public abstract class ProjectInfoPanel extends Panel {
 				&& activeServer != null);
 		forkInfo.add(forkNow);
         
-        SettingService settingService = OneDev.getInstance(SettingService.class);
+        SettingService settingService = Cheeta.getInstance(SettingService.class);
         if (settingService.getServiceDeskSetting() != null
         		&& settingService.getMailConnector() != null 
         		&& settingService.getMailConnector().getInboxMonitor(false) != null
@@ -238,17 +238,17 @@ public abstract class ProjectInfoPanel extends Panel {
 			@Override
 			protected void onConfigure() {
 				super.onConfigure();
-				setVisible(latestVersion != -1 && OneDev.getInstance(ClusterService.class).isClusteringSupported());
+				setVisible(latestVersion != -1 && Cheeta.getInstance(ClusterService.class).isClusteringSupported());
 			}
 		});
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 	
 	private Project getProject() {

@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pullrequest;
+package io.cheeta.server.search.entity.pullrequest;
 
 import java.util.Collection;
 
@@ -10,14 +10,14 @@ import javax.persistence.criteria.Predicate;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.xodus.PullRequestInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.xodus.PullRequestInfoService;
 
 public class IncludesCommitCriteria extends Criteria<PullRequest> {
 
@@ -46,7 +46,7 @@ public class IncludesCommitCriteria extends Criteria<PullRequest> {
 	}
 	
 	private Collection<Long> getPullRequestIds() {
-		return OneDev.getInstance(PullRequestInfoService.class).getPullRequestIds(project, commitId);
+		return Cheeta.getInstance(PullRequestInfoService.class).getPullRequestIds(project, commitId);
 	}
 	
 	@Override

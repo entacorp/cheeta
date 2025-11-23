@@ -1,7 +1,7 @@
-package io.onedev.server.entityreference;
+package io.cheeta.server.entityreference;
 
-import static io.onedev.server.entityreference.ReferenceUtils.extractReferences;
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.entityreference.ReferenceUtils.extractReferences;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -11,12 +11,12 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.loader.AppLoaderMocker;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.loader.AppLoaderMocker;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
 
 public class ReferenceUtilsTest extends AppLoaderMocker {
 

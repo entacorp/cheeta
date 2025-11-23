@@ -1,7 +1,7 @@
-package io.onedev.server.persistence.dao;
+package io.cheeta.server.persistence.dao;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.persistence.SessionService;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.persistence.SessionService;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;

@@ -1,10 +1,10 @@
-package io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider;
+package io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider;
 
 import java.io.Serializable;
 import java.util.Map;
 
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public abstract class ChoiceProvider implements Serializable {

@@ -1,13 +1,13 @@
-package io.onedev.server.buildspec.param.instance;
+package io.cheeta.server.buildspec.param.instance;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.model.Build;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(name="Ignore this param")
 public class IgnoreValues implements ValuesProvider {

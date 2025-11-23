@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.showcondition;
+package io.cheeta.server.buildspecmodel.inputspec.showcondition;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,12 +12,12 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable
 public class ShowCondition implements Serializable {

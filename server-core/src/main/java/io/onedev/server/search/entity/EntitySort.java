@@ -1,8 +1,8 @@
-package io.onedev.server.search.entity;
+package io.cheeta.server.search.entity;
 
 import java.io.Serializable;
 
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class EntitySort implements Serializable {
 	

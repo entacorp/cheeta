@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
 import java.util.HashSet;
 
@@ -15,22 +15,22 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.util.visit.IVisitor;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.page.base.BasePage;
 
 abstract class AbstractColumnPanel extends Panel implements EditContext {
 
@@ -78,19 +78,19 @@ abstract class AbstractColumnPanel extends Panel implements EditContext {
 	protected abstract CardListPanel getCardListPanel();
 
 	protected GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	protected IssueChangeService getIssueChangeService() {
-		return OneDev.getInstance(IssueChangeService.class);
+		return Cheeta.getInstance(IssueChangeService.class);
 	}
 	
 	protected IssueService getIssueService() {
-		return OneDev.getInstance(IssueService.class);
+		return Cheeta.getInstance(IssueService.class);
 	}
 
 	protected IterationService getIterationService() {
-		return OneDev.getInstance(IterationService.class);
+		return Cheeta.getInstance(IterationService.class);
 	}
 	
 	@Override

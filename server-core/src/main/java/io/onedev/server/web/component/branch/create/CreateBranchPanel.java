@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.branch.create;
+package io.cheeta.server.web.component.branch.create;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -12,16 +12,16 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 public abstract class CreateBranchPanel extends Panel {
 
@@ -72,7 +72,7 @@ public abstract class CreateBranchPanel extends Panel {
 								_T("Valid signature required for head commit of this branch per branch protection rule"));
 						target.add(form);
 					} else {
-						OneDev.getInstance(GitService.class).createBranch(project, branchName, revision);
+						Cheeta.getInstance(GitService.class).createBranch(project, branchName, revision);
 						onCreate(target, branchName);
 					}
 				}

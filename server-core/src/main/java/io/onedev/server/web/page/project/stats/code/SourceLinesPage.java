@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.stats.code;
+package io.cheeta.server.web.page.project.stats.code;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -16,8 +16,8 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.xodus.CommitInfoService;
 
 public class SourceLinesPage extends CodeStatsPage {
 
@@ -29,7 +29,7 @@ public class SourceLinesPage extends CodeStatsPage {
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
 		
-		Map<Integer, Map<String, Integer>> lineIncrements = OneDev.getInstance(CommitInfoService.class)
+		Map<Integer, Map<String, Integer>> lineIncrements = Cheeta.getInstance(CommitInfoService.class)
 				.getLineIncrements(getProject().getId());
 		Map<Integer, Map<String, Integer>> data = new LinkedHashMap<>();
 		for (var key: new TreeSet<>(lineIncrements.keySet())) 
@@ -39,11 +39,11 @@ public class SourceLinesPage extends CodeStatsPage {
 		translations.put("noDefaultBranch", _T("No default branch"));
 		translations.put("sloc", _T("SLOC on {0}"));
 		try {
-			ObjectMapper mapper = OneDev.getInstance(ObjectMapper.class);
+			ObjectMapper mapper = Cheeta.getInstance(ObjectMapper.class);
 			String jsonOfData = mapper.writeValueAsString(data);
 			String jsonOfDefaultBranch = mapper.writeValueAsString(getProject().getDefaultBranch());
 			String jsonOfTranslations = mapper.writeValueAsString(translations);
-			String script = String.format("onedev.server.codeStats.sourceLines.onDomReady(%s, %s, %b, %s);", 
+			String script = String.format("cheeta.server.codeStats.sourceLines.onDomReady(%s, %s, %b, %s);", 
 					jsonOfData, jsonOfDefaultBranch, isDarkMode(), jsonOfTranslations);
 			response.render(OnDomReadyHeaderItem.forScript(script));
 		} catch (JsonProcessingException e) {

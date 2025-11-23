@@ -1,6 +1,6 @@
-package io.onedev.server.util.usage;
+package io.cheeta.server.util.usage;
 
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExplicitException;
 
 public class InUseException extends ExplicitException {
 

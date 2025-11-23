@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.pipeline;
+package io.cheeta.server.web.component.pipeline;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.snapsvg.SnapSvgResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.snapsvg.SnapSvgResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class PipelineResourceReference extends BaseDependentResourceReference {
 

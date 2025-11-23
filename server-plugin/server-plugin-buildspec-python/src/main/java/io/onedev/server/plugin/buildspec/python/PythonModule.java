@@ -1,7 +1,7 @@
-package io.onedev.server.plugin.buildspec.python;
+package io.cheeta.server.plugin.buildspec.python;
 
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.server.buildspec.job.JobSuggestion;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.server.buildspec.job.JobSuggestion;
 
 /**
  * NOTE: Do not forget to rename moduleClass property defined in the pom if you've renamed this class.

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import com.google.common.base.Preconditions;
-import io.onedev.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExceptionUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;

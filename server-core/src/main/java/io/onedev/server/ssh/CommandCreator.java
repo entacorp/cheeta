@@ -1,4 +1,4 @@
-package io.onedev.server.ssh;
+package io.cheeta.server.ssh;
 
 import java.util.Map;
 

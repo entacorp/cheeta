@@ -1,9 +1,9 @@
-package io.onedev.server.plugin.pack.maven;
+package io.cheeta.server.plugin.pack.maven;
 
-import static io.onedev.server.plugin.pack.maven.MavenPackHandler.FILE_METADATA;
-import static io.onedev.server.plugin.pack.maven.MavenPackHandler.NONE;
-import static io.onedev.server.util.GroovyUtils.evalTemplate;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.plugin.pack.maven.MavenPackHandler.FILE_METADATA;
+import static io.cheeta.server.plugin.pack.maven.MavenPackHandler.NONE;
+import static io.cheeta.server.util.GroovyUtils.evalTemplate;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.apache.commons.lang3.StringUtils.substringBefore;
@@ -45,16 +45,16 @@ import org.unbescape.html.HtmlEscape;
 
 import com.google.common.io.Resources;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PackBlobService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.model.PackBlobReference;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.component.codesnippet.CodeSnippetPanel;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PackBlobService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.model.PackBlobReference;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.component.codesnippet.CodeSnippetPanel;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
 
 public class MavenPackPanel extends GenericPanel<Pack> {
 	
@@ -119,7 +119,7 @@ public class MavenPackPanel extends GenericPanel<Pack> {
 				bindings.put("groupId", substringBefore(getPack().getName(), ":"));
 				bindings.put("artifactId", substringAfter(getPack().getName(), ":"));
 				bindings.put("version", getPack().getVersion());
-				var serverUrl = OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+				var serverUrl = Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 				bindings.put("url", serverUrl + "/" + getPack().getProject().getPath() + "/~" + MavenPackHandler.HANDLER_ID);
 				bindings.put("permission", "read");
 
@@ -256,7 +256,7 @@ public class MavenPackPanel extends GenericPanel<Pack> {
 	}
 
 	private PackBlobService getPackBlobService() {
-		return OneDev.getInstance(PackBlobService.class);
+		return Cheeta.getInstance(PackBlobService.class);
 	}
 	
 }

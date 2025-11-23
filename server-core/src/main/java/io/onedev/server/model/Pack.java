@@ -1,19 +1,19 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
-import io.onedev.server.OneDev;
-import io.onedev.server.model.support.LabelSupport;
-import io.onedev.server.pack.PackSupport;
-import io.onedev.server.search.entity.SortField;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.support.LabelSupport;
+import io.cheeta.server.pack.PackSupport;
+import io.cheeta.server.search.entity.SortField;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
-import static io.onedev.server.model.Pack.*;
-import static io.onedev.server.search.entity.EntitySort.Direction.DESCENDING;
+import static io.cheeta.server.model.Pack.*;
+import static io.cheeta.server.search.entity.EntitySort.Direction.DESCENDING;
 
 @Entity
 @Table(
@@ -202,7 +202,7 @@ public class Pack extends AbstractEntity implements LabelSupport<PackLabel> {
 	
 	public PackSupport getSupport() {
 		if (support == null) {
-			support = OneDev.getExtensions(PackSupport.class).stream()
+			support = Cheeta.getExtensions(PackSupport.class).stream()
 					.filter(it -> it.getPackType().equals(type)).findFirst().get();
 		}
 		return support;

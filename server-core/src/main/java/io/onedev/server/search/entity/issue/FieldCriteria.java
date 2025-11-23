@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -15,15 +15,15 @@ import javax.persistence.criteria.Subquery;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueField;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueField;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
 
 public abstract class FieldCriteria extends Criteria<Issue> {
 
@@ -67,7 +67,7 @@ public abstract class FieldCriteria extends Criteria<Issue> {
 	@Override
 	public Collection<String> getUndefinedFields() {
 		Set<String> undefinedFields = new HashSet<>();
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		if (!Issue.QUERY_FIELDS.contains(fieldName) 
 				&& issueSetting.getFieldSpec(fieldName) == null) {
 			undefinedFields.add(fieldName);
@@ -89,7 +89,7 @@ public abstract class FieldCriteria extends Criteria<Issue> {
 	}
 
 	public FieldSpec getFieldSpec() {
-		SettingService settingService = OneDev.getInstance(SettingService.class);
+		SettingService settingService = Cheeta.getInstance(SettingService.class);
 		return Preconditions.checkNotNull(settingService.getIssueSetting().getFieldSpec(fieldName));
 	}
 	

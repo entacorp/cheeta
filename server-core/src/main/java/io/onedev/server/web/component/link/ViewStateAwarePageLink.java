@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.link;
+package io.cheeta.server.web.component.link;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
@@ -31,7 +31,7 @@ public class ViewStateAwarePageLink<T> extends BookmarkablePageLink<T> {
 
 	@Override
 	protected CharSequence getOnClickScript(CharSequence url) {
-		var script = "onedev.server.viewState.getFromViewAndSetToHistory();";
+		var script = "cheeta.server.viewState.getFromViewAndSetToHistory();";
 		if (scrollTopKey != null) {
 			script += "" + 
 				"localStorage.setItem('" + scrollTopKey + "', Math.floor($(this).closest('.autofit').scrollTop()).toString());";

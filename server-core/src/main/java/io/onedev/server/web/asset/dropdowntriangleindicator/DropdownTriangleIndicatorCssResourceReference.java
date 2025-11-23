@@ -1,6 +1,6 @@
-package io.onedev.server.web.asset.dropdowntriangleindicator;
+package io.cheeta.server.web.asset.dropdowntriangleindicator;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class DropdownTriangleIndicatorCssResourceReference extends BaseDependentCssResourceReference {
 

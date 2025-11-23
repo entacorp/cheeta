@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.icon;
+package io.cheeta.server.web.asset.icon;
 
 public class IconScope {
 

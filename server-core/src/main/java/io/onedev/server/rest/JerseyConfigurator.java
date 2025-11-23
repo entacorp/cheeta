@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import org.glassfish.jersey.server.ResourceConfig;
 

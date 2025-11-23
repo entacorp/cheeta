@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.entity.reference;
+package io.cheeta.server.web.component.entity.reference;
 
-import io.onedev.server.entityreference.EntityReference;
-import io.onedev.server.entityreference.IssueReference;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.entityreference.EntityReference;
+import io.cheeta.server.entityreference.IssueReference;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 

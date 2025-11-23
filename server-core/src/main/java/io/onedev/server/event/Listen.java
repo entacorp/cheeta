@@ -1,4 +1,4 @@
-package io.onedev.server.event;
+package io.cheeta.server.event;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

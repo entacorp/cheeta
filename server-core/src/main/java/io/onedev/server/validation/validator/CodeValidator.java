@@ -1,4 +1,4 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import javax.validation.ConstraintValidatorContext;
 import org.apache.commons.lang3.StringUtils;
 
 import groovy.text.SimpleTemplateEngine;
-import io.onedev.server.util.GroovyUtils;
-import io.onedev.server.annotation.Code;
+import io.cheeta.server.util.GroovyUtils;
+import io.cheeta.server.annotation.Code;
 
 public class CodeValidator implements ConstraintValidator<Code, Object> {
 

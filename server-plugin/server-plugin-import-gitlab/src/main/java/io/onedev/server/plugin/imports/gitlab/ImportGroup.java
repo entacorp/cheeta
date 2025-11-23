@@ -1,14 +1,14 @@
-package io.onedev.server.plugin.imports.gitlab;
+package io.cheeta.server.plugin.imports.gitlab;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 @Editable
 public class ImportGroup implements Serializable {

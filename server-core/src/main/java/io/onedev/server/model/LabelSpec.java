@@ -1,6 +1,6 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.LabelSpec.PROP_NAME;
+import static io.cheeta.server.model.LabelSpec.PROP_NAME;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,9 +16,9 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import io.onedev.server.annotation.Color;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.annotation.Color;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.rest.annotation.Api;
 
 @Entity
 @Table(indexes={@Index(columnList=PROP_NAME)})

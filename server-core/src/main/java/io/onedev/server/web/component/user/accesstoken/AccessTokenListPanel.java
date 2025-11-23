@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.accesstoken;
+package io.cheeta.server.web.component.user.accesstoken;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,13 +14,13 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.model.User;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.page.user.UserPage;
 
 public abstract class AccessTokenListPanel extends Panel {
 
@@ -151,11 +151,11 @@ public abstract class AccessTokenListPanel extends Panel {
 	protected abstract User getUser();
 	
 	private AccessTokenService getAccessTokenService() {
-		return OneDev.getInstance(AccessTokenService.class);
+		return Cheeta.getInstance(AccessTokenService.class);
 	}
 	
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 	
 }

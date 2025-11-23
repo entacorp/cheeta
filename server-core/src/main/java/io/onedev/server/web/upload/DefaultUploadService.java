@@ -1,11 +1,11 @@
-package io.onedev.server.web.upload;
+package io.cheeta.server.web.upload;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.taskschedule.SchedulableTask;
-import io.onedev.server.taskschedule.TaskScheduler;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.taskschedule.SchedulableTask;
+import io.cheeta.server.taskschedule.TaskScheduler;
 import org.quartz.ScheduleBuilder;
 import org.quartz.SimpleScheduleBuilder;
 

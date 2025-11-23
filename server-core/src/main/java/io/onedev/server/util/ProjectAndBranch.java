@@ -1,7 +1,7 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
 
 public class ProjectAndBranch extends ProjectAndRevision {
 

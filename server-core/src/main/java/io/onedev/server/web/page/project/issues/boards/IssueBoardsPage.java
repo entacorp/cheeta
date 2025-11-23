@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
-import static io.onedev.server.model.Issue.NAME_BOARD_POSITION;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.Issue.NAME_BOARD_POSITION;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.io.Serializable;
@@ -41,38 +41,38 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.issue.BoardSpec;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.IssueQueryBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.issue.board.BoardEditPanel;
-import io.onedev.server.web.component.iteration.IterationDateLabel;
-import io.onedev.server.web.component.iteration.IterationStatusLabel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.issues.ProjectIssuesPage;
-import io.onedev.server.web.page.project.issues.iteration.IterationBurndownPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
-import io.onedev.server.web.util.editbean.IterationEditBean;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.issue.BoardSpec;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.IssueQueryBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.issue.board.BoardEditPanel;
+import io.cheeta.server.web.component.iteration.IterationDateLabel;
+import io.cheeta.server.web.component.iteration.IterationStatusLabel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.issues.ProjectIssuesPage;
+import io.cheeta.server.web.page.project.issues.iteration.IterationBurndownPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.web.util.editbean.IterationEditBean;
 
 public class IssueBoardsPage extends ProjectIssuesPage {
 
@@ -219,7 +219,7 @@ public class IssueBoardsPage extends ProjectIssuesPage {
 	}
 	
 	private IterationService getIterationService() {
-		return OneDev.getInstance(IterationService.class);
+		return Cheeta.getInstance(IterationService.class);
 	}
 	
 	@Override

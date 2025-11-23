@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.model.PendingSuggestionApply;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.PendingSuggestionApply;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
 
 public interface PendingSuggestionApplyService extends EntityService<PendingSuggestionApply> {
 	

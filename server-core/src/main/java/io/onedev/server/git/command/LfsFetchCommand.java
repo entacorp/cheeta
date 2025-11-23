@@ -1,9 +1,9 @@
-package io.onedev.server.git.command;
+package io.cheeta.server.git.command;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.server.git.CommandUtils;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.server.git.CommandUtils;
 import org.eclipse.jgit.lib.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

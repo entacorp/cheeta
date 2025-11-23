@@ -1,5 +1,5 @@
 
-package	io.onedev.server.web.page.project.blob.render.source;
+package	io.cheeta.server.web.page.project.blob.render.source;
 
 import java.util.List;
 
@@ -7,17 +7,17 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.clipboard.ClipboardResourceReference;
-import io.onedev.server.web.asset.codemirror.CodeMirrorResourceReference;
-import io.onedev.server.web.asset.codeproblem.CodeProblemResourceReference;
-import io.onedev.server.web.asset.commentindicator.CommentIndicatorCssResourceReference;
-import io.onedev.server.web.asset.cookies.CookiesResourceReference;
-import io.onedev.server.web.asset.hover.HoverResourceReference;
-import io.onedev.server.web.asset.jqueryui.JQueryUIResourceReference;
-import io.onedev.server.web.asset.selectbytyping.SelectByTypingResourceReference;
-import io.onedev.server.web.asset.selectionpopover.SelectionPopoverResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.clipboard.ClipboardResourceReference;
+import io.cheeta.server.web.asset.codemirror.CodeMirrorResourceReference;
+import io.cheeta.server.web.asset.codeproblem.CodeProblemResourceReference;
+import io.cheeta.server.web.asset.commentindicator.CommentIndicatorCssResourceReference;
+import io.cheeta.server.web.asset.cookies.CookiesResourceReference;
+import io.cheeta.server.web.asset.hover.HoverResourceReference;
+import io.cheeta.server.web.asset.jqueryui.JQueryUIResourceReference;
+import io.cheeta.server.web.asset.selectbytyping.SelectByTypingResourceReference;
+import io.cheeta.server.web.asset.selectionpopover.SelectionPopoverResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class SourceViewResourceReference extends BaseDependentResourceReference {
 

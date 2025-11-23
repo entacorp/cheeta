@@ -1,8 +1,8 @@
-package io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider;
+package io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
-public interface DefaultMultiValueProvider extends io.onedev.server.buildspecmodel.inputspec.userchoiceinput.DefaultMultiValueProvider {
+public interface DefaultMultiValueProvider extends io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.DefaultMultiValueProvider {
 	
 }

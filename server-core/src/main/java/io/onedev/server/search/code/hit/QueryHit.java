@@ -1,4 +1,4 @@
-package io.onedev.server.search.code.hit;
+package io.cheeta.server.search.code.hit;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.image.Image;
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.PlanarRange;
 
 public abstract class QueryHit implements Serializable {
 	

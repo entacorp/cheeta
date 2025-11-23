@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.pullrequest;
+package io.cheeta.server.model.support.pullrequest;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.PullRequestQuery;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.PullRequestQuery;
 
 @Editable
 public class NamedPullRequestQuery implements NamedQuery {

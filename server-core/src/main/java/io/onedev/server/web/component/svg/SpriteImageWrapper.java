@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.svg;
+package io.cheeta.server.web.component.svg;
 
 import org.jspecify.annotations.Nullable;
 

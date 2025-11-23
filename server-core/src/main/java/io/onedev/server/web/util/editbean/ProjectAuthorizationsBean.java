@@ -1,10 +1,10 @@
-package io.onedev.server.web.util.editbean;
+package io.cheeta.server.web.util.editbean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class ProjectAuthorizationsBean implements Serializable {

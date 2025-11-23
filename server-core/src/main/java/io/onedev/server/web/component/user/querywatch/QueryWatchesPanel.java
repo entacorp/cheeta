@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.querywatch;
+package io.cheeta.server.web.component.user.querywatch;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,10 @@ import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
 
 public abstract class QueryWatchesPanel extends GenericPanel<User> {
     

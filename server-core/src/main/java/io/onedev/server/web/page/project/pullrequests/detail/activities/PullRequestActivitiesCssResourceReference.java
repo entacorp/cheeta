@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.pullrequests.detail.activities;
+package io.cheeta.server.web.page.project.pullrequests.detail.activities;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class PullRequestActivitiesCssResourceReference extends BaseDependentCssResourceReference {
 

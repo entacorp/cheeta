@@ -1,10 +1,10 @@
-package io.onedev.server.plugin.imports.url;
+package io.cheeta.server.plugin.imports.url;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.imports.ProjectImporter;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.util.ImportStep;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.imports.ProjectImporter;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.util.ImportStep;
 
 import java.io.Serializable;
 import java.util.List;

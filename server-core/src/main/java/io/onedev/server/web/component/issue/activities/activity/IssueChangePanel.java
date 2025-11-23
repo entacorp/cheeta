@@ -1,15 +1,15 @@
-package io.onedev.server.web.component.issue.activities.activity;
+package io.cheeta.server.web.component.issue.activities.activity;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.notification.ActivityDetail;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.notification.ActivityDetail;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
 
 class IssueChangePanel extends Panel {
 

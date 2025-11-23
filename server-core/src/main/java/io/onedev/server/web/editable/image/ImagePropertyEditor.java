@@ -1,11 +1,11 @@
-package io.onedev.server.web.editable.image;
+package io.cheeta.server.web.editable.image;
 
-import io.onedev.server.annotation.Image;
-import io.onedev.server.web.component.imagedata.upload.ImageUploadField;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.Image;
+import io.cheeta.server.web.component.imagedata.upload.ImageUploadField;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.IModel;

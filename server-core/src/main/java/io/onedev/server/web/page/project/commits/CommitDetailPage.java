@@ -1,55 +1,55 @@
-package io.onedev.server.web.page.project.commits;
+package io.cheeta.server.web.page.project.commits;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CodeProblemContribution;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.codequality.LineCoverageContribution;
-import io.onedev.server.service.*;
-import io.onedev.server.entityreference.LinkTransformer;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.job.JobAuthorizationContextAware;
-import io.onedev.server.model.*;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.component.AjaxLazyLoadPanel;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.branch.create.CreateBranchPanel;
-import io.onedev.server.web.component.contributorpanel.ContributorPanel;
-import io.onedev.server.web.component.createtag.CreateTagPanel;
-import io.onedev.server.web.component.diff.revision.RevisionAnnotationSupport;
-import io.onedev.server.web.component.diff.revision.RevisionDiffPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.gitsignature.SignatureStatusPanel;
-import io.onedev.server.web.component.job.jobinfo.JobInfoButton;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.user.contributoravatars.ContributorAvatars;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.editbean.CommitMessageBean;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CodeProblemContribution;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.codequality.LineCoverageContribution;
+import io.cheeta.server.service.*;
+import io.cheeta.server.entityreference.LinkTransformer;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.job.JobAuthorizationContextAware;
+import io.cheeta.server.model.*;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.component.AjaxLazyLoadPanel;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.branch.create.CreateBranchPanel;
+import io.cheeta.server.web.component.contributorpanel.ContributorPanel;
+import io.cheeta.server.web.component.createtag.CreateTagPanel;
+import io.cheeta.server.web.component.diff.revision.RevisionAnnotationSupport;
+import io.cheeta.server.web.component.diff.revision.RevisionDiffPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.gitsignature.SignatureStatusPanel;
+import io.cheeta.server.web.component.job.jobinfo.JobInfoButton;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.user.contributoravatars.ContributorAvatars;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.editbean.CommitMessageBean;
+import io.cheeta.server.xodus.CommitInfoService;
 import org.apache.wicket.Component;
 import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.Session;
@@ -84,8 +84,8 @@ import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.*;
 
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 public class CommitDetailPage extends ProjectPage implements RevisionAnnotationSupport, JobAuthorizationContextAware {
@@ -134,7 +134,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 
 				@Override
 				protected Collection<CodeComment> load() {
-					CodeCommentService manager = OneDev.getInstance(CodeCommentService.class);
+					CodeCommentService manager = Cheeta.getInstance(CodeCommentService.class);
 					return manager.query(projectModel.getObject(), getCompareWith(), resolvedRevision);
 				}
 
@@ -388,7 +388,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 					@Override
 					public void renderHead(IHeaderResponse response) {
 						super.renderHead(response);
-						String script = String.format("onedev.server.commitDetail.initRefs('%s');", getMarkupId());
+						String script = String.format("cheeta.server.commitDetail.initRefs('%s');", getMarkupId());
 						response.render(OnDomReadyHeaderItem.forScript(script));
 					}
 					
@@ -668,7 +668,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 			@Override
 			protected PullRequest getPullRequest() {
 				if (state.requestId != null)
-					return OneDev.getInstance(PullRequestService.class).load(state.requestId);
+					return Cheeta.getInstance(PullRequestService.class).load(state.requestId);
 				else
 					return null;
 			}
@@ -795,7 +795,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	}
 
 	private Collection<ObjectId> getDescendants() {
-		Collection<ObjectId> descendants = OneDev.getInstance(CommitInfoService.class)
+		Collection<ObjectId> descendants = Cheeta.getInstance(CommitInfoService.class)
 				.getDescendants(getProject().getId(), Sets.newHashSet(getCommit().getId()));
 		descendants.add(getCommit().getId());
 		return descendants;
@@ -804,7 +804,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	@Override
 	public CodeComment getOpenComment() {
 		if (state.commentId != null)
-			return OneDev.getInstance(CodeCommentService.class).load(state.commentId);
+			return Cheeta.getInstance(CodeCommentService.class).load(state.commentId);
 		else
 			return null;
 	}
@@ -866,22 +866,22 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	@Override
 	public void onSaveComment(CodeComment comment) {
 		if (comment.isNew())
-			OneDev.getInstance(CodeCommentService.class).create(comment);
+			Cheeta.getInstance(CodeCommentService.class).create(comment);
 		else
-			OneDev.getInstance(CodeCommentService.class).update(comment);
+			Cheeta.getInstance(CodeCommentService.class).update(comment);
 	}
 	
 	@Override
 	public void onSaveCommentReply(CodeCommentReply reply) {
 		if (reply.isNew())
-			OneDev.getInstance(CodeCommentReplyService.class).create(reply);
+			Cheeta.getInstance(CodeCommentReplyService.class).create(reply);
 		else
-			OneDev.getInstance(CodeCommentReplyService.class).update(reply);
+			Cheeta.getInstance(CodeCommentReplyService.class).update(reply);
 	}
 
 	@Override
 	public void onSaveCommentStatusChange(CodeCommentStatusChange change, String note) {
-		OneDev.getInstance(CodeCommentStatusChangeService.class).create(change, note);
+		Cheeta.getInstance(CodeCommentStatusChangeService.class).create(change, note);
 	}
 	
 	@Override
@@ -921,7 +921,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	public Collection<CodeProblem> getOldProblems(String blobPath) {
 		Set<CodeProblem> problems = new HashSet<>();
 		for (Build build: getProject().getBuilds(getCompareWith())) {
-			for (CodeProblemContribution contribution: OneDev.getExtensions(CodeProblemContribution.class))
+			for (CodeProblemContribution contribution: Cheeta.getExtensions(CodeProblemContribution.class))
 				problems.addAll(contribution.getCodeProblems(build, blobPath, null));
 		}
 		return problems;
@@ -931,7 +931,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	public Collection<CodeProblem> getNewProblems(String blobPath) {
 		Set<CodeProblem> problems = new HashSet<>();
 		for (Build build: getProject().getBuilds(getCommit())) {
-			for (CodeProblemContribution contribution: OneDev.getExtensions(CodeProblemContribution.class))
+			for (CodeProblemContribution contribution: Cheeta.getExtensions(CodeProblemContribution.class))
 				problems.addAll(contribution.getCodeProblems(build, blobPath, null));
 		}
 		return problems;
@@ -941,7 +941,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	public Map<Integer, CoverageStatus> getOldCoverages(String blobPath) {
 		Map<Integer, CoverageStatus> coverages = new HashMap<>();
 		for (Build build: getProject().getBuilds(getCompareWith())) {
-			for (LineCoverageContribution contribution: OneDev.getExtensions(LineCoverageContribution.class)) {
+			for (LineCoverageContribution contribution: Cheeta.getExtensions(LineCoverageContribution.class)) {
 				contribution.getLineCoverages(build, blobPath, null).forEach((key, value) -> {
 					coverages.merge(key, value, (v1, v2) -> v1.mergeWith(v2));
 				});
@@ -954,7 +954,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	public Map<Integer, CoverageStatus> getNewCoverages(String blobPath) {
 		Map<Integer, CoverageStatus> coverages = new HashMap<>();
 		for (Build build: getProject().getBuilds(getCommit())) {
-			for (LineCoverageContribution contribution: OneDev.getExtensions(LineCoverageContribution.class)) {
+			for (LineCoverageContribution contribution: Cheeta.getExtensions(LineCoverageContribution.class)) {
 				contribution.getLineCoverages(build, blobPath, null).forEach((key, value) -> {
 					coverages.merge(key, value, (v1, v2) -> v1.mergeWith(v2));
 				});
@@ -981,7 +981,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	@Nullable
 	private PullRequest getPullRequest() {
 		if (state.requestId != null)
-			return OneDev.getInstance(PullRequestService.class).load(state.requestId);
+			return Cheeta.getInstance(PullRequestService.class).load(state.requestId);
 		else
 			return null;
 	}
@@ -992,7 +992,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 	}
 
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 
 	@Nullable
@@ -1004,7 +1004,7 @@ public class CommitDetailPage extends ProjectPage implements RevisionAnnotationS
 		if (!buildRequirement.getRequiredJobs().isEmpty())
 			return _T("This change needs to be verified by some jobs. Submit pull request instead");
 		if (protection.isCommitSignatureRequired()
-				&& OneDev.getInstance(SettingService.class).getGpgSetting().getSigningKey() == null) {
+				&& Cheeta.getInstance(SettingService.class).getGpgSetting().getSigningKey() == null) {
 			return _T("Commit signature required but no GPG signing key specified");
 		}
 		return null;

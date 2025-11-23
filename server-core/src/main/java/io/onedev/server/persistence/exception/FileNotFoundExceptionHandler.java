@@ -1,11 +1,11 @@
-package io.onedev.server.persistence.exception;
+package io.cheeta.server.persistence.exception;
 
 import java.io.FileNotFoundException;
 
 import javax.servlet.http.HttpServletResponse;
 
-import io.onedev.server.exception.HttpResponse;
-import io.onedev.server.exception.handler.AbstractExceptionHandler;
+import io.cheeta.server.exception.HttpResponse;
+import io.cheeta.server.exception.handler.AbstractExceptionHandler;
 
 public class FileNotFoundExceptionHandler extends AbstractExceptionHandler<FileNotFoundException> {
 	

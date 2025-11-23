@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +15,14 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentTokenService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.AgentToken;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentTokenService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.AgentToken;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
 
 class AddAgentPanel extends Panel {
 
@@ -69,9 +69,9 @@ class AddAgentPanel extends Panel {
 			@Override
 			public void onClick(AjaxRequestTarget target) {
 				AgentToken token = new AgentToken();
-				OneDev.getInstance(AgentTokenService.class).createOrUpdate(token);
+				Cheeta.getInstance(AgentTokenService.class).createOrUpdate(token);
 				StringBuilder builder = new StringBuilder("docker run -t -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd)/agent/work:/agent/work -e serverUrl=");
-				builder.append(OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl());
+				builder.append(Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl());
 				builder.append(" -e agentToken=").append(token.getValue()).append(" -h myagent").append(" 1dev/agent");
 				Fragment commandFragment = new Fragment("command", "dockerCommandFrag", AddAgentPanel.this);
 				commandFragment.add(new Label("command", builder.toString()));

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component;
+package io.cheeta.server.web.component;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;

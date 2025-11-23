@@ -1,11 +1,11 @@
-package io.onedev.server.buildspec.step.commandinterpreter;
+package io.cheeta.server.buildspec.step.commandinterpreter;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.CommandFacade;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.CommandFacade;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

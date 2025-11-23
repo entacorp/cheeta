@@ -1,19 +1,19 @@
-package io.onedev.server.git.hook;
+package io.cheeta.server.git.hook;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestUpdate;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.model.support.code.TagProtection;
-import io.onedev.server.persistence.annotation.Sessional;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestUpdate;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.model.support.code.TagProtection;
+import io.cheeta.server.persistence.annotation.Sessional;
 import org.apache.shiro.util.ThreadContext;
 import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-import static io.onedev.server.security.SecurityUtils.*;
+import static io.cheeta.server.security.SecurityUtils.*;
 
 @Singleton
 public class GitPreReceiveCallback extends HttpServlet {
@@ -70,7 +70,7 @@ public class GitPreReceiveCallback extends HttpServlet {
         
         if (!fields.get(2).equals(HookUtils.HOOK_TOKEN)) {
             response.sendError(HttpServletResponse.SC_FORBIDDEN,
-                    "Git hook callbacks can only be accessed by OneDev itself");
+                    "Git hook callbacks can only be accessed by Cheeta itself");
             return;
         }
 
@@ -125,7 +125,7 @@ public class GitPreReceiveCallback extends HttpServlet {
 
 				if (refName.startsWith(PullRequest.REFS_PREFIX) || refName.startsWith(PullRequestUpdate.REFS_PREFIX)) {
 					if (!canManageProject(project)) {
-						error(output, refName, Lists.newArrayList("Only project managers can update onedev refs."));
+						error(output, refName, Lists.newArrayList("Only project managers can update cheeta refs."));
 						break;
 					}
 				} else if (refName.startsWith(Constants.R_HEADS)) {

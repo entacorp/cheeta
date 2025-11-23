@@ -1,24 +1,24 @@
-package io.onedev.server.model.support.channelnotification;
+package io.cheeta.server.model.support.channelnotification;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
-import io.onedev.server.annotation.BuildQuery;
-import io.onedev.server.annotation.CodeCommentQuery;
-import io.onedev.server.annotation.CommitQuery;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.IssueQuery;
-import io.onedev.server.annotation.PullRequestQuery;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.event.project.build.BuildEvent;
-import io.onedev.server.event.project.codecomment.CodeCommentEvent;
-import io.onedev.server.event.project.issue.IssueEvent;
-import io.onedev.server.event.project.pullrequest.PullRequestEvent;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.annotation.BuildQuery;
+import io.cheeta.server.annotation.CodeCommentQuery;
+import io.cheeta.server.annotation.CommitQuery;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.IssueQuery;
+import io.cheeta.server.annotation.PullRequestQuery;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.event.project.build.BuildEvent;
+import io.cheeta.server.event.project.codecomment.CodeCommentEvent;
+import io.cheeta.server.event.project.issue.IssueEvent;
+import io.cheeta.server.event.project.pullrequest.PullRequestEvent;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
 
 @Editable
 public class ChannelNotification implements Serializable {
@@ -163,35 +163,35 @@ public class ChannelNotification implements Serializable {
 			if (isIssues()) {
 				IssueQueryParseOption option = new IssueQueryParseOption();
 				option.withOrder(false);
-				return io.onedev.server.search.entity.issue.IssueQuery.parse(event.getProject(), getIssueQuery(), option, true)
+				return io.cheeta.server.search.entity.issue.IssueQuery.parse(event.getProject(), getIssueQuery(), option, true)
 						.matches(((IssueEvent)event).getIssue());
 			} else {
 				return false;
 			}
 		} else if (event instanceof BuildEvent) {
 			if (isBuilds()) {
-				return io.onedev.server.search.entity.build.BuildQuery.parse(event.getProject(), getBuildQuery(), false, true)
+				return io.cheeta.server.search.entity.build.BuildQuery.parse(event.getProject(), getBuildQuery(), false, true)
 						.matches(((BuildEvent)event).getBuild());
 			} else {
 				return false;
 			}
 		} else if (event instanceof PullRequestEvent) {
 			if (isPullRequests()) {
-				return io.onedev.server.search.entity.pullrequest.PullRequestQuery.parse(event.getProject(), getPullRequestQuery(), false)
+				return io.cheeta.server.search.entity.pullrequest.PullRequestQuery.parse(event.getProject(), getPullRequestQuery(), false)
 						.matches(((PullRequestEvent)event).getRequest());
 			} else {
 				return false;
 			}
 		} else if (event instanceof RefUpdated) {
 			if (isCodePush()) {
-				return io.onedev.server.search.commit.CommitQuery.parse(event.getProject(), getCommitQuery(), false)
+				return io.cheeta.server.search.commit.CommitQuery.parse(event.getProject(), getCommitQuery(), false)
 						.matches((RefUpdated)event);
 			} else {
 				return false;
 			}
 		} else if (event instanceof CodeCommentEvent) {
 			if (isCodeComments()) {
-				return io.onedev.server.search.entity.codecomment.CodeCommentQuery.parse(event.getProject(), getCodeCommentQuery(), false)
+				return io.cheeta.server.search.entity.codecomment.CodeCommentQuery.parse(event.getProject(), getCodeCommentQuery(), false)
 						.matches(((CodeCommentEvent)event).getComment());
 			} else {
 				return false;

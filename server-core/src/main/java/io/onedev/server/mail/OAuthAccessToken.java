@@ -1,11 +1,11 @@
-package io.onedev.server.mail;
+package io.cheeta.server.mail;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AlertService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.oauth.OAuthTokenService;
-import io.onedev.server.util.oauth.RefreshTokenAccessor;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AlertService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.oauth.OAuthTokenService;
+import io.cheeta.server.util.oauth.RefreshTokenAccessor;
 import org.unbescape.html.HtmlEscape;
 
 public class OAuthAccessToken implements MailCredential {
@@ -31,10 +31,10 @@ public class OAuthAccessToken implements MailCredential {
 	@Override
 	public String getValue() {
 		try {
-			return OneDev.getInstance(OAuthTokenService.class).getAccessToken(tokenEndpoint, clientId, clientSecret, refreshTokenAccessor);
+			return Cheeta.getInstance(OAuthTokenService.class).getAccessToken(tokenEndpoint, clientId, clientSecret, refreshTokenAccessor);
 		} catch (ExplicitException e) {
 			if (SecurityUtils.isAnonymous() || SecurityUtils.isSystem())
-				OneDev.getInstance(AlertService.class).alert("Failed to get access token of mail server",
+				Cheeta.getInstance(AlertService.class).alert("Failed to get access token of mail server",
 						HtmlEscape.escapeHtml5(e.getMessage()), true);
 			throw e;
 		}

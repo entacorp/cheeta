@@ -1,4 +1,4 @@
-package io.onedev.server.util.jackson.hibernate;
+package io.cheeta.server.util.jackson.hibernate;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.Module;
@@ -12,8 +12,8 @@ import com.fasterxml.jackson.databind.ser.std.CollectionSerializer;
 import com.fasterxml.jackson.databind.ser.std.MapSerializer;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.MapType;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.persistence.dao.Dao;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.persistence.dao.Dao;
 import org.hibernate.proxy.HibernateProxy;
 
 import javax.inject.Inject;

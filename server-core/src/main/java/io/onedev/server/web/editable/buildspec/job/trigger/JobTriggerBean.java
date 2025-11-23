@@ -1,11 +1,11 @@
-package io.onedev.server.web.editable.buildspec.job.trigger;
+package io.cheeta.server.web.editable.buildspec.job.trigger;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.buildspec.job.trigger.JobTrigger;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspec.job.trigger.JobTrigger;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class JobTriggerBean implements Serializable {

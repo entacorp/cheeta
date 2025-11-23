@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.Column;
@@ -7,7 +7,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import java.util.Date;
 
-import static io.onedev.server.model.AgentLastUsedDate.PROP_VALUE;
+import static io.cheeta.server.model.AgentLastUsedDate.PROP_VALUE;
 
 /**
  * Maintain high dynamic data in a separate table to avoid agent second-level 

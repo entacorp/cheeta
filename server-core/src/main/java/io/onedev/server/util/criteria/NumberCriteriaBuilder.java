@@ -1,4 +1,4 @@
-package io.onedev.server.util.criteria;
+package io.cheeta.server.util.criteria;
 
 import java.util.Collection;
 

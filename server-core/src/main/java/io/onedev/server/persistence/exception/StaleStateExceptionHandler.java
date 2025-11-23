@@ -1,7 +1,7 @@
-package io.onedev.server.persistence.exception;
+package io.cheeta.server.persistence.exception;
 
-import io.onedev.server.exception.HttpResponse;
-import io.onedev.server.exception.handler.AbstractExceptionHandler;
+import io.cheeta.server.exception.HttpResponse;
+import io.cheeta.server.exception.handler.AbstractExceptionHandler;
 import org.hibernate.StaleStateException;
 
 import javax.servlet.http.HttpServletResponse;

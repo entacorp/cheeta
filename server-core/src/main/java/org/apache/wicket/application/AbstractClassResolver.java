@@ -29,8 +29,8 @@ import org.apache.wicket.Application;
 import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.util.collections.UrlExternalFormComparator;
 
-import io.onedev.server.buildspec.param.ParamUtils;
-import io.onedev.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.buildspec.param.ParamUtils;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
 
 /**
  * An abstract implementation of a {@link IClassResolver} which uses a {@link ClassLoader} for

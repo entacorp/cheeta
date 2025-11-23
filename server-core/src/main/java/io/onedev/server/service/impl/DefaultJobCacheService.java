@@ -1,11 +1,11 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.commons.utils.LockUtils.read;
-import static io.onedev.commons.utils.LockUtils.write;
-import static io.onedev.server.model.JobCache.PROP_ACCESS_DATE;
-import static io.onedev.server.model.JobCache.PROP_KEY;
-import static io.onedev.server.model.JobCache.PROP_PROJECT;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.commons.utils.LockUtils.read;
+import static io.cheeta.commons.utils.LockUtils.write;
+import static io.cheeta.server.model.JobCache.PROP_ACCESS_DATE;
+import static io.cheeta.server.model.JobCache.PROP_KEY;
+import static io.cheeta.server.model.JobCache.PROP_PROJECT;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Comparator.comparing;
 
@@ -42,25 +42,25 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Joiner;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.k8shelper.CacheHelper;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.model.JobCache;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.JobCacheService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.taskschedule.SchedulableTask;
-import io.onedev.server.taskschedule.TaskScheduler;
-import io.onedev.server.util.IOUtils;
-import io.onedev.server.util.concurrent.BatchWorkExecutionService;
-import io.onedev.server.util.concurrent.BatchWorker;
-import io.onedev.server.util.concurrent.Prioritized;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.k8shelper.CacheHelper;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.model.JobCache;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.JobCacheService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.taskschedule.SchedulableTask;
+import io.cheeta.server.taskschedule.TaskScheduler;
+import io.cheeta.server.util.IOUtils;
+import io.cheeta.server.util.concurrent.BatchWorkExecutionService;
+import io.cheeta.server.util.concurrent.BatchWorker;
+import io.cheeta.server.util.concurrent.Prioritized;
 
 @Singleton
 public class DefaultJobCacheService extends BaseEntityService<JobCache>

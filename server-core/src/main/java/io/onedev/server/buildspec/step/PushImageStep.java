@@ -1,14 +1,14 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.annotation.*;
-import io.onedev.server.buildspec.BuildSpec;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.annotation.*;
+import io.cheeta.server.buildspec.BuildSpec;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
-import static io.onedev.server.buildspec.step.StepGroup.DOCKER_IMAGE;
+import static io.cheeta.server.buildspec.step.StepGroup.DOCKER_IMAGE;
 
 @Editable(order=250, name="Push Image", group = DOCKER_IMAGE, description="Push docker image from OCI layout via crane. " +
 		"This step needs to be executed by server docker executor, remote docker executor, or Kubernetes executor")
@@ -22,7 +22,7 @@ public class PushImageStep extends CraneStep {
 	
 	private String moreOptions;
 	
-	@Editable(order=100, name="OCI Layout Directory", description = "Specify OCI layout directory relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to push from")
+	@Editable(order=100, name="OCI Layout Directory", description = "Specify OCI layout directory relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to push from")
 	@Interpolative(variableSuggester="suggestVariables")
 	@SubPath
 	@NoSpace
@@ -71,7 +71,7 @@ public class PushImageStep extends CraneStep {
 			builder.append(" ").append(getMoreOptions());			
 		if (getDestImage().contains("localhost") || getDestImage().contains("127.0.0.1"))
 			throw new ExplicitException("Loopback address not allowed for target docker image of push image step, please use ip address or host name instead");
-		builder.append(" /onedev-build/workspace/").append(getSrcPath()).append(" ").append(getDestImage());
+		builder.append(" /cheeta-build/workspace/").append(getSrcPath()).append(" ").append(getDestImage());
 		return builder.toString();
 	}
 	

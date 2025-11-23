@@ -1,6 +1,6 @@
-package io.onedev.server.buildspec.job.retrycondition;
+package io.cheeta.server.buildspec.job.retrycondition;
 
-import io.onedev.server.model.Build;
+import io.cheeta.server.model.Build;
 
 import org.jspecify.annotations.Nullable;
 

@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,23 +8,23 @@ import javax.validation.constraints.NotEmpty;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.annotation.UserMatch;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.util.usermatch.Anyone;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.annotation.UserMatch;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.util.usermatch.Anyone;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 @Editable(order=100, name="Branch update", description=""
 		+ "Job will run when code is committed. <b class='text-info'>NOTE:</b> This trigger will ignore commits "
@@ -42,7 +42,7 @@ public class BranchUpdateTrigger extends JobTrigger {
 	private String userMatch = new Anyone().toString();
 		
 	@Editable(name="Branches", order=100, placeholder="Any branch", description="Optionally specify space-separated branches "
-			+ "to check. Use '**' or '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "to check. Use '**' or '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty to match all branches")
 	@Patterns(suggester = "suggestBranches", path=true)
 	public String getBranches() {
@@ -59,7 +59,7 @@ public class BranchUpdateTrigger extends JobTrigger {
 	}
 	
 	@Editable(name="Touched Files", order=200, placeholder="Any file", 
-			description="Optionally specify space-separated files to check. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			description="Optionally specify space-separated files to check. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 					+ "Prefix with '-' to exclude. Leave empty to match all files")
 	@Patterns(suggester = "getPathSuggestions", path=true)
 	public String getPaths() {
@@ -93,7 +93,7 @@ public class BranchUpdateTrigger extends JobTrigger {
 			} else if (refUpdated.getNewCommitId().equals(ObjectId.zeroId())) {
 				return false;
 			} else {
-				Repository repository = OneDev.getInstance(ProjectService.class)
+				Repository repository = Cheeta.getInstance(ProjectService.class)
 						.getRepository(refUpdated.getProject().getId());
 				Collection<String> changedFiles = GitUtils.getChangedFiles(
 						repository, 
@@ -113,7 +113,7 @@ public class BranchUpdateTrigger extends JobTrigger {
 
 	private boolean pushedBy(RefUpdated refUpdated) {
 		if (refUpdated.getUser() != null) {
-			return io.onedev.server.util.usermatch.UserMatch.parse(getUserMatch()).matches(refUpdated.getUser());			
+			return io.cheeta.server.util.usermatch.UserMatch.parse(getUserMatch()).matches(refUpdated.getUser());			
 		} else {
 			return true;
 		}

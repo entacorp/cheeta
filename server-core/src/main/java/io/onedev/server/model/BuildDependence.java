@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.Api;
 
 @Entity
 @Table(

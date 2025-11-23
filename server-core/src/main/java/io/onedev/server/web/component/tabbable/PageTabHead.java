@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.tabbable;
+package io.cheeta.server.web.component.tabbable;
 
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;

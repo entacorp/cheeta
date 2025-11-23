@@ -1,13 +1,13 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.User;
-import io.onedev.server.util.facade.EmailAddressCache;
-import io.onedev.server.util.facade.EmailAddressFacade;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.facade.EmailAddressCache;
+import io.cheeta.server.util.facade.EmailAddressFacade;
 
 public interface EmailAddressService extends EntityService<EmailAddress> {
 

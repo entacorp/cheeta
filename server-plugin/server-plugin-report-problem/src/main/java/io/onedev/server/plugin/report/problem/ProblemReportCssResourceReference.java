@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.problem;
+package io.cheeta.server.plugin.report.problem;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class ProblemReportCssResourceReference extends BaseDependentCssResourceReference {
 

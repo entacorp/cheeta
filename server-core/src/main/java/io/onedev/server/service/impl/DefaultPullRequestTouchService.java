@@ -1,6 +1,6 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.PullRequestTouch.PROP_REQUEST_ID;
+import static io.cheeta.server.model.PullRequestTouch.PROP_REQUEST_ID;
 import static java.lang.String.format;
 
 import java.util.List;
@@ -10,25 +10,25 @@ import javax.inject.Singleton;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.event.project.pullrequest.PullRequestChanged;
-import io.onedev.server.event.project.pullrequest.PullRequestCommentCreated;
-import io.onedev.server.event.project.pullrequest.PullRequestCommentEdited;
-import io.onedev.server.event.project.pullrequest.PullRequestOpened;
-import io.onedev.server.event.project.pullrequest.PullRequestTouched;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestTouch;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestTouchService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.event.project.pullrequest.PullRequestChanged;
+import io.cheeta.server.event.project.pullrequest.PullRequestCommentCreated;
+import io.cheeta.server.event.project.pullrequest.PullRequestCommentEdited;
+import io.cheeta.server.event.project.pullrequest.PullRequestOpened;
+import io.cheeta.server.event.project.pullrequest.PullRequestTouched;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestTouch;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestTouchService;
 
 @Singleton
 public class DefaultPullRequestTouchService extends BaseEntityService<PullRequestTouch>

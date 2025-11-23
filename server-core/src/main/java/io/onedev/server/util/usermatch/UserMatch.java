@@ -1,4 +1,4 @@
-package io.onedev.server.util.usermatch;
+package io.cheeta.server.util.usermatch;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,17 +16,17 @@ import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.User;
-import io.onedev.server.util.usermatch.UserMatchParser.CriteriaContext;
-import io.onedev.server.util.usermatch.UserMatchParser.ExceptCriteriaContext;
-import io.onedev.server.util.usermatch.UserMatchParser.UserMatchContext;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.usermatch.UserMatchParser.CriteriaContext;
+import io.cheeta.server.util.usermatch.UserMatchParser.ExceptCriteriaContext;
+import io.cheeta.server.util.usermatch.UserMatchParser.UserMatchContext;
 
 public class UserMatch implements Serializable {
 
@@ -66,14 +66,14 @@ public class UserMatch implements Serializable {
 			return new Anyone();
 		} else if (criteriaContext.userCriteria() != null) {
 			String userName = getValue(criteriaContext.userCriteria().Value());
-			User user = OneDev.getInstance(UserService.class).findByName(userName);
+			User user = Cheeta.getInstance(UserService.class).findByName(userName);
 			if (user != null)
 				return new UserCriteria(user);
 			else
 				throw new ExplicitException("Unable to find user with login: " + userName);
 		} else if (criteriaContext.groupCriteria() != null) {
 			String groupName = getValue(criteriaContext.groupCriteria().Value());
-			Group group = OneDev.getInstance(GroupService.class).find(groupName);
+			Group group = Cheeta.getInstance(GroupService.class).find(groupName);
 			if (group != null)
 				return new GroupCriteria(group);
 			else

@@ -1,4 +1,4 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import java.util.Properties;
 
@@ -13,9 +13,9 @@ import org.hibernate.service.ServiceRegistry;
 
 import com.hazelcast.core.HazelcastInstance;
 
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.model.AbstractEntity;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

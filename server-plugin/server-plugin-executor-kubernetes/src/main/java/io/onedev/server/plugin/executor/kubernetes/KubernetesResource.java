@@ -1,23 +1,23 @@
-package io.onedev.server.plugin.executor.kubernetes;
+package io.cheeta.server.plugin.executor.kubernetes;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TarUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.K8sJobData;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.JobCacheService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.JobService;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IOUtils;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TarUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.K8sJobData;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.JobCacheService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IOUtils;
 import org.apache.commons.lang.SerializationUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -41,9 +41,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static io.onedev.k8shelper.KubernetesHelper.readInt;
-import static io.onedev.k8shelper.KubernetesHelper.readString;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.k8shelper.KubernetesHelper.readInt;
+import static io.cheeta.k8shelper.KubernetesHelper.readString;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static org.apache.commons.io.IOUtils.copy;
 
 @Api(internal=true)

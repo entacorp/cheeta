@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.modal;
+package io.cheeta.server.web.component.modal;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;

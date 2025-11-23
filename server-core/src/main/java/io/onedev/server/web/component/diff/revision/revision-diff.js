@@ -1,4 +1,4 @@
-onedev.server.revisionDiff = {
+cheeta.server.revisionDiff = {
 	onBodyDomReady: function() {
 		$(".revision-diff>.body li.diff, .revision-diff>.body li.diff>div")
 			.css("scroll-margin-top", $(".revision-diff>.head").outerHeight() + "px");

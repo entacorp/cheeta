@@ -1,6 +1,6 @@
-package io.onedev.server.model.support.administration.jobexecutor;
+package io.cheeta.server.model.support.administration.jobexecutor;
 
-import io.onedev.k8shelper.RegistryLoginFacade;
+import io.cheeta.k8shelper.RegistryLoginFacade;
 
 import java.util.List;
 

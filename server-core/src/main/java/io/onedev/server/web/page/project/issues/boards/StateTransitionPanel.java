@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -12,17 +12,17 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.model.support.issue.transitionspec.ManualSpec;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.model.support.issue.transitionspec.ManualSpec;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 abstract class StateTransitionPanel extends Panel implements InputContext {
 
@@ -61,7 +61,7 @@ abstract class StateTransitionPanel extends Panel implements InputContext {
 						getIssue().getProject(), transition.getPromptFields());
 				Map<String, Object> fieldValues = FieldUtils.getFieldValues(
 						editor.newComponentContext(), fieldBean, editableFields);
-				OneDev.getInstance(IssueChangeService.class).changeState(SecurityUtils.getUser(), getIssue(),
+				Cheeta.getInstance(IssueChangeService.class).changeState(SecurityUtils.getUser(), getIssue(),
 						getToState(), fieldValues, transition.getPromptFields(), transition.getRemoveFields(), null);
 				onSaved(target);
 			}
@@ -101,7 +101,7 @@ abstract class StateTransitionPanel extends Panel implements InputContext {
 
 	@Override
 	public InputSpec getInputSpec(String inputName) {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getFieldSpec(inputName);
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldSpec(inputName);
 	}
 	
 	protected abstract Issue getIssue();

@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.renderers.gitlink;
+package io.cheeta.server.web.page.project.blob.render.renderers.gitlink;
 
 import java.nio.file.Paths;
 
@@ -9,16 +9,16 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.Submodule;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.view.BlobViewPanel;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.Submodule;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.view.BlobViewPanel;
 
 public class GitLinkPanel extends BlobViewPanel {
 
@@ -33,8 +33,8 @@ public class GitLinkPanel extends BlobViewPanel {
 		Blob blob = context.getProject().getBlob(context.getBlobIdent(), true);
 		Submodule submodule = Submodule.fromString(blob.getText().getContent()); 
 		WebMarkupContainer link = null;
-		SettingService settingService = OneDev.getInstance(SettingService.class);
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		SettingService settingService = Cheeta.getInstance(SettingService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		String rootUrl = settingService.getSystemSetting().getServerUrl() + "/";
 		Project project = null;
 		if (submodule.getUrl().startsWith(rootUrl)) {

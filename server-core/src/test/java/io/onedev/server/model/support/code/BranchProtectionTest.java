@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.code;
+package io.cheeta.server.model.support.code;
 
 import com.google.common.collect.Lists;
 import org.junit.Test;

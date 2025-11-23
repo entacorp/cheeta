@@ -1,6 +1,6 @@
-package io.onedev.server.util.facade;
+package io.cheeta.server.util.facade;
 
-import io.onedev.server.model.User;
+import io.cheeta.server.model.User;
 
 import org.jspecify.annotations.Nullable;
 

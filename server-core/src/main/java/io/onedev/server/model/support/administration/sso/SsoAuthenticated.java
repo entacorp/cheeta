@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.administration.sso;
+package io.cheeta.server.model.support.administration.sso;
 
 import java.util.Collection;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.support.administration.authenticator.Authenticated;
+import io.cheeta.server.model.support.administration.authenticator.Authenticated;
 
 public class SsoAuthenticated extends Authenticated {
 	

@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.web.page.project.issues.iteration.IterationDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.web.page.project.issues.iteration.IterationDetailPage;
 
 public class IterationParam extends ParamSegment {
 
@@ -33,7 +33,7 @@ public class IterationParam extends ParamSegment {
 	public boolean isExactMatch(String matchWith, Map<String, String> paramValues) {
 		try {
 			Long iterationId = Long.valueOf(matchWith);
-			if (OneDev.getInstance(IterationService.class).get(iterationId) != null)
+			if (Cheeta.getInstance(IterationService.class).get(iterationId) != null)
 				return true;
 		} catch (NumberFormatException e) {
 		}

@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.renderers.symbollink;
+package io.cheeta.server.web.page.project.blob.render.renderers.symbollink;
 
 import java.io.File;
 
@@ -9,15 +9,15 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.utils.PathUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.view.BlobViewPanel;
+import io.cheeta.commons.utils.PathUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.view.BlobViewPanel;
 
 public class SymbolLinkPanel extends BlobViewPanel {
 
@@ -37,7 +37,7 @@ public class SymbolLinkPanel extends BlobViewPanel {
 
 		BlobIdent targetBlobIdent;
 		if (targetPath != null) {
-			GitService gitService = OneDev.getInstance(GitService.class);
+			GitService gitService = Cheeta.getInstance(GitService.class);
 			ObjectId commitId = context.getProject().getObjectId(context.getBlobIdent().revision, true);
 			int mode = gitService.getMode(context.getProject(), commitId, targetPath);
 			if (mode != 0) 

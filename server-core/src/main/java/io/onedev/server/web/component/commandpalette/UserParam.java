@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserParam extends ParamSegment {
 
@@ -22,7 +22,7 @@ public class UserParam extends ParamSegment {
 		Map<String, String> suggestions = new LinkedHashMap<>();
 		if (matchWith.length() == 0) 
 			matchWith = null;
-		UserService userService = OneDev.getInstance(UserService.class);
+		UserService userService = Cheeta.getInstance(UserService.class);
 		for (User user: userService.query(matchWith, 0, count))
 			suggestions.put(user.getDisplayName(), String.valueOf(user.getId()));
 		return suggestions;
@@ -30,7 +30,7 @@ public class UserParam extends ParamSegment {
 
 	@Override
 	public boolean isExactMatch(String matchWith, Map<String, String> paramValues) {
-		UserService userService = OneDev.getInstance(UserService.class);
+		UserService userService = Cheeta.getInstance(UserService.class);
 		try {
 			Long userId = Long.valueOf(matchWith);
 			if (userService.get(userId) != null) 

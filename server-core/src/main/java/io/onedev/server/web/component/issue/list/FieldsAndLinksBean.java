@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.list;
+package io.cheeta.server.web.component.issue.list;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,14 +8,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.LinkSpec;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.LinkSpec;
 
 @Editable
 public class FieldsAndLinksBean implements Serializable {
@@ -41,7 +41,7 @@ public class FieldsAndLinksBean implements Serializable {
 	private static List<String> getFieldChoices() {
 		List<String> choices = new ArrayList<>();
 		choices.add(Issue.NAME_STATE);
-		for (String fieldName: OneDev.getInstance(SettingService.class).getIssueSetting().getFieldNames())
+		for (String fieldName: Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldNames())
 			choices.add(fieldName);
 		choices.add(IssueSchedule.NAME_ITERATION);
 		return choices;
@@ -51,7 +51,7 @@ public class FieldsAndLinksBean implements Serializable {
 	private static Map<String, String> getFieldDisplayNames() {
 		Map<String, String> displayNames = new HashMap<>();
 		displayNames.put(Issue.NAME_STATE, _T("State"));
-		for (String fieldName: OneDev.getInstance(SettingService.class).getIssueSetting().getFieldNames())
+		for (String fieldName: Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldNames())
 			displayNames.put(fieldName, fieldName);
 		displayNames.put(IssueSchedule.NAME_ITERATION, _T("Iteration"));
 		return displayNames;
@@ -71,7 +71,7 @@ public class FieldsAndLinksBean implements Serializable {
 	@SuppressWarnings("unused")
 	private static List<String> getLinkChoices() {
 		List<String> choices = new ArrayList<>();
-		for (LinkSpec linkSpec: OneDev.getInstance(LinkSpecService.class).queryAndSort()) {
+		for (LinkSpec linkSpec: Cheeta.getInstance(LinkSpecService.class).queryAndSort()) {
 			choices.add(linkSpec.getName());
 			if (linkSpec.getOpposite() != null)
 				choices.add(linkSpec.getOpposite().getName());

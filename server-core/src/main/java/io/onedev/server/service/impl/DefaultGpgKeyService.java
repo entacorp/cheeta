@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,21 +13,21 @@ import org.bouncycastle.openpgp.PGPPublicKey;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.git.signatureverification.gpg.GpgSigningKey;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.GpgKey;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.GpgKeyService;
-import io.onedev.server.util.GpgUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.git.signatureverification.gpg.GpgSigningKey;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.GpgKey;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.GpgKeyService;
+import io.cheeta.server.util.GpgUtils;
 
 @Singleton
 public class DefaultGpgKeyService extends BaseEntityService<GpgKey> implements GpgKeyService {

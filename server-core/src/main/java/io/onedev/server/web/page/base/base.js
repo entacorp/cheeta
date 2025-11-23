@@ -1,4 +1,4 @@
-var onedev = {};
+var cheeta = {};
 String.prototype.escape = function() {
 	return (this + '').replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
 };
@@ -28,7 +28,7 @@ if (!Element.prototype.scrollIntoViewIfNeeded) {
     };
 }
  
-onedev.server = {
+cheeta.server = {
 	form: {
 		/*
 		 * This function can be called to mark enclosing form of specified element dirty. It should be
@@ -37,12 +37,12 @@ onedev.server = {
 		 */
 		markDirty: function($forms) {
 			$forms.addClass("dirty").each(function() {
-				onedev.server.form.dirtyChanged($(this));
+				cheeta.server.form.dirtyChanged($(this));
 			});
 		},
 		markClean: function($forms) {
 			$forms.removeClass("dirty").each(function() {
-				onedev.server.form.dirtyChanged($(this));
+				cheeta.server.form.dirtyChanged($(this));
 			});
 		},
 		trackDirty: function(container) {
@@ -54,12 +54,12 @@ onedev.server = {
 				var fieldSelector = ":input:not(.no-dirtytrack):not(input[type=submit]):not(input[type=button]):not(button)"; 
 				var events = "change propertychange input";
 				$(container).find(fieldSelector).on(events, function(e) {
-					onedev.server.form.markDirty($form);
+					cheeta.server.form.markDirty($form);
 				});
 				if ($form.find(".is-invalid").length != 0) {
 					$form.addClass("dirty");
 				}
-				onedev.server.form.dirtyChanged($form);
+				cheeta.server.form.dirtyChanged($form);
 			}
 			$form.submit(function(e) {
 				$form.removeClass("dirty");				
@@ -80,15 +80,15 @@ onedev.server = {
 		},
 		setupDirtyCheck: function() {
 			$("form").each(function() {
-				onedev.server.form.trackDirty(this);
+				cheeta.server.form.trackDirty(this);
 			});
 			
 			$(document).on("afterElementReplace", function(event, componentId) {
 				var $component = $("#" + componentId);
 				$component.find("form").each(function() {
-					onedev.server.form.trackDirty(this);
+					cheeta.server.form.trackDirty(this);
 				});
-				onedev.server.form.trackDirty($component[0]);
+				cheeta.server.form.trackDirty($component[0]);
 			});
 			
 			if (Wicket && Wicket.Ajax) {
@@ -164,12 +164,12 @@ onedev.server = {
 		
 		track: function() {
 			Wicket.Event.subscribe('/ajax/call/beforeSend', function() {
-				onedev.server.ajaxRequests.count++;
+				cheeta.server.ajaxRequests.count++;
 			});
 			Wicket.Event.subscribe('/ajax/call/done', function() {
-				onedev.server.ajaxRequests.count--;
-				if (onedev.server.ajaxRequests.count < 0)
-					onedev.server.ajaxRequests.count = 0;
+				cheeta.server.ajaxRequests.count--;
+				if (cheeta.server.ajaxRequests.count < 0)
+					cheeta.server.ajaxRequests.count = 0;
 			});
 		}
 	},
@@ -209,11 +209,11 @@ onedev.server = {
 		
 		focusOn: function(componentId) {
 			if (componentId)
-				onedev.server.focus.doFocus($("#" + componentId));
+				cheeta.server.focus.doFocus($("#" + componentId));
 			else if (document.activeElement != document.body) 
 				document.activeElement.blur();
 				
-			onedev.server.focus.$components = null;
+			cheeta.server.focus.$components = null;
 		},
 		
 		doFocus: function($containers) {
@@ -272,25 +272,25 @@ onedev.server = {
 			if (typeof(Wicket) != "undefined" && typeof(Wicket.Focus) != "undefined") {
 				var wicketSetFocusOnId = Wicket.Focus.setFocusOnId;
 				Wicket.Focus.setFocusOnId = function(componentId) {
-					onedev.server.focus.focusOn(componentId);
+					cheeta.server.focus.focusOn(componentId);
 					wicketSetFocusOnId(componentId);
 				}
 			}
 			
 			Wicket.Event.subscribe('/ajax/call/beforeSend', function() {
-				onedev.server.focus.$components = $();
+				cheeta.server.focus.$components = $();
 			});
 			Wicket.Event.subscribe('/ajax/call/complete', function() {
-				if (onedev.server.focus.$components != null) {
-					onedev.server.focus.doFocus(onedev.server.focus.$components);
+				if (cheeta.server.focus.$components != null) {
+					cheeta.server.focus.doFocus(cheeta.server.focus.$components);
 				}
 			});
 
-			onedev.server.focus.doFocus($(document));
+			cheeta.server.focus.doFocus($(document));
 
 			$(document).on("afterElementReplace", function(event, componentId) {
-				if (onedev.server.focus.$components != null)
-					onedev.server.focus.$components = onedev.server.focus.$components.add("#" + componentId);
+				if (cheeta.server.focus.$components != null)
+					cheeta.server.focus.$components = cheeta.server.focus.$components.add("#" + componentId);
 			});			
 		},
 		
@@ -314,14 +314,14 @@ onedev.server = {
 	
 	choiceFormatter: {
 		formatSelection: function(choice) {
-            if (choice.id && choice.id.indexOf("<$OneDevSpecialChoice$>") == 0)
+            if (choice.id && choice.id.indexOf("<$CheetaSpecialChoice$>") == 0)
                 return "<i>" + choice.name.escapeHtml() + "</i>";
             else
                 return choice.name.escapeHtml();
 		},
 		
 		formatResult: function(choice) {
-            if (choice.id && choice.id.indexOf("<$OneDevSpecialChoice$>") == 0)
+            if (choice.id && choice.id.indexOf("<$CheetaSpecialChoice$>") == 0)
                 return "<i>" + choice.name.escapeHtml() + "</i>";
             else if (choice.description)
                 return choice.name.escapeHtml() + " <span class='text-muted font-size-sm ml-1'>" + choice.description.escapeHtml() + "</span>";
@@ -337,7 +337,7 @@ onedev.server = {
 	setupWebsocketCallback: function() {
 		var messagesToSent = [];
 		function sendMessages() {
-			if (onedev.server.ajaxRequests.count == 0) {
+			if (cheeta.server.ajaxRequests.count == 0) {
 				for (var i in messagesToSent)
 					Wicket.WebSocket.send(messagesToSent[i]);
 				messagesToSent = [];
@@ -403,20 +403,20 @@ onedev.server = {
 				state = {};
 			var newState = {viewState: viewState, data: state.data, visited: state.visited};
 			history.replaceState(newState, '', window.location.href );
-			onedev.server.history.current = {
+			cheeta.server.history.current = {
 				state: newState,
 				url: window.location.href
 			};
 		},
 		getFromViewAndSetToHistory: function() {
-			var viewState = onedev.server.viewState.getFromView();
+			var viewState = cheeta.server.viewState.getFromView();
 			if (viewState)
-				onedev.server.viewState.setToHistory(viewState);
+				cheeta.server.viewState.setToHistory(viewState);
 		},
 		getFromHistoryAndSetToView: function() {
-			var viewState = onedev.server.viewState.getFromHistory();
+			var viewState = cheeta.server.viewState.getFromHistory();
 			if (viewState)
-				onedev.server.viewState.setToView(viewState);
+				cheeta.server.viewState.setToView(viewState);
 		}
 	},
 	
@@ -434,14 +434,14 @@ onedev.server = {
 			// infinitely  
 			setTimeout(function() {
 				window.onpopstate = function(event) {
-					if (onedev.server.history.getHashlessUrl(window.location.href) 
-							!= onedev.server.history.getHashlessUrl(onedev.server.history.current.url)) {
-						if (onedev.server.form.confirmLeave()) {
+					if (cheeta.server.history.getHashlessUrl(window.location.href) 
+							!= cheeta.server.history.getHashlessUrl(cheeta.server.history.current.url)) {
+						if (cheeta.server.form.confirmLeave()) {
 							if (!event.state || !event.state.data) {
 								location.reload();
 							} else {
 								popStateCallback(event.state.data);
-								onedev.server.history.current = {
+								cheeta.server.history.current = {
 									state: event.state,
 									url: window.location.href
 								};
@@ -451,39 +451,39 @@ onedev.server = {
 							 * In case we want to stay in the page, we should also re-push previous url 
 							 * as url has already been changed when user hits back/forward button
 							 */
-							history.pushState(onedev.server.history.current.state, '' , 
-									onedev.server.history.current.url);
+							history.pushState(cheeta.server.history.current.state, '' , 
+									cheeta.server.history.current.url);
 						}
 					} else {
-						onedev.server.viewState.getFromHistoryAndSetToView();
+						cheeta.server.viewState.getFromHistoryAndSetToView();
 					}
 				};
 			}, 100);
 			
-			onedev.server.history.current = {
+			cheeta.server.history.current = {
 				url: window.location.href 
 			};
 		},
 		pushState: function(url, data, title) {
 			var state = {data: data};
-			onedev.server.history.current = {state: state, url: url};
+			cheeta.server.history.current = {state: state, url: url};
 			history.pushState(state, '', url);
 			document.title = title;
 			
 			// Let others have a chance to do something before marking the page as visited
 			setTimeout(function() {
-				onedev.server.history.setVisited();
+				cheeta.server.history.setVisited();
 			}, 100);
 		},
 		replaceState: function(url, data, title) {
 			var state = {data: data, title: title};
-			onedev.server.history.current = {state: state, url: url};
+			cheeta.server.history.current = {state: state, url: url};
 			history.replaceState(state, '', url);
 			document.title = title;
 			
 			// Let others have a chance to do something before marking the page as visited
 			setTimeout(function() {
-				onedev.server.history.setVisited();
+				cheeta.server.history.setVisited();
 			}, 100);
 		},
 		
@@ -500,7 +500,7 @@ onedev.server = {
 			if (!state.visited) {
 				var newState = {viewState: state.viewState, data: state.data, visited: true};
 				history.replaceState(newState, '', window.location.href);
-				onedev.server.history.current = {
+				cheeta.server.history.current = {
 					state: newState,
 					url: window.location.href
 				};
@@ -615,28 +615,28 @@ onedev.server = {
 		moved: false,
 		track: function() {
 			$(document).mousedown(function() { 
-				onedev.server.mouseState.pressed = true;
-				onedev.server.mouseState.moved = false;
+				cheeta.server.mouseState.pressed = true;
+				cheeta.server.mouseState.moved = false;
 			});
 			$(document).mouseup(function() {
-				onedev.server.mouseState.pressed = false;
-				onedev.server.mouseState.moved = false;
+				cheeta.server.mouseState.pressed = false;
+				cheeta.server.mouseState.moved = false;
 			});	
 			$(document).mousemove(function(e) {
 				// IE fires mouse move event after mouse click sometimes, so we check 
 				// if mouse is really moved here
 				if (e.clientX != self.clientX || e.clientY != self.clientY) {
-					onedev.server.mouseState.moved = true;
+					cheeta.server.mouseState.moved = true;
 					self.clientX = e.clientX;
 					self.clientY = e.clientY;
 				}
-				onedev.server.mouseState.position = {
+				cheeta.server.mouseState.position = {
 					left: e.clientX,
 					top: e.clientY
 				}
 			});
 			$(document).scroll(function() {
-				onedev.server.mouseState.moved = false;
+				cheeta.server.mouseState.moved = false;
 			});
 		}
 	},
@@ -659,7 +659,7 @@ onedev.server = {
 		function doSetup($container) {
 			$container.find(".dropdown-toggle:not('.no-dropdown-caret')").addBack(".dropdown-toggle:not('.no-dropdown-caret')").each(function() {
 				if ($(this).find(".dropdown-caret").length == 0) {
-					$(this).append("<svg class='dropdown-caret icon rotate-90'><use xlink:href='" + onedev.server.icons + "#arrow'/></svg>");
+					$(this).append("<svg class='dropdown-caret icon rotate-90'><use xlink:href='" + cheeta.server.icons + "#arrow'/></svg>");
 				}
 			});
 		}	
@@ -756,7 +756,7 @@ onedev.server = {
 		setup: function() {
 			function doSetup($container, afterElementReplace) {
 				$container.find(".ps.ps-scroll").addBack(".ps.ps-scroll").each(function() {
-					if (onedev.server.util.isDevice()) {
+					if (cheeta.server.util.isDevice()) {
 						$(this).addClass("overflow-auto");
 					} else {
 				        var ps = new PerfectScrollbar(this);
@@ -799,7 +799,7 @@ onedev.server = {
                 var $input = $wrapper.find("input[type=text], input:not([type])");
 				if (!$input.hasClass("clearable")) {
 					$input.addClass("clearable");
-					var $clear = $("<a class='input-clear'><svg class='icon align-middle'><use xlink:href='" + onedev.server.icons + "#times'/></svg></a>");
+					var $clear = $("<a class='input-clear'><svg class='icon align-middle'><use xlink:href='" + cheeta.server.icons + "#times'/></svg></a>");
 					$wrapper.append($clear);
 					if ($input.next().hasClass("input-group-append")) {
 						$clear.addClass("input-group-clear input-group-clear-" + $input.next().children("button").length);
@@ -834,7 +834,7 @@ onedev.server = {
 	},
 	
 	formatBriefDuration(seconds) {
-		var translations = onedev.server.translations;
+		var translations = cheeta.server.translations;
 		var intervals = [];
 		var days = Math.floor(seconds/86400);
 		if (days != 0)
@@ -856,16 +856,16 @@ onedev.server = {
 			return translations["{0}s"].replace("{0}", "0");
 	},
 	onDomReady: function(bootTimestamp, icons, popStateCallback, removeAutosaveKeys, translations) {
-		onedev.server.translations = translations;
+		cheeta.server.translations = translations;
 
-		onedev.server.bootTimestamp = bootTimestamp;
-		onedev.server.icons = icons;
+		cheeta.server.bootTimestamp = bootTimestamp;
+		cheeta.server.icons = icons;
 
 		for (var i in removeAutosaveKeys) 
 			localStorage.removeItem(removeAutosaveKeys[i]);
 		
 		// fix issue #1640
-		if (onedev.server.util.isMac() && onedev.server.util.isSafari()) {
+		if (cheeta.server.util.isMac() && cheeta.server.util.isSafari()) {
 			$(document).on("afterElementReplace", function(event, componentId) {
 				var $component = $("#" + componentId);
 				$component.find("textarea").addBack("textarea").each(function() {
@@ -893,22 +893,22 @@ onedev.server = {
 			$(document).find(".resize-aware").trigger("resized");
 		});
 		
-		onedev.server.setupAjaxLoadingIndicator();
-		onedev.server.form.setupDirtyCheck();
-		onedev.server.setupWebsocketCallback();
-		onedev.server.mouseState.track();
-		onedev.server.ajaxRequests.track();
-		onedev.server.setupInputClear();
-		onedev.server.setupAlertClose();
-		onedev.server.setupModalOverlays();
-		onedev.server.setupDropdownToggle();
-		onedev.server.setupCheckbox();
-		onedev.server.setupRadio();
-		onedev.server.setupSwitch();
-		onedev.server.setupTable();
-		onedev.server.setupTippy();
-		onedev.server.history.init(popStateCallback);
-		onedev.server.perfectScrollbar.setup();
+		cheeta.server.setupAjaxLoadingIndicator();
+		cheeta.server.form.setupDirtyCheck();
+		cheeta.server.setupWebsocketCallback();
+		cheeta.server.mouseState.track();
+		cheeta.server.ajaxRequests.track();
+		cheeta.server.setupInputClear();
+		cheeta.server.setupAlertClose();
+		cheeta.server.setupModalOverlays();
+		cheeta.server.setupDropdownToggle();
+		cheeta.server.setupCheckbox();
+		cheeta.server.setupRadio();
+		cheeta.server.setupSwitch();
+		cheeta.server.setupTable();
+		cheeta.server.setupTippy();
+		cheeta.server.history.init(popStateCallback);
+		cheeta.server.perfectScrollbar.setup();
 
 		$(document).keydown(function(e) {
 			if (e.keyCode == 27) // ESC
@@ -917,14 +917,14 @@ onedev.server = {
 	},
 	
 	onWindowLoad: function() {
-		onedev.server.setupAutoSize();
-		onedev.server.focus.setupAutoFocus();
+		cheeta.server.setupAutoSize();
+		cheeta.server.focus.setupAutoFocus();
 
-		onedev.server.viewState.getFromHistoryAndSetToView();
+		cheeta.server.viewState.getFromHistoryAndSetToView();
 
 		// Let others have a chance to do something before marking the page as visited
 		setTimeout(function() {
-			onedev.server.history.setVisited();
+			cheeta.server.history.setVisited();
 		}, 100);
 
 		/*
@@ -933,13 +933,13 @@ onedev.server = {
 		 */
 		/*
 		$(window).on("beforeunload", function() {
-			onedev.server.viewState.getFromViewAndSetToHistory();	
+			cheeta.server.viewState.getFromViewAndSetToHistory();	
 		});
 		*/
 		
 		$(window).resize();
 		
-		if (location.hash && !onedev.server.viewState.getFromHistory()) {
+		if (location.hash && !cheeta.server.viewState.getFromHistory()) {
 			// Scroll anchors into view (for instance the markdown headline)
 			var nameOrId = decodeURIComponent(location.hash.slice(1));
 			var element = document.getElementById(nameOrId);

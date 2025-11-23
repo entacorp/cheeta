@@ -1,7 +1,7 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.model.AccessTokenAuthorization;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.model.AccessTokenAuthorization;
 
 import java.util.Collection;
 

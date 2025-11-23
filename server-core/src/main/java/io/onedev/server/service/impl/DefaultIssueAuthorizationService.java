@@ -1,14 +1,14 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.List;
 
 import javax.inject.Singleton;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueAuthorization;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.IssueAuthorizationService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueAuthorization;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.IssueAuthorizationService;
 
 @Singleton
 public class DefaultIssueAuthorizationService extends BaseEntityService<IssueAuthorization>

@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.annotation.Patterns;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.annotation.Patterns;
 
 public class PatternsValidator implements ConstraintValidator<Patterns, String> {
 	

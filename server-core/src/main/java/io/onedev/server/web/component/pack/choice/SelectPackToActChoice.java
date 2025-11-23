@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.pack.choice;
+package io.cheeta.server.web.component.pack.choice;
 
-import io.onedev.server.model.Pack;
-import io.onedev.server.web.component.select2.SelectToActChoice;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.web.component.select2.SelectToActChoice;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
@@ -16,9 +16,9 @@ public abstract class SelectPackToActChoice extends SelectToActChoice<Pack> {
 		super.onInitialize();
 		
 		getSettings().setPlaceholder(getPlaceholder());
-		getSettings().setFormatResult("onedev.server.packChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.packChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.packChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.packChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.packChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.packChoiceFormatter.escapeMarkup");
 	}
 
 	@Override

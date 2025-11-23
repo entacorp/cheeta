@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.bootstrap;
+package io.cheeta.server.web.asset.bootstrap;
 
 import java.util.List;
 

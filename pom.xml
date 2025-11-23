@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>io.onedev</groupId>
+		<groupId>io.cheeta</groupId>
 		<artifactId>parent</artifactId>
 		<version>1.3.0</version>
 	</parent>
@@ -36,7 +36,7 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>plugin-maven</artifactId>
 				<version>2.7.0</version>
 				<executions>
@@ -117,33 +117,33 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>commons-bootstrap</artifactId>
 				<version>${commons.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>commons-loader</artifactId>
 				<version>${commons.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>commons-loader</artifactId>
 				<type>test-jar</type>
 				<version>${commons.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>commons-utils</artifactId>
 				<version>${commons.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>commons-codeassist</artifactId>
 				<version>${commons.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>commons-jsymbol</artifactId>
 				<version>${commons.version}</version>
 			</dependency>
@@ -588,7 +588,7 @@
 				<version>${jackson.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.onedev</groupId>
+				<groupId>io.cheeta</groupId>
 				<artifactId>agent</artifactId>
 				<version>${agent.version}</version>
 			</dependency>
@@ -636,8 +636,8 @@
 	</dependencyManagement>
 	<repositories>
 		<repository>
-			<id>onedev</id>
-			<url>https://code.onedev.io/onedev/~maven</url>
+			<id>cheeta</id>
+			<url>https://code.cheeta.io/cheeta/~maven</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>

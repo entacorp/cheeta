@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.project.blob.render.renderers.buildspec;
+package io.cheeta.server.web.page.project.blob.render.renderers.buildspec;
 
-import static io.onedev.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getActiveElementIndex;
-import static io.onedev.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getUrlSegment;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getActiveElementIndex;
+import static io.cheeta.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getUrlSegment;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -44,46 +44,46 @@ import org.unbescape.html.HtmlEscape;
 
 import com.google.common.base.Throwables;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.BuildSpecAware;
-import io.onedev.server.buildspec.Import;
-import io.onedev.server.buildspec.NamedElement;
-import io.onedev.server.buildspec.ParamSpecAware;
-import io.onedev.server.buildspec.Service;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobAware;
-import io.onedev.server.buildspec.job.JobSuggestion;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspec.step.StepTemplate;
-import io.onedev.server.data.migration.VersionedYamlDoc;
-import io.onedev.server.model.support.build.JobProperty;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.util.PathNode.Indexed;
-import io.onedev.server.util.PathNode.Named;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.pipeline.JobSelectionChange;
-import io.onedev.server.web.component.pipeline.PipelinePanel;
-import io.onedev.server.web.component.pipeline.Sortable;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.BeanUpdating;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyUpdating;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.edit.EditCompleteAware;
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.BuildSpecAware;
+import io.cheeta.server.buildspec.Import;
+import io.cheeta.server.buildspec.NamedElement;
+import io.cheeta.server.buildspec.ParamSpecAware;
+import io.cheeta.server.buildspec.Service;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobAware;
+import io.cheeta.server.buildspec.job.JobSuggestion;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.step.StepTemplate;
+import io.cheeta.server.data.migration.VersionedYamlDoc;
+import io.cheeta.server.model.support.build.JobProperty;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.util.PathNode.Indexed;
+import io.cheeta.server.util.PathNode.Named;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.pipeline.JobSelectionChange;
+import io.cheeta.server.web.component.pipeline.PipelinePanel;
+import io.cheeta.server.web.component.pipeline.Sortable;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.BeanUpdating;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyUpdating;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.edit.EditCompleteAware;
+import io.cheeta.server.web.util.AjaxPayload;
 
 public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements BuildSpecAware, EditCompleteAware {
 
@@ -317,7 +317,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 															} else if (jobIndex < activeJobIndex) {
 																jobDetail.setDefaultModelObject(activeJobIndex-1);
 															}
-															target.appendJavaScript("onedev.server.form.markDirty($('.build-spec').closest('form'));");
+															target.appendJavaScript("cheeta.server.form.markDirty($('.build-spec').closest('form'));");
 															target.add(jobsEditor.get("pipeline"));
 															resizeWindow(target);
 														}
@@ -361,7 +361,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 									List<Job> suggestedJobs = new ArrayList<>();
 									
 									if (context.getBlobIdent().revision != null) {
-										for (JobSuggestion suggestion: OneDev.getExtensions(JobSuggestion.class)) 
+										for (JobSuggestion suggestion: Cheeta.getExtensions(JobSuggestion.class)) 
 											suggestedJobs.addAll(suggestion.suggestJobs(context.getProject(), context.getCommit()));
 									}
 									
@@ -469,7 +469,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 						public void renderHead(IHeaderResponse response) {
 							super.renderHead(response);
 							response.render(OnDomReadyHeaderItem.forScript(
-									String.format("onedev.server.buildSpec.onTabDomReady('.jobs');")));
+									String.format("cheeta.server.buildSpec.onTabDomReady('.jobs');")));
 						}
 						
 					};
@@ -557,7 +557,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 						@Override
 						public void renderHead(Component component, IHeaderResponse response) {
 							super.renderHead(component, response);
-							response.render(OnDomReadyHeaderItem.forScript("onedev.server.buildSpec.onTabDomReady('.properties');"));
+							response.render(OnDomReadyHeaderItem.forScript("cheeta.server.buildSpec.onTabDomReady('.properties');"));
 						}
 						
 					});
@@ -586,7 +586,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 						@Override
 						public void renderHead(Component component, IHeaderResponse response) {
 							super.renderHead(component, response);
-							response.render(OnDomReadyHeaderItem.forScript("onedev.server.buildSpec.onTabDomReady('.imports');"));
+							response.render(OnDomReadyHeaderItem.forScript("cheeta.server.buildSpec.onTabDomReady('.imports');"));
 						}
 						
 					});
@@ -1001,7 +1001,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 					super.renderHead(response);
 					
 					int elementIndex = (int) ElementsEditor.this.get("detail").getDefaultModelObject();
-					String script = String.format("onedev.server.buildSpec.markElementActive(%d);", elementIndex);
+					String script = String.format("cheeta.server.buildSpec.markElementActive(%d);", elementIndex);
 					response.render(OnDomReadyHeaderItem.forScript(script));
 				}
 				
@@ -1043,7 +1043,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 							pushState(target, getUrlSegment(elementClass) + "s/" + item.getModelObject().getName());
 							setupElementDetail(target, item.getIndex());
 							target.appendJavaScript(String.format(
-									"onedev.server.buildSpec.markElementActive(%d);", item.getIndex()));
+									"cheeta.server.buildSpec.markElementActive(%d);", item.getIndex()));
 							resizeWindow(target);
 						}
 
@@ -1120,7 +1120,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 											} else if (item.getIndex() < activeElementIndex) {
 												elementDetail.setDefaultModelObject(activeElementIndex-1);
 											}
-											target.appendJavaScript("onedev.server.form.markDirty($('.build-spec').closest('form'));");
+											target.appendJavaScript("cheeta.server.form.markDirty($('.build-spec').closest('form'));");
 											target.add(ElementsEditor.this.get("navs"));
 											resizeWindow(target);
 										}
@@ -1208,7 +1208,7 @@ public class BuildSpecEditPanel extends FormComponentPanel<byte[]> implements Bu
 		public void renderHead(IHeaderResponse response) {
 			super.renderHead(response);
 			response.render(OnDomReadyHeaderItem.forScript(
-					String.format("onedev.server.buildSpec.onTabDomReady('.%ss');", getUrlSegment(elementClass))));
+					String.format("cheeta.server.buildSpec.onTabDomReady('.%ss');", getUrlSegment(elementClass))));
 		}
 		
 	}

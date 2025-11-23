@@ -19,11 +19,11 @@ else
     CPUARCH="x86-64"
 fi
 
-/app/boot/wrapper-linux-$CPUARCH /app/conf/wrapper.conf -- upgrade /opt/onedev &
+/app/boot/wrapper-linux-$CPUARCH /app/conf/wrapper.conf -- upgrade /opt/cheeta &
 child=$!
 wait "$child"
 
-touch /opt/onedev/IN_DOCKER
-/opt/onedev/boot/wrapper-linux-$CPUARCH /opt/onedev/conf/wrapper.conf &
+touch /opt/cheeta/IN_DOCKER
+/opt/cheeta/boot/wrapper-linux-$CPUARCH /opt/cheeta/conf/wrapper.conf &
 child=$!
 wait "$child"

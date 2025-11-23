@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.comment;
+package io.cheeta.server.web.component.comment;
 
 import java.util.Collection;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-import io.onedev.server.model.support.EntityReaction;
+import io.cheeta.server.model.support.EntityReaction;
 
 public interface ReactionSupport {
 

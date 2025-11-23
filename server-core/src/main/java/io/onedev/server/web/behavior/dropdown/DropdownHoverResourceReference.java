@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior.dropdown;
+package io.cheeta.server.web.behavior.dropdown;
 
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class DropdownHoverResourceReference extends BaseDependentResourceReference {
 

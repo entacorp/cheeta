@@ -1,4 +1,4 @@
-package io.onedev.server.markdown;
+package io.cheeta.server.markdown;
 
 import java.util.Collection;
 import java.util.regex.Matcher;
@@ -12,11 +12,11 @@ import org.jsoup.select.NodeTraversor;
 
 import com.google.common.collect.ImmutableSet;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.util.HtmlUtils;
-import io.onedev.server.util.TextNodeVisitor;
-import io.onedev.server.web.component.markdown.SuggestionSupport;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.HtmlUtils;
+import io.cheeta.server.util.TextNodeVisitor;
+import io.cheeta.server.web.component.markdown.SuggestionSupport;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
 
 public class StrikeThroughProcessor implements HtmlProcessor {
 	

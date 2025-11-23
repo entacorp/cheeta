@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.pullrequest.list;
+package io.cheeta.server.web.component.pullrequest.list;
 
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.Is;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.IsSince;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.IsUntil;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.Is;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.IsSince;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.IsUntil;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -19,28 +19,28 @@ import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.pullrequest.AssignedToCriteria;
-import io.onedev.server.search.entity.pullrequest.AssignedToUserCriteria;
-import io.onedev.server.search.entity.pullrequest.DiscardedCriteria;
-import io.onedev.server.search.entity.pullrequest.LabelCriteria;
-import io.onedev.server.search.entity.pullrequest.LastActivityDateCriteria;
-import io.onedev.server.search.entity.pullrequest.MergedCriteria;
-import io.onedev.server.search.entity.pullrequest.OpenCriteria;
-import io.onedev.server.search.entity.pullrequest.StatusCriteria;
-import io.onedev.server.search.entity.pullrequest.SubmittedByCriteria;
-import io.onedev.server.search.entity.pullrequest.SubmittedByUserCriteria;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.datepicker.DatePicker;
-import io.onedev.server.web.component.filteredit.FilterEditPanel;
-import io.onedev.server.web.component.stringchoice.StringMultiChoice;
-import io.onedev.server.web.component.user.choice.UserMultiChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.pullrequest.AssignedToCriteria;
+import io.cheeta.server.search.entity.pullrequest.AssignedToUserCriteria;
+import io.cheeta.server.search.entity.pullrequest.DiscardedCriteria;
+import io.cheeta.server.search.entity.pullrequest.LabelCriteria;
+import io.cheeta.server.search.entity.pullrequest.LastActivityDateCriteria;
+import io.cheeta.server.search.entity.pullrequest.MergedCriteria;
+import io.cheeta.server.search.entity.pullrequest.OpenCriteria;
+import io.cheeta.server.search.entity.pullrequest.StatusCriteria;
+import io.cheeta.server.search.entity.pullrequest.SubmittedByCriteria;
+import io.cheeta.server.search.entity.pullrequest.SubmittedByUserCriteria;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.datepicker.DatePicker;
+import io.cheeta.server.web.component.filteredit.FilterEditPanel;
+import io.cheeta.server.web.component.stringchoice.StringMultiChoice;
+import io.cheeta.server.web.component.user.choice.UserMultiChoice;
 
 class PullRequestFilterPanel extends FilterEditPanel<PullRequest> {
 	
@@ -318,11 +318,11 @@ class PullRequestFilterPanel extends FilterEditPanel<PullRequest> {
 	}
 
 	private LabelSpecService getLabelSpecService() {
-		return OneDev.getInstance(LabelSpecService.class);
+		return Cheeta.getInstance(LabelSpecService.class);
 	}	
 
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 
 }

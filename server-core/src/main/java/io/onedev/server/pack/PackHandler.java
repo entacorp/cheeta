@@ -1,6 +1,6 @@
-package io.onedev.server.pack;
+package io.cheeta.server.pack;
 
-import io.onedev.commons.loader.ExtensionPoint;
+import io.cheeta.commons.loader.ExtensionPoint;
 
 import org.jspecify.annotations.Nullable;
 import javax.servlet.http.HttpServletRequest;

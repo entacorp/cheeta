@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.tabbable;
+package io.cheeta.server.web.component.tabbable;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.list.ListView;

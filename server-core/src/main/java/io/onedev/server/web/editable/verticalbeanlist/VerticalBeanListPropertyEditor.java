@@ -1,14 +1,14 @@
-package io.onedev.server.web.editable.verticalbeanlist;
+package io.cheeta.server.web.editable.verticalbeanlist;
 
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.server.annotation.ExcludedProperties;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.editable.*;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.server.annotation.ExcludedProperties;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;

@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import org.eclipse.jgit.transport.RemoteConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.ssh.CommandCreator;
+import io.cheeta.server.ssh.CommandCreator;
 
 @Singleton
 public class SshCommandCreator implements CommandCreator {

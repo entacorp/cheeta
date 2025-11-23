@@ -1,14 +1,14 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
 import com.google.common.base.Preconditions;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.server.annotation.*;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.server.annotation.*;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
 
 import org.jspecify.annotations.Nullable;
 import javax.validation.constraints.NotEmpty;
@@ -65,7 +65,7 @@ public abstract class SyncRepository extends ServerSideStep {
 	}
 
 	@Editable(order=400, name="Password or Access Token for Remote Repository", 
-			description="Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token to access remote repository")
+			description="Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token to access remote repository")
 	@ChoiceProvider("getSecretChoices")
 	public String getPasswordSecret() {
 		return passwordSecret;

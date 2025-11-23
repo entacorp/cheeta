@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.pluginsettings;
+package io.cheeta.server.web.page.admin.pluginsettings;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -19,15 +19,15 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.page.layout.AdministrationSettingContribution;
-import io.onedev.server.web.page.layout.ContributedAdministrationSetting;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.page.layout.AdministrationSettingContribution;
+import io.cheeta.server.web.page.layout.ContributedAdministrationSetting;
 
 public class ContributedAdministrationSettingPage extends AdministrationPage {
 
@@ -43,7 +43,7 @@ public class ContributedAdministrationSettingPage extends AdministrationPage {
 		String settingName = params.get(PARAM_SETTING).toString();
 		
 		for (AdministrationSettingContribution contribution: 
-				OneDev.getExtensions(AdministrationSettingContribution.class)) {
+				Cheeta.getExtensions(AdministrationSettingContribution.class)) {
 			for (Class<? extends ContributedAdministrationSetting> each: contribution.getSettingClasses()) {
 				if (getSettingName(each).equals(settingName)) { 
 					settingClass = each;
@@ -59,7 +59,7 @@ public class ContributedAdministrationSettingPage extends AdministrationPage {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 	
 	@Override
@@ -131,7 +131,7 @@ public class ContributedAdministrationSettingPage extends AdministrationPage {
 			protected void onConfigure() {
 				super.onConfigure();
 				try {
-					setVisible(!OneDev.getInstance(Validator.class)
+					setVisible(!Cheeta.getInstance(Validator.class)
 							.validate(settingClass.getDeclaredConstructor().newInstance())
 							.isEmpty());
 				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException 

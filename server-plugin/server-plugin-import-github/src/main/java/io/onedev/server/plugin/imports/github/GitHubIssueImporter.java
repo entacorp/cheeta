@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.imports.github;
+package io.cheeta.server.plugin.imports.github;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -10,14 +10,14 @@ import java.util.Optional;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.imports.IssueImporter;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.taskbutton.TaskResult.HtmlMessgae;
-import io.onedev.server.web.util.ImportStep;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.imports.IssueImporter;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.taskbutton.TaskResult.HtmlMessgae;
+import io.cheeta.server.web.util.ImportStep;
 
 public class GitHubIssueImporter implements IssueImporter {
 
@@ -81,8 +81,8 @@ public class GitHubIssueImporter implements IssueImporter {
 	
 	@Override
 	public TaskResult doImport(Long projectId, boolean dryRun, TaskLogger logger) {
-		return OneDev.getInstance(TransactionService.class).call(() -> {
-			var project = OneDev.getInstance(ProjectService.class).load(projectId);
+		return Cheeta.getInstance(TransactionService.class).call(() -> {
+			var project = Cheeta.getInstance(ProjectService.class).load(projectId);
 			logger.log("Importing issues from repository " + repositoryStep.getSetting().getRepository() + "...");
 			Map<String, Optional<Long>> userIds = new HashMap<>();
 

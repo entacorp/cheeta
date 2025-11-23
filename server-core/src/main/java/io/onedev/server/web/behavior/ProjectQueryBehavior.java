@@ -1,11 +1,11 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.search.entity.project.ProjectQuery.getRuleName;
-import static io.onedev.server.search.entity.project.ProjectQueryParser.ChildrenOf;
-import static io.onedev.server.search.entity.project.ProjectQueryParser.HasOutdatedReplicas;
-import static io.onedev.server.search.entity.project.ProjectQueryParser.Roots;
-import static io.onedev.server.search.entity.project.ProjectQueryParser.WithoutEnoughReplicas;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.search.entity.project.ProjectQuery.getRuleName;
+import static io.cheeta.server.search.entity.project.ProjectQueryParser.ChildrenOf;
+import static io.cheeta.server.search.entity.project.ProjectQueryParser.HasOutdatedReplicas;
+import static io.cheeta.server.search.entity.project.ProjectQueryParser.Roots;
+import static io.cheeta.server.search.entity.project.ProjectQueryParser.WithoutEnoughReplicas;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,30 +17,30 @@ import org.apache.commons.lang3.StringUtils;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.ai.QueryDescriptions;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.search.entity.project.ProjectQueryLexer;
-import io.onedev.server.search.entity.project.ProjectQueryParser;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.NaturalLanguageTranslator;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ai.QueryDescriptions;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.search.entity.project.ProjectQueryLexer;
+import io.cheeta.server.search.entity.project.ProjectQueryParser;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.NaturalLanguageTranslator;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class ProjectQueryBehavior extends ANTLRAssistBehavior {
 
@@ -65,12 +65,12 @@ public class ProjectQueryBehavior extends ANTLRAssistBehavior {
 							List<String> candidates = new ArrayList<>(Project.QUERY_FIELDS);
 							if (childQuery)
 								candidates.remove(Project.NAME_PATH);
-							if (OneDev.getInstance(SettingService.class).getServiceDeskSetting() == null)
+							if (Cheeta.getInstance(SettingService.class).getServiceDeskSetting() == null)
 								candidates.remove(Project.NAME_SERVICE_DESK_EMAIL_ADDRESS);
 							return SuggestionUtils.suggest(candidates, matchWith);
 						} else if ("orderField".equals(spec.getLabel())) {
 							List<String> candidates = new ArrayList<>(Project.SORT_FIELDS.keySet());
-							if (OneDev.getInstance(SettingService.class).getServiceDeskSetting() == null)
+							if (Cheeta.getInstance(SettingService.class).getServiceDeskSetting() == null)
 								candidates.remove(Project.NAME_SERVICE_DESK_EMAIL_ADDRESS);
 							return SuggestionUtils.suggest(candidates, matchWith);
 						} else if ((criteriaValueExpect = terminalExpect.findExpectByLabel("criteriaValue")) != null) {
@@ -114,7 +114,7 @@ public class ProjectQueryBehavior extends ANTLRAssistBehavior {
 										return SuggestionUtils.suggestLabels(matchWith);
 									} else if (fieldName.equals(Project.NAME_SERVICE_DESK_EMAIL_ADDRESS)) {
 										if (!matchWith.contains("*")) {
-											ProjectService projectService = OneDev.getInstance(ProjectService.class);
+											ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 											ProjectCache cache = projectService.cloneCache();
 											Collection<Project> projects = SecurityUtils.getAuthorizedProjects(new AccessProject());
 											List<String> serviceDeskNames = projects.stream()
@@ -163,7 +163,7 @@ public class ProjectQueryBehavior extends ANTLRAssistBehavior {
 	
 	@Override
 	protected Optional<String> describe(ParseExpect parseExpect, String suggestedLiteral) {
-		if (!OneDev.getInstance(ClusterService.class).isClusteringSupported()
+		if (!Cheeta.getInstance(ClusterService.class).isClusteringSupported()
 				&& (suggestedLiteral.equals(getRuleName(WithoutEnoughReplicas)) || suggestedLiteral.equals(getRuleName(HasOutdatedReplicas)))) {
 			return null;
 		} else if (suggestedLiteral.equals(",")) {
@@ -212,14 +212,14 @@ public class ProjectQueryBehavior extends ANTLRAssistBehavior {
 						hints.add(_T("Use '*' for wildcard match"));
 						hints.add(_T("Use '\\' to escape quotes"));
 					} else if (fieldName.equals(Project.NAME_PATH)) {
-						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 					}
 				} else {
 					Element operatorElement = terminalExpect.getState()
 							.findMatchedElementsByLabel("operator", true).iterator().next();
 					int type = operatorElement.getMatchedTokens().iterator().next().getType();
 					if (type == ProjectQueryLexer.ForksOf || type == ProjectQueryLexer.ChildrenOf) 
-						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 					else
 						hints.add(_T("Use '\\' to escape quotes"));
 				}
@@ -248,7 +248,7 @@ public class ProjectQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	@Override

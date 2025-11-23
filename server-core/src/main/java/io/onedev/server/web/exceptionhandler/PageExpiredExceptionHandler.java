@@ -1,7 +1,7 @@
-package io.onedev.server.web.exceptionhandler;
+package io.cheeta.server.web.exceptionhandler;
 
-import io.onedev.server.exception.HttpResponse;
-import io.onedev.server.exception.handler.AbstractExceptionHandler;
+import io.cheeta.server.exception.HttpResponse;
+import io.cheeta.server.exception.handler.AbstractExceptionHandler;
 import org.apache.wicket.protocol.http.PageExpiredException;
 
 import javax.servlet.http.HttpServletResponse;

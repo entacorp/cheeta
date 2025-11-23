@@ -1,6 +1,6 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 import java.io.Serializable;
 

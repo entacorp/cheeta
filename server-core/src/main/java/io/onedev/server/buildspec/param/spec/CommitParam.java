@@ -1,10 +1,10 @@
-package io.onedev.server.buildspec.param.spec;
+package io.cheeta.server.buildspec.param.spec;
 
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.server.buildspecmodel.inputspec.CommitInput;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.CommitInput;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=1400, name=ParamSpec.COMMIT)
 public class CommitParam extends ParamSpec {

@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.layout;
+package io.cheeta.server.web.page.layout;
 
 import java.util.List;
 
-import io.onedev.commons.loader.ExtensionPoint;
+import io.cheeta.commons.loader.ExtensionPoint;
 
 @ExtensionPoint
 public interface AdministrationSettingContribution {

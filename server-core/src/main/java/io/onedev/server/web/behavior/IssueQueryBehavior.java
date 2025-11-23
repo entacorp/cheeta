@@ -1,53 +1,53 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static io.onedev.server.model.AbstractEntity.NAME_NUMBER;
-import static io.onedev.server.model.Issue.NAME_BOARD_POSITION;
-import static io.onedev.server.model.Issue.NAME_COMMENT;
-import static io.onedev.server.model.Issue.NAME_COMMENT_COUNT;
-import static io.onedev.server.model.Issue.NAME_CONFUSED_COUNT;
-import static io.onedev.server.model.Issue.NAME_DESCRIPTION;
-import static io.onedev.server.model.Issue.NAME_ESTIMATED_TIME;
-import static io.onedev.server.model.Issue.NAME_EYES_COUNT;
-import static io.onedev.server.model.Issue.NAME_HEART_COUNT;
-import static io.onedev.server.model.Issue.NAME_LAST_ACTIVITY_DATE;
-import static io.onedev.server.model.Issue.NAME_PROGRESS;
-import static io.onedev.server.model.Issue.NAME_PROJECT;
-import static io.onedev.server.model.Issue.NAME_ROCKET_COUNT;
-import static io.onedev.server.model.Issue.NAME_SMILE_COUNT;
-import static io.onedev.server.model.Issue.NAME_SPENT_TIME;
-import static io.onedev.server.model.Issue.NAME_STATE;
-import static io.onedev.server.model.Issue.NAME_SUBMIT_DATE;
-import static io.onedev.server.model.Issue.NAME_TADA_COUNT;
-import static io.onedev.server.model.Issue.NAME_THUMBS_DOWN_COUNT;
-import static io.onedev.server.model.Issue.NAME_THUMBS_UP_COUNT;
-import static io.onedev.server.model.Issue.NAME_TITLE;
-import static io.onedev.server.model.Issue.NAME_VOTE_COUNT;
-import static io.onedev.server.model.Issue.QUERY_FIELDS;
-import static io.onedev.server.model.Issue.SORT_FIELDS;
-import static io.onedev.server.search.entity.EntityQuery.getValue;
-import static io.onedev.server.search.entity.issue.IssueQuery.checkField;
-import static io.onedev.server.search.entity.issue.IssueQuery.getOperator;
-import static io.onedev.server.search.entity.issue.IssueQuery.getRuleName;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.CommentedBy;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.CommentedByMe;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.CurrentIssue;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.FixedInBuild;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.FixedInCurrentBuild;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.FixedInCurrentCommit;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.FixedInCurrentPullRequest;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.FixedInPullRequest;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.HasAny;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.Mentioned;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.MentionedMe;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.OrderBy;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.SubmittedBy;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.SubmittedByMe;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.WatchedBy;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.WatchedByMe;
-import static io.onedev.server.search.entity.issue.IssueQueryParser.IgnoredBy;
-import static io.onedev.server.search.entity.issue.IssueQueryParser.IgnoredByMe;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.AbstractEntity.NAME_NUMBER;
+import static io.cheeta.server.model.Issue.NAME_BOARD_POSITION;
+import static io.cheeta.server.model.Issue.NAME_COMMENT;
+import static io.cheeta.server.model.Issue.NAME_COMMENT_COUNT;
+import static io.cheeta.server.model.Issue.NAME_CONFUSED_COUNT;
+import static io.cheeta.server.model.Issue.NAME_DESCRIPTION;
+import static io.cheeta.server.model.Issue.NAME_ESTIMATED_TIME;
+import static io.cheeta.server.model.Issue.NAME_EYES_COUNT;
+import static io.cheeta.server.model.Issue.NAME_HEART_COUNT;
+import static io.cheeta.server.model.Issue.NAME_LAST_ACTIVITY_DATE;
+import static io.cheeta.server.model.Issue.NAME_PROGRESS;
+import static io.cheeta.server.model.Issue.NAME_PROJECT;
+import static io.cheeta.server.model.Issue.NAME_ROCKET_COUNT;
+import static io.cheeta.server.model.Issue.NAME_SMILE_COUNT;
+import static io.cheeta.server.model.Issue.NAME_SPENT_TIME;
+import static io.cheeta.server.model.Issue.NAME_STATE;
+import static io.cheeta.server.model.Issue.NAME_SUBMIT_DATE;
+import static io.cheeta.server.model.Issue.NAME_TADA_COUNT;
+import static io.cheeta.server.model.Issue.NAME_THUMBS_DOWN_COUNT;
+import static io.cheeta.server.model.Issue.NAME_THUMBS_UP_COUNT;
+import static io.cheeta.server.model.Issue.NAME_TITLE;
+import static io.cheeta.server.model.Issue.NAME_VOTE_COUNT;
+import static io.cheeta.server.model.Issue.QUERY_FIELDS;
+import static io.cheeta.server.model.Issue.SORT_FIELDS;
+import static io.cheeta.server.search.entity.EntityQuery.getValue;
+import static io.cheeta.server.search.entity.issue.IssueQuery.checkField;
+import static io.cheeta.server.search.entity.issue.IssueQuery.getOperator;
+import static io.cheeta.server.search.entity.issue.IssueQuery.getRuleName;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.CommentedBy;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.CommentedByMe;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.CurrentIssue;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.FixedInBuild;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.FixedInCurrentBuild;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.FixedInCurrentCommit;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.FixedInCurrentPullRequest;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.FixedInPullRequest;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.HasAny;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.Mentioned;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.MentionedMe;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.OrderBy;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.SubmittedBy;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.SubmittedByMe;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.WatchedBy;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.WatchedByMe;
+import static io.cheeta.server.search.entity.issue.IssueQueryParser.IgnoredBy;
+import static io.cheeta.server.search.entity.issue.IssueQueryParser.IgnoredByMe;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -65,48 +65,48 @@ import org.jspecify.annotations.Nullable;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.ai.QueryDescriptions;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.BooleanField;
-import io.onedev.server.model.support.issue.field.spec.BuildChoiceField;
-import io.onedev.server.model.support.issue.field.spec.CommitField;
-import io.onedev.server.model.support.issue.field.spec.DateField;
-import io.onedev.server.model.support.issue.field.spec.DateTimeField;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.GroupChoiceField;
-import io.onedev.server.model.support.issue.field.spec.IntegerField;
-import io.onedev.server.model.support.issue.field.spec.IssueChoiceField;
-import io.onedev.server.model.support.issue.field.spec.IterationChoiceField;
-import io.onedev.server.model.support.issue.field.spec.PullRequestChoiceField;
-import io.onedev.server.model.support.issue.field.spec.TextField;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.search.entity.issue.IssueQueryParser;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.behavior.inputassist.NaturalLanguageTranslator;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ai.QueryDescriptions;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.BooleanField;
+import io.cheeta.server.model.support.issue.field.spec.BuildChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.CommitField;
+import io.cheeta.server.model.support.issue.field.spec.DateField;
+import io.cheeta.server.model.support.issue.field.spec.DateTimeField;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.GroupChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.IntegerField;
+import io.cheeta.server.model.support.issue.field.spec.IssueChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.IterationChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.PullRequestChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.TextField;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.search.entity.issue.IssueQueryParser;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.behavior.inputassist.NaturalLanguageTranslator;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 public class IssueQueryBehavior extends ANTLRAssistBehavior {
 	
@@ -132,12 +132,12 @@ public class IssueQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private LinkSpecService getLinkSpecService() {
-		return OneDev.getInstance(LinkSpecService.class);
+		return Cheeta.getInstance(LinkSpecService.class);
 	}
 	
 	@Override
 	protected List<InputSuggestion> suggest(TerminalExpect terminalExpect) {
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		
 		if (terminalExpect.getElementSpec() instanceof LexerRuleRefElementSpec) {
 			LexerRuleRefElementSpec spec = (LexerRuleRefElementSpec) terminalExpect.getElementSpec();
@@ -263,7 +263,7 @@ public class IssueQueryBehavior extends ANTLRAssistBehavior {
 										} else if (fieldSpec instanceof BooleanField) {
 											return SuggestionUtils.suggest(newArrayList("true", "false"), matchWith);
 										} else if (fieldSpec instanceof GroupChoiceField) {
-											List<String> candidates = OneDev.getInstance(GroupService.class).query().stream().map(it -> it.getName()).collect(Collectors.toList());
+											List<String> candidates = Cheeta.getInstance(GroupService.class).query().stream().map(it -> it.getName()).collect(Collectors.toList());
 											return SuggestionUtils.suggest(candidates, matchWith);
 										} else if (fieldSpec instanceof IterationChoiceField) {
 											if (project != null && !matchWith.contains("*"))
@@ -404,7 +404,7 @@ public class IssueQueryBehavior extends ANTLRAssistBehavior {
 					String fieldName = ProjectQuery.getValue(fieldElements.get(0).getMatchedText());
 					var fieldSpec = issueSetting.getFieldSpec(fieldName);
 					if (fieldName.equals(Issue.NAME_PROJECT)) {
-						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 					} else if (fieldName.equals(Issue.NAME_TITLE)
 							|| fieldName.equals(Issue.NAME_DESCRIPTION)
 							|| fieldName.equals(Issue.NAME_COMMENT)
@@ -445,7 +445,7 @@ public class IssueQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 }

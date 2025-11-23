@@ -1,6 +1,6 @@
-package io.onedev.server.util.artifact;
+package io.cheeta.server.util.artifact;
 
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.Api;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import org.jspecify.annotations.Nullable;

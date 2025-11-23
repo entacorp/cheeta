@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.user;
+package io.cheeta.server.web.page.user;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class UserCssResourceReference extends BaseDependentCssResourceReference {
 

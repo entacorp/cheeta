@@ -1,10 +1,10 @@
-package io.onedev.server.buildspec.param.instance;
+package io.cheeta.server.buildspec.param.instance;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ScriptChoice;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.GroovyUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ScriptChoice;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.GroovyUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

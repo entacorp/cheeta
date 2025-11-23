@@ -1,12 +1,12 @@
-package io.onedev.server.plugin.mail.smtpimap;
+package io.cheeta.server.plugin.mail.smtpimap;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.mail.*;
-import io.onedev.server.model.support.administration.mailservice.MailConnector;
-import io.onedev.server.model.support.administration.mailservice.SmtpExplicitSsl;
-import io.onedev.server.model.support.administration.mailservice.SmtpSslSetting;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.mail.*;
+import io.cheeta.server.model.support.administration.mailservice.MailConnector;
+import io.cheeta.server.model.support.administration.mailservice.SmtpExplicitSsl;
+import io.cheeta.server.model.support.administration.mailservice.SmtpSslSetting;
 import org.jetbrains.annotations.Nullable;
 
 import javax.mail.Message;
@@ -94,7 +94,7 @@ public class SmtpImapConnector implements MailConnector {
 
 	@Editable(order=450, name="Check Incoming Email", description="Enable this to process issue or pull request comments posted via email. "
 			+ "<b class='text-danger'>NOTE:</b> <a href='https://en.wikipedia.org/wiki/Email_address#Subaddressing' target='_blank'>Sub addressing</a> "
-			+ "needs to be enabled for system email address above, as OneDev uses it to track issue and pull request contexts")
+			+ "needs to be enabled for system email address above, as Cheeta uses it to track issue and pull request contexts")
 	public InboxPollSetting getInboxPollSetting() {
 		return inboxPollSetting;
 	}
@@ -152,7 +152,7 @@ public class SmtpImapConnector implements MailConnector {
 	}
 
 	private MailService getMailService() {
-		return OneDev.getInstance(MailService.class);
+		return Cheeta.getInstance(MailService.class);
 	}
 	
 }

@@ -1,14 +1,14 @@
-package io.onedev.server.plugin.report.markdown;
+package io.cheeta.server.plugin.report.markdown;
 
 import com.google.common.base.Joiner;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.tika.io.IOUtils;
 import org.apache.tika.mime.MimeTypes;
@@ -38,14 +38,14 @@ public class MarkdownReportDownloadResource extends AbstractResource {
 		PageParameters params = attributes.getParameters();
 
 		String projectPath = params.get(PARAM_PROJECT).toString();
-		Project project = OneDev.getInstance(ProjectService.class).findByPath(projectPath);
+		Project project = Cheeta.getInstance(ProjectService.class).findByPath(projectPath);
 		
 		Long buildNumber = params.get(PARAM_BUILD).toOptionalLong();
 		
 		if (buildNumber == null)
 			throw new IllegalArgumentException("build number has to be specified");
 		
-		Build build = OneDev.getInstance(BuildService.class).find(project, buildNumber);
+		Build build = Cheeta.getInstance(BuildService.class).find(project, buildNumber);
 
 		if (build == null) {
 			String message = String.format("Unable to find build (project: %s, build number: %d)", 

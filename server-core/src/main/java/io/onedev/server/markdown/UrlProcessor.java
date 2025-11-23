@@ -1,4 +1,4 @@
-package io.onedev.server.markdown;
+package io.cheeta.server.markdown;
 
 import java.net.URISyntaxException;
 
@@ -15,22 +15,22 @@ import org.jsoup.select.NodeVisitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.PathUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.UrlUtils;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.component.markdown.SuggestionSupport;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.PathUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.UrlUtils;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.component.markdown.SuggestionSupport;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
 
 public class UrlProcessor implements HtmlProcessor {
 
@@ -42,7 +42,7 @@ public class UrlProcessor implements HtmlProcessor {
 						@Nullable SuggestionSupport suggestionSupport,
 						boolean forExternal) {
 		if (RequestCycle.get() != null && blobRenderContext != null && project != null) {
-			GitService gitService = OneDev.getInstance(GitService.class);
+			GitService gitService = Cheeta.getInstance(GitService.class);
 			ObjectId revId;
 			if (blobRenderContext.getBlobIdent().revision != null) {
 				revId = gitService.resolve(project, blobRenderContext.getBlobIdent().revision, true);

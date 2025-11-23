@@ -1,15 +1,15 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import com.google.common.base.Preconditions;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.util.diff.DiffBlock;
-import io.onedev.server.util.diff.DiffMatchPatch.Operation;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.util.DiffPlanarRange;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.util.diff.DiffBlock;
+import io.cheeta.server.util.diff.DiffMatchPatch.Operation;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.util.DiffPlanarRange;
 import org.eclipse.jgit.diff.DiffEntry.ChangeType;
 import org.eclipse.jgit.lib.ObjectId;
 

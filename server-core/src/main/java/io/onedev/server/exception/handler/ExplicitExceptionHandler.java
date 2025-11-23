@@ -1,7 +1,7 @@
-package io.onedev.server.exception.handler;
+package io.cheeta.server.exception.handler;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.exception.HttpResponse;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.exception.HttpResponse;
 
 import javax.servlet.http.HttpServletResponse;
 

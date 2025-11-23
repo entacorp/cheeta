@@ -14,7 +14,7 @@ import org.hibernate.internal.util.MarkerObject;
 import org.hibernate.proxy.AbstractLazyInitializer;
 import org.hibernate.type.CompositeType;
 
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.server.model.AbstractEntity;
 
 /**
  * Lazy initializer for POJOs

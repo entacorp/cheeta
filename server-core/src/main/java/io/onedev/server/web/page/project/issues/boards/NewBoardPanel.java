@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.List;
 
@@ -12,17 +12,17 @@ import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.issue.BoardSpec;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.issue.BoardSpec;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 abstract class NewBoardPanel extends Panel {
 
@@ -59,8 +59,8 @@ abstract class NewBoardPanel extends Panel {
 					boards.add(newBoard);
 					getProject().getIssueSetting().setBoardSpecs(boards);
 					var newAuditContent = VersionedXmlDoc.fromBean(newBoard).toXML();
-					OneDev.getInstance(ProjectService.class).update(getProject());
-					OneDev.getInstance(AuditService.class).audit(getProject(), "created issue board \"" + newBoard.getName() + "\"", null, newAuditContent);
+					Cheeta.getInstance(ProjectService.class).update(getProject());
+					Cheeta.getInstance(AuditService.class).audit(getProject(), "created issue board \"" + newBoard.getName() + "\"", null, newAuditContent);
 					Session.get().success(_T("New issue board created"));
 					onBoardCreated(target, newBoard);
 				} else {

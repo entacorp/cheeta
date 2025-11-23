@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,12 +14,12 @@ import org.slf4j.LoggerFactory;
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
 
-import io.onedev.server.service.DashboardGroupShareService;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.Dashboard;
-import io.onedev.server.model.DashboardGroupShare;
-import io.onedev.server.model.Group;
-import io.onedev.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.DashboardGroupShareService;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.Dashboard;
+import io.cheeta.server.model.DashboardGroupShare;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.persistence.annotation.Transactional;
 
 @Singleton
 public class DefaultDashboardGroupShareService extends BaseEntityService<DashboardGroupShare>

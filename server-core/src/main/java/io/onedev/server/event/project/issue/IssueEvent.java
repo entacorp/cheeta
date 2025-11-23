@@ -1,17 +1,17 @@
-package io.onedev.server.event.project.issue;
+package io.cheeta.server.event.project.issue;
 
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.User;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.UrlService;
 
 public abstract class IssueEvent extends ProjectEvent {
 
@@ -32,7 +32,7 @@ public abstract class IssueEvent extends ProjectEvent {
 	}
 	
 	public Issue getIssue() {
-		return OneDev.getInstance(IssueService.class).load(issueId);
+		return Cheeta.getInstance(IssueService.class).load(issueId);
 	}
 	
 	public abstract boolean affectsListing();
@@ -52,7 +52,7 @@ public abstract class IssueEvent extends ProjectEvent {
 	
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getIssue(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getIssue(), true);
 	}
 
 	public boolean isSendNotifications() {

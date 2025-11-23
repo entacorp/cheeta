@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.log.instruction;
+package io.cheeta.server.buildspec.job.log.instruction;
 
 import java.util.List;
 import java.util.Map;
@@ -12,17 +12,17 @@ import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.buildspec.job.log.instruction.LogInstructionParser.InstructionContext;
-import io.onedev.server.model.Build;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.buildspec.job.log.instruction.LogInstructionParser.InstructionContext;
+import io.cheeta.server.model.Build;
 
 @ExtensionPoint
 public abstract class LogInstruction {
 
-	public static final String PREFIX = "##onedev";
+	public static final String PREFIX = "##cheeta";
 	
 	public abstract String getName();
 	

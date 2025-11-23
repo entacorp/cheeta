@@ -1,4 +1,4 @@
-package io.onedev.server.search.code.query;
+package io.cheeta.server.search.code.query;
 
 import java.io.IOException;
 import java.io.StringReader;

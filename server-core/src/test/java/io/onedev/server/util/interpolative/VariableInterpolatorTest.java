@@ -1,4 +1,4 @@
-package io.onedev.server.util.interpolative;
+package io.cheeta.server.util.interpolative;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 public class VariableInterpolatorTest {
 
@@ -60,7 +60,7 @@ public class VariableInterpolatorTest {
 		private TestParentBean parent = new TestParentBean();
 
 		@Editable
-		@io.onedev.server.annotation.Interpolative
+		@io.cheeta.server.annotation.Interpolative
 		public String getName() {
 			return name;
 		}
@@ -70,7 +70,7 @@ public class VariableInterpolatorTest {
 		}
 
 		@Editable
-		@io.onedev.server.annotation.Interpolative
+		@io.cheeta.server.annotation.Interpolative
 		public List<String> getChildren() {
 			return children;
 		}
@@ -96,7 +96,7 @@ public class VariableInterpolatorTest {
 		private String name;
 
 		@Editable
-		@io.onedev.server.annotation.Interpolative
+		@io.cheeta.server.annotation.Interpolative
 		public String getName() {
 			return name;
 		}

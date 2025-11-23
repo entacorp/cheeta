@@ -1,21 +1,21 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
-import io.onedev.server.annotation.Code;
+import io.cheeta.server.annotation.Code;
 import org.apache.wicket.model.IModel;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.InterpolativePatternSetAssistBehavior;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
-import io.onedev.server.web.editable.string.StringPropertyViewer;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.InterpolativePatternSetAssistBehavior;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.web.editable.string.StringPropertyViewer;
 
 public class InterpolativePatternsEditSupport implements EditSupport {
 
@@ -67,7 +67,7 @@ public class InterpolativePatternsEditSupport implements EditSupport {
 							protected List<String> getHints(TerminalExpect terminalExpect) {
 								return Lists.newArrayList(
 										"Pattern containing spaces or starting with dash needs to be quoted",
-										patterns.path()? "Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude": "Use '*' or '?' for wildcard match. Prefix with '-' to exclude");
+										patterns.path()? "Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude": "Use '*' or '?' for wildcard match. Prefix with '-' to exclude");
 							}
 							
 						});

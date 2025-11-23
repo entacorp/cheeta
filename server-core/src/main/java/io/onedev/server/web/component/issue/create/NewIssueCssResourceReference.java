@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.create;
+package io.cheeta.server.web.component.issue.create;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class NewIssueCssResourceReference extends BaseDependentCssResourceReference {
 

@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueMention;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueMention;
+import io.cheeta.server.model.User;
 
 public interface IssueMentionService extends EntityService<IssueMention> {
 

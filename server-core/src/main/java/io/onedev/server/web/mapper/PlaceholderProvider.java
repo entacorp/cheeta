@@ -1,4 +1,4 @@
-package io.onedev.server.web.mapper;
+package io.cheeta.server.web.mapper;
 
 public interface PlaceholderProvider {
 

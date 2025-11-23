@@ -1,17 +1,17 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Markdown;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.build.BuildUpdated;
-import io.onedev.server.persistence.TransactionService;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Markdown;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.build.BuildUpdated;
+import io.cheeta.server.persistence.TransactionService;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.File;
@@ -43,10 +43,10 @@ public class SetBuildDescriptionStep extends ServerSideStep {
 	
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger jobLogger) {
-		return OneDev.getInstance(TransactionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
+		return Cheeta.getInstance(TransactionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
 			build.setDescription(buildDescription);
-			OneDev.getInstance(ListenerRegistry.class).post(new BuildUpdated(build));
+			Cheeta.getInstance(ListenerRegistry.class).post(new BuildUpdated(build));
 			return new ServerStepResult(true);
 		});
 		

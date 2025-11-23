@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.brandlogo;
+package io.cheeta.server.web.component.brandlogo;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.base.BasePage;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.image.ExternalImage;

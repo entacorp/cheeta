@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.edit;
+package io.cheeta.server.web.page.project.blob.render.edit;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -21,17 +21,17 @@ import org.apache.wicket.markup.html.form.FormComponentPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.flow.RedirectToUrlException;
 
-import io.onedev.server.util.Provider;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.blob.navigator.BlobNameChanging;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
-import io.onedev.server.web.page.project.blob.render.commitoption.CommitOptionPanel;
-import io.onedev.server.web.page.project.blob.render.edit.plain.PlainEditSupport;
+import io.cheeta.server.util.Provider;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.blob.navigator.BlobNameChanging;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.server.web.page.project.blob.render.commitoption.CommitOptionPanel;
+import io.cheeta.server.web.page.project.blob.render.edit.plain.PlainEditSupport;
 
 public abstract class BlobEditPanel extends Panel {
 
@@ -115,15 +115,15 @@ public abstract class BlobEditPanel extends Panel {
 							}
 
 							String script = String.format(
-									"onedev.server.blobEdit.selectTab($('#%s>.blob-edit>.head>.%s'));", 
+									"cheeta.server.blobEdit.selectTab($('#%s>.blob-edit>.head>.%s'));", 
 									BlobEditPanel.this.getMarkupId(true), tab.name().toLowerCase().replace("_", "-"));
 							target.appendJavaScript(script);
 							
 							currentTab = tab;
 
-							target.prependJavaScript(String.format("onedev.server.blobEdit.recordFormFlags('%s');", form.getMarkupId()));
+							target.prependJavaScript(String.format("cheeta.server.blobEdit.recordFormFlags('%s');", form.getMarkupId()));
 							target.add(form);
-							target.appendJavaScript(String.format("onedev.server.blobEdit.restoreFormFlags('%s');", form.getMarkupId()));
+							target.appendJavaScript(String.format("cheeta.server.blobEdit.restoreFormFlags('%s');", form.getMarkupId()));
 						}
 					}
 
@@ -213,7 +213,7 @@ public abstract class BlobEditPanel extends Panel {
 			 * any change yet
 			 */
 			BlobNameChanging payload = (BlobNameChanging) event.getPayload();
-			String script = String.format("onedev.server.blobEdit.onNameChanging('%s', %s, %s);", 
+			String script = String.format("cheeta.server.blobEdit.onNameChanging('%s', %s, %s);", 
 					getMarkupId(), context.getMode() == Mode.ADD, recreateBehavior.getCallbackFunction());
 			payload.getHandler().appendJavaScript(script);
 		}
@@ -237,7 +237,7 @@ public abstract class BlobEditPanel extends Panel {
 
 		response.render(JavaScriptHeaderItem.forReference(new BlobEditResourceReference()));
 		
-		String script = String.format("onedev.server.blobEdit.onDomReady('%s');", getMarkupId()); 
+		String script = String.format("cheeta.server.blobEdit.onDomReady('%s');", getMarkupId()); 
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
 

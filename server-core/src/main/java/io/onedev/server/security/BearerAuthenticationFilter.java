@@ -1,11 +1,11 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.AgentTokenService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.job.JobService;
-import io.onedev.server.persistence.annotation.Sessional;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.AgentTokenService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.persistence.annotation.Sessional;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ThreadContext;

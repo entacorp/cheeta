@@ -1,17 +1,17 @@
-package io.onedev.server.event.project.issue;
+package io.cheeta.server.event.project.issue;
 
 import java.util.Date;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Issue;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Issue;
 
 public class IssueCommitsAttached extends IssueEvent {
 
 	private static final long serialVersionUID = 1L;
 	
 	public IssueCommitsAttached(Issue issue) {
-		super(OneDev.getInstance(UserService.class).getSystem(), new Date(), issue);
+		super(Cheeta.getInstance(UserService.class).getSystem(), new Date(), issue);
 	}
 
 	@Override

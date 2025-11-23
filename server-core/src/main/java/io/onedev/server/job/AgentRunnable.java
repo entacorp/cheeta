@@ -1,4 +1,4 @@
-package io.onedev.server.job;
+package io.cheeta.server.job;
 
 import java.io.Serializable;
 

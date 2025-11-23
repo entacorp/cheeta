@@ -1,10 +1,10 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.UserMatch;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.UserMatch;
 
 public class UserMatchValidator implements ConstraintValidator<UserMatch, String> {
 
@@ -21,7 +21,7 @@ public class UserMatchValidator implements ConstraintValidator<UserMatch, String
 			return true;
 		} else {
 			try {
-				io.onedev.server.util.usermatch.UserMatch.parse(value);
+				io.cheeta.server.util.usermatch.UserMatch.parse(value);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

@@ -1,15 +1,15 @@
-package io.onedev.server.web.util.editbean;
+package io.cheeta.server.web.util.editbean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.model.support.LabelSupport;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.model.support.LabelSupport;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class LabelsBean implements Serializable {
@@ -30,7 +30,7 @@ public class LabelsBean implements Serializable {
 	
 	@SuppressWarnings("unused")
 	private static List<String> getLabelChoices() {
-		var labels = OneDev.getInstance(LabelSpecService.class).query();
+		var labels = Cheeta.getInstance(LabelSpecService.class).query();
 		return labels.stream().map(it->it.getName()).sorted().collect(Collectors.toList());
 	}
 	

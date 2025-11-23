@@ -1,9 +1,9 @@
-package io.onedev.server.git.signatureverification.ssh;
+package io.cheeta.server.git.signatureverification.ssh;
 
-import io.onedev.server.git.signatureverification.VerificationSuccessful;
-import io.onedev.server.web.component.gitsignature.SshVerificationDetailPanel;
+import io.cheeta.server.git.signatureverification.VerificationSuccessful;
+import io.cheeta.server.web.component.gitsignature.SshVerificationDetailPanel;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.eclipse.jgit.revwalk.RevCommit;

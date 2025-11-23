@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.gpgkey;
+package io.cheeta.server.web.component.user.gpgkey;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.Date;
@@ -13,19 +13,19 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.GpgKeyService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.GpgKey;
-import io.onedev.server.model.User;
-import io.onedev.server.util.GpgUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.GpgKeyService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.GpgKey;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.GpgUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.user.UserPage;
 
 public abstract class InsertGpgKeyPanel extends Panel {
 
@@ -57,7 +57,7 @@ public abstract class InsertGpgKeyPanel extends Panel {
             protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
                 super.onSubmit(target, form);
                 
-                GpgKeyService gpgKeyService = OneDev.getInstance(GpgKeyService.class);
+                GpgKeyService gpgKeyService = Cheeta.getInstance(GpgKeyService.class);
                 GpgKey gpgKey = (GpgKey) editor.getModelObject();
                 gpgKey.setOwner(getUser());
                 gpgKey.setKeyId(gpgKey.getKeyIds().get(0));
@@ -68,7 +68,7 @@ public abstract class InsertGpgKeyPanel extends Panel {
                 } else {
                 	boolean hasErrors = false;
                 	for (String emailAddressValue: GpgUtils.getEmailAddresses(gpgKey.getPublicKeys().get(0))) {
-                    	EmailAddress emailAddress = OneDev.getInstance(EmailAddressService.class).findByValue(emailAddressValue);
+                    	EmailAddress emailAddress = Cheeta.getInstance(EmailAddressService.class).findByValue(emailAddressValue);
                     	if (emailAddress == null || !emailAddress.isVerified() || !emailAddress.getOwner().equals(getUser())) {
                     		editor.error(new Path(new PathNode.Named("content")), MessageFormat.format(_T("This key is associated with {0}, however it is NOT a verified email address of this user"), emailAddressValue));
                     		target.add(form);
@@ -80,7 +80,7 @@ public abstract class InsertGpgKeyPanel extends Panel {
                         gpgKey.setCreatedAt(new Date());
                         gpgKeyService.create(gpgKey);
                         if (getPage() instanceof UserPage)
-							OneDev.getInstance(AuditService.class).audit(null, "added GPG key \"" + GpgUtils.getKeyIDString(gpgKey.getKeyId()) + "\" in account \"" + gpgKey.getOwner().getName() + "\"", null, null);
+							Cheeta.getInstance(AuditService.class).audit(null, "added GPG key \"" + GpgUtils.getKeyIDString(gpgKey.getKeyId()) + "\" in account \"" + gpgKey.getOwner().getName() + "\"", null, null);
                         onSave(target);
                 	}
                 }

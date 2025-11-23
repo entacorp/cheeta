@@ -1,6 +1,6 @@
-package io.onedev.server.util.usermatch;
+package io.cheeta.server.util.usermatch;
 
-import io.onedev.server.model.User;
+import io.cheeta.server.model.User;
 
 public class Anyone implements UserMatchCriteria {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.pack.nuget;
+package io.cheeta.server.plugin.pack.nuget;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

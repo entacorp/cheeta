@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.io.File;
 import java.io.InputStream;
@@ -7,9 +7,9 @@ import java.util.Collection;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.annotation.NoDBAccess;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.PackBlob;
+import io.cheeta.server.annotation.NoDBAccess;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.PackBlob;
 
 public interface PackBlobService extends EntityService<PackBlob> {
 	

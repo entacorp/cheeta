@@ -1,7 +1,7 @@
-package io.onedev.server.plugin.report.mypy;
+package io.cheeta.server.plugin.report.mypy;
 
-import static io.onedev.server.codequality.CodeProblem.Severity.LOW;
-import static io.onedev.server.codequality.CodeProblem.Severity.MEDIUM;
+import static io.cheeta.server.codequality.CodeProblem.Severity.LOW;
+import static io.cheeta.server.codequality.CodeProblem.Severity.MEDIUM;
 import static java.lang.Integer.parseInt;
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
@@ -16,12 +16,12 @@ import org.apache.commons.lang3.math.NumberUtils;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.model.Build;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.model.Build;
 
 public class MypyReportParser {
 	

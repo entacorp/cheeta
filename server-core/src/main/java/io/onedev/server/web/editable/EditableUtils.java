@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
@@ -8,15 +8,15 @@ import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.WorkingPeriod;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.BeanUtils;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.util.interpolative.VariableInterpolator;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.WorkingPeriod;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.BeanUtils;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.util.interpolative.VariableInterpolator;
 
 public class EditableUtils {
 	
@@ -105,7 +105,7 @@ public class EditableUtils {
 			}
 			return description;
 		} else if (element.getAnnotation(WorkingPeriod.class) != null) {
-			var timeTrackingSetting = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+			var timeTrackingSetting = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 			String description = getDescription(element, editable);
 			if (description.length() != 0) {
 				if (!description.endsWith("."))

@@ -1,10 +1,10 @@
-package io.onedev.server.search.entity.agent;
+package io.cheeta.server.search.entity.agent;
 
-import static io.onedev.server.model.Agent.PROP_LAST_USED_DATE;
-import static io.onedev.server.model.AgentLastUsedDate.PROP_VALUE;
-import static io.onedev.server.search.entity.EntityQuery.getPath;
-import static io.onedev.server.search.entity.agent.AgentQuery.getRuleName;
-import static io.onedev.server.search.entity.agent.AgentQueryLexer.NotUsedSince;
+import static io.cheeta.server.model.Agent.PROP_LAST_USED_DATE;
+import static io.cheeta.server.model.AgentLastUsedDate.PROP_VALUE;
+import static io.cheeta.server.search.entity.EntityQuery.getPath;
+import static io.cheeta.server.search.entity.agent.AgentQuery.getRuleName;
+import static io.cheeta.server.search.entity.agent.AgentQueryLexer.NotUsedSince;
 
 import java.util.Date;
 
@@ -15,10 +15,10 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.Agent;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class NotUsedSinceCriteria extends Criteria<Agent> {
 

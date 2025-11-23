@@ -1,17 +1,17 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.model.Agent;
-import io.onedev.server.search.entity.agent.*;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.criteria.OrCriteria;
-import io.onedev.server.web.page.admin.buildsetting.agent.AgentDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.search.entity.agent.*;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.criteria.OrCriteria;
+import io.cheeta.server.web.page.admin.buildsetting.agent.AgentDetailPage;
 
 public class AgentParam extends ParamSegment {
 
@@ -24,7 +24,7 @@ public class AgentParam extends ParamSegment {
 	@Override
 	public Map<String, String> suggest(String matchWith, Map<String, String> paramValues, int count) {
 		Map<String, String> suggestions = new LinkedHashMap<>();
-		AgentService agentService = OneDev.getInstance(AgentService.class);
+		AgentService agentService = Cheeta.getInstance(AgentService.class);
 		AgentQuery query;
 		if (matchWith.length() == 0) {
 			query = new AgentQuery();
@@ -45,7 +45,7 @@ public class AgentParam extends ParamSegment {
 
 	@Override
 	public boolean isExactMatch(String matchWith, Map<String, String> paramValues) {
-		AgentService agentService = OneDev.getInstance(AgentService.class);
+		AgentService agentService = Cheeta.getInstance(AgentService.class);
 		return agentService.findByName(matchWith) != null; 
 	}
 		

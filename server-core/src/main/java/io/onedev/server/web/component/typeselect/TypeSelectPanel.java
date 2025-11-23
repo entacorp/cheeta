@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.typeselect;
+package io.cheeta.server.web.component.typeselect;
 
-import static io.onedev.server.util.HtmlUtils.getText;
-import static io.onedev.server.web.editable.EditableUtils.getDescription;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.util.HtmlUtils.getText;
+import static io.cheeta.server.web.editable.EditableUtils.getDescription;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.commons.lang3.StringUtils.substringBefore;
 
 import java.io.Serializable;
@@ -35,15 +35,15 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.loader.ImplementationRegistry;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.web.asset.selectbytyping.SelectByTypingResourceReference;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.editable.EditableUtils;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.loader.ImplementationRegistry;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.web.asset.selectbytyping.SelectByTypingResourceReference;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.editable.EditableUtils;
 
 public abstract class TypeSelectPanel<T extends Serializable> extends Panel {
 

@@ -1,8 +1,8 @@
-package io.onedev.server.model.support.administration.mailservice;
+package io.cheeta.server.model.support.administration.mailservice;
 
 import com.sun.mail.util.MailSSLSocketFactory;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.security.TrustCertsSSLSocketFactory;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.security.TrustCertsSSLSocketFactory;
 
 import java.security.GeneralSecurityException;
 import java.util.Properties;
@@ -15,9 +15,9 @@ public abstract class SmtpWithSsl implements SmtpSslSetting {
 	private boolean trustAll;
 
 	@Editable(order=1000, name="Bypass Certificate Check", description = "In case SMTP host certificate is self-signed or its CA root is not accepted, " +
-			"you may tell OneDev to bypass certificate check. <b class='text-danger'>WARNING: </b> In " +
-			"an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.onedev.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the " +
-			"certificate into OneDev</a> instead")
+			"you may tell Cheeta to bypass certificate check. <b class='text-danger'>WARNING: </b> In " +
+			"an untrusted network, this may lead to man-in-the-middle attack, and you should <a href='https://docs.cheeta.io/administration-guide/trust-self-signed-certificates#trust-self-signed-certificates-on-server' target='_blank'>import the " +
+			"certificate into Cheeta</a> instead")
 	public boolean isTrustAll() {
 		return trustAll;
 	}

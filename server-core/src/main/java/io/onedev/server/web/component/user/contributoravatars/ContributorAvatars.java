@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.contributoravatars;
+package io.cheeta.server.web.component.user.contributoravatars;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -6,8 +6,8 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.PersonIdentPanel;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.PersonIdentPanel;
 
 public class ContributorAvatars extends Panel {
 

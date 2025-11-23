@@ -1,7 +1,7 @@
-package io.onedev.server.security.realm;
+package io.cheeta.server.security.realm;
 
-import static io.onedev.server.validation.validator.UserNameValidator.normalizeUserName;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.validation.validator.UserNameValidator.normalizeUserName;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.HashSet;
@@ -22,20 +22,20 @@ import org.apache.shiro.realm.AuthenticatingRealm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.MembershipService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.SshKeyService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.authenticator.Authenticated;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Transactional;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.MembershipService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.SshKeyService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.authenticator.Authenticated;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Transactional;
 
 @Singleton
 public class PasswordAuthenticatingRealm extends AuthenticatingRealm {

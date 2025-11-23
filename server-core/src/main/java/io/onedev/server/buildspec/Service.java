@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec;
+package io.cheeta.server.buildspec;
 
 import static java.util.stream.Collectors.toList;
 
@@ -9,18 +9,18 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputStatus;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.ServiceFacade;
-import io.onedev.server.annotation.DnsName;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.RegEx;
-import io.onedev.server.annotation.SuggestionProvider;
-import io.onedev.server.buildspec.job.EnvVar;
-import io.onedev.server.buildspec.step.RegistryLogin;
-import io.onedev.server.model.Build;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputStatus;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.ServiceFacade;
+import io.cheeta.server.annotation.DnsName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.RegEx;
+import io.cheeta.server.annotation.SuggestionProvider;
+import io.cheeta.server.buildspec.job.EnvVar;
+import io.cheeta.server.buildspec.step.RegistryLogin;
+import io.cheeta.server.model.Build;
 
 @Editable
 public class Service implements NamedElement {

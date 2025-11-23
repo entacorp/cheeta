@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.project.choice;
+package io.cheeta.server.web.component.project.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.web.component.select2.Select2Choice;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.component.select2.Select2Choice;
 
 public class ProjectSingleChoice extends Select2Choice<Project> {
 
@@ -25,9 +25,9 @@ public class ProjectSingleChoice extends Select2Choice<Project> {
 			getSettings().setPlaceholder(_T("Choose a project..."));
 		else
 			getSettings().setPlaceholder(_T("Not specified"));
-		getSettings().setFormatResult("onedev.server.projectChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.projectChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.projectChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.projectChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.projectChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.projectChoiceFormatter.escapeMarkup");
 		setConvertEmptyInputStringToNull(true);
 	}
 

@@ -1,12 +1,12 @@
-package io.onedev.server.web.editable.buildspec.step;
+package io.cheeta.server.web.editable.buildspec.step;
 
-import io.onedev.server.buildspec.step.Step;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.component.offcanvas.OffCanvasCardPanel;
-import io.onedev.server.web.component.offcanvas.OffCanvasPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.server.buildspec.step.Step;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.component.offcanvas.OffCanvasCardPanel;
+import io.cheeta.server.web.component.offcanvas.OffCanvasPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.util.TextUtils;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -25,7 +25,7 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;

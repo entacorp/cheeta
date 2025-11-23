@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.project.stats.code;
+package io.cheeta.server.web.component.project.stats.code;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -13,14 +13,14 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.eclipse.jgit.lib.Constants;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.branches.ProjectBranchesPage;
-import io.onedev.server.web.page.project.commits.ProjectCommitsPage;
-import io.onedev.server.web.page.project.tags.ProjectTagsPage;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.branches.ProjectBranchesPage;
+import io.cheeta.server.web.page.project.commits.ProjectCommitsPage;
+import io.cheeta.server.web.page.project.tags.ProjectTagsPage;
+import io.cheeta.server.xodus.CommitInfoService;
 
 public class CodeStatsPanel extends GenericPanel<Project> {
 
@@ -38,7 +38,7 @@ public class CodeStatsPanel extends GenericPanel<Project> {
 	}
 
 	private CommitInfoService getCommitInfoManager() {
-		return OneDev.getInstance(CommitInfoService.class);
+		return Cheeta.getInstance(CommitInfoService.class);
 	}
 	
 	private Project getProject() {
@@ -87,7 +87,7 @@ public class CodeStatsPanel extends GenericPanel<Project> {
 
 			@Override
 			protected String load() {
-				int branchCount = OneDev.getInstance(GitService.class)
+				int branchCount = Cheeta.getInstance(GitService.class)
 						.countRefs(getProject().getId(), Constants.R_HEADS);
 				return MessageFormat.format(_T("{0} branches"), branchCount);
 			}
@@ -101,7 +101,7 @@ public class CodeStatsPanel extends GenericPanel<Project> {
 
 			@Override
 			protected String load() {
-				int tagCount = OneDev.getInstance(GitService.class)
+				int tagCount = Cheeta.getInstance(GitService.class)
 						.countRefs(getProject().getId(), Constants.R_TAGS);
 				return MessageFormat.format(_T("{0} tags"), tagCount);
 			}

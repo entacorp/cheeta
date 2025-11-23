@@ -1,4 +1,4 @@
-package io.onedev.server.persistence.dao;
+package io.cheeta.server.persistence.dao;
 
 import java.io.Serializable;
 
@@ -18,7 +18,7 @@ import org.hibernate.internal.CriteriaImpl;
 import org.hibernate.sql.JoinType;
 import org.hibernate.transform.ResultTransformer;
 
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.server.model.AbstractEntity;
 
 public class EntityCriteria<T extends AbstractEntity> implements CriteriaSpecification, Serializable {
 	

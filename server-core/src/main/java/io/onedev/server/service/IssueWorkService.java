@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Date;
 import java.util.List;
@@ -7,11 +7,11 @@ import org.jspecify.annotations.Nullable;
 
 import org.apache.shiro.subject.Subject;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueWork;
-import io.onedev.server.model.User;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueWork;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectScope;
 
 public interface IssueWorkService extends EntityService<IssueWork> {
 	

@@ -1,18 +1,18 @@
-package io.onedev.server.plugin.report.clover;
+package io.cheeta.server.plugin.report.clover;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.buildspec.step.StepGroup;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
+import io.cheeta.server.buildspec.step.StepGroup;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
 
 @Editable(order=10000, group=StepGroup.PUBLISH, name="Jest Coverage Report")
 public class PublishJestCoverageReportStep extends PublishCloverReportStep {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Editable(order=100, description="Specify Jest coverage report file in clover format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, "
+	@Editable(order=100, description="Specify Jest coverage report file in clover format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, "
 			+ "for instance <tt>coverage/clover.xml</tt>. This file can be generated with Jest option <tt>'--coverage'</tt>. "
 			+ "Use * or ? for pattern match")
 	@Interpolative(variableSuggester="suggestVariables")

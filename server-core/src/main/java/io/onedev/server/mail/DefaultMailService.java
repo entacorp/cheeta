@@ -1,7 +1,7 @@
-package io.onedev.server.mail;
+package io.cheeta.server.mail;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static io.onedev.server.model.Setting.Key.MAIL;
+import static io.cheeta.server.model.Setting.Key.MAIL;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toSet;
 
@@ -74,48 +74,48 @@ import com.hazelcast.cluster.MembershipListener;
 import com.ibm.icu.impl.locale.XCldrStub.Splitter;
 import com.sun.mail.imap.IMAPFolder;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentService;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.IssueAuthorizationService;
-import io.onedev.server.service.IssueCommentService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IssueWatchService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestCommentService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.PullRequestWatchService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestWatch;
-import io.onedev.server.model.Setting;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.administration.IssueCreationSetting;
-import io.onedev.server.model.support.administration.emailtemplates.EmailTemplates;
-import io.onedev.server.model.support.issue.field.instance.FieldInstance;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.util.HtmlUtils;
-import io.onedev.server.util.ParsedEmailAddress;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentService;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.IssueAuthorizationService;
+import io.cheeta.server.service.IssueCommentService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IssueWatchService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestCommentService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.PullRequestWatchService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestWatch;
+import io.cheeta.server.model.Setting;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.administration.IssueCreationSetting;
+import io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates;
+import io.cheeta.server.model.support.issue.field.instance.FieldInstance;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.util.HtmlUtils;
+import io.cheeta.server.util.ParsedEmailAddress;
 
 @Singleton
 public class DefaultMailService implements MailService, Serializable {
@@ -176,8 +176,8 @@ public class DefaultMailService implements MailService, Serializable {
 
 	private boolean isProdTest() {
 		if (prodTest == null) {
-			prodTest = settingService.getSystemSetting().getServerUrl().equals("https://code.onedev.io") 
-					&& !new File("/home/onedev/website").exists();
+			prodTest = settingService.getSystemSetting().getServerUrl().equals("https://code.cheeta.io") 
+					&& !new File("/home/cheeta/website").exists();
 		}
 		return prodTest;
 	}
@@ -318,7 +318,7 @@ public class DefaultMailService implements MailService, Serializable {
 				}
 			}
 			
-			if (senderName == null || senderName.equalsIgnoreCase("onedev")) 
+			if (senderName == null || senderName.equalsIgnoreCase("cheeta")) 
 				senderName = getQuoteMark();
 			else 
 				senderName += " " + getQuoteMark();
@@ -377,7 +377,7 @@ public class DefaultMailService implements MailService, Serializable {
 	}
 	
 	private String getThreadingReferences(String uuid, @Nullable String messageId) {
-		var threadingReferences = "<" + uuid + "@onedev>";
+		var threadingReferences = "<" + uuid + "@cheeta>";
 		if (messageId != null)
 			threadingReferences = messageId + " " + threadingReferences;
 		return threadingReferences;
@@ -410,8 +410,8 @@ public class DefaultMailService implements MailService, Serializable {
 					ParsedEmailAddress parsedReceiverAddress = ParsedEmailAddress.parse(receiverInternetAddress.getAddress());
 					var project = findProject(systemAddress, parsedReceiverAddress);
 					if (project != null) {
-						if (isOriginatedFromOneDev(message)) {
-							logger.warn("Ignored opening issue from message as it is originated from OneDev");
+						if (isOriginatedFromCheeta(message)) {
+							logger.warn("Ignored opening issue from message as it is originated from Cheeta");
 						} else {
 							var serviceDeskSetting = settingService.getServiceDeskSetting();
 							if (serviceDeskSetting != null) {
@@ -832,7 +832,7 @@ public class DefaultMailService implements MailService, Serializable {
 								
 								var threadingReferences = getThreadingReferences(UUID.randomUUID().toString(), null);
 								sendMailAsync(newArrayList(from.getAddress()), new ArrayList<>(), 
-										new ArrayList<>(), "OneDev is unable to process your message", 
+										new ArrayList<>(), "Cheeta is unable to process your message", 
 										htmlBody, textBody, null, null, threadingReferences);								
 							}
 						} catch (Exception e2) {
@@ -1004,10 +1004,10 @@ public class DefaultMailService implements MailService, Serializable {
 		}
 	}
 	
-	private boolean isOriginatedFromOneDev(Message message) {
+	private boolean isOriginatedFromCheeta(Message message) {
 		try {
 			var references = message.getHeader("References");
-			return references != null && references.length != 0 && references[0].contains("@onedev>");
+			return references != null && references.length != 0 && references[0].contains("@cheeta>");
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
@@ -1096,7 +1096,7 @@ public class DefaultMailService implements MailService, Serializable {
 		if (part.getDisposition() != null) {
 			String[] contentId = part.getHeader("Content-ID");
 			String fileName = MimeUtility.decodeText(part.getFileName());
-			var attachmentService = OneDev.getInstance(AttachmentService.class);
+			var attachmentService = Cheeta.getInstance(AttachmentService.class);
 			String attachmentName = attachmentService.saveAttachment(project.getId(), attachmentGroup,
 					fileName, part.getInputStream());
 			String attachmentUrl = project.getAttachmentUrlPath(attachmentGroup, attachmentName);

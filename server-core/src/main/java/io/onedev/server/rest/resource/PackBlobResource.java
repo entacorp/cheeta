@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_OCTET_STREAM;
 
@@ -15,10 +15,10 @@ import javax.ws.rs.core.StreamingOutput;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.service.PackBlobService;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.service.PackBlobService;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 
 @Api(name="Package Blob")
 @Path("/package-blobs")

@@ -1,4 +1,4 @@
-package io.onedev.server.jetty;
+package io.cheeta.server.jetty;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +20,7 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletMapping;
 import org.eclipse.jetty.util.resource.Resource;
 
-import io.onedev.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.bootstrap.Bootstrap;
 
 /**
  * Asset servlet to serve static web assets with some default parameters.

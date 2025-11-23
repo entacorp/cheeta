@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.report.coverage;
+package io.cheeta.server.plugin.report.coverage;
 
 public class FileCoverage extends NamedCoverage {
 

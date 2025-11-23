@@ -1,6 +1,6 @@
-package io.onedev.server.buildspec;
+package io.cheeta.server.buildspec;
 
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExplicitException;
 
 public class BuildSpecParseException extends ExplicitException {
 

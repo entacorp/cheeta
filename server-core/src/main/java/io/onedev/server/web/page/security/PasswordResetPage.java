@@ -1,22 +1,22 @@
-package io.onedev.server.web.page.security;
+package io.cheeta.server.web.page.security;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.emailtemplates.EmailTemplates;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.web.component.taskbutton.TaskButton;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.taskbutton.TaskResult.PlainMessage;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.simple.SimplePage;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.web.component.taskbutton.TaskButton;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.taskbutton.TaskResult.PlainMessage;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.simple.SimplePage;
 import org.apache.shiro.authc.credential.PasswordService;
 import org.apache.wicket.Session;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -31,7 +31,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -89,7 +89,7 @@ public class PasswordResetPage extends SimplePage {
 
 				@Override
 				protected TaskResult runTask(TaskLogger logger) {
-					return OneDev.getInstance(SessionService.class).call(() -> {
+					return Cheeta.getInstance(SessionService.class).call(() -> {
 						User user = getUserService().findByName(loginNameOrEmail);
 						if (user == null) 
 							user = getUserService().findByVerifiedEmailAddress(loginNameOrEmail);
@@ -100,13 +100,13 @@ public class PasswordResetPage extends SimplePage {
 						} else if (user.getPassword() == null) {
 							throw new ExplicitException(_T("Can not reset password for user authenticating via external system"));
 						} else {
-							SettingService settingService = OneDev.getInstance(SettingService.class);
+							SettingService settingService = Cheeta.getInstance(SettingService.class);
 							if (settingService.getMailConnector() != null) {
 								String passwordResetCode = CryptoUtils.generateSecret();
 								user.setPasswordResetCode(passwordResetCode);
 								getUserService().update(user, null);
 
-								MailService mailService = OneDev.getInstance(MailService.class);
+								MailService mailService = Cheeta.getInstance(MailService.class);
 
 								Map<String, Object> bindings = new HashMap<>();
 								bindings.put("passwordResetUrl", settingService.getSystemSetting().getServerUrl() + "/~reset-password/" + passwordResetCode);
@@ -131,7 +131,7 @@ public class PasswordResetPage extends SimplePage {
 
 								mailService.sendMail(Arrays.asList(emailAddressValue),
 										Lists.newArrayList(), Lists.newArrayList(),
-										"[Password Reset] You are Requesting to Reset Your OneDev Password",
+										"[Password Reset] You are Requesting to Reset Your Cheeta Password",
 										htmlBody, textBody, null, null, null);
 
 								return new TaskResult(true, new PlainMessage(_T("Please check your email for password reset instructions")));
@@ -166,7 +166,7 @@ public class PasswordResetPage extends SimplePage {
 						super.onSubmit();
 						var user = getUserService().load(userId);
 						user.setPasswordResetCode(null);
-						user.setPassword(OneDev.getInstance(PasswordService.class).encryptPassword(bean.getNewPassword()));
+						user.setPassword(Cheeta.getInstance(PasswordService.class).encryptPassword(bean.getNewPassword()));
 						getUserService().update(user, null);
 						Session.get().success(_T("Password changed. Please login with your new password"));
 						setResponsePage(LoginPage.class);
@@ -189,7 +189,7 @@ public class PasswordResetPage extends SimplePage {
 	}
 	
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 	
 	@Override

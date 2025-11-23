@@ -1,12 +1,12 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.util.regex.Pattern;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.annotation.ParamName;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.annotation.ParamName;
 
 public class ParamNameValidator implements ConstraintValidator<ParamName, String> {
 

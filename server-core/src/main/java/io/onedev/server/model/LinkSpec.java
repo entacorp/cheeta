@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,13 +14,13 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.support.issue.LinkSpecOpposite;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.search.entity.issue.IssueQueryUpdater;
-import io.onedev.server.util.facade.LinkSpecFacade;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.support.issue.LinkSpecOpposite;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.search.entity.issue.IssueQueryUpdater;
+import io.cheeta.server.util.facade.LinkSpecFacade;
+import io.cheeta.server.util.usage.Usage;
 
 @Editable
 @Entity
@@ -73,7 +73,7 @@ public class LinkSpec extends AbstractEntity {
 
 	@Editable(order=160, name="Linkable Issues", placeholder="All issues", 
 			description="Optionally specify criteria of issues which can be linked")
-	@io.onedev.server.annotation.IssueQuery
+	@io.cheeta.server.annotation.IssueQuery
 	public String getIssueQuery() {
 		return issueQuery;
 	}

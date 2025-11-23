@@ -1,4 +1,4 @@
-onedev.server.editable = {
+cheeta.server.editable = {
     onBeanEditorDomReady: function(containerId) {
 		var $container = $("#" + containerId);
         var $groups = $container.children(".group");
@@ -14,7 +14,7 @@ onedev.server.editable = {
         $groups.each(function() {
         	var $group = $(this);
         	if ($group.children("a").length != 0) 
-        		onedev.server.editable.checkGroup($group);
+        		cheeta.server.editable.checkGroup($group);
         });
         $container.find(".feedbackPanelERROR").parents(".group.bean-properties").addClass("expanded");
     },
@@ -27,7 +27,7 @@ onedev.server.editable = {
         $groups.each(function() {
         	var $group = $(this);
         	if ($group.children("a").length != 0) 
-        		onedev.server.editable.checkGroup($group);
+        		cheeta.server.editable.checkGroup($group);
         });
     },
 	checkGroup: function($group) {
@@ -53,5 +53,5 @@ $(document).on("afterElementReplace", function(event, componentId) {
 	var $component = $("#" + componentId);
 	var $group = $component.closest(".bean-properties.group");
 	if ($group.length != 0 && $group.children("a").length != 0) 
-		onedev.server.editable.checkGroup($group);
+		cheeta.server.editable.checkGroup($group);
 });

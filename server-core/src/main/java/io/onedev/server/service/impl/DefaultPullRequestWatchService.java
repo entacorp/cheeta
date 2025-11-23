@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -8,13 +8,13 @@ import javax.inject.Singleton;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestWatch;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.PullRequestWatchService;
-import io.onedev.server.util.watch.WatchStatus;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestWatch;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.PullRequestWatchService;
+import io.cheeta.server.util.watch.WatchStatus;
 
 @Singleton
 public class DefaultPullRequestWatchService extends BaseEntityService<PullRequestWatch>

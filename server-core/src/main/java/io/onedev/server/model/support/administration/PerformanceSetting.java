@@ -1,11 +1,11 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 import oshi.SystemInfo;
 import oshi.hardware.HardwareAbstractionLayer;
 

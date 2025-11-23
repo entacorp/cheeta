@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.groupchoice;
+package io.cheeta.server.web.component.groupchoice;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,10 +10,10 @@ import org.unbescape.html.HtmlEscape;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.Group;
-import io.onedev.server.web.component.select2.ChoiceProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.web.component.select2.ChoiceProvider;
 
 public abstract class AbstractGroupChoiceProvider extends ChoiceProvider<Group> {
 
@@ -27,7 +27,7 @@ public abstract class AbstractGroupChoiceProvider extends ChoiceProvider<Group> 
 	@Override
 	public Collection<Group> toChoices(Collection<String> ids) {
 		List<Group> groups = Lists.newArrayList();
-		GroupService groupService = OneDev.getInstance(GroupService.class);
+		GroupService groupService = Cheeta.getInstance(GroupService.class);
 		for (String each : ids) {
 			Group group = groupService.load(Long.valueOf(each));
 			Hibernate.initialize(group);

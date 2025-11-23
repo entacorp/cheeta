@@ -1,8 +1,8 @@
-package io.onedev.server.buildspec.job;
+package io.cheeta.server.buildspec.job;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
 
 public interface JobExecutorDiscoverer {
 	

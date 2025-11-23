@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.servicedesk;
+package io.cheeta.server.web.page.admin.servicedesk;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
@@ -9,13 +9,13 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.page.admin.mailservice.MailConnectorPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.page.admin.mailservice.MailConnectorPage;
 
 public class ServiceDeskSettingPage extends AdministrationPage {
 
@@ -32,7 +32,7 @@ public class ServiceDeskSettingPage extends AdministrationPage {
 		add(new BookmarkablePageLink<Void>("mailConnector", MailConnectorPage.class));
 		
 		ServiceDeskSettingHolder serviceDeskSettingHolder = new ServiceDeskSettingHolder();
-		serviceDeskSettingHolder.setServiceDeskSetting(OneDev.getInstance(SettingService.class).getServiceDeskSetting());
+		serviceDeskSettingHolder.setServiceDeskSetting(Cheeta.getInstance(SettingService.class).getServiceDeskSetting());
 		oldAuditContent = VersionedXmlDoc.fromBean(serviceDeskSettingHolder.getServiceDeskSetting()).toXML();
 		
 		BeanEditor editor = BeanContext.edit("editor", serviceDeskSettingHolder);
@@ -44,7 +44,7 @@ public class ServiceDeskSettingPage extends AdministrationPage {
 				super.onSubmit();
 
 				var newAuditContent = VersionedXmlDoc.fromBean(serviceDeskSettingHolder.getServiceDeskSetting()).toXML();
-				OneDev.getInstance(SettingService.class).saveServiceDeskSetting(serviceDeskSettingHolder.getServiceDeskSetting());
+				Cheeta.getInstance(SettingService.class).saveServiceDeskSetting(serviceDeskSettingHolder.getServiceDeskSetting());
 				auditService.audit(null, "changed service desk settings", oldAuditContent, newAuditContent);
 				oldAuditContent = newAuditContent;
 				getSession().success(_T("Service desk settings have been saved"));

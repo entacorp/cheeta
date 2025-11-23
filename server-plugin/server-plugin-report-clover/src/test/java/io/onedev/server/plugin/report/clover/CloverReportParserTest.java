@@ -1,9 +1,9 @@
-package io.onedev.server.plugin.report.clover;
+package io.cheeta.server.plugin.report.clover;
 
 import com.google.common.io.Resources;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.model.Build;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.model.Build;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 import org.jetbrains.annotations.Nullable;

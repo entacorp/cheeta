@@ -1,4 +1,4 @@
-package io.onedev.server.timetracking;
+package io.cheeta.server.timetracking;
 
 public class LinkAggregation {
 

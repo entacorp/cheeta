@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.markdown.emoji;
+package io.cheeta.server.web.component.markdown.emoji;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,7 @@ import com.vladsch.flexmark.html.renderer.NodeRenderingHandler;
 import com.vladsch.flexmark.html.renderer.NodeRenderingHandler.CustomNodeRenderer;
 import com.vladsch.flexmark.util.data.DataHolder;
 
-import io.onedev.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.asset.emoji.Emojis;
 
 public class EmojiNodeRenderer implements NodeRenderer {
 

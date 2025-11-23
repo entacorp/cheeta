@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.admin.mailservice;
+package io.cheeta.server.web.page.admin.mailservice;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.support.administration.mailservice.MailConnector;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.support.administration.mailservice.MailConnector;
 
 import java.io.Serializable;
 

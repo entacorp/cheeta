@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.param.spec;
+package io.cheeta.server.buildspec.param.spec;
 
 import java.util.List;
 import java.util.Map;
@@ -6,11 +6,11 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.GroupChoiceInput;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.AllGroups;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.GroupChoiceInput;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.AllGroups;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=160, name=ParamSpec.GROUP)
 public class GroupChoiceParam extends ParamSpec {

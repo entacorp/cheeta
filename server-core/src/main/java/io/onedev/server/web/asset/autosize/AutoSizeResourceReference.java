@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.autosize;
+package io.cheeta.server.web.asset.autosize;
 
 import java.util.ArrayList;
 import java.util.List;

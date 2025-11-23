@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.blob.render.commitoption;
+package io.cheeta.server.web.page.project.blob.render.commitoption;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
@@ -33,34 +33,34 @@ import org.jspecify.annotations.Nullable;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.git.BlobChange;
-import io.onedev.server.git.BlobContent;
-import io.onedev.server.git.BlobEdits;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.exception.NotTreeException;
-import io.onedev.server.git.exception.ObjectAlreadyExistsException;
-import io.onedev.server.git.exception.ObsoleteCommitException;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.PathChange;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.FileExtension;
-import io.onedev.server.util.Provider;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.ajaxlistener.TrackViewStateListener;
-import io.onedev.server.web.component.diff.blob.BlobDiffPanel;
-import io.onedev.server.web.component.diff.revision.DiffViewMode;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.project.blob.RevisionResolved;
-import io.onedev.server.web.page.project.blob.navigator.BlobNameChanging;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.BlobChange;
+import io.cheeta.server.git.BlobContent;
+import io.cheeta.server.git.BlobEdits;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.exception.NotTreeException;
+import io.cheeta.server.git.exception.ObjectAlreadyExistsException;
+import io.cheeta.server.git.exception.ObsoleteCommitException;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.PathChange;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.FileExtension;
+import io.cheeta.server.util.Provider;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.ajaxlistener.TrackViewStateListener;
+import io.cheeta.server.web.component.diff.blob.BlobDiffPanel;
+import io.cheeta.server.web.component.diff.revision.DiffViewMode;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.project.blob.RevisionResolved;
+import io.cheeta.server.web.page.project.blob.navigator.BlobNameChanging;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
 
 public class CommitOptionPanel extends Panel {
 
@@ -132,7 +132,7 @@ public class CommitOptionPanel extends Panel {
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	private void newChangesOfOthersContainer(@Nullable AjaxRequestTarget target) {
@@ -197,7 +197,7 @@ public class CommitOptionPanel extends Panel {
 				if (save(target)) {
 					String script = String.format(""
 							+ "$('#%s').attr('disabled', 'disabled').val('" + _T("Please wait...") + "');"
-							+ "onedev.server.form.markClean($('form'));", getMarkupId());
+							+ "cheeta.server.form.markClean($('form'));", getMarkupId());
 					target.appendJavaScript(script);
 				} 
 			}
@@ -426,7 +426,7 @@ public class CommitOptionPanel extends Panel {
 	}
 
 	private void onBlobChange(IPartialPageRequestHandler partialPageRequestHandler) {
-		String script = String.format("onedev.server.commitOption.onBlobChange('%s', %b);", 
+		String script = String.format("cheeta.server.commitOption.onBlobChange('%s', %b);", 
 				getMarkupId(), isBlobModified());
 		partialPageRequestHandler.appendJavaScript(script);
 	}

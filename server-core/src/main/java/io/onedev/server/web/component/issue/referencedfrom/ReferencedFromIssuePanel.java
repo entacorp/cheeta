@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.referencedfrom;
+package io.cheeta.server.web.component.issue.referencedfrom;
 
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
@@ -7,14 +7,14 @@ import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.issue.IssueStateBadge;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.issues.detail.IssueActivitiesPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.issue.IssueStateBadge;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.issues.detail.IssueActivitiesPage;
 
 public class ReferencedFromIssuePanel extends GenericPanel<Issue> {
 
@@ -23,7 +23,7 @@ public class ReferencedFromIssuePanel extends GenericPanel<Issue> {
 
 			@Override
 			protected Issue load() {
-				return OneDev.getInstance(IssueService.class).load(issueId);
+				return Cheeta.getInstance(IssueService.class).load(issueId);
 			}
 			
 		});

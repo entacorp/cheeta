@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.groovyscript;
+package io.cheeta.server.web.page.admin.groovyscript;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,20 +27,20 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GroovyScript;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GroovyScript;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.util.TextUtils;
 
 public class GroovyScriptListPage extends AdministrationPage {
 
@@ -48,7 +48,7 @@ public class GroovyScriptListPage extends AdministrationPage {
 	
 	public GroovyScriptListPage(PageParameters params) {
 		super(params);
-		scripts = OneDev.getInstance(SettingService.class).getGroovyScripts();
+		scripts = Cheeta.getInstance(SettingService.class).getGroovyScripts();
 	}
 
 	private DataTable<GroovyScript, Void> scriptsTable;
@@ -193,7 +193,7 @@ public class GroovyScriptListPage extends AdministrationPage {
 					public void onClick(AjaxRequestTarget target) {
 						var script = scripts.remove(scriptIndex);
 						var oldAuditContent = VersionedXmlDoc.fromBean(script).toXML();
-						OneDev.getInstance(SettingService.class).saveGroovyScripts(scripts);
+						Cheeta.getInstance(SettingService.class).saveGroovyScripts(scripts);
 						auditService.audit(null, "deleted groovy script \"" + script.getName() + "\"", oldAuditContent, null);
 						target.add(scriptsTable);
 					}
@@ -230,7 +230,7 @@ public class GroovyScriptListPage extends AdministrationPage {
 			@Override
 			protected void onSort(AjaxRequestTarget target, SortPosition from, SortPosition to) {
 				CollectionUtils.move(scripts, from.getItemIndex(), to.getItemIndex());
-				OneDev.getInstance(SettingService.class).saveGroovyScripts(scripts);
+				Cheeta.getInstance(SettingService.class).saveGroovyScripts(scripts);
 				target.add(scriptsTable);
 			}
 			

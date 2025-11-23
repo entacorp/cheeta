@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import javax.inject.Singleton;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.LabelSpecService;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.LabelSpecService;
 
 @Singleton
 public class DefaultLabelSpecService extends BaseEntityService<LabelSpec> implements LabelSpecService {

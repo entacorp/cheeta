@@ -1,11 +1,11 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.BuildParam;
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.BuildParam;
+import io.cheeta.server.model.Project;
 
 public interface BuildParamService extends EntityService<BuildParam> {
 	

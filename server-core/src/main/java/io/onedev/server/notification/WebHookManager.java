@@ -1,4 +1,4 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -22,17 +22,17 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.model.support.WebHook;
-import io.onedev.server.persistence.annotation.Sessional;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.model.support.WebHook;
+import io.cheeta.server.persistence.annotation.Sessional;
 
 @Singleton
 public class WebHookManager {
 
 	private static final Logger logger = LoggerFactory.getLogger(WebHookManager.class);
 	
-	private static final String SIGNATURE_HEAD = "X-OneDev-Signature";
+	private static final String SIGNATURE_HEAD = "X-Cheeta-Signature";
 
 	@Inject
 	private ObjectMapper mapper;

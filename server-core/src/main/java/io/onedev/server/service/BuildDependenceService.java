@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.BuildDependence;
+import io.cheeta.server.model.BuildDependence;
 
 public interface BuildDependenceService extends EntityService<BuildDependence> {
 	

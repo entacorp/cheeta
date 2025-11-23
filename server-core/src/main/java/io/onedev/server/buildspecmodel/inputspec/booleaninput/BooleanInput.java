@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.booleaninput;
+package io.cheeta.server.buildspecmodel.inputspec.booleaninput;
 
 import java.util.List;
 import java.util.Map;
@@ -7,9 +7,9 @@ import javax.validation.ValidationException;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.buildspecmodel.inputspec.booleaninput.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.server.buildspecmodel.inputspec.booleaninput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.web.util.TextUtils;
 
 public class BooleanInput {
 

@@ -1,12 +1,12 @@
-package io.onedev.server.plugin.imports.github;
+package io.cheeta.server.plugin.imports.github;
 
 import java.io.Serializable;
 import java.util.List;
 
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class ImportOrganization implements Serializable {

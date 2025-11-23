@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;

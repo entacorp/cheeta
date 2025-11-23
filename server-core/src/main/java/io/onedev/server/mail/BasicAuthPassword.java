@@ -1,4 +1,4 @@
-package io.onedev.server.mail;
+package io.cheeta.server.mail;
 
 public class BasicAuthPassword implements MailCredential {
 

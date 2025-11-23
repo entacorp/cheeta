@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.builds.detail.artifacts;
+package io.cheeta.server.web.page.project.builds.detail.artifacts;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,20 +34,20 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ChildrenAggregator;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.artifact.ArtifactInfo;
-import io.onedev.server.util.artifact.DirectoryInfo;
-import io.onedev.server.util.artifact.FileInfo;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
-import io.onedev.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
-import io.onedev.server.web.resource.ArtifactResource;
-import io.onedev.server.web.resource.ArtifactResourceReference;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ChildrenAggregator;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.artifact.ArtifactInfo;
+import io.cheeta.server.util.artifact.DirectoryInfo;
+import io.cheeta.server.util.artifact.FileInfo;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
+import io.cheeta.server.web.resource.ArtifactResource;
+import io.cheeta.server.web.resource.ArtifactResourceReference;
 
 public class BuildArtifactsPage extends BuildDetailPage {
 

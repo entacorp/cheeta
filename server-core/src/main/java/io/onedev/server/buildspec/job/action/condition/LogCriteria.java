@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.action.condition;
+package io.cheeta.server.buildspec.job.action.condition;
 
 import java.util.regex.Pattern;
 
@@ -8,11 +8,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.job.log.LogService;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.job.log.LogService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class LogCriteria extends Criteria<Build> {
 
@@ -32,7 +32,7 @@ public class LogCriteria extends Criteria<Build> {
 	@Override
 	public boolean matches(Build build) {
 		Pattern pattern = Pattern.compile(value);
-		return OneDev.getInstance(LogService.class).matches(build, pattern);
+		return Cheeta.getInstance(LogService.class).matches(build, pattern);
 	}
 
 	@Override

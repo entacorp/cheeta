@@ -1,20 +1,20 @@
-package io.onedev.server.commandhandler;
+package io.cheeta.server.commandhandler;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.loader.AbstractPlugin;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.DataMigrator;
-import io.onedev.server.data.migration.MigrationHelper;
-import io.onedev.server.persistence.HibernateConfig;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.exception.ExceptionUtils;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.loader.AbstractPlugin;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.DataMigrator;
+import io.cheeta.server.data.migration.MigrationHelper;
+import io.cheeta.server.persistence.HibernateConfig;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.exception.ExceptionUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.joda.time.DateTime;
@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.Callable;
 
-import static io.onedev.server.persistence.PersistenceUtils.*;
+import static io.cheeta.server.persistence.PersistenceUtils.*;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 import static java.lang.System.lineSeparator;
@@ -92,14 +92,14 @@ public class Upgrade extends AbstractPlugin {
 		} else if (version.startsWith("1.0.1")) {
 			bootstrapClass = "com.turbodev.launcher.bootstrap.Bootstrap";
 		} else if (version.startsWith("2.0.")) {
-			bootstrapClass = "io.onedev.launcher.bootstrap.Bootstrap";
+			bootstrapClass = "io.cheeta.launcher.bootstrap.Bootstrap";
 		} else if (version.startsWith("3.") || version.startsWith("4.0.") || version.startsWith("4.1.")
 				|| version.startsWith("4.2.") || version.startsWith("4.3.") || version.startsWith("4.4.")
 				|| version.startsWith("4.5.") || version.startsWith("4.6.") || version.startsWith("4.7.")
 				|| version.startsWith("4.8.") || version.startsWith("4.9.")) {
-			bootstrapClass = "io.onedev.commons.launcher.bootstrap.Bootstrap";
+			bootstrapClass = "io.cheeta.commons.launcher.bootstrap.Bootstrap";
 		} else {
-			bootstrapClass = "io.onedev.commons.bootstrap.Bootstrap";
+			bootstrapClass = "io.cheeta.commons.bootstrap.Bootstrap";
 		}
 		
 		if (version.startsWith("1.") ||  version.startsWith("2.")) {
@@ -199,7 +199,7 @@ public class Upgrade extends AbstractPlugin {
 		SecurityUtils.bindAsSystem();
 		
 		if (Bootstrap.command.getArgs().length == 0) {
-			logger.error("Missing upgrade target parameter. Usage: {} <OneDev installation directory>", 
+			logger.error("Missing upgrade target parameter. Usage: {} <Cheeta installation directory>", 
 					Bootstrap.command.getScript());
 			System.exit(1);
 		}
@@ -228,7 +228,7 @@ public class Upgrade extends AbstractPlugin {
 		}
 		if (!isEmpty) {
 			if (!new File(upgradeDir, "boot").exists()) {
-				logger.error("Invalid OneDev installation directory: {}, make sure you are specifying the top level "
+				logger.error("Invalid Cheeta installation directory: {}, make sure you are specifying the top level "
 						+ "installation directory (it contains sub directories such as \"bin\", \"boot\", \"conf\", etc)", 
 						upgradeDir.getAbsolutePath());
 				System.exit(1);
@@ -241,7 +241,7 @@ public class Upgrade extends AbstractPlugin {
 				var inDocker = new File(upgradeDir, "IN_DOCKER").exists();				
 				logger.info("Upgrading {}...", upgradeDir.getAbsolutePath());
 
-				if (OneDev.isServerRunning(upgradeDir)) {
+				if (Cheeta.isServerRunning(upgradeDir)) {
 					logger.error("Please stop server before upgrading");
 					System.exit(1);
 				}
@@ -298,7 +298,7 @@ public class Upgrade extends AbstractPlugin {
 							if (dbDataVersion != oldAppDataVersion && dbDataVersion != newAppDataVersion) 
 								throw new ExplicitException("Unable to upgrade specified installation as data version of application and database is not the same");
 							if (newAppDataVersion < oldAppDataVersion) 
-								throw new ExplicitException("OneDev program is too old, please use a newer version");
+								throw new ExplicitException("Cheeta program is too old, please use a newer version");
 							
 							String timestamp = DateTimeFormat.forPattern(BACKUP_DATETIME_FORMAT).print(new DateTime());
 							File programBackup = new File(upgradeDir, "site/program-backup/" + timestamp);
@@ -488,9 +488,9 @@ public class Upgrade extends AbstractPlugin {
 								StringBuilder errorMessage = new StringBuilder(String.format("!! Failed to upgrade %s", upgradeDir.getAbsolutePath()));
 								if (dbChanged) {
 									if (inDocker)
-										errorMessage.append("\nOneDev is unable to restore old database, please do it manually by first resetting it (delete and create), and then exec into the container to run below command:");
+										errorMessage.append("\nCheeta is unable to restore old database, please do it manually by first resetting it (delete and create), and then exec into the container to run below command:");
 									else
-										errorMessage.append("\nOneDev is unable to restore old database, please do it manually by first resetting it (delete and create), and then running below command:");										
+										errorMessage.append("\nCheeta is unable to restore old database, please do it manually by first resetting it (delete and create), and then running below command:");										
 									if (SystemUtils.IS_OS_WINDOWS) 
 										errorMessage.append("\n" + upgradeDir.getAbsolutePath() + File.separator + "bin" + File.separator + "restore-db.bat " + dbBackupFile.getAbsolutePath());
 									else 
@@ -505,7 +505,7 @@ public class Upgrade extends AbstractPlugin {
 						}
 					};
 					
-					var maintenanceFile = OneDev.getMaintenanceFile(upgradeDir);
+					var maintenanceFile = Cheeta.getMaintenanceFile(upgradeDir);
 					FileUtils.touchFile(maintenanceFile);
 					try {
 						var hibernateConfig = new HibernateConfig(upgradeDir);
@@ -548,7 +548,7 @@ public class Upgrade extends AbstractPlugin {
 		} else {
 			logger.info("Populating {}...", upgradeDir.getAbsolutePath());
 			
-			if (OneDev.isServerRunning(Bootstrap.installDir)) {
+			if (Cheeta.isServerRunning(Bootstrap.installDir)) {
 				logger.error("Please stop server before populating");
 				System.exit(1);
 			}
@@ -785,7 +785,7 @@ public class Upgrade extends AbstractPlugin {
 			FileUtils.deleteDir(new File(upgradeDir, "site/info"));
 		}
 
-		var directoryVersion = ".onedev-directory-version";
+		var directoryVersion = ".cheeta-directory-version";
 		if (oldAppDataVersion <= 118) {
 			logger.info("Upgrading build storage directory...");
 			var projectsDir = new File(upgradeDir, "site/projects");
@@ -915,16 +915,16 @@ public class Upgrade extends AbstractPlugin {
 			File wrapperConfFile = new File(upgradeDir, "conf/wrapper.conf");
 			String wrapperConf = FileUtils.readFileToString(wrapperConfFile, UTF_8);
 			wrapperConf = StringUtils.replace(wrapperConf, "com.gitplex.commons.bootstrap.Bootstrap", 
-					"io.onedev.commons.launcher.bootstrap.Bootstrap");
+					"io.cheeta.commons.launcher.bootstrap.Bootstrap");
 			wrapperConf = StringUtils.replace(wrapperConf, "com.gitplex.launcher.bootstrap.Bootstrap", 
-					"io.onedev.commons.launcher.bootstrap.Bootstrap");
+					"io.cheeta.commons.launcher.bootstrap.Bootstrap");
 			wrapperConf = StringUtils.replace(wrapperConf, "com.turbodev.launcher.bootstrap.Bootstrap", 
-					"io.onedev.commons.launcher.bootstrap.Bootstrap");
-			wrapperConf = StringUtils.replace(wrapperConf, "io.onedev.launcher.bootstrap.Bootstrap", 
-					"io.onedev.commons.launcher.bootstrap.Bootstrap");
-			wrapperConf = StringUtils.replace(wrapperConf, "io.onedev.commons.launcher.bootstrap.Bootstrap", 
-					"io.onedev.commons.bootstrap.Bootstrap");
-			wrapperConf = StringUtils.replace(wrapperConf, "wrapper.pidfile=../status/onedev.pid", "");
+					"io.cheeta.commons.launcher.bootstrap.Bootstrap");
+			wrapperConf = StringUtils.replace(wrapperConf, "io.cheeta.launcher.bootstrap.Bootstrap", 
+					"io.cheeta.commons.launcher.bootstrap.Bootstrap");
+			wrapperConf = StringUtils.replace(wrapperConf, "io.cheeta.commons.launcher.bootstrap.Bootstrap", 
+					"io.cheeta.commons.bootstrap.Bootstrap");
+			wrapperConf = StringUtils.replace(wrapperConf, "wrapper.pidfile=../status/cheeta.pid", "");
 			wrapperConf = StringUtils.replace(wrapperConf, "-XX:+IgnoreUnrecognizedVMOptions", 
 					"--add-opens=java.base/sun.nio.ch=ALL-UNNAMED");
 			if (!wrapperConf.contains("java.base/jdk.internal.ref=ALL-UNNAMED")) {
@@ -978,20 +978,20 @@ public class Upgrade extends AbstractPlugin {
 			String hibernateProps = FileUtils.readFileToString(hibernatePropsFile, UTF_8);
 			hibernateProps = StringUtils.replace(hibernateProps, "hibernate.hikari.autoCommit=false", 
 					"hibernate.hikari.autoCommit=true");
-			hibernateProps = StringUtils.replace(hibernateProps, "GitPlex", "OneDev");
-			hibernateProps = StringUtils.replace(hibernateProps, "TurboDev", "OneDev");
+			hibernateProps = StringUtils.replace(hibernateProps, "GitPlex", "Cheeta");
+			hibernateProps = StringUtils.replace(hibernateProps, "TurboDev", "Cheeta");
 
 			if (!hibernateProps.contains("hsqldb.lob_file_scale")) {
-				hibernateProps = StringUtils.replace(hibernateProps, "internaldb/onedev;", 
-						"internaldb/onedev;hsqldb.lob_file_scale=4;");
+				hibernateProps = StringUtils.replace(hibernateProps, "internaldb/cheeta;", 
+						"internaldb/cheeta;hsqldb.lob_file_scale=4;");
 			}
 			if (!hibernateProps.contains("hsqldb.lob_compressed")) {
-				hibernateProps = StringUtils.replace(hibernateProps, "internaldb/onedev;",
-						"internaldb/onedev;hsqldb.lob_compressed=true;");
+				hibernateProps = StringUtils.replace(hibernateProps, "internaldb/cheeta;",
+						"internaldb/cheeta;hsqldb.lob_compressed=true;");
 			}
 			if (!hibernateProps.contains("hsqldb.tx")) {
-				hibernateProps = StringUtils.replace(hibernateProps, "internaldb/onedev;",
-						"internaldb/onedev;hsqldb.tx=mvcc;");
+				hibernateProps = StringUtils.replace(hibernateProps, "internaldb/cheeta;",
+						"internaldb/cheeta;hsqldb.tx=mvcc;");
 			}
 			
 			if (!hibernateProps.contains("hibernate.connection.autocommit=true")) {
@@ -1050,8 +1050,8 @@ public class Upgrade extends AbstractPlugin {
 					"<triggeringPolicy class=\"ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy\"/>", 
 					"<triggeringPolicy class=\"ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy\"><maxFileSize>1MB</maxFileSize></triggeringPolicy>");
 			logbackConfig = StringUtils.replace(logbackConfig, "gitplex", "turbodev");
-			logbackConfig = StringUtils.replace(logbackConfig, "com.turbodev", "io.onedev");
-			logbackConfig = StringUtils.replace(logbackConfig, "turbodev", "onedev");
+			logbackConfig = StringUtils.replace(logbackConfig, "com.turbodev", "io.cheeta");
+			logbackConfig = StringUtils.replace(logbackConfig, "turbodev", "cheeta");
 			
 			if (!logbackConfig.contains("MaskingPatternLayout")) {
 				logbackConfig = StringUtils.replace(logbackConfig, 
@@ -1059,7 +1059,7 @@ public class Upgrade extends AbstractPlugin {
 						"ch.qos.logback.core.encoder.LayoutWrappingEncoder");
 				logbackConfig = StringUtils.replace(logbackConfig, 
 						"<pattern>", 
-						"<layout class=\"io.onedev.commons.bootstrap.MaskingPatternLayout\">\n				<pattern>");
+						"<layout class=\"io.cheeta.commons.bootstrap.MaskingPatternLayout\">\n				<pattern>");
 				logbackConfig = StringUtils.replace(logbackConfig, 
 						"</pattern>", 
 						"</pattern>\n			</layout>");

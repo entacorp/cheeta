@@ -1,26 +1,26 @@
-package io.onedev.server.web.page.project.codecomments;
+package io.cheeta.server.web.page.project.codecomments;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentQueryPersonalizationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.CodeCommentQueryPersonalization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.NamedCodeCommentQuery;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.codecomment.CodeCommentListPanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.PersonalQuerySupport;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentQueryPersonalizationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.CodeCommentQueryPersonalization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.NamedCodeCommentQuery;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.codecomment.CodeCommentListPanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.PersonalQuerySupport;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.basic.Label;
@@ -32,7 +32,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ public class ProjectCodeCommentsPage extends ProjectPage {
 	}
 
 	private CodeCommentQueryPersonalizationService getCodeCommentQueryPersonalizationManager() {
-		return OneDev.getInstance(CodeCommentQueryPersonalizationService.class);
+		return Cheeta.getInstance(CodeCommentQueryPersonalizationService.class);
 	}
 	
 	@Override
@@ -95,7 +95,7 @@ public class ProjectCodeCommentsPage extends ProjectPage {
 			@Override
 			protected void onSaveCommonQueries(ArrayList<NamedCodeCommentQuery> projectQueries) {
 				getProject().setNamedCodeCommentQueries(projectQueries);
-				OneDev.getInstance(ProjectService.class).update(getProject());
+				Cheeta.getInstance(ProjectService.class).update(getProject());
 			}
 
 		});
@@ -184,7 +184,7 @@ public class ProjectCodeCommentsPage extends ProjectPage {
 										} else {
 											namedQuery.setQuery(query);
 										}
-										OneDev.getInstance(ProjectService.class).update(getProject());
+										Cheeta.getInstance(ProjectService.class).update(getProject());
 										target.add(savedQueries);
 										close();
 									}

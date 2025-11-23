@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.job.joblist;
+package io.cheeta.server.web.component.job.joblist;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,19 +24,19 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Build.Status;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.build.minilist.MiniBuildListPanel;
-import io.onedev.server.web.component.job.JobDefLink;
-import io.onedev.server.web.component.job.RunJobLink;
-import io.onedev.server.web.page.project.builds.ProjectBuildsPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Build.Status;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.build.minilist.MiniBuildListPanel;
+import io.cheeta.server.web.component.job.JobDefLink;
+import io.cheeta.server.web.component.job.RunJobLink;
+import io.cheeta.server.web.page.project.builds.ProjectBuildsPage;
 
 public abstract class JobListPanel extends Panel {
 
@@ -140,7 +140,7 @@ public abstract class JobListPanel extends Panel {
 
 				@Override
 				protected List<Build> load() {
-					BuildService buildService = OneDev.getInstance(BuildService.class);
+					BuildService buildService = Cheeta.getInstance(BuildService.class);
 					List<Build> builds = new ArrayList<>(buildService.query(getProject(), 
 							commitId, job.getName(), refName, Optional.ofNullable(getPullRequest()), 
 							null, new HashMap<>()));

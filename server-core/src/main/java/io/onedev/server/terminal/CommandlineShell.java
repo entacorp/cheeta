@@ -1,11 +1,11 @@
-package io.onedev.server.terminal;
+package io.cheeta.server.terminal;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.ImmediateFuture;
-import io.onedev.commons.utils.command.*;
-import io.onedev.commons.utils.command.PtyMode.ResizeSupport;
-import io.onedev.server.OneDev;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ImmediateFuture;
+import io.cheeta.commons.utils.command.*;
+import io.cheeta.commons.utils.command.PtyMode.ResizeSupport;
+import io.cheeta.server.Cheeta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ public class CommandlineShell implements Shell {
         ptyMode = new PtyMode();
         cmdline.ptyMode(ptyMode);
 
-        execution = OneDev.getInstance(ExecutorService.class).submit(new Runnable() {
+        execution = Cheeta.getInstance(ExecutorService.class).submit(new Runnable() {
 
 			@Override
 			public void run() {

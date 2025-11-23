@@ -1,18 +1,18 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.File;
@@ -45,7 +45,7 @@ public class CloseIterationStep extends ServerSideStep {
 	}
 
 	@Editable(order=1060, description="For build commit not reachable from default branch, " +
-			"a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with manage issue permission")
+			"a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with manage issue permission")
 	@ChoiceProvider("getAccessTokenSecretChoices")
 	public String getAccessTokenSecret() {
 		return accessTokenSecret;
@@ -63,11 +63,11 @@ public class CloseIterationStep extends ServerSideStep {
 	
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger logger) {
-		return OneDev.getInstance(TransactionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
+		return Cheeta.getInstance(TransactionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
 			Project project = build.getProject();
 			String iterationName = getIterationName();
-			IterationService iterationService = OneDev.getInstance(IterationService.class);
+			IterationService iterationService = Cheeta.getInstance(IterationService.class);
 			Iteration iteration = iterationService.findInHierarchy(project, iterationName);
 			if (iteration != null) {
 				if (build.canCloseIteration(getAccessTokenSecret())) {

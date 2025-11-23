@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 public class FixedSegment implements UrlSegment {
 

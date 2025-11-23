@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestMention;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestMention;
+import io.cheeta.server.model.User;
 
 public interface PullRequestMentionService extends EntityService<PullRequestMention> {
 

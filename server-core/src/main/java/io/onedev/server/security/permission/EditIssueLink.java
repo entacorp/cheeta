@@ -1,7 +1,7 @@
-package io.onedev.server.security.permission;
+package io.cheeta.server.security.permission;
 
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.util.facade.UserFacade;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.util.facade.UserFacade;
 import org.apache.shiro.authz.Permission;
 
 import org.jspecify.annotations.Nullable;

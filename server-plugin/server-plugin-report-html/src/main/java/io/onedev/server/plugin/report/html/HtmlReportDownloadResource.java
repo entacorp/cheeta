@@ -1,14 +1,14 @@
-package io.onedev.server.plugin.report.html;
+package io.cheeta.server.plugin.report.html;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.AbstractResource;
@@ -38,10 +38,10 @@ public class HtmlReportDownloadResource extends AbstractResource {
 		var params = attributes.getParameters();
 
 		var projectId = params.get(PARAM_PROJECT).toLong();
-		var project = OneDev.getInstance(ProjectService.class).load(projectId);
+		var project = Cheeta.getInstance(ProjectService.class).load(projectId);
 		
 		var buildNumber = params.get(PARAM_BUILD).toLong();
-		var build = OneDev.getInstance(BuildService.class).find(project, buildNumber);
+		var build = Cheeta.getInstance(BuildService.class).find(project, buildNumber);
 		if (build == null) {
 			String message = String.format("Unable to find build (project: %s, build number: %d)",
 					project.getPath(), buildNumber);
@@ -86,7 +86,7 @@ public class HtmlReportDownloadResource extends AbstractResource {
 
 			@Override
 			public void writeData(Attributes attributes) throws IOException {
-				var fileContent = OneDev.getInstance(ProjectService.class).runOnActiveServer(
+				var fileContent = Cheeta.getInstance(ProjectService.class).runOnActiveServer(
 						projectId,
 						new ReadPublishedFile(projectId, buildNumber, reportName, filePath));
 				attributes.getResponse().write(fileContent);

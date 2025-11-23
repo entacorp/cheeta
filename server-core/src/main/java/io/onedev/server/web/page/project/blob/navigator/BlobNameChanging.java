@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.project.blob.navigator;
+package io.cheeta.server.web.page.project.blob.navigator;
 
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.web.util.AjaxPayload;
 
 public class BlobNameChanging extends AjaxPayload {
 

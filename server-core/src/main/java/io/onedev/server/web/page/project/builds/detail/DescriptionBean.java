@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.builds.detail;
+package io.cheeta.server.web.page.project.builds.detail;
 
 import java.io.Serializable;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Markdown;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Markdown;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(name="Build Description")
 public class DescriptionBean implements Serializable {

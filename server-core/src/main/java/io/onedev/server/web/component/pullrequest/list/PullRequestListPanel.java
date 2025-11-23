@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.pullrequest.list;
+package io.cheeta.server.web.component.pullrequest.list;
 
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQuery.merge;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQuery.merge;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.text.MessageFormat;
@@ -55,64 +55,64 @@ import org.apache.wicket.request.cycle.RequestCycle;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.PullRequestReviewService;
-import io.onedev.server.service.PullRequestWatchService;
-import io.onedev.server.entityreference.LinkTransformer;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestLabel;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.model.support.LastActivity;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.EntitySort.Direction;
-import io.onedev.server.search.entity.pullrequest.FuzzyCriteria;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.watch.WatchStatus;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.PullRequestQueryBehavior;
-import io.onedev.server.web.component.branch.BranchLink;
-import io.onedev.server.web.component.datatable.selectioncolumn.SelectionColumn;
-import io.onedev.server.web.component.entity.labels.EntityLabelsPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.ActionablePageLink;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.component.pagenavigator.OnePagingNavigator;
-import io.onedev.server.web.component.project.selector.ProjectSelector;
-import io.onedev.server.web.component.pullrequest.RequestStatusBadge;
-import io.onedev.server.web.component.pullrequest.build.PullRequestJobsPanel;
-import io.onedev.server.web.component.pullrequest.review.ReviewerAvatar;
-import io.onedev.server.web.component.savedquery.SavedQueriesClosed;
-import io.onedev.server.web.component.savedquery.SavedQueriesOpened;
-import io.onedev.server.web.component.sortedit.SortEditPanel;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.component.watchstatus.WatchStatusPanel;
-import io.onedev.server.web.page.project.pullrequests.create.NewPullRequestPage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.PullRequestReviewService;
+import io.cheeta.server.service.PullRequestWatchService;
+import io.cheeta.server.entityreference.LinkTransformer;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestLabel;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.model.support.LastActivity;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.search.entity.pullrequest.FuzzyCriteria;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.watch.WatchStatus;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.PullRequestQueryBehavior;
+import io.cheeta.server.web.component.branch.BranchLink;
+import io.cheeta.server.web.component.datatable.selectioncolumn.SelectionColumn;
+import io.cheeta.server.web.component.entity.labels.EntityLabelsPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.ActionablePageLink;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.component.pagenavigator.OnePagingNavigator;
+import io.cheeta.server.web.component.project.selector.ProjectSelector;
+import io.cheeta.server.web.component.pullrequest.RequestStatusBadge;
+import io.cheeta.server.web.component.pullrequest.build.PullRequestJobsPanel;
+import io.cheeta.server.web.component.pullrequest.review.ReviewerAvatar;
+import io.cheeta.server.web.component.savedquery.SavedQueriesClosed;
+import io.cheeta.server.web.component.savedquery.SavedQueriesOpened;
+import io.cheeta.server.web.component.sortedit.SortEditPanel;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.component.watchstatus.WatchStatusPanel;
+import io.cheeta.server.web.page.project.pullrequests.create.NewPullRequestPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.xodus.VisitInfoService;
 
 public abstract class PullRequestListPanel extends Panel {
 
@@ -149,11 +149,11 @@ public abstract class PullRequestListPanel extends Panel {
 	}
 
 	private PullRequestService getPullRequestService() {
-		return OneDev.getInstance(PullRequestService.class);		
+		return Cheeta.getInstance(PullRequestService.class);		
 	}
 
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 	
 	@Nullable
@@ -362,7 +362,7 @@ public abstract class PullRequestListPanel extends Panel {
 											protected void onConfirm(AjaxRequestTarget target) {
 												var user = SecurityUtils.getUser();
 												for (IModel<PullRequest> each : selectionColumn.getSelections())
-													OneDev.getInstance(PullRequestService.class).discard(user, each.getObject(), null);
+													Cheeta.getInstance(PullRequestService.class).discard(user, each.getObject(), null);
 												target.add(countLabel);
 												target.add(body);
 												selectionColumn.getSelections().clear();
@@ -566,7 +566,7 @@ public abstract class PullRequestListPanel extends Panel {
 											protected void onConfirm(AjaxRequestTarget target) {
 												var user = SecurityUtils.getUser();
 												for (Iterator<PullRequest> it = (Iterator<PullRequest>) dataProvider.iterator(0, requestsTable.getItemCount()); it.hasNext(); )
-													OneDev.getInstance(PullRequestService.class).discard(user, it.next(), null);
+													Cheeta.getInstance(PullRequestService.class).discard(user, it.next(), null);
 												dataProvider.detach();
 												target.add(countLabel);
 												target.add(body);
@@ -711,7 +711,7 @@ public abstract class PullRequestListPanel extends Panel {
 							@Override
 							public void onClick(AjaxRequestTarget target) {
 								dropdown.close();
-								var visitInfoService = OneDev.getInstance(VisitInfoService.class);
+								var visitInfoService = Cheeta.getInstance(VisitInfoService.class);
 								for (@SuppressWarnings("unchecked") var it = (Iterator<PullRequest>) dataProvider.iterator(0, requestsTable.getItemCount()); it.hasNext(); )
 									visitInfoService.visitPullRequest(SecurityUtils.getAuthUser(), it.next());
 								target.add(body);
@@ -799,7 +799,7 @@ public abstract class PullRequestListPanel extends Panel {
 
 		var extraActionsView = new RepeatingView("extraActions");
 		add(extraActionsView);
-		for (var renderer: OneDev.getExtensions(PullRequestListActionRenderer.class))
+		for (var renderer: Cheeta.getExtensions(PullRequestListActionRenderer.class))
 			extraActionsView.add(renderer.render(extraActionsView.newChildId()));
 		
 		queryInput = new TextField<String>("input", queryStringModel);
@@ -853,7 +853,7 @@ public abstract class PullRequestListPanel extends Panel {
 	
 						@Override
 						protected List<Project> load() {
-							ProjectService projectService = OneDev.getInstance(ProjectService.class);
+							ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 							List<Project> projects = new ArrayList<>(SecurityUtils.getAuthorizedProjects(new ReadCode()));
 							projects.sort(projectService.cloneCache().comparingPath());
 							return projects;
@@ -969,7 +969,7 @@ public abstract class PullRequestListPanel extends Panel {
 	
 							@Override
 							protected PullRequestReview getReview() {
-								return OneDev.getInstance(PullRequestReviewService.class).load(reviewId);
+								return Cheeta.getInstance(PullRequestReviewService.class).load(reviewId);
 							}
 							
 						});
@@ -1124,11 +1124,11 @@ public abstract class PullRequestListPanel extends Panel {
 	}
 	
 	private PullRequestWatchService getWatchService() {
-		return OneDev.getInstance(PullRequestWatchService.class);
+		return Cheeta.getInstance(PullRequestWatchService.class);
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 
 	@Override

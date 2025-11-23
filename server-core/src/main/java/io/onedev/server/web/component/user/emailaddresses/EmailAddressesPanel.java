@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.emailaddresses;
+package io.cheeta.server.web.component.user.emailaddresses;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,19 +25,19 @@ import org.apache.wicket.validation.IErrorMessageSource;
 import org.apache.wicket.validation.IValidationError;
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.EmailAddressVerificationStatusBadge;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.page.user.UserPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.EmailAddressVerificationStatusBadge;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.page.user.UserPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public class EmailAddressesPanel extends GenericPanel<User> {
 
@@ -48,7 +48,7 @@ public class EmailAddressesPanel extends GenericPanel<User> {
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 
 	@Override
@@ -199,7 +199,7 @@ public class EmailAddressesPanel extends GenericPanel<User> {
 
 										@Override
 										public void onClick(AjaxRequestTarget target) {
-											if (OneDev.getInstance(SettingService.class).getMailConnector() != null) {
+											if (Cheeta.getInstance(SettingService.class).getMailConnector() != null) {
 												getEmailAddressService().sendVerificationEmail(item.getModelObject());
 												Session.get().success(_T("Verification email sent, please check it"));
 											} else {
@@ -319,7 +319,7 @@ public class EmailAddressesPanel extends GenericPanel<User> {
 	}
 	
 	private EmailAddressService getEmailAddressService() {
-		return OneDev.getInstance(EmailAddressService.class);
+		return Cheeta.getInstance(EmailAddressService.class);
 	}
 
 	private User getUser() {

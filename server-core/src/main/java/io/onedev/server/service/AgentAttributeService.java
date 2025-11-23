@@ -1,7 +1,7 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.AgentAttribute;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.AgentAttribute;
 
 import java.util.Collection;
 import java.util.Map;

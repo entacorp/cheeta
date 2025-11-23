@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.groupchoiceinput;
+package io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,17 +9,17 @@ import javax.validation.Validator;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.model.Group;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
 
 public class GroupChoiceInput {
 	
 	public static List<String> getPossibleValues(ChoiceProvider choiceProvider) {
 		List<String> possibleValues = new ArrayList<>();
-		if (OneDev.getInstance(Validator.class).validate(choiceProvider).isEmpty()) {
+		if (Cheeta.getInstance(Validator.class).validate(choiceProvider).isEmpty()) {
 			for (Group group: choiceProvider.getChoices(true))
 				possibleValues.add(group.getName());
 		}

@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.stringlist;
+package io.cheeta.server.web.editable.stringlist;
 
-import io.onedev.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyDescriptor;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;

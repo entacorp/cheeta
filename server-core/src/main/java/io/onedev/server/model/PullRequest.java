@@ -1,34 +1,34 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
-import static io.onedev.server.model.AbstractEntity.PROP_NUMBER;
-import static io.onedev.server.model.PullRequest.PROP_CLOSE_DAY;
-import static io.onedev.server.model.PullRequest.PROP_CLOSE_MONTH;
-import static io.onedev.server.model.PullRequest.PROP_CLOSE_WEEK;
-import static io.onedev.server.model.PullRequest.PROP_COMMENT_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_CONFUSED_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_EYES_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_HEART_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_ROCKET_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_SMILE_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_STATUS;
-import static io.onedev.server.model.PullRequest.PROP_SUBMIT_DATE;
-import static io.onedev.server.model.PullRequest.PROP_SUBMIT_DAY;
-import static io.onedev.server.model.PullRequest.PROP_SUBMIT_MONTH;
-import static io.onedev.server.model.PullRequest.PROP_SUBMIT_WEEK;
-import static io.onedev.server.model.PullRequest.PROP_TADA_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_THUMBS_DOWN_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_THUMBS_UP_COUNT;
-import static io.onedev.server.model.PullRequest.PROP_TITLE;
-import static io.onedev.server.model.PullRequest.PROP_UUID;
-import static io.onedev.server.model.support.TimeGroups.PROP_DAY;
-import static io.onedev.server.model.support.TimeGroups.PROP_MONTH;
-import static io.onedev.server.model.support.TimeGroups.PROP_WEEK;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT_IF_NECESSARY;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.SQUASH_SOURCE_BRANCH_COMMITS;
-import static io.onedev.server.search.entity.EntitySort.Direction.DESCENDING;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.AbstractEntity.PROP_NUMBER;
+import static io.cheeta.server.model.PullRequest.PROP_CLOSE_DAY;
+import static io.cheeta.server.model.PullRequest.PROP_CLOSE_MONTH;
+import static io.cheeta.server.model.PullRequest.PROP_CLOSE_WEEK;
+import static io.cheeta.server.model.PullRequest.PROP_COMMENT_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_CONFUSED_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_EYES_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_HEART_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_ROCKET_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_SMILE_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_STATUS;
+import static io.cheeta.server.model.PullRequest.PROP_SUBMIT_DATE;
+import static io.cheeta.server.model.PullRequest.PROP_SUBMIT_DAY;
+import static io.cheeta.server.model.PullRequest.PROP_SUBMIT_MONTH;
+import static io.cheeta.server.model.PullRequest.PROP_SUBMIT_WEEK;
+import static io.cheeta.server.model.PullRequest.PROP_TADA_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_THUMBS_DOWN_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_THUMBS_UP_COUNT;
+import static io.cheeta.server.model.PullRequest.PROP_TITLE;
+import static io.cheeta.server.model.PullRequest.PROP_UUID;
+import static io.cheeta.server.model.support.TimeGroups.PROP_DAY;
+import static io.cheeta.server.model.support.TimeGroups.PROP_MONTH;
+import static io.cheeta.server.model.support.TimeGroups.PROP_WEEK;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT_IF_NECESSARY;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.SQUASH_SOURCE_BRANCH_COMMITS;
+import static io.cheeta.server.search.entity.EntitySort.Direction.DESCENDING;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.lang.ThreadLocal.withInitial;
 
 import java.text.MessageFormat;
@@ -74,36 +74,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentStorageSupport;
-import io.onedev.server.entityreference.EntityReference;
-import io.onedev.server.entityreference.PullRequestReference;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.CommitMessageError;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.support.EntityWatch;
-import io.onedev.server.model.support.LabelSupport;
-import io.onedev.server.model.support.LastActivity;
-import io.onedev.server.model.support.ProjectBelonging;
-import io.onedev.server.model.support.TimeGroups;
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.model.support.code.BuildRequirement;
-import io.onedev.server.model.support.pullrequest.AutoMerge;
-import io.onedev.server.model.support.pullrequest.MergePreview;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.search.entity.SortField;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.util.BranchSemantic;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ProjectAndBranch;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.util.PullRequestAware;
-import io.onedev.server.web.util.TextUtils;
-import io.onedev.server.web.util.WicketUtils;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentStorageSupport;
+import io.cheeta.server.entityreference.EntityReference;
+import io.cheeta.server.entityreference.PullRequestReference;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.CommitMessageError;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.support.EntityWatch;
+import io.cheeta.server.model.support.LabelSupport;
+import io.cheeta.server.model.support.LastActivity;
+import io.cheeta.server.model.support.ProjectBelonging;
+import io.cheeta.server.model.support.TimeGroups;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.model.support.code.BuildRequirement;
+import io.cheeta.server.model.support.pullrequest.AutoMerge;
+import io.cheeta.server.model.support.pullrequest.MergePreview;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.search.entity.SortField;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.util.BranchSemantic;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ProjectAndBranch;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.util.PullRequestAware;
+import io.cheeta.server.web.util.TextUtils;
+import io.cheeta.server.web.util.WicketUtils;
+import io.cheeta.server.xodus.VisitInfoService;
 
 @Entity
 @Table(
@@ -915,7 +915,7 @@ public class PullRequest extends ProjectBelonging
 	public boolean isVisitedAfter(Date date) {
 		User user = SecurityUtils.getAuthUser();
 		if (user != null) {
-			Date visitDate = OneDev.getInstance(VisitInfoService.class).getPullRequestVisitDate(user, this);
+			Date visitDate = Cheeta.getInstance(VisitInfoService.class).getPullRequestVisitDate(user, this);
 			return visitDate != null && visitDate.getTime()>date.getTime();
 		} else {
 			return true;
@@ -925,7 +925,7 @@ public class PullRequest extends ProjectBelonging
 	public boolean isCodeCommentsVisitedAfter(Date date) {
 		User user = SecurityUtils.getAuthUser();
 		if (user != null) {
-			Date visitDate = OneDev.getInstance(VisitInfoService.class).getPullRequestCodeCommentsVisitDate(user, this);
+			Date visitDate = Cheeta.getInstance(VisitInfoService.class).getPullRequestCodeCommentsVisitDate(user, this);
 			return visitDate != null && visitDate.getTime()>date.getTime();
 		} else {
 			return true;
@@ -1009,7 +1009,7 @@ public class PullRequest extends ProjectBelonging
 				if (change.getUser() != null)
 					participants.add(change.getUser());
 			}
-			var userService = OneDev.getInstance(UserService.class);
+			var userService = Cheeta.getInstance(UserService.class);
 			participants.remove(userService.getSystem());
 			participants.remove(userService.getUnknown());
 		}
@@ -1042,7 +1042,7 @@ public class PullRequest extends ProjectBelonging
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	public static String getChangeObservable(Long requestId) {
@@ -1240,7 +1240,7 @@ public class PullRequest extends ProjectBelonging
 			return _T("Source project no longer exists");
 		if (getSource().getObjectName(false) == null)
 			return _T("Source branch no longer exists");
-		PullRequestService manager = OneDev.getInstance(PullRequestService.class);
+		PullRequestService manager = Cheeta.getInstance(PullRequestService.class);
 		PullRequest request = manager.findEffective(getTarget(), getSource());
 		if (request != null) {
 			if (request.isOpen())
@@ -1274,7 +1274,7 @@ public class PullRequest extends ProjectBelonging
 				&& !getSource().getObjectName().equals(preview.getMergeCommitHash())) {
 			return _T("Change not updated yet");
 		}
-		PullRequestService manager = OneDev.getInstance(PullRequestService.class);
+		PullRequestService manager = Cheeta.getInstance(PullRequestService.class);
 		if (!manager.queryOpenTo(getSource()).isEmpty())
 			return _T("Some other pull requests are opening to this branch");
 		return null;
@@ -1314,7 +1314,7 @@ public class PullRequest extends ProjectBelonging
 						getBaseCommit().copy(), getLatestUpdate().getHeadCommit().copy(), new HashMap<>());
 			}
 			if (error == null && autoMerge.isEnabled()) {
-				var system = OneDev.getInstance(UserService.class).getSystem();
+				var system = Cheeta.getInstance(UserService.class).getSystem();
 				var errorMessage = checkMergeCommitMessage(system, autoMerge.getCommitMessage());
 				if (errorMessage != null)
 					error = new CommitMessageError(null, errorMessage);

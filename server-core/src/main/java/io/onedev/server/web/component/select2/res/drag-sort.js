@@ -1,4 +1,4 @@
-onedev.server.select2DragSort = {
+cheeta.server.select2DragSort = {
 	onWindowLoad: function(containerId) {
 		var $container = $("#" + containerId);
 		$container.select2("container").find("ul.select2-choices").sortable({

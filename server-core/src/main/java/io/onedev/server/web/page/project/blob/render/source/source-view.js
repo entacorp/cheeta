@@ -1,14 +1,14 @@
-onedev.server.sourceView = {
+cheeta.server.sourceView = {
 	onDomReady: function(filePath, fileContent, openComment, markRange, symbolTooltipId, 
 			revision, blameInfos, callback, blameMessageCallback, tabSize, lineWrapMode, 
 			annotationInfo, translations) {
-		onedev.server.sourceView.translations = translations;
+		cheeta.server.sourceView.translations = translations;
 		var $sourceView = $(".source-view");
 		var $code = $sourceView.children(".code");
 
 		var cm = CodeMirror($code[0], {
 			value: fileContent,
-			readOnly: onedev.server.util.isDevice()?"nocursor": true,
+			readOnly: cheeta.server.util.isDevice()?"nocursor": true,
 			theme: "eclipse",
 			lineNumbers: true,
 			lineWrapping: lineWrapMode == "Soft wrap",
@@ -23,33 +23,33 @@ onedev.server.sourceView = {
 			gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
 		});
 
-		onedev.server.codemirror.setModeByFileName(cm, filePath);
+		cheeta.server.codemirror.setModeByFileName(cm, filePath);
 
 		$sourceView.data("callback", callback);
 		$sourceView.data("blameMessageCallback", blameMessageCallback);
 		
 	    if (markRange)
-	    	onedev.server.sourceView.mark(markRange, false);
+	    	cheeta.server.sourceView.mark(markRange, false);
 
 	    if (openComment)
 			$sourceView.data("openComment", openComment);
 	    
 		var gutters = cm.getOption("gutters").slice();
 		
-		if (!onedev.server.util.isObjEmpty(annotationInfo.problems))
+		if (!cheeta.server.util.isObjEmpty(annotationInfo.problems))
 			gutters.splice(0, 0, "CodeMirror-problems");
-		if (!onedev.server.util.isObjEmpty(annotationInfo.coverages))
+		if (!cheeta.server.util.isObjEmpty(annotationInfo.coverages))
 			gutters.splice(gutters.length-1, 0, "CodeMirror-coverages");
 		gutters.splice(0, 0, "CodeMirror-comments");
 		
 		cm.setOption("gutters", gutters);
 		
 		if (blameInfos) {
-		    onedev.server.sourceView.blame(blameInfos);
+		    cheeta.server.sourceView.blame(blameInfos);
     	}
 
-		onedev.server.codemirror.bindShortcuts(cm);
-		onedev.server.sourceView.checkShortcutsBinding();
+		cheeta.server.codemirror.bindShortcuts(cm);
+		cheeta.server.sourceView.checkShortcutsBinding();
 	    
 		var lastFrom, lastTo;
 	    $(".source-view").selectionPopover("init", function(e) {
@@ -90,8 +90,8 @@ onedev.server.sourceView = {
 	    });
 	    
 		cm.on("scroll", function() {
-			onedev.server.symboltooltip.removeTooltip(document.getElementById(symbolTooltipId));					
-			onedev.server.mouseState.moved = false;					
+			cheeta.server.symboltooltip.removeTooltip(document.getElementById(symbolTooltipId));					
+			cheeta.server.mouseState.moved = false;					
 		});
 		
     	var cursorActivityTimer;
@@ -110,10 +110,10 @@ onedev.server.sourceView = {
 		});
 		
 		$code.on("getViewState", function() {
-		    return onedev.server.codemirror.getViewState(cm);
+		    return cheeta.server.codemirror.getViewState(cm);
 		});
 		$code.on("setViewState", function(e, viewState) {
-		    return onedev.server.codemirror.setViewState(cm, viewState);
+		    return cheeta.server.codemirror.setViewState(cm, viewState);
 		});
 		
 		$code.on("resized", function() {
@@ -125,20 +125,20 @@ onedev.server.sourceView = {
 		
 		for (var line in annotationInfo.comments) {
 		    if (annotationInfo.comments.hasOwnProperty(line) && line<cm.lineCount()) 
-		    	onedev.server.sourceView.addCommentGutter(line, annotationInfo.comments[line]);
+		    	cheeta.server.sourceView.addCommentGutter(line, annotationInfo.comments[line]);
 		}
 		
 		for (var line in annotationInfo.problems) {
 		    if (annotationInfo.problems.hasOwnProperty(line) && line<cm.lineCount()) 
-		    	onedev.server.sourceView.addProblemGutter(line, annotationInfo.problems[line]);
+		    	cheeta.server.sourceView.addProblemGutter(line, annotationInfo.problems[line]);
 		}
 		
 		for (var line in annotationInfo.coverages) {
 			if (annotationInfo.coverages.hasOwnProperty(line) && line<cm.lineCount())
-				onedev.server.sourceView.addCoverageGutter(line, annotationInfo.coverages[line]);
+				cheeta.server.sourceView.addCoverageGutter(line, annotationInfo.coverages[line]);
 		}
 		
-		onedev.server.sourceView.highlightCommentTrigger();	
+		cheeta.server.sourceView.highlightCommentTrigger();	
 	},
 	checkShortcutsBinding() {
 		if (!($(document).data("SourceViewShortcutsBinded"))) {
@@ -149,7 +149,7 @@ onedev.server.sourceView = {
 			 * properly in readonly mode
 			 */
 			$(document).on("keydown", function(e) {
-				if ($(".modal:visible").length == 0 && !onedev.server.util.canInput(e.target) 
+				if ($(".modal:visible").length == 0 && !cheeta.server.util.canInput(e.target) 
 						&& e.keyCode == 79) {
 					var $sourceView = $(".source-view");
 					if ($sourceView.length != 0 && $(".outline-toggle").length != 0)
@@ -159,10 +159,10 @@ onedev.server.sourceView = {
 		}
 	},
 	onWindowLoad: function(markRange) {
-		if (onedev.server.viewState.getFromHistory() === undefined
-				&& onedev.server.viewState.carryOver === undefined) {
+		if (cheeta.server.viewState.getFromHistory() === undefined
+				&& cheeta.server.viewState.carryOver === undefined) {
 			var cm = $(".source-view>.code>.CodeMirror")[0].CodeMirror;		
-			onedev.server.codemirror.scrollTo(cm, markRange);
+			cheeta.server.codemirror.scrollTo(cm, markRange);
 		}
 	},
 	initComment: function() {
@@ -225,11 +225,11 @@ onedev.server.sourceView = {
 	addCoverageGutter: function(line, coverageStatus) {
 		let tooltip;
 		if (coverageStatus == 'COVERED')
-			tooltip = onedev.server.sourceView.translations["covered-by-tests"];
+			tooltip = cheeta.server.sourceView.translations["covered-by-tests"];
 		else if (coverageStatus == 'NOT_COVERED')
-			tooltip = onedev.server.sourceView.translations["not-covered-by-any-test"];
+			tooltip = cheeta.server.sourceView.translations["not-covered-by-any-test"];
 		else
-			tooltip = onedev.server.sourceView.translations["partially-covered-by-some-tests"];
+			tooltip = cheeta.server.sourceView.translations["partially-covered-by-some-tests"];
 			
 		let $gutter = $(`<a class='CodeMirror-coverage d-block' data-tippy-content='${tooltip}'>&nbsp;</a>`);
 
@@ -255,15 +255,15 @@ onedev.server.sourceView = {
 		for (var i in problems) 
 			markRanges.push(problems[i].target.location);			
 		
-		var severityInfo = onedev.server.codeProblem.getSeverityInfo(problems);
+		var severityInfo = cheeta.server.codeProblem.getSeverityInfo(problems);
 		
-		let svg = `<svg class='icon icon-sm'><use xlink:href='${onedev.server.icons}#exclamation-circle-o'/></svg>`;
+		let svg = `<svg class='icon icon-sm'><use xlink:href='${cheeta.server.icons}#exclamation-circle-o'/></svg>`;
 		$gutter.append(`<a class='problem-trigger ${severityInfo}'>${svg}</a>`);
 		var $trigger = $gutter.children("a");
 		$trigger.mouseover(function() {
-			onedev.server.codemirror.mark(cm, markRanges);
+			cheeta.server.codemirror.mark(cm, markRanges);
 		}).mouseout(function() {
-			onedev.server.sourceView.restoreMark();
+			cheeta.server.sourceView.restoreMark();
 		});
 
 		$trigger.mousedown(function() {
@@ -277,19 +277,19 @@ onedev.server.sourceView = {
 					sanitize: false, 
 					placement: "top",
 					container: ".source-view>.code",
-					content: onedev.server.codeProblem.renderProblems(problems, onedev.server.sourceView.translations),
+					content: cheeta.server.codeProblem.renderProblems(problems, cheeta.server.sourceView.translations),
 					template: `<div data-line='${line}' class='popover problem-popover'><div class='arrow'></div><div class='popover-body'></div></div>`
 				}).on("shown.bs.popover", function() {
 					var $currentPopover = $(".problem-popover[data-line='" + line + "']");
 					$(".popover").not($currentPopover).popover("hide");
 					$currentPopover.find(".problem-content").mouseover(function() {
-						onedev.server.codemirror.mark(cm, problems[$(this).index()].target.location);
+						cheeta.server.codemirror.mark(cm, problems[$(this).index()].target.location);
 					}).mouseout(function() {
-						onedev.server.sourceView.restoreMark();
+						cheeta.server.sourceView.restoreMark();
 					}).each(function() {
 						var problem = problems[$(this).index()];
 						$(this).children(".add-comment").click(function() {
-							if (onedev.server.sourceView.confirmUnsavedChanges()) {
+							if (cheeta.server.sourceView.confirmUnsavedChanges()) {
 								$currentPopover.popover("hide");
 								var range = problem.target.location;
 								callback("addComment", range.fromRow, range.fromColumn, 
@@ -308,7 +308,7 @@ onedev.server.sourceView = {
 		cm.setGutterMarker(parseInt(line), "CodeMirror-problems", $gutter[0]);	
 	},
 	confirmUnsavedChanges: function() {
-		return $(".source-view").find("form.dirty").length == 0 || confirm(onedev.server.sourceView.translations["unsaved-changes-prompt"]); 
+		return $(".source-view").find("form.dirty").length == 0 || confirm(cheeta.server.sourceView.translations["unsaved-changes-prompt"]); 
 	},
 	addCommentGutter: function(line, comments) {
 		$(".comment-popover[data-line='" + line + "']").remove();
@@ -335,13 +335,13 @@ onedev.server.sourceView = {
 					cssClasses += " updated";
 					updated = true;
 				}
-				content += `<a class='${cssClasses}' data-tippy-content='${onedev.server.sourceView.translations["show-comment"]}'>#${comments[i].id}</a>`;
+				content += `<a class='${cssClasses}' data-tippy-content='${cheeta.server.sourceView.translations["show-comment"]}'>#${comments[i].id}</a>`;
 			}
 
 			let cssClasses = "comment-indicator";
 			if (updated)
 				cssClasses += " updated"; 			
-			$gutter.append(`<a class='${cssClasses}'><svg class='icon'><use xlink:href='${onedev.server.icons}#comments'/></svg></a>`);
+			$gutter.append(`<a class='${cssClasses}'><svg class='icon'><use xlink:href='${cheeta.server.icons}#comments'/></svg></a>`);
 			
 			var $indicator = $gutter.children("a");
 			$indicator.popover({
@@ -358,13 +358,13 @@ onedev.server.sourceView = {
 				$currentPopover.find("a").each(function() {
 					$(this).mouseover(function() {
 						let comment = comments[$(this).index()];
-						onedev.server.codemirror.mark(cm, comment.range);
+						cheeta.server.codemirror.mark(cm, comment.range);
 					});
 					$(this).mouseout(function() {
-						onedev.server.sourceView.restoreMark();
+						cheeta.server.sourceView.restoreMark();
 					});
 					$(this).click(function() {
-						if (!$(this).hasClass("active") && onedev.server.sourceView.confirmUnsavedChanges()) { 
+						if (!$(this).hasClass("active") && cheeta.server.sourceView.confirmUnsavedChanges()) { 
 							let comment = comments[$(this).index()];
 							let range = comment.range;
 							callback("openComment", comment.id, range.fromRow, range.fromColumn, 
@@ -376,23 +376,23 @@ onedev.server.sourceView = {
 						placement: 'auto'
 					});		
 				});
-				onedev.server.sourceView.highlightCommentTrigger();				
+				cheeta.server.sourceView.highlightCommentTrigger();				
 			});
 		} else {
 			var comment = comments[0];
 			var cssClasses = "comment-trigger comment-indicator";
 			if (comment.updated)
 				cssClasses += " updated";
-			var svg = `<svg class='icon'><use xlink:href='${onedev.server.icons}#comment'/></svg>`;
-			$gutter.append(`<a class='${cssClasses}' data-tippy-content='${onedev.server.sourceView.translations["show-comment"]}'>${svg}</a>`);
+			var svg = `<svg class='icon'><use xlink:href='${cheeta.server.icons}#comment'/></svg>`;
+			$gutter.append(`<a class='${cssClasses}' data-tippy-content='${cheeta.server.sourceView.translations["show-comment"]}'>${svg}</a>`);
 			var $indicator = $gutter.children("a");
 			$indicator.mouseover(function() {
-				onedev.server.codemirror.mark(cm, comment.range);
+				cheeta.server.codemirror.mark(cm, comment.range);
 			}).mouseout(function() {
-				onedev.server.sourceView.restoreMark();
+				cheeta.server.sourceView.restoreMark();
 			});
 			$indicator.click(function() {
-				if (!$indicator.hasClass("active") && onedev.server.sourceView.confirmUnsavedChanges()) { 
+				if (!$indicator.hasClass("active") && cheeta.server.sourceView.confirmUnsavedChanges()) { 
 					let range = comment.range;
 					callback("openComment", comment.id, range.fromRow, range.fromColumn, 
 							range.toRow, range.toColumn);
@@ -410,11 +410,11 @@ onedev.server.sourceView = {
 		var position = cm.charCoords(cm.getCursor());
 		
 		var $content;
-		let svg = `<svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#link'/></svg>`;
-		$content = $(`<div><a class='permanent'>${svg} ${onedev.server.sourceView.translations["perma-link"]}</a>`);
+		let svg = `<svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#link'/></svg>`;
+		$content = $(`<div><a class='permanent'>${svg} ${cheeta.server.sourceView.translations["perma-link"]}</a>`);
 		$content.children("a.permanent").attr("href", selectionUrl);
-		svg = `<svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#copy'/></svg>`;
-		$content.append(`<a class='copy-marked'>${svg} ${onedev.server.sourceView.translations["copy-to-clipboard"]}</a>`);
+		svg = `<svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#copy'/></svg>`;
+		$content.append(`<a class='copy-marked'>${svg} ${cheeta.server.sourceView.translations["copy-to-clipboard"]}</a>`);
 		var clipboard = new ClipboardJS(".copy-marked", {
 		    text: function() {
 		        return cm.getSelection("\n");
@@ -427,10 +427,10 @@ onedev.server.sourceView = {
 			$(".selection-popover").remove();
 		});
 		if (loggedIn) {
-			let svg = `<svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#comment'/></svg>`;
-			$content.append(`<a class='comment'>${svg} ${onedev.server.sourceView.translations["add-selection-comment"]}</a>`);
+			let svg = `<svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#comment'/></svg>`;
+			$content.append(`<a class='comment'>${svg} ${cheeta.server.sourceView.translations["add-selection-comment"]}</a>`);
 			$content.children("a.comment").click(function() {
-				if (onedev.server.sourceView.confirmUnsavedChanges()) {
+				if (cheeta.server.sourceView.confirmUnsavedChanges()) {
 					$(".selection-popover").remove();
 					$(".source-view").data("callback")("addComment", selectionRange.fromRow, selectionRange.fromColumn, 
 							selectionRange.toRow, selectionRange.toColumn);
@@ -438,12 +438,12 @@ onedev.server.sourceView = {
 			});
 		} else {
 			let loginHref = $(".sign-in").attr("href");
-			let svg = `<svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#warning'/></svg>`;
-			$content.append(`<a href='${loginHref}' class='comment'>${svg} ${onedev.server.sourceView.translations["login-to-comment"]}</a>`);
+			let svg = `<svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#warning'/></svg>`;
+			$content.append(`<a href='${loginHref}' class='comment'>${svg} ${cheeta.server.sourceView.translations["login-to-comment"]}</a>`);
 		}			
 		
 		$(".source-view").selectionPopover("open", {
-			position: onedev.server.mouseState.position,
+			position: cheeta.server.mouseState.position,
 			content: $content
 		});
 	},
@@ -465,8 +465,8 @@ onedev.server.sourceView = {
 			comments = [];
 		} 
 		comments.push(comment);
-		onedev.server.sourceView.addCommentGutter(line, comments);
-		onedev.server.sourceView.highlightCommentTrigger();				
+		cheeta.server.sourceView.addCommentGutter(line, comments);
+		cheeta.server.sourceView.highlightCommentTrigger();				
 		$(window).resize();
 	},
 	onCommentDeleted: function() {
@@ -488,54 +488,54 @@ onedev.server.sourceView = {
 						break;
 					}
 				}
-				onedev.server.sourceView.addCommentGutter(line, comments);
+				cheeta.server.sourceView.addCommentGutter(line, comments);
 			}
-			onedev.server.sourceView.highlightCommentTrigger();				
+			cheeta.server.sourceView.highlightCommentTrigger();				
 		}
 		$(window).resize();
-		onedev.server.sourceView.restoreMark();
+		cheeta.server.sourceView.restoreMark();
 	},
 	onAddComment: function(commentRange) {
 		$(".popover").popover("hide");
-		onedev.server.sourceView.exitFullScreen();
+		cheeta.server.sourceView.exitFullScreen();
 		var $sourceView = $(".source-view");
 		$sourceView.removeData("openComment");
 		$sourceView.data("markRange", commentRange);
 		$(".source-view").selectionPopover("close");
 
 		var cm = $(".source-view>.code>.CodeMirror")[0].CodeMirror;		
-		onedev.server.codemirror.clearSelection(cm);
+		cheeta.server.codemirror.clearSelection(cm);
 		$(window).resize();
 
-		onedev.server.sourceView.mark(commentRange, false);
-		onedev.server.codemirror.scrollIntoView(cm, commentRange);
+		cheeta.server.sourceView.mark(commentRange, false);
+		cheeta.server.codemirror.scrollIntoView(cm, commentRange);
 		
-		onedev.server.sourceView.highlightCommentTrigger();		
+		cheeta.server.sourceView.highlightCommentTrigger();		
 		var $textarea = $sourceView.find(".comment textarea");
 		$textarea.caret($textarea.val().length);		
 	},
 	onCommentOpened: function(comment) {
 		$(".popover").popover("hide");
-		onedev.server.sourceView.exitFullScreen();
+		cheeta.server.sourceView.exitFullScreen();
 		var $sourceView = $(".source-view");
 		$sourceView.data("openComment", comment);
 		$sourceView.data("markRange", comment.range);
-		onedev.server.sourceView.highlightCommentTrigger();
+		cheeta.server.sourceView.highlightCommentTrigger();
 
 		$(window).resize();
 		var cm = $(".source-view>.code>.CodeMirror")[0].CodeMirror;		
-		onedev.server.codemirror.scrollIntoView(cm, comment.range);
+		cheeta.server.codemirror.scrollIntoView(cm, comment.range);
 	},
 	onCloseComment: function() {
 		$(".popover").popover("hide");
 		var $sourceView = $(".source-view");
 		$sourceView.removeData("openComment");
-		onedev.server.sourceView.highlightCommentTrigger();
+		cheeta.server.sourceView.highlightCommentTrigger();
 		$(window).resize();
-		onedev.server.sourceView.clearMark();
+		cheeta.server.sourceView.clearMark();
 	},
 	onToggleOutline: function() {
-		onedev.server.sourceView.exitFullScreen();
+		cheeta.server.sourceView.exitFullScreen();
 		$(".outline-toggle").prop("checked", $(".source-view>.outline").is(":visible"));
 		$(window).resize();
 	},
@@ -582,9 +582,9 @@ onedev.server.sourceView = {
 	mark: function(markRange, scroll) {
 		var cm = $(".source-view>.code>.CodeMirror")[0].CodeMirror;		
 		$(".source-view").data("markRange", markRange);
-		onedev.server.codemirror.mark(cm, markRange);
+		cheeta.server.codemirror.mark(cm, markRange);
 		if (scroll)
-			onedev.server.codemirror.scrollTo(cm, markRange);
+			cheeta.server.codemirror.scrollTo(cm, markRange);
 		cm.setCursor({line: markRange.fromRow, ch: markRange.fromColumn});
 	},
 	restoreMark: function() {
@@ -592,13 +592,13 @@ onedev.server.sourceView = {
 		var cm = $(".source-view>.code>.CodeMirror")[0].CodeMirror;		
 		var markRange = $sourceView.data("markRange");
 		if (markRange) 
-			onedev.server.codemirror.mark(cm, markRange);
+			cheeta.server.codemirror.mark(cm, markRange);
 		else 
-			onedev.server.codemirror.clearMark(cm);
+			cheeta.server.codemirror.clearMark(cm);
 	},
 	clearMark: function() {
 		var cm = $(".source-view>.code>.CodeMirror")[0].CodeMirror;		
-		onedev.server.codemirror.clearMark(cm);
+		cheeta.server.codemirror.clearMark(cm);
 	},
 	blame: function(blameInfos) {
 		var cm = $(".source-view>.code>.CodeMirror")[0].CodeMirror;		
@@ -618,7 +618,7 @@ onedev.server.sourceView = {
             		$("<a class='hash'>" + blameInfo.abbreviatedHash + "</a>")
             				.appendTo($gutter)
             				.attr("href", blameInfo.url)
-            				.attr("onclick", "onedev.server.viewState.getFromViewAndSetToHistory();");
+            				.attr("onclick", "cheeta.server.viewState.getFromViewAndSetToHistory();");
             		var $hashLink = $gutter.children("a.hash");
             		$hashLink.data("hash", blameInfo.hash);
             		$hashLink.data("line", range.from);
@@ -626,7 +626,7 @@ onedev.server.sourceView = {
     				$hashLink.hover(function() {
     					var tooltipId = "blame-message-line-" + $(this).data("line");
     					blameMessageCallback(tooltipId, $(this).data("hash"));
-    					var $tooltip = $(`<div class='blame-message'><div class='loading'>${onedev.server.sourceView.translations["loading"]}...</div></div>`);
+    					var $tooltip = $(`<div class='blame-message'><div class='loading'>${cheeta.server.sourceView.translations["loading"]}...</div></div>`);
     					$tooltip.attr("id", tooltipId);
     					$tooltip.data("trigger", this);
     					$tooltip.data("alignment", alignment);

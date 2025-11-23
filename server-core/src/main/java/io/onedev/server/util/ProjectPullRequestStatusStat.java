@@ -1,8 +1,8 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.Serializable;
 
-import io.onedev.server.model.PullRequest.Status;
+import io.cheeta.server.model.PullRequest.Status;
 
 public class ProjectPullRequestStatusStat implements Serializable {
 

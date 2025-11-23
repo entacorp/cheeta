@@ -1,19 +1,19 @@
-package io.onedev.server.buildspec.param.instance;
+package io.cheeta.server.buildspec.param.instance;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ParamSpecProvider;
-import io.onedev.server.annotation.VariableOption;
-import io.onedev.server.buildspec.job.JobDependency;
-import io.onedev.server.buildspec.job.action.RunJobAction;
-import io.onedev.server.buildspec.job.trigger.JobTrigger;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspec.step.UseTemplateStep;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.editable.buildspec.job.jobdependency.JobDependencyEditPanel;
-import io.onedev.server.web.editable.buildspec.job.postbuildaction.PostBuildActionEditPanel;
-import io.onedev.server.web.editable.buildspec.job.trigger.JobTriggerEditPanel;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ParamSpecProvider;
+import io.cheeta.server.annotation.VariableOption;
+import io.cheeta.server.buildspec.job.JobDependency;
+import io.cheeta.server.buildspec.job.action.RunJobAction;
+import io.cheeta.server.buildspec.job.trigger.JobTrigger;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.step.UseTemplateStep;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.editable.buildspec.job.jobdependency.JobDependencyEditPanel;
+import io.cheeta.server.web.editable.buildspec.job.postbuildaction.PostBuildActionEditPanel;
+import io.cheeta.server.web.editable.buildspec.job.trigger.JobTriggerEditPanel;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.wicket.Component;
 
 import javax.validation.Valid;

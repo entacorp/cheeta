@@ -1,22 +1,22 @@
-package io.onedev.server.web.component.issue.transitionoption;
+package io.cheeta.server.web.component.issue.transitionoption;
 
 import com.google.common.collect.Lists;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.model.support.issue.transitionspec.ManualSpec;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.component.comment.CommentInput;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.model.support.issue.transitionspec.ManualSpec;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.component.comment.CommentInput;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -31,7 +31,7 @@ import org.apache.wicket.request.cycle.RequestCycle;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -153,7 +153,7 @@ public abstract class TransitionOptionPanel extends Panel implements InputContex
 
 	@Override
 	public InputSpec getInputSpec(String inputName) {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getFieldSpec(inputName);
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldSpec(inputName);
 	}
 	
 	protected abstract Issue getIssue();

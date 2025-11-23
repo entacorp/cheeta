@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.issue.choice;
+package io.cheeta.server.web.editable.issue.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
@@ -8,17 +8,17 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.web.component.issue.choice.IssueSingleChoice;
-import io.onedev.server.web.component.issue.choice.IssueChoiceProvider;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.util.IssueQueryAware;
-import io.onedev.server.web.util.ProjectAware;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.web.component.issue.choice.IssueSingleChoice;
+import io.cheeta.server.web.component.issue.choice.IssueChoiceProvider;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.util.IssueQueryAware;
+import io.cheeta.server.web.util.ProjectAware;
 
 public class IssueChoiceEditor extends PropertyEditor<Long> {
 
@@ -43,7 +43,7 @@ public class IssueChoiceEditor extends PropertyEditor<Long> {
 
 		Issue issue;
 		if (getModelObject() != null)
-			issue = OneDev.getInstance(IssueService.class).get(getModelObject());
+			issue = Cheeta.getInstance(IssueService.class).get(getModelObject());
 		else
 			issue = null;
 		

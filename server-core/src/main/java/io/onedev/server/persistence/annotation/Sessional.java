@@ -1,4 +1,4 @@
-package io.onedev.server.persistence.annotation;
+package io.cheeta.server.persistence.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

@@ -1,4 +1,4 @@
-package io.onedev.server.exception;
+package io.cheeta.server.exception;
 
 import org.jspecify.annotations.Nullable;
 import javax.ws.rs.core.MultivaluedHashMap;

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.statestats;
+package io.cheeta.server.web.component.issue.statestats;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -15,9 +15,9 @@ import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.issue.StateSpec;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.issue.StateSpec;
 
 public abstract class StateStatsBar extends GenericPanel<Map<String, Integer>> {
 
@@ -32,7 +32,7 @@ public abstract class StateStatsBar extends GenericPanel<Map<String, Integer>> {
 		int totalCount = getModelObject().values().stream().collect(Collectors.summingInt(it->it));
 		if (totalCount != 0) {
 			RepeatingView statesView = new RepeatingView("states");
-			for (StateSpec state: OneDev.getInstance(SettingService.class).getIssueSetting().getStateSpecs()) {
+			for (StateSpec state: Cheeta.getInstance(SettingService.class).getIssueSetting().getStateSpecs()) {
 				Integer count = getModelObject().get(state.getName());
 				if (count != null) { 
 					Link<Void> link = newStateLink(statesView.newChildId(), state.getName());

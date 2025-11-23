@@ -1,10 +1,10 @@
-package io.onedev.server.web.editable.buildspec.step;
+package io.cheeta.server.web.editable.buildspec.step;
 
-import io.onedev.server.buildspec.BuildSpecAware;
-import io.onedev.server.buildspec.ParamSpecAware;
-import io.onedev.server.buildspec.step.Step;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.editable.BeanDescriptor;
+import io.cheeta.server.buildspec.BuildSpecAware;
+import io.cheeta.server.buildspec.ParamSpecAware;
+import io.cheeta.server.buildspec.step.Step;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.editable.BeanDescriptor;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
@@ -49,7 +49,7 @@ abstract class StepEditModalPanel extends ModalPanel implements BuildSpecAware, 
 				replaceWith(content);
 				target.add(content);
 				target.appendJavaScript(String.format(
-						"onedev.server.form.markDirty($('#%s').find('form'));", 
+						"cheeta.server.form.markDirty($('#%s').find('form'));", 
 						StepEditModalPanel.this.getMarkupId()));
 			}
 

@@ -1,10 +1,10 @@
-package io.onedev.server.job.log;
+package io.cheeta.server.job.log;
 
-import static io.onedev.commons.utils.LockUtils.getReadWriteLock;
-import static io.onedev.commons.utils.LockUtils.read;
-import static io.onedev.commons.utils.LockUtils.write;
-import static io.onedev.server.model.Build.getLogLockName;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.commons.utils.LockUtils.getReadWriteLock;
+import static io.cheeta.commons.utils.LockUtils.read;
+import static io.cheeta.commons.utils.LockUtils.write;
+import static io.cheeta.server.model.Build.getLogLockName;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -43,27 +43,27 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.log.JobLogEntry;
-import io.onedev.server.buildspec.job.log.JobLogEntryEx;
-import io.onedev.server.buildspec.job.log.instruction.LogInstruction;
-import io.onedev.server.buildspec.job.log.instruction.LogInstructionParser.InstructionContext;
-import io.onedev.server.buildspec.job.log.instruction.LogInstructionParser.ParamContext;
-import io.onedev.server.buildspecmodel.inputspec.SecretInput;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.build.BuildFinished;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.web.websocket.WebSocketService;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.log.JobLogEntry;
+import io.cheeta.server.buildspec.job.log.JobLogEntryEx;
+import io.cheeta.server.buildspec.job.log.instruction.LogInstruction;
+import io.cheeta.server.buildspec.job.log.instruction.LogInstructionParser.InstructionContext;
+import io.cheeta.server.buildspec.job.log.instruction.LogInstructionParser.ParamContext;
+import io.cheeta.server.buildspecmodel.inputspec.SecretInput;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.build.BuildFinished;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.web.websocket.WebSocketService;
 
 @Singleton
 public class DefaultLogService implements LogService, Serializable {
@@ -194,7 +194,7 @@ public class DefaultLogService implements LogService, Serializable {
 							String name = instructionContext.Identifier().getText();
 
 							LogInstruction instruction = null;
-							for (LogInstruction extension: OneDev.getExtensions(LogInstruction.class)) {
+							for (LogInstruction extension: Cheeta.getExtensions(LogInstruction.class)) {
 								if (extension.getName().equals(name)) {
 									instruction = extension;
 									break;

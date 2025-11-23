@@ -1,8 +1,8 @@
-package io.onedev.server.entityreference;
+package io.cheeta.server.entityreference;
 
 import java.util.Map;
 
-import io.onedev.commons.utils.WordUtils;
+import io.cheeta.commons.utils.WordUtils;
 
 public class ReferenceMigrator {
 

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.issues.imports;
+package io.cheeta.server.web.page.project.issues.imports;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -17,23 +17,23 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.imports.IssueImporter;
-import io.onedev.server.imports.IssueImporterContribution;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.EntitySort.Direction;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.taskbutton.TaskButton;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.wizard.WizardPanel;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.imports.IssueImporter;
+import io.cheeta.server.imports.IssueImporterContribution;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.taskbutton.TaskButton;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.wizard.WizardPanel;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
 
 public class IssueImportPage<Where extends Serializable, What extends Serializable, How extends Serializable> extends ProjectPage {
 
@@ -45,7 +45,7 @@ public class IssueImportPage<Where extends Serializable, What extends Serializab
 		super(params);
 		
 		String importerName = params.get(PARAM_IMPORTER).toString();
-		for (IssueImporterContribution contribution: OneDev.getExtensions(IssueImporterContribution.class)) {
+		for (IssueImporterContribution contribution: Cheeta.getExtensions(IssueImporterContribution.class)) {
 			for (IssueImporter importer: contribution.getImporters()) {
 				if (importer.getName().equals(importerName)) {
 					this.importer = importer;

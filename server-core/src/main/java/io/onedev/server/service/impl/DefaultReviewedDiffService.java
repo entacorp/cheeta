@@ -1,8 +1,8 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.ReviewedDiff.PROP_NEW_COMMIT_HASH;
-import static io.onedev.server.model.ReviewedDiff.PROP_OLD_COMMIT_HASH;
-import static io.onedev.server.model.ReviewedDiff.PROP_USER;
+import static io.cheeta.server.model.ReviewedDiff.PROP_NEW_COMMIT_HASH;
+import static io.cheeta.server.model.ReviewedDiff.PROP_OLD_COMMIT_HASH;
+import static io.cheeta.server.model.ReviewedDiff.PROP_USER;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,20 +16,20 @@ import org.joda.time.DateTime;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.ScheduleBuilder;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.model.ReviewedDiff;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.ReviewedDiffService;
-import io.onedev.server.taskschedule.SchedulableTask;
-import io.onedev.server.taskschedule.TaskScheduler;
-import io.onedev.server.util.concurrent.BatchWorkExecutionService;
-import io.onedev.server.util.concurrent.BatchWorker;
-import io.onedev.server.util.concurrent.Prioritized;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.model.ReviewedDiff;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.ReviewedDiffService;
+import io.cheeta.server.taskschedule.SchedulableTask;
+import io.cheeta.server.taskschedule.TaskScheduler;
+import io.cheeta.server.util.concurrent.BatchWorkExecutionService;
+import io.cheeta.server.util.concurrent.BatchWorker;
+import io.cheeta.server.util.concurrent.Prioritized;
 
 @Singleton
 public class DefaultReviewedDiffService extends BaseEntityService<ReviewedDiff>

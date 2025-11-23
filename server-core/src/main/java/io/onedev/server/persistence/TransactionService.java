@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import java.util.concurrent.Callable;
 

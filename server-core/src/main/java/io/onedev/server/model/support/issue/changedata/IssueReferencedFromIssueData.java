@@ -1,16 +1,16 @@
-package io.onedev.server.model.support.issue.changedata;
+package io.cheeta.server.model.support.issue.changedata;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.entityreference.ReferencedFromAware;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.User;
-import io.onedev.server.notification.ActivityDetail;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.entityreference.ReferencedFromAware;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.User;
+import io.cheeta.server.notification.ActivityDetail;
 
 public class IssueReferencedFromIssueData extends IssueChangeData implements ReferencedFromAware<Issue> {
 
@@ -53,7 +53,7 @@ public class IssueReferencedFromIssueData extends IssueChangeData implements Ref
 
 	@Override
 	public Issue getReferencedFrom() {
-		return OneDev.getInstance(IssueService.class).get(issueId);
+		return Cheeta.getInstance(IssueService.class).get(issueId);
 	}
 
 	@Override

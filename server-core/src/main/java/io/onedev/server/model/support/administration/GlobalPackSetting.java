@@ -1,9 +1,9 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.support.pack.NamedPackQuery;
-import io.onedev.server.pack.PackSupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.support.pack.NamedPackQuery;
+import io.cheeta.server.pack.PackSupport;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;
@@ -20,7 +20,7 @@ public class GlobalPackSetting implements Serializable {
 	
 	public GlobalPackSetting() {
 		namedQueries.add(new NamedPackQuery("All", null));
-		List<PackSupport> packSupports = new ArrayList<>(OneDev.getExtensions(PackSupport.class));
+		List<PackSupport> packSupports = new ArrayList<>(Cheeta.getExtensions(PackSupport.class));
 		packSupports.sort(Comparator.comparing(PackSupport::getOrder));
 		for (var packSupport: packSupports)
 			namedQueries.add(new NamedPackQuery(packSupport.getPackType(), "\"Type\" is \"" + packSupport.getPackType() + "\""));

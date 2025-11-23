@@ -1,8 +1,8 @@
-package io.onedev.server.buildspec;
+package io.cheeta.server.buildspec;
 
 import java.util.List;
 
-import io.onedev.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
 
 public interface ParamSpecAware {
 

@@ -1,20 +1,20 @@
-package io.onedev.server.search.entity.agent;
+package io.cheeta.server.search.entity.agent;
 
-import static io.onedev.server.model.Agent.NAME_IP_ADDRESS;
-import static io.onedev.server.model.Agent.NAME_NAME;
-import static io.onedev.server.model.Agent.NAME_OS_ARCH;
-import static io.onedev.server.model.Agent.NAME_OS_NAME;
-import static io.onedev.server.model.Agent.NAME_OS_VERSION;
-import static io.onedev.server.model.Agent.QUERY_FIELDS;
-import static io.onedev.server.model.Agent.SORT_FIELDS;
-import static io.onedev.server.search.entity.EntitySort.Direction.ASCENDING;
-import static io.onedev.server.search.entity.EntitySort.Direction.DESCENDING;
-import static io.onedev.server.search.entity.agent.AgentQueryParser.HasRunningBuilds;
-import static io.onedev.server.search.entity.agent.AgentQueryParser.Is;
-import static io.onedev.server.search.entity.agent.AgentQueryParser.IsNot;
-import static io.onedev.server.search.entity.agent.AgentQueryParser.Offline;
-import static io.onedev.server.search.entity.agent.AgentQueryParser.Online;
-import static io.onedev.server.search.entity.agent.AgentQueryParser.Paused;
+import static io.cheeta.server.model.Agent.NAME_IP_ADDRESS;
+import static io.cheeta.server.model.Agent.NAME_NAME;
+import static io.cheeta.server.model.Agent.NAME_OS_ARCH;
+import static io.cheeta.server.model.Agent.NAME_OS_NAME;
+import static io.cheeta.server.model.Agent.NAME_OS_VERSION;
+import static io.cheeta.server.model.Agent.QUERY_FIELDS;
+import static io.cheeta.server.model.Agent.SORT_FIELDS;
+import static io.cheeta.server.search.entity.EntitySort.Direction.ASCENDING;
+import static io.cheeta.server.search.entity.EntitySort.Direction.DESCENDING;
+import static io.cheeta.server.search.entity.agent.AgentQueryParser.HasRunningBuilds;
+import static io.cheeta.server.search.entity.agent.AgentQueryParser.Is;
+import static io.cheeta.server.search.entity.agent.AgentQueryParser.IsNot;
+import static io.cheeta.server.search.entity.agent.AgentQueryParser.Offline;
+import static io.cheeta.server.search.entity.agent.AgentQueryParser.Online;
+import static io.cheeta.server.search.entity.agent.AgentQueryParser.Paused;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,28 +29,28 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
-import io.onedev.commons.codeassist.AntlrUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentAttributeService;
-import io.onedev.server.model.Agent;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.agent.AgentQueryParser.AndCriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.CriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.FieldOperatorValueCriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.FuzzyCriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.NotCriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.OperatorCriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.OperatorValueCriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.OrCriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.OrderContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.ParensCriteriaContext;
-import io.onedev.server.search.entity.agent.AgentQueryParser.QueryContext;
-import io.onedev.server.util.criteria.AndCriteria;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.criteria.NotCriteria;
-import io.onedev.server.util.criteria.OrCriteria;
+import io.cheeta.commons.codeassist.AntlrUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentAttributeService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.AndCriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.CriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.FieldOperatorValueCriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.FuzzyCriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.NotCriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.OperatorCriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.OperatorValueCriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.OrCriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.OrderContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.ParensCriteriaContext;
+import io.cheeta.server.search.entity.agent.AgentQueryParser.QueryContext;
+import io.cheeta.server.util.criteria.AndCriteria;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.criteria.NotCriteria;
+import io.cheeta.server.util.criteria.OrCriteria;
 
 public class AgentQuery extends EntityQuery<Agent> {
 
@@ -232,7 +232,7 @@ public class AgentQuery extends EntityQuery<Agent> {
 	}
 
 	public static void checkField(String fieldName, int operator) {
-		var attributeNames = OneDev.getInstance(AgentAttributeService.class).getAttributeNames();
+		var attributeNames = Cheeta.getInstance(AgentAttributeService.class).getAttributeNames();
 		if (!QUERY_FIELDS.contains(fieldName) && !attributeNames.contains(fieldName))
 			throw new ExplicitException("Attribute not found: " + fieldName);
 	}

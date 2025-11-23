@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import java.io.Serializable;
 

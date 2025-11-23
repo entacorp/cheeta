@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.gpgkey;
+package io.cheeta.server.web.component.user.gpgkey;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,18 +28,18 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.GpgKeyService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.GpgKey;
-import io.onedev.server.util.GpgUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.page.user.UserPage;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.GpgKeyService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.GpgKey;
+import io.cheeta.server.util.GpgUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.page.user.UserPage;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
 
 public class GpgKeyListPanel extends GenericPanel<List<GpgKey>> {
 
@@ -78,7 +78,7 @@ public class GpgKeyListPanel extends GenericPanel<List<GpgKey>> {
 				GpgKey key = rowModel.getObject();
 				Fragment fragment = new Fragment(componentId, "emailAddressesFrag", GpgKeyListPanel.this);
 				RepeatingView valuesView = new RepeatingView("values");
-				EmailAddressService emailAddressService = OneDev.getInstance(EmailAddressService.class);
+				EmailAddressService emailAddressService = Cheeta.getInstance(EmailAddressService.class);
 				for (String emailAddressValue: GpgUtils.getEmailAddresses(key.getPublicKeys().get(0))) {
 					WebMarkupContainer container = new WebMarkupContainer(valuesView.newChildId());
 					valuesView.add(container);
@@ -136,9 +136,9 @@ public class GpgKeyListPanel extends GenericPanel<List<GpgKey>> {
 					@Override
 					public void onClick(AjaxRequestTarget target) {
 						GpgKey gpgKey = rowModel.getObject();
-						OneDev.getInstance(GpgKeyService.class).delete(gpgKey);
+						Cheeta.getInstance(GpgKeyService.class).delete(gpgKey);
 						if (getPage() instanceof UserPage)
-							OneDev.getInstance(AuditService.class).audit(null, "deleted GPG key \"" + GpgUtils.getKeyIDString(gpgKey.getKeyId()) + "\" from account \"" + gpgKey.getOwner().getName() + "\"", null, null);
+							Cheeta.getInstance(AuditService.class).audit(null, "deleted GPG key \"" + GpgUtils.getKeyIDString(gpgKey.getKeyId()) + "\" from account \"" + gpgKey.getOwner().getName() + "\"", null, null);
 						Session.get().success(_T("GPG key deleted"));
 						target.add(gpgKeysTable);
 					}
@@ -181,7 +181,7 @@ public class GpgKeyListPanel extends GenericPanel<List<GpgKey>> {
 
 					@Override
 					protected GpgKey load() {
-						return OneDev.getInstance(GpgKeyService.class).load(id);
+						return Cheeta.getInstance(GpgKeyService.class).load(id);
 					}
 					
 				};

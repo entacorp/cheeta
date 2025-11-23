@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.rolechoice;
+package io.cheeta.server.web.component.rolechoice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 
@@ -8,8 +8,8 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Role;
-import io.onedev.server.web.component.select2.Select2Choice;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.web.component.select2.Select2Choice;
 
 public class RoleSingleChoice extends Select2Choice<Role> {
 
@@ -26,9 +26,9 @@ public class RoleSingleChoice extends Select2Choice<Role> {
 			getSettings().setPlaceholder(_T("Choose role..."));
 		else
 			getSettings().setPlaceholder(_T("Not specified"));
-		getSettings().setFormatResult("onedev.server.roleChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.roleChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.roleChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.roleChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.roleChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.roleChoiceFormatter.escapeMarkup");
 		setConvertEmptyInputStringToNull(true);
 	}
 	

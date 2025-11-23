@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.clipboard;
+package io.cheeta.server.web.asset.clipboard;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 

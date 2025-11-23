@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.renderers.markdown;
+package io.cheeta.server.web.page.project.blob.render.renderers.markdown;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -14,30 +14,30 @@ import org.jetbrains.annotations.Nullable;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.markdown.MarkdownService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ContentDetector;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.web.component.markdown.AtWhoReferenceSupport;
-import io.onedev.server.web.component.markdown.MarkdownEditor;
-import io.onedev.server.web.component.markdown.UserMentionSupport;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.markdown.MarkdownService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ContentDetector;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.web.component.markdown.AtWhoReferenceSupport;
+import io.cheeta.server.web.component.markdown.MarkdownEditor;
+import io.cheeta.server.web.component.markdown.UserMentionSupport;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
 
 class MarkdownBlobEditor extends FormComponentPanel<byte[]> {
 
@@ -62,7 +62,7 @@ class MarkdownBlobEditor extends FormComponentPanel<byte[]> {
 
 			@Override
 			protected String renderMarkdown(String markdown) {
-				MarkdownService manager = OneDev.getInstance(MarkdownService.class);
+				MarkdownService manager = Cheeta.getInstance(MarkdownService.class);
 				return manager.process(manager.render(markdown), context.getProject(), context, null, false);
 			}
 
@@ -83,7 +83,7 @@ class MarkdownBlobEditor extends FormComponentPanel<byte[]> {
 
 					@Override
 					public List<User> findUsers(String query, int count) {
-						UserCache cache = OneDev.getInstance(UserService.class).cloneCache();
+						UserCache cache = Cheeta.getInstance(UserService.class).cloneCache();
 						List<User> users = new ArrayList<>(cache.getUsers());
 						users.sort(cache.comparingDisplayName(Sets.newHashSet()));
 						
@@ -118,8 +118,8 @@ class MarkdownBlobEditor extends FormComponentPanel<byte[]> {
 					public List<PullRequest> queryPullRequests(Project project, String query, int count) {
 						var subject = SecurityUtils.getSubject();
 						if (SecurityUtils.canReadCode(subject, project)) {
-							var requestQuery = new PullRequestQuery(new io.onedev.server.search.entity.pullrequest.FuzzyCriteria(query));
-							return OneDev.getInstance(PullRequestService.class).query(subject, project, requestQuery, false, 0, count);
+							var requestQuery = new PullRequestQuery(new io.cheeta.server.search.entity.pullrequest.FuzzyCriteria(query));
+							return Cheeta.getInstance(PullRequestService.class).query(subject, project, requestQuery, false, 0, count);
 						} else {
 							return new ArrayList<>();
 						}
@@ -130,8 +130,8 @@ class MarkdownBlobEditor extends FormComponentPanel<byte[]> {
 						var subject = SecurityUtils.getSubject();
 						if (SecurityUtils.canAccessProject(subject, project)) {
 							var projectScope = new ProjectScope(project, false, false);
-							var issueQuery = new IssueQuery(new io.onedev.server.search.entity.issue.FuzzyCriteria(query));
-							return OneDev.getInstance(IssueService.class).query(subject, projectScope, issueQuery, false, 0, count);
+							var issueQuery = new IssueQuery(new io.cheeta.server.search.entity.issue.FuzzyCriteria(query));
+							return Cheeta.getInstance(IssueService.class).query(subject, projectScope, issueQuery, false, 0, count);
 						} else {
 							return new ArrayList<>();
 						}
@@ -140,7 +140,7 @@ class MarkdownBlobEditor extends FormComponentPanel<byte[]> {
 					@Override
 					public List<Build> queryBuilds(Project project, String query, int count) {
 						var subject = SecurityUtils.getSubject();
-						return OneDev.getInstance(BuildService.class).query(subject, project, query, count);
+						return Cheeta.getInstance(BuildService.class).query(subject, project, query, count);
 					}
 					
 				};

@@ -1,13 +1,13 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 
 import javax.inject.Singleton;
 
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.model.AccessTokenAuthorization;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.AccessTokenAuthorizationService;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.model.AccessTokenAuthorization;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.AccessTokenAuthorizationService;
 
 @Singleton
 public class DefaultAccessTokenAuthorizationService extends BaseEntityService<AccessTokenAuthorization>

@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.project.builds.detail;
+package io.cheeta.server.web.page.project.builds.detail;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.server.web.component.tabbable.PageTab;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.server.web.component.tabbable.PageTab;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;

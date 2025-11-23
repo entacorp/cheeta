@@ -1,9 +1,9 @@
-package io.onedev.server.search.code.query;
+package io.cheeta.server.search.code.query;
 
 import com.google.common.base.Preconditions;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.server.web.component.codequeryoption.FileQueryOptionEditor;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.server.web.component.codequeryoption.FileQueryOptionEditor;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
@@ -14,8 +14,8 @@ import org.apache.wicket.model.Model;
 import org.jspecify.annotations.Nullable;
 import java.util.Optional;
 
-import static io.onedev.server.search.code.FieldConstants.BLOB_NAME;
-import static io.onedev.commons.utils.match.WildcardUtils.rangeOfMatch;
+import static io.cheeta.server.search.code.FieldConstants.BLOB_NAME;
+import static io.cheeta.commons.utils.match.WildcardUtils.rangeOfMatch;
 import static java.util.Optional.ofNullable;
 
 public class FileQueryOption implements QueryOption {

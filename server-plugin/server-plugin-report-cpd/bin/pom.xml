@@ -3,18 +3,18 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>server-plugin-report-cpd</artifactId>
 	<parent>
-		<groupId>io.onedev</groupId>
+		<groupId>io.cheeta</groupId>
 		<artifactId>server-plugin</artifactId>
 		<version>13.0.7</version>
 	</parent>
 	<dependencies>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>server-plugin-report-problem</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 	<properties>
-		<moduleClass>io.onedev.server.plugin.report.cpd.CPDModule</moduleClass>
+		<moduleClass>io.cheeta.server.plugin.report.cpd.CPDModule</moduleClass>
 	</properties>
 </project>

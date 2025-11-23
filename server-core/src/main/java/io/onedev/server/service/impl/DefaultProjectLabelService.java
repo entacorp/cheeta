@@ -1,12 +1,12 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import com.google.common.base.Preconditions;
-import io.onedev.server.service.ProjectLabelService;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.ProjectLabel;
-import io.onedev.server.persistence.annotation.Sessional;
+import io.cheeta.server.service.ProjectLabelService;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.ProjectLabel;
+import io.cheeta.server.persistence.annotation.Sessional;
 import javax.inject.Singleton;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;

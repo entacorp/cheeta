@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.field.spec;
+package io.cheeta.server.model.support.issue.field.spec;
 
 import java.util.List;
 import java.util.Map;
@@ -6,16 +6,16 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.SubscriptionService;
-import io.onedev.server.annotation.ShowCondition;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.GroupChoiceInput;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.AllGroups;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider.SpecifiedDefaultValue;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.SubscriptionService;
+import io.cheeta.server.annotation.ShowCondition;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.GroupChoiceInput;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.AllGroups;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider.SpecifiedDefaultValue;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=160, name=FieldSpec.GROUP)
 public class GroupChoiceField extends FieldSpec {
@@ -67,7 +67,7 @@ public class GroupChoiceField extends FieldSpec {
 
 	@SuppressWarnings("unused")
 	private static boolean isSubscriptionActive() {
-		return OneDev.getInstance(SubscriptionService.class).isSubscriptionActive();
+		return Cheeta.getInstance(SubscriptionService.class).isSubscriptionActive();
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.floating;
+package io.cheeta.server.web.component.floating;
 
 import java.io.Serializable;
 

@@ -1,16 +1,16 @@
-package io.onedev.server.web.page.project.pullrequests.detail.codecomments;
+package io.cheeta.server.web.page.project.pullrequests.detail.codecomments;
 
 import com.google.common.collect.Sets;
-import io.onedev.server.OneDev;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
-import io.onedev.server.xodus.VisitInfoService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.codecomment.CodeCommentListPanel;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.xodus.VisitInfoService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.codecomment.CodeCommentListPanel;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.IRequestHandler;
@@ -142,7 +142,7 @@ public class PullRequestCodeCommentsPage extends PullRequestDetailPage {
 			@Override
 			public void onEndRequest(RequestCycle cycle) {
 				if (SecurityUtils.getAuthUser() != null) 
-					OneDev.getInstance(VisitInfoService.class).visitPullRequestCodeComments(SecurityUtils.getAuthUser(), getPullRequest());
+					Cheeta.getInstance(VisitInfoService.class).visitPullRequestCodeComments(SecurityUtils.getAuthUser(), getPullRequest());
 			}
 			
 			@Override

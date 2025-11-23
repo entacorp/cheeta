@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import io.onedev.server.model.support.CompareContext;
+import io.cheeta.server.model.support.CompareContext;
 
 @Entity
 @Table(indexes={

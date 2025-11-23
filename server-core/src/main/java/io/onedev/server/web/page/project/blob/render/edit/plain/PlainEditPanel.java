@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.edit.plain;
+package io.cheeta.server.web.page.project.blob.render.edit.plain;
 
 import java.nio.charset.StandardCharsets;
 
@@ -9,7 +9,7 @@ import org.apache.wicket.markup.html.form.FormComponentPanel;
 import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.model.Model;
 
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 public class PlainEditPanel extends FormComponentPanel<byte[]> {
 	
@@ -52,7 +52,7 @@ public class PlainEditPanel extends FormComponentPanel<byte[]> {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new PlainEditResourceReference()));
 		
-		String script = String.format("onedev.server.plainEdit.onDomReady('%s', '%s');", 
+		String script = String.format("cheeta.server.plainEdit.onDomReady('%s', '%s');", 
 				getMarkupId(), fileName);
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

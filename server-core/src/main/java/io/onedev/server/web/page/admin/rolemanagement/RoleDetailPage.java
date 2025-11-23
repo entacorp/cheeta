@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.rolemanagement;
+package io.cheeta.server.web.page.admin.rolemanagement;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -22,21 +22,21 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.flow.RedirectToUrlException;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.model.LinkAuthorization;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Role;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.model.LinkAuthorization;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public class RoleDetailPage extends AdministrationPage {
 	
@@ -69,7 +69,7 @@ public class RoleDetailPage extends AdministrationPage {
 	}
 	
 	private RoleService getManager() {
-		return OneDev.getInstance(RoleService.class);
+		return Cheeta.getInstance(RoleService.class);
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class RoleDetailPage extends AdministrationPage {
 					super.onSubmit();
 					
 					Role role = getRole();
-					RoleService roleService = OneDev.getInstance(RoleService.class);
+					RoleService roleService = Cheeta.getInstance(RoleService.class);
 					Role roleWithSameName = roleService.find(role.getName());
 					if (roleWithSameName != null && !roleWithSameName.equals(role)) {
 						editor.error(new Path(new PathNode.Named("name")),
@@ -116,7 +116,7 @@ public class RoleDetailPage extends AdministrationPage {
 					if (editor.isValid()) {
 						Collection<LinkSpec> authorizedLinks = new ArrayList<>();
 						for (String linkName: role.getEditableIssueLinks()) 
-							authorizedLinks.add(OneDev.getInstance(LinkSpecService.class).find(linkName));
+							authorizedLinks.add(Cheeta.getInstance(LinkSpecService.class).find(linkName));
 						roleService.update(role, authorizedLinks, oldName);
 						var newAuditContent = VersionedXmlDoc.fromBean(editor.getPropertyValues()).toXML();
 						auditService.audit(null, "changed role \"" + role.getName() + "\"", oldAuditContent, newAuditContent);
@@ -133,7 +133,7 @@ public class RoleDetailPage extends AdministrationPage {
 
 				@Override
 				public void onClick() {
-					OneDev.getInstance(RoleService.class).delete(getRole());
+					Cheeta.getInstance(RoleService.class).delete(getRole());
 					Session.get().success(MessageFormat.format(_T("Role \"{0}\" deleted"), getRole().getName()));
 					
 					String redirectUrlAfterDelete = WebSession.get().getRedirectUrlAfterDelete(Role.class);

@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior.inputassist;
+package io.cheeta.server.web.behavior.inputassist;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 import static org.unbescape.javascript.JavaScriptEscape.escapeJavaScript;
 
@@ -29,21 +29,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputStatus;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.RangeUtils;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.floating.AlignTarget;
-import io.onedev.server.web.component.floating.Alignment;
-import io.onedev.server.web.component.floating.ComponentTarget;
-import io.onedev.server.web.component.floating.FloatingPanel;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputStatus;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.RangeUtils;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.floating.AlignTarget;
+import io.cheeta.server.web.component.floating.Alignment;
+import io.cheeta.server.web.component.floating.ComponentTarget;
+import io.cheeta.server.web.component.floating.FloatingPanel;
 
 public abstract class InputAssistBehavior extends AbstractPostAjaxBehavior {
 
@@ -139,7 +139,7 @@ public abstract class InputAssistBehavior extends AbstractPostAjaxBehavior {
 				}
 			}
 			target.appendJavaScript(
-				String.format("onedev.server.inputassist.naturalLanguageTranslated('%s', '%s');", 
+				String.format("cheeta.server.inputassist.naturalLanguageTranslated('%s', '%s');", 
 				getComponent().getMarkupId(), escapeJavaScript(translated)));
 		} else {
 			String inputContent = params.getParameterValue("input").toString();
@@ -157,7 +157,7 @@ public abstract class InputAssistBehavior extends AbstractPostAjaxBehavior {
 			} catch (JsonProcessingException e) {
 				throw new RuntimeException(e);
 			}
-			String script = String.format("onedev.server.inputassist.markErrors('%s', %s);", 
+			String script = String.format("cheeta.server.inputassist.markErrors('%s', %s);", 
 					getComponent().getMarkupId(), json);
 			target.appendJavaScript(script);
 			
@@ -190,7 +190,7 @@ public abstract class InputAssistBehavior extends AbstractPostAjaxBehavior {
 	
 					if (hasAppendSpaceSuggestions && !hasOtherSuggestions) {
 						target.appendJavaScript(
-								String.format("onedev.server.inputassist.appendSpace('%s');", 
+								String.format("cheeta.server.inputassist.appendSpace('%s');", 
 								getComponent().getMarkupId()));
 					} else {
 						addTranslationSuggestion(inputStatus, suggestions);
@@ -246,7 +246,7 @@ public abstract class InputAssistBehavior extends AbstractPostAjaxBehavior {
 				}
 
 			};
-			var script = String.format("onedev.server.inputassist.assistOpened('%s', '%s', '%s');",
+			var script = String.format("cheeta.server.inputassist.assistOpened('%s', '%s', '%s');",
 					getComponent().getMarkupId(), dropdown.getMarkupId(), JavaScriptEscape.escapeJavaScript(status.getContent()));
 			target.appendJavaScript(script);
 		} else {
@@ -266,7 +266,7 @@ public abstract class InputAssistBehavior extends AbstractPostAjaxBehavior {
 			var script = String.format("$('#%s').data('alignment').target=%s;", dropdown.getMarkupId(), alignTarget);
 			target.prependJavaScript(script);
 
-			script = String.format("onedev.server.inputassist.assistUpdated('%s', '%s', '%s');",
+			script = String.format("cheeta.server.inputassist.assistUpdated('%s', '%s', '%s');",
 					getComponent().getMarkupId(), dropdown.getMarkupId(), JavaScriptEscape.escapeJavaScript(status.getContent()));
 			target.appendJavaScript(script);
 		}		
@@ -291,7 +291,7 @@ public abstract class InputAssistBehavior extends AbstractPostAjaxBehavior {
 		translations.put("inactiveHelp", _T("<span class='keycap'>Tab</span> to complete."));
 		String script;
 		try {
-			script = String.format("onedev.server.inputassist.onDomReady('%s', %s, %b, %s);", 
+			script = String.format("cheeta.server.inputassist.onDomReady('%s', %s, %b, %s);", 
 					getComponent().getMarkupId(true), 
 					getCallbackFunction(explicit("type"), explicit("input"), explicit("caret"), explicit("event")),
 					getNaturalLanguageTranslator() != null, AppLoader.getInstance(ObjectMapper.class).writeValueAsString(translations));

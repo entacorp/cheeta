@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.groupmanagement.profile;
+package io.cheeta.server.web.page.admin.groupmanagement.profile;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -13,19 +13,19 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.flow.RedirectToUrlException;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.Group;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.admin.groupmanagement.GroupListPage;
-import io.onedev.server.web.page.admin.groupmanagement.GroupPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupListPage;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public class GroupProfilePage extends GroupPage {
 
@@ -69,7 +69,7 @@ public class GroupProfilePage extends GroupPage {
 				super.onSubmit();
 				
 				Group group = getGroup();
-				GroupService groupService = OneDev.getInstance(GroupService.class);
+				GroupService groupService = Cheeta.getInstance(GroupService.class);
 				Group groupWithSameName = groupService.find(group.getName());
 				if (groupWithSameName != null && !groupWithSameName.equals(group)) {
 					editor.error(new Path(new PathNode.Named("name")),
@@ -78,7 +78,7 @@ public class GroupProfilePage extends GroupPage {
 				if (editor.isValid()) {
 					var newAuditContent = VersionedXmlDoc.fromBean(group).toXML();
 					groupService.update(group, oldName);
-					OneDev.getInstance(AuditService.class).audit(null, "changed basic settings of group \"" + group.getName() + "\"", oldAuditContent, newAuditContent);
+					Cheeta.getInstance(AuditService.class).audit(null, "changed basic settings of group \"" + group.getName() + "\"", oldAuditContent, newAuditContent);
 					setResponsePage(GroupProfilePage.class, GroupProfilePage.paramsOf(group));
 					Session.get().success(_T("Basic settings updated"));
 				}
@@ -93,8 +93,8 @@ public class GroupProfilePage extends GroupPage {
 			@Override
 			public void onClick() {
 				var oldAuditContent = VersionedXmlDoc.fromBean(getGroup()).toXML();
-				OneDev.getInstance(GroupService.class).delete(getGroup());
-				OneDev.getInstance(AuditService.class).audit(null, "deleted group \"" + getGroup().getName() + "\"", oldAuditContent, null);
+				Cheeta.getInstance(GroupService.class).delete(getGroup());
+				Cheeta.getInstance(AuditService.class).audit(null, "deleted group \"" + getGroup().getName() + "\"", oldAuditContent, null);
 
 				Session.get().success(MessageFormat.format(_T("Group \"{0}\" deleted"), getGroup().getName()));
 				

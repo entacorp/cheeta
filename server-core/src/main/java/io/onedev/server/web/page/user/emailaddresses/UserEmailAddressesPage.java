@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.user.emailaddresses;
+package io.cheeta.server.web.page.user.emailaddresses;
 
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.user.emailaddresses.EmailAddressesPanel;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.user.emailaddresses.EmailAddressesPanel;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserEmailAddressesPage extends UserPage {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.entity.labels;
+package io.cheeta.server.web.component.entity.labels;
 
 import java.util.Comparator;
 import java.util.List;
@@ -11,10 +11,10 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.model.support.EntityLabel;
-import io.onedev.server.model.support.LabelSupport;
-import io.onedev.server.web.component.LabelBadge;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.model.support.EntityLabel;
+import io.cheeta.server.model.support.LabelSupport;
+import io.cheeta.server.web.component.LabelBadge;
 
 public class EntityLabelsPanel<T extends EntityLabel> extends Panel {
 

@@ -1,9 +1,9 @@
-package io.onedev.server.event.agent;
+package io.cheeta.server.event.agent;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.event.Event;
-import io.onedev.server.model.Agent;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.event.Event;
+import io.cheeta.server.model.Agent;
 
 public abstract class AgentEvent extends Event {
 	
@@ -14,7 +14,7 @@ public abstract class AgentEvent extends Event {
 	}
 
 	public Agent getAgent() {
-		return OneDev.getInstance(AgentService.class).load(agentId);
+		return Cheeta.getInstance(AgentService.class).load(agentId);
 	}
 	
 }

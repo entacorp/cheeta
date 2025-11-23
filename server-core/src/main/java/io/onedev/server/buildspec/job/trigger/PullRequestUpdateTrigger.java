@@ -1,10 +1,10 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.pullrequest.PullRequestBuildCommitUpdated;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.pullrequest.PullRequestBuildCommitUpdated;
 
 @Editable(order=300, name="Pull request open or update", description=""
 		+ "Job will run on merge commit of target branch and source branch.<br>"

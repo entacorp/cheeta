@@ -1,6 +1,6 @@
-package io.onedev.server.git.location;
+package io.cheeta.server.git.location;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(name="Use curl in System Path", order=100)
 public class SystemCurl extends CurlLocation {

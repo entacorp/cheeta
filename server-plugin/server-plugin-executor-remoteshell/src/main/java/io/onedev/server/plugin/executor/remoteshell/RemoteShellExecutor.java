@@ -1,35 +1,35 @@
-package io.onedev.server.plugin.executor.remoteshell;
+package io.cheeta.server.plugin.executor.remoteshell;
 
-import io.onedev.agent.Message;
-import io.onedev.agent.MessageTypes;
-import io.onedev.agent.job.ShellJobData;
-import io.onedev.agent.job.TestShellJobData;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Numeric;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.job.*;
-import io.onedev.server.job.log.LogService;
-import io.onedev.server.job.log.ServerJobLogger;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.plugin.executor.servershell.ServerShellExecutor;
-import io.onedev.server.search.entity.agent.AgentQuery;
-import io.onedev.server.terminal.AgentShell;
-import io.onedev.server.terminal.Shell;
-import io.onedev.server.terminal.Terminal;
+import io.cheeta.agent.Message;
+import io.cheeta.agent.MessageTypes;
+import io.cheeta.agent.job.ShellJobData;
+import io.cheeta.agent.job.TestShellJobData;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Numeric;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.job.*;
+import io.cheeta.server.job.log.LogService;
+import io.cheeta.server.job.log.ServerJobLogger;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.plugin.executor.servershell.ServerShellExecutor;
+import io.cheeta.server.search.entity.agent.AgentQuery;
+import io.cheeta.server.terminal.AgentShell;
+import io.cheeta.server.terminal.Shell;
+import io.cheeta.server.terminal.Terminal;
 import org.eclipse.jetty.websocket.api.Session;
 
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
-import static io.onedev.agent.WebsocketUtils.call;
+import static io.cheeta.agent.WebsocketUtils.call;
 
 @Editable(order=500, name="Remote Shell Executor", description=""
 		+ "This executor runs build jobs with remote machines's shell facility via <a href='/~administration/agents' target='_blank'>agents</a><br>"
-		+ "<b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as OneDev agent process. "
+		+ "<b class='text-danger'>WARNING</b>: Jobs running with this executor has same permission as Cheeta agent process. "
 		+ "Make sure it can only be used by trusted jobs")
 public class RemoteShellExecutor extends ServerShellExecutor {
 
@@ -41,7 +41,7 @@ public class RemoteShellExecutor extends ServerShellExecutor {
 	
 	@Editable(order=390, name="Agent Selector", placeholder="Any agent", 
 			description="Specify agents applicable for this executor")
-	@io.onedev.server.annotation.AgentQuery(forExecutor=true)
+	@io.cheeta.server.annotation.AgentQuery(forExecutor=true)
 	public String getAgentQuery() {
 		return agentQuery;
 	}
@@ -131,27 +131,27 @@ public class RemoteShellExecutor extends ServerShellExecutor {
 	}
 	
 	private LogService getLogService() {
-		return OneDev.getInstance(LogService.class);
+		return Cheeta.getInstance(LogService.class);
 	}
 	
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 	
 	public JobService getJobService() {
-		return OneDev.getInstance(JobService.class);
+		return Cheeta.getInstance(JobService.class);
 	}
 	
 	private ResourceAllocator getResourceAllocator() {
-		return OneDev.getInstance(ResourceAllocator.class);
+		return Cheeta.getInstance(ResourceAllocator.class);
 	}
 
 	private AgentService getAgentService() {
-		return OneDev.getInstance(AgentService.class);
+		return Cheeta.getInstance(AgentService.class);
 	}
 	
 	private SessionService getSessionService() {
-		return OneDev.getInstance(SessionService.class);
+		return Cheeta.getInstance(SessionService.class);
 	}
 	
 	@Override

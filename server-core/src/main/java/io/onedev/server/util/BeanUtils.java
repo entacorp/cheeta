@@ -1,8 +1,8 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import com.google.common.base.Preconditions;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.WordUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.WordUtils;
 
 import org.jspecify.annotations.Nullable;
 import java.lang.reflect.AnnotatedElement;

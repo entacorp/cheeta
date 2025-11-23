@@ -1,8 +1,8 @@
-package io.onedev.server.security.permission;
+package io.cheeta.server.security.permission;
 
-import io.onedev.server.util.facade.UserFacade;
-import io.onedev.commons.utils.match.StringMatcher;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.server.util.facade.UserFacade;
+import io.cheeta.commons.utils.match.StringMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
 import org.apache.shiro.authz.Permission;
 import org.jetbrains.annotations.Nullable;
 

@@ -1,4 +1,4 @@
-package io.onedev.server.ai;
+package io.cheeta.server.ai;
 
 import static java.util.stream.Collectors.joining;
 
@@ -7,35 +7,35 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.issue.field.spec.BooleanField;
-import io.onedev.server.model.support.issue.field.spec.BuildChoiceField;
-import io.onedev.server.model.support.issue.field.spec.CommitField;
-import io.onedev.server.model.support.issue.field.spec.DateField;
-import io.onedev.server.model.support.issue.field.spec.DateTimeField;
-import io.onedev.server.model.support.issue.field.spec.FloatField;
-import io.onedev.server.model.support.issue.field.spec.GroupChoiceField;
-import io.onedev.server.model.support.issue.field.spec.IntegerField;
-import io.onedev.server.model.support.issue.field.spec.IssueChoiceField;
-import io.onedev.server.model.support.issue.field.spec.IterationChoiceField;
-import io.onedev.server.model.support.issue.field.spec.PullRequestChoiceField;
-import io.onedev.server.model.support.issue.field.spec.TextField;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.pack.PackSupport;
-import io.onedev.server.service.AgentAttributeService;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.service.SettingService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.issue.field.spec.BooleanField;
+import io.cheeta.server.model.support.issue.field.spec.BuildChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.CommitField;
+import io.cheeta.server.model.support.issue.field.spec.DateField;
+import io.cheeta.server.model.support.issue.field.spec.DateTimeField;
+import io.cheeta.server.model.support.issue.field.spec.FloatField;
+import io.cheeta.server.model.support.issue.field.spec.GroupChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.IntegerField;
+import io.cheeta.server.model.support.issue.field.spec.IssueChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.IterationChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.PullRequestChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.TextField;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.pack.PackSupport;
+import io.cheeta.server.service.AgentAttributeService;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.service.SettingService;
 
 public class QueryDescriptions {
     
@@ -59,11 +59,11 @@ public class QueryDescriptions {
         """.trim();
 
     private static SettingService getSettingService() {
-        return OneDev.getInstance(SettingService.class);
+        return Cheeta.getInstance(SettingService.class);
     }
 
     private static LinkSpecService getLinkSpecService() {
-        return OneDev.getInstance(LinkSpecService.class);
+        return Cheeta.getInstance(LinkSpecService.class);
     }
     
     public static String getIssueQueryDescription() {
@@ -420,11 +420,11 @@ public class QueryDescriptions {
     }
 
     private static List<LabelSpec> getLabelSpecs() {
-        return OneDev.getInstance(LabelSpecService.class).query();
+        return Cheeta.getInstance(LabelSpecService.class).query();
     }
 
     public static String getPackQueryDescription() {
-        var packSupports = new ArrayList<>(OneDev.getExtensions(PackSupport.class));		
+        var packSupports = new ArrayList<>(Cheeta.getExtensions(PackSupport.class));		
 
         var description = String.format("""
                 A structured query should conform to below ANTLR grammar:
@@ -575,8 +575,8 @@ public class QueryDescriptions {
     }    
 
     public static String getAgentQueryDescription() {
-        var agentService = OneDev.getInstance(AgentService.class);
-        var attributeService = OneDev.getInstance(AgentAttributeService.class);
+        var agentService = Cheeta.getInstance(AgentService.class);
+        var attributeService = Cheeta.getInstance(AgentAttributeService.class);
         
         var description = String.format("""
                 A structured query should conform to below ANTLR grammar:

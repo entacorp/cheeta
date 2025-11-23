@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.statestats;
+package io.cheeta.server.web.component.issue.statestats;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class StateStatsCssResourceReference extends BaseDependentCssResourceReference {
 

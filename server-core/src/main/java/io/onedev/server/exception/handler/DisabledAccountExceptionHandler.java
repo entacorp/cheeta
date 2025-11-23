@@ -1,10 +1,10 @@
-package io.onedev.server.exception.handler;
+package io.cheeta.server.exception.handler;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.authc.DisabledAccountException;
 
-import io.onedev.server.exception.HttpResponse;
+import io.cheeta.server.exception.HttpResponse;
 
 public class DisabledAccountExceptionHandler extends AbstractExceptionHandler<DisabledAccountException> {
 	

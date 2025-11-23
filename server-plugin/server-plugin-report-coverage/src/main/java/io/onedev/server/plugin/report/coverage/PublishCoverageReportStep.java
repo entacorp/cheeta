@@ -1,28 +1,28 @@
-package io.onedev.server.plugin.report.coverage;
+package io.cheeta.server.plugin.report.coverage;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.step.PublishReportStep;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.BuildMetricService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.CoverageMetric;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.dao.Dao;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.step.PublishReportStep;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.BuildMetricService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.CoverageMetric;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.dao.Dao;
 import org.apache.commons.lang.SerializationUtils;
 
 import org.jspecify.annotations.Nullable;
 import java.io.*;
 import java.util.Map;
 
-import static io.onedev.commons.utils.LockUtils.write;
-import static io.onedev.server.plugin.report.coverage.CoverageStats.getReportLockName;
+import static io.cheeta.commons.utils.LockUtils.write;
+import static io.cheeta.server.plugin.report.coverage.CoverageStats.getReportLockName;
 
 @Editable
 public abstract class PublishCoverageReportStep extends PublishReportStep {
@@ -31,8 +31,8 @@ public abstract class PublishCoverageReportStep extends PublishReportStep {
 	
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger logger) {
-		return OneDev.getInstance(SessionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
+		return Cheeta.getInstance(SessionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
 			CoverageReport result = write(getReportLockName(build), () -> {
 				File reportDir = new File(build.getDir(), CoverageStats.CATEGORY + "/" + getReportName());
 
@@ -44,7 +44,7 @@ public abstract class PublishCoverageReportStep extends PublishReportStep {
 						for (var entry: aResult.getStatuses().entrySet())
 							writeLineStatuses(build, entry.getKey(), entry.getValue());
 
-						OneDev.getInstance(ProjectService.class).directoryModified(
+						Cheeta.getInstance(ProjectService.class).directoryModified(
 								build.getProject().getId(), reportDir.getParentFile());
 						return aResult;
 					} else {
@@ -58,7 +58,7 @@ public abstract class PublishCoverageReportStep extends PublishReportStep {
 			});
 
 			if (result != null) {
-				var metric = OneDev.getInstance(BuildMetricService.class).find(CoverageMetric.class, build, getReportName());
+				var metric = Cheeta.getInstance(BuildMetricService.class).find(CoverageMetric.class, build, getReportName());
 				if (metric == null) {
 					metric = new CoverageMetric();
 					metric.setBuild(build);
@@ -69,7 +69,7 @@ public abstract class PublishCoverageReportStep extends PublishReportStep {
 				metric.setBranchCoverage(coverages.getBranchPercentage());
 				metric.setLineCoverage(coverages.getLinePercentage());
 
-				OneDev.getInstance(Dao.class).persist(metric);
+				Cheeta.getInstance(Dao.class).persist(metric);
 			}
 			return new ServerStepResult(true);
 		});

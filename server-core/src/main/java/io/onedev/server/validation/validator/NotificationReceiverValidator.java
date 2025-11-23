@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import org.apache.commons.lang3.StringUtils;
 
-import io.onedev.server.annotation.NotificationReceiver;
+import io.cheeta.server.annotation.NotificationReceiver;
 
 public class NotificationReceiverValidator implements ConstraintValidator<NotificationReceiver, String> {
 	
@@ -22,7 +22,7 @@ public class NotificationReceiverValidator implements ConstraintValidator<Notifi
 			return true;
 		} else {
 			try {
-				io.onedev.server.buildspec.job.action.notificationreceiver.NotificationReceiver.parse(value, null);
+				io.cheeta.server.buildspec.job.action.notificationreceiver.NotificationReceiver.parse(value, null);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

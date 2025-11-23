@@ -1,11 +1,11 @@
-package io.onedev.server.buildspec.job;
+package io.cheeta.server.buildspec.job;
 
 import java.util.Collection;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.server.model.Project;
 
 @ExtensionPoint
 public interface JobSuggestion {

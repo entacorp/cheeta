@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.interpolativestringlist;
+package io.cheeta.server.web.editable.interpolativestringlist;
 
-import static io.onedev.server.util.ReflectionUtils.getCollectionElementClass;
+import static io.cheeta.server.util.ReflectionUtils.getCollectionElementClass;
 
 import java.lang.reflect.AnnotatedElement;
 import java.util.List;
@@ -8,13 +8,13 @@ import java.util.List;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.EmptyValueLabel;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.EmptyValueLabel;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
 
 public class InterpolativeStringListEditSupport implements EditSupport {
 

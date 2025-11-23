@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.project.choice;
+package io.cheeta.server.web.component.project.choice;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,16 +10,16 @@ import org.json.JSONException;
 import org.json.JSONWriter;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.avatar.AvatarService;
-import io.onedev.server.web.component.select2.ChoiceProvider;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.avatar.AvatarService;
+import io.cheeta.server.web.component.select2.ChoiceProvider;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
 
 public class ProjectChoiceProvider extends ChoiceProvider<Project> {
 
@@ -36,7 +36,7 @@ public class ProjectChoiceProvider extends ChoiceProvider<Project> {
 		writer.key("id").value(choice.getId());
 		writer.key("path");
 		writer.value(HtmlEscape.escapeHtml5(choice.getPath()));
-		String avatarUrl = OneDev.getInstance(AvatarService.class).getProjectAvatarUrl(choice.getId());
+		String avatarUrl = Cheeta.getInstance(AvatarService.class).getProjectAvatarUrl(choice.getId());
 		writer.key("avatar").value(avatarUrl);
 	}
 	
@@ -52,7 +52,7 @@ public class ProjectChoiceProvider extends ChoiceProvider<Project> {
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	@Override

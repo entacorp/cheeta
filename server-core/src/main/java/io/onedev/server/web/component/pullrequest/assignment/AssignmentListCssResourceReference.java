@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.pullrequest.assignment;
+package io.cheeta.server.web.component.pullrequest.assignment;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class AssignmentListCssResourceReference extends BaseDependentCssResourceReference {
 

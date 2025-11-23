@@ -1,14 +1,14 @@
-package io.onedev.server.web.page.project.commits;
+package io.cheeta.server.web.page.project.commits;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.model.support.NamedCommitQuery;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.model.support.NamedCommitQuery;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable
 public class NamedCommitQueriesBean extends NamedQueriesBean<NamedCommitQuery> {

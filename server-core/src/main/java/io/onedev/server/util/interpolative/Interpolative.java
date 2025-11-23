@@ -1,4 +1,4 @@
-package io.onedev.server.util.interpolative;
+package io.cheeta.server.util.interpolative;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,10 +15,10 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.util.interpolative.Interpolative.Segment.Type;
-import io.onedev.server.util.interpolative.InterpolativeParser.SegmentContext;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.util.interpolative.Interpolative.Segment.Type;
+import io.cheeta.server.util.interpolative.InterpolativeParser.SegmentContext;
 
 public class Interpolative implements Serializable {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 
-import io.onedev.commons.utils.ZipUtils;
+import io.cheeta.commons.utils.ZipUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
@@ -22,7 +22,7 @@ import org.junit.Test;
 import com.google.common.collect.Sets;
 import com.google.common.io.Resources;
 
-import io.onedev.commons.utils.FileUtils;
+import io.cheeta.commons.utils.FileUtils;
 
 public class GitUtilsTest extends AbstractGitTest {
 

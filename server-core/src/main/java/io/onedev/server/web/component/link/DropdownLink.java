@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.link;
+package io.cheeta.server.web.component.link;
 
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.floating.Alignment;
-import io.onedev.server.web.component.floating.ComponentTarget;
-import io.onedev.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.floating.Alignment;
+import io.cheeta.server.web.component.floating.ComponentTarget;
+import io.cheeta.server.web.component.floating.FloatingPanel;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -123,7 +123,7 @@ public abstract class DropdownLink extends AjaxLink<Void> {
 
 	public String getCloseScript() {
 		if (dropdown != null) {
-			return String.format("onedev.server.floating.close($('#%s'), true);", dropdown.getMarkupId());
+			return String.format("cheeta.server.floating.close($('#%s'), true);", dropdown.getMarkupId());
 		} else {
 			return "";
 		}

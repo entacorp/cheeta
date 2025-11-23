@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.fileupload;
+package io.cheeta.server.web.component.fileupload;
 
 import java.util.List;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 
-import io.onedev.server.web.asset.fileupload.FileUploadCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.fileupload.FileUploadCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class FileUploadResourceReference extends BaseDependentResourceReference {
 

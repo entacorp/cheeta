@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider;
+package io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,18 +12,18 @@ import org.jspecify.annotations.Nullable;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraints.Size;
 
-import io.onedev.server.buildspec.param.spec.choiceparam.ChoiceParam;
-import io.onedev.server.model.Project;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.buildspec.param.spec.choiceparam.ChoiceParam;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(order=100, name="Use specified choices")
 @ClassValidating

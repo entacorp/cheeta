@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.admin.issuesetting.integritycheck;
+package io.cheeta.server.web.page.admin.issuesetting.integritycheck;
 
-import io.onedev.server.web.component.issue.workflowreconcile.WorkflowReconcilePanel;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.page.admin.issuesetting.IssueSettingPage;
+import io.cheeta.server.web.component.issue.workflowreconcile.WorkflowReconcilePanel;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.page.admin.issuesetting.IssueSettingPage;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;

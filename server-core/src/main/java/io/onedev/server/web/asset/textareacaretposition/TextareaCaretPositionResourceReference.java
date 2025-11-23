@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.textareacaretposition;
+package io.cheeta.server.web.asset.textareacaretposition;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 

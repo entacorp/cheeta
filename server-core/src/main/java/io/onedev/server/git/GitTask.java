@@ -1,6 +1,6 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
-import io.onedev.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.Commandline;
 
 import java.io.IOException;
 

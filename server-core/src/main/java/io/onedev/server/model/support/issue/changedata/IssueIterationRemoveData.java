@@ -1,11 +1,11 @@
-package io.onedev.server.model.support.issue.changedata;
+package io.cheeta.server.model.support.issue.changedata;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.onedev.server.model.Group;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.User;
 
 public class IssueIterationRemoveData extends IssueChangeData {
 

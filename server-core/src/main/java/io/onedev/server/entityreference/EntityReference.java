@@ -1,4 +1,4 @@
-package io.onedev.server.entityreference;
+package io.cheeta.server.entityreference;
 
 import java.io.Serializable;
 
@@ -8,9 +8,9 @@ import javax.validation.ValidationException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
 
 public abstract class EntityReference implements Serializable {
 
@@ -30,7 +30,7 @@ public abstract class EntityReference implements Serializable {
 	}
 	
 	public Project getProject() {
-		return OneDev.getInstance(ProjectService.class).load(projectId);
+		return Cheeta.getInstance(ProjectService.class).load(projectId);
 	}
 
 	public Long getProjectId() {
@@ -59,7 +59,7 @@ public abstract class EntityReference implements Serializable {
 	}
 
 	public static EntityReference of(String type, String referenceString, @Nullable Project currentProject) {
-		var projectService = OneDev.getInstance(ProjectService.class);
+		var projectService = Cheeta.getInstance(ProjectService.class);
 		var index = referenceString.indexOf('#');
 		if (index != -1) {
 			var projectPath = referenceString.substring(0, index);

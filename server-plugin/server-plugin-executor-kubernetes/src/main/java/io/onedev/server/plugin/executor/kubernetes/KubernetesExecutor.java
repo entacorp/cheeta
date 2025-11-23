@@ -1,16 +1,16 @@
-package io.onedev.server.plugin.executor.kubernetes;
+package io.cheeta.server.plugin.executor.kubernetes;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static io.onedev.k8shelper.ExecuteCondition.ALWAYS;
-import static io.onedev.k8shelper.KubernetesHelper.ENV_JOB_TOKEN;
-import static io.onedev.k8shelper.KubernetesHelper.ENV_SERVER_URL;
-import static io.onedev.k8shelper.KubernetesHelper.IMAGE_REPO;
-import static io.onedev.k8shelper.KubernetesHelper.LOG_END_MESSAGE;
-import static io.onedev.k8shelper.KubernetesHelper.parseStepPosition;
-import static io.onedev.k8shelper.KubernetesHelper.stringifyStepPosition;
-import static io.onedev.k8shelper.RegistryLoginFacade.merge;
-import static io.onedev.server.util.CollectionUtils.newHashMap;
-import static io.onedev.server.util.CollectionUtils.newLinkedHashMap;
+import static io.cheeta.k8shelper.ExecuteCondition.ALWAYS;
+import static io.cheeta.k8shelper.KubernetesHelper.ENV_JOB_TOKEN;
+import static io.cheeta.k8shelper.KubernetesHelper.ENV_SERVER_URL;
+import static io.cheeta.k8shelper.KubernetesHelper.IMAGE_REPO;
+import static io.cheeta.k8shelper.KubernetesHelper.LOG_END_MESSAGE;
+import static io.cheeta.k8shelper.KubernetesHelper.parseStepPosition;
+import static io.cheeta.k8shelper.KubernetesHelper.stringifyStepPosition;
+import static io.cheeta.k8shelper.RegistryLoginFacade.merge;
+import static io.cheeta.server.util.CollectionUtils.newHashMap;
+import static io.cheeta.server.util.CollectionUtils.newLinkedHashMap;
 import static java.lang.Integer.parseInt;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.stream.Collectors.toList;
@@ -54,47 +54,47 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.k8shelper.Action;
-import io.onedev.k8shelper.BuildImageFacade;
-import io.onedev.k8shelper.CommandFacade;
-import io.onedev.k8shelper.CompositeFacade;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.k8shelper.LeafFacade;
-import io.onedev.k8shelper.PruneBuilderCacheFacade;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.k8shelper.RunContainerFacade;
-import io.onedev.k8shelper.RunImagetoolsFacade;
-import io.onedev.k8shelper.ServiceFacade;
-import io.onedev.k8shelper.SetupCacheFacade;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.buildspecmodel.inputspec.SecretInput;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.JobService;
-import io.onedev.server.job.JobRunnable;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.jobexecutor.KubernetesAware;
-import io.onedev.server.model.support.administration.jobexecutor.NodeSelectorEntry;
-import io.onedev.server.model.support.administration.jobexecutor.RegistryLogin;
-import io.onedev.server.model.support.administration.jobexecutor.ServiceLocator;
-import io.onedev.server.plugin.executor.kubernetes.KubernetesExecutor.TestData;
-import io.onedev.server.terminal.CommandlineShell;
-import io.onedev.server.terminal.Shell;
-import io.onedev.server.terminal.Terminal;
-import io.onedev.server.util.FilenameUtils;
-import io.onedev.server.web.util.Testable;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.k8shelper.Action;
+import io.cheeta.k8shelper.BuildImageFacade;
+import io.cheeta.k8shelper.CommandFacade;
+import io.cheeta.k8shelper.CompositeFacade;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.k8shelper.LeafFacade;
+import io.cheeta.k8shelper.PruneBuilderCacheFacade;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.k8shelper.RunContainerFacade;
+import io.cheeta.k8shelper.RunImagetoolsFacade;
+import io.cheeta.k8shelper.ServiceFacade;
+import io.cheeta.k8shelper.SetupCacheFacade;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.buildspecmodel.inputspec.SecretInput;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.job.JobRunnable;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.jobexecutor.KubernetesAware;
+import io.cheeta.server.model.support.administration.jobexecutor.NodeSelectorEntry;
+import io.cheeta.server.model.support.administration.jobexecutor.RegistryLogin;
+import io.cheeta.server.model.support.administration.jobexecutor.ServiceLocator;
+import io.cheeta.server.plugin.executor.kubernetes.KubernetesExecutor.TestData;
+import io.cheeta.server.terminal.CommandlineShell;
+import io.cheeta.server.terminal.Shell;
+import io.cheeta.server.terminal.Terminal;
+import io.cheeta.server.util.FilenameUtils;
+import io.cheeta.server.web.util.Testable;
 
 @Editable(order=KubernetesExecutor.ORDER, description="This executor runs build jobs as pods in a kubernetes cluster. "
 		+ "No any agents are required."
@@ -294,7 +294,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 
 	@Editable(name="Path to kubectl", order=27000, group="More Settings", placeholder="Use default", 
 			description="Specify absolute path to the kubectl utility, for instance: <i>/usr/bin/kubectl</i>. "
-			+ "If left empty, OneDev will try to find the utility from system path")
+			+ "If left empty, Cheeta will try to find the utility from system path")
 	public String getKubeCtlPath() {
 		return kubeCtlPath;
 	}
@@ -305,7 +305,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 
 	@Override
 	public boolean execute(JobContext jobContext, TaskLogger jobLogger) {
-		var clusterService = OneDev.getInstance(ClusterService.class);
+		var clusterService = Cheeta.getInstance(ClusterService.class);
 		var servers = clusterService.getServerAddresses();
 		var server = servers.get(RandomUtils.nextInt(0, servers.size()));
 		return getJobService().runJob(server, ()-> getJobService().runJob(jobContext, new JobRunnable() {
@@ -321,7 +321,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 			public void resume(JobContext jobContext) {
 				Commandline kubectl = newKubeCtl();
 				kubectl.addArgs("exec", "job", "--container", "sidecar", "--namespace", getNamespace(jobContext), "--");
-				kubectl.addArgs("touch", "/onedev-build/continue");
+				kubectl.addArgs("touch", "/cheeta-build/continue");
 				kubectl.execute(new LineConsumer() {
 
 					@Override
@@ -354,9 +354,9 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 						if (step instanceof RunContainerFacade)
 							workingDir = ((RunContainerFacade)step).getWorkingDir();
 						else 
-							workingDir = "/onedev-build/workspace";
+							workingDir = "/cheeta-build/workspace";
 					} else {
-						workingDir = "/onedev-build/workspace";
+						workingDir = "/cheeta-build/workspace";
 					}
 
 					String[] shell = null;
@@ -382,7 +382,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 	}
 	
 	private JobService getJobService() {
-		return OneDev.getInstance(JobService.class);
+		return Cheeta.getInstance(JobService.class);
 	}
 	
 	private String getNamespace(@Nullable JobContext jobContext) {
@@ -555,7 +555,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 	}
 	
 	private String getServerUrl() {
-		return OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl().toString();
+		return Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl().toString();
 	}
 	
 	private void mergeAndEnsureUnique(Collection<RegistryLoginFacade> logins, Collection<RegistryLoginFacade> otherLogins) {
@@ -598,7 +598,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 					"auth", encodeBase64String(auth.getBytes(UTF_8))));
 		}
 		if (!auths.isEmpty()) {
-			ObjectMapper mapper = OneDev.getInstance(ObjectMapper.class);
+			ObjectMapper mapper = Cheeta.getInstance(ObjectMapper.class);
 			try {
 				String dockerConfig = mapper.writeValueAsString(newLinkedHashMap("auths", auths));
 
@@ -774,7 +774,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 		
 		jobLogger.log("Waiting for service to be ready...");
 		
-		ObjectMapper mapper = OneDev.getInstance(ObjectMapper.class);
+		ObjectMapper mapper = Cheeta.getInstance(ObjectMapper.class);
 		while (true) {
 			Commandline kubectl = newKubeCtl();
 			kubectl.addArgs("get", "pod", podName, "-n", namespace, "-o", "json");
@@ -942,7 +942,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 
 				List<Map<Object, Object>> containerSpecs = new ArrayList<>();
 				
-				var containerBuildHome = "/onedev-build";
+				var containerBuildHome = "/cheeta-build";
 				var containerWorkspace = containerBuildHome +"/workspace";
 				var containerCommandDir = containerBuildHome + "/command";
 				var containerTrustCertsDir = containerBuildHome + "/trust-certs";
@@ -1059,10 +1059,10 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 				
 				List<String> sidecarArgs = newArrayList(
 						"-classpath", k8sHelperClassPath,
-						"io.onedev.k8shelper.SideCar");
+						"io.cheeta.k8shelper.SideCar");
 				List<String> initArgs = newArrayList(
 						"-classpath", k8sHelperClassPath, 
-						"io.onedev.k8shelper.Init");
+						"io.cheeta.k8shelper.Init");
 				if (jobContext == null) {
 					sidecarArgs.add("test");
 					initArgs.add("test");
@@ -1375,7 +1375,7 @@ public class KubernetesExecutor extends JobExecutor implements KubernetesAware, 
 	private void watchPod(String namespace, AbortChecker abortChecker, TaskLogger jobLogger) {
 		Commandline kubectl = newKubeCtl();
 		
-		ObjectMapper mapper = OneDev.getInstance(ObjectMapper.class);
+		ObjectMapper mapper = Cheeta.getInstance(ObjectMapper.class);
 		
 		AtomicReference<Abort> abortRef = new AtomicReference<>(null);
 		

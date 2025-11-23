@@ -9,7 +9,7 @@ import org.eclipse.jgit.revwalk.LastCommitsOfChildren.Cache;
 import org.eclipse.jgit.revwalk.LastCommitsOfChildren.Value;
 import org.junit.Test;
 
-import io.onedev.server.git.AbstractGitTest;
+import io.cheeta.server.git.AbstractGitTest;
 
 public class LastCommitsOfChildrenTest extends AbstractGitTest {
 

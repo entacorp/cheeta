@@ -1,9 +1,9 @@
-package io.onedev.server.web.resource;
+package io.cheeta.server.web.resource;
 
-import static io.onedev.agent.job.LogRequest.readLog;
-import static io.onedev.agent.job.LogRequest.toZoneId;
-import static io.onedev.commons.bootstrap.Bootstrap.installDir;
-import static io.onedev.server.util.DateUtils.getZoneId;
+import static io.cheeta.agent.job.LogRequest.readLog;
+import static io.cheeta.agent.job.LogRequest.toZoneId;
+import static io.cheeta.commons.bootstrap.Bootstrap.installDir;
+import static io.cheeta.server.util.DateUtils.getZoneId;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.File;
@@ -20,9 +20,9 @@ import org.apache.wicket.request.resource.AbstractResource;
 
 import com.google.common.base.Joiner;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.security.SecurityUtils;
 
 public class ServerLogResource extends AbstractResource {
 
@@ -57,7 +57,7 @@ public class ServerLogResource extends AbstractResource {
 	public static List<String> readServerLog(@Nullable String server) {
 		var logPath = "logs/server.log";
 		if (server != null) 
-			return OneDev.getInstance(ClusterService.class).runOnServer(server, () -> readLog(new File(installDir, logPath)));
+			return Cheeta.getInstance(ClusterService.class).runOnServer(server, () -> readLog(new File(installDir, logPath)));
 		else 
 			return readLog(new File(installDir, logPath));
 	}

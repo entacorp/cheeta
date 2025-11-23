@@ -1,7 +1,7 @@
-package io.onedev.server.search.entitytext;
+package io.cheeta.server.search.entitytext;
 
 import static com.google.common.collect.Lists.partition;
-import static io.onedev.server.util.criteria.Criteria.forManyValues;
+import static io.cheeta.server.util.criteria.Criteria.forManyValues;
 import static java.lang.Long.valueOf;
 import static java.lang.Math.min;
 import static java.util.stream.Collectors.toList;
@@ -64,31 +64,31 @@ import org.apache.lucene.util.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.WordUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.ActiveServerChanged;
-import io.onedev.server.event.project.ProjectDeleted;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.event.system.SystemStopped;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.support.EntityTouch;
-import io.onedev.server.model.support.ProjectBelonging;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.util.concurrent.BatchWorkExecutionService;
-import io.onedev.server.util.concurrent.BatchWorker;
-import io.onedev.server.util.concurrent.Prioritized;
-import io.onedev.server.util.lucene.BooleanQueryBuilder;
-import io.onedev.server.util.lucene.LuceneUtils;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.WordUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.ActiveServerChanged;
+import io.cheeta.server.event.project.ProjectDeleted;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.event.system.SystemStopped;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.support.EntityTouch;
+import io.cheeta.server.model.support.ProjectBelonging;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.util.concurrent.BatchWorkExecutionService;
+import io.cheeta.server.util.concurrent.BatchWorker;
+import io.cheeta.server.util.concurrent.Prioritized;
+import io.cheeta.server.util.lucene.BooleanQueryBuilder;
+import io.cheeta.server.util.lucene.LuceneUtils;
 
 public abstract class EntityTextService<T extends ProjectBelonging> implements Serializable {
 
@@ -394,7 +394,7 @@ public abstract class EntityTextService<T extends ProjectBelonging> implements S
 	}
 
 	private File getIndexDir() {
-		return new File(OneDev.getIndexDir(), getIndexName());
+		return new File(Cheeta.getIndexDir(), getIndexName());
 	}
 	
 	protected Analyzer newAnalyzer() {

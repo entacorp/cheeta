@@ -1,21 +1,21 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.model.CommitQueryPersonalization;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.search.commit.CommitQuery;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.web.UrlService;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.model.CommitQueryPersonalization;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.search.commit.CommitQuery;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.web.UrlService;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.slf4j.Logger;
@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-import static io.onedev.server.notification.NotificationUtils.getEmailBody;
+import static io.cheeta.server.notification.NotificationUtils.getEmailBody;
 
 @Singleton
 public class CommitNotificationManager {
@@ -113,7 +113,7 @@ public class CommitNotificationManager {
 				String url = urlService.urlFor(project, commit, true);
 				String summary = String.format("Commit authored by %s", commit.getAuthorIdent().getName());
 
-				String threadingReferences = "<commit-" + commit.name() + "@onedev>";
+				String threadingReferences = "<commit-" + commit.name() + "@cheeta>";
 				
 				if (!notifyEmails.isEmpty()) {
 					mailService.sendMailAsync(Lists.newArrayList(), Lists.newArrayList(), notifyEmails, subject,

@@ -1,18 +1,18 @@
-package io.onedev.server.commandhandler;
+package io.cheeta.server.commandhandler;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.loader.AbstractPlugin;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.persistence.HibernateConfig;
-import io.onedev.server.exception.ExceptionUtils;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.loader.AbstractPlugin;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.persistence.HibernateConfig;
+import io.cheeta.server.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Callable;
 
-import static io.onedev.server.persistence.PersistenceUtils.callWithLock;
-import static io.onedev.server.persistence.PersistenceUtils.openConnection;
+import static io.cheeta.server.persistence.PersistenceUtils.callWithLock;
+import static io.cheeta.server.persistence.PersistenceUtils.openConnection;
 
 public abstract class CommandHandler extends AbstractPlugin {
 	
@@ -26,7 +26,7 @@ public abstract class CommandHandler extends AbstractPlugin {
 	
 	protected <T> T doMaintenance(Callable<T> callable) {
 		try {
-			var maintenanceFile = OneDev.getMaintenanceFile(Bootstrap.installDir);
+			var maintenanceFile = Cheeta.getMaintenanceFile(Bootstrap.installDir);
 			if (maintenanceFile.exists()) {
 				waitForServerStop();
 				return callable.call();
@@ -58,7 +58,7 @@ public abstract class CommandHandler extends AbstractPlugin {
 
 	private void waitForServerStop() throws InterruptedException {
 		logger.info("Waiting for server to stop...");
-		while (OneDev.isServerRunning(Bootstrap.installDir)) {
+		while (Cheeta.isServerRunning(Bootstrap.installDir)) {
 			Thread.sleep(1000);
 		}
 	}

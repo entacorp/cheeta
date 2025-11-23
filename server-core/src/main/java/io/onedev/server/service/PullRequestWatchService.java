@@ -1,11 +1,11 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestWatch;
-import io.onedev.server.model.User;
-import io.onedev.server.util.watch.WatchStatus;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestWatch;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.watch.WatchStatus;
 
 import java.util.Collection;
 

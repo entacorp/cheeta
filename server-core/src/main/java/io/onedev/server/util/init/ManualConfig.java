@@ -1,4 +1,4 @@
-package io.onedev.server.util.init;
+package io.cheeta.server.util.init;
 
 import java.io.Serializable;
 import java.util.Collection;

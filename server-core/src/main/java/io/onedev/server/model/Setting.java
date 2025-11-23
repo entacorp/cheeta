@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

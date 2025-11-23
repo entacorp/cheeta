@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.iteration.choice;
+package io.cheeta.server.web.component.iteration.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 
@@ -8,8 +8,8 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Iteration;
-import io.onedev.server.web.component.select2.Select2Choice;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.web.component.select2.Select2Choice;
 
 public class IterationSingleChoice extends Select2Choice<Iteration> {
 
@@ -26,9 +26,9 @@ public class IterationSingleChoice extends Select2Choice<Iteration> {
 			getSettings().setPlaceholder(_T("Choose iteration..."));
 		else
 			getSettings().setPlaceholder(_T("Not specified"));
-		getSettings().setFormatResult("onedev.server.iterationChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.iterationChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.iterationChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.iterationChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.iterationChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.iterationChoiceFormatter.escapeMarkup");
 		setConvertEmptyInputStringToNull(true);
 	}
 

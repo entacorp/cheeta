@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.setting.pluginsettings;
+package io.cheeta.server.web.page.project.setting.pluginsettings;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -18,20 +18,20 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.setting.ContributedProjectSetting;
-import io.onedev.server.web.page.project.setting.ProjectSettingContribution;
-import io.onedev.server.web.page.project.setting.ProjectSettingPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.setting.ContributedProjectSetting;
+import io.cheeta.server.web.page.project.setting.ProjectSettingContribution;
+import io.cheeta.server.web.page.project.setting.ProjectSettingPage;
 
 public class ContributedProjectSettingPage extends ProjectSettingPage {
 
@@ -47,7 +47,7 @@ public class ContributedProjectSettingPage extends ProjectSettingPage {
 		String settingName = params.get(PARAM_SETTING).toString();
 		
 		for (ProjectSettingContribution contribution: 
-				OneDev.getExtensions(ProjectSettingContribution.class)) {
+				Cheeta.getExtensions(ProjectSettingContribution.class)) {
 			for (Class<? extends ContributedProjectSetting> each: contribution.getSettingClasses()) {
 				if (getSettingName(each).equals(settingName)) { 
 					settingClass = each;
@@ -89,7 +89,7 @@ public class ContributedProjectSettingPage extends ProjectSettingPage {
 
 				var newAuditContent = VersionedXmlDoc.fromBean(setting).toXML();
 
-				OneDev.getInstance(ProjectService.class).update(getProject());
+				Cheeta.getInstance(ProjectService.class).update(getProject());
 				auditService.audit(getProject(), "changed contributed settings of \"" + settingClass.getName() + "\"", oldAuditContent, newAuditContent);
 
 				getSession().success("Settings have been saved");
@@ -132,7 +132,7 @@ public class ContributedProjectSettingPage extends ProjectSettingPage {
 			protected void onConfigure() {
 				super.onConfigure();
 				try {
-					setVisible(!OneDev.getInstance(Validator.class)
+					setVisible(!Cheeta.getInstance(Validator.class)
 							.validate(settingClass.getDeclaredConstructor().newInstance())
 							.isEmpty());
 				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException 

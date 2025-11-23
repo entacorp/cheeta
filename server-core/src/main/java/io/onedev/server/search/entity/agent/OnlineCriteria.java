@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.agent;
+package io.cheeta.server.search.entity.agent;
 
 import java.util.Collection;
 
@@ -9,10 +9,10 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.model.Agent;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.util.ProjectScope;
 
 public class OnlineCriteria extends StatusCriteria {
 
@@ -21,7 +21,7 @@ public class OnlineCriteria extends StatusCriteria {
 	@Override
 	public Predicate getPredicate(@Nullable ProjectScope projectScope, CriteriaQuery<?> query, From<Agent, Agent> from, CriteriaBuilder builder) {
 		Path<?> attribute = from.get(Agent.PROP_ID);
-		var agentService = OneDev.getInstance(AgentService.class);
+		var agentService = Cheeta.getInstance(AgentService.class);
 		Collection<Long> agentIds = agentService.getOnlineAgents();
 		if (!agentIds.isEmpty())
 			return attribute.in(agentIds);

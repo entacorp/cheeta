@@ -1,11 +1,11 @@
-package io.onedev.server.search.entitytext;
+package io.cheeta.server.search.entitytext;
 
 import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.CodeComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.CodeComment;
 
 public interface CodeCommentTextService {
 

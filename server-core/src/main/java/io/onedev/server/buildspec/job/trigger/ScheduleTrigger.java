@@ -1,19 +1,19 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.annotation.CronExpression;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.ScheduledTimeReaches;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.annotation.CronExpression;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.ScheduledTimeReaches;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
@@ -41,7 +41,7 @@ public class ScheduleTrigger extends JobTrigger {
 
 	@Editable(name="Applicable Branches", order=200, placeholder="Default branch", description=""
 			+ "Optionally specify space-separated branches applicable for this trigger. "
-			+ "Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty for default branch")
 	@Patterns(suggester="suggestBranches", path=true)
 	public String getBranches() {

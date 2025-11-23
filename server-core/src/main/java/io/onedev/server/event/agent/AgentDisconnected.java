@@ -1,6 +1,6 @@
-package io.onedev.server.event.agent;
+package io.cheeta.server.event.agent;
 
-import io.onedev.server.model.Agent;
+import io.cheeta.server.model.Agent;
 
 public class AgentDisconnected extends AgentEvent {
 	

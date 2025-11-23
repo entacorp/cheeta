@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.renderers.symbollink;
+package io.cheeta.server.web.page.project.blob.render.renderers.symbollink;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

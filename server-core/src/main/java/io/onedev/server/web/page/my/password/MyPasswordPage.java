@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.my.password;
+package io.cheeta.server.web.page.my.password;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.user.passwordedit.PasswordEditPanel;
-import io.onedev.server.web.page.my.MyPage;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.user.passwordedit.PasswordEditPanel;
+import io.cheeta.server.web.page.my.MyPage;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;

@@ -1,12 +1,12 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import io.onedev.server.model.support.BuildMetric;
-import io.onedev.server.util.MetricIndicator;
-import io.onedev.server.web.component.chart.line.LineSeries;
+import io.cheeta.server.model.support.BuildMetric;
+import io.cheeta.server.util.MetricIndicator;
+import io.cheeta.server.web.component.chart.line.LineSeries;
 
 import javax.persistence.*;
 
-import static io.onedev.server.model.support.BuildMetric.PROP_REPORT;
+import static io.cheeta.server.model.support.BuildMetric.PROP_REPORT;
 
 @Entity
 @Table(

@@ -1,4 +1,4 @@
-package io.onedev.server.markdown;
+package io.cheeta.server.markdown;
 
 import java.util.Collection;
 import java.util.regex.Matcher;
@@ -6,11 +6,11 @@ import java.util.regex.Pattern;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.util.ProjectAndRevision;
-import io.onedev.server.validation.validator.ProjectPathValidator;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.util.ProjectAndRevision;
+import io.cheeta.server.validation.validator.ProjectPathValidator;
+import io.cheeta.server.web.UrlService;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.eclipse.jgit.lib.ObjectId;
 import org.jsoup.nodes.Document;
@@ -19,13 +19,13 @@ import org.jsoup.select.NodeTraversor;
 
 import com.google.common.collect.ImmutableSet;
 
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.HtmlUtils;
-import io.onedev.server.util.TextNodeVisitor;
-import io.onedev.server.web.component.markdown.SuggestionSupport;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.HtmlUtils;
+import io.cheeta.server.util.TextNodeVisitor;
+import io.cheeta.server.web.component.markdown.SuggestionSupport;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
 
 public class CommitProcessor implements HtmlProcessor {
 	
@@ -49,7 +49,7 @@ public class CommitProcessor implements HtmlProcessor {
 		
 		NodeTraversor.traverse(visitor, document);
 		
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		for (TextNode node : visitor.getMatchedNodes()) {
 			Matcher matcher = PATTERN_COMMIT.matcher(node.getWholeText());
 			while (matcher.find()) {
@@ -69,7 +69,7 @@ public class CommitProcessor implements HtmlProcessor {
 						if (RequestCycle.get() != null) 
 							url = RequestCycle.get().urlFor(CommitDetailPage.class, CommitDetailPage.paramsOf(commitProject, commitId.name())).toString();
 						else 
-							url = OneDev.getInstance(UrlService.class).urlFor(new ProjectAndRevision(commitProject, commitId.name()), true);
+							url = Cheeta.getInstance(UrlService.class).urlFor(new ProjectAndRevision(commitProject, commitId.name()), true);
 						commitReplacement = String.format("<a href='%s' class='commit reference' data-reference='%s'>%s</a>", 
 								url, commitPrefix + commitId.name(), commitPrefix + GitUtils.abbreviateSHA(commitId.name()));
 					} else {

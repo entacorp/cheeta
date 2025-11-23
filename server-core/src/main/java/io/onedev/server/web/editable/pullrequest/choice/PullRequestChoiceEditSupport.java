@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.pullrequest.choice;
+package io.cheeta.server.web.editable.pullrequest.choice;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
@@ -7,17 +7,17 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.EmptyValueLabel;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
-import io.onedev.server.annotation.PullRequestChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.EmptyValueLabel;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.PullRequestChoice;
 
 public class PullRequestChoiceEditSupport implements EditSupport {
 
@@ -37,7 +37,7 @@ public class PullRequestChoiceEditSupport implements EditSupport {
 							protected Component newContent(String id, PropertyDescriptor propertyDescriptor) {
 								Long pullRequestId = model.getObject();
 								if (pullRequestId != null) {
-									PullRequest request = OneDev.getInstance(PullRequestService.class).get(pullRequestId);
+									PullRequest request = Cheeta.getInstance(PullRequestService.class).get(pullRequestId);
 									if (request != null) {
 										if (Project.get() != null && Project.get().getForkRoot().equals(request.getNumberScope()))
 											return new Label(id, "#" + request.getNumber());

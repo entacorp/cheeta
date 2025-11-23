@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.admin.serverlog;
+package io.cheeta.server.web.page.admin.serverlog;
 
-import static io.onedev.agent.job.LogRequest.toZoneId;
-import static io.onedev.server.util.DateUtils.getZoneId;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.agent.job.LogRequest.toZoneId;
+import static io.cheeta.server.util.DateUtils.getZoneId;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.base.Joiner;
 
-import io.onedev.server.web.page.admin.ServerDetailPage;
-import io.onedev.server.web.resource.ServerLogResource;
-import io.onedev.server.web.resource.ServerLogResourceReference;
+import io.cheeta.server.web.page.admin.ServerDetailPage;
+import io.cheeta.server.web.resource.ServerLogResource;
+import io.cheeta.server.web.resource.ServerLogResourceReference;
 
 public class ServerLogPage extends ServerDetailPage {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.field.instance;
+package io.cheeta.server.model.support.issue.field.instance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class SpecifiedValue implements ValueProvider {

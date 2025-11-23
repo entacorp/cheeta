@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.refreshtoken;
+package io.cheeta.server.web.editable.refreshtoken;
 
 import java.lang.reflect.AnnotatedElement;
 
@@ -6,13 +6,13 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.EmptyValueLabel;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
-import io.onedev.server.annotation.RefreshToken;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.EmptyValueLabel;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.RefreshToken;
 
 public class RefreshTokenEditSupport implements EditSupport {
 

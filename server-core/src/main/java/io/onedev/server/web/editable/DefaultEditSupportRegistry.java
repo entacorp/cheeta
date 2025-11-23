@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.io.Serializable;
 import java.util.ArrayList;

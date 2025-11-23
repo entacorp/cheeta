@@ -1,10 +1,10 @@
-package io.onedev.server.job.match;
+package io.cheeta.server.job.match;
 
 import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Project;
 
 public class JobMatchContext {
 

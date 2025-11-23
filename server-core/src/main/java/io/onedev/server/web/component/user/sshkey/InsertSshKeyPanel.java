@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.sshkey;
+package io.cheeta.server.web.component.user.sshkey;
 
 import java.util.Date;
 
@@ -10,16 +10,16 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SshKeyService;
-import io.onedev.server.model.SshKey;
-import io.onedev.server.model.User;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SshKeyService;
+import io.cheeta.server.model.SshKey;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.user.UserPage;
 
 public abstract class InsertSshKeyPanel extends Panel {
 
@@ -51,7 +51,7 @@ public abstract class InsertSshKeyPanel extends Panel {
             protected void onSubmit(AjaxRequestTarget target, Form<?> myform) {
                 super.onSubmit(target, myform);
                 
-                SshKeyService sshKeyService = OneDev.getInstance(SshKeyService.class);
+                SshKeyService sshKeyService = Cheeta.getInstance(SshKeyService.class);
                 SshKey sshKey = (SshKey) editor.getModelObject();
                 sshKey.generateFingerprint();
                 
@@ -63,7 +63,7 @@ public abstract class InsertSshKeyPanel extends Panel {
                     sshKey.setCreatedAt(new Date());
                     sshKeyService.create(sshKey);
                     if (getPage() instanceof UserPage)
-						OneDev.getInstance(AuditService.class).audit(null, "added SSH key \"" + sshKey.getFingerprint() + "\" in account \"" + sshKey.getOwner().getName() + "\"", null, null);
+						Cheeta.getInstance(AuditService.class).audit(null, "added SSH key \"" + sshKey.getFingerprint() + "\" in account \"" + sshKey.getOwner().getName() + "\"", null, null);
                     onSave(target);
                 }
             }

@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.project.stats.pack;
+package io.cheeta.server.web.component.project.stats.pack;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.pack.PackQuery;
-import io.onedev.server.search.entity.pack.PackQueryLexer;
-import io.onedev.server.search.entity.pack.TypeCriteria;
-import io.onedev.server.web.page.project.packs.ProjectPacksPage;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.pack.PackQuery;
+import io.cheeta.server.search.entity.pack.PackQueryLexer;
+import io.cheeta.server.search.entity.pack.TypeCriteria;
+import io.cheeta.server.web.page.project.packs.ProjectPacksPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
@@ -15,7 +15,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;

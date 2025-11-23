@@ -1,12 +1,12 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.List;
 
-import io.onedev.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.persistence.dao.EntityCriteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.DetachedCriteria;
 
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.server.model.AbstractEntity;
 
 public interface EntityService<T extends AbstractEntity> {
 	

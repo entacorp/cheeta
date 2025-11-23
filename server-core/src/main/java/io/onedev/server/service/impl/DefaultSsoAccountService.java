@@ -1,15 +1,15 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import javax.inject.Singleton;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.model.SsoAccount;
-import io.onedev.server.model.SsoProvider;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.SsoAccountService;
+import io.cheeta.server.model.SsoAccount;
+import io.cheeta.server.model.SsoProvider;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.SsoAccountService;
 
 @Singleton
 public class DefaultSsoAccountService extends BaseEntityService<SsoAccount> implements SsoAccountService {

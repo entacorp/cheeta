@@ -1,4 +1,4 @@
-onedev.server.projectBlob = {
+cheeta.server.projectBlob = {
 	onDomReady: function(callback) {
 		var cookieKey = "projectBlob.searchResult.height";
 		
@@ -29,7 +29,7 @@ onedev.server.projectBlob = {
 		$(document).on("keydown", function(e) {
 			if ($(".blob-content>.blob-edit").length == 0 
 					&& $(".modal:visible").length == 0 
-					&& !onedev.server.util.canInput(e.target)) {
+					&& !cheeta.server.util.canInput(e.target)) {
 				if (e.keyCode == 84) { // 't'
 					callback("quickSearch");
 				} else if (e.keyCode == 86) { // 'v'

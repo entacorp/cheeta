@@ -1,10 +1,10 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import static com.google.common.hash.Hashing.sha256;
-import static io.onedev.k8shelper.KubernetesHelper.BEARER;
-import static io.onedev.server.model.Project.decodeFullRepoNameAsPath;
-import static io.onedev.server.util.CollectionUtils.newHashMap;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.k8shelper.KubernetesHelper.BEARER;
+import static io.cheeta.server.model.Project.decodeFullRepoNameAsPath;
+import static io.cheeta.server.util.CollectionUtils.newHashMap;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static javax.servlet.http.HttpServletResponse.SC_CONFLICT;
 import static javax.servlet.http.HttpServletResponse.SC_CREATED;
 import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
@@ -60,20 +60,20 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.hash.HashingInputStream;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.GitLfsLockService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.GitLfsLock;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.security.CodePullAuthorizationSource;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IOUtils;
-import io.onedev.server.util.facade.ProjectFacade;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.GitLfsLockService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.GitLfsLock;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.security.CodePullAuthorizationSource;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IOUtils;
+import io.cheeta.server.util.facade.ProjectFacade;
 
 @Singleton
 public class GitLfsFilter implements Filter {
@@ -162,7 +162,7 @@ public class GitLfsFilter implements Filter {
 		if (SecurityUtils.getUser() != null) {
 			sendBatchError(response, SC_NOT_FOUND, "Project not found or inaccessible: " + projectPath);
 		} else {
-			response.addHeader("LFS-Authenticate", "Basic realm=\"OneDev\"");
+			response.addHeader("LFS-Authenticate", "Basic realm=\"Cheeta\"");
 			sendBatchError(response, SC_UNAUTHORIZED, "Authentication required");
 		}
 	}
@@ -574,7 +574,7 @@ public class GitLfsFilter implements Filter {
 		if (SecurityUtils.getUser() != null) {
 			sendBatchError(response, SC_FORBIDDEN, "Permission denied");
 		} else {
-			response.addHeader("LFS-Authenticate", "Basic realm=\"OneDev\"");
+			response.addHeader("LFS-Authenticate", "Basic realm=\"Cheeta\"");
 			sendBatchError(response, SC_UNAUTHORIZED, "Authentication required");
 		}
 	}

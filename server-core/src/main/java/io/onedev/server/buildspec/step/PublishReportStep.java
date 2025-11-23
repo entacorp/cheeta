@@ -1,17 +1,17 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.ExecuteCondition;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.PathSegment;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.ExecuteCondition;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.PathSegment;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.util.patternset.PatternSet;
 
 @Editable
 public abstract class PublishReportStep extends ServerSideStep {
@@ -44,7 +44,7 @@ public abstract class PublishReportStep extends ServerSideStep {
 		return PatternSet.parse(getFilePatterns());
 	}
 	
-	@Editable(order=100, description="Specify files relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to be published. "
+	@Editable(order=100, description="Specify files relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to be published. "
 			+ "Use * or ? for pattern match")
 	@Interpolative(variableSuggester="suggestVariables")
 	@Patterns(path=true)

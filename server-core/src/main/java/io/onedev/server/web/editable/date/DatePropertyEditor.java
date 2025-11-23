@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.date;
+package io.cheeta.server.web.editable.date;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -12,12 +12,12 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.component.datepicker.DatePicker;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.component.datepicker.DatePicker;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.OmitName;
 
 public class DatePropertyEditor extends PropertyEditor<Date> {
 

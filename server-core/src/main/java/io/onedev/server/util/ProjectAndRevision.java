@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.Serializable;
 
@@ -10,11 +10,11 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.revwalk.RevCommit;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
 
 public class ProjectAndRevision implements Serializable {
 
@@ -105,7 +105,7 @@ public class ProjectAndRevision implements Serializable {
 	}
 
 	public Project getProject() {
-		return OneDev.getInstance(ProjectService.class).load(projectId);
+		return Cheeta.getInstance(ProjectService.class).load(projectId);
 	}
 	
 	protected String normalizeRevision() {

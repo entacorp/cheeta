@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.project.pullrequests.detail;
+package io.cheeta.server.web.page.project.pullrequests.detail;
 
 import java.util.List;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 
-import io.onedev.server.web.component.commit.status.CommitStatusCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.component.commit.status.CommitStatusCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class PullRequestDetailResourceReference extends BaseDependentResourceReference {
 

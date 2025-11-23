@@ -1,22 +1,22 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.BranchName;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.BranchName;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.web.util.SuggestionUtils;
 import org.eclipse.jgit.lib.Repository;
 
 import javax.validation.constraints.NotEmpty;
@@ -75,7 +75,7 @@ public class CreateBranchStep extends ServerSideStep {
 	}
 
 	@Editable(order=1060, description="For build commit not reachable from default branch, " +
-			"a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create branch permission")
+			"a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create branch permission")
 	@ChoiceProvider("getAccessTokenSecretChoices")
 	public String getAccessTokenSecret() {
 		return accessTokenSecret;
@@ -93,8 +93,8 @@ public class CreateBranchStep extends ServerSideStep {
 
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger logger) {
-		return OneDev.getInstance(SessionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
+		return Cheeta.getInstance(SessionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
 			Project project = build.getProject();
 			String branchName = getBranchName();
 
@@ -109,7 +109,7 @@ public class CreateBranchStep extends ServerSideStep {
 					String branchRevision = getBranchRevision();
 					if (branchRevision == null)
 						branchRevision = build.getCommitHash();
-					OneDev.getInstance(GitService.class).createBranch(project, branchName, branchRevision);
+					Cheeta.getInstance(GitService.class).createBranch(project, branchName, branchRevision);
 				}
 			} else {
 				logger.error("This build is not authorized to create branch '" + branchName + "'");

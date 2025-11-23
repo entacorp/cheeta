@@ -1,6 +1,6 @@
-package io.onedev.server.job;
+package io.cheeta.server.job;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.Stack;
@@ -9,19 +9,19 @@ import org.apache.shiro.subject.Subject;
 import org.eclipse.jgit.lib.ObjectId;
 import org.jetbrains.annotations.Nullable;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.SecretInput;
-import io.onedev.server.job.match.JobMatch;
-import io.onedev.server.job.match.JobMatchContext;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.administration.GroovyScript;
-import io.onedev.server.model.support.build.JobSecret;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.SecretInput;
+import io.cheeta.server.job.match.JobMatch;
+import io.cheeta.server.job.match.JobMatchContext;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.administration.GroovyScript;
+import io.cheeta.server.model.support.build.JobSecret;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.util.WicketUtils;
 
 public class JobAuthorizationContext {
 	
@@ -63,7 +63,7 @@ public class JobAuthorizationContext {
 	public Subject getSubject(@Nullable String accessTokenSecret) {
 		if (accessTokenSecret != null) {
 			String secretValue = getSecretValue(accessTokenSecret);
-			var accessToken = OneDev.getInstance(AccessTokenService.class).findByValue(secretValue);
+			var accessToken = Cheeta.getInstance(AccessTokenService.class).findByValue(secretValue);
 			if (accessToken == null)
 				throw new ExplicitException(MessageFormat.format(_T("Invalid access token: {0}"), secretValue));
 			return accessToken.asSubject();

@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec;
+package io.cheeta.server.buildspec;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,29 +29,29 @@ import org.apache.commons.lang3.SerializationUtils;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
-import io.onedev.commons.loader.ImplementationRegistry;
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.Code;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ImplementationProvider;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.annotation.RetryCondition;
-import io.onedev.server.annotation.UserMatch;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.data.migration.MigrationHelper;
-import io.onedev.server.model.support.build.JobProperty;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.PropertyDescriptor;
+import io.cheeta.commons.loader.ImplementationRegistry;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.Code;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ImplementationProvider;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.annotation.RetryCondition;
+import io.cheeta.server.annotation.UserMatch;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.data.migration.MigrationHelper;
+import io.cheeta.server.model.support.build.JobProperty;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.PropertyDescriptor;
 
 @Api(internal = true)
 @Path("/build-spec-schema.yml")
@@ -91,9 +91,9 @@ public class BuildSpecSchemaResource {
                         grammarStream = PatternSet.class.getResourceAsStream("PatternSet.g4");
                     }
                 } else if (getter.getAnnotation(RetryCondition.class) != null) {
-                    grammarStream = io.onedev.server.buildspec.job.retrycondition.RetryCondition.class.getResourceAsStream("RetryCondition.g4");
+                    grammarStream = io.cheeta.server.buildspec.job.retrycondition.RetryCondition.class.getResourceAsStream("RetryCondition.g4");
                 } else if (getter.getAnnotation(UserMatch.class) != null) {
-                    grammarStream = io.onedev.server.util.usermatch.UserMatch.class.getResourceAsStream("UserMatch.g4");
+                    grammarStream = io.cheeta.server.util.usermatch.UserMatch.class.getResourceAsStream("UserMatch.g4");
                 }
                 if (grammarStream != null) {
                     try {

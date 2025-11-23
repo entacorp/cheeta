@@ -1,9 +1,9 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
 
 import org.jspecify.annotations.Nullable;
 import javax.ws.rs.client.Client;

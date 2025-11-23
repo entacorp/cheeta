@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.servicelocator;
+package io.cheeta.server.web.editable.servicelocator;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,12 +26,12 @@ import org.apache.wicket.model.Model;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.model.support.administration.jobexecutor.ServiceLocator;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.component.offcanvas.OffCanvasCardPanel;
-import io.onedev.server.web.component.offcanvas.OffCanvasPanel.Placement;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.model.support.administration.jobexecutor.ServiceLocator;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.component.offcanvas.OffCanvasCardPanel;
+import io.cheeta.server.web.component.offcanvas.OffCanvasPanel.Placement;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.editable.BeanContext;
 
 class ServiceLocatorListViewPanel extends Panel {
 

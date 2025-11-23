@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.pipeline;
+package io.cheeta.server.web.component.pipeline;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.web.util.AjaxPayload;
 
 public class JobSelectionChange extends AjaxPayload {
 

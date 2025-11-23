@@ -1,19 +1,19 @@
-package io.onedev.server.plugin.buildspec.rust;
+package io.cheeta.server.plugin.buildspec.rust;
 
 import com.google.common.collect.Lists;
 import com.moandjiezana.toml.Toml;
-import io.onedev.k8shelper.ExecuteCondition;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobSuggestion;
-import io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger;
-import io.onedev.server.buildspec.job.trigger.PullRequestUpdateTrigger;
-import io.onedev.server.buildspec.step.*;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.plugin.report.clippy.PublishClippyReportStep;
-import io.onedev.server.plugin.report.cobertura.PublishCoberturaReportStep;
-import io.onedev.server.plugin.report.junit.PublishJUnitReportStep;
+import io.cheeta.k8shelper.ExecuteCondition;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobSuggestion;
+import io.cheeta.server.buildspec.job.trigger.BranchUpdateTrigger;
+import io.cheeta.server.buildspec.job.trigger.PullRequestUpdateTrigger;
+import io.cheeta.server.buildspec.step.*;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.plugin.report.clippy.PublishClippyReportStep;
+import io.cheeta.server.plugin.report.cobertura.PublishCoberturaReportStep;
+import io.cheeta.server.plugin.report.junit.PublishJUnitReportStep;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 
@@ -124,7 +124,7 @@ public class RustJobSuggestion implements JobSuggestion {
 					"lcov_cobertura lcov.info -o coverage.xml\n" +
 					"# cargo clippy --message-format=json > check-result.json\n" +
 					"\n" +
-					"# Make sure all files inside $CARGO_HOME is accessible by OneDev outside of container for cache upload\n" +
+					"# Make sure all files inside $CARGO_HOME is accessible by Cheeta outside of container for cache upload\n" +
 					"chmod -R o+r $CARGO_HOME");
 			job.getSteps().add(buildAndTest);
 			

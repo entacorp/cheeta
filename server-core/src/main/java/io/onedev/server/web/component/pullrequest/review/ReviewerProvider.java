@@ -1,19 +1,19 @@
-package io.onedev.server.web.component.pullrequest.review;
+package io.cheeta.server.web.component.pullrequest.review;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.User;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
-import io.onedev.server.web.component.user.choice.AbstractUserChoiceProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.web.component.user.choice.AbstractUserChoiceProvider;
 
 public abstract class ReviewerProvider extends AbstractUserChoiceProvider {
 
@@ -23,7 +23,7 @@ public abstract class ReviewerProvider extends AbstractUserChoiceProvider {
 	public void query(String term, int page, Response<User> response) {
 		PullRequest request = getPullRequest();
 		
-		UserCache cache = OneDev.getInstance(UserService.class).cloneCache();
+		UserCache cache = Cheeta.getInstance(UserService.class).cloneCache();
 		List<User> users = new ArrayList<>(cache.getUsers());
 		users.sort(cache.comparingDisplayName(request.getParticipants()));
 		

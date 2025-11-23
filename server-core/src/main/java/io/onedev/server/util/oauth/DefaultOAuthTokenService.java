@@ -1,4 +1,4 @@
-package io.onedev.server.util.oauth;
+package io.cheeta.server.util.oauth;
 
 import com.nimbusds.oauth2.sdk.*;
 import com.nimbusds.oauth2.sdk.auth.ClientAuthentication;
@@ -7,12 +7,12 @@ import com.nimbusds.oauth2.sdk.auth.Secret;
 import com.nimbusds.oauth2.sdk.id.ClientID;
 import com.nimbusds.oauth2.sdk.token.AccessToken;
 import com.nimbusds.oauth2.sdk.token.Tokens;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.taskschedule.SchedulableTask;
-import io.onedev.server.taskschedule.TaskScheduler;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.taskschedule.SchedulableTask;
+import io.cheeta.server.taskschedule.TaskScheduler;
 import org.joda.time.DateTime;
 import org.quartz.ScheduleBuilder;
 import org.quartz.SimpleScheduleBuilder;
@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static io.onedev.server.util.oauth.OAuthUtils.getErrorMessage;
+import static io.cheeta.server.util.oauth.OAuthUtils.getErrorMessage;
 
 @Singleton
 public class DefaultOAuthTokenService implements OAuthTokenService, SchedulableTask {

@@ -46,8 +46,8 @@ import org.yaml.snakeyaml.nodes.ScalarNode;
 import org.yaml.snakeyaml.nodes.SequenceNode;
 import org.yaml.snakeyaml.nodes.Tag;
 
-import io.onedev.server.util.BeanUtils;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.util.BeanUtils;
+import io.cheeta.server.annotation.Editable;
 
 public abstract class BaseConstructor {
 

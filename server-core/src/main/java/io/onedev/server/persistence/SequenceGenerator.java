@@ -1,10 +1,10 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import com.hazelcast.map.IMap;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.dao.Dao;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.dao.Dao;
 import org.hibernate.query.Query;
 
 import java.util.Map;

@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,16 +14,16 @@ import javax.persistence.criteria.Predicate;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.pullrequest.PullRequestCommentCreated;
-import io.onedev.server.event.project.pullrequest.PullRequestCommentEdited;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestCommentRemovedData;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.service.PullRequestCommentService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.pullrequest.PullRequestCommentCreated;
+import io.cheeta.server.event.project.pullrequest.PullRequestCommentEdited;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestCommentRemovedData;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.service.PullRequestCommentService;
 
 @Singleton
 public class DefaultPullRequestCommentService extends BaseEntityService<PullRequestComment>

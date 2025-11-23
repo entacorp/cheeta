@@ -1,4 +1,4 @@
-package io.onedev.server.data.migration;
+package io.cheeta.server.data.migration;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
@@ -38,12 +38,12 @@ import org.yaml.snakeyaml.resolver.Resolver;
 import org.yaml.snakeyaml.serializer.Serializer;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.loader.ImplementationRegistry;
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.util.BeanUtils;
+import io.cheeta.commons.loader.ImplementationRegistry;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.util.BeanUtils;
 
 public class VersionedYamlDoc extends MappingNode {
 
@@ -172,7 +172,7 @@ public class VersionedYamlDoc extends MappingNode {
 							type, node.getTag()));
 				} else {
 					if (!ClassUtils.isConcrete(type)) {
-						ImplementationRegistry registry = OneDev.getInstance(ImplementationRegistry.class);
+						ImplementationRegistry registry = Cheeta.getInstance(ImplementationRegistry.class);
 						for (Class<?> implementationClass: registry.getImplementations(node.getType())) {
 							String implementationTag = new Tag("!" + implementationClass.getSimpleName()).getValue();
 							if (implementationTag.equals(node.getTag().getValue()))

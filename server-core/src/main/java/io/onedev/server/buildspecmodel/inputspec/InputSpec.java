@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec;
+package io.cheeta.server.buildspecmodel.inputspec;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -8,8 +8,8 @@ import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.buildspecmodel.inputspec.showcondition.ShowCondition;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.buildspecmodel.inputspec.showcondition.ShowCondition;
 import org.apache.commons.lang.SerializationUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +17,9 @@ import org.unbescape.java.JavaEscape;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.util.GroovyUtils;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.util.GroovyUtils;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public abstract class InputSpec implements Serializable {
@@ -233,10 +233,10 @@ public abstract class InputSpec implements Serializable {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("import org.apache.commons.lang3.SerializationUtils;\n");
 		buffer.append("import com.google.common.base.Optional;\n");
-		buffer.append("import io.onedev.server.annotation.*;\n");
-		buffer.append("import io.onedev.util.*;\n");
-		buffer.append("import io.onedev.server.util.*;\n");
-		buffer.append("import io.onedev.server.util.facade.*;\n");
+		buffer.append("import io.cheeta.server.annotation.*;\n");
+		buffer.append("import io.cheeta.util.*;\n");
+		buffer.append("import io.cheeta.server.util.*;\n");
+		buffer.append("import io.cheeta.server.util.facade.*;\n");
 		buffer.append("import java.util.*;\n");
 		buffer.append("import javax.validation.constraints.*;\n");
 		buffer.append("import org.hibernate.validator.constraints.*;\n");

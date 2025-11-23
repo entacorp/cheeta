@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
@@ -7,9 +7,9 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.behavior.RetryConditionBehavior;
-import io.onedev.server.annotation.RetryCondition;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.web.behavior.RetryConditionBehavior;
+import io.cheeta.server.annotation.RetryCondition;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
 
 public class RetryConditionEditSupport implements EditSupport {
 

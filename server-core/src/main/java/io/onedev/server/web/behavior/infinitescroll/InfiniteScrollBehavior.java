@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior.infinitescroll;
+package io.cheeta.server.web.behavior.infinitescroll;
 
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
@@ -18,10 +18,10 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.util.visit.IVisitor;
 import org.unbescape.javascript.JavaScriptEscape;
 
-import io.onedev.server.web.ajaxlistener.DisableGlobalAjaxIndicatorListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.web.ajaxlistener.DisableGlobalAjaxIndicatorListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.util.WicketUtils;
 
 public abstract class InfiniteScrollBehavior extends AbstractPostAjaxBehavior {
 
@@ -55,7 +55,7 @@ public abstract class InfiniteScrollBehavior extends AbstractPostAjaxBehavior {
 		appendMore(target, offset, count);
 
 		BasePage page = (BasePage) WicketUtils.getPage();
-		target.appendJavaScript(String.format("onedev.server.infiniteScroll.onAppended('%s', %b);", 
+		target.appendJavaScript(String.format("cheeta.server.infiniteScroll.onAppended('%s', %b);", 
 				getComponent().getMarkupId(), page.isDarkMode()));
 	}
 	
@@ -67,12 +67,12 @@ public abstract class InfiniteScrollBehavior extends AbstractPostAjaxBehavior {
 	protected abstract void appendMore(AjaxRequestTarget target, int offset, int count);
 	
 	public void refresh(IPartialPageRequestHandler handler) {
-		handler.appendJavaScript(String.format("onedev.server.infiniteScroll.refresh('%s');", 
+		handler.appendJavaScript(String.format("cheeta.server.infiniteScroll.refresh('%s');", 
 				getComponent().getMarkupId()));
 	}
 	
 	public void check(IPartialPageRequestHandler handler) {
-		handler.appendJavaScript(String.format("onedev.server.infiniteScroll.check('%s', false);",
+		handler.appendJavaScript(String.format("cheeta.server.infiniteScroll.check('%s', false);",
 				getComponent().getMarkupId()));
 	}
 	
@@ -89,7 +89,7 @@ public abstract class InfiniteScrollBehavior extends AbstractPostAjaxBehavior {
 		
 		// Run onload script as the container size might be adjusted in window resize event (which 
 		// happens before onload). An example is the issue board columns
-		String script = String.format("onedev.server.infiniteScroll.onLoad('%s', %s, %s, %s);", 
+		String script = String.format("cheeta.server.infiniteScroll.onLoad('%s', %s, %s, %s);", 
 				component.getMarkupId(true), getCallbackFunction(explicit("offset"), explicit("count")), 
 				pageSize, itemSelector);
 		response.render(OnLoadHeaderItem.forScript(script));

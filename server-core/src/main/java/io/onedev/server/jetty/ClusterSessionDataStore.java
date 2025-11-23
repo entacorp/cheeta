@@ -16,7 +16,7 @@
 //  ========================================================================
 //
 
-package io.onedev.server.jetty;
+package io.cheeta.server.jetty;
 
 import com.hazelcast.map.IMap;
 import org.eclipse.jetty.server.session.AbstractSessionDataStore;

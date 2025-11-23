@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.sshkey;
+package io.cheeta.server.web.component.user.sshkey;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,15 +25,15 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SshKeyService;
-import io.onedev.server.model.SshKey;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.page.user.UserPage;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SshKeyService;
+import io.cheeta.server.model.SshKey;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.page.user.UserPage;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
 
 public class SshKeyListPanel extends GenericPanel<List<SshKey>> {
 
@@ -48,11 +48,11 @@ public class SshKeyListPanel extends GenericPanel<List<SshKey>> {
     }
     
 	private SshKeyService getSshKeyService() {
-		return OneDev.getInstance(SshKeyService.class);
+		return Cheeta.getInstance(SshKeyService.class);
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 
     @Override

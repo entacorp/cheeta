@@ -1,8 +1,8 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import java.util.Date;
 
-import io.onedev.server.model.PullRequest;
+import io.cheeta.server.model.PullRequest;
 
 public class PullRequestMergePreviewUpdated extends PullRequestEvent {
 	

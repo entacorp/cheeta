@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.changedata;
+package io.cheeta.server.model.support.issue.changedata;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -6,9 +6,9 @@ import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.Group;
-import io.onedev.server.model.User;
-import io.onedev.server.notification.ActivityDetail;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.User;
+import io.cheeta.server.notification.ActivityDetail;
 
 public abstract class IssueChangeData implements Serializable {
 	

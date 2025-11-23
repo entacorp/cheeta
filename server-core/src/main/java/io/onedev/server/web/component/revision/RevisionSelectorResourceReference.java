@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.revision;
+package io.cheeta.server.web.component.revision;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 
-import io.onedev.server.web.asset.selectbytyping.SelectByTypingResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.selectbytyping.SelectByTypingResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class RevisionSelectorResourceReference extends BaseDependentResourceReference {
 

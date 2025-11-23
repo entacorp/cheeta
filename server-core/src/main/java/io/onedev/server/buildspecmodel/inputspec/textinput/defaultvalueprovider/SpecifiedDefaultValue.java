@@ -1,7 +1,7 @@
-package io.onedev.server.buildspecmodel.inputspec.textinput.defaultvalueprovider;
+package io.cheeta.server.buildspecmodel.inputspec.textinput.defaultvalueprovider;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 import javax.validation.constraints.NotEmpty;
 

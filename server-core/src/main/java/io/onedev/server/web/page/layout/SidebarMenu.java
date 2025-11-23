@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.layout;
+package io.cheeta.server.web.page.layout;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.jspecify.annotations.Nullable;
 
 import org.apache.wicket.Component;
 
-import io.onedev.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
 
 public class SidebarMenu implements Serializable {
 

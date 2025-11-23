@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.gitcredential;
+package io.cheeta.server.buildspec.job.gitcredential;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,16 +7,16 @@ import javax.validation.ConstraintValidatorContext;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.k8shelper.CloneInfo;
-import io.onedev.k8shelper.HttpCloneInfo;
-import io.onedev.server.OneDev;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.k8shelper.CloneInfo;
+import io.cheeta.k8shelper.HttpCloneInfo;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(name="HTTP(S)", order=200)
 @ClassValidating
@@ -26,7 +26,7 @@ public class HttpCredential implements GitCredential, Validatable {
 
 	private String accessTokenSecret;
 
-	@Editable(order=200, description="Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token")
+	@Editable(order=200, description="Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token")
 	@ChoiceProvider("getAccessTokenSecretChoices")
 	@NotEmpty
 	public String getAccessTokenSecret() {
@@ -45,7 +45,7 @@ public class HttpCredential implements GitCredential, Validatable {
 
 	@Override
 	public CloneInfo newCloneInfo(Build build, String jobToken) {
-		return new HttpCloneInfo(OneDev.getInstance(UrlService.class).cloneUrlFor(build.getProject(), false),
+		return new HttpCloneInfo(Cheeta.getInstance(UrlService.class).cloneUrlFor(build.getProject(), false),
 				build.getJobAuthorizationContext().getSecretValue(accessTokenSecret));
 	}
 

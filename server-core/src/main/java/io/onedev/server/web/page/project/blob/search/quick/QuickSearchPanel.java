@@ -1,23 +1,23 @@
-package io.onedev.server.web.page.project.blob.search.quick;
+package io.cheeta.server.web.page.project.blob.search.quick;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.code.CodeSearchService;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.query.BlobQuery;
-import io.onedev.server.search.code.query.FileQuery;
-import io.onedev.server.search.code.query.SymbolQuery;
-import io.onedev.server.search.code.query.TooGeneralQueryException;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.RunTaskBehavior;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.code.CodeSearchService;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.query.BlobQuery;
+import io.cheeta.server.search.code.query.FileQuery;
+import io.cheeta.server.search.code.query.SymbolQuery;
+import io.cheeta.server.search.code.query.TooGeneralQueryException;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.RunTaskBehavior;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxChannel;
@@ -71,7 +71,7 @@ public abstract class QuickSearchPanel extends Panel {
 	}
 
 	private List<QueryHit> querySymbols(String searchInput, int count) {
-		CodeSearchService searchService = OneDev.getInstance(CodeSearchService.class);
+		CodeSearchService searchService = Cheeta.getInstance(CodeSearchService.class);
 		ObjectId commit = projectModel.getObject().getRevCommit(revisionModel.getObject(), true);		
 		List<QueryHit> symbolHits = new ArrayList<>();
 		try {
@@ -188,7 +188,7 @@ public abstract class QuickSearchPanel extends Panel {
 			public void renderHead(Component component, IHeaderResponse response) {
 				super.renderHead(component, response);
 				String script = String.format(
-						"onedev.server.onQuickSearchDomReady('%s', %s);", 
+						"cheeta.server.onQuickSearchDomReady('%s', %s);", 
 						getMarkupId(), 
 						getCallbackFunction(explicit("key"), explicit("param")));
 				
@@ -271,7 +271,7 @@ public abstract class QuickSearchPanel extends Panel {
 					
 					@Override
 					protected void runTask(AjaxRequestTarget target) {
-						int maxQueryEntries = OneDev.getInstance(SettingService.class)
+						int maxQueryEntries = Cheeta.getInstance(SettingService.class)
 								.getPerformanceSetting().getMaxCodeSearchEntries();
 						List<QueryHit> hits = querySymbols(searchInput, maxQueryEntries);
 						onMoreQueried(target, hits);

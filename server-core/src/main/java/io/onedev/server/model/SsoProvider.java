@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import io.onedev.server.model.support.administration.sso.SsoConnector;
+import io.cheeta.server.model.support.administration.sso.SsoConnector;
 
 @Entity
 @Table(indexes={@Index(columnList=SsoProvider.PROP_NAME)})

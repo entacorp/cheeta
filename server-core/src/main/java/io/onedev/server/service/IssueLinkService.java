@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueLink;
-import io.onedev.server.model.LinkSpec;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueLink;
+import io.cheeta.server.model.LinkSpec;
 
 import java.util.Collection;
 

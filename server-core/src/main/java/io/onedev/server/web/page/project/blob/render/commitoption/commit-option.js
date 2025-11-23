@@ -1,4 +1,4 @@
-onedev.server.commitOption = {
+cheeta.server.commitOption = {
 	onBlobChange: function(containerId, blobModified) {
 		var $commitOption = $("#" + containerId + ">.commit-option");
 		var $submitBtn = $commitOption.find("input[type=submit]");

@@ -1,4 +1,4 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -12,13 +12,13 @@ import javax.validation.ConstraintValidatorContext;
 import org.bouncycastle.openpgp.PGPPublicKey;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.util.GpgUtils;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.util.GpgUtils;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable
 @ClassValidating

@@ -1,10 +1,10 @@
-package io.onedev.server.cluster;
+package io.cheeta.server.cluster;
 
 import com.hazelcast.cluster.Member;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.cp.IAtomicLong;
-import io.onedev.server.annotation.NoDBAccess;
-import io.onedev.server.replica.ProjectReplica;
+import io.cheeta.server.annotation.NoDBAccess;
+import io.cheeta.server.replica.ProjectReplica;
 
 import org.jspecify.annotations.Nullable;
 import java.util.Collection;

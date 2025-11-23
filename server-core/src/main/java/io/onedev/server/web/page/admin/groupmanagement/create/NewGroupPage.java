@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.groupmanagement.create;
+package io.cheeta.server.web.page.admin.groupmanagement.create;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.Session;
@@ -11,20 +11,20 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.Group;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.page.admin.groupmanagement.GroupCssResourceReference;
-import io.onedev.server.web.page.admin.groupmanagement.GroupListPage;
-import io.onedev.server.web.page.admin.groupmanagement.membership.GroupMembershipsPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupCssResourceReference;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupListPage;
+import io.cheeta.server.web.page.admin.groupmanagement.membership.GroupMembershipsPage;
 
 public class NewGroupPage extends AdministrationPage {
 
@@ -46,7 +46,7 @@ public class NewGroupPage extends AdministrationPage {
 			protected void onSubmit() {
 				super.onSubmit();
 				
-				GroupService groupService = OneDev.getInstance(GroupService.class);
+				GroupService groupService = Cheeta.getInstance(GroupService.class);
 				Group groupWithSameName = groupService.find(group.getName());
 				if (groupWithSameName != null) {
 					editor.error(new Path(new PathNode.Named("name")),
@@ -55,7 +55,7 @@ public class NewGroupPage extends AdministrationPage {
 				if (editor.isValid()) {
 					groupService.create(group);
 					var newAuditContent = VersionedXmlDoc.fromBean(group).toXML();
-					OneDev.getInstance(AuditService.class).audit(null, "created group \"" + group.getName() + "\"", null, newAuditContent);
+					Cheeta.getInstance(AuditService.class).audit(null, "created group \"" + group.getName() + "\"", null, newAuditContent);
 					Session.get().success(_T("Group created"));
 					setResponsePage(GroupMembershipsPage.class, GroupMembershipsPage.paramsOf(group));
 				}

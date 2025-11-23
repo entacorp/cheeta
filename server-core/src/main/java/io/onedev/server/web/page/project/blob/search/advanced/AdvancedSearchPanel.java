@@ -1,22 +1,22 @@
-package io.onedev.server.web.page.project.blob.search.advanced;
+package io.cheeta.server.web.page.project.blob.search.advanced;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.code.CodeSearchService;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.query.*;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.behavior.RunTaskBehavior;
-import io.onedev.server.web.component.codequeryoption.FileQueryOptionEditor;
-import io.onedev.server.web.component.codequeryoption.SymbolQueryOptionEditor;
-import io.onedev.server.web.component.codequeryoption.TextQueryOptionEditor;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.code.CodeSearchService;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.query.*;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.behavior.RunTaskBehavior;
+import io.cheeta.server.web.component.codequeryoption.FileQueryOptionEditor;
+import io.cheeta.server.web.component.codequeryoption.SymbolQueryOptionEditor;
+import io.cheeta.server.web.component.codequeryoption.TextQueryOptionEditor;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
 import org.apache.wicket.Component;
 import org.apache.wicket.MetaDataKey;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -34,7 +34,7 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -192,7 +192,7 @@ public abstract class AdvancedSearchPanel extends Panel {
 						var count = getMaxQueryEntries();
 						if (revision != null) {
 							var directory = getDirectory(insideCurrentDir);
-							var searchService = OneDev.getInstance(CodeSearchService.class);
+							var searchService = Cheeta.getInstance(CodeSearchService.class);
 							if (option instanceof TextQueryOption) {
 								var query = new TextQuery.Builder((TextQueryOption) option)
 										.directory(directory)
@@ -301,7 +301,7 @@ public abstract class AdvancedSearchPanel extends Panel {
 	protected abstract BlobIdent getCurrentBlob();
 	
 	private static int getMaxQueryEntries() {
-		return OneDev.getInstance(SettingService.class).getPerformanceSetting().getMaxCodeSearchEntries();
+		return Cheeta.getInstance(SettingService.class).getPerformanceSetting().getMaxCodeSearchEntries();
 	}
 	
 	protected String getDirectory(boolean insideDir) {

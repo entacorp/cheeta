@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -17,10 +17,10 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.util.Pair;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
 
 public class ResourceListPage extends ApiHelpPage {
 
@@ -37,7 +37,7 @@ public class ResourceListPage extends ApiHelpPage {
 			@Override
 			protected List<Pair<Class<?>, String>> load() {
 				List<Pair<Class<?>, String>> pairs = new ArrayList<>();
-				ResourceConfig config = OneDev.getInstance(ResourceConfig.class);
+				ResourceConfig config = Cheeta.getInstance(ResourceConfig.class);
 				for (Class<?> clazz: config.getClasses()) {
 					if (clazz.getAnnotation(Path.class) != null) { 
 						Api api = clazz.getAnnotation(Api.class);

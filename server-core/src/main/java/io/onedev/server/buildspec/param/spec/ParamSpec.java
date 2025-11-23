@@ -1,21 +1,21 @@
-package io.onedev.server.buildspec.param.spec;
+package io.cheeta.server.buildspec.param.spec;
 
 import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 import javax.validation.Valid;
 
-import io.onedev.server.annotation.Multiline;
+import io.cheeta.server.annotation.Multiline;
 import org.apache.wicket.Component;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.buildspec.ParamSpecAware;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.buildspecmodel.inputspec.showcondition.ShowCondition;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.annotation.ParamName;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.buildspec.ParamSpecAware;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.buildspecmodel.inputspec.showcondition.ShowCondition;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.annotation.ParamName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable
 public abstract class ParamSpec extends InputSpec {

@@ -1,6 +1,6 @@
-package io.onedev.server.web.util.editbean;
+package io.cheeta.server.web.util.editbean;
 
-import static io.onedev.server.util.DateUtils.toDate;
+import static io.cheeta.server.util.DateUtils.toDate;
 import static java.lang.Integer.parseInt;
 import static java.time.LocalDate.ofEpochDay;
 import static java.util.stream.Collectors.toList;
@@ -13,15 +13,15 @@ import org.jspecify.annotations.Nullable;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.validation.Validatable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.validation.Validatable;
 
 @Editable
 @ClassValidating
@@ -162,7 +162,7 @@ public class IterationEditBean implements Validatable, Serializable {
 					.addPropertyNode("name").addConstraintViolation();
 			return false;
 		}
-		IterationService iterationService = OneDev.getInstance(IterationService.class);
+		IterationService iterationService = Cheeta.getInstance(IterationService.class);
 		Iteration iterationWithSameName = iterationService.findInHierarchy(Project.get(), name);
 		if (iterationWithSameName != null && (oldName == null || !oldName.equals(name))) {
 			context.disableDefaultConstraintViolation();

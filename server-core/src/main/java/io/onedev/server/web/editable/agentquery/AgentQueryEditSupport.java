@@ -1,16 +1,16 @@
-package io.onedev.server.web.editable.agentquery;
+package io.cheeta.server.web.editable.agentquery;
 
 import java.lang.reflect.Method;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
-import io.onedev.server.annotation.AgentQuery;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.AgentQuery;
 
 public class AgentQueryEditSupport implements EditSupport {
 

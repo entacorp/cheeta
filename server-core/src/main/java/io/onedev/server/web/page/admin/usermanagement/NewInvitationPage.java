@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.usermanagement;
+package io.cheeta.server.web.page.admin.usermanagement;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -13,18 +13,18 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserInvitationService;
-import io.onedev.server.model.UserInvitation;
-import io.onedev.server.web.component.taskbutton.TaskButton;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.taskbutton.TaskResult.PlainMessage;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.page.admin.mailservice.MailConnectorPage;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserInvitationService;
+import io.cheeta.server.model.UserInvitation;
+import io.cheeta.server.web.component.taskbutton.TaskButton;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.taskbutton.TaskResult.PlainMessage;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.page.admin.mailservice.MailConnectorPage;
 
 public class NewInvitationPage extends AdministrationPage {
 
@@ -36,7 +36,7 @@ public class NewInvitationPage extends AdministrationPage {
 	protected void onInitialize() {
 		super.onInitialize();
 		
-		var mailConnector = OneDev.getInstance(SettingService.class).getMailConnector();
+		var mailConnector = Cheeta.getInstance(SettingService.class).getMailConnector();
 		if (mailConnector != null) {
 			Fragment fragment = new Fragment("content", "inviteFrag", this);
 			NewInvitationBean bean = new NewInvitationBean();
@@ -51,9 +51,9 @@ public class NewInvitationPage extends AdministrationPage {
 						logger.log(MessageFormat.format(_T("Sending invitation to \"{0}\"..."), emailAddress));
 						UserInvitation invitation = new UserInvitation();
 						invitation.setEmailAddress(emailAddress);
-						UserInvitationService userInvitationService = OneDev.getInstance(UserInvitationService.class);
+						UserInvitationService userInvitationService = Cheeta.getInstance(UserInvitationService.class);
 						userInvitationService.create(invitation);
-						OneDev.getInstance(AuditService.class).audit(null, "created invitation for \"" + emailAddress + "\"", null, null);
+						Cheeta.getInstance(AuditService.class).audit(null, "created invitation for \"" + emailAddress + "\"", null, null);
 						userInvitationService.sendInvitationEmail(invitation);
 						if (Thread.interrupted())
 							throw new InterruptedException();

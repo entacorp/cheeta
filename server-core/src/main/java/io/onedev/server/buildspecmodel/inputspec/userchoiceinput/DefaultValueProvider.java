@@ -1,8 +1,8 @@
-package io.onedev.server.buildspecmodel.inputspec.userchoiceinput;
+package io.cheeta.server.buildspecmodel.inputspec.userchoiceinput;
 
 import java.io.Serializable;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public interface DefaultValueProvider extends Serializable {

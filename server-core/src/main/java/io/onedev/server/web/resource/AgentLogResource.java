@@ -1,7 +1,7 @@
-package io.onedev.server.web.resource;
+package io.cheeta.server.web.resource;
 
-import static io.onedev.agent.job.LogRequest.toZoneId;
-import static io.onedev.server.util.DateUtils.getZoneId;
+import static io.cheeta.agent.job.LogRequest.toZoneId;
+import static io.cheeta.server.util.DateUtils.getZoneId;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -18,11 +18,11 @@ import org.apache.wicket.request.resource.AbstractResource;
 
 import com.google.common.base.Joiner;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.model.Agent;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.security.SecurityUtils;
 
 public class AgentLogResource extends AbstractResource {
 
@@ -36,7 +36,7 @@ public class AgentLogResource extends AbstractResource {
 			throw new UnauthorizedException();
 
 		String agentName = attributes.getParameters().get(PARAM_AGENT).toString();
-		Agent agent = OneDev.getInstance(AgentService.class).findByName(agentName);
+		Agent agent = Cheeta.getInstance(AgentService.class).findByName(agentName);
 		if (agent == null)
 			throw new EntityNotFoundException("Unable to find agent: " + agentName);
 		
@@ -58,8 +58,8 @@ public class AgentLogResource extends AbstractResource {
 
 			@Override
 			public void writeData(Attributes attributes) throws IOException {
-				Agent agent = OneDev.getInstance(AgentService.class).load(agentId);
-				List<String> agentLog = OneDev.getInstance(AgentService.class).getAgentLog(agent);
+				Agent agent = Cheeta.getInstance(AgentService.class).load(agentId);
+				List<String> agentLog = Cheeta.getInstance(AgentService.class).getAgentLog(agent);
 				String content = Joiner.on("\n").join(toZoneId(agentLog, getZoneId()));
 				attributes.getResponse().getOutputStream().write(content.getBytes(StandardCharsets.UTF_8));
 			}				

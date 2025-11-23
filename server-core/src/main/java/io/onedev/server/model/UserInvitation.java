@@ -1,7 +1,7 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +11,8 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import java.util.UUID;
 
-import static io.onedev.server.model.UserInvitation.PROP_EMAIL_ADDRESS;
-import static io.onedev.server.model.UserInvitation.PROP_INVITATION_CODE;
+import static io.cheeta.server.model.UserInvitation.PROP_EMAIL_ADDRESS;
+import static io.cheeta.server.model.UserInvitation.PROP_INVITATION_CODE;
 
 @Entity
 @Table(indexes={@Index(columnList=PROP_EMAIL_ADDRESS), @Index(columnList=PROP_INVITATION_CODE)})

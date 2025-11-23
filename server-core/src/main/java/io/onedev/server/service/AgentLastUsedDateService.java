@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.AgentLastUsedDate;
+import io.cheeta.server.model.AgentLastUsedDate;
 
 public interface AgentLastUsedDateService extends EntityService<AgentLastUsedDate> {
 

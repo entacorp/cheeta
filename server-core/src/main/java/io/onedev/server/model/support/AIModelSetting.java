@@ -1,4 +1,4 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -20,9 +20,9 @@ import com.google.gson.JsonParser;
 
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.util.EditContext;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.util.EditContext;
 
 @Editable(order=100)
 public class AIModelSetting implements Serializable {

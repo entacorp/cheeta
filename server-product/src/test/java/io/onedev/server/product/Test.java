@@ -1,4 +1,4 @@
-package io.onedev.server.product;
+package io.cheeta.server.product;
 
 public class Test {
 

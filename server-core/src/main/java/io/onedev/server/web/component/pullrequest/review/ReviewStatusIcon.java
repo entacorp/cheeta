@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.pullrequest.review;
+package io.cheeta.server.web.component.pullrequest.review;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.ComponentTag;
@@ -8,9 +8,9 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.WebComponent;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public abstract class ReviewStatusIcon extends WebComponent {
 	

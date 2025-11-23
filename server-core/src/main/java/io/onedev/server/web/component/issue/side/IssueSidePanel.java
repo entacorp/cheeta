@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.issue.side;
+package io.cheeta.server.web.component.issue.side;
 
-import static io.onedev.server.security.SecurityUtils.canAccessIssue;
-import static io.onedev.server.security.SecurityUtils.canManageIssues;
-import static io.onedev.server.util.EmailAddressUtils.describe;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.security.SecurityUtils.canAccessIssue;
+import static io.cheeta.server.security.SecurityUtils.canManageIssues;
+import static io.cheeta.server.util.EmailAddressUtils.describe;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -45,47 +45,47 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueVoteService;
-import io.onedev.server.service.IssueWatchService;
-import io.onedev.server.entityreference.EntityReference;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueVote;
-import io.onedev.server.model.IssueWatch;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.EntityWatch;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryLexer;
-import io.onedev.server.search.entity.issue.StateCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.ajaxlistener.AttachAjaxIndicatorListener;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.entity.reference.EntityReferencePanel;
-import io.onedev.server.web.component.entity.watches.EntityWatchesPanel;
-import io.onedev.server.web.component.issue.fieldvalues.FieldValuesPanel;
-import io.onedev.server.web.component.issue.statestats.StateStatsBar;
-import io.onedev.server.web.component.iteration.IterationStatusLabel;
-import io.onedev.server.web.component.iteration.choice.AbstractIterationChoiceProvider;
-import io.onedev.server.web.component.iteration.choice.IterationChoiceResourceReference;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
-import io.onedev.server.web.component.select2.SelectToActChoice;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.component.user.list.SimpleUserListLink;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.issues.iteration.IterationIssuesPage;
-import io.onedev.server.web.page.security.LoginPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueVoteService;
+import io.cheeta.server.service.IssueWatchService;
+import io.cheeta.server.entityreference.EntityReference;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueVote;
+import io.cheeta.server.model.IssueWatch;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.EntityWatch;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryLexer;
+import io.cheeta.server.search.entity.issue.StateCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.ajaxlistener.AttachAjaxIndicatorListener;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.entity.reference.EntityReferencePanel;
+import io.cheeta.server.web.component.entity.watches.EntityWatchesPanel;
+import io.cheeta.server.web.component.issue.fieldvalues.FieldValuesPanel;
+import io.cheeta.server.web.component.issue.statestats.StateStatsBar;
+import io.cheeta.server.web.component.iteration.IterationStatusLabel;
+import io.cheeta.server.web.component.iteration.choice.AbstractIterationChoiceProvider;
+import io.cheeta.server.web.component.iteration.choice.IterationChoiceResourceReference;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.web.component.select2.SelectToActChoice;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.component.user.list.SimpleUserListLink;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.issues.iteration.IterationIssuesPage;
+import io.cheeta.server.web.page.security.LoginPage;
 
 public abstract class IssueSidePanel extends Panel {
 
@@ -111,12 +111,12 @@ public abstract class IssueSidePanel extends Panel {
 
 			@Override
 			protected void onSaveWatch(EntityWatch watch) {
-				OneDev.getInstance(IssueWatchService.class).createOrUpdate((IssueWatch) watch);
+				Cheeta.getInstance(IssueWatchService.class).createOrUpdate((IssueWatch) watch);
 			}
 
 			@Override
 			protected void onDeleteWatch(EntityWatch watch) {
-				OneDev.getInstance(IssueWatchService.class).delete((IssueWatch) watch);
+				Cheeta.getInstance(IssueWatchService.class).delete((IssueWatch) watch);
 			}
 
 			@Override
@@ -222,7 +222,7 @@ public abstract class IssueSidePanel extends Panel {
 				super.updateAjaxAttributes(attributes);
 				
 				String precondition = "" +
-						"if (onedev.server.form.confirmLeave())" +
+						"if (cheeta.server.form.confirmLeave())" +
 						"	return true;" +
 						"if ($(this).is(':checkbox'))" +
 						"  this.checked = !this.checked;" +
@@ -233,7 +233,7 @@ public abstract class IssueSidePanel extends Panel {
 			@Override
 			protected void onUpdate(AjaxRequestTarget target) {
 				var user = SecurityUtils.getUser();
-				OneDev.getInstance(IssueChangeService.class).changeConfidential(user, getIssue(), confidential);
+				Cheeta.getInstance(IssueChangeService.class).changeConfidential(user, getIssue(), confidential);
 				setResponsePage(getPage());
 			}
 			
@@ -354,9 +354,9 @@ public abstract class IssueSidePanel extends Panel {
 				super.onInitialize();
 				
 				getSettings().setPlaceholder(_T("Add to iteration..."));
-				getSettings().setFormatResult("onedev.server.iterationChoiceFormatter.formatResult");
-				getSettings().setFormatSelection("onedev.server.iterationChoiceFormatter.formatSelection");
-				getSettings().setEscapeMarkup("onedev.server.iterationChoiceFormatter.escapeMarkup");
+				getSettings().setFormatResult("cheeta.server.iterationChoiceFormatter.formatResult");
+				getSettings().setFormatSelection("cheeta.server.iterationChoiceFormatter.formatSelection");
+				getSettings().setEscapeMarkup("cheeta.server.iterationChoiceFormatter.escapeMarkup");
 			}
 			
 			@Override
@@ -473,12 +473,12 @@ public abstract class IssueSidePanel extends Panel {
 						vote.setIssue(getIssue());
 						vote.setUser(SecurityUtils.getAuthUser());
 						vote.setDate(new Date());
-						OneDev.getInstance(IssueVoteService.class).create(vote);
+						Cheeta.getInstance(IssueVoteService.class).create(vote);
 						getIssue().getVotes().add(vote);
 						target.add(watchesContainer);
 					} else {
 						getIssue().getVotes().remove(vote);
-						OneDev.getInstance(IssueVoteService.class).delete(vote);
+						Cheeta.getInstance(IssueVoteService.class).delete(vote);
 					}
 					target.add(container);
 				} else {
@@ -553,7 +553,7 @@ public abstract class IssueSidePanel extends Panel {
 					
 					@Override
 					public void onClick(AjaxRequestTarget target) {
-						OneDev.getInstance(TransactionService.class).run(() -> {
+						Cheeta.getInstance(TransactionService.class).run(() -> {
 							getIssue().getExternalParticipants().remove(item.getModelObject());
 						});		
 						target.add(container);
@@ -571,7 +571,7 @@ public abstract class IssueSidePanel extends Panel {
 	}
 	
 	private IssueChangeService getIssueChangeService() {
-		return OneDev.getInstance(IssueChangeService.class);
+		return Cheeta.getInstance(IssueChangeService.class);
 	}
 	
 	@Override

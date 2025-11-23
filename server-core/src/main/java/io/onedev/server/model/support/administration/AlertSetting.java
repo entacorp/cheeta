@@ -1,12 +1,12 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.UserChoice;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.UserChoice;
+import io.cheeta.server.util.usage.Usage;
 
 @Editable
 public class AlertSetting implements Serializable {

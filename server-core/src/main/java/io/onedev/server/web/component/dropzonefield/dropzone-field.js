@@ -1,4 +1,4 @@
-onedev.server.dropzone = {
+cheeta.server.dropzone = {
 	onDomReady: function(containerId, uploadUrl, deleteCallback, acceptedFiles, maxFiles, maxFilesize) {
 		var input = document.querySelector("#" + containerId + ">.dropzone");
 		
@@ -10,7 +10,7 @@ onedev.server.dropzone = {
 			maxFilesize: maxFilesize, 
 			dictDefaultMessage: "Drop files here or click to upload",
 			success: function() {
-				onedev.server.form.markDirty($(input).closest("form"));
+				cheeta.server.form.markDirty($(input).closest("form"));
 			},
 			removedfile: function(file) {
 				deleteCallback(file.name);

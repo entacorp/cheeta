@@ -1,10 +1,10 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import io.onedev.commons.utils.LinearRange;
+import io.cheeta.commons.utils.LinearRange;
 
 public class RangeUtils {
 	

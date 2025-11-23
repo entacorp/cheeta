@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.project;
+package io.cheeta.server.web.component.project;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebComponent;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.avatar.AvatarService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.avatar.AvatarService;
 
 public class ProjectAvatar extends WebComponent {
 
@@ -17,7 +17,7 @@ public class ProjectAvatar extends WebComponent {
 	}
 	
 	private AvatarService getAvatarService() {
-		return OneDev.getInstance(AvatarService.class);
+		return Cheeta.getInstance(AvatarService.class);
 	}
 	
 	@Override

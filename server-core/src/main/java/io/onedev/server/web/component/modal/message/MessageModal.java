@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.modal.message;
+package io.cheeta.server.web.component.modal.message;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-import io.onedev.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.modal.ModalPanel;
 
 public abstract class MessageModal extends ModalPanel {
 

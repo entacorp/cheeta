@@ -1,12 +1,12 @@
-package io.onedev.server.web.page.user.sshkeys;
+package io.cheeta.server.web.page.user.sshkeys;
 
-import io.onedev.server.model.SshKey;
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.user.sshkey.InsertSshKeyPanel;
-import io.onedev.server.web.component.user.sshkey.SshKeyListPanel;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.model.SshKey;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.user.sshkey.InsertSshKeyPanel;
+import io.cheeta.server.web.component.user.sshkey.SshKeyListPanel;
+import io.cheeta.server.web.page.user.UserPage;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;

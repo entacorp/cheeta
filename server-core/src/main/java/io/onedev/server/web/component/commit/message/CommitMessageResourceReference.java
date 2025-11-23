@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.commit.message;
+package io.cheeta.server.web.component.commit.message;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

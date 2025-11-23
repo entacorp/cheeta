@@ -1,22 +1,22 @@
-package io.onedev.server.web.editable.buildspec.param.instance;
+package io.cheeta.server.web.editable.buildspec.param.instance;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.annotation.ParamSpecProvider;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.annotation.VariableOption;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.param.ParamUtils;
-import io.onedev.server.buildspec.param.instance.*;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspec.param.spec.SecretParam;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.InterpolativeAssistBehavior;
-import io.onedev.server.web.editable.*;
-import io.onedev.server.web.editable.buildspec.job.trigger.JobTriggerEditPanel;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.annotation.ParamSpecProvider;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.annotation.VariableOption;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.param.ParamUtils;
+import io.cheeta.server.buildspec.param.instance.*;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.param.spec.SecretParam;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.InterpolativeAssistBehavior;
+import io.cheeta.server.web.editable.*;
+import io.cheeta.server.web.editable.buildspec.job.trigger.JobTriggerEditPanel;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
@@ -312,7 +312,7 @@ class ParamMatrixEditPanel extends PropertyEditor<List<Serializable>> {
 				item.remove();
 				String script = String.format(""
 						+ "var $item=$('#%s');"
-						+ "onedev.server.form.markDirty($item.closest('form'));" 
+						+ "cheeta.server.form.markDirty($item.closest('form'));" 
 						+ "$item.remove();",
 						item.getMarkupId());
 				target.appendJavaScript(script);
@@ -362,7 +362,7 @@ class ParamMatrixEditPanel extends PropertyEditor<List<Serializable>> {
 					String script = String.format(""
 							+ "var $editor = $('#%s');"
 							+ "$editor.before('<li id=\"%s\"></li>');"
-							+ "onedev.server.form.markDirty($editor.closest('form'));", 
+							+ "cheeta.server.form.markDirty($editor.closest('form'));", 
 							getMarkupId(), newSpecifiedValueEditor.getMarkupId());
 					target.prependJavaScript(script);
 					target.add(newSpecifiedValueEditor);
@@ -423,7 +423,7 @@ class ParamMatrixEditPanel extends PropertyEditor<List<Serializable>> {
 		super.renderHead(response);
 		validate();
 		if (!getModelObject().equals(getConvertedInput())) {
-			String script = String.format("onedev.server.form.markDirty($('#%s').closest('form'));", getMarkupId());
+			String script = String.format("cheeta.server.form.markDirty($('#%s').closest('form'));", getMarkupId());
 			response.render(OnDomReadyHeaderItem.forScript(script));
 		}
 	}

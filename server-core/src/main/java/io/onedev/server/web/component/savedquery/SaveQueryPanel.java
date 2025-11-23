@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.savedquery;
+package io.cheeta.server.web.component.savedquery;
 
 import org.jspecify.annotations.Nullable;
 
@@ -10,10 +10,10 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.project.ProjectPage;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.project.ProjectPage;
 
 public abstract class SaveQueryPanel extends Panel {
 

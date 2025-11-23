@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
 public class StepGroup {
 

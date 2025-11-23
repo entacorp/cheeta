@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.source;
+package io.cheeta.server.web.page.project.blob.render.source;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -10,14 +10,14 @@ import org.apache.wicket.markup.html.form.FormComponentPanel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.OneDev;
-import io.onedev.server.web.component.sourceformat.OptionChangeCallback;
-import io.onedev.server.web.component.sourceformat.SourceFormatPanel;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
-import io.onedev.server.web.page.project.blob.render.edit.BlobEditPanel;
-import io.onedev.server.web.page.project.blob.render.view.Positionable;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.component.sourceformat.OptionChangeCallback;
+import io.cheeta.server.web.component.sourceformat.SourceFormatPanel;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.server.web.page.project.blob.render.edit.BlobEditPanel;
+import io.cheeta.server.web.page.project.blob.render.view.Positionable;
 
 public class SourceEditPanel extends BlobEditPanel implements Positionable {
 
@@ -49,7 +49,7 @@ public class SourceEditPanel extends BlobEditPanel implements Positionable {
 
 			@Override
 			public void onOptioneChange(AjaxRequestTarget target) {
-				String script = String.format("onedev.server.sourceEdit.onIndentTypeChange('%s');", 
+				String script = String.format("cheeta.server.sourceEdit.onIndentTypeChange('%s');", 
 						sourceFormat.getIndentType());
 				target.appendJavaScript(script);
 			}
@@ -58,7 +58,7 @@ public class SourceEditPanel extends BlobEditPanel implements Positionable {
 
 			@Override
 			public void onOptioneChange(AjaxRequestTarget target) {
-				String script = String.format("onedev.server.sourceEdit.onTabSizeChange(%s);", 
+				String script = String.format("cheeta.server.sourceEdit.onTabSizeChange(%s);", 
 						sourceFormat.getTabSize());
 				target.appendJavaScript(script);
 			}
@@ -67,7 +67,7 @@ public class SourceEditPanel extends BlobEditPanel implements Positionable {
 			
 			@Override
 			public void onOptioneChange(AjaxRequestTarget target) {
-				String script = String.format("onedev.server.sourceEdit.onLineWrapModeChange('%s');", 
+				String script = String.format("cheeta.server.sourceEdit.onLineWrapModeChange('%s');", 
 						sourceFormat.getLineWrapMode());
 				target.appendJavaScript(script);
 			}
@@ -83,14 +83,14 @@ public class SourceEditPanel extends BlobEditPanel implements Positionable {
 		
 		PlanarRange mark = BlobRenderer.getSourceRange(context.getPosition());
 		
-		String script = String.format("onedev.server.sourceEdit.onWindowLoad('%s', %s);", 
+		String script = String.format("cheeta.server.sourceEdit.onWindowLoad('%s', %s);", 
 				getEditor().getMarkupId(), mark != null? getJson(mark): "undefined");
 		response.render(OnLoadHeaderItem.forScript(script));		
 	}
 	
 	private String getJson(PlanarRange mark) {
 		try {
-			return OneDev.getInstance(ObjectMapper.class).writeValueAsString(mark);
+			return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(mark);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
@@ -101,9 +101,9 @@ public class SourceEditPanel extends BlobEditPanel implements Positionable {
 		String script;
 		PlanarRange mark = BlobRenderer.getSourceRange(position);
 		if (mark != null) 
-			script = String.format("onedev.server.sourceEdit.mark(%s);", getJson(mark));
+			script = String.format("cheeta.server.sourceEdit.mark(%s);", getJson(mark));
 		else 
-			script = String.format("onedev.server.sourceEdit.mark();");
+			script = String.format("cheeta.server.sourceEdit.mark();");
 		target.appendJavaScript(script);
 	}
 

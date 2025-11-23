@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.PullRequestDescriptionRevision;
+import io.cheeta.server.model.PullRequestDescriptionRevision;
 
 public interface PullRequestDescriptionRevisionService extends EntityService<PullRequestDescriptionRevision> {
 		

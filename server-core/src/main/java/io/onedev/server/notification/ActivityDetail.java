@@ -1,6 +1,6 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,21 +14,21 @@ import org.apache.wicket.model.Model;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.PropertyChange;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.asset.fieldcompare.FieldCompareCssResourceReference;
-import io.onedev.server.web.component.codecomment.referencedfrom.ReferencedFromCodeCommentPanel;
-import io.onedev.server.web.component.commit.info.CommitInfoPanel;
-import io.onedev.server.web.component.issue.referencedfrom.ReferencedFromIssuePanel;
-import io.onedev.server.web.component.pullrequest.referencedfrom.ReferencedFromPullRequestPanel;
-import io.onedev.server.web.page.project.ProjectPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.PropertyChange;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.asset.fieldcompare.FieldCompareCssResourceReference;
+import io.cheeta.server.web.component.codecomment.referencedfrom.ReferencedFromCodeCommentPanel;
+import io.cheeta.server.web.component.commit.info.CommitInfoPanel;
+import io.cheeta.server.web.component.issue.referencedfrom.ReferencedFromIssuePanel;
+import io.cheeta.server.web.component.pullrequest.referencedfrom.ReferencedFromPullRequestPanel;
+import io.cheeta.server.web.page.project.ProjectPage;
 
 public class ActivityDetail implements Serializable {
 
@@ -146,7 +146,7 @@ public class ActivityDetail implements Serializable {
 	}
 	
 	public static ActivityDetail referencedFrom(CodeComment comment) {
-		String url = OneDev.getInstance(UrlService.class).urlFor(comment, true);
+		String url = Cheeta.getInstance(UrlService.class).urlFor(comment, true);
 		String htmlVersion = String.format("<div><a href='%s'>%s</a></div>", 
 				url, HtmlEscape.escapeHtml5(comment.getMark().getPath()));
 		String textVersion = comment.getMark().getPath() + "\n";  
@@ -166,7 +166,7 @@ public class ActivityDetail implements Serializable {
 	}
 	
 	public static ActivityDetail referencedFrom(Issue issue) {
-		String url = OneDev.getInstance(UrlService.class).urlFor(issue, true);
+		String url = Cheeta.getInstance(UrlService.class).urlFor(issue, true);
 		String htmlVersion = String.format("<div><a href='%s'>[%s] %s</a></div>", 
 				url, issue.getReference(), HtmlEscape.escapeHtml5(issue.getTitle()));
 		String textVersion = String.format("[%s] %s\n", issue.getReference(), issue.getTitle());
@@ -185,7 +185,7 @@ public class ActivityDetail implements Serializable {
 	}
 	
 	public static ActivityDetail referencedFrom(PullRequest request) {
-		String url = OneDev.getInstance(UrlService.class).urlFor(request, true);
+		String url = Cheeta.getInstance(UrlService.class).urlFor(request, true);
 		String htmlVersion = String.format("<div><a href='%s'>[%s] %s</a></div>", 
 				url, request.getReference().toString(null), HtmlEscape.escapeHtml5(request.getTitle()));
 		String textVersion = String.format("[%s] %s\n", request.getReference().toString(null), request.getTitle());
@@ -205,7 +205,7 @@ public class ActivityDetail implements Serializable {
 
 	public static ActivityDetail referencedFrom(ProjectScopedCommit commit) {
 		RevCommit revCommit = commit.getProject().getRevCommit(commit.getCommitId(), true);
-		String url = OneDev.getInstance(UrlService.class).urlFor(commit.getProject(), commit.getCommitId(), true);
+		String url = Cheeta.getInstance(UrlService.class).urlFor(commit.getProject(), commit.getCommitId(), true);
 		String htmlVersion = String.format("<div><a href='%s'>[%s] %s</a></div>",
 				url, commit.getFQN(), HtmlEscape.escapeHtml5(revCommit.getShortMessage()));
 		String textVersion = String.format("[%s] %s\n", commit.getFQN(), revCommit.getShortMessage());

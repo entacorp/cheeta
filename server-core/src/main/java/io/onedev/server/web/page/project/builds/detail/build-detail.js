@@ -1,4 +1,4 @@
-onedev.server.buildDetail = {
+cheeta.server.buildDetail = {
 	openTerminal: function(terminalUrl) {
 		var width = 900;
 		var height = 600;

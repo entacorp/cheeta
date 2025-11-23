@@ -1,7 +1,7 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.CodeComment.SORT_FIELDS;
-import static io.onedev.server.search.entity.EntitySort.Direction.ASCENDING;
+import static io.cheeta.server.model.CodeComment.SORT_FIELDS;
+import static io.cheeta.server.search.entity.EntitySort.Direction.ASCENDING;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,39 +38,39 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.OneDev;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.codecomment.CodeCommentCreated;
-import io.onedev.server.event.project.codecomment.CodeCommentDeleted;
-import io.onedev.server.event.project.codecomment.CodeCommentEdited;
-import io.onedev.server.event.project.codecomment.CodeCommentEvent;
-import io.onedev.server.event.project.codecomment.CodeCommentsDeleted;
-import io.onedev.server.event.project.pullrequest.PullRequestCodeCommentCreated;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.model.support.LastActivity;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.codecomment.CodeCommentQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.codecomment.CodeCommentCreated;
+import io.cheeta.server.event.project.codecomment.CodeCommentDeleted;
+import io.cheeta.server.event.project.codecomment.CodeCommentEdited;
+import io.cheeta.server.event.project.codecomment.CodeCommentEvent;
+import io.cheeta.server.event.project.codecomment.CodeCommentsDeleted;
+import io.cheeta.server.event.project.pullrequest.PullRequestCodeCommentCreated;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.model.support.LastActivity;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.codecomment.CodeCommentQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.xodus.CommitInfoService;
 
 @Singleton
 public class DefaultCodeCommentService extends BaseEntityService<CodeComment> implements CodeCommentService {
@@ -146,7 +146,7 @@ public class DefaultCodeCommentService extends BaseEntityService<CodeComment> im
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	@Override

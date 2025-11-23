@@ -1,6 +1,6 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
-import io.onedev.server.exception.ExceptionUtils;
+import io.cheeta.server.exception.ExceptionUtils;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;

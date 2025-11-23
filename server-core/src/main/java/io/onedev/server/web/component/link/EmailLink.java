@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.link;
+package io.cheeta.server.web.component.link;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.ComponentTag;

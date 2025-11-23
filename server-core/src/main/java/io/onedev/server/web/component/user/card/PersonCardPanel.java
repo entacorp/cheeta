@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.card;
+package io.cheeta.server.web.component.user.card;
 
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
@@ -11,11 +11,11 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.user.UserAvatar;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.user.UserAvatar;
 
 public class PersonCardPanel extends Panel {
 
@@ -40,7 +40,7 @@ public class PersonCardPanel extends Panel {
 		
 		StringBuilder builder = new StringBuilder();
 		
-		EmailAddressService emailAddressService = OneDev.getInstance(EmailAddressService.class);
+		EmailAddressService emailAddressService = Cheeta.getInstance(EmailAddressService.class);
 		String displayName;
 		EmailAddress emailAddress = emailAddressService.findByValue(personIdent.getEmailAddress());
 		if (emailAddress != null && emailAddress.isVerified())
@@ -55,7 +55,7 @@ public class PersonCardPanel extends Panel {
 		else if (emailAddress != null && emailAddress.isVerified()) 
 			builder.append(MessageFormat.format("<a href=\"/~users/{0}\">@{1}</a>", emailAddress.getOwner().getId(), escapeHtml5(emailAddress.getOwner().getName()))); 
 		else 
-			builder.append("<i>No OneDev Account</i>");
+			builder.append("<i>No Cheeta Account</i>");
 		
 		container.add(new Label("info", builder.toString()).setEscapeModelStrings(false));
 	}

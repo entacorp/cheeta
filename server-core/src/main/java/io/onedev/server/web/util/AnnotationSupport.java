@@ -1,12 +1,12 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.support.Mark;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.support.Mark;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
 import org.jspecify.annotations.Nullable;

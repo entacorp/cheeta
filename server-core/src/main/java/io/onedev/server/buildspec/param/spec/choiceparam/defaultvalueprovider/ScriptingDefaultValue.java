@@ -1,9 +1,9 @@
-package io.onedev.server.buildspec.param.spec.choiceparam.defaultvalueprovider;
+package io.cheeta.server.buildspec.param.spec.choiceparam.defaultvalueprovider;
 
-import io.onedev.server.util.GroovyUtils;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ScriptChoice;
+import io.cheeta.server.util.GroovyUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ScriptChoice;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -15,7 +15,7 @@ public class ScriptingDefaultValue implements DefaultValueProvider {
 	private String scriptName;
 
 	@Editable(description="Groovy script to be evaluated. It should return a <i>string</i> value. "
-			+ "Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details")
+			+ "Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details")
 	@ScriptChoice
 	@OmitName
 	@NotEmpty

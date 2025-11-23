@@ -1,4 +1,4 @@
-package io.onedev.server.search.buildmetric;
+package io.cheeta.server.search.buildmetric;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Join;
@@ -6,7 +6,7 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import io.onedev.server.model.support.BuildMetric;
+import io.cheeta.server.model.support.BuildMetric;
 
 public class ReportCriteria extends BuildMetricCriteria {
 

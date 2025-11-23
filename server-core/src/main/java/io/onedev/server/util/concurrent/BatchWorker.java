@@ -1,4 +1,4 @@
-package io.onedev.server.util.concurrent;
+package io.cheeta.server.util.concurrent;
 
 import java.io.Serializable;
 import java.util.List;

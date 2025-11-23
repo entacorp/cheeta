@@ -1,6 +1,6 @@
-package io.onedev.server.util.facade;
+package io.cheeta.server.util.facade;
 
-import static io.onedev.commons.utils.match.WildcardUtils.matchPath;
+import static io.cheeta.commons.utils.match.WildcardUtils.matchPath;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toSet;
 
@@ -17,13 +17,13 @@ import org.jspecify.annotations.Nullable;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.MapProxy;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.MapProxy;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.util.patternset.PatternSet;
 
 public class ProjectCache extends MapProxy<Long, ProjectFacade> {
 
@@ -114,7 +114,7 @@ public class ProjectCache extends MapProxy<Long, ProjectFacade> {
 	}
 
 	public Collection<Project> getProjects() {
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		return keySet().stream().map(projectService::load).collect(toSet());
 	}
 	

@@ -1,4 +1,4 @@
-package io.onedev.server.job.log;
+package io.cheeta.server.job.log;
 
 import java.io.InputStream;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.regex.Pattern;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.buildspec.job.log.JobLogEntryEx;
-import io.onedev.server.model.Build;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.buildspec.job.log.JobLogEntryEx;
+import io.cheeta.server.model.Build;
 
 public interface LogService {
 		

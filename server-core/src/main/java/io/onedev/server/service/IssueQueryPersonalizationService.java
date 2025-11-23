@@ -1,9 +1,9 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.IssueQueryPersonalization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.model.IssueQueryPersonalization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.ProjectScope;
 
 import java.util.Collection;
 

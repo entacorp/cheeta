@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.job;
+package io.cheeta.server.web.component.job;
 
 import org.jspecify.annotations.Nullable;
 
@@ -8,14 +8,14 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer;
 
 public abstract class JobDefLink extends BookmarkablePageLink<Void> {
 
@@ -54,7 +54,7 @@ public abstract class JobDefLink extends BookmarkablePageLink<Void> {
 		ProjectBlobPage.State state = new ProjectBlobPage.State();
 		state.blobIdent = new BlobIdent(commitId.name(), BuildSpec.BLOB_PATH, FileMode.REGULAR_FILE.getBits()); 
 		if (getProject().getBlob(state.blobIdent, false) == null)
-			state.blobIdent = new BlobIdent(commitId.name(), ".onedev-buildspec", FileMode.REGULAR_FILE.getBits());
+			state.blobIdent = new BlobIdent(commitId.name(), ".cheeta-buildspec", FileMode.REGULAR_FILE.getBits());
 		state.position = BuildSpecRenderer.getPosition(Job.SELECTION_PREFIX + jobName);
 		state.requestId = PullRequest.idOf(getPullRequest());
 		return ProjectBlobPage.paramsOf(getProject(), state);

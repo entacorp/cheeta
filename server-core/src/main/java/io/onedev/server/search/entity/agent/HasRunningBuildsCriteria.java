@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.agent;
+package io.cheeta.server.search.entity.agent;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,12 +8,12 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class HasRunningBuildsCriteria extends Criteria<Agent> {
 
@@ -28,7 +28,7 @@ public class HasRunningBuildsCriteria extends Criteria<Agent> {
 
 	@Override
 	public boolean matches(Agent agent) {
-		return !OneDev.getInstance(BuildService.class).query(agent, Build.Status.RUNNING).isEmpty();
+		return !Cheeta.getInstance(BuildService.class).query(agent, Build.Status.RUNNING).isEmpty();
 	}
 
 	@Override

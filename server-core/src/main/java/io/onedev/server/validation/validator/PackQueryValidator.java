@@ -1,8 +1,8 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.PackQuery;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.PackQuery;
+import io.cheeta.server.model.Project;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -26,7 +26,7 @@ public class PackQueryValidator implements ConstraintValidator<PackQuery, String
 		} else {
 			Project project = Project.get();
 			try {
-				io.onedev.server.search.entity.pack.PackQuery.parse(project, value, withCurrentUserCriteria);
+				io.cheeta.server.search.entity.pack.PackQuery.parse(project, value, withCurrentUserCriteria);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

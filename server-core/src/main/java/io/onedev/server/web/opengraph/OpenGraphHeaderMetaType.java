@@ -1,4 +1,4 @@
-package io.onedev.server.web.opengraph;
+package io.cheeta.server.web.opengraph;
 
 public enum OpenGraphHeaderMetaType {
 	Image,

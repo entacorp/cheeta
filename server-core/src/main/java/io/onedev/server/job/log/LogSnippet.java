@@ -1,10 +1,10 @@
-package io.onedev.server.job.log;
+package io.cheeta.server.job.log;
 
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-import io.onedev.server.buildspec.job.log.JobLogEntryEx;
+import io.cheeta.server.buildspec.job.log.JobLogEntryEx;
 
 public class LogSnippet implements Serializable {
 	

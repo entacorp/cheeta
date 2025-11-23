@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.accesstoken;
+package io.cheeta.server.web.component.user.accesstoken;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -14,20 +14,20 @@ import org.apache.wicket.markup.html.panel.Panel;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AccessTokenAuthorizationService;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.model.AccessTokenAuthorization;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AccessTokenAuthorizationService;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.model.AccessTokenAuthorization;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.user.UserPage;
 
 abstract class AccessTokenEditPanel extends Panel {
 	
@@ -132,27 +132,27 @@ abstract class AccessTokenEditPanel extends Panel {
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 	
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 	
 	private AccessTokenService getAccessTokenService() {
-		return OneDev.getInstance(AccessTokenService.class);
+		return Cheeta.getInstance(AccessTokenService.class);
 	}
 	
 	private AccessTokenAuthorizationService getAccessTokenAuthorizationService() {
-		return OneDev.getInstance(AccessTokenAuthorizationService.class);
+		return Cheeta.getInstance(AccessTokenAuthorizationService.class);
 	}
 	
 	private RoleService getRoleService() {
-		return OneDev.getInstance(RoleService.class);
+		return Cheeta.getInstance(RoleService.class);
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	protected abstract AccessToken getToken();

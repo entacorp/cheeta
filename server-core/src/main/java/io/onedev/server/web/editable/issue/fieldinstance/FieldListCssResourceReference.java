@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.issue.fieldinstance;
+package io.cheeta.server.web.editable.issue.fieldinstance;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class FieldListCssResourceReference extends BaseDependentCssResourceReference {
 

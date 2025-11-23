@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.project.builds.detail.report;
+package io.cheeta.server.web.page.project.builds.detail.report;
 
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExplicitException;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
 
 public abstract class BuildReportPage extends BuildDetailPage {
 

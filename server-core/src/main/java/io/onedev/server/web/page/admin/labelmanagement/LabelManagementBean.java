@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.admin.labelmanagement;
+package io.cheeta.server.web.page.admin.labelmanagement;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,11 +7,11 @@ import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable
 @ClassValidating

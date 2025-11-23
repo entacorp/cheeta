@@ -1,10 +1,10 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.agent.AgentData;
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.AgentToken;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.agent.AgentData;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.AgentToken;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.criteria.Criteria;
 import org.eclipse.jetty.websocket.api.Session;
 
 import org.jspecify.annotations.Nullable;

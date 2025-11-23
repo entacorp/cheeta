@@ -1,3 +1,3 @@
-package io.onedev.server.model.support.role;
+package io.cheeta.server.model.support.role;
 
 public enum PackPrivilege {NONE, READ, WRITE}

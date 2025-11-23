@@ -1,19 +1,19 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Build;
-import io.onedev.server.search.entity.build.BuildQuery;
-import io.onedev.server.search.entity.build.BuildQueryParser;
-import io.onedev.server.search.entity.build.FuzzyCriteria;
-import io.onedev.server.search.entity.build.ReferenceCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.search.entity.build.BuildQuery;
+import io.cheeta.server.search.entity.build.BuildQueryParser;
+import io.cheeta.server.search.entity.build.FuzzyCriteria;
+import io.cheeta.server.search.entity.build.ReferenceCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
 
 public class BuildParam extends ParamSegment {
 
@@ -28,7 +28,7 @@ public class BuildParam extends ParamSegment {
 			Map<String, String> paramValues, int count) {
 		var project = ParsedUrl.getProject(paramValues);
 		Map<String, String> suggestions = new LinkedHashMap<>();
-		BuildService buildService = OneDev.getInstance(BuildService.class);
+		BuildService buildService = Cheeta.getInstance(BuildService.class);
 		BuildQuery query;
 		if (matchWith.length() == 0) {
 			query = new BuildQuery();
@@ -50,7 +50,7 @@ public class BuildParam extends ParamSegment {
 
 	@Override
 	public boolean isExactMatch(String matchWith, Map<String, String> paramValues) {
-		BuildService buildService = OneDev.getInstance(BuildService.class);
+		BuildService buildService = Cheeta.getInstance(BuildService.class);
 		try {
 			Long buildNumber = Long.valueOf(matchWith);
 			if (buildService.find(ParsedUrl.getProject(paramValues), buildNumber) != null) 

@@ -1,29 +1,29 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import edu.emory.mathcs.backport.java.util.Arrays;
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.utils.PathUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.WebApplication;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.behavior.SelectByTypingBehavior;
-import io.onedev.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
-import io.onedev.server.web.page.admin.pluginsettings.ContributedAdministrationSettingPage;
-import io.onedev.server.web.page.layout.AdministrationSettingContribution;
-import io.onedev.server.web.page.layout.ContributedAdministrationSetting;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.setting.ContributedProjectSetting;
-import io.onedev.server.web.page.project.setting.ProjectSettingContribution;
-import io.onedev.server.web.page.project.setting.pluginsettings.ContributedProjectSettingPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.utils.PathUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.WebApplication;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.behavior.SelectByTypingBehavior;
+import io.cheeta.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
+import io.cheeta.server.web.page.admin.pluginsettings.ContributedAdministrationSettingPage;
+import io.cheeta.server.web.page.layout.AdministrationSettingContribution;
+import io.cheeta.server.web.page.layout.ContributedAdministrationSetting;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.setting.ContributedProjectSetting;
+import io.cheeta.server.web.page.project.setting.ProjectSettingContribution;
+import io.cheeta.server.web.page.project.setting.pluginsettings.ContributedProjectSettingPage;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -45,7 +45,7 @@ import org.apache.wicket.request.IRequestMapper;
 import org.apache.wicket.request.mapper.ICompoundRequestMapper;
 import org.unbescape.javascript.JavaScriptEscape;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -72,7 +72,7 @@ public abstract class CommandPalettePanel extends Panel {
 			"${project}/~stats/issue/state-trend ${project}/~audits");
 	
 	static {
-		for (IRequestMapper mapper: OneDev.getInstance(WebApplication.class).getRequestMappers())
+		for (IRequestMapper mapper: Cheeta.getInstance(WebApplication.class).getRequestMappers())
 			availableUrls.addAll(getMountedPaths(mapper));
 		
 		Collections.sort(availableUrls, (Comparator<String[]>) (o1, o2) -> PathUtils.compare(Arrays.asList(o1), Arrays.asList(o2)));		
@@ -91,7 +91,7 @@ public abstract class CommandPalettePanel extends Panel {
 					if (Arrays.equals(mountSegments, new String[] {"${project}", "~files"})) {
 						mountedPaths.add(new String[] {"${project}", "~files", "#{revision-and-path}"});
 					} else if ((index = Arrays.asList(mountSegments).indexOf("${" + ContributedAdministrationSettingPage.PARAM_SETTING + "}")) != -1) {
-						for (AdministrationSettingContribution contribution: OneDev.getExtensions(AdministrationSettingContribution.class)) {
+						for (AdministrationSettingContribution contribution: Cheeta.getExtensions(AdministrationSettingContribution.class)) {
 							for (Class<? extends ContributedAdministrationSetting> settingClass: contribution.getSettingClasses()) {
 								String settingName = ContributedAdministrationSettingPage.getSettingName(settingClass);
 								String[] mountSegmentsCopy = new String[mountSegments.length];
@@ -101,7 +101,7 @@ public abstract class CommandPalettePanel extends Panel {
 							}
 						}
 					} else if ((index = Arrays.asList(mountSegments).indexOf("${" + ContributedProjectSettingPage.PARAM_SETTING + "}")) != -1) {
-						for (ProjectSettingContribution contribution: OneDev.getExtensions(ProjectSettingContribution.class)) {
+						for (ProjectSettingContribution contribution: Cheeta.getExtensions(ProjectSettingContribution.class)) {
 							for (Class<? extends ContributedProjectSetting> settingClass: contribution.getSettingClasses()) {
 								String settingName = ContributedAdministrationSettingPage.getSettingName(settingClass);
 								String[] mountSegmentsCopy = new String[mountSegments.length];

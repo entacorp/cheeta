@@ -1,8 +1,8 @@
-package io.onedev.server.util.usermatch;
+package io.cheeta.server.util.usermatch;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.User;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.User;
 
 public class GroupCriteria implements UserMatchCriteria {
 

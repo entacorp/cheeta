@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pack;
+package io.cheeta.server.search.entity.pack;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -6,11 +6,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Pack;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.criteria.OrCriteria;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.criteria.OrCriteria;
 
 public class FuzzyCriteria extends Criteria<Pack> {
 

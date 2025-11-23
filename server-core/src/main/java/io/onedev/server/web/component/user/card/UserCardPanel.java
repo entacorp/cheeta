@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.card;
+package io.cheeta.server.web.component.user.card;
 
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
@@ -11,10 +11,10 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.user.UserAvatar;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.user.UserAvatar;
 
 public class UserCardPanel extends GenericPanel<User> {
 
@@ -26,7 +26,7 @@ public class UserCardPanel extends GenericPanel<User> {
 
 			@Override
 			protected User load() {
-				return OneDev.getInstance(UserService.class).load(userId);
+				return Cheeta.getInstance(UserService.class).load(userId);
 			}
 			
 		});

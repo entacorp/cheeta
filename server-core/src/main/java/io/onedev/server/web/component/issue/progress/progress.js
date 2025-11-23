@@ -1,4 +1,4 @@
-onedev.server.issueProgress = {
+cheeta.server.issueProgress = {
 	onWorkingTimeDomReady: function(containerId, workedMillis) {
 		var $container = $("#" + containerId);
 		var startMillis = Date.now();

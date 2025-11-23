@@ -1,11 +1,11 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.User;
 
 public interface IssueCommentService extends EntityService<IssueComment> {
 

@@ -1,12 +1,12 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.util.regex.Pattern;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.model.Agent;
-import io.onedev.server.annotation.AttributeName;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.annotation.AttributeName;
 
 public class AttributeNameValidator implements ConstraintValidator<AttributeName, String> {
 

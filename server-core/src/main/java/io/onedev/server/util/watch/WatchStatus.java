@@ -1,4 +1,4 @@
-package io.onedev.server.util.watch;
+package io.cheeta.server.util.watch;
 
 public enum WatchStatus {
 	DEFAULT("Default"), 

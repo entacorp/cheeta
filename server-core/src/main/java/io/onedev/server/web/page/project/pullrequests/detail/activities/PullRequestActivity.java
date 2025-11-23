@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.pullrequests.detail.activities;
+package io.cheeta.server.web.page.project.pullrequests.detail.activities;
 
 import java.io.Serializable;
 import java.util.Date;

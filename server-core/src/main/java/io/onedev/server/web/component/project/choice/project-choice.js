@@ -1,4 +1,4 @@
-onedev.server.projectChoiceFormatter = {
+cheeta.server.projectChoiceFormatter = {
 	formatSelection: function(project) {
 		return "<img class='avatar' src='" + project.avatar + "'/><span class='path name'>" + project.path + "</span>";
 	},

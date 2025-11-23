@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.pullrequests.detail.activities.activity;
+package io.cheeta.server.web.page.project.pullrequests.detail.activities.activity;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.Collection;
@@ -20,20 +20,20 @@ import org.eclipse.jgit.revwalk.RevObject;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestUpdate;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.commit.message.CommitMessagePanel;
-import io.onedev.server.web.component.gitsignature.SignatureStatusPanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.PersonIdentPanel;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestUpdate;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.commit.message.CommitMessagePanel;
+import io.cheeta.server.web.component.gitsignature.SignatureStatusPanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.PersonIdentPanel;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
 
 class PullRequestUpdatePanel extends Panel {
 

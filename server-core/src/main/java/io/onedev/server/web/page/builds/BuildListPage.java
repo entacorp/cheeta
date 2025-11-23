@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.builds;
+package io.cheeta.server.web.page.builds;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,28 +16,28 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.administration.GlobalBuildSetting;
-import io.onedev.server.model.support.build.NamedBuildQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.build.list.BuildListPanel;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.PersonalQuerySupport;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.util.NamedBuildQueriesBean;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.administration.GlobalBuildSetting;
+import io.cheeta.server.model.support.build.NamedBuildQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.build.list.BuildListPanel;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.PersonalQuerySupport;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.util.NamedBuildQueriesBean;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class BuildListPage extends LayoutPage {
 
@@ -57,7 +57,7 @@ public class BuildListPage extends LayoutPage {
 	}
 
 	private static GlobalBuildSetting getBuildSetting() {
-		return OneDev.getInstance(SettingService.class).getBuildSetting();
+		return Cheeta.getInstance(SettingService.class).getBuildSetting();
 	}
 	
 	@Override
@@ -92,7 +92,7 @@ public class BuildListPage extends LayoutPage {
 				var oldAuditContent = VersionedXmlDoc.fromBean(getBuildSetting().getNamedQueries()).toXML();
 				getBuildSetting().setNamedQueries(namedQueries);
 				var newAuditContent = VersionedXmlDoc.fromBean(getBuildSetting().getNamedQueries()).toXML();
-				OneDev.getInstance(SettingService.class).saveBuildSetting(getBuildSetting());
+				Cheeta.getInstance(SettingService.class).saveBuildSetting(getBuildSetting());
 				auditService.audit(null, "changed build queries", oldAuditContent, newAuditContent);
 			}
 
@@ -160,7 +160,7 @@ public class BuildListPage extends LayoutPage {
 										} else {
 											namedQuery.setQuery(query);
 										}
-										OneDev.getInstance(UserService.class).update(getLoginUser(), null);
+										Cheeta.getInstance(UserService.class).update(getLoginUser(), null);
 										target.add(savedQueries);
 										close();
 									}
@@ -183,7 +183,7 @@ public class BuildListPage extends LayoutPage {
 											verb = "changed";
 										}
 										var newAuditContent = VersionedXmlDoc.fromBean(namedQuery).toXML();
-										OneDev.getInstance(SettingService.class).saveBuildSetting(buildSetting);
+										Cheeta.getInstance(SettingService.class).saveBuildSetting(buildSetting);
 										auditService.audit(null, verb + " build query \"" + name + "\"", oldAuditContent, newAuditContent);
 										target.add(savedQueries);
 										close();
@@ -251,7 +251,7 @@ public class BuildListPage extends LayoutPage {
 	
 	@Override
 	protected String getPageTitle() {
-		return _T("Builds") + " - " + OneDev.getInstance(SettingService.class).getBrandingSetting().getName();
+		return _T("Builds") + " - " + Cheeta.getInstance(SettingService.class).getBrandingSetting().getName();
 	}
 	
 }

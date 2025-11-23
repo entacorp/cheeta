@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.list;
+package io.cheeta.server.web.component.user.list;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
 
 public abstract class SimpleUserListLink extends DropdownLink {
 

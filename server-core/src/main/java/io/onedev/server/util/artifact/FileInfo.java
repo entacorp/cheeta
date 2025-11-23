@@ -1,4 +1,4 @@
-package io.onedev.server.util.artifact;
+package io.cheeta.server.util.artifact;
 
 import org.jspecify.annotations.Nullable;
 

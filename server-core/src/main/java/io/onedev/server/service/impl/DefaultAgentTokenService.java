@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import static java.util.stream.Collectors.toSet;
 
@@ -9,13 +9,13 @@ import javax.inject.Singleton;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.AgentToken;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.AgentTokenService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.AgentToken;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.AgentTokenService;
 
 @Singleton
 public class DefaultAgentTokenService extends BaseEntityService<AgentToken> implements AgentTokenService {

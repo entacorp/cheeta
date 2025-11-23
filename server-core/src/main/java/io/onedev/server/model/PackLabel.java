@@ -1,8 +1,8 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import io.onedev.server.model.support.EntityLabel;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.annotation.Immutable;
+import io.cheeta.server.model.support.EntityLabel;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.Immutable;
 
 import javax.persistence.*;
 
@@ -21,13 +21,13 @@ public class PackLabel extends EntityLabel {
 	
 	@ManyToOne
 	@JoinColumn(nullable=false)
-	@Api(description = "id of <a href='/~help/api/io.onedev.server.rest.PackResource'>package</a>")
+	@Api(description = "id of <a href='/~help/api/io.cheeta.server.rest.PackResource'>package</a>")
 	@Immutable
 	private Pack pack;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(nullable=false)
-	@Api(description = "id of <a href='/~help/api/io.onedev.server.rest.LabelSpecResource'>label spec</a>")
+	@Api(description = "id of <a href='/~help/api/io.cheeta.server.rest.LabelSpecResource'>label spec</a>")
 	private LabelSpec spec;
 
 	public Pack getPack() {

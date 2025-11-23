@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.pullrequest.changedata;
+package io.cheeta.server.model.support.pullrequest.changedata;
 
 import org.jspecify.annotations.Nullable;
 

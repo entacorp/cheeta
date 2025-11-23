@@ -1,4 +1,4 @@
-package io.onedev.server.util.xstream;
+package io.cheeta.server.util.xstream;
 
 import java.lang.reflect.Field;
 
@@ -10,9 +10,9 @@ import com.thoughtworks.xstream.converters.UnmarshallingContext;
 import com.thoughtworks.xstream.converters.reflection.ReflectionProvider;
 import com.thoughtworks.xstream.mapper.Mapper;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.persistence.dao.Dao;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.persistence.dao.Dao;
 
 public class ReflectionConverter extends com.thoughtworks.xstream.converters.reflection.ReflectionConverter {
 

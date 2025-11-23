@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.enumeration;
+package io.cheeta.server.web.editable.enumeration;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -19,12 +19,12 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.annotation.RadioChoice;
-import io.onedev.server.web.component.stringchoice.StringRadioChoice;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.server.annotation.RadioChoice;
+import io.cheeta.server.web.component.stringchoice.StringRadioChoice;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.util.TextUtils;
 
 @SuppressWarnings({ "unchecked", "rawtypes"})
 public class EnumPropertyEditor extends PropertyEditor<Enum<?>> {

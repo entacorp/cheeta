@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.coverage;
+package io.cheeta.server.plugin.report.coverage;
 
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -14,7 +14,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.SerializationUtils;
 
-import io.onedev.server.model.Build;
+import io.cheeta.server.model.Build;
 
 public class CoverageStats implements Serializable {
 

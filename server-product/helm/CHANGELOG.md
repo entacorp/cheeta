@@ -1,1 +1,1 @@
-Please check https://github.com/theonedev/onedev/releases
+Please check https://github.com/thecheeta/cheeta/releases

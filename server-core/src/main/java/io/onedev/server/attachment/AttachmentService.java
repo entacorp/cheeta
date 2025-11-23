@@ -1,10 +1,10 @@
-package io.onedev.server.attachment;
+package io.cheeta.server.attachment;
 
 import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
-import io.onedev.server.util.artifact.FileInfo;
+import io.cheeta.server.util.artifact.FileInfo;
 
 public interface AttachmentService {
 

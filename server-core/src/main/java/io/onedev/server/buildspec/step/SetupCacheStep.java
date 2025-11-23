@@ -1,6 +1,6 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import static io.onedev.k8shelper.SetupCacheFacade.UploadStrategy.UPLOAD_IF_NOT_HIT;
+import static io.cheeta.k8shelper.SetupCacheFacade.UploadStrategy.UPLOAD_IF_NOT_HIT;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -10,22 +10,22 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.SetupCacheFacade;
-import io.onedev.k8shelper.StepFacade;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.ProjectChoice;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.SetupCacheFacade;
+import io.cheeta.k8shelper.StepFacade;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.ProjectChoice;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
 
 @Editable(order=55, name="Set Up Cache", description = "Set up job cache to speed up job execution. " +
-		"Check <a href='https://docs.onedev.io/tutorials/cicd/job-cache' target='_blank'>this tutorial</a> " +
+		"Check <a href='https://docs.cheeta.io/tutorials/cicd/job-cache' target='_blank'>this tutorial</a> " +
 		"on how to use job cache")
 public class SetupCacheStep extends Step {
 
@@ -62,7 +62,7 @@ public class SetupCacheStep extends Step {
 	}
 
 	@Editable(order=200, name="Load Keys", description = "In case cache is not hit via above key, " +
-			"OneDev will loop through load keys defined here in order until a matching cache is found " +
+			"Cheeta will loop through load keys defined here in order until a matching cache is found " +
 			"in project hierarchy. A cache is considered matching if its key is prefixed with the load " +
 			"key. If multiple caches matches, the most recent cache will be returned")
 	@Interpolative(variableSuggester="suggestVariables")
@@ -75,7 +75,7 @@ public class SetupCacheStep extends Step {
 	}
 		
 	@Editable(order=300, name="Cache Paths", description = "For docker aware executors, this path is inside container, " +
-			"and accepts both absolute path and relative path (relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>). " +
+			"and accepts both absolute path and relative path (relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>). " +
 			"For shell related executors which runs on host machine directly, only relative path is accepted")
 	@Interpolative(variableSuggester="suggestVariables")
 	@Size(min=1, max=100)
@@ -101,7 +101,7 @@ public class SetupCacheStep extends Step {
 	}
 
 	@Editable(order=425, description = "Optionally specify files relative to cache path to ignore when " +
-			"detect cache changes. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. " +
+			"detect cache changes. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. " +
 			"Multiple files should be separated by space, and single file containing space should be quoted")
 	@Interpolative(variableSuggester="suggestVariables")
 	@DependsOn(property="uploadStrategy", value="UPLOAD_IF_CHANGED")
@@ -129,7 +129,7 @@ public class SetupCacheStep extends Step {
 		return BuildSpec.suggestVariables(matchWith, true, true, false);
 	}
 	
-	@Editable(order=500, description = "Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with upload cache permission " +
+	@Editable(order=500, description = "Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> whose value is an access token with upload cache permission " +
 			"for above project. Note that this property is not required if upload cache to current or child project " +
 			"and build commit is reachable from default branch")
 	@ChoiceProvider("getAccessTokenSecretChoices")

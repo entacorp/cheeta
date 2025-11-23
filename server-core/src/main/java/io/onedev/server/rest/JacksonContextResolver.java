@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import javax.inject.Inject;
 import javax.ws.rs.ext.ContextResolver;

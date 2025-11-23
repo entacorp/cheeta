@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>server-core</artifactId>
 	<parent>
-		<groupId>io.onedev</groupId>
+		<groupId>io.cheeta</groupId>
 		<artifactId>server</artifactId>
 		<version>13.1.0</version>
 	</parent>
@@ -19,25 +19,25 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>commons-bootstrap</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>commons-loader</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>commons-loader</artifactId>
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>commons-codeassist</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>commons-jsymbol</artifactId>
 		</dependency>
 		<dependency>
@@ -339,7 +339,7 @@
 			<artifactId>json</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>agent</artifactId>
 		</dependency>
 		<dependency>
@@ -386,6 +386,6 @@
 	</dependencies>
 	<properties>
 		<kotlin.version>1.9.23</kotlin.version>
-		<moduleClass>io.onedev.server.CoreModule</moduleClass>
+		<moduleClass>io.cheeta.server.CoreModule</moduleClass>
 	</properties>
 </project>

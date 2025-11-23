@@ -1,4 +1,4 @@
-package io.onedev.server.mail;
+package io.cheeta.server.mail;
 
 import java.util.Collection;
 import java.util.concurrent.Future;
@@ -7,8 +7,8 @@ import java.util.function.Consumer;
 import org.jspecify.annotations.Nullable;
 import javax.mail.Message;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.PullRequest;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.PullRequest;
 
 public interface MailService {
 	

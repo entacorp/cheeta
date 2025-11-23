@@ -1,11 +1,11 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
 import java.io.Serializable;
 
 import org.apache.wicket.Component;
 
-import io.onedev.server.web.component.wizard.WizardStep;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.web.component.wizard.WizardStep;
+import io.cheeta.server.web.editable.BeanContext;
 
 public abstract class ImportStep<T extends Serializable> implements WizardStep {
 

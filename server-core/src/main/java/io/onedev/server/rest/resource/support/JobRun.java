@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource.support;
+package io.cheeta.server.rest.resource.support;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.Api;
 
 public abstract class JobRun implements Serializable {
 	

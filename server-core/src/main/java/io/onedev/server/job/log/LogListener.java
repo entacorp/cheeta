@@ -1,4 +1,4 @@
-package io.onedev.server.job.log;
+package io.cheeta.server.job.log;
 
 public interface LogListener {
 	

@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.bool;
+package io.cheeta.server.web.editable.bool;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.List;
 import java.util.Map;
@@ -14,11 +14,11 @@ import org.apache.wicket.util.convert.ConversionException;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.util.TextUtils;
 
 public class NullableBooleanPropertyEditor extends PropertyEditor<Boolean> {
 

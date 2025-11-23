@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.eclipse.jgit.revwalk.RevCommit;
 
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
 
 public class CommitParam extends ParamSegment {
 

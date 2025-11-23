@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.stringlist;
+package io.cheeta.server.web.editable.stringlist;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,10 +12,10 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.web.component.select2.Select2MultiChoice;
-import io.onedev.server.web.component.stringchoice.StringMultiChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.component.select2.Select2MultiChoice;
+import io.cheeta.server.web.component.stringchoice.StringMultiChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class StringListEditor extends PropertyEditor<List<String>> {
 

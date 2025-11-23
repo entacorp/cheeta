@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.menu;
+package io.cheeta.server.web.component.menu;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class MenuCssResourceReference extends BaseDependentCssResourceReference {
 

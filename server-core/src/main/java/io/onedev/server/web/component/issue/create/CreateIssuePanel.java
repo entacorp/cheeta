@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.issue.create;
+package io.cheeta.server.web.component.issue.create;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.ajax.markup.html.AjaxLink;

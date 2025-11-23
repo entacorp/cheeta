@@ -1,16 +1,16 @@
-package io.onedev.server.web.component.issue.editabletitle;
+package io.cheeta.server.web.component.issue.editabletitle;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.entityreference.LinkTransformer;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.behavior.ReferenceInputBehavior;
-import io.onedev.server.web.component.issue.progress.IssueProgressPanel;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.entityreference.LinkTransformer;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.behavior.ReferenceInputBehavior;
+import io.cheeta.server.web.component.issue.progress.IssueProgressPanel;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.page.base.BasePage;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
@@ -26,8 +26,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.web.translation.Translation._T;
 
 public abstract class IssueEditableTitlePanel extends Panel {
 
@@ -74,7 +74,7 @@ public abstract class IssueEditableTitlePanel extends Panel {
 				super.onSubmit(target, form);
 				
 				var user = SecurityUtils.getUser();
-				OneDev.getInstance(IssueChangeService.class).changeTitle(user, getIssue(), titleInput.getModelObject());
+				Cheeta.getInstance(IssueChangeService.class).changeTitle(user, getIssue(), titleInput.getModelObject());
 				((BasePage)getPage()).notifyObservablesChange(target, getIssue().getChangeObservables(false));
 				
 				Fragment titleViewer = newTitleViewer();

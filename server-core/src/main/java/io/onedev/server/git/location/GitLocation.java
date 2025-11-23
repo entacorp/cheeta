@@ -1,13 +1,13 @@
-package io.onedev.server.git.location;
+package io.cheeta.server.git.location;
 
 import java.io.Serializable;
 
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.git.CommandUtils;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.git.CommandUtils;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
 
 /**
  * Git relevant settings.

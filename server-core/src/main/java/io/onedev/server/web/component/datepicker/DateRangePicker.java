@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.datepicker;
+package io.cheeta.server.web.component.datepicker;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.time.LocalDate;
 import java.util.Locale;
@@ -14,11 +14,11 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.convert.ConversionException;
 import org.apache.wicket.util.convert.IConverter;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.DateRange;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.DateRange;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BasePage;
 
 public class DateRangePicker extends TextField<DateRange> {
 
@@ -81,7 +81,7 @@ public class DateRangePicker extends TextField<DateRange> {
 					new BaseDependentCssResourceReference(DatePickerResourceReference.class, "dark.css")));
 		}
 		
-		String script = String.format("onedev.server.datePicker.onDomReady('%s', false, true)", 
+		String script = String.format("cheeta.server.datePicker.onDomReady('%s', false, true)", 
 				getMarkupId());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

@@ -1,4 +1,4 @@
-package io.onedev.server.web.ajaxlistener;
+package io.cheeta.server.web.ajaxlistener;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.attributes.IAjaxCallListener;

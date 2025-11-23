@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.pullrequest.assignment;
+package io.cheeta.server.web.component.pullrequest.assignment;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -21,17 +21,17 @@ import org.apache.wicket.model.LoadableDetachableModel;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestAssignmentService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestAssignment;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestAssignmentService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestAssignment;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.page.base.BasePage;
 
 public abstract class AssignmentListPanel extends Panel {
 
@@ -109,7 +109,7 @@ public abstract class AssignmentListPanel extends Panel {
 						if (request.isNew()) {
 							target.add(AssignmentListPanel.this);
 						} else {
-							OneDev.getInstance(PullRequestAssignmentService.class).delete(assignment);
+							Cheeta.getInstance(PullRequestAssignmentService.class).delete(assignment);
 							((BasePage) getPage()).notifyObservableChange(target,
 									PullRequest.getChangeObservable(getPullRequest().getId()));
 						}

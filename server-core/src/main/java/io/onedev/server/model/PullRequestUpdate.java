@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -19,9 +19,9 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.git.service.GitService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.git.service.GitService;
 
 @Entity
 @Table(indexes={@Index(columnList="o_request_id"), @Index(columnList="date")})
@@ -127,11 +127,11 @@ public class PullRequestUpdate extends AbstractEntity {
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	private PullRequestService getPullRequestService() {
-		return OneDev.getInstance(PullRequestService.class);
+		return Cheeta.getInstance(PullRequestService.class);
 	}
 	
 }

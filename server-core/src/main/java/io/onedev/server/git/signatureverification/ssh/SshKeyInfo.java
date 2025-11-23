@@ -1,4 +1,4 @@
-package io.onedev.server.git.signatureverification.ssh;
+package io.cheeta.server.git.signatureverification.ssh;
 
 import java.io.Serializable;
 

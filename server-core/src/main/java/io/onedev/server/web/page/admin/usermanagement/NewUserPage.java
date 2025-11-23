@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.usermanagement;
+package io.cheeta.server.web.page.admin.usermanagement;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.shiro.authc.credential.PasswordService;
 import org.apache.wicket.Component;
@@ -15,25 +15,25 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.MembershipService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Membership;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.page.user.UserCssResourceReference;
-import io.onedev.server.web.page.user.basicsetting.UserBasicSettingPage;
-import io.onedev.server.web.util.editbean.NewUserBean;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.MembershipService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Membership;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.page.user.UserCssResourceReference;
+import io.cheeta.server.web.page.user.basicsetting.UserBasicSettingPage;
+import io.cheeta.server.web.util.editbean.NewUserBean;
 
 public class NewUserPage extends AdministrationPage {
 
@@ -145,23 +145,23 @@ public class NewUserPage extends AdministrationPage {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 
 	private MembershipService getMembershipService() {
-		return OneDev.getInstance(MembershipService.class);
+		return Cheeta.getInstance(MembershipService.class);
 	}
 
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 	
 	private EmailAddressService getEmailAddressService() {
-		return OneDev.getInstance(EmailAddressService.class);
+		return Cheeta.getInstance(EmailAddressService.class);
 	}
 	
 	@Override

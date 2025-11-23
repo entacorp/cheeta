@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.Group;
-import io.onedev.server.model.GroupAuthorization;
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.GroupAuthorization;
+import io.cheeta.server.model.Project;
 
 import java.util.Collection;
 

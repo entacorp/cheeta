@@ -1,6 +1,6 @@
-package io.onedev.server.util.facade;
+package io.cheeta.server.util.facade;
 
-import io.onedev.server.model.AccessToken;
+import io.cheeta.server.model.AccessToken;
 
 import org.jspecify.annotations.Nullable;
 import java.util.Date;

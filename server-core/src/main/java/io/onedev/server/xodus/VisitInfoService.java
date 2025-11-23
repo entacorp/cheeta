@@ -1,14 +1,14 @@
-package io.onedev.server.xodus;
+package io.cheeta.server.xodus;
 
 import java.io.File;
 import java.util.Date;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
 
 public interface VisitInfoService {
 	

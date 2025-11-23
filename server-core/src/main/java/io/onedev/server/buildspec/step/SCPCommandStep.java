@@ -1,23 +1,23 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.buildspec.step.commandinterpreter.DefaultInterpreter;
-import io.onedev.server.buildspec.step.commandinterpreter.Interpreter;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.buildspec.step.commandinterpreter.DefaultInterpreter;
+import io.cheeta.server.buildspec.step.commandinterpreter.Interpreter;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static io.onedev.server.buildspec.step.StepGroup.UTILITIES;
+import static io.cheeta.server.buildspec.step.StepGroup.UTILITIES;
 
 @Editable(order=1100, group = UTILITIES, name="Copy Files with SCP", description = "" +
-		"This step can only be executed by a docker aware executor. It runs under <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>")
+		"This step can only be executed by a docker aware executor. It runs under <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>")
 public class SCPCommandStep extends CommandStep {
 
 	private static final long serialVersionUID = 1L;
@@ -30,7 +30,7 @@ public class SCPCommandStep extends CommandStep {
 	
 	private String options;
 
-	@Editable(order=200, description="Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key for SSH authentication. " +
+	@Editable(order=200, description="Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as private key for SSH authentication. " +
 			"<b class='text-info'>NOTE:</b> Private key with passphrase is not supported")
 	@ChoiceProvider("getPrivateKeySecretChoices")
 	@NotEmpty

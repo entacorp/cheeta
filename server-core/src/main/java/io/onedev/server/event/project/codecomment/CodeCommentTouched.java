@@ -1,10 +1,10 @@
-package io.onedev.server.event.project.codecomment;
+package io.cheeta.server.event.project.codecomment;
 
 import java.util.Date;
 
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
 
 public class CodeCommentTouched extends ProjectEvent {
 	

@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.role;
+package io.cheeta.server.model.support.role;
 
 import java.util.Collection;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=400, name="None")
 public class NoneIssueFields implements IssueFieldSet {

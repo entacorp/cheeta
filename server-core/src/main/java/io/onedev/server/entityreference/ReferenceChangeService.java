@@ -1,11 +1,11 @@
-package io.onedev.server.entityreference;
+package io.cheeta.server.entityreference;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
 
 public interface ReferenceChangeService {
 

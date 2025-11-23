@@ -1,11 +1,11 @@
-package io.onedev.server.web.util.editbean;
+package io.cheeta.server.web.util.editbean;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.User;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.User;
 
 @Editable
 public class NewUserBean extends User {

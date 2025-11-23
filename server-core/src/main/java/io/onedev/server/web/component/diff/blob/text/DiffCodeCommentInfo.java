@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.diff.blob.text;
+package io.cheeta.server.web.component.diff.blob.text;
 
 import java.io.Serializable;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.web.util.DiffPlanarRange;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.web.util.DiffPlanarRange;
 
 public class DiffCodeCommentInfo implements Serializable {
 	

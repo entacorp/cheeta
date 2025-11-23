@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.groupchoice;
+package io.cheeta.server.web.component.groupchoice;
 
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class GroupChoiceResourceReference extends BaseDependentResourceReference {
 

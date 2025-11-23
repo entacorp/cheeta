@@ -1,4 +1,4 @@
-package io.onedev.server.web.resourcebundle;
+package io.cheeta.server.web.resourcebundle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import org.apache.wicket.request.resource.ResourceReference;
 import org.apache.wicket.request.resource.ResourceReference.Key;
 import org.apache.wicket.resource.bundles.ConcatResourceBundleReference;
 
-import io.onedev.commons.utils.PathUtils;
+import io.cheeta.commons.utils.PathUtils;
 
 /*
  * When css is bundled, and its access url can be changed (unless its resource is annotated with @ResourceBundle), 

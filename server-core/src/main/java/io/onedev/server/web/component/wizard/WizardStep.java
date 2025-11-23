@@ -1,11 +1,11 @@
 /*
- * Copyright OneDev Inc.,
+ * Copyright Cheeta Inc.,
  * Date: 2008-8-4
  * All rights reserved.
  *
  * Revision: $Id$
  */
-package io.onedev.server.web.component.wizard;
+package io.cheeta.server.web.component.wizard;
 
 import java.io.Serializable;
 

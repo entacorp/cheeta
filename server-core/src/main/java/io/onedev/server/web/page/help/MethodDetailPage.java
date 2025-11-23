@@ -1,16 +1,16 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.WordUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.rest.ParamCheckFilter;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.resource.TriggerJobResource;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.WordUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.rest.ParamCheckFilter;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.resource.TriggerJobResource;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.util.TextUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.event.IEvent;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -42,9 +42,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 
-import static io.onedev.server.web.page.help.ValueInfo.Origin.CREATE_BODY;
-import static io.onedev.server.web.page.help.ValueInfo.Origin.UPDATE_BODY;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.page.help.ValueInfo.Origin.CREATE_BODY;
+import static io.cheeta.server.web.page.help.ValueInfo.Origin.UPDATE_BODY;
+import static io.cheeta.server.web.translation.Translation._T;
 
 public class MethodDetailPage extends ApiHelpPage {
 
@@ -410,7 +410,7 @@ public class MethodDetailPage extends ApiHelpPage {
 			break;
 		}
 		
-		curlExample.append(OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl()).append(endPoint);
+		curlExample.append(Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl()).append(endPoint);
 		
 		for (Map.Entry<String, Serializable> entry: queryParams.entrySet()) {
 			if (entry.getValue() instanceof List) {

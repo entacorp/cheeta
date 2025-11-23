@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.pullrequest.review;
+package io.cheeta.server.web.component.pullrequest.review;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
 
 public abstract class ReviewerAvatar extends Panel {
 

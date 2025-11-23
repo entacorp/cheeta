@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.sso.discord.oauth2;
+package io.cheeta.server.plugin.sso.discord.oauth2;
 
 import org.json.JSONArray;
 import org.json.JSONException;

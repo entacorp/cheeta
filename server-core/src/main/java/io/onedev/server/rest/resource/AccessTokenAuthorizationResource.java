@@ -1,8 +1,8 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import static io.onedev.server.security.SecurityUtils.canManageProject;
-import static io.onedev.server.security.SecurityUtils.getAuthUser;
-import static io.onedev.server.security.SecurityUtils.isAdministrator;
+import static io.cheeta.server.security.SecurityUtils.canManageProject;
+import static io.cheeta.server.security.SecurityUtils.getAuthUser;
+import static io.cheeta.server.security.SecurityUtils.isAdministrator;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -20,11 +20,11 @@ import javax.ws.rs.core.Response;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AccessTokenAuthorizationService;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.model.AccessTokenAuthorization;
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AccessTokenAuthorizationService;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.model.AccessTokenAuthorization;
+import io.cheeta.server.rest.annotation.Api;
 
 @Api(description = "This resource manages project authorizations of access tokens. Note that " +
 		"project authorizations will not take effect if option <tt>hasOwnerPermissions</tt> is enabled " +

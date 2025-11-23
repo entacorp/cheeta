@@ -1,4 +1,4 @@
-package io.onedev.server.git.location;
+package io.cheeta.server.git.location;
 
 import java.io.Serializable;
 
@@ -8,11 +8,11 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
 
 /**
  * Git relevant settings.

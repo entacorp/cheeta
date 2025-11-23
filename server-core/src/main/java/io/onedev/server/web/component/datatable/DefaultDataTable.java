@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.datatable;
+package io.cheeta.server.web.component.datatable;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import org.apache.wicket.markup.repeater.OddEvenItem;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.component.pagenavigator.OnePagingNavigator;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.component.pagenavigator.OnePagingNavigator;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
 
 public class DefaultDataTable<T, S> extends DataTable<T, S> {
 

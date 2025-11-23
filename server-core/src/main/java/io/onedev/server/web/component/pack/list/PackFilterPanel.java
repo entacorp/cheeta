@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.pack.list;
+package io.cheeta.server.web.component.pack.list;
 
-import static io.onedev.server.search.entity.pack.PackQueryLexer.Is;
+import static io.cheeta.server.search.entity.pack.PackQueryLexer.Is;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -17,31 +17,31 @@ import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.pack.PackSupport;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.pack.LabelCriteria;
-import io.onedev.server.search.entity.pack.PackQueryLexer;
-import io.onedev.server.search.entity.pack.PublishDateCriteria;
-import io.onedev.server.search.entity.pack.PublishedByCriteria;
-import io.onedev.server.search.entity.pack.PublishedByUserCriteria;
-import io.onedev.server.search.entity.pack.PublishedViaProjectCriteria;
-import io.onedev.server.search.entity.pack.TypeCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.datepicker.DatePicker;
-import io.onedev.server.web.component.filteredit.FilterEditPanel;
-import io.onedev.server.web.component.project.choice.ProjectMultiChoice;
-import io.onedev.server.web.component.stringchoice.StringMultiChoice;
-import io.onedev.server.web.component.user.choice.UserMultiChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.pack.PackSupport;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.pack.LabelCriteria;
+import io.cheeta.server.search.entity.pack.PackQueryLexer;
+import io.cheeta.server.search.entity.pack.PublishDateCriteria;
+import io.cheeta.server.search.entity.pack.PublishedByCriteria;
+import io.cheeta.server.search.entity.pack.PublishedByUserCriteria;
+import io.cheeta.server.search.entity.pack.PublishedViaProjectCriteria;
+import io.cheeta.server.search.entity.pack.TypeCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.datepicker.DatePicker;
+import io.cheeta.server.web.component.filteredit.FilterEditPanel;
+import io.cheeta.server.web.component.project.choice.ProjectMultiChoice;
+import io.cheeta.server.web.component.stringchoice.StringMultiChoice;
+import io.cheeta.server.web.component.user.choice.UserMultiChoice;
 
 class PackFilterPanel extends FilterEditPanel<Pack> {
 	
@@ -77,7 +77,7 @@ class PackFilterPanel extends FilterEditPanel<Pack> {
 
 			@Override
 			protected List<String> load() {
-				var packSupports = new ArrayList<>(OneDev.getExtensions(PackSupport.class));
+				var packSupports = new ArrayList<>(Cheeta.getExtensions(PackSupport.class));
 				packSupports.sort(Comparator.comparing(PackSupport::getOrder));
 				return packSupports.stream().map(it->it.getPackType()).collect(toList());
 			}
@@ -303,15 +303,15 @@ class PackFilterPanel extends FilterEditPanel<Pack> {
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	private LabelSpecService getLabelSpecService() {
-		return OneDev.getInstance(LabelSpecService.class);
+		return Cheeta.getInstance(LabelSpecService.class);
 	}	
 
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 
 }

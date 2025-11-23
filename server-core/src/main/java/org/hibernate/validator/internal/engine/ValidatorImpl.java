@@ -81,15 +81,15 @@ import org.hibernate.validator.internal.util.TypeHelper;
 import org.hibernate.validator.internal.util.logging.Log;
 import org.hibernate.validator.internal.util.logging.LoggerFactory;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.ShowCondition;
-import io.onedev.server.util.BeanUtils;
-import io.onedev.server.util.DependsOnUtils;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.editable.EditableUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.ShowCondition;
+import io.cheeta.server.util.BeanUtils;
+import io.cheeta.server.util.DependsOnUtils;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.editable.EditableUtils;
 
 /**
  * The main Bean Validation class. This is the core processing class of Hibernate Validator.

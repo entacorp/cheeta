@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.report.jacoco;
+package io.cheeta.server.plugin.report.jacoco;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,33 +16,33 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.step.StepGroup;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.coverage.Coverage;
-import io.onedev.server.plugin.report.coverage.CoverageReport;
-import io.onedev.server.plugin.report.coverage.CoverageStats;
-import io.onedev.server.plugin.report.coverage.FileCoverage;
-import io.onedev.server.plugin.report.coverage.GroupCoverage;
-import io.onedev.server.plugin.report.coverage.PublishCoverageReportStep;
-import io.onedev.server.util.XmlUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.step.StepGroup;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.coverage.Coverage;
+import io.cheeta.server.plugin.report.coverage.CoverageReport;
+import io.cheeta.server.plugin.report.coverage.CoverageStats;
+import io.cheeta.server.plugin.report.coverage.FileCoverage;
+import io.cheeta.server.plugin.report.coverage.GroupCoverage;
+import io.cheeta.server.plugin.report.coverage.PublishCoverageReportStep;
+import io.cheeta.server.util.XmlUtils;
 
 @Editable(order=10000, group=StepGroup.PUBLISH, name="JaCoCo Coverage Report")
 public class PublishJacocoReportStep extends PublishCoverageReportStep {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Editable(order=100, description="Specify JaCoCo coverage xml report file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, "
+	@Editable(order=100, description="Specify JaCoCo coverage xml report file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, "
 			+ "for instance, <tt>target/site/jacoco/jacoco.xml</tt>. Use * or ? for pattern match")
 	@Interpolative(variableSuggester="suggestVariables")
 	@Patterns(path=true)
@@ -73,7 +73,7 @@ public class PublishJacocoReportStep extends PublishCoverageReportStep {
 		
 		Map<String, Map<Integer, CoverageStatus>> coverageStatuses = new HashMap<>();
 		
-		var projectService = OneDev.getInstance(ProjectService.class);
+		var projectService = Cheeta.getInstance(ProjectService.class);
 		var repository = projectService.getRepository(build.getProject().getId());
 		var blobPaths = GitUtils.getBlobPaths(repository, build.getCommitId());
 		for (File file: getPatternSet().listFiles(inputDir)) {

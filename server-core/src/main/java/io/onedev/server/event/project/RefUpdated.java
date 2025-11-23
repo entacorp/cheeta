@@ -1,4 +1,4 @@
-package io.onedev.server.event.project;
+package io.cheeta.server.event.project;
 
 import java.util.Date;
 
@@ -8,15 +8,15 @@ import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.revwalk.RevCommit;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.util.CommitAware;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.PlainText;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.CommitAware;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.PlainText;
+import io.cheeta.server.web.UrlService;
 
 public class RefUpdated extends ProjectEvent implements CommitAware {
 	
@@ -105,7 +105,7 @@ public class RefUpdated extends ProjectEvent implements CommitAware {
 	@Override
 	public String getUrl() {
 		if (newCommitId != null)
-			return OneDev.getInstance(UrlService.class).urlFor(getProject(), newCommitId, true);
+			return Cheeta.getInstance(UrlService.class).urlFor(getProject(), newCommitId, true);
 		else
 			throw new UnsupportedOperationException();
 	}

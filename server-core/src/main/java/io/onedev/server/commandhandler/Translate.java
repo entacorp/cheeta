@@ -1,4 +1,4 @@
-package io.onedev.server.commandhandler;
+package io.cheeta.server.commandhandler;
 
 import static org.apache.commons.text.StringEscapeUtils.unescapeJava;
 
@@ -40,16 +40,16 @@ import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import java.time.Duration;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.persistence.HibernateConfig;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.MetricIndicator;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.translation.SystemPrompt;
-import io.onedev.server.web.translation.Translation;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.persistence.HibernateConfig;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.MetricIndicator;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.translation.SystemPrompt;
+import io.cheeta.server.web.translation.Translation;
+import io.cheeta.server.web.util.TextUtils;
 
 @Singleton
 public class Translate extends CommandHandler {
@@ -91,7 +91,7 @@ public class Translate extends CommandHandler {
 		SecurityUtils.bindAsSystem();
 
 		if (Bootstrap.command.getArgs().length == 0) {
-			logger.error("Missing OneDev project directory. Usage: {} <path to onedev project directory>",
+			logger.error("Missing Cheeta project directory. Usage: {} <path to cheeta project directory>",
 					Bootstrap.command.getScript());
 			System.exit(1);
 		}
@@ -138,7 +138,7 @@ public class Translate extends CommandHandler {
 							parentPath = parentPath.getParent();
 						}
 
-						if (relative != null && relative.startsWith("io/onedev/server/")) {
+						if (relative != null && relative.startsWith("io/cheeta/server/")) {
 							var className = StringUtils.substringBeforeLast(relative, ".").replace("/", ".");
 							if (!className.endsWith("Panel") && !className.endsWith("Page")
 									&& !className.endsWith("Behavior")) {
@@ -208,7 +208,7 @@ public class Translate extends CommandHandler {
 					});
 
 			Files.walk(projectDir.toPath())
-					.filter(it -> it.toString().contains("src/main/java/io/onedev/server"))
+					.filter(it -> it.toString().contains("src/main/java/io/cheeta/server"))
 					.filter(it -> it.toString().endsWith(".java"))
 					.forEach(it -> {
 						try {
@@ -219,7 +219,7 @@ public class Translate extends CommandHandler {
 					});
 
 			Files.walk(projectDir.toPath())
-					.filter(it -> it.toString().contains("src/main/java/io/onedev/server"))
+					.filter(it -> it.toString().contains("src/main/java/io/cheeta/server"))
 					.filter(it -> it.toString().endsWith(".html"))
 					.forEach(it -> {
 						try {

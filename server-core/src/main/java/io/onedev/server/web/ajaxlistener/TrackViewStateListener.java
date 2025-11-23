@@ -1,4 +1,4 @@
-package io.onedev.server.web.ajaxlistener;
+package io.cheeta.server.web.ajaxlistener;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.attributes.IAjaxCallListener;
@@ -18,11 +18,11 @@ public class TrackViewStateListener implements IAjaxCallListener {
 
 	@Override
 	public CharSequence getBeforeHandler(Component component) {
-		String script = "onedev.server.viewState.getFromViewAndSetToHistory();";
+		String script = "cheeta.server.viewState.getFromViewAndSetToHistory();";
 		if (carryOver) {
-			script += "onedev.server.viewState.carryOver = onedev.server.viewState.getFromHistory();";
+			script += "cheeta.server.viewState.carryOver = cheeta.server.viewState.getFromHistory();";
 		} else {
-			script += "onedev.server.viewState.carryOver = undefined;";
+			script += "cheeta.server.viewState.carryOver = undefined;";
 		}
 		return script;
 	}
@@ -55,8 +55,8 @@ public class TrackViewStateListener implements IAjaxCallListener {
 	@Override
 	public CharSequence getCompleteHandler(Component component) {
 		return ""
-				+ "if (onedev.server.viewState.carryOver)"
-				+ "  onedev.server.viewState.setToView(onedev.server.viewState.carryOver);";
+				+ "if (cheeta.server.viewState.carryOver)"
+				+ "  cheeta.server.viewState.setToView(cheeta.server.viewState.carryOver);";
 	}
 
 	@Override

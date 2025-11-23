@@ -1,6 +1,6 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
-import static io.onedev.server.search.entity.issue.IssueQuery.getRuleName;
+import static io.cheeta.server.search.entity.issue.IssueQuery.getRuleName;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -17,16 +17,16 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class FixedBetweenCriteria extends Criteria<Issue> {
 
@@ -78,7 +78,7 @@ public class FixedBetweenCriteria extends Criteria<Issue> {
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class FixedBetweenCriteria extends Criteria<Issue> {
 		if (mergeBaseId != null) {
 			Collection<ObjectId> startCommitIds;
 			// Check this special commit to avoid displaying a lot of resolved issues 
-			// when check update between <=9.7.0 and >=10.0.0 for OneDev. Can safely 
+			// when check update between <=9.7.0 and >=10.0.0 for Cheeta. Can safely 
 			// remove this if fewer sites are using <=9.7.0
 			if (mergeBaseId.name().equals("3d1c4d2b6de888ba0f42467f7a36418ade8ca688"))  
 				startCommitIds = Lists.newArrayList(secondCommitId);

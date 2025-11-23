@@ -1,14 +1,14 @@
 /*
- * Copyright OneDev Inc.,
+ * Copyright Cheeta Inc.,
  * Date: 2008-8-4
  * Time: ����09:00:25
  * All rights reserved.
  *
  * Revision: $Id$
  */
-package io.onedev.server.web.component.wizard;
+package io.cheeta.server.web.component.wizard;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.text.MessageFormat.format;
 
 import java.util.List;
@@ -29,8 +29,8 @@ import org.apache.wicket.model.AbstractReadOnlyModel;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.persistence.TransactionService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.persistence.TransactionService;
 
 public abstract class WizardPanel extends Panel {
 
@@ -106,7 +106,7 @@ public abstract class WizardPanel extends Panel {
 			@Override
 			public void onSubmit() {
 				super.onSubmit();
-				OneDev.getInstance(TransactionService.class).run(new Runnable() {
+				Cheeta.getInstance(TransactionService.class).run(new Runnable() {
 
 					@Override
 					public void run() {

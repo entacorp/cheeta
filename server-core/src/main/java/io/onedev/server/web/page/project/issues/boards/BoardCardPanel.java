@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
-import static io.onedev.server.security.SecurityUtils.canAccessIssue;
-import static io.onedev.server.security.SecurityUtils.canManageIssues;
-import static io.onedev.server.security.SecurityUtils.getAuthUser;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.security.SecurityUtils.canAccessIssue;
+import static io.cheeta.server.security.SecurityUtils.canManageIssues;
+import static io.cheeta.server.security.SecurityUtils.getAuthUser;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.util.Collections;
@@ -31,33 +31,33 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.hibernate.Hibernate;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.service.IssueLinkService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.issue.BoardSpec;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.util.LinkDescriptor;
-import io.onedev.server.web.ajaxlistener.AttachAjaxIndicatorListener;
-import io.onedev.server.web.ajaxlistener.AttachAjaxIndicatorListener.AttachMode;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.issue.IssueStateBadge;
-import io.onedev.server.web.component.issue.fieldvalues.FieldValuesPanel;
-import io.onedev.server.web.component.issue.iteration.IterationCrumbPanel;
-import io.onedev.server.web.component.issue.link.IssueLinksPanel;
-import io.onedev.server.web.component.issue.operation.TransitionMenuLink;
-import io.onedev.server.web.component.issue.progress.IssueProgressPanel;
-import io.onedev.server.web.component.issue.title.IssueTitlePanel;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.CursorSupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.service.IssueLinkService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.issue.BoardSpec;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.util.LinkDescriptor;
+import io.cheeta.server.web.ajaxlistener.AttachAjaxIndicatorListener;
+import io.cheeta.server.web.ajaxlistener.AttachAjaxIndicatorListener.AttachMode;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.issue.IssueStateBadge;
+import io.cheeta.server.web.component.issue.fieldvalues.FieldValuesPanel;
+import io.cheeta.server.web.component.issue.iteration.IterationCrumbPanel;
+import io.cheeta.server.web.component.issue.link.IssueLinksPanel;
+import io.cheeta.server.web.component.issue.operation.TransitionMenuLink;
+import io.cheeta.server.web.component.issue.progress.IssueProgressPanel;
+import io.cheeta.server.web.component.issue.title.IssueTitlePanel;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.CursorSupport;
 
 public abstract class BoardCardPanel extends GenericPanel<Issue> {
 	
@@ -71,7 +71,7 @@ public abstract class BoardCardPanel extends GenericPanel<Issue> {
 		setModel(new LoadableDetachableModel<>() {
 			@Override
 			protected Issue load() {
-				return OneDev.getInstance(IssueService.class).load(issueId);
+				return Cheeta.getInstance(IssueService.class).load(issueId);
 			}
 		});
 	}
@@ -215,7 +215,7 @@ public abstract class BoardCardPanel extends GenericPanel<Issue> {
 
 									@Override
 									protected Issue load() {
-										return OneDev.getInstance(IssueService.class).load(issueId);
+										return Cheeta.getInstance(IssueService.class).load(issueId);
 									}
 
 								}, cursor);
@@ -298,7 +298,7 @@ public abstract class BoardCardPanel extends GenericPanel<Issue> {
 			@Override
 			protected List<Issue> load() {
 				Issue issue = issueModel.getObject();
-				OneDev.getInstance(IssueLinkService.class).loadDeepLinks(issue);
+				Cheeta.getInstance(IssueLinkService.class).loadDeepLinks(issue);
 				LinkDescriptor descriptor = new LinkDescriptor(linksPanel.getExpandedLink());
 				return issue.findLinkedIssues(descriptor.getSpec(), descriptor.isOpposite()).stream().filter(it->canAccessIssue(it)).collect(toList());
 			}
@@ -343,7 +343,7 @@ public abstract class BoardCardPanel extends GenericPanel<Issue> {
 				if (canManageIssues(getProject())) {
 					Long issueId = RequestCycle.get().getRequest().getPostParameters()
 							.getParameterValue("issue").toLong();
-					Issue issue = OneDev.getInstance(IssueService.class).load(issueId);
+					Issue issue = Cheeta.getInstance(IssueService.class).load(issueId);
 					Hibernate.initialize(issue.getProject());
 					Project parent = issue.getProject().getParent();
 					while (parent != null) {
@@ -380,7 +380,7 @@ public abstract class BoardCardPanel extends GenericPanel<Issue> {
 		super.renderHead(response);
 		
 		CharSequence callback = ajaxBehavior.getCallbackFunction(CallbackParameter.explicit("issue"));
-		String script = String.format("onedev.server.issueBoards.onCardDomReady('%s', %s);", 
+		String script = String.format("cheeta.server.issueBoards.onCardDomReady('%s', %s);", 
 				getMarkupId(), getAuthUser() != null? callback: "undefined");
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

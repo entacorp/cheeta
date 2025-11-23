@@ -1,8 +1,8 @@
-package io.onedev.server.web.behavior.inputassist;
+package io.cheeta.server.web.behavior.inputassist;
 
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.behavior.AttributeAppender;

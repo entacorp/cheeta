@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.fieldvalues;
+package io.cheeta.server.web.component.issue.fieldvalues;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -28,55 +28,55 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.eclipse.jgit.lib.ObjectId;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.buildspecmodel.inputspec.SecretInput;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.TextField;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ColorUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.ajaxlistener.AttachAjaxIndicatorListener;
-import io.onedev.server.web.ajaxlistener.DisableGlobalAjaxIndicatorListener;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.InplacePropertyEditLink;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.page.project.issues.detail.IssueActivitiesPage;
-import io.onedev.server.web.page.project.issues.iteration.IterationIssuesPage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
-import io.onedev.server.web.util.ProjectAware;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.buildspecmodel.inputspec.SecretInput;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.TextField;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ColorUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.ajaxlistener.AttachAjaxIndicatorListener;
+import io.cheeta.server.web.ajaxlistener.DisableGlobalAjaxIndicatorListener;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.InplacePropertyEditLink;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.issues.detail.IssueActivitiesPage;
+import io.cheeta.server.web.page.project.issues.iteration.IterationIssuesPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
+import io.cheeta.server.web.util.ProjectAware;
 
 public abstract class FieldValuesPanel extends Panel implements EditContext, ProjectAware {
 
@@ -91,7 +91,7 @@ public abstract class FieldValuesPanel extends Panel implements EditContext, Pro
 	}
 
 	private GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	private InplacePropertyEditLink newInplaceEditLink(String componentId) {
@@ -166,7 +166,7 @@ public abstract class FieldValuesPanel extends Panel implements EditContext, Pro
 									FieldUtils.newBeanComponentContext(beanDescriptor, bean), 
 									bean, FieldUtils.getEditableFields(getProject(), dependentFields)));
 							var user = SecurityUtils.getUser();
-							OneDev.getInstance(IssueChangeService.class).changeFields(user, getIssue(), fieldValues);
+							Cheeta.getInstance(IssueChangeService.class).changeFields(user, getIssue(), fieldValues);
 							notifyObservablesChange(target);
 							close();
 							return null;
@@ -177,7 +177,7 @@ public abstract class FieldValuesPanel extends Panel implements EditContext, Pro
 					new DependentFieldsEditor(handler, bean, propertyNames, false, "Dependent Fields");
 				} else {
 					var user = SecurityUtils.getUser();
-					OneDev.getInstance(IssueChangeService.class).changeFields(user, getIssue(), fieldValues);
+					Cheeta.getInstance(IssueChangeService.class).changeFields(user, getIssue(), fieldValues);
 					notifyObservablesChange(handler);					
 				}
 			}
@@ -207,7 +207,7 @@ public abstract class FieldValuesPanel extends Panel implements EditContext, Pro
 		if (getIssueSetting().isReconciled()) { 
 			if (getField() != null && getIssueSetting().getFieldSpec(getField().getName()) != null) {
 				User user = SecurityUtils.getUser();
-				String initialState = OneDev.getInstance(SettingService.class).getIssueSetting().getInitialStateSpec().getName();
+				String initialState = Cheeta.getInstance(SettingService.class).getIssueSetting().getInitialStateSpec().getName();
 				if (SecurityUtils.canManageIssues(getIssue().getProject())) {
 					return null;
 				} else {
@@ -260,13 +260,13 @@ public abstract class FieldValuesPanel extends Panel implements EditContext, Pro
 				} else if (getField().getType().equals(FieldSpec.DATE_TIME)) {
 					valueContainer.add(new Label("value", DateUtils.formatDateTime(new Date(Long.parseLong(value)))));
 				} else if (getField().getType().equals(FieldSpec.USER)) {
-					User user = OneDev.getInstance(UserService.class).findByName(value);
+					User user = Cheeta.getInstance(UserService.class).findByName(value);
 					if (user != null)
 						valueContainer.add(new UserIdentPanel("value", user, userFieldDisplayMode));
 					else 
 						valueContainer.add(new Label("value", value));
 				} else if (getField().getType().equals(FieldSpec.ISSUE)) {
-					Issue issue = OneDev.getInstance(IssueService.class).get(Long.valueOf(value));
+					Issue issue = Cheeta.getInstance(IssueService.class).get(Long.valueOf(value));
 					if (issue != null) {
 						Fragment linkFrag = new Fragment("value", "linkFrag", FieldValuesPanel.this);
 						Link<Void> issueLink = new BookmarkablePageLink<Void>("link", IssueActivitiesPage.class, 
@@ -278,7 +278,7 @@ public abstract class FieldValuesPanel extends Panel implements EditContext, Pro
 						valueContainer.add(new Label("value", "<i>Not Found</i>").setEscapeModelStrings(false));
 					}
 				} else if (getField().getType().equals(FieldSpec.BUILD)) {
-					Build build = OneDev.getInstance(BuildService.class).get(Long.valueOf(value));
+					Build build = Cheeta.getInstance(BuildService.class).get(Long.valueOf(value));
 					if (build != null) {
 						Fragment linkFrag = new Fragment("value", "linkFrag", FieldValuesPanel.this);
 						Link<Void> buildLink = new BookmarkablePageLink<Void>("link", 
@@ -290,7 +290,7 @@ public abstract class FieldValuesPanel extends Panel implements EditContext, Pro
 						valueContainer.add(new Label("value", "<i>Not Found</i>").setEscapeModelStrings(false));
 					}
 				} else if (getField().getType().equals(FieldSpec.PULL_REQUEST)) {
-					PullRequest request = OneDev.getInstance(PullRequestService.class).get(Long.valueOf(value));
+					PullRequest request = Cheeta.getInstance(PullRequestService.class).get(Long.valueOf(value));
 					if (request != null) {
 						Fragment linkFrag = new Fragment("value", "linkFrag", FieldValuesPanel.this);
 						Link<Void> requestLink = new BookmarkablePageLink<Void>("link", PullRequestActivitiesPage.class, 
@@ -302,7 +302,7 @@ public abstract class FieldValuesPanel extends Panel implements EditContext, Pro
 						valueContainer.add(new Label("value", "<i>Not Found</i>").setEscapeModelStrings(false));
 					}
 				} else if (getField().getType().equals(FieldSpec.ITERATION)) {
-					Iteration iteration = OneDev.getInstance(IterationService.class).findInHierarchy(getIssue().getProject(), value);
+					Iteration iteration = Cheeta.getInstance(IterationService.class).findInHierarchy(getIssue().getProject(), value);
 					if (iteration != null) {
 						Fragment linkFrag = new Fragment("value", "linkFrag", FieldValuesPanel.this);
 						Link<Void> iterationLink = new BookmarkablePageLink<Void>("link", IterationIssuesPage.class, 

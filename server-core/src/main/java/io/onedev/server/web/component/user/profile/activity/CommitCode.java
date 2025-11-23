@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.profile.activity;
+package io.cheeta.server.web.component.user.profile.activity;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
 import java.text.MessageFormat;
@@ -11,12 +11,12 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
 
 public class CommitCode extends UserActivity {
 
@@ -31,7 +31,7 @@ public class CommitCode extends UserActivity {
     }
 
     public Project getProject() {
-        return OneDev.getInstance(ProjectService.class).load(projectId);
+        return Cheeta.getInstance(ProjectService.class).load(projectId);
     }
 
     public ObjectId getCommitId() {

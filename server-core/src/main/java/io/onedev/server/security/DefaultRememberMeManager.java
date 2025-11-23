@@ -1,6 +1,6 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
-import io.onedev.server.util.CryptoUtils;
+import io.cheeta.server.util.CryptoUtils;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
 

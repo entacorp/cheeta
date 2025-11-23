@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.menu;
+package io.cheeta.server.web.component.menu;
 
 import java.io.Serializable;
 

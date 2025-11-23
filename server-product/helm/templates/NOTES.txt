@@ -6,7 +6,7 @@ APP VERSION: {{ .Chart.AppVersion }}
 ###################################################################
 #
 # CAUTION: If you are upgrading from version <= 9.0.0, please make
-# sure to follow https://docs.onedev.io/upgrade-guide/deploy-to-k8s
+# sure to follow https://docs.cheeta.io/upgrade-guide/deploy-to-k8s
 # to migrate your data
 #
 ###################################################################
@@ -15,7 +15,7 @@ APP VERSION: {{ .Chart.AppVersion }}
 
 {{- if .Values.ingress.enabled }}
 
-You can access OneDev at:
+You can access Cheeta at:
 
 {{- if .Values.ingress.tls.enabled }}
    https://{{ .Values.ingress.host }}
@@ -25,7 +25,7 @@ You can access OneDev at:
 
 {{- else }}
 
-Get the OneDev URL by running:
+Get the Cheeta URL by running:
 
 {{- if contains "ClusterIP"  .Values.service.type }}
 

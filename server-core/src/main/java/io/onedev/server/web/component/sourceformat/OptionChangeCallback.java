@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.sourceformat;
+package io.cheeta.server.web.component.sourceformat;
 
 import java.io.Serializable;
 

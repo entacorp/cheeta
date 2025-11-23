@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Date;
 
@@ -6,13 +6,13 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import com.google.common.base.Preconditions;
-import io.onedev.server.service.PullRequestAssignmentService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.pullrequest.PullRequestAssigned;
-import io.onedev.server.event.project.pullrequest.PullRequestUnassigned;
-import io.onedev.server.model.PullRequestAssignment;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.service.PullRequestAssignmentService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.pullrequest.PullRequestAssigned;
+import io.cheeta.server.event.project.pullrequest.PullRequestUnassigned;
+import io.cheeta.server.model.PullRequestAssignment;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.security.SecurityUtils;
 
 @Singleton
 public class DefaultPullRequestAssignmentService extends BaseEntityService<PullRequestAssignment>

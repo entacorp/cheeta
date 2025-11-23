@@ -1,4 +1,4 @@
-package io.onedev.server.web;
+package io.cheeta.server.web;
 
 import java.time.ZoneId;
 import java.util.Map;
@@ -15,8 +15,8 @@ import org.apache.wicket.protocol.http.WicketServlet;
 import org.apache.wicket.request.Request;
 import org.apache.wicket.util.collections.ConcurrentHashSet;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.util.Cursor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.util.Cursor;
 
 public class WebSession extends org.apache.wicket.protocol.http.WebSession {
 
@@ -119,7 +119,7 @@ public class WebSession extends org.apache.wicket.protocol.http.WebSession {
 	}
 
 	public static WebSession from(HttpSession session) {
-		String attributeName = "wicket:" + OneDev.getInstance(WicketServlet.class).getServletName() + ":session";
+		String attributeName = "wicket:" + Cheeta.getInstance(WicketServlet.class).getServletName() + ":session";
 		return (WebSession) session.getAttribute(attributeName);		
 	}
 	

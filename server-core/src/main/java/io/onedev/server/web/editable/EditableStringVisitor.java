@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.Consumer;
 
-import io.onedev.server.util.BeanUtils;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.util.BeanUtils;
+import io.cheeta.server.annotation.Editable;
 
 public class EditableStringVisitor {
 	

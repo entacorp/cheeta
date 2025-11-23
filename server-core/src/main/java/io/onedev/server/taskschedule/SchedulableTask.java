@@ -1,4 +1,4 @@
-package io.onedev.server.taskschedule;
+package io.cheeta.server.taskschedule;
 
 import org.quartz.ScheduleBuilder;
 

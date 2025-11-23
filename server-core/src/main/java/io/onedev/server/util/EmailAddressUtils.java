@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import org.apache.commons.lang3.StringUtils;
 

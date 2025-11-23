@@ -1,4 +1,4 @@
-onedev.server.secretEditor = {
+cheeta.server.secretEditor = {
 	onDomReady: function(containerId) {
 		function mask(text) {
 			return text.replace(/[^\r\n]/g, '*');

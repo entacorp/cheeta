@@ -1,9 +1,9 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import com.hazelcast.cp.IAtomicLong;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.data.DataService;
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.data.DataService;
+import io.cheeta.server.model.AbstractEntity;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -14,7 +14,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.onedev.server.persistence.PersistenceUtils.callWithTransaction;
+import static io.cheeta.server.persistence.PersistenceUtils.callWithTransaction;
 
 @Singleton
 public class DefaultIdService implements IdService {

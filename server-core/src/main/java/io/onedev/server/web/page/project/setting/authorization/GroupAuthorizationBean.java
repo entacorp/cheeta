@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.setting.authorization;
+package io.cheeta.server.web.page.project.setting.authorization;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.GroupChoice;
-import io.onedev.server.annotation.RoleChoice;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.GroupChoice;
+import io.cheeta.server.annotation.RoleChoice;
 
 @Editable
 public class GroupAuthorizationBean implements Serializable {

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.modal.message;
+package io.cheeta.server.web.component.modal.message;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -7,7 +7,7 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.web.component.link.PreventDefaultAjaxLink;
+import io.cheeta.server.web.component.link.PreventDefaultAjaxLink;
 
 abstract class MessagePanel extends Panel {
 	

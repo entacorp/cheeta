@@ -1,13 +1,13 @@
-package io.onedev.server.replica;
+package io.cheeta.server.replica;
 
-import io.onedev.commons.utils.FileUtils;
+import io.cheeta.commons.utils.FileUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.io.File;
 import java.io.Serializable;
 
-import static io.onedev.server.replica.ProjectReplica.Type.PRIMARY;
+import static io.cheeta.server.replica.ProjectReplica.Type.PRIMARY;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.apache.commons.io.FileUtils.readFileToString;
 

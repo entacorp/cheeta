@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import static javax.ws.rs.core.Response.Status.NOT_ACCEPTABLE;
 
@@ -30,37 +30,37 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.eclipse.jgit.lib.ObjectId;
 import org.joda.time.DateTime;
 
-import io.onedev.server.attachment.AttachmentService;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestAssignment;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestLabel;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.model.PullRequestUpdate;
-import io.onedev.server.model.PullRequestWatch;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.pullrequest.AutoMerge;
-import io.onedev.server.model.support.pullrequest.MergePreview;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.annotation.EntityCreate;
-import io.onedev.server.rest.resource.support.RestConstants;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectAndBranch;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.attachment.AttachmentService;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestAssignment;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestLabel;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.model.PullRequestUpdate;
+import io.cheeta.server.model.PullRequestWatch;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.pullrequest.AutoMerge;
+import io.cheeta.server.model.support.pullrequest.MergePreview;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.EntityCreate;
+import io.cheeta.server.rest.resource.support.RestConstants;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectAndBranch;
+import io.cheeta.server.web.UrlService;
 
 @Api(name="Pull Request", description="In most cases, pull request resource is operated with pull request id, which is different from pull request number. "
-		+ "To get pull request id of a particular pull request number, use the <a href='/~help/api/io.onedev.server.rest.PullRequestResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
+		+ "To get pull request id of a particular pull request number, use the <a href='/~help/api/io.cheeta.server.rest.PullRequestResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
 		+ "instance <code>&quot;Number&quot; is &quot;path/to/project#100&quot;</code> or <code>&quot;Number&quot; is &quot;PROJECTKEY-100&quot;</code>")
 @Path("/pulls")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -106,7 +106,7 @@ public class PullRequestResource {
     	return pullRequest;
     }
 
-	@Api(order=150, description = "Get list of <a href='/~help/api/io.onedev.server.rest.PullRequestLabelResource'>labels</a>")
+	@Api(order=150, description = "Get list of <a href='/~help/api/io.cheeta.server.rest.PullRequestLabelResource'>labels</a>")
 	@Path("/{requestId}/labels")
 	@GET
 	public Collection<PullRequestLabel> getLabels(@PathParam("requestId") Long requestId) {

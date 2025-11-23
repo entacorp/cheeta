@@ -1,6 +1,6 @@
-package io.onedev.server.git.exception;
+package io.cheeta.server.git.exception;
 
-import io.onedev.server.exception.HttpResponseAwareException;
+import io.cheeta.server.exception.HttpResponseAwareException;
 
 import javax.servlet.http.HttpServletResponse;
 

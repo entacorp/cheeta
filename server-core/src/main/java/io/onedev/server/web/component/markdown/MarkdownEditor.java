@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 import static org.unbescape.javascript.JavaScriptEscape.escapeJavaScript;
 
@@ -19,8 +19,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.onedev.server.validation.validator.ProjectKeyValidator;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.validation.validator.ProjectKeyValidator;
+import io.cheeta.server.web.page.base.BasePage;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.wicket.Component;
@@ -53,28 +53,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.markdown.MarkdownService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.util.FilenameUtils;
-import io.onedev.server.validation.validator.ProjectPathValidator;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.avatar.AvatarService;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.markdown.SuggestionSupport.Selection;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.markdown.MarkdownService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.util.FilenameUtils;
+import io.cheeta.server.validation.validator.ProjectPathValidator;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.avatar.AvatarService;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.markdown.SuggestionSupport.Selection;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
 import org.unbescape.javascript.JavaScriptEscape;
 
 public class MarkdownEditor extends FormComponentPanel<String> {
@@ -178,7 +178,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 			}
 			
 		};
-		MarkdownService manager = OneDev.getInstance(MarkdownService.class);
+		MarkdownService manager = Cheeta.getInstance(MarkdownService.class);
 		return manager.process(manager.render(markdown), project, blobRenderContext, 
 				suggestionSupport, false);
 	}
@@ -213,7 +213,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 					@Override
 					public void renderHead(IHeaderResponse response) {
 						super.renderHead(response);
-						String script = String.format("onedev.server.markdown.setupActionMenu($('#%s'), $('#%s'));", 
+						String script = String.format("cheeta.server.markdown.setupActionMenu($('#%s'), $('#%s'));", 
 								container.getMarkupId(), getMarkupId());
 						response.render(OnDomReadyHeaderItem.forScript(script));
 					}
@@ -256,7 +256,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 					@Override
 					public void renderHead(IHeaderResponse response) {
 						super.renderHead(response);
-						String script = String.format("onedev.server.markdown.setupActionMenu($('#%s'), $('#%s'));", 
+						String script = String.format("cheeta.server.markdown.setupActionMenu($('#%s'), $('#%s'));", 
 								container.getMarkupId(), getMarkupId());
 						response.render(OnDomReadyHeaderItem.forScript(script));
 					}
@@ -311,7 +311,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 				public void renderHead(IHeaderResponse response) {
 					super.renderHead(response);
 					String script = String.format(
-							"onedev.server.markdown.initRendered('%s', %s);", 
+							"cheeta.server.markdown.initRendered('%s', %s);", 
 							container.getMarkupId(), JavascriptTranslations.get());
 					response.render(OnDomReadyHeaderItem.forScript(script));
 				}
@@ -349,7 +349,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 					container.replace(lazyResourceLoader);
 					target.add(lazyResourceLoader);
 					String script = String.format(
-							"onedev.server.markdown.onRendered('%s', '%s');", 
+							"cheeta.server.markdown.onRendered('%s', '%s');", 
 							container.getMarkupId(), 
 							escapeJavaScript(rendered));
 					target.appendJavaScript(script);
@@ -397,13 +397,13 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 						throw new RuntimeException(e);
 					}
 
-					script = String.format("onedev.server.markdown.onEmojisLoaded('%s', %s);", container.getMarkupId(), json);
+					script = String.format("cheeta.server.markdown.onEmojisLoaded('%s', %s);", container.getMarkupId(), json);
 					target.appendJavaScript(script);
 					break;
 				case "userQuery":
 					String userQuery = params.getParameterValue("param1").toOptionalString();
 
-					AvatarService avatarService = OneDev.getInstance(AvatarService.class);
+					AvatarService avatarService = Cheeta.getInstance(AvatarService.class);
 					List<Map<String, String>> userList = new ArrayList<>();
 					for (User user: getUserMentionSupport().findUsers(userQuery, ATWHO_LIMIT)) {
 						Map<String, String> userMap = new HashMap<>();
@@ -423,7 +423,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 					}
 					
 					try {
-						json = OneDev.getInstance(ObjectMapper.class).writeValueAsString(userList);
+						json = Cheeta.getInstance(ObjectMapper.class).writeValueAsString(userList);
 					} catch (JsonProcessingException e) {
 						throw new RuntimeException(e);
 					}
@@ -439,7 +439,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 					String projectKeyOrPath = params.getParameterValue("param4").toOptionalString();
 					List<Map<String, String>> referenceList = new ArrayList<>();
 					Project project;
-					var projectService = OneDev.getInstance(ProjectService.class);
+					var projectService = Cheeta.getInstance(ProjectService.class);
 					if (atChar.equals("#")) {
 						if (StringUtils.isNotBlank(projectKeyOrPath))
 							project = projectService.findByPath(projectKeyOrPath);
@@ -484,7 +484,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 					}
 					
 					try {
-						json = OneDev.getInstance(ObjectMapper.class).writeValueAsString(referenceList);
+						json = Cheeta.getInstance(ObjectMapper.class).writeValueAsString(referenceList);
 					} catch (JsonProcessingException e) {
 						throw new RuntimeException(e);
 					}
@@ -589,7 +589,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 		if (event.getPayload() instanceof ContentQuoted) {
 			ContentQuoted contentQuoted = (ContentQuoted) event.getPayload();
 			
-			String script = String.format("onedev.server.markdown.onQuote('%s', '%s');", 
+			String script = String.format("cheeta.server.markdown.onQuote('%s', '%s');", 
 					container.getMarkupId(), escapeJavaScript(contentQuoted.getContent()));
 			contentQuoted.getHandler().appendJavaScript(script);			
 			event.stop();
@@ -617,7 +617,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 		else
 			escapedAutosaveKey = "undefined";
 		
-		String script = String.format("onedev.server.markdown.onDomReady('%s', %s, %d, %s, %d, %b, %b, '%s', '%s', %s, %s);", 
+		String script = String.format("cheeta.server.markdown.onDomReady('%s', %s, %d, %s, %d, %b, %b, '%s', '%s', %s, %s);", 
 				container.getMarkupId(), 
 				actionCallback, 
 				ATWHO_LIMIT, 
@@ -631,13 +631,13 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 				JavascriptTranslations.get());
 		response.render(OnDomReadyHeaderItem.forScript(script));
 		
-		script = String.format("onedev.server.markdown.onLoad('%s');", container.getMarkupId());
+		script = String.format("cheeta.server.markdown.onLoad('%s');", container.getMarkupId());
 		response.render(OnLoadHeaderItem.forScript(script));
 	}
 
 	public void insertUrl(AjaxRequestTarget target, boolean isImage, String url, 
 			String name, @Nullable String replaceMessage) {
-		String script = String.format("onedev.server.markdown.insertUrl('%s', %s, '%s', '%s', %s);",
+		String script = String.format("cheeta.server.markdown.insertUrl('%s', %s, '%s', '%s', %s);",
 				container.getMarkupId(), isImage, StringEscapeUtils.escapeEcmaScript(url), 
 				StringEscapeUtils.escapeEcmaScript(name), 
 				replaceMessage!=null?"'"+replaceMessage+"'":"undefined");
@@ -645,7 +645,7 @@ public class MarkdownEditor extends FormComponentPanel<String> {
 	}
 
 	public void insertText(AjaxRequestTarget target, String text) {
-		String script = String.format("onedev.server.markdown.insertText('%s', '%s');",
+		String script = String.format("cheeta.server.markdown.insertText('%s', '%s');",
 				container.getMarkupId(), StringEscapeUtils.escapeEcmaScript(text));
 		target.appendJavaScript(script);
 	}

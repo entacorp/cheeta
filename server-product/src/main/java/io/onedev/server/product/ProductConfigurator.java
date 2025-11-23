@@ -1,4 +1,4 @@
-package io.onedev.server.product;
+package io.cheeta.server.product;
 
 import javax.inject.Inject;
 
@@ -7,8 +7,8 @@ import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 
-import io.onedev.server.ServerConfig;
-import io.onedev.server.jetty.ServerConfigurator;
+import io.cheeta.server.ServerConfig;
+import io.cheeta.server.jetty.ServerConfigurator;
 
 public class ProductConfigurator implements ServerConfigurator {
 

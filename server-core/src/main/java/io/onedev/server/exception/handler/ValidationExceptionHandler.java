@@ -1,6 +1,6 @@
-package io.onedev.server.exception.handler;
+package io.cheeta.server.exception.handler;
 
-import io.onedev.server.exception.HttpResponse;
+import io.cheeta.server.exception.HttpResponse;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ValidationException;

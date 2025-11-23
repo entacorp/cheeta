@@ -1,7 +1,7 @@
-package io.onedev.server.plugin.notification.slack;
+package io.cheeta.server.plugin.notification.slack;
 
-import io.onedev.server.model.support.channelnotification.ChannelNotificationSetting;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.model.support.channelnotification.ChannelNotificationSetting;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(name="Slack Notifications", group="Notification", order=100, description="Set up slack notification " +
 		"settings. Settings will be inherited by child projects, and can be overridden by defining settings with " +

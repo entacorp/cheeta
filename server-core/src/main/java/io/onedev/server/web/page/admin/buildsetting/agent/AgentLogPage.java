@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
-import static io.onedev.agent.job.LogRequest.toZoneId;
-import static io.onedev.server.util.DateUtils.getZoneId;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.agent.job.LogRequest.toZoneId;
+import static io.cheeta.server.util.DateUtils.getZoneId;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.base.Joiner;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.web.resource.AgentLogResource;
-import io.onedev.server.web.resource.AgentLogResourceReference;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.web.resource.AgentLogResource;
+import io.cheeta.server.web.resource.AgentLogResourceReference;
 
 public class AgentLogPage extends AgentDetailPage {
 
@@ -38,7 +38,7 @@ public class AgentLogPage extends AgentDetailPage {
 			fragment.add(new ResourceLink<Void>("download", 
 					new AgentLogResourceReference(), AgentLogResource.paramsOf(getAgent())));
 			
-			List<String> lines = OneDev.getInstance(AgentService.class).getAgentLog(getAgent());
+			List<String> lines = Cheeta.getInstance(AgentService.class).getAgentLog(getAgent());
 			String content;
 			if (lines.size() > MAX_DISPLAY_LINES) {
 				fragment.add(new Label("warning", MessageFormat.format(_T("Too many log entries, displaying recent {0}"), MAX_DISPLAY_LINES)));

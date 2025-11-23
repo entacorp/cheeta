@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.pullrequest.referencedfrom;
+package io.cheeta.server.web.component.pullrequest.referencedfrom;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.pullrequest.RequestStatusBadge;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.pullrequest.RequestStatusBadge;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.LoadableDetachableModel;
@@ -22,7 +22,7 @@ public class ReferencedFromPullRequestPanel extends GenericPanel<PullRequest> {
 
 			@Override
 			protected PullRequest load() {
-				return OneDev.getInstance(PullRequestService.class).load(requestId);
+				return Cheeta.getInstance(PullRequestService.class).load(requestId);
 			}
 			
 		});

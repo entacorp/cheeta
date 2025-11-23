@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.symboltooltip;
+package io.cheeta.server.web.component.symboltooltip;
 
 import java.io.Serializable;
 import java.util.List;

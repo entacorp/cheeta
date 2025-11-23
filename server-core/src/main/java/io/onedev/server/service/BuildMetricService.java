@@ -1,14 +1,14 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.buildmetric.BuildMetricQuery;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.buildmetric.BuildMetricQuery;
 
 public interface BuildMetricService {
 	

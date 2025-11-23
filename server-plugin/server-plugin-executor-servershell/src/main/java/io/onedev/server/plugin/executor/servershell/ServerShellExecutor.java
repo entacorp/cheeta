@@ -1,12 +1,12 @@
-package io.onedev.server.plugin.executor.servershell;
+package io.cheeta.server.plugin.executor.servershell;
 
-import static io.onedev.agent.ExecutorUtils.newInfoLogger;
-import static io.onedev.agent.ExecutorUtils.newWarningLogger;
-import static io.onedev.agent.ShellExecutorUtils.testCommands;
-import static io.onedev.k8shelper.KubernetesHelper.cloneRepository;
-import static io.onedev.k8shelper.KubernetesHelper.installGitCert;
-import static io.onedev.k8shelper.KubernetesHelper.replacePlaceholders;
-import static io.onedev.k8shelper.KubernetesHelper.stringifyStepPosition;
+import static io.cheeta.agent.ExecutorUtils.newInfoLogger;
+import static io.cheeta.agent.ExecutorUtils.newWarningLogger;
+import static io.cheeta.agent.ShellExecutorUtils.testCommands;
+import static io.cheeta.k8shelper.KubernetesHelper.cloneRepository;
+import static io.cheeta.k8shelper.KubernetesHelper.installGitCert;
+import static io.cheeta.k8shelper.KubernetesHelper.replacePlaceholders;
+import static io.cheeta.k8shelper.KubernetesHelper.stringifyStepPosition;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,51 +21,51 @@ import javax.validation.constraints.NotEmpty;
 
 import org.apache.commons.lang.SystemUtils;
 
-import io.onedev.agent.ExecutorUtils;
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.bootstrap.SecretMasker;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.k8shelper.BuildImageFacade;
-import io.onedev.k8shelper.CheckoutFacade;
-import io.onedev.k8shelper.CloneInfo;
-import io.onedev.k8shelper.CommandFacade;
-import io.onedev.k8shelper.CompositeFacade;
-import io.onedev.k8shelper.LeafFacade;
-import io.onedev.k8shelper.LeafHandler;
-import io.onedev.k8shelper.PruneBuilderCacheFacade;
-import io.onedev.k8shelper.RunContainerFacade;
-import io.onedev.k8shelper.RunImagetoolsFacade;
-import io.onedev.k8shelper.ServerSideFacade;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.k8shelper.SetupCacheFacade;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Code;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Numeric;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.git.location.GitLocation;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.JobService;
-import io.onedev.server.job.JobRunnable;
-import io.onedev.server.job.ResourceAllocator;
-import io.onedev.server.job.ServerCacheHelper;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.plugin.executor.servershell.ServerShellExecutor.TestData;
-import io.onedev.server.terminal.CommandlineShell;
-import io.onedev.server.terminal.Shell;
-import io.onedev.server.terminal.Terminal;
-import io.onedev.server.web.util.Testable;
+import io.cheeta.agent.ExecutorUtils;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.bootstrap.SecretMasker;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.k8shelper.BuildImageFacade;
+import io.cheeta.k8shelper.CheckoutFacade;
+import io.cheeta.k8shelper.CloneInfo;
+import io.cheeta.k8shelper.CommandFacade;
+import io.cheeta.k8shelper.CompositeFacade;
+import io.cheeta.k8shelper.LeafFacade;
+import io.cheeta.k8shelper.LeafHandler;
+import io.cheeta.k8shelper.PruneBuilderCacheFacade;
+import io.cheeta.k8shelper.RunContainerFacade;
+import io.cheeta.k8shelper.RunImagetoolsFacade;
+import io.cheeta.k8shelper.ServerSideFacade;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.k8shelper.SetupCacheFacade;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Code;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Numeric;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.git.location.GitLocation;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.job.JobRunnable;
+import io.cheeta.server.job.ResourceAllocator;
+import io.cheeta.server.job.ServerCacheHelper;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.plugin.executor.servershell.ServerShellExecutor.TestData;
+import io.cheeta.server.terminal.CommandlineShell;
+import io.cheeta.server.terminal.Shell;
+import io.cheeta.server.terminal.Terminal;
+import io.cheeta.server.web.util.Testable;
 
 @Editable(order=ServerShellExecutor.ORDER, name="Server Shell Executor", description="" +
-		"This executor runs build jobs with OneDev server's shell facility.<br>" +
+		"This executor runs build jobs with Cheeta server's shell facility.<br>" +
 		"<b class='text-danger'>WARNING</b>: Jobs running with this executor has same " +
-		"permission as OneDev server process. Make sure it can only be used by trusted jobs")
+		"permission as Cheeta server process. Make sure it can only be used by trusted jobs")
 public class ServerShellExecutor extends JobExecutor implements Testable<TestData> {
 
 	private static final long serialVersionUID = 1L;
@@ -91,15 +91,15 @@ public class ServerShellExecutor extends JobExecutor implements Testable<TestDat
 	}
 
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 	
 	private JobService getJobService() {
-		return OneDev.getInstance(JobService.class);
+		return Cheeta.getInstance(JobService.class);
 	}
 	
 	private ResourceAllocator getResourceAllocator() {
-		return OneDev.getInstance(ResourceAllocator.class);
+		return Cheeta.getInstance(ResourceAllocator.class);
 	}
 
 	private int getConcurrencyNumber() {
@@ -119,7 +119,7 @@ public class ServerShellExecutor extends JobExecutor implements Testable<TestDat
 				checkApplicable();
 				
 				buildHome = new File(Bootstrap.getTempDir(),
-						"onedev-build-" + jobContext.getProjectId() + "-" + jobContext.getBuildNumber() + "-" + jobContext.getSubmitSequence());
+						"cheeta-build-" + jobContext.getProjectId() + "-" + jobContext.getBuildNumber() + "-" + jobContext.getSubmitSequence());
 				FileUtils.createDir(buildHome);
 				File workspaceDir = new File(buildHome, "workspace");
 				SecretMasker.push(jobContext.getSecretMasker());
@@ -264,7 +264,7 @@ public class ServerShellExecutor extends JobExecutor implements Testable<TestDat
 					return successful;
 				} finally {
 					SecretMasker.pop();
-					// Fix https://code.onedev.io/onedev/server/~issues/597
+					// Fix https://code.cheeta.io/cheeta/server/~issues/597
 					if (SystemUtils.IS_OS_WINDOWS && workspaceDir.exists())
 						FileUtils.deleteDir(workspaceDir);
 					synchronized (buildHome) {
@@ -307,12 +307,12 @@ public class ServerShellExecutor extends JobExecutor implements Testable<TestDat
 	}
 	
 	private void checkApplicable() {
-		if (OneDev.getK8sService() != null) {
+		if (Cheeta.getK8sService() != null) {
 			throw new ExplicitException(""
-					+ "OneDev running inside kubernetes cluster does not support server shell executor. "
+					+ "Cheeta running inside kubernetes cluster does not support server shell executor. "
 					+ "Please use kubernetes executor instead");
 		} else if (Bootstrap.isInDocker()) {
-			throw new ExplicitException("Server shell executor is only supported when OneDev is installed "
+			throw new ExplicitException("Server shell executor is only supported when Cheeta is installed "
 					+ "directly on bare metal/virtual machine");
 		}
 	}

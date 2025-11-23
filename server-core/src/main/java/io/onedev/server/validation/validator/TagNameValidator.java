@@ -1,7 +1,7 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
-import io.onedev.server.annotation.TagName;
-import io.onedev.server.git.GitUtils;
+import io.cheeta.server.annotation.TagName;
+import io.cheeta.server.git.GitUtils;
 import org.eclipse.jgit.lib.Repository;
 
 import javax.validation.ConstraintValidator;

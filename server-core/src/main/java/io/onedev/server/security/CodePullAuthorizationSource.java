@@ -1,8 +1,8 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
 import javax.servlet.http.HttpServletRequest;
 
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Project;
 
 public interface CodePullAuthorizationSource {
 

@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.Collections.sort;
 
 import java.util.ArrayList;
@@ -11,28 +11,28 @@ import org.apache.commons.lang3.StringUtils;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.ai.QueryDescriptions;
-import io.onedev.server.model.Agent;
-import io.onedev.server.search.entity.agent.AgentQuery;
-import io.onedev.server.search.entity.agent.AgentQueryLexer;
-import io.onedev.server.search.entity.agent.AgentQueryParser;
-import io.onedev.server.service.AgentAttributeService;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.NaturalLanguageTranslator;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ai.QueryDescriptions;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.search.entity.agent.AgentQuery;
+import io.cheeta.server.search.entity.agent.AgentQueryLexer;
+import io.cheeta.server.search.entity.agent.AgentQueryParser;
+import io.cheeta.server.service.AgentAttributeService;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.NaturalLanguageTranslator;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class AgentQueryBehavior extends ANTLRAssistBehavior {
 	
@@ -52,8 +52,8 @@ public class AgentQueryBehavior extends ANTLRAssistBehavior {
 
 					@Override
 					protected List<InputSuggestion> match(String matchWith) {
-						AgentService agentService = OneDev.getInstance(AgentService.class);
-						AgentAttributeService attributeService = OneDev.getInstance(AgentAttributeService.class);
+						AgentService agentService = Cheeta.getInstance(AgentService.class);
+						AgentAttributeService attributeService = Cheeta.getInstance(AgentAttributeService.class);
 						ParseExpect criteriaValueExpect;
 						if ("criteriaField".equals(spec.getLabel())) {
 							var fields = new ArrayList<>(Agent.QUERY_FIELDS);
@@ -209,7 +209,7 @@ public class AgentQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	@Override

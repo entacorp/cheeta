@@ -1,4 +1,4 @@
-package io.onedev.server.markdown;
+package io.cheeta.server.markdown;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -12,8 +12,8 @@ import org.jsoup.select.NodeTraversor;
 
 import com.google.common.collect.ImmutableSet;
 
-import io.onedev.server.util.HtmlUtils;
-import io.onedev.server.util.TextNodeVisitor;
+import io.cheeta.server.util.HtmlUtils;
+import io.cheeta.server.util.TextNodeVisitor;
 
 public class MentionParser {
 	

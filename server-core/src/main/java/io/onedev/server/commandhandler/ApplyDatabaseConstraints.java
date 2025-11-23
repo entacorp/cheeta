@@ -1,10 +1,10 @@
-package io.onedev.server.commandhandler;
+package io.cheeta.server.commandhandler;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.persistence.HibernateConfig;
-import io.onedev.server.data.DataService;
-import io.onedev.server.persistence.SessionFactoryService;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.persistence.HibernateConfig;
+import io.cheeta.server.data.DataService;
+import io.cheeta.server.persistence.SessionFactoryService;
+import io.cheeta.server.security.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static io.onedev.server.persistence.PersistenceUtils.callWithTransaction;
+import static io.cheeta.server.persistence.PersistenceUtils.callWithTransaction;
 
 @Singleton
 public class ApplyDatabaseConstraints extends CommandHandler {

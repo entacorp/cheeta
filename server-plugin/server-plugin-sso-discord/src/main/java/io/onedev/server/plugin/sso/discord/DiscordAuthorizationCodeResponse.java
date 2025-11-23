@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.sso.discord;
+package io.cheeta.server.plugin.sso.discord;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

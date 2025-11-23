@@ -1,10 +1,10 @@
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
 import com.google.common.collect.Sets;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.model.Alert;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.model.Alert;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

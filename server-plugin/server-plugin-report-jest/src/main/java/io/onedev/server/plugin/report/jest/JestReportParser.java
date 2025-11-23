@@ -1,16 +1,16 @@
-package io.onedev.server.plugin.report.jest;
+package io.cheeta.server.plugin.report.jest;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.Status;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestCase;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestSuite;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.StringTransformer;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.Status;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestCase;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestSuite;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.StringTransformer;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;

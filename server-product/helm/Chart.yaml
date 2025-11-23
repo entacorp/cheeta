@@ -1,17 +1,17 @@
 apiVersion: v2
-name: onedev
+name: cheeta
 version: ${buildVersion}
 description: All-In-One DevOps Platform
 type: application
 keywords:
-  - onedev
+  - cheeta
   - devops
   - vcs
   - cicd
-home: https://onedev.io
+home: https://cheeta.io
 maintainers:
   - name: Robin Shen
-    email:  robin@onedev.io
+    email:  robin@cheeta.io
   - name: Abdul Khaliq
     email: a.khaliq@outlook.my
 appVersion: ${buildVersion}

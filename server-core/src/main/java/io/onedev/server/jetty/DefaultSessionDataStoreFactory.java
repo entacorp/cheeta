@@ -16,7 +16,7 @@
 //  ========================================================================
 //
 
-package io.onedev.server.jetty;
+package io.cheeta.server.jetty;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -25,7 +25,7 @@ import org.eclipse.jetty.server.session.AbstractSessionDataStoreFactory;
 import org.eclipse.jetty.server.session.SessionDataStore;
 import org.eclipse.jetty.server.session.SessionHandler;
 
-import io.onedev.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterService;
 
 @Singleton
 public class DefaultSessionDataStoreFactory extends AbstractSessionDataStoreFactory {

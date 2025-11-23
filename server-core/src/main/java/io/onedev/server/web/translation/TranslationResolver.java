@@ -1,6 +1,6 @@
-package io.onedev.server.web.translation;
+package io.cheeta.server.web.translation;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

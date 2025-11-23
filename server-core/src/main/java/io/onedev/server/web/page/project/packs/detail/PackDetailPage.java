@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.packs.detail;
+package io.cheeta.server.web.page.project.packs.detail;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -19,27 +19,27 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.flow.RedirectToUrlException;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.PackService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.pack.PackQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.component.entity.nav.EntityNavPanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.pack.side.PackSidePanel;
-import io.onedev.server.web.component.sideinfo.SideInfoLink;
-import io.onedev.server.web.component.sideinfo.SideInfoPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.packs.ProjectPacksPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.CursorSupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.pack.PackQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.component.entity.nav.EntityNavPanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.pack.side.PackSidePanel;
+import io.cheeta.server.web.component.sideinfo.SideInfoLink;
+import io.cheeta.server.web.component.sideinfo.SideInfoPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.packs.ProjectPacksPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.CursorSupport;
 
 public class PackDetailPage extends ProjectPage {
 	
@@ -59,7 +59,7 @@ public class PackDetailPage extends ProjectPage {
 			@Override
 			protected Pack load() {
 				Long packId = params.get(PARAM_PACK).toLong();
-				return OneDev.getInstance(PackService.class).load(packId);
+				return Cheeta.getInstance(PackService.class).load(packId);
 			}
 
 		};
@@ -172,7 +172,7 @@ public class PackDetailPage extends ProjectPage {
 	}
 	
 	private PackService getPackService() {
-		return OneDev.getInstance(PackService.class);
+		return Cheeta.getInstance(PackService.class);
 	}
 
 	@Override

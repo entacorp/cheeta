@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render;
+package io.cheeta.server.web.page.project.blob.render;
 
 import java.io.Serializable;
 
@@ -6,8 +6,8 @@ import org.jspecify.annotations.Nullable;
 
 import org.apache.wicket.Component;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.commons.utils.PlanarRange;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.commons.utils.PlanarRange;
 
 @ExtensionPoint
 public interface BlobRenderer extends Serializable {

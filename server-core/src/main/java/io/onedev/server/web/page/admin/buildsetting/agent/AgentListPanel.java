@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -42,34 +42,34 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.model.Agent;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.EntitySort.Direction;
-import io.onedev.server.search.entity.agent.AgentQuery;
-import io.onedev.server.search.entity.agent.FuzzyCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.behavior.AgentQueryBehavior;
-import io.onedev.server.web.component.AgentStatusBadge;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.datatable.selectioncolumn.SelectionColumn;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesClosed;
-import io.onedev.server.web.component.savedquery.SavedQueriesOpened;
-import io.onedev.server.web.component.sortedit.SortEditPanel;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.search.entity.agent.AgentQuery;
+import io.cheeta.server.search.entity.agent.FuzzyCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.behavior.AgentQueryBehavior;
+import io.cheeta.server.web.component.AgentStatusBadge;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.datatable.selectioncolumn.SelectionColumn;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesClosed;
+import io.cheeta.server.web.component.savedquery.SavedQueriesOpened;
+import io.cheeta.server.web.component.sortedit.SortEditPanel;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
 
 class AgentListPanel extends Panel {
 	
@@ -117,7 +117,7 @@ class AgentListPanel extends Panel {
 	}
 	
 	private AgentService getAgentService() {
-		return OneDev.getInstance(AgentService.class);
+		return Cheeta.getInstance(AgentService.class);
 	}
 	
 	@Override
@@ -945,11 +945,11 @@ class AgentListPanel extends Panel {
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 	
 }

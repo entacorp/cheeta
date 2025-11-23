@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.select2;
+package io.cheeta.server.web.component.select2;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
@@ -6,7 +6,7 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 
-import io.onedev.server.web.asset.jqueryui.JQueryUIResourceReference;
+import io.cheeta.server.web.asset.jqueryui.JQueryUIResourceReference;
 
 /**
  * Adds drag & drop behavior to Select2MultiChoice components, i.e. the list of

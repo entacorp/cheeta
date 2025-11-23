@@ -1,11 +1,11 @@
-package io.onedev.server.event.project.issue;
+package io.cheeta.server.event.project.issue;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.security.SecurityUtils;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class IssuesCopied extends ProjectEvent {
 	}
 
 	public Project getSourceProject() {
-		return OneDev.getInstance(Dao.class).load(Project.class, sourceProjectId);
+		return Cheeta.getInstance(Dao.class).load(Project.class, sourceProjectId);
 	}
 
 	public Project getTargetProject() {

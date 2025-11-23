@@ -1,23 +1,23 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.AbstractEntity.PROP_NUMBER;
-import static io.onedev.server.model.Build.PROP_COMMIT_HASH;
-import static io.onedev.server.model.Build.PROP_FINISH_DATE;
-import static io.onedev.server.model.Build.PROP_FINISH_DAY;
-import static io.onedev.server.model.Build.PROP_FINISH_MONTH;
-import static io.onedev.server.model.Build.PROP_FINISH_WEEK;
-import static io.onedev.server.model.Build.PROP_JOB_NAME;
-import static io.onedev.server.model.Build.PROP_PENDING_DATE;
-import static io.onedev.server.model.Build.PROP_REF_NAME;
-import static io.onedev.server.model.Build.PROP_RUNNING_DATE;
-import static io.onedev.server.model.Build.PROP_STATUS;
-import static io.onedev.server.model.Build.PROP_SUBMIT_DATE;
-import static io.onedev.server.model.Build.PROP_VERSION;
-import static io.onedev.server.model.Project.BUILDS_DIR;
-import static io.onedev.server.model.support.TimeGroups.PROP_DAY;
-import static io.onedev.server.model.support.TimeGroups.PROP_MONTH;
-import static io.onedev.server.model.support.TimeGroups.PROP_WEEK;
-import static io.onedev.server.search.entity.EntitySort.Direction.DESCENDING;
+import static io.cheeta.server.model.AbstractEntity.PROP_NUMBER;
+import static io.cheeta.server.model.Build.PROP_COMMIT_HASH;
+import static io.cheeta.server.model.Build.PROP_FINISH_DATE;
+import static io.cheeta.server.model.Build.PROP_FINISH_DAY;
+import static io.cheeta.server.model.Build.PROP_FINISH_MONTH;
+import static io.cheeta.server.model.Build.PROP_FINISH_WEEK;
+import static io.cheeta.server.model.Build.PROP_JOB_NAME;
+import static io.cheeta.server.model.Build.PROP_PENDING_DATE;
+import static io.cheeta.server.model.Build.PROP_REF_NAME;
+import static io.cheeta.server.model.Build.PROP_RUNNING_DATE;
+import static io.cheeta.server.model.Build.PROP_STATUS;
+import static io.cheeta.server.model.Build.PROP_SUBMIT_DATE;
+import static io.cheeta.server.model.Build.PROP_VERSION;
+import static io.cheeta.server.model.Project.BUILDS_DIR;
+import static io.cheeta.server.model.support.TimeGroups.PROP_DAY;
+import static io.cheeta.server.model.support.TimeGroups.PROP_MONTH;
+import static io.cheeta.server.model.support.TimeGroups.PROP_WEEK;
+import static io.cheeta.server.search.entity.EntitySort.Direction.DESCENDING;
 
 import java.io.File;
 import java.io.Serializable;
@@ -65,45 +65,45 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.bootstrap.SecretMasker;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Markdown;
-import io.onedev.server.attachment.AttachmentStorageSupport;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.buildspec.param.ParamUtils;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.buildspecmodel.inputspec.SecretInput;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.entityreference.BuildReference;
-import io.onedev.server.entityreference.EntityReference;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.model.support.BuildMetric;
-import io.onedev.server.model.support.LabelSupport;
-import io.onedev.server.model.support.ProjectBelonging;
-import io.onedev.server.model.support.TimeGroups;
-import io.onedev.server.model.support.build.JobSecret;
-import io.onedev.server.search.entity.SortField;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.FilenameUtils;
-import io.onedev.server.util.artifact.ArtifactInfo;
-import io.onedev.server.util.artifact.DirectoryInfo;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.facade.BuildFacade;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.util.BuildAware;
-import io.onedev.server.web.util.TextUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.bootstrap.SecretMasker;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Markdown;
+import io.cheeta.server.attachment.AttachmentStorageSupport;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.buildspec.param.ParamUtils;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.buildspecmodel.inputspec.SecretInput;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.entityreference.BuildReference;
+import io.cheeta.server.entityreference.EntityReference;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.model.support.BuildMetric;
+import io.cheeta.server.model.support.LabelSupport;
+import io.cheeta.server.model.support.ProjectBelonging;
+import io.cheeta.server.model.support.TimeGroups;
+import io.cheeta.server.model.support.build.JobSecret;
+import io.cheeta.server.search.entity.SortField;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.FilenameUtils;
+import io.cheeta.server.util.artifact.ArtifactInfo;
+import io.cheeta.server.util.artifact.DirectoryInfo;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.facade.BuildFacade;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.util.BuildAware;
+import io.cheeta.server.web.util.TextUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Entity
 @Table(
@@ -241,7 +241,7 @@ public class Build extends ProjectBelonging
 	private static ThreadLocal<Stack<Build>> stack = ThreadLocal.withInitial(Stack::new);
 
 	public static File getLogFile(Long projectId, Long buildNumber) {
-		File buildDir = OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber);
+		File buildDir = Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber);
 		return new File(buildDir, LOG_FILE);
 	}
 	
@@ -922,7 +922,7 @@ public class Build extends ProjectBelonging
 	public Collection<String> getMaskSecrets() {
 		Collection<String> maskSecrets = new HashSet<>();
 		maskSecrets.add(getJobToken());
-		maskSecrets.add(OneDev.getInstance(ClusterService.class).getCredential());
+		maskSecrets.add(Cheeta.getInstance(ClusterService.class).getCredential());
 
 		for (JobSecret secret: getProject().getHierarchyJobSecrets()) 
 			maskSecrets.add(secret.getValue());
@@ -994,11 +994,11 @@ public class Build extends ProjectBelonging
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	private BuildService getBuildService() {
-		return OneDev.getInstance(BuildService.class);
+		return Cheeta.getInstance(BuildService.class);
 	}
 	
 	public Collection<Long> getStreamPreviousNumbers(int limit) {
@@ -1064,7 +1064,7 @@ public class Build extends ProjectBelonging
 	
 	public AccessToken getAccessToken(String accessTokenSecret) {
 		String secretValue = getJobAuthorizationContext().getSecretValue(accessTokenSecret);
-		var accessToken = OneDev.getInstance(AccessTokenService.class).findByValue(secretValue);
+		var accessToken = Cheeta.getInstance(AccessTokenService.class).findByValue(secretValue);
 		if (accessToken == null)
 			throw new ExplicitException("Invalid access token");
 		return accessToken;

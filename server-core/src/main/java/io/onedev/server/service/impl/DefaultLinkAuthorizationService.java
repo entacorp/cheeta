@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Collection;
 
@@ -6,11 +6,11 @@ import javax.inject.Singleton;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.LinkAuthorization;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Role;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.LinkAuthorizationService;
+import io.cheeta.server.model.LinkAuthorization;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.LinkAuthorizationService;
 
 @Singleton
 public class DefaultLinkAuthorizationService extends BaseEntityService<LinkAuthorization> implements LinkAuthorizationService {

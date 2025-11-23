@@ -1,6 +1,6 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.Dashboard.PROP_NAME;
+import static io.cheeta.server.model.Dashboard.PROP_NAME;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import io.onedev.server.model.support.widget.Widget;
+import io.cheeta.server.model.support.widget.Widget;
 
 @Entity
 @Table(

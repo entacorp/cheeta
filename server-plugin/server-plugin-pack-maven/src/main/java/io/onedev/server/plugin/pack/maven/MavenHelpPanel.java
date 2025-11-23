@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.pack.maven;
+package io.cheeta.server.plugin.pack.maven;
 
-import static io.onedev.server.util.GroovyUtils.evalTemplate;
+import static io.cheeta.server.util.GroovyUtils.evalTemplate;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,9 +12,9 @@ import org.apache.wicket.model.Model;
 
 import com.google.common.io.Resources;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.component.codesnippet.CodeSnippetPanel;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.component.codesnippet.CodeSnippetPanel;
 
 public class MavenHelpPanel extends Panel {
 	
@@ -29,7 +29,7 @@ public class MavenHelpPanel extends Panel {
 	protected void onInitialize() {
 		super.onInitialize();
 
-		var serverUrl = OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+		var serverUrl = Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 		var bindings = new HashMap<String, Object>();
 		bindings.put("url", serverUrl + "/" + projectPath + "/~" + MavenPackHandler.HANDLER_ID);
 		bindings.put("permission", "write");

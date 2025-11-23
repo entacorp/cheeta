@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.report.coverage;
+package io.cheeta.server.plugin.report.coverage;
 
 import java.util.ArrayList;
 import java.util.HashMap;

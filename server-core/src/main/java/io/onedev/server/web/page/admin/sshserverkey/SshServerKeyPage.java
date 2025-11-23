@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.sshserverkey;
+package io.cheeta.server.web.page.admin.sshserverkey;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
@@ -9,13 +9,13 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.SshSetting;
-import io.onedev.server.ssh.SshKeyUtils;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.SshSetting;
+import io.cheeta.server.ssh.SshKeyUtils;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public class SshServerKeyPage extends AdministrationPage {
 
@@ -27,7 +27,7 @@ public class SshServerKeyPage extends AdministrationPage {
     protected void onInitialize() {
         super.onInitialize();
         
-        SshSetting sshSetting = OneDev.getInstance(SettingService.class).getSshSetting();
+        SshSetting sshSetting = Cheeta.getInstance(SettingService.class).getSshSetting();
 
         Form<?> form = new Form<Void>("form");
 		form.add(new Button("save") {
@@ -63,7 +63,7 @@ public class SshServerKeyPage extends AdministrationPage {
     }
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	@Override

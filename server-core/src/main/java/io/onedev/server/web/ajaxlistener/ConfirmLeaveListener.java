@@ -1,4 +1,4 @@
-package io.onedev.server.web.ajaxlistener;
+package io.cheeta.server.web.ajaxlistener;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.attributes.IAjaxCallListener;
@@ -22,9 +22,9 @@ public class ConfirmLeaveListener implements IAjaxCallListener {
 	@Override
 	public CharSequence getPrecondition(Component component) {
 		if (dirtyContainer != null)
-			return String.format("return onedev.server.form.confirmLeave('%s');", dirtyContainer.getMarkupId(true));
+			return String.format("return cheeta.server.form.confirmLeave('%s');", dirtyContainer.getMarkupId(true));
 		else
-			return "return onedev.server.form.confirmLeave();";
+			return "return cheeta.server.form.confirmLeave();";
 	}
 
 	@Override

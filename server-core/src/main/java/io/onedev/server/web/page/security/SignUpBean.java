@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.security;
+package io.cheeta.server.web.page.security;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.User;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.patternset.PatternSet;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -31,7 +31,7 @@ public class SignUpBean extends User {
 	
 	@SuppressWarnings("unused")
 	private static String getEmailAddressDescription() {
-		var allowedSelfRegisterEmailDomain = OneDev.getInstance(SettingService.class).getSecuritySetting().getAllowedSelfRegisterEmailDomain();
+		var allowedSelfRegisterEmailDomain = Cheeta.getInstance(SettingService.class).getSecuritySetting().getAllowedSelfRegisterEmailDomain();
 		if (allowedSelfRegisterEmailDomain != null) {
 			var patternSet = PatternSet.parse(allowedSelfRegisterEmailDomain);
 			var description = new StringBuilder();

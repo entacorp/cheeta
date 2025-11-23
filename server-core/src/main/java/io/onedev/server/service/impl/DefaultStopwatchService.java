@@ -1,7 +1,7 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.Stopwatch.PROP_ISSUE;
-import static io.onedev.server.model.Stopwatch.PROP_USER;
+import static io.cheeta.server.model.Stopwatch.PROP_ISSUE;
+import static io.cheeta.server.model.Stopwatch.PROP_USER;
 
 import java.util.Date;
 
@@ -10,16 +10,16 @@ import javax.inject.Singleton;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueWork;
-import io.onedev.server.model.Stopwatch;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.IssueWorkService;
-import io.onedev.server.service.StopwatchService;
-import io.onedev.server.util.DateUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueWork;
+import io.cheeta.server.model.Stopwatch;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.IssueWorkService;
+import io.cheeta.server.service.StopwatchService;
+import io.cheeta.server.util.DateUtils;
 
 @Singleton
 public class DefaultStopwatchService extends BaseEntityService<Stopwatch> implements StopwatchService {

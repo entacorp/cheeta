@@ -1,14 +1,14 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import javax.inject.Singleton;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueReaction;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.IssueReactionService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueReaction;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.IssueReactionService;
 
 @Singleton
 public class DefaultIssueReactionService extends BaseEntityService<IssueReaction> implements IssueReactionService {

@@ -1,9 +1,9 @@
-package io.onedev.server.util.watch;
+package io.cheeta.server.util.watch;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import io.onedev.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.NamedQuery;
 
 public abstract class QueryWatchSupport<T extends NamedQuery> {
 

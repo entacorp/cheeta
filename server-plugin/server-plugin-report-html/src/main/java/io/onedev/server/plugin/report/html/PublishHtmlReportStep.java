@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.html;
+package io.cheeta.server.plugin.report.html;
 
-import static io.onedev.commons.utils.LockUtils.write;
+import static io.cheeta.commons.utils.LockUtils.write;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,22 +8,22 @@ import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.step.PublishReportStep;
-import io.onedev.server.buildspec.step.StepGroup;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.JobService;
-import io.onedev.server.model.Build;
-import io.onedev.server.persistence.SessionService;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.step.PublishReportStep;
+import io.cheeta.server.buildspec.step.StepGroup;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.persistence.SessionService;
 
 @Editable(order=1070, group= StepGroup.PUBLISH, name="Html Report")
 public class PublishHtmlReportStep extends PublishReportStep {
@@ -32,11 +32,11 @@ public class PublishHtmlReportStep extends PublishReportStep {
 	
 	public static final String CATEGORY = "html";
 	
-	public static final String START_PAGE = "$onedev-htmlreport-startpage$";
+	public static final String START_PAGE = "$cheeta-htmlreport-startpage$";
 
 	private String startPage;
 
-	@Editable(order=1000, description="Specify start page of the report relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>, for instance: api/index.html")
+	@Editable(order=1000, description="Specify start page of the report relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>, for instance: api/index.html")
 	@Interpolative(variableSuggester="suggestVariables")
 	@NotEmpty
 	public String getStartPage() {
@@ -54,9 +54,9 @@ public class PublishHtmlReportStep extends PublishReportStep {
 
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger logger) {
-		return OneDev.getInstance(SessionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
-			JobContext jobContext = OneDev.getInstance(JobService.class).getJobContext(build.getId());
+		return Cheeta.getInstance(SessionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
+			JobContext jobContext = Cheeta.getInstance(JobService.class).getJobContext(build.getId());
 			if (jobContext.getJobExecutor().isHtmlReportPublishEnabled()) {
 				write(getReportLockName(build), () -> {
 					File reportDir = new File(build.getDir(), CATEGORY + "/" + getReportName());
@@ -74,7 +74,7 @@ public class PublishHtmlReportStep extends PublishReportStep {
 								throw new RuntimeException(e);
 							}
 						}
-						OneDev.getInstance(ProjectService.class).directoryModified(
+						Cheeta.getInstance(ProjectService.class).directoryModified(
 								build.getProject().getId(), reportDir.getParentFile());
 					} else {
 						logger.warning("Html report start page not found: " + startPage.getAbsolutePath());

@@ -1,15 +1,15 @@
-package io.onedev.server.web.resource;
+package io.cheeta.server.web.resource;
 
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.job.log.LogService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IOUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.job.log.LogService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IOUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.tika.mime.MimeTypes;
 import org.apache.wicket.request.cycle.RequestCycle;
@@ -30,7 +30,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 
 public class BuildLogResource extends AbstractResource {
 
@@ -50,9 +50,9 @@ public class BuildLogResource extends AbstractResource {
 			throw new IllegalArgumentException("build number has to be specified");
 
 		if (!SecurityUtils.isSystem()) {
-			Project project = OneDev.getInstance(ProjectService.class).load(projectId);
+			Project project = Cheeta.getInstance(ProjectService.class).load(projectId);
 			
-			Build build = OneDev.getInstance(BuildService.class).find(project, buildNumber);
+			Build build = Cheeta.getInstance(BuildService.class).find(project, buildNumber);
 
 			if (build == null) {
 				String message = String.format("Unable to find build (project: %s, build number: %d)", 
@@ -78,10 +78,10 @@ public class BuildLogResource extends AbstractResource {
 
 			@Override
 			public void writeData(Attributes attributes) throws IOException {
-				ProjectService projectService = OneDev.getInstance(ProjectService.class);
+				ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 				String activeServer = projectService.getActiveServer(projectId, true);
-				ClusterService clusterService = OneDev.getInstance(ClusterService.class);
-				LogService logService = OneDev.getInstance(LogService.class);
+				ClusterService clusterService = Cheeta.getInstance(ClusterService.class);
+				LogService logService = Cheeta.getInstance(LogService.class);
 				if (activeServer.equals(clusterService.getLocalServerAddress())) {
 					try (
 							InputStream is = logService.openLogStream(projectId, buildNumber);

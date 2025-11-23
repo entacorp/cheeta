@@ -1,10 +1,10 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import io.onedev.server.exception.DataTooLargeException;
+import io.cheeta.server.exception.DataTooLargeException;
 
 @SuppressWarnings("deprecation")
 public class IOUtils extends org.apache.commons.io.IOUtils {

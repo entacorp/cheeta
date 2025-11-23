@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.param;
+package io.cheeta.server.buildspec.param;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
 
 public class ParamCombination implements Serializable {
 

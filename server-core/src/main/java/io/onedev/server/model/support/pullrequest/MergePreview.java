@@ -1,6 +1,6 @@
-package io.onedev.server.model.support.pullrequest;
+package io.cheeta.server.model.support.pullrequest;
 
-import io.onedev.server.model.PullRequest;
+import io.cheeta.server.model.PullRequest;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.Column;

@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.issue.list;
+package io.cheeta.server.web.component.issue.list;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static io.onedev.server.search.entity.EntitySort.Direction.ASCENDING;
-import static io.onedev.server.search.entity.issue.IssueQuery.merge;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.search.entity.EntitySort.Direction.ASCENDING;
+import static io.cheeta.server.search.entity.issue.IssueQuery.merge;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
@@ -74,85 +74,85 @@ import org.dhatim.fastexcel.Workbook;
 import com.google.common.collect.Sets;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.IssueLinkService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IssueWatchService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.imports.IssueImporter;
-import io.onedev.server.imports.IssueImporterContribution;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.LastActivity;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.DateField;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.IntegerField;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.EntitySort.Direction;
-import io.onedev.server.search.entity.issue.FuzzyCriteria;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.timetracking.TimeTrackingService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.LinkDescriptor;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.util.watch.WatchStatus;
-import io.onedev.server.util.xstream.ObjectMap;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.ajaxlistener.AttachAjaxIndicatorListener;
-import io.onedev.server.web.ajaxlistener.AttachAjaxIndicatorListener.AttachMode;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.IssueQueryBehavior;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.component.datatable.selectioncolumn.SelectionColumn;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.issue.IssueStateBadge;
-import io.onedev.server.web.component.issue.fieldvalues.FieldValuesPanel;
-import io.onedev.server.web.component.issue.iteration.IterationCrumbPanel;
-import io.onedev.server.web.component.issue.link.IssueLinksPanel;
-import io.onedev.server.web.component.issue.operation.TransitionMenuLink;
-import io.onedev.server.web.component.issue.progress.IssueProgressPanel;
-import io.onedev.server.web.component.issue.progress.QueriedIssuesProgressPanel;
-import io.onedev.server.web.component.issue.title.IssueTitlePanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.component.pagenavigator.OnePagingNavigator;
-import io.onedev.server.web.component.project.selector.ProjectSelector;
-import io.onedev.server.web.component.savedquery.SavedQueriesClosed;
-import io.onedev.server.web.component.savedquery.SavedQueriesOpened;
-import io.onedev.server.web.component.sortedit.SortEditPanel;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.component.watchstatus.WatchStatusPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.project.issues.create.NewIssuePage;
-import io.onedev.server.web.page.project.issues.imports.IssueImportPage;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.WicketUtils;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.IssueLinkService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IssueWatchService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.imports.IssueImporter;
+import io.cheeta.server.imports.IssueImporterContribution;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.LastActivity;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.DateField;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.IntegerField;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.search.entity.issue.FuzzyCriteria;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.timetracking.TimeTrackingService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.LinkDescriptor;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.util.watch.WatchStatus;
+import io.cheeta.server.util.xstream.ObjectMap;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.ajaxlistener.AttachAjaxIndicatorListener;
+import io.cheeta.server.web.ajaxlistener.AttachAjaxIndicatorListener.AttachMode;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.IssueQueryBehavior;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.component.datatable.selectioncolumn.SelectionColumn;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.issue.IssueStateBadge;
+import io.cheeta.server.web.component.issue.fieldvalues.FieldValuesPanel;
+import io.cheeta.server.web.component.issue.iteration.IterationCrumbPanel;
+import io.cheeta.server.web.component.issue.link.IssueLinksPanel;
+import io.cheeta.server.web.component.issue.operation.TransitionMenuLink;
+import io.cheeta.server.web.component.issue.progress.IssueProgressPanel;
+import io.cheeta.server.web.component.issue.progress.QueriedIssuesProgressPanel;
+import io.cheeta.server.web.component.issue.title.IssueTitlePanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.component.pagenavigator.OnePagingNavigator;
+import io.cheeta.server.web.component.project.selector.ProjectSelector;
+import io.cheeta.server.web.component.savedquery.SavedQueriesClosed;
+import io.cheeta.server.web.component.savedquery.SavedQueriesOpened;
+import io.cheeta.server.web.component.sortedit.SortEditPanel;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.component.watchstatus.WatchStatusPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.project.issues.create.NewIssuePage;
+import io.cheeta.server.web.page.project.issues.imports.IssueImportPage;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.WicketUtils;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.xodus.VisitInfoService;
 
 public abstract class IssueListPanel extends Panel {
 
@@ -189,19 +189,19 @@ public abstract class IssueListPanel extends Panel {
 	}
 	
 	private IssueService getIssueService() {
-		return OneDev.getInstance(IssueService.class);
+		return Cheeta.getInstance(IssueService.class);
 	}
 	
 	private IssueLinkService getIssueLinkService() {
-		return OneDev.getInstance(IssueLinkService.class);
+		return Cheeta.getInstance(IssueLinkService.class);
 	}
 
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 	
 	@Override
@@ -250,7 +250,7 @@ public abstract class IssueListPanel extends Panel {
 	}
 	
 	private GlobalIssueSetting getGlobalIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	private void doQuery(AjaxRequestTarget target) {
@@ -400,7 +400,7 @@ public abstract class IssueListPanel extends Panel {
 				Collection<IssueImporter> importers = new ArrayList<>();
 				
 				List<IssueImporterContribution> contributions = 
-						new ArrayList<>(OneDev.getExtensions(IssueImporterContribution.class));
+						new ArrayList<>(Cheeta.getExtensions(IssueImporterContribution.class));
 				Collections.sort(contributions, comparingInt(IssueImporterContribution::getOrder));
 				
 				for (IssueImporterContribution contribution: contributions)
@@ -441,7 +441,7 @@ public abstract class IssueListPanel extends Panel {
 
 		var extraActionsView = new RepeatingView("extraActions");
 		add(extraActionsView);
-		for (var renderer: OneDev.getExtensions(IssueListActionRenderer.class))
+		for (var renderer: Cheeta.getExtensions(IssueListActionRenderer.class))
 			extraActionsView.add(renderer.render(extraActionsView.newChildId()));
 		
 		queryInput = new TextField<String>("input", queryStringModel);
@@ -599,7 +599,7 @@ public abstract class IssueListPanel extends Panel {
 							getGlobalIssueSetting().setListFields(bean.getFields());
 							getGlobalIssueSetting().setListLinks(bean.getLinks());
 							var newAuditContent = getAuditContent();
-							OneDev.getInstance(SettingService.class).saveIssueSetting(getGlobalIssueSetting());
+							Cheeta.getInstance(SettingService.class).saveIssueSetting(getGlobalIssueSetting());
 							getAuditService().audit(null, "changed display fields/links of issue list", oldAuditContent, newAuditContent);
 						}
 						target.add(body);
@@ -668,11 +668,11 @@ public abstract class IssueListPanel extends Panel {
 					@Override
 					public void writeData(Attributes attributes) {
 						var os = attributes.getResponse().getOutputStream();
-						var version = StringUtils.substringBeforeLast(OneDev.getInstance().getVersion(), ".");
+						var version = StringUtils.substringBeforeLast(Cheeta.getInstance().getVersion(), ".");
 						if (version.startsWith("v"))
 							version = version.substring(1);
 							
-						try (var workBook = new Workbook(os, "OneDev", version)) {
+						try (var workBook = new Workbook(os, "Cheeta", version)) {
 							var worksheet = workBook.newWorksheet(_T("Issues"));
 							
 							var colIndex = 0;
@@ -1004,7 +1004,7 @@ public abstract class IssueListPanel extends Panel {
 											new ConfirmModalPanel(target) {
 
 												private Project getTargetProject() {
-													return OneDev.getInstance(ProjectService.class).load(projectId);
+													return Cheeta.getInstance(ProjectService.class).load(projectId);
 												}
 
 												@Override
@@ -1087,7 +1087,7 @@ public abstract class IssueListPanel extends Panel {
 											new ConfirmModalPanel(target) {
 
 												private Project getTargetProject() {
-													return OneDev.getInstance(ProjectService.class).load(projectId);
+													return Cheeta.getInstance(ProjectService.class).load(projectId);
 												}
 
 												@Override
@@ -1366,7 +1366,7 @@ public abstract class IssueListPanel extends Panel {
 											new ConfirmModalPanel(target) {
 
 												private Project getTargetProject() {
-													return OneDev.getInstance(ProjectService.class).load(projectId);
+													return Cheeta.getInstance(ProjectService.class).load(projectId);
 												}
 
 												@Override
@@ -1376,7 +1376,7 @@ public abstract class IssueListPanel extends Panel {
 														issues.add(it.next());
 													}
 													var user = SecurityUtils.getUser();
-													OneDev.getInstance(IssueService.class).move(user, issues, getProject(), getTargetProject());
+													Cheeta.getInstance(IssueService.class).move(user, issues, getProject(), getTargetProject());
 													setResponsePage(ProjectIssueListPage.class,
 															ProjectIssueListPage.paramsOf(getTargetProject(), getQueryAfterCopyOrMove(), 0));
 													Session.get().success(_T("Issues moved"));
@@ -1451,7 +1451,7 @@ public abstract class IssueListPanel extends Panel {
 											new ConfirmModalPanel(target) {
 
 												private Project getTargetProject() {
-													return OneDev.getInstance(ProjectService.class).load(projectId);
+													return Cheeta.getInstance(ProjectService.class).load(projectId);
 												}
 
 												@Override
@@ -1460,7 +1460,7 @@ public abstract class IssueListPanel extends Panel {
 													for (Iterator<Issue> it = (Iterator<Issue>) dataProvider.iterator(0, issuesTable.getItemCount()); it.hasNext(); ) {
 														issues.add(it.next());
 													}
-													OneDev.getInstance(IssueService.class).copy(issues, getProject(), getTargetProject());
+													Cheeta.getInstance(IssueService.class).copy(issues, getProject(), getTargetProject());
 													setResponsePage(ProjectIssueListPage.class,
 															ProjectIssueListPage.paramsOf(getTargetProject(), getQueryAfterCopyOrMove(), 0));
 													Session.get().success(_T("Issues copied"));
@@ -1662,7 +1662,7 @@ public abstract class IssueListPanel extends Panel {
 							@Override
 							public void onClick(AjaxRequestTarget target) {
 								dropdown.close();
-								var visitInfoService = OneDev.getInstance(VisitInfoService.class);
+								var visitInfoService = Cheeta.getInstance(VisitInfoService.class);
 								for (@SuppressWarnings("unchecked") var it = (Iterator<Issue>) dataProvider.iterator(0, issuesTable.getItemCount()); it.hasNext(); )
 									visitInfoService.visitIssue(SecurityUtils.getAuthUser(), it.next());
 								target.add(body);
@@ -2168,15 +2168,15 @@ public abstract class IssueListPanel extends Panel {
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private IssueWatchService getWatchService() {
-		return OneDev.getInstance(IssueWatchService.class);
+		return Cheeta.getInstance(IssueWatchService.class);
 	}
 	
 	private TimeTrackingService getTimeTrackingService() {
-		return OneDev.getInstance(TimeTrackingService.class);
+		return Cheeta.getInstance(TimeTrackingService.class);
 	}
 	
 	@Nullable

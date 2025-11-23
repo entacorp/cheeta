@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
@@ -7,10 +7,10 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.web.behavior.ReferenceInputBehavior;
-import io.onedev.server.annotation.ReferenceAware;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.behavior.ReferenceInputBehavior;
+import io.cheeta.server.annotation.ReferenceAware;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
 
 public class ReferenceAwareEditSupport implements EditSupport {
 

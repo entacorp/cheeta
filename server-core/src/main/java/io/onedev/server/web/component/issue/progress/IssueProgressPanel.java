@@ -1,16 +1,16 @@
-package io.onedev.server.web.component.issue.progress;
+package io.cheeta.server.web.component.issue.progress;
 
 import com.google.common.collect.Sets;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.StopwatchService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Stopwatch;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.behavior.CompletionRateBehavior;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.StopwatchService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Stopwatch;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.behavior.CompletionRateBehavior;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -82,7 +82,7 @@ public abstract class IssueProgressPanel extends Panel {
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				var script = String.format("onedev.server.issueProgress.onWorkingTimeDomReady('%s', %d);", 
+				var script = String.format("cheeta.server.issueProgress.onWorkingTimeDomReady('%s', %d);", 
 						getMarkupId(), System.currentTimeMillis() - getStopWatch().getDate().getTime());
 				response.render(OnDomReadyHeaderItem.forScript(script));
 			}
@@ -130,7 +130,7 @@ public abstract class IssueProgressPanel extends Panel {
 	}
 
 	private StopwatchService getStopWatchManager() {
-		return OneDev.getInstance(StopwatchService.class);
+		return Cheeta.getInstance(StopwatchService.class);
 	}
 
 	@Override

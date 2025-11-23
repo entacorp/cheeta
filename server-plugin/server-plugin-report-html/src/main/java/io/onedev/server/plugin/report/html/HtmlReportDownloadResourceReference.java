@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.report.html;
+package io.cheeta.server.plugin.report.html;
 
 import org.apache.wicket.request.resource.IResource;
 import org.apache.wicket.request.resource.ResourceReference;

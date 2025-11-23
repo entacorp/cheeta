@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.sso.openid;
+package io.cheeta.server.plugin.sso.openid;
 
 import java.io.IOException;
 import java.net.URI;
@@ -14,11 +14,11 @@ import com.nimbusds.openid.connect.sdk.OIDCTokenResponse;
 import com.nimbusds.openid.connect.sdk.UserInfoErrorResponse;
 import com.nimbusds.openid.connect.sdk.UserInfoRequest;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.support.administration.sso.SsoAuthenticated;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.support.administration.sso.SsoAuthenticated;
 import net.minidev.json.JSONObject;
 
-@Editable(name="GitHub", order=100, description="Refer to this <a href='https://docs.onedev.io/tutorials/security/sso-with-github' target='_blank'>tutorial</a> for an example setup")
+@Editable(name="GitHub", order=100, description="Refer to this <a href='https://docs.cheeta.io/tutorials/security/sso-with-github' target='_blank'>tutorial</a> for an example setup")
 public class GitHubConnector extends OpenIdConnector {
 
 	private static final long serialVersionUID = 1L;

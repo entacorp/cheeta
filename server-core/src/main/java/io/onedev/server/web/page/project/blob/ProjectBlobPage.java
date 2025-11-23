@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.blob;
+package io.cheeta.server.web.page.project.blob;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
 import java.io.Serializable;
@@ -58,76 +58,76 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.event.project.CommitIndexed;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobContent;
-import io.onedev.server.git.BlobEdits;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.LfsObject;
-import io.onedev.server.git.LfsPointer;
-import io.onedev.server.git.exception.BlobEditException;
-import io.onedev.server.git.exception.NotTreeException;
-import io.onedev.server.git.exception.ObjectAlreadyExistsException;
-import io.onedev.server.git.exception.ObsoleteCommitException;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.job.JobAuthorizationContextAware;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.search.code.CodeIndexService;
-import io.onedev.server.search.code.CodeSearchService;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.query.BlobQuery;
-import io.onedev.server.search.code.query.TextQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.FileExtension;
-import io.onedev.server.util.FilenameUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.commit.status.CommitStatusLink;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.revision.RevisionPicker;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.blob.navigator.BlobNavigator;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
-import io.onedev.server.web.page.project.blob.render.commitoption.CommitOptionPanel;
-import io.onedev.server.web.page.project.blob.render.folder.FolderViewPanel;
-import io.onedev.server.web.page.project.blob.render.nocommits.NoCommitsPanel;
-import io.onedev.server.web.page.project.blob.render.noname.NoNameEditPanel;
-import io.onedev.server.web.page.project.blob.render.source.SourceEditPanel;
-import io.onedev.server.web.page.project.blob.render.source.SourceViewPanel;
-import io.onedev.server.web.page.project.blob.render.view.Positionable;
-import io.onedev.server.web.page.project.blob.search.SearchMenuContributor;
-import io.onedev.server.web.page.project.blob.search.advanced.AdvancedSearchPanel;
-import io.onedev.server.web.page.project.blob.search.quick.QuickSearchPanel;
-import io.onedev.server.web.page.project.blob.search.result.SearchResultPanel;
-import io.onedev.server.web.page.project.commits.ProjectCommitsPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.resource.RawBlobResource;
-import io.onedev.server.web.resource.RawBlobResourceReference;
-import io.onedev.server.web.upload.FileUpload;
-import io.onedev.server.web.util.EditParamsAware;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.event.project.CommitIndexed;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobContent;
+import io.cheeta.server.git.BlobEdits;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.LfsObject;
+import io.cheeta.server.git.LfsPointer;
+import io.cheeta.server.git.exception.BlobEditException;
+import io.cheeta.server.git.exception.NotTreeException;
+import io.cheeta.server.git.exception.ObjectAlreadyExistsException;
+import io.cheeta.server.git.exception.ObsoleteCommitException;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.job.JobAuthorizationContextAware;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.code.CodeIndexService;
+import io.cheeta.server.search.code.CodeSearchService;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.query.BlobQuery;
+import io.cheeta.server.search.code.query.TextQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.FileExtension;
+import io.cheeta.server.util.FilenameUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.commit.status.CommitStatusLink;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.revision.RevisionPicker;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.blob.navigator.BlobNavigator;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.server.web.page.project.blob.render.commitoption.CommitOptionPanel;
+import io.cheeta.server.web.page.project.blob.render.folder.FolderViewPanel;
+import io.cheeta.server.web.page.project.blob.render.nocommits.NoCommitsPanel;
+import io.cheeta.server.web.page.project.blob.render.noname.NoNameEditPanel;
+import io.cheeta.server.web.page.project.blob.render.source.SourceEditPanel;
+import io.cheeta.server.web.page.project.blob.render.source.SourceViewPanel;
+import io.cheeta.server.web.page.project.blob.render.view.Positionable;
+import io.cheeta.server.web.page.project.blob.search.SearchMenuContributor;
+import io.cheeta.server.web.page.project.blob.search.advanced.AdvancedSearchPanel;
+import io.cheeta.server.web.page.project.blob.search.quick.QuickSearchPanel;
+import io.cheeta.server.web.page.project.blob.search.result.SearchResultPanel;
+import io.cheeta.server.web.page.project.commits.ProjectCommitsPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.resource.RawBlobResource;
+import io.cheeta.server.web.resource.RawBlobResourceReference;
+import io.cheeta.server.web.upload.FileUpload;
+import io.cheeta.server.web.util.EditParamsAware;
 
 public class ProjectBlobPage extends ProjectPage implements BlobRenderContext, 
 		EditParamsAware, JobAuthorizationContextAware {
@@ -250,9 +250,9 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 
 				if (resolvedRevision != null) {
 					RevCommit commit = getProject().getRevCommit(resolvedRevision, true);
-					CodeIndexService indexService = OneDev.getInstance(CodeIndexService.class);
+					CodeIndexService indexService = Cheeta.getInstance(CodeIndexService.class);
 					if (!indexService.isIndexed(getProject().getId(), commit)) {
-						OneDev.getInstance(CodeIndexService.class).indexAsync(getProject().getId(), commit);
+						Cheeta.getInstance(CodeIndexService.class).indexAsync(getProject().getId(), commit);
 						setVisible(true);
 					} else {
 						setVisible(false);
@@ -295,7 +295,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 					.caseSensitive(true)
 					.count(maxQueryEntries)
 					.build();
-			CodeSearchService searchService = OneDev.getInstance(CodeSearchService.class);
+			CodeSearchService searchService = Cheeta.getInstance(CodeSearchService.class);
 			queryHits = searchService.search(projectModel.getObject(), 
 					getProject().getRevCommit(resolvedRevision, true), query);
 		} else {
@@ -364,7 +364,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 	@Override
 	public CodeComment getOpenComment() {
 		if (state.commentId != null)
-			return OneDev.getInstance(CodeCommentService.class).load(state.commentId);
+			return Cheeta.getInstance(CodeCommentService.class).load(state.commentId);
 		else
 			return null;
 	}
@@ -761,7 +761,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 			}
 			
 			if (blobContent == null) {
-				for (BlobRenderer contribution: OneDev.getExtensions(BlobRenderer.class)) {
+				for (BlobRenderer contribution: Cheeta.getExtensions(BlobRenderer.class)) {
 					blobContent = contribution.render(BLOB_CONTENT_ID, this);
 					if (blobContent != null) 
 						break;
@@ -945,7 +945,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 			protected void onConfigure() {
 				super.onConfigure();
 				if (resolvedRevision != null && isOnBranch() && state.blobIdent.path == null && state.mode == Mode.VIEW) {
-					BlobIdent oldBlobIdent = new BlobIdent(resolvedRevision.name(), ".onedev-buildspec", FileMode.TYPE_FILE);
+					BlobIdent oldBlobIdent = new BlobIdent(resolvedRevision.name(), ".cheeta-buildspec", FileMode.TYPE_FILE);
 					BlobIdent blobIdent = new BlobIdent(resolvedRevision.name(), BuildSpec.BLOB_PATH, FileMode.TYPE_FILE);
 					setVisible(getProject().getBlob(blobIdent, false) == null 
 							&& getProject().getBlob(oldBlobIdent, false) == null);
@@ -1049,7 +1049,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 		response.render(JavaScriptHeaderItem.forReference(new ProjectBlobResourceReference()));
 		
 		String callback = ajaxBehavior.getCallbackFunction(explicit("action")).toString();
-		String script = String.format("onedev.server.projectBlob.onDomReady(%s);", callback);
+		String script = String.format("cheeta.server.projectBlob.onDomReady(%s);", callback);
 		
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
@@ -1338,7 +1338,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 		public Mode mode = Mode.VIEW;
 		
 		/*
-		 * Some blob can be rendered in a way for easier understanding, such as .onedev-buildspec.yml, 
+		 * Some blob can be rendered in a way for easier understanding, such as .cheeta-buildspec.yml, 
 		 * In these cases, the VIEW_PLAIN mode enables to view plain text of the blob. Applicable
 		 * only when mode is VIEW 
 		 */
@@ -1447,7 +1447,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	@Override
@@ -1590,7 +1590,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 	}
 	
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	@Override
@@ -1637,7 +1637,7 @@ public class ProjectBlobPage extends ProjectPage implements BlobRenderContext,
 	@Override
 	public PullRequest getPullRequest() {
 		if (state.requestId != null)
-			return OneDev.getInstance(PullRequestService.class).load(state.requestId);
+			return Cheeta.getInstance(PullRequestService.class).load(state.requestId);
 		else
 			return null;
 	}

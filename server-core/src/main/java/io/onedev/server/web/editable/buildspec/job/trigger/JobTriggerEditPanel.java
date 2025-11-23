@@ -1,10 +1,10 @@
-package io.onedev.server.web.editable.buildspec.job.trigger;
+package io.cheeta.server.web.editable.buildspec.job.trigger;
 
-import io.onedev.server.buildspec.job.JobAware;
-import io.onedev.server.buildspec.job.trigger.JobTrigger;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.buildspec.job.JobAware;
+import io.cheeta.server.buildspec.job.trigger.JobTrigger;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.ajax.markup.html.AjaxLink;

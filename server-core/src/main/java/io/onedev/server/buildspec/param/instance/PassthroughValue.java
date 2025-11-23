@@ -1,12 +1,12 @@
-package io.onedev.server.buildspec.param.instance;
+package io.cheeta.server.buildspec.param.instance;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.model.Build;
-import io.onedev.server.buildspecmodel.inputspec.Input;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

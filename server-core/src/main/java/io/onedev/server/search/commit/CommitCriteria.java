@@ -1,12 +1,12 @@
-package io.onedev.server.search.commit;
+package io.cheeta.server.search.commit;
 
 import java.io.Serializable;
 
-import io.onedev.commons.codeassist.AntlrUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.codeassist.AntlrUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.model.Project;
 
 public abstract class CommitCriteria implements Serializable {
 

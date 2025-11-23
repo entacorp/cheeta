@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.subscriptionstatus;
+package io.cheeta.server.web.component.subscriptionstatus;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class SubscriptionStatusResourceReference extends BaseDependentCssResourceReference {
 

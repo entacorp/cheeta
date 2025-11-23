@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.issue.create;
+package io.cheeta.server.web.component.issue.create;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.WorkingPeriod;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.WorkingPeriod;
 
 import javax.validation.constraints.Min;
 import java.io.Serializable;

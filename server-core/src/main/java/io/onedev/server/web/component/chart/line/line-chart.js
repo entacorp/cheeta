@@ -1,4 +1,4 @@
-onedev.server.lineChart = {
+cheeta.server.lineChart = {
 	onDomReady: function(containerId, lineSeries, yAxisValueFormatter, darkMode) {
 		var $chart = $("#" + containerId + ">.line-chart");
 		

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.create;
+package io.cheeta.server.web.component.issue.create;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -38,40 +38,40 @@ import org.unbescape.javascript.JavaScriptEscape;
 
 import com.google.common.base.Objects;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.IssueTemplate;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.search.entitytext.IssueTextService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.behavior.ReferenceInputBehavior;
-import io.onedev.server.web.component.comment.CommentInput;
-import io.onedev.server.web.component.issue.IssueStateBadge;
-import io.onedev.server.web.component.issue.title.IssueTitlePanel;
-import io.onedev.server.web.component.iteration.choice.IterationMultiChoice;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.BeanUpdating;
-import io.onedev.server.web.util.Cursor;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.IssueTemplate;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.search.entitytext.IssueTextService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.behavior.ReferenceInputBehavior;
+import io.cheeta.server.web.component.comment.CommentInput;
+import io.cheeta.server.web.component.issue.IssueStateBadge;
+import io.cheeta.server.web.component.issue.title.IssueTitlePanel;
+import io.cheeta.server.web.component.iteration.choice.IterationMultiChoice;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.BeanUpdating;
+import io.cheeta.server.web.util.Cursor;
+import io.cheeta.server.web.util.WicketUtils;
 
 public abstract class NewIssueEditor extends FormComponentPanel<Issue> implements InputContext {
 
@@ -139,10 +139,10 @@ public abstract class NewIssueEditor extends FormComponentPanel<Issue> implement
 			@Override
 			protected List<Issue> load() {
 				if (StringUtils.isNotBlank(editingTitle)) {
-					IssueTextService issueTextService = OneDev.getInstance(IssueTextService.class);
+					IssueTextService issueTextService = Cheeta.getInstance(IssueTextService.class);
 					var projectScope = new ProjectScope(getProject(), true, true);
 					var issueIds = issueTextService.query(projectScope, editingTitle, MAX_SIMILAR_ISSUES);
-					var issues = OneDev.getInstance(IssueService.class).loadIssues(issueIds);
+					var issues = Cheeta.getInstance(IssueService.class).loadIssues(issueIds);
 					projectScope.filter(issues);
 					return issues;
 				} else {
@@ -381,7 +381,7 @@ public abstract class NewIssueEditor extends FormComponentPanel<Issue> implement
 	}
 
 	private GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -6,8 +6,8 @@ import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import io.onedev.server.model.support.EntityTouch;
-import static io.onedev.server.model.CodeCommentTouch.*;
+import io.cheeta.server.model.support.EntityTouch;
+import static io.cheeta.server.model.CodeCommentTouch.*;
 
 @Entity
 @Table(indexes={@Index(columnList="o_project_id"), @Index(columnList= PROP_COMMENT_ID)})

@@ -1,14 +1,14 @@
-package io.onedev.server.web.component.job;
+package io.cheeta.server.web.component.job;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.component.select2.Select2MultiChoice;
-import io.onedev.server.web.component.stringchoice.StringChoiceProvider;
+import io.cheeta.server.web.component.select2.Select2MultiChoice;
+import io.cheeta.server.web.component.stringchoice.StringChoiceProvider;
 
 public class JobMultiChoice extends Select2MultiChoice<String> {
 
@@ -25,9 +25,9 @@ public class JobMultiChoice extends Select2MultiChoice<String> {
 			getSettings().setPlaceholder(_T("Choose jobs..."));
 		else
 			getSettings().setPlaceholder(_T("Not specified"));
-		getSettings().setFormatResult("onedev.server.choiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.choiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.choiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.choiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.choiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.choiceFormatter.escapeMarkup");
 		setConvertEmptyInputStringToNull(true);
 	}
 

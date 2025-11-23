@@ -1,18 +1,18 @@
-package io.onedev.server.plugin.mail.office365;
+package io.cheeta.server.plugin.mail.office365;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.annotation.RefreshToken;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.mail.*;
-import io.onedev.server.model.support.administration.mailservice.ImapImplicitSsl;
-import io.onedev.server.model.support.administration.mailservice.MailConnector;
-import io.onedev.server.model.support.administration.mailservice.SmtpExplicitSsl;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.oauth.RefreshTokenAccessor;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.annotation.RefreshToken;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.mail.*;
+import io.cheeta.server.model.support.administration.mailservice.ImapImplicitSsl;
+import io.cheeta.server.model.support.administration.mailservice.MailConnector;
+import io.cheeta.server.model.support.administration.mailservice.SmtpExplicitSsl;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.oauth.RefreshTokenAccessor;
 import org.jetbrains.annotations.Nullable;
 
 import javax.mail.Message;
@@ -120,7 +120,7 @@ public class Office365Connector implements MailConnector {
 	
 	@Editable(order=450, name="Check Incoming Email", description="Enable this to process issue or pull request comments posted via email. "
 			+ "<b class='text-danger'>NOTE:</b> <a href='https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online' target='_blank'>Sub addressing</a> "
-			+ "needs to be enabled for system email address above, as OneDev uses it to track issue and pull request contexts")
+			+ "needs to be enabled for system email address above, as Cheeta uses it to track issue and pull request contexts")
 	public InboxPollSetting getInboxPollSetting() {
 		return inboxPollSetting;
 	}
@@ -208,7 +208,7 @@ public class Office365Connector implements MailConnector {
 
 	private void updateRefreshToken(String refreshToken) {
 		this.refreshToken = refreshToken;
-		OneDev.getInstance(SettingService.class).saveMailConnector(this);
+		Cheeta.getInstance(SettingService.class).saveMailConnector(this);
 	}
 
 	private SmtpSetting getSmtpSetting(boolean testMode) {
@@ -271,7 +271,7 @@ public class Office365Connector implements MailConnector {
 	}
 
 	private MailService getMailService() {
-		return OneDev.getInstance(MailService.class);
+		return Cheeta.getInstance(MailService.class);
 	}
 	
 }

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -15,14 +15,14 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.model.Agent;
-import io.onedev.server.web.component.tabbable.PageTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.admin.AdministrationPage;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.web.component.tabbable.PageTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.admin.AdministrationPage;
 
 public abstract class AgentDetailPage extends AdministrationPage {
 
@@ -35,7 +35,7 @@ public abstract class AgentDetailPage extends AdministrationPage {
 
 		String agentName = params.get(PARAM_AGENT).toString();
 		
-		Agent agent = OneDev.getInstance(AgentService.class).findByName(agentName);
+		Agent agent = Cheeta.getInstance(AgentService.class).findByName(agentName);
 		
 		if (agent == null) 
 			throw new ExplicitException(MessageFormat.format(_T("Unable to find agent {0}"), agentName));
@@ -46,7 +46,7 @@ public abstract class AgentDetailPage extends AdministrationPage {
 
 			@Override
 			protected Agent load() {
-				return OneDev.getInstance(AgentService.class).load(agentId);
+				return Cheeta.getInstance(AgentService.class).load(agentId);
 			}
 			
 		};

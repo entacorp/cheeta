@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.savedquery;
+package io.cheeta.server.web.component.savedquery;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable
 public class SaveQueryBean implements Serializable {

@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider;
+package io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider;
 
 import java.util.List;
 
@@ -8,13 +8,13 @@ import javax.validation.constraints.NotEmpty;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.model.Group;
-import io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.GroupChoice;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.GroupChoice;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(order=100, name="Use specified default value")
 public class SpecifiedDefaultValue implements DefaultValueProvider {
@@ -43,7 +43,7 @@ public class SpecifiedDefaultValue implements DefaultValueProvider {
 	@SuppressWarnings("unused")
 	private static List<Group> getValueChoices() {
 		ChoiceProvider choiceProvider = (ChoiceProvider) EditContext.get(1).getInputValue("choiceProvider");
-		if (choiceProvider != null && OneDev.getInstance(Validator.class).validate(choiceProvider).isEmpty())
+		if (choiceProvider != null && Cheeta.getInstance(Validator.class).validate(choiceProvider).isEmpty())
 			return choiceProvider.getChoices(true);
 		else
 			return Lists.newArrayList();

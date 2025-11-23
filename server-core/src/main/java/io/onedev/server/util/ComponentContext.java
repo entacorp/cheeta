@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.Serializable;
 import java.util.Stack;
@@ -8,7 +8,7 @@ import org.jspecify.annotations.Nullable;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 public class ComponentContext implements Serializable {
 

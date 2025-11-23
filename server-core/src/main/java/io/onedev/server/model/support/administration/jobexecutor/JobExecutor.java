@@ -1,22 +1,22 @@
-package io.onedev.server.model.support.administration.jobexecutor;
+package io.cheeta.server.model.support.administration.jobexecutor;
 
 import com.google.common.base.Throwables;
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.DnsName;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.build.BuildRunning;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.match.JobMatch;
-import io.onedev.server.model.Build;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.DnsName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.build.BuildRunning;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.match.JobMatch;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.util.WicketUtils;
 import org.eclipse.jetty.http.HttpStatus;
 
 import org.jspecify.annotations.Nullable;
@@ -59,7 +59,7 @@ public abstract class JobExecutor implements Serializable {
 		this.name = name;
 	}
 
-	@Editable(order=30, name="Enable Site Publish", group = "Privilege Settings", description="Enable this to allow to run site publish step. OneDev will serve project "
+	@Editable(order=30, name="Enable Site Publish", group = "Privilege Settings", description="Enable this to allow to run site publish step. Cheeta will serve project "
 			+ "site files as is. To avoid XSS attack, make sure this executor can only be used by trusted jobs")
 	public boolean isSitePublishEnabled() {
 		return sitePublishEnabled;
@@ -85,7 +85,7 @@ public abstract class JobExecutor implements Serializable {
 	}
 
 	@Editable(order=10000, name="Applicable Jobs", placeholder="Any job", description="Optionally specify applicable jobs of this executor")
-	@io.onedev.server.annotation.JobMatch(withProjectCriteria = true, withJobCriteria = true)
+	@io.cheeta.server.annotation.JobMatch(withProjectCriteria = true, withJobCriteria = true)
 	@Nullable
 	public String getJobMatch() {
 		return jobMatch;
@@ -114,15 +114,15 @@ public abstract class JobExecutor implements Serializable {
 	}
 	
 	protected void notifyJobRunning(Long buildId, @Nullable Long agentId) {
-		OneDev.getInstance(TransactionService.class).run(() -> {
-			BuildService buildService = OneDev.getInstance(BuildService.class);
+		Cheeta.getInstance(TransactionService.class).run(() -> {
+			BuildService buildService = Cheeta.getInstance(BuildService.class);
 			Build build = buildService.load(buildId);
 			build.setStatus(Build.Status.RUNNING);
 			build.setRunningDate(new Date());
 			if (agentId != null)
-				build.setAgent(OneDev.getInstance(AgentService.class).load(agentId));
+				build.setAgent(Cheeta.getInstance(AgentService.class).load(agentId));
 			buildService.update(build);
-			OneDev.getInstance(ListenerRegistry.class).post(new BuildRunning(build));
+			Cheeta.getInstance(ListenerRegistry.class).post(new BuildRunning(build));
 		});
 	}
 	

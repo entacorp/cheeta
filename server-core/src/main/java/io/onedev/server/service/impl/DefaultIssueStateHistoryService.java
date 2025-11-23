@@ -1,12 +1,12 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static io.onedev.server.model.AbstractEntity.PROP_ID;
-import static io.onedev.server.model.IssueStateHistory.PROP_DATE;
-import static io.onedev.server.model.IssueStateHistory.PROP_DURATION;
-import static io.onedev.server.model.IssueStateHistory.PROP_ISSUE;
-import static io.onedev.server.model.IssueStateHistory.PROP_STATE;
-import static io.onedev.server.model.IssueStateHistory.PROP_TIME_GROUPS;
+import static io.cheeta.server.model.AbstractEntity.PROP_ID;
+import static io.cheeta.server.model.IssueStateHistory.PROP_DATE;
+import static io.cheeta.server.model.IssueStateHistory.PROP_DURATION;
+import static io.cheeta.server.model.IssueStateHistory.PROP_ISSUE;
+import static io.cheeta.server.model.IssueStateHistory.PROP_STATE;
+import static io.cheeta.server.model.IssueStateHistory.PROP_TIME_GROUPS;
 import static java.util.Arrays.asList;
 
 import java.util.ArrayList;
@@ -30,21 +30,21 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.jetbrains.annotations.Nullable;
 
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IssueStateHistoryService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.model.IssueStateHistory;
-import io.onedev.server.model.support.TimeGroups;
-import io.onedev.server.model.support.issue.changedata.IssueBatchUpdateData;
-import io.onedev.server.model.support.issue.changedata.IssueStateChangeData;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.util.StatsGroup;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IssueStateHistoryService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.model.IssueStateHistory;
+import io.cheeta.server.model.support.TimeGroups;
+import io.cheeta.server.model.support.issue.changedata.IssueBatchUpdateData;
+import io.cheeta.server.model.support.issue.changedata.IssueStateChangeData;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.util.StatsGroup;
 
 @Singleton
 public class DefaultIssueStateHistoryService extends BaseEntityService<IssueStateHistory> implements IssueStateHistoryService {

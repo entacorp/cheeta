@@ -1,4 +1,4 @@
-package io.onedev.server.util.patternset;
+package io.cheeta.server.util.patternset;
 
 import com.google.common.collect.Sets;
 import org.junit.Test;

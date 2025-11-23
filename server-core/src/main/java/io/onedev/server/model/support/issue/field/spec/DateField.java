@@ -1,13 +1,13 @@
-package io.onedev.server.model.support.issue.field.spec;
+package io.cheeta.server.model.support.issue.field.spec;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspecmodel.inputspec.dateinput.DateInput;
-import io.onedev.server.buildspecmodel.inputspec.dateinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.dateinput.DateInput;
+import io.cheeta.server.buildspecmodel.inputspec.dateinput.defaultvalueprovider.DefaultValueProvider;
 
 @Editable(order=505, name=FieldSpec.DATE)
 public class DateField extends FieldSpec {

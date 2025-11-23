@@ -1,11 +1,11 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import io.onedev.server.entityreference.ReferenceMigrator;
-import io.onedev.server.model.Issue;
+import io.cheeta.server.entityreference.ReferenceMigrator;
+import io.cheeta.server.model.Issue;
 
 public class ReferenceMigratorTest {
 

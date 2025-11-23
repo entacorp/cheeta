@@ -1,15 +1,15 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
 import com.google.common.hash.Hashing;
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 import org.apache.commons.io.FileUtils;
 import org.hibernate.cfg.Environment;
 
-import static io.onedev.commons.utils.FileUtils.loadProperties;
+import static io.cheeta.commons.utils.FileUtils.loadProperties;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.hibernate.cfg.AvailableSettings.*;
 

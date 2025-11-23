@@ -1,6 +1,6 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.server.model.Build;
+import io.cheeta.server.model.Build;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-onedev.server.groupChoiceFormatter = {
+cheeta.server.groupChoiceFormatter = {
 	formatSelection: function(group) {
 		return group.name;
 	},

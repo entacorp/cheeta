@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.issue.commits;
+package io.cheeta.server.web.component.issue.commits;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.web.component.commit.info.CommitInfoPanel;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.web.component.commit.info.CommitInfoPanel;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.list.ListItem;

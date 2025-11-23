@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.blob.navigator;
+package io.cheeta.server.web.page.project.blob.navigator;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class BlobNavigatorResourceReference extends BaseDependentCssResourceReference {
 

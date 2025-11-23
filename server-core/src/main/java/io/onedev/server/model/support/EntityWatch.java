@@ -1,9 +1,9 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import javax.persistence.MappedSuperclass;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.User;
 
 @MappedSuperclass
 public abstract class EntityWatch extends AbstractEntity {

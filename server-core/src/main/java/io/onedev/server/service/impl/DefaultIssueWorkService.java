@@ -1,9 +1,9 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.IssueWork.PROP_DATE;
-import static io.onedev.server.model.IssueWork.PROP_ISSUE;
-import static io.onedev.server.model.IssueWork.PROP_USER;
-import static io.onedev.server.model.Project.PROP_TIME_TRACKING;
+import static io.cheeta.server.model.IssueWork.PROP_DATE;
+import static io.cheeta.server.model.IssueWork.PROP_ISSUE;
+import static io.cheeta.server.model.IssueWork.PROP_USER;
+import static io.cheeta.server.model.Project.PROP_TIME_TRACKING;
 import static java.util.stream.Collectors.toSet;
 
 import java.util.ArrayList;
@@ -23,18 +23,18 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
 import edu.emory.mathcs.backport.java.util.Arrays;
-import io.onedev.server.service.IssueFieldService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IssueWorkService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueWork;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.service.IssueFieldService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IssueWorkService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueWork;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
 
 @Singleton
 public class DefaultIssueWorkService extends BaseEntityService<IssueWork> implements IssueWorkService {

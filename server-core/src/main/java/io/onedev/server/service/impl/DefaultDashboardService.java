@@ -1,14 +1,14 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import com.google.common.base.Preconditions;
-import io.onedev.server.SubscriptionService;
-import io.onedev.server.service.DashboardGroupShareService;
-import io.onedev.server.service.DashboardService;
-import io.onedev.server.service.DashboardUserShareService;
-import io.onedev.server.model.*;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.SubscriptionService;
+import io.cheeta.server.service.DashboardGroupShareService;
+import io.cheeta.server.service.DashboardService;
+import io.cheeta.server.service.DashboardUserShareService;
+import io.cheeta.server.model.*;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 

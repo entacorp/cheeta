@@ -1,9 +1,9 @@
-package io.onedev.server.plugin.mail.gmail;
+package io.cheeta.server.plugin.mail.gmail;
 
 import com.google.common.collect.Sets;
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.commons.loader.ImplementationProvider;
-import io.onedev.server.model.support.administration.mailservice.MailConnector;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.commons.loader.ImplementationProvider;
+import io.cheeta.server.model.support.administration.mailservice.MailConnector;
 
 import java.util.Collection;
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.selectionpopover;
+package io.cheeta.server.web.asset.selectionpopover;
 
 import java.util.ArrayList;
 import java.util.List;

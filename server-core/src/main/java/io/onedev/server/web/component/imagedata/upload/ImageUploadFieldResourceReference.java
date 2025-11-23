@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.imagedata.upload;
+package io.cheeta.server.web.component.imagedata.upload;
 
-import io.onedev.server.web.asset.cropper.CropperResourceReference;
-import io.onedev.server.web.asset.fileupload.FileUploadCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.cropper.CropperResourceReference;
+import io.cheeta.server.web.asset.fileupload.FileUploadCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;

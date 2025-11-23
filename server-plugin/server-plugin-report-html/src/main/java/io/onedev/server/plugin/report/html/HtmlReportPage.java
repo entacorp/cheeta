@@ -1,8 +1,8 @@
-package io.onedev.server.plugin.report.html;
+package io.cheeta.server.plugin.report.html;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.web.page.project.builds.detail.report.BuildReportPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.web.page.project.builds.detail.report.BuildReportPage;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -10,7 +10,7 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import static io.onedev.server.plugin.report.html.PublishHtmlReportStep.START_PAGE;
+import static io.cheeta.server.plugin.report.html.PublishHtmlReportStep.START_PAGE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class HtmlReportPage extends BuildReportPage {
@@ -26,7 +26,7 @@ public class HtmlReportPage extends BuildReportPage {
 		Long projectId = getProject().getId();
 		Long buildNumber = getBuild().getNumber();
 
-		var startPage = OneDev.getInstance(ProjectService.class).runOnActiveServer(
+		var startPage = Cheeta.getInstance(ProjectService.class).runOnActiveServer(
 				projectId, 
 				new ReadPublishedFile(projectId, buildNumber, getReportName(), START_PAGE));
 		

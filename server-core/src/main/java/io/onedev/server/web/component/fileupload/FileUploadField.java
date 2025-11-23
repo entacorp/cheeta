@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.fileupload;
+package io.cheeta.server.web.component.fileupload;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public class FileUploadField extends org.apache.wicket.markup.html.form.upload.FileUploadField {
 
@@ -38,7 +38,7 @@ public class FileUploadField extends org.apache.wicket.markup.html.form.upload.F
 		super.renderHead(response);
 		
 		response.render(JavaScriptHeaderItem.forReference(new FileUploadResourceReference()));
-		String script = String.format("onedev.server.fileUpload.onDomReady('%s', '%s', '%s');", 
+		String script = String.format("cheeta.server.fileUpload.onDomReady('%s', '%s', '%s');", 
 				getMarkupId(true), getHint(), SpriteImage.getVersionedHref(getIcon()));
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

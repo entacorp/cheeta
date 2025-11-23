@@ -1,9 +1,9 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import io.onedev.server.web.behavior.UserMatchBehavior;
-import io.onedev.server.annotation.UserMatch;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
-import io.onedev.server.web.editable.string.StringPropertyViewer;
+import io.cheeta.server.web.behavior.UserMatchBehavior;
+import io.cheeta.server.annotation.UserMatch;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.web.editable.string.StringPropertyViewer;
 import org.apache.wicket.model.IModel;
 
 import java.lang.reflect.Method;

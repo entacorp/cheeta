@@ -1,4 +1,4 @@
-package io.onedev.server.util.jackson;
+package io.cheeta.server.util.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

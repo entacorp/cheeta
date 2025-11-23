@@ -1,11 +1,11 @@
-package io.onedev.server.event.project.codecomment;
+package io.cheeta.server.event.project.codecomment;
 
 import java.util.Date;
 
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.User;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
 
 public class CodeCommentEdited extends CodeCommentEvent {
 

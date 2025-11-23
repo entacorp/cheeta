@@ -1,8 +1,8 @@
-package io.onedev.server.git.service;
+package io.cheeta.server.git.service;
 
-import static io.onedev.server.git.command.LogCommand.Field.BODY;
-import static io.onedev.server.git.command.LogCommand.Field.PARENTS;
-import static io.onedev.server.git.command.LogCommand.Field.SUBJECT;
+import static io.cheeta.server.git.command.LogCommand.Field.BODY;
+import static io.cheeta.server.git.command.LogCommand.Field.PARENTS;
+import static io.cheeta.server.git.command.LogCommand.Field.SUBJECT;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -66,48 +66,48 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.DefaultBranchChanged;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.BlameBlock;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobContent;
-import io.onedev.server.git.BlobEdits;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.git.CommandUtils;
-import io.onedev.server.git.GitTask;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.Submodule;
-import io.onedev.server.git.command.BlameCommand;
-import io.onedev.server.git.command.GetRawCommitCommand;
-import io.onedev.server.git.command.GetRawTagCommand;
-import io.onedev.server.git.command.ListChangedFilesCommand;
-import io.onedev.server.git.command.LogCommand;
-import io.onedev.server.git.command.LogCommit;
-import io.onedev.server.git.command.RevListCommand;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.git.exception.NotFileException;
-import io.onedev.server.git.exception.NotTreeException;
-import io.onedev.server.git.exception.ObjectAlreadyExistsException;
-import io.onedev.server.git.exception.ObjectNotFoundException;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.annotation.Sessional;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.DefaultBranchChanged;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.BlameBlock;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobContent;
+import io.cheeta.server.git.BlobEdits;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.git.CommandUtils;
+import io.cheeta.server.git.GitTask;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.Submodule;
+import io.cheeta.server.git.command.BlameCommand;
+import io.cheeta.server.git.command.GetRawCommitCommand;
+import io.cheeta.server.git.command.GetRawTagCommand;
+import io.cheeta.server.git.command.ListChangedFilesCommand;
+import io.cheeta.server.git.command.LogCommand;
+import io.cheeta.server.git.command.LogCommit;
+import io.cheeta.server.git.command.RevListCommand;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.git.exception.NotFileException;
+import io.cheeta.server.git.exception.NotTreeException;
+import io.cheeta.server.git.exception.ObjectAlreadyExistsException;
+import io.cheeta.server.git.exception.ObjectNotFoundException;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.annotation.Sessional;
 
 @Singleton
 public class DefaultGitService implements GitService, Serializable {
@@ -1235,7 +1235,7 @@ public class DefaultGitService implements GitService, Serializable {
 			
 			final File cacheDir = new File(
 					projectService.getInfoDir(projectId), 
-					"last_commits/" + normalizedPath + "/onedev_last_commits");
+					"last_commits/" + normalizedPath + "/cheeta_last_commits");
 			
 			final ReadWriteLock lock;
 			try {

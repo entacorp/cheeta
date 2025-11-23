@@ -1,6 +1,6 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExplicitException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.Callable;
 
-import static io.onedev.commons.utils.ExceptionUtils.unchecked;
+import static io.cheeta.commons.utils.ExceptionUtils.unchecked;
 import static java.lang.String.format;
 
 public class PersistenceUtils {

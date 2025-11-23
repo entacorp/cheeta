@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.mail.gmail;
+package io.cheeta.server.plugin.mail.gmail;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 import javax.validation.constraints.Min;
 import java.io.Serializable;

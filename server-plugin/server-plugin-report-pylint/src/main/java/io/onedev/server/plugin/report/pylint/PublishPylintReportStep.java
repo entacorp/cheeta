@@ -1,20 +1,20 @@
-package io.onedev.server.plugin.report.pylint;
+package io.cheeta.server.plugin.report.pylint;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.step.StepGroup;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.problem.PublishProblemReportStep;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.step.StepGroup;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.problem.PublishProblemReportStep;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.File;
@@ -26,7 +26,7 @@ public class PublishPylintReportStep extends PublishProblemReportStep {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Editable(order=100, description="Specify pylint json result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. "
+	@Editable(order=100, description="Specify pylint json result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. "
 			+ "This file can be generated with pylint json output format option, for instance <code>--exit-zero --output-format=json:pylint-result.json</code>. "
 			+ "Note that we do not fail pylint command upon violations, as this step will fail build based on configured threshold. Use * or ? for pattern match")
 	@Interpolative(variableSuggester="suggestVariables")
@@ -49,7 +49,7 @@ public class PublishPylintReportStep extends PublishProblemReportStep {
 	
 	@Override
 	protected List<CodeProblem> process(Build build, File inputDir, File reportDir, TaskLogger logger) {
-		ObjectMapper mapper = OneDev.getInstance(ObjectMapper.class);
+		ObjectMapper mapper = Cheeta.getInstance(ObjectMapper.class);
 
 		List<CodeProblem> problems = new ArrayList<>();
 		int baseLen = inputDir.getAbsolutePath().length()+1;

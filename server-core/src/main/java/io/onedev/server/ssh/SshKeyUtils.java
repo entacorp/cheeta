@@ -1,4 +1,4 @@
-package io.onedev.server.ssh;
+package io.cheeta.server.ssh;
 
 import java.io.IOException;
 import java.io.StringReader;

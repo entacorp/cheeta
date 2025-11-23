@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.taskbutton;
+package io.cheeta.server.web.component.taskbutton;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,21 +33,21 @@ import org.joda.time.DateTime;
 import org.quartz.ScheduleBuilder;
 import org.quartz.SimpleScheduleBuilder;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.commons.utils.WordUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.log.JobLogEntry;
-import io.onedev.server.buildspec.job.log.JobLogEntryEx;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.job.log.StyleBuilder;
-import io.onedev.server.taskschedule.SchedulableTask;
-import io.onedev.server.taskschedule.TaskScheduler;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.taskbutton.TaskResult.PlainMessage;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.commons.utils.WordUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.log.JobLogEntry;
+import io.cheeta.server.buildspec.job.log.JobLogEntryEx;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.job.log.StyleBuilder;
+import io.cheeta.server.taskschedule.SchedulableTask;
+import io.cheeta.server.taskschedule.TaskScheduler;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.taskbutton.TaskResult.PlainMessage;
 
 public abstract class TaskButton extends AjaxButton {
 
@@ -86,7 +86,7 @@ public abstract class TaskButton extends AjaxButton {
 			
 			@Override
 			public CharSequence getPrecondition(Component component) {
-				return String.format("onedev.server.taskButtonFormDirty = $('#%s').closest('form').hasClass('dirty');",
+				return String.format("cheeta.server.taskButtonFormDirty = $('#%s').closest('form').hasClass('dirty');",
 						getMarkupId());
 			}
 			
@@ -108,8 +108,8 @@ public abstract class TaskButton extends AjaxButton {
 			@Override
 			public CharSequence getCompleteHandler(Component component) {
 				return String.format(""
-						+ "if (onedev.server.taskButtonFormDirty) "
-						+ "  onedev.server.form.markDirty($('#%s').closest('form'));",
+						+ "if (cheeta.server.taskButtonFormDirty) "
+						+ "  cheeta.server.form.markDirty($('#%s').closest('form'));",
 						getMarkupId());
 			}
 			
@@ -140,7 +140,7 @@ public abstract class TaskButton extends AjaxButton {
 	protected void submitTask(AjaxRequestTarget target) {
 		String path = getPath();
 		
-		ExecutorService executorService = OneDev.getInstance(ExecutorService.class);
+		ExecutorService executorService = Cheeta.getInstance(ExecutorService.class);
 		List<JobLogEntryEx> messages = new ArrayList<>();
 		messages.add(new JobLogEntryEx(new JobLogEntry(new Date(), _T("Please wait..."))));
 		var application = Application.get();

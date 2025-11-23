@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.issue.fieldinstance;
+package io.cheeta.server.web.editable.issue.fieldinstance;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,13 +7,13 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.support.issue.field.instance.FieldInstance;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
+import io.cheeta.server.model.support.issue.field.instance.FieldInstance;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
 
 public class FieldListEditSupport implements EditSupport {
 

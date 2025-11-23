@@ -1,14 +1,14 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
 import java.io.Serializable;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.web.WebConstants;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.web.WebConstants;
 
 public class Cursor implements Serializable {
 	
@@ -54,7 +54,7 @@ public class Cursor implements Serializable {
 	@Nullable
 	public ProjectScope getProjectScope() {
 		if (projectId != null) 
-			return new ProjectScope(OneDev.getInstance(ProjectService.class).load(projectId), true, true);
+			return new ProjectScope(Cheeta.getInstance(ProjectService.class).load(projectId), true, true);
 		else 
 			return null;
 	}

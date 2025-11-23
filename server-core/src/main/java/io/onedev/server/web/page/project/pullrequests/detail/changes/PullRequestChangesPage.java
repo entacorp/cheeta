@@ -1,32 +1,32 @@
-package io.onedev.server.web.page.project.pullrequests.detail.changes;
+package io.cheeta.server.web.page.project.pullrequests.detail.changes;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.OneDev;
-import io.onedev.server.codequality.*;
-import io.onedev.server.service.*;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.*;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestApproveData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestRequestedForChangesData;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.diff.revision.RevisionAnnotationSupport;
-import io.onedev.server.web.component.diff.revision.RevisionDiffPanel;
-import io.onedev.server.web.component.diff.revision.RevisionDiffReviewSupport;
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
-import io.onedev.server.web.util.EditParamsAware;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.codequality.*;
+import io.cheeta.server.service.*;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.*;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestApproveData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestRequestedForChangesData;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.diff.revision.RevisionAnnotationSupport;
+import io.cheeta.server.web.component.diff.revision.RevisionDiffPanel;
+import io.cheeta.server.web.component.diff.revision.RevisionDiffReviewSupport;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
+import io.cheeta.server.web.util.EditParamsAware;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -58,7 +58,7 @@ import org.jspecify.annotations.Nullable;
 import java.io.Serializable;
 import java.util.*;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
 public class PullRequestChangesPage extends PullRequestDetailPage implements RevisionAnnotationSupport, EditParamsAware {
@@ -262,11 +262,11 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 	}
 
 	private PullRequestService getPullRequestService() {
-		return OneDev.getInstance(PullRequestService.class);
+		return Cheeta.getInstance(PullRequestService.class);
 	}
 	
 	private ReviewedDiffService getDiffReviewStatusManager() {
-		return OneDev.getInstance(ReviewedDiffService.class);
+		return Cheeta.getInstance(ReviewedDiffService.class);
 	}
 	
 	private Component newChangesContainer() {
@@ -403,10 +403,10 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 						int newIndex = getCommitIndex(state.newCommitHash);
 						if ((state.oldCommitHash.equals(getPullRequest().getBaseCommitHash()) || oldIndex != -1) 
 								&& newIndex != -1) {
-							script = String.format("onedev.server.requestChanges.initCommitSelector(%s, '%s', %d, %d);", 
+							script = String.format("cheeta.server.requestChanges.initCommitSelector(%s, '%s', %d, %d);", 
 									callback, getPullRequest().getBaseCommitHash(), oldIndex+1, newIndex);
 						} else {
-							script = String.format("onedev.server.requestChanges.initCommitSelector(%s, '%s');", 
+							script = String.format("cheeta.server.requestChanges.initCommitSelector(%s, '%s');", 
 									callback, getPullRequest().getBaseCommitHash());
 						}
 						response.render(OnDomReadyHeaderItem.forScript(script));
@@ -808,7 +808,7 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 	@Override
 	public CodeComment getOpenComment() {
 		if (state.commentId != null) 
-			return OneDev.getInstance(CodeCommentService.class).load(state.commentId);
+			return Cheeta.getInstance(CodeCommentService.class).load(state.commentId);
 		else
 			return null;
 	}
@@ -862,9 +862,9 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 			CompareContext compareContext = comment.getCompareContext();
 			compareContext.setOldCommitHash(state.oldCommitHash);
 			compareContext.setNewCommitHash(state.newCommitHash);
-			OneDev.getInstance(CodeCommentService.class).create(comment);
+			Cheeta.getInstance(CodeCommentService.class).create(comment);
 		} else {
-			OneDev.getInstance(CodeCommentService.class).update(comment);
+			Cheeta.getInstance(CodeCommentService.class).update(comment);
 		}
 	}
 	
@@ -874,9 +874,9 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 			CompareContext compareContext = reply.getCompareContext();
 			compareContext.setOldCommitHash(state.oldCommitHash);
 			compareContext.setNewCommitHash(state.newCommitHash);
-			OneDev.getInstance(CodeCommentReplyService.class).create(reply);
+			Cheeta.getInstance(CodeCommentReplyService.class).create(reply);
 		} else {
-			OneDev.getInstance(CodeCommentReplyService.class).update(reply);
+			Cheeta.getInstance(CodeCommentReplyService.class).update(reply);
 		}
 	}
 	
@@ -887,7 +887,7 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 			compareContext.setOldCommitHash(state.oldCommitHash);
 			compareContext.setNewCommitHash(state.newCommitHash);
 		} 
-		OneDev.getInstance(CodeCommentStatusChangeService.class).create(change, note);
+		Cheeta.getInstance(CodeCommentStatusChangeService.class).create(change, note);
 	}
 	
 	@Override
@@ -957,7 +957,7 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 		Set<CodeProblem> problems = new HashSet<>();
 		ObjectId buildCommitId = ObjectId.fromString(state.oldCommitHash);
 		for (Build build: getProject().getBuilds(buildCommitId)) {
-			for (CodeProblemContribution contribution: OneDev.getExtensions(CodeProblemContribution.class)) {
+			for (CodeProblemContribution contribution: Cheeta.getExtensions(CodeProblemContribution.class)) {
 				for (CodeProblem problem: contribution.getCodeProblems(build, blobPath, null)) {
 					if (!buildCommitId.equals(getComparisonBase())) {
 						Map<Integer, Integer> lineMapping = getLineMapping(buildCommitId, getComparisonBase(), blobPath);
@@ -992,7 +992,7 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 		Set<CodeProblem> problems = new HashSet<>();
 		for (Build build: getProject().getBuilds(buildCommitId)) {
 			if (request.equals(build.getRequest())) {
-				for (CodeProblemContribution contribution: OneDev.getExtensions(CodeProblemContribution.class)) {
+				for (CodeProblemContribution contribution: Cheeta.getExtensions(CodeProblemContribution.class)) {
 					for (CodeProblem problem: contribution.getCodeProblems(build, blobPath, null)) {
 						if (!state.newCommitHash.equals(buildCommitId.name())) {
 							Map<Integer, Integer> lineMapping = getLineMapping(buildCommitId,
@@ -1022,7 +1022,7 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 		Map<Integer, CoverageStatus> coverages = new HashMap<>();
 		ObjectId buildCommitId = ObjectId.fromString(state.oldCommitHash);
 		for (Build build: getProject().getBuilds(buildCommitId)) {
-			for (LineCoverageContribution contribution: OneDev.getExtensions(LineCoverageContribution.class)) {
+			for (LineCoverageContribution contribution: Cheeta.getExtensions(LineCoverageContribution.class)) {
 				for (Map.Entry<Integer, CoverageStatus> entry: contribution.getLineCoverages(build, blobPath, null).entrySet()) {
 					if (!buildCommitId.equals(getComparisonBase())) {
 						Map<Integer, Integer> lineMapping = getLineMapping(buildCommitId, getComparisonBase(), blobPath);
@@ -1050,7 +1050,7 @@ public class PullRequestChangesPage extends PullRequestDetailPage implements Rev
 		Map<Integer, CoverageStatus> coverages = new HashMap<>();
 		for (Build build: getProject().getBuilds(buildCommitId)) {
 			if (request.equals(build.getRequest())) {
-				for (LineCoverageContribution contribution: OneDev.getExtensions(LineCoverageContribution.class)) {
+				for (LineCoverageContribution contribution: Cheeta.getExtensions(LineCoverageContribution.class)) {
 					for (Map.Entry<Integer, CoverageStatus> entry: contribution.getLineCoverages(build, blobPath, null).entrySet()) {
 						if (!state.newCommitHash.equals(buildCommitId.name())) {
 							Map<Integer, Integer> lineMapping = getLineMapping(buildCommitId,

@@ -1,6 +1,6 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.time.LocalDate;
@@ -21,9 +21,9 @@ import com.google.common.collect.Lists;
 import com.joestelmach.natty.DateGroup;
 import com.joestelmach.natty.Parser;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.web.WebSession;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.web.WebSession;
 
 public class DateUtils {
 

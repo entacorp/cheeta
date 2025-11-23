@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
 
-import io.onedev.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Sessional;
 
 @Singleton
 public class DefaultServletContainer extends ServletContainer {

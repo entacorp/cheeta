@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource.support;
+package io.cheeta.server.rest.resource.support;
 
 import java.io.Serializable;
 

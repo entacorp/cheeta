@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.katex;
+package io.cheeta.server.web.asset.katex;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-import io.onedev.server.web.resourcebundle.ResourceBundle;
+import io.cheeta.server.web.resourcebundle.ResourceBundle;
 
 @ResourceBundle
 public class KatexResourceReference extends JavaScriptResourceReference {

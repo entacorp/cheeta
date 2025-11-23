@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.issuesetting.issuetemplate;
+package io.cheeta.server.web.page.admin.issuesetting.issuetemplate;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,20 +30,20 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.IssueTemplate;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.admin.issuesetting.IssueSettingPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.IssueTemplate;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.admin.issuesetting.IssueSettingPage;
 
 public class IssueTemplateListPage extends IssueSettingPage {
 
@@ -176,7 +176,7 @@ public class IssueTemplateListPage extends IssueSettingPage {
 					public void onClick(AjaxRequestTarget target) {
 						var template = getSetting().getIssueTemplates().remove(templateIndex);
 						var oldAuditContent = VersionedXmlDoc.fromBean(template).toXML();
-						OneDev.getInstance(SettingService.class).saveIssueSetting(getSetting());
+						Cheeta.getInstance(SettingService.class).saveIssueSetting(getSetting());
 						auditService.audit(null, "deleted issue description template", oldAuditContent, null);
 						target.add(templatesTable);
 					}
@@ -215,7 +215,7 @@ public class IssueTemplateListPage extends IssueSettingPage {
 				var oldAuditContent = VersionedXmlDoc.fromBean(getSetting().getIssueTemplates()).toXML();
 				CollectionUtils.move(getSetting().getIssueTemplates(), from.getItemIndex(), to.getItemIndex());
 				var newAuditContent = VersionedXmlDoc.fromBean(getSetting().getIssueTemplates()).toXML();
-				OneDev.getInstance(SettingService.class).saveIssueSetting(getSetting());
+				Cheeta.getInstance(SettingService.class).saveIssueSetting(getSetting());
 				auditService.audit(null, "changed order of issue description templates", oldAuditContent, newAuditContent);
 				target.add(templatesTable);
 			}

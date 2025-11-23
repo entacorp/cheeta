@@ -1,11 +1,11 @@
-package io.onedev.server.event.project.codecomment;
+package io.cheeta.server.event.project.codecomment;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentReplyService;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentReplyService;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
 
 public class CodeCommentReplyCreated extends CodeCommentEvent {
 
@@ -19,7 +19,7 @@ public class CodeCommentReplyCreated extends CodeCommentEvent {
 	}
 
 	public CodeCommentReply getReply() {
-		return OneDev.getInstance(CodeCommentReplyService.class).load(replyId);
+		return Cheeta.getInstance(CodeCommentReplyService.class).load(replyId);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class CodeCommentReplyCreated extends CodeCommentEvent {
 
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getReply(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getReply(), true);
 	}
 
 }

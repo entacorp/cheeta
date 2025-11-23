@@ -1,6 +1,6 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.CodeCommentTouch.PROP_COMMENT_ID;
+import static io.cheeta.server.model.CodeCommentTouch.PROP_COMMENT_ID;
 import static java.lang.String.format;
 
 import java.util.List;
@@ -10,25 +10,25 @@ import javax.inject.Singleton;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.service.CodeCommentTouchService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.event.project.codecomment.CodeCommentCreated;
-import io.onedev.server.event.project.codecomment.CodeCommentEdited;
-import io.onedev.server.event.project.codecomment.CodeCommentReplyCreated;
-import io.onedev.server.event.project.codecomment.CodeCommentReplyDeleted;
-import io.onedev.server.event.project.codecomment.CodeCommentReplyEdited;
-import io.onedev.server.event.project.codecomment.CodeCommentTouched;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentTouch;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.CodeCommentTouchService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.event.project.codecomment.CodeCommentCreated;
+import io.cheeta.server.event.project.codecomment.CodeCommentEdited;
+import io.cheeta.server.event.project.codecomment.CodeCommentReplyCreated;
+import io.cheeta.server.event.project.codecomment.CodeCommentReplyDeleted;
+import io.cheeta.server.event.project.codecomment.CodeCommentReplyEdited;
+import io.cheeta.server.event.project.codecomment.CodeCommentTouched;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentTouch;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
 
 @Singleton
 public class DefaultCodeCommentTouchService extends BaseEntityService<CodeCommentTouch>

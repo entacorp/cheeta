@@ -1,4 +1,4 @@
-package io.onedev.server.util.facade;
+package io.cheeta.server.util.facade;
 
 import static java.util.stream.Collectors.toSet;
 
@@ -9,11 +9,11 @@ import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.util.MapProxy;
-import io.onedev.server.util.Similarities;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.MapProxy;
+import io.cheeta.server.util.Similarities;
 
 public class UserCache extends MapProxy<Long, UserFacade> {
 
@@ -55,7 +55,7 @@ public class UserCache extends MapProxy<Long, UserFacade> {
 	}
 		
 	public Collection<User> getUsers(boolean includeDisabled) {
-		UserService userService = OneDev.getInstance(UserService.class);
+		UserService userService = Cheeta.getInstance(UserService.class);
 		return entrySet().stream()
 				.filter(it -> includeDisabled || !it.getValue().isDisabled())
 				.map(it -> userService.load(it.getKey()))

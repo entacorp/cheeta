@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.github;
+package io.cheeta.server.plugin.imports.github;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,13 +6,13 @@ import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class IssueLabelMapping implements Serializable {
@@ -33,21 +33,21 @@ public class IssueLabelMapping implements Serializable {
 		this.gitHubIssueLabel = gitHubIssueLabel;
 	}
 
-	@Editable(order=200, name="OneDev Issue Field", description="Specify a custom field of Enum type")
-	@ChoiceProvider("getOneDevIssueFieldChoices")
+	@Editable(order=200, name="Cheeta Issue Field", description="Specify a custom field of Enum type")
+	@ChoiceProvider("getCheetaIssueFieldChoices")
 	@NotEmpty
-	public String getOneDevIssueField() {
+	public String getCheetaIssueField() {
 		return oneDevIssueField;
 	}
 
-	public void setOneDevIssueField(String oneDevIssueField) {
+	public void setCheetaIssueField(String oneDevIssueField) {
 		this.oneDevIssueField = oneDevIssueField;
 	}
 
 	@SuppressWarnings("unused")
-	private static List<String> getOneDevIssueFieldChoices() {
+	private static List<String> getCheetaIssueFieldChoices() {
 		List<String> choices = new ArrayList<>();
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		for (FieldSpec field: issueSetting.getFieldSpecs()) {
 			if (field.getType().equals(InputSpec.ENUMERATION)) {
 				for (String value: field.getPossibleValues()) 

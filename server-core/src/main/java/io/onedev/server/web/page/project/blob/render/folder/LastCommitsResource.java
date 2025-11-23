@@ -1,19 +1,19 @@
-package io.onedev.server.web.page.project.blob.render.folder;
+package io.cheeta.server.web.page.project.blob.render.folder;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.entityreference.LinkTransformer;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.avatar.AvatarService;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.entityreference.LinkTransformer;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.avatar.AvatarService;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
 
 /**
  * Loading commits of children may take some time, and we do this via resource loading to avoid blocking 
@@ -58,15 +58,15 @@ class LastCommitsResource extends AbstractResource {
 
 			@Override
 			public void writeData(Attributes attributes) throws IOException {
-				Project project = OneDev.getInstance(Dao.class).load(Project.class, projectId);
+				Project project = Cheeta.getInstance(Dao.class).load(Project.class, projectId);
 				
 				if (!SecurityUtils.canReadCode(project))
 					throw new UnauthorizedException();
 				
 				LastCommitsOfChildren lastCommits = project.getLastCommitsOfChildren(revision, path);
 				
-				var avatarService = OneDev.getInstance(AvatarService.class);
-				var emailAddressService = OneDev.getInstance(EmailAddressService.class);
+				var avatarService = Cheeta.getInstance(AvatarService.class);
+				var emailAddressService = Cheeta.getInstance(EmailAddressService.class);
 				Map<String, LastCommitInfo> map = new HashMap<>();
 				for (var entry: lastCommits.entrySet()) {
 					var info = new LastCommitInfo();
@@ -98,7 +98,7 @@ class LastCommitsResource extends AbstractResource {
 				}
 				String json;
 				try {
-					json = OneDev.getInstance(ObjectMapper.class).writeValueAsString(map);
+					json = Cheeta.getInstance(ObjectMapper.class).writeValueAsString(map);
 				} catch (JsonProcessingException e) {
 					throw new RuntimeException(e);
 				}

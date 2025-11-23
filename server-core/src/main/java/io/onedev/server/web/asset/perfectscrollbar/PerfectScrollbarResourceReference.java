@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.perfectscrollbar;
+package io.cheeta.server.web.asset.perfectscrollbar;
 
 import java.util.List;
 

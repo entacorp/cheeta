@@ -1,7 +1,7 @@
-package io.onedev.server.search.commit;
+package io.cheeta.server.search.commit;
 
-import static io.onedev.commons.codeassist.FenceAware.unfence;
-import static io.onedev.commons.utils.StringUtils.unescape;
+import static io.cheeta.commons.codeassist.FenceAware.unfence;
+import static io.cheeta.commons.utils.StringUtils.unescape;
 import static org.apache.commons.lang3.StringUtils.join;
 
 import java.io.Serializable;
@@ -23,11 +23,11 @@ import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.commit.CommitQueryParser.CriteriaContext;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.commit.CommitQueryParser.CriteriaContext;
 
 public class CommitQuery implements Serializable {
 	

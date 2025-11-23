@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.search.result;
+package io.cheeta.server.web.page.project.blob.search.result;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,21 +27,21 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.eclipse.jgit.lib.FileMode;
 
-import io.onedev.commons.jsymbol.util.HighlightableLabel;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.search.code.hit.FileHit;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.hit.TextHit;
-import io.onedev.server.web.behavior.CtrlClickBehavior;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.commons.jsymbol.util.HighlightableLabel;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.search.code.hit.FileHit;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.hit.TextHit;
+import io.cheeta.server.web.behavior.CtrlClickBehavior;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 
 public abstract class SearchResultPanel extends Panel {
 
@@ -119,7 +119,7 @@ public abstract class SearchResultPanel extends Panel {
 	}
 	
 	private int getMaxQueryEntries() {
-		return OneDev.getInstance(SettingService.class).getPerformanceSetting().getMaxCodeSearchEntries();
+		return Cheeta.getInstance(SettingService.class).getPerformanceSetting().getMaxCodeSearchEntries();
 	}
 
 	@SuppressWarnings("deprecation")

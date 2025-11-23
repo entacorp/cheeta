@@ -1,4 +1,4 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -6,8 +6,8 @@ import javax.validation.ConstraintValidatorContext;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
 
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.annotation.CurrentPassword;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.annotation.CurrentPassword;
 
 public class CurrentPasswordValidator implements ConstraintValidator<CurrentPassword, String> {
 

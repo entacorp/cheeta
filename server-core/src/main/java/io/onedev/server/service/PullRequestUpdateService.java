@@ -1,9 +1,9 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.List;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestUpdate;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestUpdate;
 
 public interface PullRequestUpdateService extends EntityService<PullRequestUpdate> {
 	

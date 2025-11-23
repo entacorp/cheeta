@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.bitbucketcloud;
+package io.cheeta.server.plugin.imports.bitbucketcloud;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -25,28 +25,28 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import io.onedev.commons.bootstrap.SecretMasker;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.BaseAuthorizationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.command.LsRemoteCommand;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.util.JerseyUtils;
-import io.onedev.server.util.JerseyUtils.PageDataConsumer;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.taskbutton.TaskResult.PlainMessage;
+import io.cheeta.commons.bootstrap.SecretMasker;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.BaseAuthorizationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.command.LsRemoteCommand;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.util.JerseyUtils;
+import io.cheeta.server.util.JerseyUtils.PageDataConsumer;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.taskbutton.TaskResult.PlainMessage;
 
 @Editable
 @ClassValidating
@@ -185,17 +185,17 @@ public class ImportServer implements Serializable, Validatable {
 		Client client = newClient();
 		try {
 			for (var bitbucketRepository : repositories.getImportRepositories()) {
-				OneDev.getInstance(TransactionService.class).run(() -> {
+				Cheeta.getInstance(TransactionService.class).run(() -> {
 					try {
 						String oneDevProjectPath;
-						if (repositories.getParentOneDevProject() != null)
-							oneDevProjectPath = repositories.getParentOneDevProject() + "/" + bitbucketRepository;
+						if (repositories.getParentCheetaProject() != null)
+							oneDevProjectPath = repositories.getParentCheetaProject() + "/" + bitbucketRepository;
 						else
 							oneDevProjectPath = bitbucketRepository;
 
 						logger.log("Importing from '" + bitbucketRepository + "' to '" + oneDevProjectPath + "'...");
 
-						ProjectService projectService = OneDev.getInstance(ProjectService.class);
+						ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 						Project project = projectService.setup(SecurityUtils.getSubject(), oneDevProjectPath);
 
 						if (!project.isNew() && !SecurityUtils.canManageProject(project)) {
@@ -231,7 +231,7 @@ public class ImportServer implements Serializable, Validatable {
 								} else {
 									if (project.isNew()) {
 										projectService.create(SecurityUtils.getUser(), project);
-										OneDev.getInstance(AuditService.class).audit(project, "created project", null, VersionedXmlDoc.fromBean(project).toXML());
+										Cheeta.getInstance(AuditService.class).audit(project, "created project", null, VersionedXmlDoc.fromBean(project).toXML());
 									}
 									projectService.clone(project, builder.build().toString());
 								}
@@ -244,7 +244,7 @@ public class ImportServer implements Serializable, Validatable {
 
 						boolean isPrivate = repoNode.get("is_private").asBoolean();
 						if (!isPrivate && !option.getPublicRoles().isEmpty())
-							OneDev.getInstance(BaseAuthorizationService.class).syncRoles(project, option.getPublicRoles());
+							Cheeta.getInstance(BaseAuthorizationService.class).syncRoles(project, option.getPublicRoles());
 					} catch (URISyntaxException e) {
 						throw new RuntimeException(e);
 					}

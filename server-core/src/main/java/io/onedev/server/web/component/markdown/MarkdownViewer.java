@@ -1,27 +1,27 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.*;
-import io.onedev.server.entityreference.BuildReference;
-import io.onedev.server.entityreference.EntityReference;
-import io.onedev.server.entityreference.IssueReference;
-import io.onedev.server.entityreference.PullRequestReference;
-import io.onedev.server.markdown.MarkdownService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ColorUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.asset.lozad.LozadResourceReference;
-import io.onedev.server.web.avatar.AvatarService;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.build.status.BuildStatusIcon;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.*;
+import io.cheeta.server.entityreference.BuildReference;
+import io.cheeta.server.entityreference.EntityReference;
+import io.cheeta.server.entityreference.IssueReference;
+import io.cheeta.server.entityreference.PullRequestReference;
+import io.cheeta.server.markdown.MarkdownService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ColorUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.asset.lozad.LozadResourceReference;
+import io.cheeta.server.web.avatar.AvatarService;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.build.status.BuildStatusIcon;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.feedback.FencedFeedbackPanel;
 import org.apache.wicket.markup.ComponentTag;
@@ -183,22 +183,22 @@ public class MarkdownViewer extends GenericPanel<String> {
 				switch (referenceType) {
 				case "issue":
 					EntityReference reference = IssueReference.of(referenceId, null);
-					var issue = OneDev.getInstance(IssueService.class).find(reference.getProject(), reference.getNumber());
+					var issue = Cheeta.getInstance(IssueService.class).find(reference.getProject(), reference.getNumber());
 					// check permission here as issue project may not be the same as current project
 					if (issue != null && SecurityUtils.canAccessIssue(issue)) {
-						String color = OneDev.getInstance(SettingService.class).getIssueSetting().getStateSpec(issue.getState()).getColor();
-						String script = String.format("onedev.server.markdown.renderIssueTooltip('%s', '%s', '%s', '%s');", 
+						String color = Cheeta.getInstance(SettingService.class).getIssueSetting().getStateSpec(issue.getState()).getColor();
+						String script = String.format("cheeta.server.markdown.renderIssueTooltip('%s', '%s', '%s', '%s');", 
 								Emojis.getInstance().apply(JavaScriptEscape.escapeJavaScript(issue.getTitle())), 
 								JavaScriptEscape.escapeJavaScript(issue.getState()), 
 								ColorUtils.isLight(color)? "black": "white", color);
 						target.appendJavaScript(script);
 					} else {
-						target.appendJavaScript("onedev.server.markdown.renderIssueTooltip();");
+						target.appendJavaScript("cheeta.server.markdown.renderIssueTooltip();");
 					}
 					break;
 				case "pull request":
 					reference = PullRequestReference.of(referenceId, null);
-					var request = OneDev.getInstance(PullRequestService.class).find(reference.getProject(), reference.getNumber());
+					var request = Cheeta.getInstance(PullRequestService.class).find(reference.getProject(), reference.getNumber());
 					// check permission here as target project may not be the same as current project
 					if (request != null && SecurityUtils.canReadCode(request.getTargetProject())) {
  	 					String status = request.getStatus().toString();
@@ -214,17 +214,17 @@ public class MarkdownViewer extends GenericPanel<String> {
 							statusCss = "badge-danger";
 						}
 						
-						String script = String.format("onedev.server.markdown.renderPullRequestTooltip('%s', '%s', '%s');", 
+						String script = String.format("cheeta.server.markdown.renderPullRequestTooltip('%s', '%s', '%s');", 
 								Emojis.getInstance().apply(JavaScriptEscape.escapeJavaScript(request.getTitle())), 
 								status, statusCss);
 						target.appendJavaScript(script);
 					} else {
-						target.appendJavaScript("onedev.server.markdown.renderPullRequestTooltip();");
+						target.appendJavaScript("cheeta.server.markdown.renderPullRequestTooltip();");
 					}
 					break;
 				case "build":
 					reference = BuildReference.of(referenceId, null);
-					var build = OneDev.getInstance(BuildService.class).find(reference.getProject(), reference.getNumber());
+					var build = Cheeta.getInstance(BuildService.class).find(reference.getProject(), reference.getNumber());
 					// check permission here as build project may not be the same as current project
 					if (build != null && SecurityUtils.canAccessBuild(build)) {
 						String iconHref = SpriteImage.getVersionedHref(BuildStatusIcon.getIconHref(build.getStatus()));
@@ -233,18 +233,18 @@ public class MarkdownViewer extends GenericPanel<String> {
 						String title = build.getJobName();
 						if (build.getVersion() != null)
 							title += " : " + build.getVersion();
-						String script = String.format("onedev.server.markdown.renderBuildTooltip('%s', '%s', '%s');", 
+						String script = String.format("cheeta.server.markdown.renderBuildTooltip('%s', '%s', '%s');", 
 								JavaScriptEscape.escapeJavaScript(title), iconHref, iconCss);
 						target.appendJavaScript(script);
 					} else {
-						target.appendJavaScript("onedev.server.markdown.renderBuildTooltip();");
+						target.appendJavaScript("cheeta.server.markdown.renderBuildTooltip();");
 					}
 					break;
 				case "user":
-					User user = OneDev.getInstance(UserService.class).findByName(referenceId);
+					User user = Cheeta.getInstance(UserService.class).findByName(referenceId);
 					if (user != null) {
-						String avatarUrl = OneDev.getInstance(AvatarService.class).getUserAvatarUrl(user.getId());
-						String script = String.format("onedev.server.markdown.renderUserTooltip('%s', '%s')", 
+						String avatarUrl = Cheeta.getInstance(AvatarService.class).getUserAvatarUrl(user.getId());
+						String script = String.format("cheeta.server.markdown.renderUserTooltip('%s', '%s')", 
 								JavaScriptEscape.escapeJavaScript(avatarUrl), 
 								JavaScriptEscape.escapeJavaScript(user.getDisplayName()));
 						target.appendJavaScript(script);
@@ -254,7 +254,7 @@ public class MarkdownViewer extends GenericPanel<String> {
 					Project commitProject = getProject();
 					String commitHash;
 					if (referenceId.contains(":")) {
-						commitProject = OneDev.getInstance(ProjectService.class)
+						commitProject = Cheeta.getInstance(ProjectService.class)
 								.findByPath(StringUtils.substringBefore(referenceId, ":"));
 						commitHash = StringUtils.substringAfter(referenceId, ":");
 					} else {
@@ -264,13 +264,13 @@ public class MarkdownViewer extends GenericPanel<String> {
 					if (commitProject != null)
 						commit = commitProject.getRevCommit(ObjectId.fromString(commitHash), false);
 					if (commit != null && SecurityUtils.canReadCode(commitProject)) {
-						String script = String.format("onedev.server.markdown.renderCommitTooltip('%s', '%s', '%s');", 
+						String script = String.format("cheeta.server.markdown.renderCommitTooltip('%s', '%s', '%s');", 
 								JavaScriptEscape.escapeJavaScript(commit.getAuthorIdent().getName()), 
 								JavaScriptEscape.escapeJavaScript(DateUtils.formatAge(commit.getCommitterIdent().getWhen())), 
 								JavaScriptEscape.escapeJavaScript(commit.getFullMessage()));
 						target.appendJavaScript(script);
 					} else {
-						target.appendJavaScript("onedev.server.markdown.renderCommitTooltip();");
+						target.appendJavaScript("cheeta.server.markdown.renderCommitTooltip();");
 					}
 					break;
 				default:
@@ -330,7 +330,7 @@ public class MarkdownViewer extends GenericPanel<String> {
 		CharSequence suggestionCallback = suggestionBehavior.getCallbackFunction(
 				explicit(SUGGESTION_ACTION), explicit(SUGGESTION_CONTENT));
 		
-		String script = String.format("onedev.server.markdown.onViewerDomReady('%s', %s, '%s', %s, %s, %s);", 
+		String script = String.format("cheeta.server.markdown.onViewerDomReady('%s', %s, '%s', %s, %s, %s);", 
 				getMarkupId(), 
 				contentVersionSupport!=null?taskCallback:"undefined", 
 				SourcePositionTrackExtension.DATA_START_ATTRIBUTE, 

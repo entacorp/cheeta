@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.retrycondition;
+package io.cheeta.server.buildspec.job.retrycondition;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -6,8 +6,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class NeverCriteria extends Criteria<RetryContext> {
 

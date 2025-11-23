@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.setting.avatar;
+package io.cheeta.server.web.page.project.setting.avatar;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import javax.inject.Inject;
 
@@ -14,12 +14,12 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.avatar.AvatarService;
-import io.onedev.server.web.component.avatarupload.AvatarFileSelected;
-import io.onedev.server.web.component.avatarupload.AvatarUploadField;
-import io.onedev.server.web.component.project.ProjectAvatar;
-import io.onedev.server.web.page.project.setting.ProjectSettingPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.avatar.AvatarService;
+import io.cheeta.server.web.component.avatarupload.AvatarFileSelected;
+import io.cheeta.server.web.component.avatarupload.AvatarUploadField;
+import io.cheeta.server.web.component.project.ProjectAvatar;
+import io.cheeta.server.web.page.project.setting.ProjectSettingPage;
 
 public class AvatarEditPage extends ProjectSettingPage {
 	
@@ -62,7 +62,7 @@ public class AvatarEditPage extends ProjectSettingPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				AvatarService avatarService = OneDev.getInstance(AvatarService.class);
+				AvatarService avatarService = Cheeta.getInstance(AvatarService.class);
             	avatarService.useProjectAvatar(getProject().getId(), uploadedAvatarData);
 				setResponsePage(AvatarEditPage.class, AvatarEditPage.paramsOf(getProject()));
 			}

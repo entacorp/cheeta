@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.HashMap;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.OneDev;
+import io.cheeta.server.Cheeta;
 
 public class JavascriptTranslations {
 	
@@ -34,7 +34,7 @@ public class JavascriptTranslations {
               map.put("commit-not-exist-or-access-denied", _T("Commit not exist or access denied"));
               map.put("enter-description-here", _T("Enter description here"));
 
-              return OneDev.getInstance(ObjectMapper.class).writeValueAsString(map);
+              return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(map);
       } catch (JsonProcessingException e) {
         throw new RuntimeException(e);
       }

@@ -1,8 +1,8 @@
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
 import org.apache.wicket.protocol.ws.api.IWebSocketConnection;
 
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.base.BasePage;
 
 import org.jspecify.annotations.Nullable;
 import java.util.Collection;

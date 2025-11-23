@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.commit.status;
+package io.cheeta.server.web.component.commit.status;
 
 import org.jspecify.annotations.Nullable;
 

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.aisetting;
+package io.cheeta.server.web.page.admin.aisetting;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import javax.inject.Inject;
 
@@ -9,11 +9,11 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.model.support.administration.AISetting;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.model.support.administration.AISetting;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.page.admin.AdministrationPage;
 
 public class LiteModelPage extends AdministrationPage {
 

@@ -1,9 +1,9 @@
-package io.onedev.server.web.editable.polymorphiclist;
+package io.cheeta.server.web.editable.polymorphiclist;
 
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.editable.*;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 

@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.action.condition;
+package io.cheeta.server.buildspec.job.action.condition;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class ParamCriteria extends Criteria<Build> {
 

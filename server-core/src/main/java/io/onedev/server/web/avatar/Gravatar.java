@@ -1,7 +1,7 @@
-package io.onedev.server.web.avatar;
+package io.cheeta.server.web.avatar;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -190,7 +190,7 @@ public class Gravatar {
 	 */
 	public String getURL() {
 		var str = new StringBuilder();
-		var url = OneDev.getInstance(SettingService.class).getSystemSetting().getAvatarServiceUrl();
+		var url = Cheeta.getInstance(SettingService.class).getSystemSetting().getAvatarServiceUrl();
 		str.append(StringUtils.stripEnd(url, "/\\")).append("/");
 		str.append(this.hash);
 		str.append(this.getOptions());

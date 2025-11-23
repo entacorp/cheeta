@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.blob.render.commitoption;
+package io.cheeta.server.web.page.project.blob.render.commitoption;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ReferenceAware;
-import io.onedev.server.util.ComponentContext;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ReferenceAware;
+import io.cheeta.server.util.ComponentContext;
 
 import java.io.Serializable;
 

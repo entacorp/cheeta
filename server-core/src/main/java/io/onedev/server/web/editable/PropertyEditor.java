@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.lang.reflect.Method;
 import java.util.Set;
@@ -21,10 +21,10 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.util.visit.IVisitor;
 import org.apache.wicket.validation.INullAcceptingValidator;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.util.WicketUtils;
 
 public abstract class PropertyEditor<T> extends ValueEditor<T> {
 
@@ -86,7 +86,7 @@ public abstract class PropertyEditor<T> extends ValueEditor<T> {
 	protected void markFormDirty(AjaxRequestTarget target) {
 		String script = String.format(""
 				+ "var $form = $('#%s').closest('form');"
-				+ "onedev.server.form.markDirty($form);", 
+				+ "cheeta.server.form.markDirty($form);", 
 				getMarkupId());
 		target.prependJavaScript(script);
 	}

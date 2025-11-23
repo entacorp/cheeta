@@ -1,6 +1,6 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.IssueWork.PROP_DATE;
+import static io.cheeta.server.model.IssueWork.PROP_DATE;
 
 import java.util.Date;
 
@@ -19,7 +19,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.onedev.server.rest.annotation.Immutable;
+import io.cheeta.server.rest.annotation.Immutable;
 
 @Entity
 @Table(indexes={@Index(columnList="o_issue_id"), @Index(columnList="o_user_id"), @Index(columnList=PROP_DATE)})

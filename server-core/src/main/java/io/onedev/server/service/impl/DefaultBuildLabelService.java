@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +9,12 @@ import javax.persistence.criteria.Root;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.BuildLabel;
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.service.BuildLabelService;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.BuildLabel;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.service.BuildLabelService;
 
 @Singleton
 public class DefaultBuildLabelService extends BaseEntityLabelService<BuildLabel> implements BuildLabelService {

@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.transitionspec;
+package io.cheeta.server.model.support.issue.transitionspec;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,9 +8,9 @@ import javax.validation.constraints.NotEmpty;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 @Editable
 public abstract class AutoSpec extends TransitionSpec {

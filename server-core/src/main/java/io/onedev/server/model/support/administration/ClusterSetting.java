@@ -1,11 +1,11 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.validation.Validatable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.validation.Validatable;
 
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraints.Min;
@@ -35,7 +35,7 @@ public class ClusterSetting implements Serializable, Validatable {
 	@Override
 	public boolean isValid(ConstraintValidatorContext context) {
 		boolean isValid = true;
-		int memberCount = OneDev.getInstance(ClusterService.class)
+		int memberCount = Cheeta.getInstance(ClusterService.class)
 				.getHazelcastInstance()
 				.getCluster().getMembers().size();
 		if (replicaCount > memberCount) {

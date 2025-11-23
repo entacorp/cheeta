@@ -10,7 +10,7 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package io.onedev.server.web.component.select2;
+package io.cheeta.server.web.component.select2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +24,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.string.Strings;
 import org.json.JSONException;
 
-import io.onedev.server.web.component.select2.json.JsonBuilder;
+import io.cheeta.server.web.component.select2.json.JsonBuilder;
 
 /**
  * Multi-select Select2 component. Should be attached to a
@@ -137,7 +137,7 @@ public class Select2MultiChoice<T> extends AbstractSelect2Choice<T, Collection<T
 		} else {
 			clearInput();
 		}
-		String script = String.format("onedev.server.select2DragSort.onWindowLoad('%s');", getMarkupId());
+		String script = String.format("cheeta.server.select2DragSort.onWindowLoad('%s');", getMarkupId());
 		response.render(OnLoadHeaderItem.forScript(script));
 	}
 

@@ -1,4 +1,4 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

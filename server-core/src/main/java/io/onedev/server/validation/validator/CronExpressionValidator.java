@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.text.ParseException;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.annotation.CronExpression;
+import io.cheeta.server.annotation.CronExpression;
 
 public class CronExpressionValidator implements ConstraintValidator<CronExpression, String> {
 

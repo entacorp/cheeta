@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.report.jest;
+package io.cheeta.server.plugin.report.jest;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,10 +13,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Sets;
 import com.google.common.io.Resources;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.UnitTestReport;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.Status;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.Status;
+import io.cheeta.server.util.patternset.PatternSet;
 
 public class JestReportParserTest {
 

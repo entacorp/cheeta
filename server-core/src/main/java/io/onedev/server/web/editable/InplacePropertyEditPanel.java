@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.io.Serializable;
 
@@ -12,9 +12,9 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.util.IssueQueryAware;
-import io.onedev.server.web.util.ProjectAware;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.util.IssueQueryAware;
+import io.cheeta.server.web.util.ProjectAware;
 
 public abstract class InplacePropertyEditPanel extends Panel implements EditContext, IssueQueryAware, ProjectAware {
 

@@ -1,4 +1,4 @@
-onedev.server.jobLogEntry = {
+cheeta.server.jobLogEntry = {
 	
 	render(logEntry, withDate) {
 		var $logEntry = $("<div class='log-entry'></div>");

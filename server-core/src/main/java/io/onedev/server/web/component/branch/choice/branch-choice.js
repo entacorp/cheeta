@@ -1,4 +1,4 @@
-onedev.server.branchChoiceFormatter = {
+cheeta.server.branchChoiceFormatter = {
 	formatSelection: function(branch) {
 		return branch.name;
 	},

@@ -1,20 +1,20 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.k8shelper.CommandFacade;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.buildspec.step.commandinterpreter.DefaultInterpreter;
-import io.onedev.server.buildspec.step.commandinterpreter.Interpreter;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.jobexecutor.DockerAware;
+import io.cheeta.k8shelper.CommandFacade;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.buildspec.step.commandinterpreter.DefaultInterpreter;
+import io.cheeta.server.buildspec.step.commandinterpreter.Interpreter;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.jobexecutor.DockerAware;
 
 import java.util.List;
 import java.util.Map;
 
-import static io.onedev.agent.DockerExecutorUtils.buildDockerConfig;
-import static io.onedev.k8shelper.RegistryLoginFacade.merge;
+import static io.cheeta.agent.DockerExecutorUtils.buildDockerConfig;
+import static io.cheeta.k8shelper.RegistryLoginFacade.merge;
 
 public abstract class CraneStep extends CommandStep {
 

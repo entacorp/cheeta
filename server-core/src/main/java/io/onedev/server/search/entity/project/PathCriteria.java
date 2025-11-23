@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.project;
+package io.cheeta.server.search.entity.project;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -6,12 +6,12 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class PathCriteria extends Criteria<Project> {
 
@@ -28,7 +28,7 @@ public class PathCriteria extends Criteria<Project> {
 
 	@Override
 	public Predicate getPredicate(@Nullable ProjectScope projectScope, CriteriaQuery<?> query, From<Project, Project> from, CriteriaBuilder builder) {
-		var predicate = OneDev.getInstance(ProjectService.class).getPathMatchPredicate(builder, from, value);
+		var predicate = Cheeta.getInstance(ProjectService.class).getPathMatchPredicate(builder, from, value);
 		if (operator == ProjectQueryLexer.IsNot)
 			predicate = builder.not(predicate);
 		return predicate;

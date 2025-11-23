@@ -1,4 +1,4 @@
-package io.onedev.server.util.concurrent;
+package io.cheeta.server.util.concurrent;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,8 +17,8 @@ import java.util.concurrent.TimeoutException;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.onedev.server.service.SettingService;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.security.SecurityUtils;
 
 @Singleton
 public class DefaultWorkExecutionService implements WorkExecutionService {

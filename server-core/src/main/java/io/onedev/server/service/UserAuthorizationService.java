@@ -1,10 +1,10 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.UserAuthorization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.UserAuthorization;
 
 public interface UserAuthorizationService extends EntityService<UserAuthorization> {
 

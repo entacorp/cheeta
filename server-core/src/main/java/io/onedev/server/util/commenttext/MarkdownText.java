@@ -1,9 +1,9 @@
-package io.onedev.server.util.commenttext;
+package io.cheeta.server.util.commenttext;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.markdown.MarkdownService;
-import io.onedev.server.model.Project;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.markdown.MarkdownService;
+import io.cheeta.server.model.Project;
 
 public class MarkdownText extends CommentText {
 
@@ -21,7 +21,7 @@ public class MarkdownText extends CommentText {
 	}
 	
 	private MarkdownService getMarkdownService() {
-		return OneDev.getInstance(MarkdownService.class);
+		return Cheeta.getInstance(MarkdownService.class);
 	}
 	
 	public String getRendered() {
@@ -44,7 +44,7 @@ public class MarkdownText extends CommentText {
 	@Override
 	public String getPlainContent() {
 		if (plainContent == null) {
-			MailService mailService = OneDev.getInstance(MailService.class);
+			MailService mailService = Cheeta.getInstance(MailService.class);
 			if (mailService.isMailContent(getContent()))  
 				plainContent = mailService.toPlainText(getContent());
 			else

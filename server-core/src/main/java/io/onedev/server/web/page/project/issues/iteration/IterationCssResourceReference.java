@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.issues.iteration;
+package io.cheeta.server.web.page.project.issues.iteration;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class IterationCssResourceReference extends BaseDependentCssResourceReference {
 

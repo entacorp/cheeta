@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.codesnippet;
+package io.cheeta.server.web.component.codesnippet;
 
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;

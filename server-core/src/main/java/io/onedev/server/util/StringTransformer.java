@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

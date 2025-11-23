@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pullrequest;
+package io.cheeta.server.search.entity.pullrequest;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -6,9 +6,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequest.Status;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequest.Status;
+import io.cheeta.server.util.ProjectScope;
 
 public class DiscardedCriteria extends StatusCriteria {
 

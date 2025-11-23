@@ -1,11 +1,11 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.server.annotation.*;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.server.annotation.*;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
@@ -44,7 +44,7 @@ public class RegistryLogin implements Serializable {
 		this.userName = userName;
 	}
 	
-	@Editable(order=300, description = "Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token of the registry")
+	@Editable(order=300, description = "Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as password or access token of the registry")
 	@ChoiceProvider("getPasswordSecretChoices")
 	@NotEmpty
 	public String getPasswordSecret() {

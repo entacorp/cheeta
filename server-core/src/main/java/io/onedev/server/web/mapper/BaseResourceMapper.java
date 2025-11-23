@@ -1,4 +1,4 @@
-package io.onedev.server.web.mapper;
+package io.cheeta.server.web.mapper;
 
 import org.apache.wicket.core.request.mapper.ResourceMapper;
 import org.apache.wicket.request.resource.ResourceReference;

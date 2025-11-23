@@ -1,15 +1,15 @@
-package io.onedev.server.plugin.pack.container;
+package io.cheeta.server.plugin.pack.container;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PackBlobService;
-import io.onedev.server.util.Pair;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PackBlobService;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
 import org.apache.commons.io.FileUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -57,7 +57,7 @@ public class ContainerPackPanel extends Panel {
 	}
 	
 	private PackBlobService getPackBlobService() {
-		return OneDev.getInstance(PackBlobService.class);
+		return Cheeta.getInstance(PackBlobService.class);
 	}
 
 	private String formatJson(JsonNode jsonNode) {
@@ -224,7 +224,7 @@ public class ContainerPackPanel extends Panel {
 	}
 	
 	private ObjectMapper getObjectMapper() {
-		return OneDev.getInstance(ObjectMapper.class);
+		return Cheeta.getInstance(ObjectMapper.class);
 	}
 
 	@Override

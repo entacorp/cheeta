@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.service.SettingService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.service.SettingService;
 
 public class PasswordValidator implements ConstraintValidator<Password, String> {
 	
@@ -24,7 +24,7 @@ public class PasswordValidator implements ConstraintValidator<Password, String> 
 		if (value == null || !checkPolicy)
 			return true;
 		
-		var passwordPolicy = OneDev.getInstance(SettingService.class).getSecuritySetting().getPasswordPolicy();
+		var passwordPolicy = Cheeta.getInstance(SettingService.class).getSecuritySetting().getPasswordPolicy();
 		if (passwordPolicy != null) {
 			var error = passwordPolicy.checkPassword(value);
 			if (error != null) {

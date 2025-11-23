@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.chart.pie;
+package io.cheeta.server.web.component.chart.pie;
 
 import java.io.Serializable;
 

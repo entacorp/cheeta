@@ -1,8 +1,8 @@
-package io.onedev.server.data.migration;
+package io.cheeta.server.data.migration;
 
 import com.thoughtworks.xstream.XStream;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.loader.AppLoaderMocker;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.loader.AppLoaderMocker;
 import org.junit.Test;
 import org.mockito.Mockito;
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.emoji;
+package io.cheeta.server.web.asset.emoji;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.OneDev;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.Cheeta;
 
 public class Emojis {
 	
@@ -34,7 +34,7 @@ public class Emojis {
     
 	private Emojis() {
 		try (InputStream in = Emojis.class.getResourceAsStream("emoji.json")) {
-			JsonNode emojisNode = OneDev.getInstance(ObjectMapper.class).readTree(in);
+			JsonNode emojisNode = Cheeta.getInstance(ObjectMapper.class).readTree(in);
 			
 			emojis = new ArrayList<Emoji>();
 			unicodes = new LinkedHashMap<>();

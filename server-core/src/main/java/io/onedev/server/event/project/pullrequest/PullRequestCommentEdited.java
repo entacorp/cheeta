@@ -1,11 +1,11 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import java.util.Date;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestCommentService;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestCommentService;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.security.SecurityUtils;
 
 public class PullRequestCommentEdited extends PullRequestEvent {
 
@@ -19,7 +19,7 @@ public class PullRequestCommentEdited extends PullRequestEvent {
 	}
 	
 	public PullRequestComment getComment() {
-		return OneDev.getInstance(PullRequestCommentService.class).load(commentId);
+		return Cheeta.getInstance(PullRequestCommentService.class).load(commentId);
 	}
 
 	@Override

@@ -1,11 +1,11 @@
-package io.onedev.server.event.project.issue;
+package io.cheeta.server.event.project.issue;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueCommentService;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueCommentService;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
 
 import java.util.Collection;
 
@@ -24,7 +24,7 @@ public class IssueCommentCreated extends IssueEvent {
 	}
 
 	public IssueComment getComment() {
-		return OneDev.getInstance(IssueCommentService.class).load(commentId);
+		return Cheeta.getInstance(IssueCommentService.class).load(commentId);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class IssueCommentCreated extends IssueEvent {
 
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getComment(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getComment(), true);
 	}
 
 }

@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior.blamemessage;
+package io.cheeta.server.web.behavior.blamemessage;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -10,9 +10,9 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.unbescape.javascript.JavaScriptEscape;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
 
 public abstract class BlameMessageBehavior extends AbstractPostAjaxBehavior {
 
@@ -35,7 +35,7 @@ public abstract class BlameMessageBehavior extends AbstractPostAjaxBehavior {
 			authoring = "undefined";
 		}
 		String message = JavaScriptEscape.escapeJavaScript(commit.getFullMessage());
-		String script = String.format("onedev.server.blameMessage.show('%s', %s, '%s');", tooltipId, authoring, message); 
+		String script = String.format("cheeta.server.blameMessage.show('%s', %s, '%s');", tooltipId, authoring, message); 
 		target.appendJavaScript(script);
 	}
 

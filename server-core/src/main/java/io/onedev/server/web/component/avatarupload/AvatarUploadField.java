@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.avatarupload;
+package io.cheeta.server.web.component.avatarupload;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -21,8 +21,8 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
 
 public class AvatarUploadField extends FormComponentPanel<String> {
 
@@ -84,7 +84,7 @@ public class AvatarUploadField extends FormComponentPanel<String> {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new AvatarUploadResourceReference()));
 		
-		String script = String.format("onedev.server.avatarUpload.onDomReady('%s', %s);", 
+		String script = String.format("cheeta.server.avatarUpload.onDomReady('%s', %s);", 
 				getMarkupId(), behavior.getCallbackFunction());
 		
 		response.render(OnDomReadyHeaderItem.forScript(script));

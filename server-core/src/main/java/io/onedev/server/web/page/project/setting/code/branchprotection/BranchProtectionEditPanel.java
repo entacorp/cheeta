@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.setting.code.branchprotection;
+package io.cheeta.server.web.page.project.setting.code.branchprotection;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -7,8 +7,8 @@ import org.apache.wicket.feedback.FencedFeedbackPanel;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.web.editable.BeanContext;
 
 abstract class BranchProtectionEditPanel extends Panel {
 

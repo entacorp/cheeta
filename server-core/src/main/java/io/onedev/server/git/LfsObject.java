@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import java.io.*;
 import java.util.concurrent.locks.Lock;
@@ -6,15 +6,15 @@ import java.util.concurrent.locks.ReadWriteLock;
 
 import org.apache.tika.mime.MediaType;
 
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.util.ContentDetector;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.util.ContentDetector;
 import org.jetbrains.annotations.NotNull;
 
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 
 public class LfsObject implements Serializable {
 	
@@ -38,7 +38,7 @@ public class LfsObject implements Serializable {
 	}
 
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private File getFile() {

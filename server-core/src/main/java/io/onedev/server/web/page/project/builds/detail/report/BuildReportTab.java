@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.builds.detail.report;
+package io.cheeta.server.web.page.project.builds.detail.report;
 
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.tabbable.PageTabHead;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
-import io.onedev.server.web.page.project.builds.detail.BuildTab;
-import io.onedev.server.web.page.project.stats.buildmetric.BuildMetricStatsPage;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.tabbable.PageTabHead;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.web.page.project.builds.detail.BuildTab;
+import io.cheeta.server.web.page.project.stats.buildmetric.BuildMetricStatsPage;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.link.Link;

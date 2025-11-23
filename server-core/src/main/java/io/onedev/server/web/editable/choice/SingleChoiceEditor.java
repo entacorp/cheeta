@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.choice;
+package io.cheeta.server.web.editable.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,12 +16,12 @@ import org.apache.wicket.util.convert.ConversionException;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class SingleChoiceEditor extends PropertyEditor<String> {
 

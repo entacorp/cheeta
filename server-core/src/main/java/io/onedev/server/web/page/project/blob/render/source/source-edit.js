@@ -1,4 +1,4 @@
-onedev.server.sourceEdit = {
+cheeta.server.sourceEdit = {
 	onDomReady: function(containerId, filePath, mark, indentType, tabSize, lineWrapMode, autoFocus) {
 		var $container = $("#" + containerId);
 		var $sourceEdit = $container.children(".source-edit");
@@ -22,7 +22,7 @@ onedev.server.sourceEdit = {
 			highlightIdentifiers: {delay: 500}
 		});
 		
-		onedev.server.codemirror.setModeByFileName(cm, filePath);
+		cheeta.server.codemirror.setModeByFileName(cm, filePath);
 		
 		/*
 		 * AreYouSure can not track dirty correctly for CodeMirror generated
@@ -33,21 +33,21 @@ onedev.server.sourceEdit = {
 		$sourceEdit.closest("form").find("textarea").addClass("no-dirtytrack").addClass("no-autosize");
 		
 		if (mark)
-			onedev.server.codemirror.mark(cm, mark);
+			cheeta.server.codemirror.mark(cm, mark);
 		
 		cm.oldDocValue = cm.doc.getValue();
 
-		onedev.server.codemirror.bindShortcuts(cm);
+		cheeta.server.codemirror.bindShortcuts(cm);
 		
 		cm.on("change", function() {
 			$sourceEdit.closest("form").addClass("dirty");
 		});
 		
 		$code.on("getViewState", function(e) {
-			return onedev.server.codemirror.getViewState(cm);
+			return cheeta.server.codemirror.getViewState(cm);
 	    });
 		$code.on("setViewState", function(e, viewState) {
-			onedev.server.codemirror.setViewState(cm, viewState);
+			cheeta.server.codemirror.setViewState(cm, viewState);
 	    });
 	    
 		$code.on("resized", function() {
@@ -71,9 +71,9 @@ onedev.server.sourceEdit = {
 		var $warning = $container.find(">.source-edit>.warning");
 		var cm = $(".source-edit>.code>.CodeMirror")[0].CodeMirror;
 		
-		if (mark && onedev.server.viewState.getFromHistory() === undefined 
-				&& onedev.server.viewState.carryOver === undefined) {
-			onedev.server.codemirror.scrollTo(cm, mark);					
+		if (mark && cheeta.server.viewState.getFromHistory() === undefined 
+				&& cheeta.server.viewState.carryOver === undefined) {
+			cheeta.server.codemirror.scrollTo(cm, mark);					
 		}
 	},
 	mark: function(mark) {
@@ -143,11 +143,11 @@ onedev.server.sourceEdit = {
 					toRow: newEndLine, 
 					toColumn: newEndChar
 				};
-				onedev.server.codemirror.mark(cm, newMark);
-				onedev.server.codemirror.scrollTo(cm, newMark);
+				cheeta.server.codemirror.mark(cm, newMark);
+				cheeta.server.codemirror.scrollTo(cm, newMark);
 			}			
 		} else {
-			onedev.server.codemirror.clearMark(cm);
+			cheeta.server.codemirror.clearMark(cm);
 		}
 	},
 	onIndentTypeChange: function(indentType) {

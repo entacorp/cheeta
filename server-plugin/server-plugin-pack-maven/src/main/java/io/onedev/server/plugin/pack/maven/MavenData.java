@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.pack.maven;
+package io.cheeta.server.plugin.pack.maven;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;

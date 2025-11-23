@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.taskbutton;
+package io.cheeta.server.web.component.taskbutton;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,9 +23,9 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.log.JobLogEntryEx;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.log.JobLogEntryEx;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
 
 abstract class TaskFeedbackPanel extends Panel {
 
@@ -111,7 +111,7 @@ abstract class TaskFeedbackPanel extends Panel {
 					target.add(resultLabel);
 				}
 				target.appendJavaScript(
-						String.format("onedev.server.taskFeedback.processData('%s', %s, %s);", 
+						String.format("cheeta.server.taskFeedback.processData('%s', %s, %s);", 
 						getMarkupId(), getCallbackFunction(), getData()));
 			}
 
@@ -121,7 +121,7 @@ abstract class TaskFeedbackPanel extends Panel {
 				data.put("finished", getResult() != null);
 				
 				try {
-					return OneDev.getInstance(ObjectMapper.class).writeValueAsString(data);
+					return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(data);
 				} catch (JsonProcessingException e) {
 					throw new RuntimeException(e);
 				}
@@ -131,7 +131,7 @@ abstract class TaskFeedbackPanel extends Panel {
 			public void renderHead(Component component, IHeaderResponse response) {
 				super.renderHead(component, response);
 				
-				String script = String.format("onedev.server.taskFeedback.processData('%s', %s, %s);", 
+				String script = String.format("cheeta.server.taskFeedback.processData('%s', %s, %s);", 
 						getMarkupId(), getCallbackFunction(), getData());
 				response.render(OnDomReadyHeaderItem.forScript(script));
 			}

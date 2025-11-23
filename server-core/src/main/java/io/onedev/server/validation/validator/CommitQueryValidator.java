@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.annotation.CommitQuery;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.annotation.CommitQuery;
 
 public class CommitQueryValidator implements ConstraintValidator<CommitQuery, String> {
 
@@ -22,7 +22,7 @@ public class CommitQueryValidator implements ConstraintValidator<CommitQuery, St
 			return true;
 		} else {
 			try {
-				io.onedev.server.search.commit.CommitQuery.parse(Project.get(), value, true);
+				io.cheeta.server.search.commit.CommitQuery.parse(Project.get(), value, true);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

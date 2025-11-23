@@ -1,13 +1,13 @@
-package io.onedev.server.buildspec.job.action;
+package io.cheeta.server.buildspec.job.action;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.event.project.build.BuildFinished;
-import io.onedev.server.model.Build;
-import io.onedev.server.notification.BuildNotificationManager;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.NotificationReceiver;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.event.project.build.BuildFinished;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.notification.BuildNotificationManager;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.NotificationReceiver;
 
 @Editable(name="Send notification", order=200)
 public class SendNotificationAction extends PostBuildAction {
@@ -29,9 +29,9 @@ public class SendNotificationAction extends PostBuildAction {
 
 	@Override
 	public void execute(Build build) {
-		io.onedev.server.buildspec.job.action.notificationreceiver.NotificationReceiver parsedReceiver = 
-				io.onedev.server.buildspec.job.action.notificationreceiver.NotificationReceiver.parse(getReceivers(), build);
-		OneDev.getInstance(BuildNotificationManager.class).notify(new BuildFinished(build), parsedReceiver.getEmails());
+		io.cheeta.server.buildspec.job.action.notificationreceiver.NotificationReceiver parsedReceiver = 
+				io.cheeta.server.buildspec.job.action.notificationreceiver.NotificationReceiver.parse(getReceivers(), build);
+		Cheeta.getInstance(BuildNotificationManager.class).notify(new BuildFinished(build), parsedReceiver.getEmails());
 	}
 
 	@Override

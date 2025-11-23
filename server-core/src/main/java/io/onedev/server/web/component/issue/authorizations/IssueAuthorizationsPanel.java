@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.issue.authorizations;
+package io.cheeta.server.web.component.issue.authorizations;
 
-import static io.onedev.server.model.IssueAuthorization.PROP_ISSUE;
-import static io.onedev.server.model.IssueAuthorization.PROP_USER;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.IssueAuthorization.PROP_ISSUE;
+import static io.cheeta.server.model.IssueAuthorization.PROP_USER;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -37,27 +37,27 @@ import org.hibernate.criterion.Restrictions;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueAuthorizationService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueAuthorization;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
-import io.onedev.server.web.component.select2.SelectToActChoice;
-import io.onedev.server.web.component.user.UserAvatar;
-import io.onedev.server.web.component.user.choice.AbstractUserChoiceProvider;
-import io.onedev.server.web.component.user.choice.UserChoiceResourceReference;
-import io.onedev.server.web.page.user.basicsetting.UserBasicSettingPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueAuthorizationService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueAuthorization;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.web.component.select2.SelectToActChoice;
+import io.cheeta.server.web.component.user.UserAvatar;
+import io.cheeta.server.web.component.user.choice.AbstractUserChoiceProvider;
+import io.cheeta.server.web.component.user.choice.UserChoiceResourceReference;
+import io.cheeta.server.web.page.user.basicsetting.UserBasicSettingPage;
 
 public abstract class IssueAuthorizationsPanel extends Panel {
 
@@ -108,7 +108,7 @@ public abstract class IssueAuthorizationsPanel extends Panel {
 
 			@Override
 			public void query(String term, int page, Response<User> response) {
-				UserCache cache = OneDev.getInstance(UserService.class).cloneCache();
+				UserCache cache = Cheeta.getInstance(UserService.class).cloneCache();
 				
 				List<User> users = new ArrayList<>(cache.getUsers());
 				users.removeAll(getIssue().getAuthorizedUsers());
@@ -133,17 +133,17 @@ public abstract class IssueAuthorizationsPanel extends Panel {
 				super.onInitialize();
 				
 				getSettings().setPlaceholder(_T("Authorize user..."));
-				getSettings().setFormatResult("onedev.server.userChoiceFormatter.formatResult");
-				getSettings().setFormatSelection("onedev.server.userChoiceFormatter.formatSelection");
-				getSettings().setEscapeMarkup("onedev.server.userChoiceFormatter.escapeMarkup");
+				getSettings().setFormatResult("cheeta.server.userChoiceFormatter.formatResult");
+				getSettings().setFormatSelection("cheeta.server.userChoiceFormatter.formatSelection");
+				getSettings().setEscapeMarkup("cheeta.server.userChoiceFormatter.escapeMarkup");
 			}
 			
 			@Override
 			protected void onSelect(AjaxRequestTarget target, User selection) {
 				IssueAuthorization authorization = new IssueAuthorization();
 				authorization.setIssue(getIssue());
-				authorization.setUser(OneDev.getInstance(UserService.class).load(selection.getId()));
-				OneDev.getInstance(IssueAuthorizationService.class).createOrUpdate(authorization);
+				authorization.setUser(Cheeta.getInstance(UserService.class).load(selection.getId()));
+				Cheeta.getInstance(IssueAuthorizationService.class).createOrUpdate(authorization);
 				target.add(authorizationsTable);
 				Session.get().success(_T("User authorized"));
 			}
@@ -192,7 +192,7 @@ public abstract class IssueAuthorizationsPanel extends Panel {
 					@Override
 					public void onClick(AjaxRequestTarget target) {
 						IssueAuthorization authorization = rowModel.getObject();
-						OneDev.getInstance(IssueAuthorizationService.class).delete(authorization);
+						Cheeta.getInstance(IssueAuthorizationService.class).delete(authorization);
 						Session.get().success(MessageFormat.format(_T("User \"{0}\" unauthorized"), authorization.getUser().getDisplayName()));
 						
 						target.add(authorizationsTable);
@@ -220,13 +220,13 @@ public abstract class IssueAuthorizationsPanel extends Panel {
 			public Iterator<? extends IssueAuthorization> iterator(long first, long count) {
 				EntityCriteria<IssueAuthorization> criteria = getCriteria();
 				criteria.addOrder(Order.desc(IssueAuthorization.PROP_ID));
-				return OneDev.getInstance(IssueAuthorizationService.class).query(criteria, (int)first,
+				return Cheeta.getInstance(IssueAuthorizationService.class).query(criteria, (int)first,
 						(int)count).iterator();
 			}
 
 			@Override
 			public long size() {
-				return OneDev.getInstance(IssueAuthorizationService.class).count(getCriteria());
+				return Cheeta.getInstance(IssueAuthorizationService.class).count(getCriteria());
 			}
 
 			@Override
@@ -236,7 +236,7 @@ public abstract class IssueAuthorizationsPanel extends Panel {
 
 					@Override
 					protected IssueAuthorization load() {
-						return OneDev.getInstance(IssueAuthorizationService.class).load(id);
+						return Cheeta.getInstance(IssueAuthorizationService.class).load(id);
 					}
 					
 				};

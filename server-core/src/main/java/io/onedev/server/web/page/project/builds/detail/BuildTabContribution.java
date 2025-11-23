@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.project.builds.detail;
+package io.cheeta.server.web.page.project.builds.detail;
 
 import java.util.List;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.server.model.Build;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.server.model.Build;
 
 @ExtensionPoint
 public interface BuildTabContribution {

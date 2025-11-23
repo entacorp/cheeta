@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -7,7 +7,7 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 
-import io.onedev.server.web.asset.doneevents.DoneEventsResourceReference;
+import io.cheeta.server.web.asset.doneevents.DoneEventsResourceReference;
 
 public abstract class OnTypingDoneBehavior extends AjaxFormComponentUpdatingBehavior {
 

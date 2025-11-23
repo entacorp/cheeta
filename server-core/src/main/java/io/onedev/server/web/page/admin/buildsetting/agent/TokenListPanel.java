@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,13 +24,13 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentTokenService;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.model.AgentToken;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentTokenService;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.model.AgentToken;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
 
 public class TokenListPanel extends GenericPanel<List<AgentToken>> {
 	
@@ -50,7 +50,7 @@ public class TokenListPanel extends GenericPanel<List<AgentToken>> {
 	}
 
 	private AgentTokenService getTokenService() {
-		return OneDev.getInstance(AgentTokenService.class);
+		return Cheeta.getInstance(AgentTokenService.class);
 	}
 	
 	@Override
@@ -174,7 +174,7 @@ public class TokenListPanel extends GenericPanel<List<AgentToken>> {
 	}
 	
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 	
 }

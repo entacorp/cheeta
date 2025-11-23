@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.DashboardVisit;
+import io.cheeta.server.model.DashboardVisit;
 
 public interface DashboardVisitService extends EntityService<DashboardVisit> {
 

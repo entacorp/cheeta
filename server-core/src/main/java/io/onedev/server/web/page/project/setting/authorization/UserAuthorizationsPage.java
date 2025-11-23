@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.setting.authorization;
+package io.cheeta.server.web.page.project.setting.authorization;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,21 +18,21 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.service.UserAuthorizationService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.GroupAuthorization;
-import io.onedev.server.model.Membership;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.UserAuthorization;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.ManageProject;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.page.project.setting.ProjectSettingPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.service.UserAuthorizationService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.GroupAuthorization;
+import io.cheeta.server.model.Membership;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.UserAuthorization;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.ManageProject;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.page.project.setting.ProjectSettingPage;
 
 public class UserAuthorizationsPage extends ProjectSettingPage {
 
@@ -145,15 +145,15 @@ public class UserAuthorizationsPage extends ProjectSettingPage {
 	}
 
 	private RoleService getRoleService() {
-		return OneDev.getInstance(RoleService.class);
+		return Cheeta.getInstance(RoleService.class);
 	}
 
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 
 	private UserAuthorizationService getUserAuthorizationService() {
-		return OneDev.getInstance(UserAuthorizationService.class);
+		return Cheeta.getInstance(UserAuthorizationService.class);
 	}
 
 	@Override

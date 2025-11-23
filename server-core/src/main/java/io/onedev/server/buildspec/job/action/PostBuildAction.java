@@ -1,14 +1,14 @@
-package io.onedev.server.buildspec.job.action;
+package io.cheeta.server.buildspec.job.action;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.model.Build;
-import io.onedev.server.annotation.ActionCondition;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.annotation.ActionCondition;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public abstract class PostBuildAction implements Serializable {
@@ -33,7 +33,7 @@ public abstract class PostBuildAction implements Serializable {
 	public abstract String getDescription();
 	
 	public void validateWith(BuildSpec buildSpec, Job job) {
-		io.onedev.server.buildspec.job.action.condition.ActionCondition.parse(job, condition);
+		io.cheeta.server.buildspec.job.action.condition.ActionCondition.parse(job, condition);
 	}
 
 }

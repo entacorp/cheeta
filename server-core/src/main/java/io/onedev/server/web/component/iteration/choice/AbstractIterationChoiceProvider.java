@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.iteration.choice;
+package io.cheeta.server.web.component.iteration.choice;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,10 +10,10 @@ import org.unbescape.html.HtmlEscape;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.web.component.select2.ChoiceProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.web.component.select2.ChoiceProvider;
 
 public abstract class AbstractIterationChoiceProvider extends ChoiceProvider<Iteration> {
 
@@ -32,7 +32,7 @@ public abstract class AbstractIterationChoiceProvider extends ChoiceProvider<Ite
 	@Override
 	public Collection<Iteration> toChoices(Collection<String> ids) {
 		List<Iteration> iterations = Lists.newArrayList();
-		IterationService iterationService = OneDev.getInstance(IterationService.class);
+		IterationService iterationService = Cheeta.getInstance(IterationService.class);
 		for (String each : ids) {
 			Iteration iteration = iterationService.load(Long.valueOf(each));
 			Hibernate.initialize(iteration);

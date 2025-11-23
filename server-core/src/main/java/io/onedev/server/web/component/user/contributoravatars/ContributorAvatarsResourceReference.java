@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.contributoravatars;
+package io.cheeta.server.web.component.user.contributoravatars;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

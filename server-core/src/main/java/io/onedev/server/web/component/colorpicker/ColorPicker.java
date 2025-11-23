@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.colorpicker;
+package io.cheeta.server.web.component.colorpicker;
 
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
@@ -20,7 +20,7 @@ public class ColorPicker extends HiddenField<String> {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new ColorPickerResourceReference()));
 		
-		String script = String.format("onedev.server.colorPicker.onDomReady('%s', %b);", 
+		String script = String.format("cheeta.server.colorPicker.onDomReady('%s', %b);", 
 				getMarkupId(true), allowEmpty);
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

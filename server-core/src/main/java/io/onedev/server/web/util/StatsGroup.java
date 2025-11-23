@@ -1,13 +1,13 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
-import io.onedev.server.model.support.TimeGroups;
+import io.cheeta.server.model.support.TimeGroups;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.Path;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;

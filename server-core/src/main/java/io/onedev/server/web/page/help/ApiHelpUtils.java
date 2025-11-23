@@ -1,20 +1,20 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.Sets;
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.loader.ImplementationRegistry;
-import io.onedev.server.OneDev;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.annotation.Immutable;
-import io.onedev.server.util.BeanUtils;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.page.layout.AdministrationSettingContribution;
-import io.onedev.server.web.page.layout.ContributedAdministrationSetting;
-import io.onedev.server.web.page.project.setting.ContributedProjectSetting;
-import io.onedev.server.web.page.project.setting.ProjectSettingContribution;
+import io.cheeta.commons.loader.ImplementationRegistry;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.Immutable;
+import io.cheeta.server.util.BeanUtils;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.page.layout.AdministrationSettingContribution;
+import io.cheeta.server.web.page.layout.ContributedAdministrationSetting;
+import io.cheeta.server.web.page.project.setting.ContributedProjectSetting;
+import io.cheeta.server.web.page.project.setting.ProjectSettingContribution;
 import org.objenesis.ObjenesisStd;
 
 import javax.persistence.*;
@@ -23,8 +23,8 @@ import java.lang.reflect.*;
 import java.util.*;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
-import static io.onedev.server.web.page.help.ValueInfo.Origin.CREATE_BODY;
-import static io.onedev.server.web.page.help.ValueInfo.Origin.UPDATE_BODY;
+import static io.cheeta.server.web.page.help.ValueInfo.Origin.CREATE_BODY;
+import static io.cheeta.server.web.page.help.ValueInfo.Origin.UPDATE_BODY;
 import static java.util.Comparator.comparing;
 
 public class ApiHelpUtils {
@@ -135,20 +135,20 @@ public class ApiHelpUtils {
 		List<Class<?>> implementations = new ArrayList<>();
 		if (clazz == ContributedAdministrationSetting.class) {
 			for (AdministrationSettingContribution contribution: 
-					OneDev.getExtensions(AdministrationSettingContribution.class)) {
+					Cheeta.getExtensions(AdministrationSettingContribution.class)) {
 				implementations.addAll(contribution.getSettingClasses());
 			}
 			if (implementations.isEmpty())
 				implementations.add(ExamplePluginSetting.class);
 		} else if (clazz == ContributedProjectSetting.class) {
 			for (ProjectSettingContribution contribution: 
-					OneDev.getExtensions(ProjectSettingContribution.class)) {
+					Cheeta.getExtensions(ProjectSettingContribution.class)) {
 				implementations.addAll(contribution.getSettingClasses());
 			}
 			if (implementations.isEmpty())
 				implementations.add(ExamplePluginSetting.class);
 		} else {
-			implementations.addAll(OneDev.getInstance(ImplementationRegistry.class).getImplementations(clazz));
+			implementations.addAll(Cheeta.getInstance(ImplementationRegistry.class).getImplementations(clazz));
 		}
 		
 		Collections.sort(implementations, comparing((Class<?> o) -> o.getName()));

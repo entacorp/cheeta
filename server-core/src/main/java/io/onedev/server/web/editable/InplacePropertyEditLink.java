@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.io.Serializable;
 
@@ -8,11 +8,11 @@ import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
 
 public abstract class InplacePropertyEditLink extends DropdownLink {
 

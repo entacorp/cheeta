@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.net.MalformedURLException;
@@ -15,19 +15,19 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.ServerConfig;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ShowCondition;
-import io.onedev.server.git.location.CurlLocation;
-import io.onedev.server.git.location.GitLocation;
-import io.onedev.server.git.location.SystemCurl;
-import io.onedev.server.git.location.SystemGit;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ServerConfig;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ShowCondition;
+import io.cheeta.server.git.location.CurlLocation;
+import io.cheeta.server.git.location.GitLocation;
+import io.cheeta.server.git.location.SystemCurl;
+import io.cheeta.server.git.location.SystemGit;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable
 @ClassValidating
@@ -100,7 +100,7 @@ public class SystemSetting implements Serializable, Validatable {
 					if (url.getPort() == 80 || url.getPort() == 443 || url.getPort() == -1) {
 						return "ssh://" + url.getHost();
 					} else {
-						ServerConfig serverConfig = OneDev.getInstance(ServerConfig.class);
+						ServerConfig serverConfig = Cheeta.getInstance(ServerConfig.class);
 						return "ssh://" + url.getHost() + ":" + serverConfig.getSshPort();
 					}
 				}
@@ -110,7 +110,7 @@ public class SystemSetting implements Serializable, Validatable {
 		return null;
 	}
 
-	@Editable(order=200, name="Git Command Line", description="OneDev requires git command line to manage repositories. The minimum "
+	@Editable(order=200, name="Git Command Line", description="Cheeta requires git command line to manage repositories. The minimum "
 			+ "required version is 2.11.1. Also make sure that git-lfs is installed if you want to retrieve "
 			+ "LFS files in build job")
 	@Valid
@@ -123,7 +123,7 @@ public class SystemSetting implements Serializable, Validatable {
 		this.gitLocation = gitLocation;
 	}
 
-	@Editable(order=250, name="curl Command Line", description="OneDev configures git hooks to communicate with itself via curl")
+	@Editable(order=250, name="curl Command Line", description="Cheeta configures git hooks to communicate with itself via curl")
 	@Valid
 	@NotNull(message="may not be empty")
 	public CurlLocation getCurlLocation() {
@@ -145,7 +145,7 @@ public class SystemSetting implements Serializable, Validatable {
 	}
 
 	@Editable(order=400, description = "Auto update check is performed by requesting an image in " +
-			"your browser from onedev.io indicating new version availability, with color " +
+			"your browser from cheeta.io indicating new version availability, with color " +
 			"indicating severity of the update. It works the same way as how gravatar requests " +
 			"avatar images. If disabled, you are highly recommended to check update manually " +
 			"from time to time (can be done via help menu on left bottom of the screen) to see " +

@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.project;
+package io.cheeta.server.search.entity.project;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -8,13 +8,13 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.GroupAuthorization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.Role;
-import io.onedev.server.model.User;
-import io.onedev.server.model.UserAuthorization;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.GroupAuthorization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.UserAuthorization;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class OwnedByUserCriteria extends OwnedByCriteria {
 

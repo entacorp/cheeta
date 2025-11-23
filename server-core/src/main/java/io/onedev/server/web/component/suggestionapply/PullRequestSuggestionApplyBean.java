@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.suggestionapply;
+package io.cheeta.server.web.component.suggestionapply;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(name="Commit Suggestion")
 public class PullRequestSuggestionApplyBean extends SuggestionApplyBean {

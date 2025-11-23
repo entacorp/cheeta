@@ -1,17 +1,17 @@
-package io.onedev.server.plugin.report.markdown;
+package io.cheeta.server.plugin.report.markdown;
 
 import com.google.common.base.Splitter;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.model.Model;
@@ -62,7 +62,7 @@ public class MarkdownReportPage extends BuildDetailPage {
 		super.onInitialize();
 
 		Long projectId = getBuild().getProject().getId();
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		String markdown = projectService.runOnActiveServer(projectId, new GetMarkdownContent(projectId, getBuild().getNumber(), reportName, filePath));
 		add(new MarkdownViewer("markdownReport", Model.of(markdown), null));
 	}
@@ -114,7 +114,7 @@ public class MarkdownReportPage extends BuildDetailPage {
 		
 		@Override
 		public String call() throws Exception {
-			File file = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber),
+			File file = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber),
 					PublishMarkdownReportStep.CATEGORY + "/" + reportName + "/" + filePath);
 			return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
 		}

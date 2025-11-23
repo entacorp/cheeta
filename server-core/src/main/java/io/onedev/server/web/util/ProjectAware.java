@@ -1,6 +1,6 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Project;
 
 import org.jspecify.annotations.Nullable;
 

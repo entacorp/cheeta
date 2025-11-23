@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.sso.discord.oauth2;
+package io.cheeta.server.plugin.sso.discord.oauth2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +17,7 @@ import org.apache.http.entity.ContentType;
 public class Request implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final String AUTHORIZE_ENDPOINT = "https://discord.com/api/oauth2/authorize";
-	private static final String USER_AGENT = "onedev";
+	private static final String USER_AGENT = "cheeta";
 	
 	private String clientId;
 	private String scope;

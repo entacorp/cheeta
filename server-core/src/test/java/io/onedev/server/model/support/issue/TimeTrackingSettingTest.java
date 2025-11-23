@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project;
+package io.cheeta.server.web.page.project;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -39,79 +39,79 @@ import org.eclipse.jgit.lib.ObjectId;
 import com.google.common.collect.Lists;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.OneDev;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.timetracking.TimeTrackingService;
-import io.onedev.server.util.facade.ProjectFacade;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.asset.dropdowntriangleindicator.DropdownTriangleIndicatorCssResourceReference;
-import io.onedev.server.web.avatar.AvatarService;
-import io.onedev.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.project.ProjectAvatar;
-import io.onedev.server.web.component.project.childrentree.ProjectChildrenTree;
-import io.onedev.server.web.component.project.info.ProjectInfoPanel;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.mapper.ProjectMapperUtils;
-import io.onedev.server.web.opengraph.OpenGraphHeaderMeta;
-import io.onedev.server.web.opengraph.OpenGraphHeaderMetaType;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.page.layout.SidebarMenu;
-import io.onedev.server.web.page.layout.SidebarMenuItem;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.branches.ProjectBranchesPage;
-import io.onedev.server.web.page.project.builds.ProjectBuildsPage;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
-import io.onedev.server.web.page.project.builds.detail.InvalidBuildPage;
-import io.onedev.server.web.page.project.children.ProjectChildrenPage;
-import io.onedev.server.web.page.project.codecomments.ProjectCodeCommentsPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.page.project.commits.ProjectCommitsPage;
-import io.onedev.server.web.page.project.compare.RevisionComparePage;
-import io.onedev.server.web.page.project.issues.boards.IssueBoardsPage;
-import io.onedev.server.web.page.project.issues.create.NewIssuePage;
-import io.onedev.server.web.page.project.issues.detail.IssueDetailPage;
-import io.onedev.server.web.page.project.issues.iteration.IterationDetailPage;
-import io.onedev.server.web.page.project.issues.iteration.IterationEditPage;
-import io.onedev.server.web.page.project.issues.iteration.IterationListPage;
-import io.onedev.server.web.page.project.issues.iteration.NewIterationPage;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
-import io.onedev.server.web.page.project.packs.ProjectPacksPage;
-import io.onedev.server.web.page.project.packs.detail.PackDetailPage;
-import io.onedev.server.web.page.project.pullrequests.InvalidPullRequestPage;
-import io.onedev.server.web.page.project.pullrequests.ProjectPullRequestsPage;
-import io.onedev.server.web.page.project.pullrequests.create.NewPullRequestPage;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
-import io.onedev.server.web.page.project.setting.ContributedProjectSetting;
-import io.onedev.server.web.page.project.setting.ProjectSettingContribution;
-import io.onedev.server.web.page.project.setting.ProjectSettingPage;
-import io.onedev.server.web.page.project.setting.authorization.GroupAuthorizationsPage;
-import io.onedev.server.web.page.project.setting.authorization.UserAuthorizationsPage;
-import io.onedev.server.web.page.project.setting.avatar.AvatarEditPage;
-import io.onedev.server.web.page.project.setting.build.BuildPreservationsPage;
-import io.onedev.server.web.page.project.setting.build.CacheManagementPage;
-import io.onedev.server.web.page.project.setting.build.DefaultFixedIssueFiltersPage;
-import io.onedev.server.web.page.project.setting.build.JobPropertiesPage;
-import io.onedev.server.web.page.project.setting.build.JobSecretsPage;
-import io.onedev.server.web.page.project.setting.code.analysis.CodeAnalysisSettingPage;
-import io.onedev.server.web.page.project.setting.code.branchprotection.BranchProtectionsPage;
-import io.onedev.server.web.page.project.setting.code.git.GitPackConfigPage;
-import io.onedev.server.web.page.project.setting.code.pullrequest.PullRequestSettingPage;
-import io.onedev.server.web.page.project.setting.code.tagprotection.TagProtectionsPage;
-import io.onedev.server.web.page.project.setting.general.GeneralProjectSettingPage;
-import io.onedev.server.web.page.project.setting.pluginsettings.ContributedProjectSettingPage;
-import io.onedev.server.web.page.project.setting.servicedesk.ServiceDeskSettingPage;
-import io.onedev.server.web.page.project.setting.webhook.WebHooksPage;
-import io.onedev.server.web.page.project.stats.code.CodeContribsPage;
-import io.onedev.server.web.page.project.stats.code.SourceLinesPage;
-import io.onedev.server.web.page.project.tags.ProjectTagsPage;
-import io.onedev.server.web.page.security.LoginPage;
-import io.onedev.server.web.util.ProjectAware;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.timetracking.TimeTrackingService;
+import io.cheeta.server.util.facade.ProjectFacade;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.asset.dropdowntriangleindicator.DropdownTriangleIndicatorCssResourceReference;
+import io.cheeta.server.web.avatar.AvatarService;
+import io.cheeta.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.project.ProjectAvatar;
+import io.cheeta.server.web.component.project.childrentree.ProjectChildrenTree;
+import io.cheeta.server.web.component.project.info.ProjectInfoPanel;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.mapper.ProjectMapperUtils;
+import io.cheeta.server.web.opengraph.OpenGraphHeaderMeta;
+import io.cheeta.server.web.opengraph.OpenGraphHeaderMetaType;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.page.layout.SidebarMenu;
+import io.cheeta.server.web.page.layout.SidebarMenuItem;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.branches.ProjectBranchesPage;
+import io.cheeta.server.web.page.project.builds.ProjectBuildsPage;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.web.page.project.builds.detail.InvalidBuildPage;
+import io.cheeta.server.web.page.project.children.ProjectChildrenPage;
+import io.cheeta.server.web.page.project.codecomments.ProjectCodeCommentsPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.commits.ProjectCommitsPage;
+import io.cheeta.server.web.page.project.compare.RevisionComparePage;
+import io.cheeta.server.web.page.project.issues.boards.IssueBoardsPage;
+import io.cheeta.server.web.page.project.issues.create.NewIssuePage;
+import io.cheeta.server.web.page.project.issues.detail.IssueDetailPage;
+import io.cheeta.server.web.page.project.issues.iteration.IterationDetailPage;
+import io.cheeta.server.web.page.project.issues.iteration.IterationEditPage;
+import io.cheeta.server.web.page.project.issues.iteration.IterationListPage;
+import io.cheeta.server.web.page.project.issues.iteration.NewIterationPage;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.server.web.page.project.packs.ProjectPacksPage;
+import io.cheeta.server.web.page.project.packs.detail.PackDetailPage;
+import io.cheeta.server.web.page.project.pullrequests.InvalidPullRequestPage;
+import io.cheeta.server.web.page.project.pullrequests.ProjectPullRequestsPage;
+import io.cheeta.server.web.page.project.pullrequests.create.NewPullRequestPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
+import io.cheeta.server.web.page.project.setting.ContributedProjectSetting;
+import io.cheeta.server.web.page.project.setting.ProjectSettingContribution;
+import io.cheeta.server.web.page.project.setting.ProjectSettingPage;
+import io.cheeta.server.web.page.project.setting.authorization.GroupAuthorizationsPage;
+import io.cheeta.server.web.page.project.setting.authorization.UserAuthorizationsPage;
+import io.cheeta.server.web.page.project.setting.avatar.AvatarEditPage;
+import io.cheeta.server.web.page.project.setting.build.BuildPreservationsPage;
+import io.cheeta.server.web.page.project.setting.build.CacheManagementPage;
+import io.cheeta.server.web.page.project.setting.build.DefaultFixedIssueFiltersPage;
+import io.cheeta.server.web.page.project.setting.build.JobPropertiesPage;
+import io.cheeta.server.web.page.project.setting.build.JobSecretsPage;
+import io.cheeta.server.web.page.project.setting.code.analysis.CodeAnalysisSettingPage;
+import io.cheeta.server.web.page.project.setting.code.branchprotection.BranchProtectionsPage;
+import io.cheeta.server.web.page.project.setting.code.git.GitPackConfigPage;
+import io.cheeta.server.web.page.project.setting.code.pullrequest.PullRequestSettingPage;
+import io.cheeta.server.web.page.project.setting.code.tagprotection.TagProtectionsPage;
+import io.cheeta.server.web.page.project.setting.general.GeneralProjectSettingPage;
+import io.cheeta.server.web.page.project.setting.pluginsettings.ContributedProjectSettingPage;
+import io.cheeta.server.web.page.project.setting.servicedesk.ServiceDeskSettingPage;
+import io.cheeta.server.web.page.project.setting.webhook.WebHooksPage;
+import io.cheeta.server.web.page.project.stats.code.CodeContribsPage;
+import io.cheeta.server.web.page.project.stats.code.SourceLinesPage;
+import io.cheeta.server.web.page.project.tags.ProjectTagsPage;
+import io.cheeta.server.web.page.security.LoginPage;
+import io.cheeta.server.web.util.ProjectAware;
 
 public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 
@@ -158,7 +158,7 @@ public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 
 			@Override
 			protected Project load() {
-				Project project = OneDev.getInstance(ProjectService.class).load(projectId);
+				Project project = Cheeta.getInstance(ProjectService.class).load(projectId);
 				
 				/*
 				 * Give child page a chance to cache object id of known revisions upon
@@ -236,7 +236,7 @@ public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 					IterationListPage.class, IterationListPage.paramsOf(getProject(), false, null), 
 					Lists.newArrayList(NewIterationPage.class, IterationDetailPage.class, IterationEditPage.class)));
 			if (getProject().isTimeTracking() && isSubscriptionActive() && SecurityUtils.canAccessTimeTracking(getProject())) 
-				issueMenuItems.add(OneDev.getInstance(TimeTrackingService.class).newTimesheetsMenuItem(getProject()));
+				issueMenuItems.add(Cheeta.getInstance(TimeTrackingService.class).newTimesheetsMenuItem(getProject()));
 			menuItems.add(new SidebarMenuItem.SubMenu("bug", _T("Issues"), issueMenuItems));
 		}
 
@@ -324,7 +324,7 @@ public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 			menuItems.add(new SidebarMenuItem.SubMenu("sliders", _T("Settings"), settingMenuItems));
 		}
 		
-		String avatarUrl = OneDev.getInstance(AvatarService.class).getProjectAvatarUrl(getProject().getId());
+		String avatarUrl = Cheeta.getInstance(AvatarService.class).getProjectAvatarUrl(getProject().getId());
 		SidebarMenu.Header menuHeader = new SidebarMenu.Header(avatarUrl, getProject().getName()) {
 			
 			@Override
@@ -344,7 +344,7 @@ public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 		
 		if (SecurityUtils.canManageProject(getProject())) {
 			List<Class<? extends ContributedProjectSetting>> contributedSettingClasses = new ArrayList<>();
-			for (ProjectSettingContribution contribution:OneDev.getExtensions(ProjectSettingContribution.class)) {
+			for (ProjectSettingContribution contribution:Cheeta.getExtensions(ProjectSettingContribution.class)) {
 				for (Class<? extends ContributedProjectSetting> settingClass: contribution.getSettingClasses()) 
 					contributedSettingClasses.add(settingClass);
 			}
@@ -364,7 +364,7 @@ public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 			}
 		}
 
-		var contributions = new ArrayList<>(OneDev.getExtensions(ProjectMenuContribution.class));
+		var contributions = new ArrayList<>(Cheeta.getExtensions(ProjectMenuContribution.class));
 		contributions.sort(Comparator.comparing(ProjectMenuContribution::getOrder));
 		
 		for (ProjectMenuContribution contribution: contributions) {
@@ -378,7 +378,7 @@ public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 	
 	@Override
@@ -522,7 +522,7 @@ public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 		}
 		
 		String urlOfProjectImage = getSettingService().getSystemSetting().getServerUrl() +
-				OneDev.getInstance(AvatarService.class).getProjectAvatarUrl(getProject().getId());
+				Cheeta.getInstance(AvatarService.class).getProjectAvatarUrl(getProject().getId());
 		
 		new OpenGraphHeaderMeta(OpenGraphHeaderMetaType.Title, getProject().getPath()).render(response);
 		new OpenGraphHeaderMeta(OpenGraphHeaderMetaType.Description, description).render(response);
@@ -542,7 +542,7 @@ public abstract class ProjectPage extends LayoutPage implements ProjectAware {
 	protected abstract BookmarkablePageLink<Void> navToProject(String componentId, Project project);
 	
 	protected static ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	protected abstract Component newProjectTitle(String componentId);

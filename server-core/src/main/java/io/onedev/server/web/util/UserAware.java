@@ -1,6 +1,6 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
-import io.onedev.server.model.User;
+import io.cheeta.server.model.User;
 
 public interface UserAware {
 	

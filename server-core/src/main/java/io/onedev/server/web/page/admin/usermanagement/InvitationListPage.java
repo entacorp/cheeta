@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.usermanagement;
+package io.cheeta.server.web.page.admin.usermanagement;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -29,19 +29,19 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserInvitationService;
-import io.onedev.server.model.UserInvitation;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.ajaxlistener.ShowGlobalAjaxIndicatorListener;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserInvitationService;
+import io.cheeta.server.model.UserInvitation;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.ajaxlistener.ShowGlobalAjaxIndicatorListener;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class InvitationListPage extends AdministrationPage {
 
@@ -167,7 +167,7 @@ public class InvitationListPage extends AdministrationPage {
 
 					@Override
 					public void onClick(AjaxRequestTarget target) {
-						if (OneDev.getInstance(SettingService.class).getMailConnector() != null) {
+						if (Cheeta.getInstance(SettingService.class).getMailConnector() != null) {
 							UserInvitation invitation = rowModel.getObject();
 							getInvitationService().sendInvitationEmail(invitation);
 							Session.get().success(MessageFormat.format(_T("Invitation sent to \"{0}\""), invitation.getEmailAddress()));
@@ -257,7 +257,7 @@ public class InvitationListPage extends AdministrationPage {
 	}
 	
 	private UserInvitationService getInvitationService() {
-		return OneDev.getInstance(UserInvitationService.class);
+		return Cheeta.getInstance(UserInvitationService.class);
 	}
 
 	@Override

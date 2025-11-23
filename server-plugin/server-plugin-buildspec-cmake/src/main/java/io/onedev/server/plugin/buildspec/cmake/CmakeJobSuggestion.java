@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.buildspec.cmake;
+package io.cheeta.server.plugin.buildspec.cmake;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,20 +9,20 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.k8shelper.ExecuteCondition;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobSuggestion;
-import io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger;
-import io.onedev.server.buildspec.job.trigger.PullRequestUpdateTrigger;
-import io.onedev.server.buildspec.step.CheckoutStep;
-import io.onedev.server.buildspec.step.CommandStep;
-import io.onedev.server.buildspec.step.GenerateChecksumStep;
-import io.onedev.server.buildspec.step.SetupCacheStep;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.plugin.report.cobertura.PublishCoberturaReportStep;
-import io.onedev.server.plugin.report.coverage.PublishCoverageReportStep;
-import io.onedev.server.plugin.report.cppcheck.PublishCppcheckReportStep;
+import io.cheeta.k8shelper.ExecuteCondition;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobSuggestion;
+import io.cheeta.server.buildspec.job.trigger.BranchUpdateTrigger;
+import io.cheeta.server.buildspec.job.trigger.PullRequestUpdateTrigger;
+import io.cheeta.server.buildspec.step.CheckoutStep;
+import io.cheeta.server.buildspec.step.CommandStep;
+import io.cheeta.server.buildspec.step.GenerateChecksumStep;
+import io.cheeta.server.buildspec.step.SetupCacheStep;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.plugin.report.cobertura.PublishCoberturaReportStep;
+import io.cheeta.server.plugin.report.coverage.PublishCoverageReportStep;
+import io.cheeta.server.plugin.report.cppcheck.PublishCppcheckReportStep;
 
 public class CmakeJobSuggestion implements JobSuggestion {
 	

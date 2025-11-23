@@ -1,27 +1,27 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.StorageService;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.annotation.SubPath;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.StorageService;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.annotation.SubPath;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.util.patternset.PatternSet;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.File;
 import java.util.List;
 
-import static io.onedev.server.buildspec.step.StepGroup.PUBLISH;
+import static io.cheeta.server.buildspec.step.StepGroup.PUBLISH;
 
 @Editable(order=1050, group= PUBLISH, name="Artifacts", description="This step copies files from job workspace " + 
 		"to build artifacts directory, so that they can be accessed after job is completed")
@@ -34,7 +34,7 @@ public class PublishArtifactStep extends ServerSideStep {
 	private String artifacts;
 	
 	@Editable(order=50, name="From Directory", placeholder="Job workspace", description="Optionally specify path "
-			+ "relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to publish "
+			+ "relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to publish "
 			+ "artifacts from. Leave empty to use job workspace itself")
 	@Interpolative(variableSuggester="suggestVariables")
 	@SubPath
@@ -71,13 +71,13 @@ public class PublishArtifactStep extends ServerSideStep {
 
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger jobLogger) {
-		return OneDev.getInstance(SessionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
+		return Cheeta.getInstance(SessionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
 			return LockUtils.write(build.getArtifactsLockName(), () -> {
 				var projectId = build.getProject().getId();
-				var artifactsDir = OneDev.getInstance(StorageService.class).initArtifactsDir(projectId, build.getNumber());
+				var artifactsDir = Cheeta.getInstance(StorageService.class).initArtifactsDir(projectId, build.getNumber());
 				FileUtils.copyDirectory(inputDir, artifactsDir);
-				OneDev.getInstance(ProjectService.class).directoryModified(projectId, artifactsDir);
+				Cheeta.getInstance(ProjectService.class).directoryModified(projectId, artifactsDir);
 				return new ServerStepResult(true);
 			});
 		});

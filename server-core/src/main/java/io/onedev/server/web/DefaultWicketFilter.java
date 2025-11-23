@@ -1,4 +1,4 @@
-package io.onedev.server.web;
+package io.cheeta.server.web;
 
 import org.apache.wicket.protocol.http.IWebApplicationFactory;
 import org.apache.wicket.protocol.http.WebApplication;
@@ -8,7 +8,7 @@ import org.eclipse.jetty.websocket.api.WebSocketPolicy;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import io.onedev.server.web.websocket.WebSocketFilter;
+import io.cheeta.server.web.websocket.WebSocketFilter;
 
 @Singleton
 public class DefaultWicketFilter extends WebSocketFilter {

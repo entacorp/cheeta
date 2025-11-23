@@ -1,20 +1,20 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import com.google.common.collect.Lists;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.IssueQuery;
-import io.onedev.server.annotation.RadioChoice;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.IssueQuery;
+import io.cheeta.server.annotation.RadioChoice;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
 
 import org.jspecify.annotations.Nullable;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
-import static io.onedev.server.model.Issue.NAME_PROJECT;
+import static io.cheeta.server.model.Issue.NAME_PROJECT;
 
 @Editable
 public class TimesheetSetting implements Serializable {
@@ -78,7 +78,7 @@ public class TimesheetSetting implements Serializable {
 	@SuppressWarnings("unused")
 	private static List<String> getGroupByChoices() {
 		var choices = Lists.newArrayList(NAME_PROJECT);
-		for (var fieldSpec: OneDev.getInstance(SettingService.class).getIssueSetting().getFieldSpecs()) {
+		for (var fieldSpec: Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldSpecs()) {
 			if (!fieldSpec.isAllowMultiple() && fieldSpec instanceof ChoiceField)
 				choices.add(fieldSpec.getName());
 		}

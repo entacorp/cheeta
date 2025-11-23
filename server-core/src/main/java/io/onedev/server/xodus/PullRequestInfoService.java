@@ -1,4 +1,4 @@
-package io.onedev.server.xodus;
+package io.cheeta.server.xodus;
 
 import java.util.Collection;
 
@@ -6,8 +6,8 @@ import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
 
 public interface PullRequestInfoService {
 

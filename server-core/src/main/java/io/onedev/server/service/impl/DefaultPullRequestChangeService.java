@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,25 +17,25 @@ import org.joda.time.DateTime;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.entityreference.ReferenceChangeService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.pullrequest.PullRequestChanged;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestDescriptionRevision;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.pullrequest.AutoMerge;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestAutoMergeChangeData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestDescriptionChangeData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestMergeStrategyChangeData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestTargetBranchChangeData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestTitleChangeData;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.service.PullRequestDescriptionRevisionService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.entityreference.ReferenceChangeService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.pullrequest.PullRequestChanged;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestDescriptionRevision;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.pullrequest.AutoMerge;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestAutoMergeChangeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestDescriptionChangeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestMergeStrategyChangeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestTargetBranchChangeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestTitleChangeData;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.service.PullRequestDescriptionRevisionService;
 
 @Singleton
 public class DefaultPullRequestChangeService extends BaseEntityService<PullRequestChange>

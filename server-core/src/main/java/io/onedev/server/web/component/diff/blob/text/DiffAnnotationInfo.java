@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.diff.blob.text;
+package io.cheeta.server.web.component.diff.blob.text;
 
 import java.io.Serializable;
 
-import io.onedev.server.web.util.AnnotationInfo;
+import io.cheeta.server.web.util.AnnotationInfo;
 
 public class DiffAnnotationInfo implements Serializable {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.codecomments;
+package io.cheeta.server.web.page.project.codecomments;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.security;
+package io.cheeta.server.web.page.security;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.Password;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.Password;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;

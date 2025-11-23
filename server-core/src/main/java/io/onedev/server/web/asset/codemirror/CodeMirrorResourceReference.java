@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.codemirror;
+package io.cheeta.server.web.asset.codemirror;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-import io.onedev.server.web.asset.hotkeys.HotkeysResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
-import io.onedev.server.web.resourcebundle.ResourceBundle;
+import io.cheeta.server.web.asset.hotkeys.HotkeysResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.resourcebundle.ResourceBundle;
 
 @ResourceBundle
 public class CodeMirrorResourceReference extends BaseDependentResourceReference {

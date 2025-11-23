@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.ssosetting;
+package io.cheeta.server.web.page.admin.ssosetting;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -27,15 +27,15 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SsoProviderService;
-import io.onedev.server.model.SsoProvider;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SsoProviderService;
+import io.cheeta.server.model.SsoProvider;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.page.admin.AdministrationPage;
 
 public class SsoProviderListPage extends AdministrationPage {
 	
@@ -100,7 +100,7 @@ public class SsoProviderListPage extends AdministrationPage {
 						SsoProvider provider = rowModel.getObject();
 						var oldAuditContent = VersionedXmlDoc.fromBean(provider).toXML();
 						getSsoProviderService().delete(provider);
-						OneDev.getInstance(AuditService.class).audit(null, "deleted SSO provider \"" + provider.getName() + "\"", oldAuditContent, null);
+						Cheeta.getInstance(AuditService.class).audit(null, "deleted SSO provider \"" + provider.getName() + "\"", oldAuditContent, null);
 						Session.get().success(MessageFormat.format(_T("SSO provider \"{0}\" deleted"), provider.getName()));
 						target.add(providersTable);
 					}
@@ -147,7 +147,7 @@ public class SsoProviderListPage extends AdministrationPage {
 	}
 
 	private SsoProviderService getSsoProviderService() {
-		return OneDev.getInstance(SsoProviderService.class);
+		return Cheeta.getInstance(SsoProviderService.class);
 	}
 
 	@Override

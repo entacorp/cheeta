@@ -1,10 +1,10 @@
-package io.onedev.server.util.facade;
+package io.cheeta.server.util.facade;
 
 import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.util.MapProxy;
+import io.cheeta.server.util.MapProxy;
 
 public class AccessTokenCache extends MapProxy<Long, AccessTokenFacade> {
 

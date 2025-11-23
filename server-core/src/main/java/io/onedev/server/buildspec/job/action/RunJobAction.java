@@ -1,6 +1,6 @@
-package io.onedev.server.buildspec.job.action;
+package io.cheeta.server.buildspec.job.action;
 
-import static io.onedev.server.buildspec.param.ParamUtils.resolveParams;
+import static io.cheeta.server.buildspec.param.ParamUtils.resolveParams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,27 +11,27 @@ import javax.validation.constraints.NotEmpty;
 
 import org.apache.wicket.Component;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ParamSpecProvider;
-import io.onedev.server.annotation.ShowCondition;
-import io.onedev.server.annotation.VariableOption;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.BuildSpecAware;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.param.ParamUtils;
-import io.onedev.server.buildspec.param.instance.ParamInstances;
-import io.onedev.server.buildspec.param.instance.ParamMap;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.job.JobService;
-import io.onedev.server.model.Build;
-import io.onedev.server.service.UserService;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ParamSpecProvider;
+import io.cheeta.server.annotation.ShowCondition;
+import io.cheeta.server.annotation.VariableOption;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.BuildSpecAware;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.param.ParamUtils;
+import io.cheeta.server.buildspec.param.instance.ParamInstances;
+import io.cheeta.server.buildspec.param.instance.ParamMap;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable(name="Run job", order=100)
 public class RunJobAction extends PostBuildAction {
@@ -114,8 +114,8 @@ public class RunJobAction extends PostBuildAction {
 	@Override
 	public void execute(Build build) {
 		for (var paramMap: resolveParams(build, build.getParamCombination(), getParamMatrix(), getExcludeParamMaps())) {
-			JobService jobService = OneDev.getInstance(JobService.class);
-			var userService = OneDev.getInstance(UserService.class);
+			JobService jobService = Cheeta.getInstance(JobService.class);
+			var userService = Cheeta.getInstance(UserService.class);
 			jobService.submit(userService.getSystem(), build.getProject(), build.getCommitId(), 
 					getJobName(), paramMap, build.getRefName(), build.getRequest(), build.getIssue(), 
 					"Triggered via post build action of job '" + build.getJobName() + "'");

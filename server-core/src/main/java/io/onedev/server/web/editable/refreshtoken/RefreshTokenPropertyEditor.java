@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.refreshtoken;
+package io.cheeta.server.web.editable.refreshtoken;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.net.URI;
 import java.nio.charset.Charset;
@@ -32,20 +32,20 @@ import com.nimbusds.oauth2.sdk.auth.ClientSecretBasic;
 import com.nimbusds.oauth2.sdk.auth.Secret;
 import com.nimbusds.oauth2.sdk.id.ClientID;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.oauth.OAuthUtils;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.page.security.OAuthCallbackPage;
-import io.onedev.server.annotation.RefreshToken;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.oauth.OAuthUtils;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.page.security.OAuthCallbackPage;
+import io.cheeta.server.annotation.RefreshToken;
 
 public class RefreshTokenPropertyEditor extends PropertyEditor<String> {
 
@@ -112,7 +112,7 @@ public class RefreshTokenPropertyEditor extends PropertyEditor<String> {
 						authorizeUrl += "&" + encodedKey + "=" + encodedValue;
 					}
 					
-					target.appendJavaScript(String.format("onedev.server.refreshToken.onGenerate('%s', '%s', '%s', %s);", 
+					target.appendJavaScript(String.format("cheeta.server.refreshToken.onGenerate('%s', '%s', '%s', %s);", 
 							RefreshTokenPropertyEditor.this.getMarkupId(), 
 							authorizeUrl, 
 							JavaScriptEscape.escapeJavaScript(state),
@@ -170,7 +170,7 @@ public class RefreshTokenPropertyEditor extends PropertyEditor<String> {
 						throw ExceptionUtils.unchecked(e);
 				} finally {
 					ComponentContext.pop();
-					target.appendJavaScript(String.format("onedev.server.refreshToken.onGenerated('%s', '%s');", 
+					target.appendJavaScript(String.format("cheeta.server.refreshToken.onGenerated('%s', '%s');", 
 							RefreshTokenPropertyEditor.this.getMarkupId(), refreshTokenValue));
 				}
 			}
@@ -179,7 +179,7 @@ public class RefreshTokenPropertyEditor extends PropertyEditor<String> {
 	}
 
 	private String getRedirectUrl() {
-		String serverUrl = OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+		String serverUrl = Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 		return serverUrl + "/" + OAuthCallbackPage.MOUNT_PATH;
 	}
 	

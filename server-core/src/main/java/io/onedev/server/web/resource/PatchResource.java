@@ -1,6 +1,6 @@
-package io.onedev.server.web.resource;
+package io.cheeta.server.web.resource;
 
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.IOException;
@@ -22,14 +22,14 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.AbstractResource;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IOUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IOUtils;
 
 public class PatchResource extends AbstractResource {
 
@@ -50,7 +50,7 @@ public class PatchResource extends AbstractResource {
 		var newCommitId = ObjectId.fromString(params.get(PARAM_NEW_COMMIT).toString());
 		
 		if (!SecurityUtils.isSystem()) {
-			Project project = OneDev.getInstance(ProjectService.class).load(projectId);
+			Project project = Cheeta.getInstance(ProjectService.class).load(projectId);
 			if (!SecurityUtils.canReadCode(project))
 				throw new UnauthorizedException();
 		}
@@ -67,7 +67,7 @@ public class PatchResource extends AbstractResource {
 			@Override
 			public void writeData(Attributes attributes) throws IOException {
 				String activeServer = getProjectService().getActiveServer(projectId, true);
-				ClusterService clusterService = OneDev.getInstance(ClusterService.class);
+				ClusterService clusterService = Cheeta.getInstance(ClusterService.class);
 				if (activeServer.equals(clusterService.getLocalServerAddress())) {
 					try (var os = attributes.getResponse().getOutputStream()) {
 						var repository = getProjectService().getRepository(projectId);
@@ -108,7 +108,7 @@ public class PatchResource extends AbstractResource {
 	}
 		
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	public static PageParameters paramsOf(Long projectId, ObjectId oldCommitId, ObjectId newCommitId) {

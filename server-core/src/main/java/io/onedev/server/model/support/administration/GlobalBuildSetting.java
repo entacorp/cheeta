@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import org.jspecify.annotations.Nullable;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.support.build.NamedBuildQuery;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.support.build.NamedBuildQuery;
 
 @Editable
 public class GlobalBuildSetting implements Serializable {

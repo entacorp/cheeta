@@ -1,14 +1,14 @@
-package io.onedev.server.plugin.imports.bitbucketcloud;
+package io.cheeta.server.plugin.imports.bitbucketcloud;
 
 import java.io.Serializable;
 import java.util.Map;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class ImportWorkspace implements Serializable {

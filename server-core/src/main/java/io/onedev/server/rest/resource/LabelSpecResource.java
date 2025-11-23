@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import java.util.List;
 
@@ -21,13 +21,13 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.model.LabelSpec;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.model.LabelSpec;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 
 @Path("/label-specs")
 @Consumes(MediaType.APPLICATION_JSON)

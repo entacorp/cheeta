@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.util.UrlUtils;
-import io.onedev.server.web.UrlService;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.util.UrlUtils;
+import io.cheeta.server.web.UrlService;
 
 @Singleton
 public class GoGetFilter implements Filter {

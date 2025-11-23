@@ -1,7 +1,7 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.Agent.SORT_FIELDS;
-import static io.onedev.server.search.entity.EntitySort.Direction.ASCENDING;
+import static io.cheeta.server.model.Agent.SORT_FIELDS;
+import static io.cheeta.server.search.entity.EntitySort.Direction.ASCENDING;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,37 +35,37 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.hazelcast.core.HazelcastInstance;
 
-import io.onedev.agent.AgentData;
-import io.onedev.agent.Message;
-import io.onedev.agent.MessageTypes;
-import io.onedev.agent.WebsocketUtils;
-import io.onedev.agent.job.LogRequest;
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.agent.AgentConnected;
-import io.onedev.server.event.agent.AgentDisconnected;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.AgentAttribute;
-import io.onedev.server.model.AgentLastUsedDate;
-import io.onedev.server.model.AgentToken;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.agent.AgentQuery;
-import io.onedev.server.service.AgentAttributeService;
-import io.onedev.server.service.AgentLastUsedDateService;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.AgentTokenService;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.validation.validator.AttributeNameValidator;
+import io.cheeta.agent.AgentData;
+import io.cheeta.agent.Message;
+import io.cheeta.agent.MessageTypes;
+import io.cheeta.agent.WebsocketUtils;
+import io.cheeta.agent.job.LogRequest;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.agent.AgentConnected;
+import io.cheeta.server.event.agent.AgentDisconnected;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.AgentAttribute;
+import io.cheeta.server.model.AgentLastUsedDate;
+import io.cheeta.server.model.AgentToken;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.agent.AgentQuery;
+import io.cheeta.server.service.AgentAttributeService;
+import io.cheeta.server.service.AgentLastUsedDateService;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.AgentTokenService;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.validation.validator.AttributeNameValidator;
 
 @Singleton
 public class DefaultAgentService extends BaseEntityService<Agent> implements AgentService, Serializable {
@@ -105,7 +105,7 @@ public class DefaultAgentService extends BaseEntityService<Agent> implements Age
 	@Inject
 	public DefaultAgentService() {
 		agentLibs = new HashSet<>();
-		try (InputStream is = Agent.class.getClassLoader().getResourceAsStream("META-INF/onedev-agent.properties")) {
+		try (InputStream is = Agent.class.getClassLoader().getResourceAsStream("META-INF/cheeta-agent.properties")) {
 			Properties props = new Properties();
 			props.load(is);
 			for (String dependency: Splitter.on(';').omitEmptyStrings().split(props.getProperty("dependencies")))  

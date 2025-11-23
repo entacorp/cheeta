@@ -1,4 +1,4 @@
-package io.onedev.server.util.xstream;
+package io.cheeta.server.util.xstream;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.mapper.Mapper;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
 
 public class CollectionConverter extends com.thoughtworks.xstream.converters.collections.CollectionConverter {
 

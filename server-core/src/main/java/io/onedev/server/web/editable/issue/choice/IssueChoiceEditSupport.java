@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.issue.choice;
+package io.cheeta.server.web.editable.issue.choice;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
@@ -7,17 +7,17 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.EmptyValueLabel;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
-import io.onedev.server.annotation.IssueChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.EmptyValueLabel;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.IssueChoice;
 
 public class IssueChoiceEditSupport implements EditSupport {
 
@@ -37,7 +37,7 @@ public class IssueChoiceEditSupport implements EditSupport {
 							protected Component newContent(String id, PropertyDescriptor propertyDescriptor) {
 								Long issueId = model.getObject();
 								if (issueId != null) {
-									Issue issue = OneDev.getInstance(IssueService.class).get(issueId);
+									Issue issue = Cheeta.getInstance(IssueService.class).get(issueId);
 									if (issue != null) {
 										if (Project.get() != null && Project.get().getForkRoot().equals(issue.getNumberScope()))
 											return new Label(id, "#" + issue.getNumber());

@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.Date;
 
@@ -6,14 +6,14 @@ import javax.inject.Singleton;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.ProjectCreated;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.ProjectLastActivityDate;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.ProjectLastEventDateService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.ProjectCreated;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.ProjectLastActivityDate;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.ProjectLastEventDateService;
 
 @Singleton
 public class DefaultProjectLastEventDateService extends BaseEntityService<ProjectLastActivityDate> implements ProjectLastEventDateService {

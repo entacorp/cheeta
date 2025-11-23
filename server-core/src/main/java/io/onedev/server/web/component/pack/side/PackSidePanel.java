@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.pack.side;
+package io.cheeta.server.web.component.pack.side;
 
-import static io.onedev.server.search.commit.Revision.Type.COMMIT;
-import static io.onedev.server.search.entity.issue.IssueQuery.merge;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.search.commit.Revision.Type.COMMIT;
+import static io.cheeta.server.search.entity.issue.IssueQuery.merge;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,34 +25,34 @@ import org.apache.wicket.model.Model;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PackLabelService;
-import io.onedev.server.service.PackService;
-import io.onedev.server.entityreference.BuildReference;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.commit.CommitQuery;
-import io.onedev.server.search.commit.Revision;
-import io.onedev.server.search.commit.RevisionCriteria;
-import io.onedev.server.search.entity.issue.FixedBetweenCriteria;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryLexer;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.component.entity.labels.EntityLabelsPanel;
-import io.onedev.server.web.component.pack.choice.PackChoiceProvider;
-import io.onedev.server.web.component.pack.choice.SelectPackToActChoice;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.editable.InplacePropertyEditLink;
-import io.onedev.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
-import io.onedev.server.web.page.project.commits.ProjectCommitsPage;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
-import io.onedev.server.web.util.editbean.LabelsBean;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PackLabelService;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.entityreference.BuildReference;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.commit.CommitQuery;
+import io.cheeta.server.search.commit.Revision;
+import io.cheeta.server.search.commit.RevisionCriteria;
+import io.cheeta.server.search.entity.issue.FixedBetweenCriteria;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryLexer;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.component.entity.labels.EntityLabelsPanel;
+import io.cheeta.server.web.component.pack.choice.PackChoiceProvider;
+import io.cheeta.server.web.component.pack.choice.SelectPackToActChoice;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.editable.InplacePropertyEditLink;
+import io.cheeta.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
+import io.cheeta.server.web.page.project.commits.ProjectCommitsPage;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.server.web.util.editbean.LabelsBean;
 
 public abstract class PackSidePanel extends Panel {
 
@@ -114,7 +114,7 @@ public abstract class PackSidePanel extends Panel {
 				@Override
 				public void query(String term, int page, Response<Pack> response) {
 					int count = (page+1) * WebConstants.PAGE_SIZE + 1;
-					var packService = OneDev.getInstance(PackService.class);
+					var packService = Cheeta.getInstance(PackService.class);
 					if (term.length() == 0)
 						term = null;
 					List<Pack> packs = packService.queryPrevComparables(getPack(), term, count);
@@ -191,7 +191,7 @@ public abstract class PackSidePanel extends Panel {
 				@Override
 				protected void onUpdated(IPartialPageRequestHandler handler, Serializable bean, String propertyName) {
 					LabelsBean labelsBean = (LabelsBean) bean;
-					OneDev.getInstance(PackLabelService.class).sync(getPack(), labelsBean.getLabels());
+					Cheeta.getInstance(PackLabelService.class).sync(getPack(), labelsBean.getLabels());
 					handler.add(labelsContainer);
 				}
 

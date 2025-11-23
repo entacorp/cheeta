@@ -1,11 +1,11 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import javax.inject.Singleton;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueMention;
-import io.onedev.server.model.User;
-import io.onedev.server.service.IssueMentionService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueMention;
+import io.cheeta.server.model.User;
+import io.cheeta.server.service.IssueMentionService;
 
 @Singleton
 public class DefaultIssueMentionService extends BaseEntityService<IssueMention>

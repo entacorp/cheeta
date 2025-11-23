@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec;
+package io.cheeta.server.buildspec;
 
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
@@ -37,33 +37,33 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputStatus;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.WordUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobDependency;
-import io.onedev.server.buildspec.param.ParamUtils;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspec.step.Step;
-import io.onedev.server.buildspec.step.StepTemplate;
-import io.onedev.server.buildspec.step.UseTemplateStep;
-import io.onedev.server.data.migration.VersionedYamlDoc;
-import io.onedev.server.data.migration.XmlBuildSpecMigrator;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.build.JobProperty;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputStatus;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.WordUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobDependency;
+import io.cheeta.server.buildspec.param.ParamUtils;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.step.Step;
+import io.cheeta.server.buildspec.step.StepTemplate;
+import io.cheeta.server.buildspec.step.UseTemplateStep;
+import io.cheeta.server.data.migration.VersionedYamlDoc;
+import io.cheeta.server.data.migration.XmlBuildSpecMigrator;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.build.JobProperty;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable
 @ClassValidating
@@ -88,7 +88,7 @@ public class BuildSpec implements Serializable, Validatable {
 	        
 	});
 	
-	public static final String BLOB_PATH = ".onedev-buildspec.yml";
+	public static final String BLOB_PATH = ".cheeta-buildspec.yml";
 	
 	private static final String PROP_JOBS = "jobs";
 	
@@ -265,7 +265,7 @@ public class BuildSpec implements Serializable, Validatable {
 	private <T extends NamedElement> boolean validateImportedElements(ConstraintValidatorContext context, 
 			List<T> namedElements, Function<BuildSpec, Map<String, T>> namedElementMapProvider, String elementTypeName) {
 		boolean isValid = true;
-		Validator validator = OneDev.getInstance(Validator.class);
+		Validator validator = Cheeta.getInstance(Validator.class);
 		for (T element: namedElementMapProvider.apply(this).values()) {
 			int elementIndex = namedElements.indexOf(element);
 			if (elementIndex == -1) {

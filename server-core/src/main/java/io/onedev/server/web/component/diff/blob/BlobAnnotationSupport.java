@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.diff.blob;
+package io.cheeta.server.web.component.diff.blob;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.util.Pair;
-import io.onedev.server.web.util.DiffPlanarRange;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.web.util.DiffPlanarRange;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 

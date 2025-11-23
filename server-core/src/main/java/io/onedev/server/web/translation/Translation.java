@@ -1,4 +1,4 @@
-package io.onedev.server.web.translation;
+package io.cheeta.server.web.translation;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -14,7 +14,7 @@ import org.apache.wicket.Localizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.bootstrap.Bootstrap;
 
 public class Translation extends TranslationResourceBundle {
 
@@ -78,14 +78,14 @@ public class Translation extends TranslationResourceBundle {
 		extraKeys.add("Create Administrator Account");
 		extraKeys.add("Server Setup");
 		extraKeys.add("Specify System Settings");
-		extraKeys.add("adding .onedev-buildspec.yml");
+		extraKeys.add("adding .cheeta-buildspec.yml");
 		extraKeys.add("WAITING");
 		extraKeys.add("PENDING");
 		extraKeys.add("FAILED");
 		extraKeys.add("Create Administrator Account");
 		extraKeys.add("Server Setup");	
 		extraKeys.add("Specify System Settings");
-		extraKeys.add("adding .onedev-buildspec.yml");
+		extraKeys.add("adding .cheeta-buildspec.yml");
 		extraKeys.add("WAITING");
 		extraKeys.add("PENDING");
 		extraKeys.add("FAILED");

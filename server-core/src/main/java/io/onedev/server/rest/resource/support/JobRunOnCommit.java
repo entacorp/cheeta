@@ -1,13 +1,13 @@
-package io.onedev.server.rest.resource.support;
+package io.cheeta.server.rest.resource.support;
 
 import javax.validation.constraints.NotNull;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.annotation.EntityCreate;
-import io.onedev.server.annotation.CommitHash;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.EntityCreate;
+import io.cheeta.server.annotation.CommitHash;
 
 @EntityCreate(Build.class)
 public class JobRunOnCommit extends JobRun {

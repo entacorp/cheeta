@@ -1,9 +1,9 @@
-package io.onedev.server.event.project.issue;
+package io.cheeta.server.event.project.issue;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueCommentService;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueCommentService;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.security.SecurityUtils;
 
 import java.util.Date;
 
@@ -19,7 +19,7 @@ public class IssueCommentEdited extends IssueEvent {
 	}
 	
 	public IssueComment getComment() {
-		return OneDev.getInstance(IssueCommentService.class).load(commentId);
+		return Cheeta.getInstance(IssueCommentService.class).load(commentId);
 	}
 	
 	@Override

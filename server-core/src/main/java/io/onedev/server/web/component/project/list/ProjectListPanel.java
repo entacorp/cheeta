@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.project.list;
+package io.cheeta.server.web.component.project.list;
 
-import static io.onedev.server.model.Project.SORT_FIELDS;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.Project.SORT_FIELDS;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.Set;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.Session;
@@ -53,66 +53,66 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.PackService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.imports.ProjectImporter;
-import io.onedev.server.imports.ProjectImporterContribution;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.EntitySort.Direction;
-import io.onedev.server.search.entity.project.ChildrenOfCriteria;
-import io.onedev.server.search.entity.project.FuzzyCriteria;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.CreateChildren;
-import io.onedev.server.util.ProjectBuildStatusStat;
-import io.onedev.server.util.ProjectIssueStateStat;
-import io.onedev.server.util.ProjectPackTypeStat;
-import io.onedev.server.util.ProjectPullRequestStatusStat;
-import io.onedev.server.util.facade.ProjectFacade;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.behavior.ProjectQueryBehavior;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.datatable.selectioncolumn.SelectionColumn;
-import io.onedev.server.web.component.entity.labels.EntityLabelsPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.ActionablePageLink;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.component.project.ProjectAvatar;
-import io.onedev.server.web.component.project.childrentree.ProjectChildrenTree;
-import io.onedev.server.web.component.project.selector.ProjectSelector;
-import io.onedev.server.web.component.project.stats.build.BuildStatsPanel;
-import io.onedev.server.web.component.project.stats.code.CodeStatsPanel;
-import io.onedev.server.web.component.project.stats.issue.IssueStatsPanel;
-import io.onedev.server.web.component.project.stats.pack.PackStatsPanel;
-import io.onedev.server.web.component.project.stats.pullrequest.PullRequestStatsPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesClosed;
-import io.onedev.server.web.component.savedquery.SavedQueriesOpened;
-import io.onedev.server.web.component.sortedit.SortEditPanel;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.NewProjectPage;
-import io.onedev.server.web.page.project.children.ProjectChildrenPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.imports.ProjectImportPage;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.imports.ProjectImporter;
+import io.cheeta.server.imports.ProjectImporterContribution;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.search.entity.project.ChildrenOfCriteria;
+import io.cheeta.server.search.entity.project.FuzzyCriteria;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.CreateChildren;
+import io.cheeta.server.util.ProjectBuildStatusStat;
+import io.cheeta.server.util.ProjectIssueStateStat;
+import io.cheeta.server.util.ProjectPackTypeStat;
+import io.cheeta.server.util.ProjectPullRequestStatusStat;
+import io.cheeta.server.util.facade.ProjectFacade;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.behavior.ProjectQueryBehavior;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.datatable.selectioncolumn.SelectionColumn;
+import io.cheeta.server.web.component.entity.labels.EntityLabelsPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.ActionablePageLink;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.component.project.ProjectAvatar;
+import io.cheeta.server.web.component.project.childrentree.ProjectChildrenTree;
+import io.cheeta.server.web.component.project.selector.ProjectSelector;
+import io.cheeta.server.web.component.project.stats.build.BuildStatsPanel;
+import io.cheeta.server.web.component.project.stats.code.CodeStatsPanel;
+import io.cheeta.server.web.component.project.stats.issue.IssueStatsPanel;
+import io.cheeta.server.web.component.project.stats.pack.PackStatsPanel;
+import io.cheeta.server.web.component.project.stats.pullrequest.PullRequestStatsPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesClosed;
+import io.cheeta.server.web.component.savedquery.SavedQueriesOpened;
+import io.cheeta.server.web.component.sortedit.SortEditPanel;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.NewProjectPage;
+import io.cheeta.server.web.page.project.children.ProjectChildrenPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.imports.ProjectImportPage;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
 
 public class ProjectListPanel extends Panel {
 	
@@ -142,7 +142,7 @@ public class ProjectListPanel extends Panel {
 					List<Project> projects = new ArrayList<>();
 					for (Component row : (WebMarkupContainer) projectsTable.get("body").get("rows"))
 						projects.add((Project) row.getDefaultModelObject());
-					return OneDev.getInstance(IssueService.class).queryStateStats(SecurityUtils.getSubject(), projects);
+					return Cheeta.getInstance(IssueService.class).queryStateStats(SecurityUtils.getSubject(), projects);
 				}
 
 			}; 
@@ -155,7 +155,7 @@ public class ProjectListPanel extends Panel {
 					List<Project> projects = new ArrayList<>();
 					for (Component row : (WebMarkupContainer) projectsTable.get("body").get("rows"))
 						projects.add((Project) row.getDefaultModelObject());
-					return OneDev.getInstance(BuildService.class).queryStatusStats(projects);
+					return Cheeta.getInstance(BuildService.class).queryStatusStats(projects);
 				}
 
 			};
@@ -168,7 +168,7 @@ public class ProjectListPanel extends Panel {
 					List<Project> projects = new ArrayList<>();
 					for (Component row : (WebMarkupContainer) projectsTable.get("body").get("rows"))
 						projects.add((Project) row.getDefaultModelObject());
-					return OneDev.getInstance(PackService.class).queryTypeStats(projects);
+					return Cheeta.getInstance(PackService.class).queryTypeStats(projects);
 				}
 
 			};
@@ -181,7 +181,7 @@ public class ProjectListPanel extends Panel {
 					List<Project> projects = new ArrayList<>();
 					for (Component row : (WebMarkupContainer) projectsTable.get("body").get("rows"))
 						projects.add((Project) row.getDefaultModelObject());
-					return OneDev.getInstance(PullRequestService.class).queryStatusStats(projects);
+					return Cheeta.getInstance(PullRequestService.class).queryStatusStats(projects);
 				}
 
 			}; 
@@ -209,11 +209,11 @@ public class ProjectListPanel extends Panel {
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 	
 	@Override
@@ -1004,7 +1004,7 @@ public class ProjectListPanel extends Panel {
 				protected List<MenuItem> getMenuItems(FloatingPanel dropdown) {
 					Collection<ProjectImporter> importers = new ArrayList<>();
 					List<ProjectImporterContribution> contributions = 
-							new ArrayList<>(OneDev.getExtensions(ProjectImporterContribution.class));
+							new ArrayList<>(Cheeta.getExtensions(ProjectImporterContribution.class));
 					Collections.sort(contributions, new Comparator<ProjectImporterContribution>() {
 	
 						@Override
@@ -1222,7 +1222,7 @@ public class ProjectListPanel extends Panel {
 							@Override
 							protected Map<Integer, Long> load() {
 								Map<Integer, Long> stateCounts = new LinkedHashMap<>();
-								GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+								GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 								for (ProjectIssueStateStat stats : issueStatsModel.getObject()) {
 									if (stats.getProjectId().equals(projectId)
 											&& stats.getStateOrdinal() >= 0

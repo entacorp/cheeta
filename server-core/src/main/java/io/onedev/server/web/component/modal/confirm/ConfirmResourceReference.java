@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.modal.confirm;
+package io.cheeta.server.web.component.modal.confirm;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class ConfirmResourceReference extends BaseDependentResourceReference {
 

@@ -1,15 +1,15 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import com.google.common.collect.MapMaker;
 import groovy.lang.Binding;
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.Script;
 import groovy.text.SimpleTemplateEngine;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GroovyScript;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GroovyScript;
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,14 +69,14 @@ public class GroovyUtils {
     	GroovyScript script = null;
     	if (scriptName.startsWith(GroovyScript.BUILTIN_PREFIX)) {
     		String builtInScriptName = scriptName.substring(GroovyScript.BUILTIN_PREFIX.length());
-        	for (ScriptContribution contribution: OneDev.getExtensions(ScriptContribution.class)) {
+        	for (ScriptContribution contribution: Cheeta.getExtensions(ScriptContribution.class)) {
         		if (contribution.getScript().getName().equals(builtInScriptName)) {
         			script = contribution.getScript();
         			break;
         		}
         	}
     	} else {
-        	for (GroovyScript each: OneDev.getInstance(SettingService.class).getGroovyScripts()) {
+        	for (GroovyScript each: Cheeta.getInstance(SettingService.class).getGroovyScripts()) {
         		if (each.getName().equals(scriptName)) {
         			script = each;
         			break;

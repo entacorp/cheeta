@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec;
+package io.cheeta.server.buildspecmodel.inputspec;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
 
 /*
  * This file is left here for backward compatibility (OD-2531/OD-2532)

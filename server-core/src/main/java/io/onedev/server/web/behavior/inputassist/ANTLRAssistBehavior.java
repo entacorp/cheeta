@@ -1,16 +1,16 @@
-package io.onedev.server.web.behavior.inputassist;
+package io.cheeta.server.web.behavior.inputassist;
 
 import com.google.common.base.Optional;
-import io.onedev.commons.codeassist.*;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.codeassist.*;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.StringUtils;
 import org.antlr.v4.runtime.*;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

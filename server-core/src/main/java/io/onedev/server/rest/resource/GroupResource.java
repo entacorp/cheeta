@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import java.util.Collection;
 import java.util.List;
@@ -22,15 +22,15 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.GroupAuthorization;
-import io.onedev.server.model.Membership;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.GroupAuthorization;
+import io.cheeta.server.model.Membership;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 
 @Path("/groups")
 @Consumes(MediaType.APPLICATION_JSON)

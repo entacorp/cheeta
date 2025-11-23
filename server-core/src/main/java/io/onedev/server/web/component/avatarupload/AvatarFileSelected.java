@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.avatarupload;
+package io.cheeta.server.web.component.avatarupload;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.web.util.AjaxPayload;
 
 public class AvatarFileSelected extends AjaxPayload {
 

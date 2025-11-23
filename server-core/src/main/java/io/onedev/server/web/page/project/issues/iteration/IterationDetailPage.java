@@ -1,21 +1,21 @@
-package io.onedev.server.web.page.project.issues.iteration;
+package io.cheeta.server.web.page.project.issues.iteration;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.iteration.IterationDateLabel;
-import io.onedev.server.web.component.iteration.IterationStatusLabel;
-import io.onedev.server.web.component.iteration.actions.IterationActionsPanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.tabbable.PageTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.iteration.IterationDateLabel;
+import io.cheeta.server.web.component.iteration.IterationStatusLabel;
+import io.cheeta.server.web.component.iteration.actions.IterationActionsPanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.tabbable.PageTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.RestartResponseException;
@@ -32,7 +32,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.flow.RedirectToUrlException;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +55,7 @@ public abstract class IterationDetailPage extends ProjectPage {
 
 			@Override
 			protected Iteration load() {
-				return OneDev.getInstance(IterationService.class).load(iterationId);
+				return Cheeta.getInstance(IterationService.class).load(iterationId);
 			}
 			
 		};

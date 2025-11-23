@@ -1,4 +1,4 @@
-onedev.server.requestChanges = {
+cheeta.server.requestChanges = {
 	initCommitSelector: function(callback, baseCommit, fromIndex, toIndex) {
 		var $commits = $(".commits-selector ul a");
 		if (fromIndex!=undefined && toIndex!=undefined) 

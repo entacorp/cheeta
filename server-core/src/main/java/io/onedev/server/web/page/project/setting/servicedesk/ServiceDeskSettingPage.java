@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.setting.servicedesk;
+package io.cheeta.server.web.page.project.setting.servicedesk;
 
-import static io.onedev.server.model.Project.PROP_SERVICE_DESK_EMAIL_ADDRESS;
+import static io.cheeta.server.model.Project.PROP_SERVICE_DESK_EMAIL_ADDRESS;
 
 import java.io.Serializable;
 
@@ -14,18 +14,18 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.setting.ProjectSettingPage;
-import io.onedev.server.web.page.project.setting.general.GeneralProjectSettingPage;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.setting.ProjectSettingPage;
+import io.cheeta.server.web.page.project.setting.general.GeneralProjectSettingPage;
 
 public class ServiceDeskSettingPage extends ProjectSettingPage {
 

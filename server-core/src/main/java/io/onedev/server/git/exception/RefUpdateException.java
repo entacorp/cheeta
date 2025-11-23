@@ -1,6 +1,6 @@
-package io.onedev.server.git.exception;
+package io.cheeta.server.git.exception;
 
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExplicitException;
 import org.eclipse.jgit.lib.RefUpdate;
 
 public class RefUpdateException extends ExplicitException {

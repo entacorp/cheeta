@@ -1,6 +1,6 @@
-package io.onedev.server.buildspec.param.instance;
+package io.cheeta.server.buildspec.param.instance;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

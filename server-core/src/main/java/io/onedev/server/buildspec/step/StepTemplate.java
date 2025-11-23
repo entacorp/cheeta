@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputStatus;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.SuggestionProvider;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.NamedElement;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputStatus;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.SuggestionProvider;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.NamedElement;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
 
 @Editable
 public class StepTemplate implements NamedElement {
@@ -50,7 +50,7 @@ public class StepTemplate implements NamedElement {
 		return new ArrayList<>();
 	}
 	
-	@Editable(order=200, description="Steps will be executed serially on same node, sharing the same <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>")
+	@Editable(order=200, description="Steps will be executed serially on same node, sharing the same <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>")
 	@Valid
 	public List<Step> getSteps() {
 		return steps;

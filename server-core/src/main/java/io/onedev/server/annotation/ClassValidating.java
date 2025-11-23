@@ -1,4 +1,4 @@
-package io.onedev.server.annotation;
+package io.cheeta.server.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import io.onedev.server.validation.validator.ClassValidatingValidator;
+import io.cheeta.server.validation.validator.ClassValidatingValidator;
 
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)

@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.jiracloud;
+package io.cheeta.server.plugin.imports.jiracloud;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,13 +6,13 @@ import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class ImportOption implements Serializable {
@@ -34,11 +34,11 @@ public class ImportOption implements Serializable {
 	private List<IssuePriorityMapping> issuePriorityMappings = new ArrayList<>();
 	
 	private static GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	@Editable(order=350, description="Specify a multi-value user field to hold assignees information.<br>"
-			+ "<b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here")
+			+ "<b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here")
 	@ChoiceProvider("getAssigneesIssueFieldChoices")
 	@NotEmpty
 	public String getAssigneesIssueField() {
@@ -60,7 +60,7 @@ public class ImportOption implements Serializable {
 	}
 
 	@Editable(order=360, description="Optionally specify a date field to hold due date information.<br>"
-			+ "<b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here")
+			+ "<b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here")
 	@ChoiceProvider("getDueDateIssueFieldChoices")
 	public String getDueDateIssueField() {
 		return dueDateIssueField;
@@ -81,7 +81,7 @@ public class ImportOption implements Serializable {
 	}
 	
 	@Editable(order=370, description="Optionally specify a working period field to hold time spent infomration.<br>"
-			+ "<b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here")
+			+ "<b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here")
 	@ChoiceProvider("getIntegerIssueFieldChoices")
 	public String getTimeSpentIssueField() {
 		return timeSpentIssueField;
@@ -92,7 +92,7 @@ public class ImportOption implements Serializable {
 	}
 
 	@Editable(order=380, description="Optionally specify a working period field to hold time estimate infomration.<br>"
-			+ "<b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here")
+			+ "<b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here")
 	@ChoiceProvider("getIntegerIssueFieldChoices")
 	public String getTimeEstimateIssueField() {
 		return timeEstimateIssueField;
@@ -122,8 +122,8 @@ public class ImportOption implements Serializable {
 		return choices;
 	}
 	
-	@Editable(order=600, description="Specify how to map JIRA issue statuses to OneDev custom fields.<br>"
-			+ "<b>NOTE: </b> You may customize OneDev issue states in case there is no appropriate option here")
+	@Editable(order=600, description="Specify how to map JIRA issue statuses to Cheeta custom fields.<br>"
+			+ "<b>NOTE: </b> You may customize Cheeta issue states in case there is no appropriate option here")
 	public List<IssueStatusMapping> getIssueStatusMappings() {
 		return issueStatusMappings;
 	}
@@ -132,8 +132,8 @@ public class ImportOption implements Serializable {
 		this.issueStatusMappings = issueStatusMappings;
 	}
 
-	@Editable(order=700, description="Specify how to map JIRA issue types to OneDev custom fields.<br>"
-			+ "<b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here")
+	@Editable(order=700, description="Specify how to map JIRA issue types to Cheeta custom fields.<br>"
+			+ "<b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here")
 	public List<IssueTypeMapping> getIssueTypeMappings() {
 		return issueTypeMappings;
 	}
@@ -142,8 +142,8 @@ public class ImportOption implements Serializable {
 		this.issueTypeMappings = issueTypeMappings;
 	}
 
-	@Editable(order=800, description="Specify how to map JIRA issue priorities to OneDev custom fields.<br>"
-			+ "<b>NOTE: </b> You may customize OneDev issue fields in case there is no appropriate option here")
+	@Editable(order=800, description="Specify how to map JIRA issue priorities to Cheeta custom fields.<br>"
+			+ "<b>NOTE: </b> You may customize Cheeta issue fields in case there is no appropriate option here")
 	public List<IssuePriorityMapping> getIssuePriorityMappings() {
 		return issuePriorityMappings;
 	}

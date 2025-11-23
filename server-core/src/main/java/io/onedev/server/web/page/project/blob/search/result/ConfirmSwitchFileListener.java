@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.search.result;
+package io.cheeta.server.web.page.project.blob.search.result;
 
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.wicket.Component;
@@ -28,10 +28,10 @@ class ConfirmSwitchFileListener implements IAjaxCallListener {
 	@Override
 	public CharSequence getPrecondition(Component component) {
 		if (path != null) {
-			return String.format("return onedev.server.searchResult.confirmSwitchFileByPath('%s', %b);", 
+			return String.format("return cheeta.server.searchResult.confirmSwitchFileByPath('%s', %b);", 
 					StringEscapeUtils.escapeEcmaScript(path), hasMark);
 		} else {
-			return String.format("return onedev.server.searchResult.confirmSwitchFileByLink('%s');", 
+			return String.format("return cheeta.server.searchResult.confirmSwitchFileByLink('%s');", 
 					component.getMarkupId(true));
 		}
 	}

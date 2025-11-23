@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.setting.general;
+package io.cheeta.server.web.page.project.setting.general;
 
 import static java.util.stream.Collectors.toList;
 
@@ -6,11 +6,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.RoleChoice;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.model.Role;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.RoleChoice;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.model.Role;
 
 @Editable
 public class DefaultRolesBean implements Serializable {
@@ -36,7 +36,7 @@ public class DefaultRolesBean implements Serializable {
 	}
 	
 	public List<Role> getRoles() {
-		return roleNames.stream().map(OneDev.getInstance(RoleService.class)::find).collect(toList());
+		return roleNames.stream().map(Cheeta.getInstance(RoleService.class)::find).collect(toList());
 	}
 	
 }

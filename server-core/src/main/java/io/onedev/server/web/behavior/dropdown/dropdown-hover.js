@@ -1,4 +1,4 @@
-onedev.server.dropdownHover = {
+cheeta.server.dropdownHover = {
 	onDomReady: function(triggerId, hoverDelay, openCallback) {
 		var $trigger = $("#" + triggerId);
 		$trigger.addClass("dropdown-hover");

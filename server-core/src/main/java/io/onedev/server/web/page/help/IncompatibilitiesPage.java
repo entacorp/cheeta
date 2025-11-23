@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,11 +15,11 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.server.commandhandler.Upgrade;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.page.layout.LayoutPage;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.server.commandhandler.Upgrade;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.page.layout.LayoutPage;
 
 public class IncompatibilitiesPage extends LayoutPage {
 

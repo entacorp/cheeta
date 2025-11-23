@@ -1,18 +1,18 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.util.SuggestionUtils;
 import org.eclipse.jgit.lib.Repository;
 
 import org.jspecify.annotations.Nullable;
@@ -29,7 +29,7 @@ public abstract class PullRequestTrigger extends JobTrigger {
 	
 	@Editable(name="Target Branches", placeholder="Any branch", order=100, description=""
 			+ "Optionally specify space-separated target branches of the pull requests to check. "
-			+ "Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty to match all branches")
 	@Patterns(suggester = "suggestBranches", path=true)
 	public String getBranches() {
@@ -47,7 +47,7 @@ public abstract class PullRequestTrigger extends JobTrigger {
 	
 	@Editable(name="Touched Files", order=200, placeholder="Any file", description=""
 			+ "Optionally specify space-separated files to check. "
-			+ "Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty to match all files")
 	@Patterns(suggester = "getPathSuggestions", path=true)
 	public String getPaths() {
@@ -65,7 +65,7 @@ public abstract class PullRequestTrigger extends JobTrigger {
 
 	private boolean touchedFile(PullRequest request) {
 		if (getPaths() != null) {
-			Repository repository = OneDev.getInstance(ProjectService.class)
+			Repository repository = Cheeta.getInstance(ProjectService.class)
 					.getRepository(request.getTargetProject().getId());
 			Collection<String> changedFiles = GitUtils.getChangedFiles(repository, 
 					request.getBaseCommit(), request.getLatestUpdate().getHeadCommit());

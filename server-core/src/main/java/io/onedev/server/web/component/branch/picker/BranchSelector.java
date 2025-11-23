@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.branch.picker;
+package io.cheeta.server.web.component.branch.picker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +24,12 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.IRequestParameters;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.InputChangeBehavior;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.InputChangeBehavior;
 
 public abstract class BranchSelector extends Panel {
 	
@@ -91,7 +91,7 @@ public abstract class BranchSelector extends Panel {
 			@Override
 			public void renderHead(Component component, IHeaderResponse response) {
 				super.renderHead(component, response);
-				String script = String.format("onedev.server.branchSelector.init('%s', %s);", 
+				String script = String.format("cheeta.server.branchSelector.init('%s', %s);", 
 						getMarkupId(true), getCallbackFunction(CallbackParameter.explicit("key")));
 				response.render(OnDomReadyHeaderItem.forScript(script));
 			}

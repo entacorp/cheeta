@@ -1,9 +1,9 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.CodeCommentQuery;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.CodeCommentQuery;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class NamedCodeCommentQuery implements NamedQuery {

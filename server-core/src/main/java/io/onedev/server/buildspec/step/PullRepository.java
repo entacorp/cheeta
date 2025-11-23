@@ -1,8 +1,8 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
 import static com.google.common.collect.Maps.difference;
-import static io.onedev.server.git.GitUtils.getReachableCommits;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.git.GitUtils.getReachableCommits;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 import static org.eclipse.jgit.lib.Constants.R_HEADS;
 import static org.eclipse.jgit.lib.Constants.R_TAGS;
@@ -27,38 +27,38 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.MapDifference.ValueDifference;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.bootstrap.SecretMasker;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.ProjectChoice;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.git.CommandUtils;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.command.LfsFetchAllCommand;
-import io.onedev.server.git.command.LfsFetchCommand;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.bootstrap.SecretMasker;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.ProjectChoice;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.git.CommandUtils;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.command.LfsFetchAllCommand;
+import io.cheeta.server.git.command.LfsFetchCommand;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.security.SecurityUtils;
 
 @Editable(order=1070, name="Pull from Remote", group=StepGroup.REPOSITORY_SYNC, description=""
 		+ "This step pulls specified refs from remote")
@@ -87,7 +87,7 @@ public class PullRepository extends SyncRepository {
 		this.targetProject = targetProject;
 	}
 
-	@Editable(order=650, name="Access Token for Target Project", description = "Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> " +
+	@Editable(order=650, name="Access Token for Target Project", description = "Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> " +
 			"whose value is an access token with management permission for above project. Note that access token " +
 			"is not required if sync to current or child project and build commit is reachable from " +
 			"default branch")
@@ -130,7 +130,7 @@ public class PullRepository extends SyncRepository {
 	@SuppressWarnings("unused")
 	private static String getLfsDescription() {
 		if (!Bootstrap.isInDocker()) {
-			return _T("If this option is enabled, git lfs command needs to be installed on OneDev server "
+			return _T("If this option is enabled, git lfs command needs to be installed on Cheeta server "
 					+ "(even this step runs on other node)");
 		} else {
 			return null;
@@ -139,8 +139,8 @@ public class PullRepository extends SyncRepository {
 
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger logger) {
-		return OneDev.getInstance(SessionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
+		return Cheeta.getInstance(SessionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
 			Project project = build.getProject();
 			Project targetProject;
 			if (getTargetProject() != null) {
@@ -177,11 +177,11 @@ public class PullRepository extends SyncRepository {
 	}
 	
 	private static ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	private static UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 	
 	private static class PullTask implements ClusterTask<Void> {
@@ -382,14 +382,14 @@ public class PullRepository extends SyncRepository {
 					getProjectService().writeLfsSinceCommits(projectId, newCommitIds.values());
 				}
 
-				OneDev.getInstance(SessionService.class).runAsync(() -> {
+				Cheeta.getInstance(SessionService.class).runAsync(() -> {
 					try {
 						// Access db connection in a separate thread to avoid possible deadlock, as
 						// the parent thread is blocking another thread holding database connections
 						var project = getProjectService().load(projectId);
 						var user = getUserService().load(userId);
 						MapDifference<String, ObjectId> difference = difference(oldCommitIds, newCommitIds);
-						ListenerRegistry registry = OneDev.getInstance(ListenerRegistry.class);
+						ListenerRegistry registry = Cheeta.getInstance(ListenerRegistry.class);
 						for (Map.Entry<String, ObjectId> entry : difference.entriesOnlyOnLeft().entrySet()) {
 							if (RefUpdated.isValidRef(entry.getKey()))
 								registry.post(new RefUpdated(user, project, entry.getKey(), entry.getValue(), ObjectId.zeroId()));

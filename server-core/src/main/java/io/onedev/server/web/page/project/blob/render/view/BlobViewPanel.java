@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.blob.render.view;
+package io.cheeta.server.web.page.project.blob.render.view;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -26,19 +26,19 @@ import org.apache.wicket.request.resource.ContentDisposition;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.ajaxlistener.TrackViewStateListener;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
-import io.onedev.server.web.resource.RawBlobResource;
-import io.onedev.server.web.resource.RawBlobResourceReference;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.ajaxlistener.TrackViewStateListener;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.server.web.resource.RawBlobResource;
+import io.cheeta.server.web.resource.RawBlobResourceReference;
 
 public abstract class BlobViewPanel extends Panel {
 

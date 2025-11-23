@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.admin.serverinformation;
+package io.cheeta.server.web.page.admin.serverinformation;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.page.admin.ServerDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.page.admin.ServerDetailPage;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
@@ -16,7 +16,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.*;
@@ -93,7 +93,7 @@ public class ServerInformationPage extends ServerDetailPage {
 	}
 
 	private static ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 
 	private static ServerInformation getServerInformation() {

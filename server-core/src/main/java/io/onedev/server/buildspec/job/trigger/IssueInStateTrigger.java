@@ -1,20 +1,20 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.issue.IssueChanged;
-import io.onedev.server.event.project.issue.IssueOpened;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.support.issue.StateSpec;
-import io.onedev.server.model.support.issue.changedata.IssueStateChangeData;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.issue.IssueChanged;
+import io.cheeta.server.event.project.issue.IssueOpened;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.support.issue.StateSpec;
+import io.cheeta.server.model.support.issue.changedata.IssueStateChangeData;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
 
 import org.jspecify.annotations.Nullable;
 import javax.validation.constraints.NotEmpty;
@@ -42,12 +42,12 @@ public class IssueInStateTrigger extends JobTrigger {
 	
 	@SuppressWarnings("unused")
 	private static List<String> getStateChoices() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting()
+		return Cheeta.getInstance(SettingService.class).getIssueSetting()
 				.getStateSpecs().stream().map(StateSpec::getName).collect(toList());		
 	}
 
 	@Editable(order=800, placeholder = "Any issue")
-	@io.onedev.server.annotation.IssueQuery(withProjectCriteria = false, withStateCriteria = false, withOrder = false)
+	@io.cheeta.server.annotation.IssueQuery(withProjectCriteria = false, withStateCriteria = false, withOrder = false)
 	public String getApplicableIssues() {
 		return applicableIssues;
 	}

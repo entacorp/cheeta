@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.project.childrentree;
+package io.cheeta.server.web.component.project.childrentree;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class ProjectChildrenTreeCssResourceReference extends BaseDependentCssResourceReference {
 

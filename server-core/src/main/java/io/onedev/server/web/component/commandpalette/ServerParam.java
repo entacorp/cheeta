@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.web.page.admin.ServerDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.web.page.admin.ServerDetailPage;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ public class ServerParam extends ParamSegment {
 		Map<String, String> suggestions = new LinkedHashMap<>();
 		if (matchWith.length() == 0) 
 			matchWith = null;
-		for (String server: OneDev.getInstance(ClusterService.class).getServerAddresses()) {
+		for (String server: Cheeta.getInstance(ClusterService.class).getServerAddresses()) {
 			if (matchWith == null || server.toLowerCase().contains(matchWith.toLowerCase()))
 				suggestions.put(server, server);
 		}
@@ -30,7 +30,7 @@ public class ServerParam extends ParamSegment {
 
 	@Override
 	public boolean isExactMatch(String matchWith, Map<String, String> paramValues) {
-		return OneDev.getInstance(ClusterService.class).getServer(matchWith, false) != null;
+		return Cheeta.getInstance(ClusterService.class).getServer(matchWith, false) != null;
 	}
 		
 }

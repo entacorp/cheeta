@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.param.spec.userchoiceparam;
+package io.cheeta.server.buildspec.param.spec.userchoiceparam;
 
 import java.util.List;
 import java.util.Map;
@@ -6,14 +6,14 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspec.param.spec.userchoiceparam.defaultmultivalueprovider.DefaultMultiValueProvider;
-import io.onedev.server.buildspec.param.spec.userchoiceparam.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.UserChoiceInput;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.AllUsers;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.param.spec.userchoiceparam.defaultmultivalueprovider.DefaultMultiValueProvider;
+import io.cheeta.server.buildspec.param.spec.userchoiceparam.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.UserChoiceInput;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.AllUsers;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
 
 @Editable(order=150, name= ParamSpec.USER)
 public class UserChoiceParam extends ParamSpec {

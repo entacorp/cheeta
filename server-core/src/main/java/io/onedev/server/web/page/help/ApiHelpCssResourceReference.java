@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

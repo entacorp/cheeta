@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.web.asset.katex.KatexResourceReference;
-import io.onedev.server.web.asset.mermaid.MermaidResourceReference;
+import io.cheeta.server.web.asset.katex.KatexResourceReference;
+import io.cheeta.server.web.asset.mermaid.MermaidResourceReference;
 
 class LazyResourceLoader extends WebMarkupContainer {
 

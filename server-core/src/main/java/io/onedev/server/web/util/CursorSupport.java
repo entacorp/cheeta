@@ -1,10 +1,10 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
 import java.io.Serializable;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-import io.onedev.server.model.AbstractEntity;
+import io.cheeta.server.model.AbstractEntity;
 
 public interface CursorSupport<T extends AbstractEntity> extends Serializable {
 	

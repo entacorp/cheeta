@@ -1,12 +1,12 @@
-package io.onedev.server.plugin.buildspec.python;
+package io.cheeta.server.plugin.buildspec.python;
 
 import com.google.common.io.Resources;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.step.CommandStep;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.IOUtils;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.step.CommandStep;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.IOUtils;
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.Test;
 

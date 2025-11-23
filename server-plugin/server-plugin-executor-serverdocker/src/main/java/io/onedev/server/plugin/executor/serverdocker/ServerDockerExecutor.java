@@ -1,25 +1,25 @@
-package io.onedev.server.plugin.executor.serverdocker;
+package io.cheeta.server.plugin.executor.serverdocker;
 
-import static io.onedev.agent.DockerExecutorUtils.buildImage;
-import static io.onedev.agent.DockerExecutorUtils.callWithDockerConfig;
-import static io.onedev.agent.DockerExecutorUtils.changeOwner;
-import static io.onedev.agent.DockerExecutorUtils.createNetwork;
-import static io.onedev.agent.DockerExecutorUtils.deleteDir;
-import static io.onedev.agent.DockerExecutorUtils.deleteNetwork;
-import static io.onedev.agent.DockerExecutorUtils.getEntrypoint;
-import static io.onedev.agent.DockerExecutorUtils.getOwner;
-import static io.onedev.agent.DockerExecutorUtils.isUseProcessIsolation;
-import static io.onedev.agent.DockerExecutorUtils.newDockerKiller;
-import static io.onedev.agent.DockerExecutorUtils.pruneBuilderCache;
-import static io.onedev.agent.DockerExecutorUtils.runImagetools;
-import static io.onedev.agent.DockerExecutorUtils.startService;
-import static io.onedev.agent.DockerExecutorUtils.useDockerSock;
-import static io.onedev.agent.ExecutorUtils.newErrorLogger;
-import static io.onedev.agent.ExecutorUtils.newInfoLogger;
-import static io.onedev.k8shelper.KubernetesHelper.cloneRepository;
-import static io.onedev.k8shelper.KubernetesHelper.installGitCert;
-import static io.onedev.k8shelper.KubernetesHelper.stringifyStepPosition;
-import static io.onedev.k8shelper.RegistryLoginFacade.merge;
+import static io.cheeta.agent.DockerExecutorUtils.buildImage;
+import static io.cheeta.agent.DockerExecutorUtils.callWithDockerConfig;
+import static io.cheeta.agent.DockerExecutorUtils.changeOwner;
+import static io.cheeta.agent.DockerExecutorUtils.createNetwork;
+import static io.cheeta.agent.DockerExecutorUtils.deleteDir;
+import static io.cheeta.agent.DockerExecutorUtils.deleteNetwork;
+import static io.cheeta.agent.DockerExecutorUtils.getEntrypoint;
+import static io.cheeta.agent.DockerExecutorUtils.getOwner;
+import static io.cheeta.agent.DockerExecutorUtils.isUseProcessIsolation;
+import static io.cheeta.agent.DockerExecutorUtils.newDockerKiller;
+import static io.cheeta.agent.DockerExecutorUtils.pruneBuilderCache;
+import static io.cheeta.agent.DockerExecutorUtils.runImagetools;
+import static io.cheeta.agent.DockerExecutorUtils.startService;
+import static io.cheeta.agent.DockerExecutorUtils.useDockerSock;
+import static io.cheeta.agent.ExecutorUtils.newErrorLogger;
+import static io.cheeta.agent.ExecutorUtils.newInfoLogger;
+import static io.cheeta.k8shelper.KubernetesHelper.cloneRepository;
+import static io.cheeta.k8shelper.KubernetesHelper.installGitCert;
+import static io.cheeta.k8shelper.KubernetesHelper.stringifyStepPosition;
+import static io.cheeta.k8shelper.RegistryLoginFacade.merge;
 import static java.util.stream.Collectors.toList;
 
 import java.io.File;
@@ -43,59 +43,59 @@ import org.apache.commons.lang3.SystemUtils;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.agent.DockerExecutorUtils;
-import io.onedev.agent.ExecutorUtils;
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.bootstrap.SecretMasker;
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.k8shelper.BuildImageFacade;
-import io.onedev.k8shelper.CheckoutFacade;
-import io.onedev.k8shelper.CloneInfo;
-import io.onedev.k8shelper.CommandFacade;
-import io.onedev.k8shelper.CompositeFacade;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.k8shelper.LeafFacade;
-import io.onedev.k8shelper.LeafHandler;
-import io.onedev.k8shelper.OsInfo;
-import io.onedev.k8shelper.PruneBuilderCacheFacade;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.k8shelper.RunContainerFacade;
-import io.onedev.k8shelper.RunImagetoolsFacade;
-import io.onedev.k8shelper.ServerSideFacade;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.k8shelper.SetupCacheFacade;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Numeric;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ReservedOptions;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.git.location.GitLocation;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.JobService;
-import io.onedev.server.job.JobRunnable;
-import io.onedev.server.job.ResourceAllocator;
-import io.onedev.server.job.ServerCacheHelper;
-import io.onedev.server.model.support.administration.jobexecutor.DockerAware;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.jobexecutor.RegistryLogin;
-import io.onedev.server.plugin.executor.serverdocker.ServerDockerExecutor.TestData;
-import io.onedev.server.terminal.CommandlineShell;
-import io.onedev.server.terminal.Shell;
-import io.onedev.server.terminal.Terminal;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.util.Testable;
+import io.cheeta.agent.DockerExecutorUtils;
+import io.cheeta.agent.ExecutorUtils;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.bootstrap.SecretMasker;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.k8shelper.BuildImageFacade;
+import io.cheeta.k8shelper.CheckoutFacade;
+import io.cheeta.k8shelper.CloneInfo;
+import io.cheeta.k8shelper.CommandFacade;
+import io.cheeta.k8shelper.CompositeFacade;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.k8shelper.LeafFacade;
+import io.cheeta.k8shelper.LeafHandler;
+import io.cheeta.k8shelper.OsInfo;
+import io.cheeta.k8shelper.PruneBuilderCacheFacade;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.k8shelper.RunContainerFacade;
+import io.cheeta.k8shelper.RunImagetoolsFacade;
+import io.cheeta.k8shelper.ServerSideFacade;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.k8shelper.SetupCacheFacade;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Numeric;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ReservedOptions;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.git.location.GitLocation;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.job.JobRunnable;
+import io.cheeta.server.job.ResourceAllocator;
+import io.cheeta.server.job.ServerCacheHelper;
+import io.cheeta.server.model.support.administration.jobexecutor.DockerAware;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.jobexecutor.RegistryLogin;
+import io.cheeta.server.plugin.executor.serverdocker.ServerDockerExecutor.TestData;
+import io.cheeta.server.terminal.CommandlineShell;
+import io.cheeta.server.terminal.Shell;
+import io.cheeta.server.terminal.Terminal;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.util.Testable;
 
 @Editable(order=ServerDockerExecutor.ORDER, name="Server Docker Executor", 
-		description="This executor runs build jobs as docker containers on OneDev server")
+		description="This executor runs build jobs as docker containers on Cheeta server")
 @ClassValidating
 public class ServerDockerExecutor extends JobExecutor implements DockerAware, Testable<TestData>, Validatable {
 
@@ -115,7 +115,7 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 	
 	private String dockerSockPath;
 	
-	private String dockerBuilder = "onedev";
+	private String dockerBuilder = "cheeta";
 	
 	private String networkOptions;
 	
@@ -168,8 +168,8 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 	}
 
 	@Editable(order=515, group="More Settings", name="Buildx Builder", description = "Specify dockerx builder used to " +
-			"build docker image. OneDev will create the builder automatically if it does not exist. Check " +
-			"<a href='https://docs.onedev.io/tutorials/cicd/insecure-docker-registry' target='_blank'>this tutorial</a> " +
+			"build docker image. Cheeta will create the builder automatically if it does not exist. Check " +
+			"<a href='https://docs.cheeta.io/tutorials/cicd/insecure-docker-registry' target='_blank'>this tutorial</a> " +
 			"on how to customize the builder for instance to allow publishing to insecure registries")
 	@NotEmpty
 	public String getDockerBuilder() {
@@ -193,7 +193,7 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 	
 	@Editable(order=520, group="Privilege Settings", description="Whether or not to mount docker sock into job container to "
 			+ "support docker operations in job commands<br>"
-			+ "<b class='text-danger'>WARNING</b>: Malicious jobs can take control of whole OneDev "
+			+ "<b class='text-danger'>WARNING</b>: Malicious jobs can take control of whole Cheeta "
 			+ "by operating the mounted docker sock. Make sure this executor can only be used by "
 			+ "trusted jobs if this option is enabled")
 	public boolean isMountDockerSock() {
@@ -275,15 +275,15 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 	}
 
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 		
 	private JobService getJobService() {
-		return OneDev.getInstance(JobService.class);
+		return Cheeta.getInstance(JobService.class);
 	}
 	
 	private ResourceAllocator getResourceAllocator() {
-		return OneDev.getInstance(ResourceAllocator.class);
+		return Cheeta.getInstance(ResourceAllocator.class);
 	}
 
 	private int getConcurrencyNumber() {
@@ -294,9 +294,9 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 	}
 	
 	private void checkApplicable() {
-		if (OneDev.getK8sService() != null) {
+		if (Cheeta.getK8sService() != null) {
 			throw new ExplicitException(""
-					+ "OneDev running inside kubernetes cluster does not support server docker executor. "
+					+ "Cheeta running inside kubernetes cluster does not support server docker executor. "
 					+ "Please use kubernetes executor instead");
 		}
 	}
@@ -313,7 +313,7 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 				checkApplicable();
 
 				hostBuildHome = new File(Bootstrap.getTempDir(),
-						"onedev-build-" + jobContext.getProjectId() + "-" + jobContext.getBuildNumber() + "-"	+ jobContext.getSubmitSequence());
+						"cheeta-build-" + jobContext.getProjectId() + "-" + jobContext.getBuildNumber() + "-"	+ jobContext.getSubmitSequence());
 				FileUtils.createDir(hostBuildHome);		
 				SecretMasker.push(jobContext.getSecretMasker());
 				try {
@@ -326,7 +326,7 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 
 					createNetwork(newDocker(), network, getNetworkOptions(), jobLogger);
 					try {
-						OsInfo osInfo = OneDev.getInstance(OsInfo.class);
+						OsInfo osInfo = Cheeta.getInstance(OsInfo.class);
 
 						var jobToken = jobContext.getJobToken();
 						for (var jobService : jobContext.getServices()) {
@@ -354,13 +354,13 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 							String containerWorkspace;
 							String containerTrustCerts;
 							if (SystemUtils.IS_OS_WINDOWS) {
-								containerBuildHome = "C:\\onedev-build";
-								containerWorkspace = "C:\\onedev-build\\workspace";
-								containerTrustCerts = "C:\\onedev-build\\trust-certs.pem";
+								containerBuildHome = "C:\\cheeta-build";
+								containerWorkspace = "C:\\cheeta-build\\workspace";
+								containerTrustCerts = "C:\\cheeta-build\\trust-certs.pem";
 							} else {
-								containerBuildHome = "/onedev-build";
-								containerWorkspace = "/onedev-build/workspace";
-								containerTrustCerts = "/onedev-build/trust-certs.pem";
+								containerBuildHome = "/cheeta-build";
+								containerWorkspace = "/cheeta-build/workspace";
+								containerTrustCerts = "/cheeta-build/trust-certs.pem";
 							}
 
 							var ownerChanged = new AtomicBoolean(false);
@@ -603,7 +603,7 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 							
 							return successful;
 						} finally {
-							// Fix https://code.onedev.io/onedev/server/~issues/597
+							// Fix https://code.cheeta.io/cheeta/server/~issues/597
 							if (SystemUtils.IS_OS_WINDOWS) {
 								FileUtils.deleteDir(hostWorkspace);
 							}
@@ -720,9 +720,9 @@ public class ServerDockerExecutor extends JobExecutor implements DockerAware, Te
 					docker.addArgs(StringUtils.parseQuoteTokens(getRunOptions()));
 				String containerWorkspacePath;
 				if (SystemUtils.IS_OS_WINDOWS) 
-					containerWorkspacePath = "C:\\onedev-build\\workspace";
+					containerWorkspacePath = "C:\\cheeta-build\\workspace";
 				else 
-					containerWorkspacePath = "/onedev-build/workspace";
+					containerWorkspacePath = "/cheeta-build/workspace";
 				docker.addArgs("-v", getHostPath(workspaceDir.getAbsolutePath()) + ":" + containerWorkspacePath);
 
 				docker.addArgs("-w", containerWorkspacePath);

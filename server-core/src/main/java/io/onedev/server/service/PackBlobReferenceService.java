@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.model.PackBlobReference;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.model.PackBlobReference;
 
 public interface PackBlobReferenceService extends EntityService<PackBlobReference> {
 

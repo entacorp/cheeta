@@ -1,17 +1,17 @@
-package io.onedev.server.web.editable.revisionchoice;
+package io.cheeta.server.web.editable.revisionchoice;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.component.revision.RevisionPicker;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.annotation.RevisionChoice;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.component.revision.RevisionPicker;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.RevisionChoice;
 
 public class RevisionChoiceEditor extends PropertyEditor<String> {
 

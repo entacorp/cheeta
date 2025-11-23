@@ -1,4 +1,4 @@
-onedev.server.avatarUpload = {
+cheeta.server.avatarUpload = {
 	onDomReady: function(containerId, callback) {
 		var $container = $("#" + containerId + ">.avatar-upload");
 		var $data = $container.find("input[type=text]")

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.pullrequests;
+package io.cheeta.server.web.page.project.pullrequests;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
@@ -25,18 +25,18 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public class InvalidPullRequestPage extends ProjectPage {
 
@@ -52,7 +52,7 @@ public class InvalidPullRequestPage extends ProjectPage {
 			@Override
 			protected PullRequest load() {
 				Long requestNumber = params.get(PARAM_REQUEST).toLong();
-				PullRequest request = OneDev.getInstance(PullRequestService.class).find(getProject(), requestNumber);
+				PullRequest request = Cheeta.getInstance(PullRequestService.class).find(getProject(), requestNumber);
 				if (request == null)
 					throw new EntityNotFoundException("Unable to find pull request #" + requestNumber + " in project " + getProject());
 				Preconditions.checkState(!request.isValid());
@@ -81,7 +81,7 @@ public class InvalidPullRequestPage extends ProjectPage {
 
 			@Override
 			public void onClick() {
-				OneDev.getInstance(PullRequestService.class).delete(getPullRequest());
+				Cheeta.getInstance(PullRequestService.class).delete(getPullRequest());
 				
 				Session.get().success(MessageFormat.format(_T("Pull request #{0} deleted"), getPullRequest().getNumber()));
 				

@@ -1,12 +1,12 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import java.text.MessageFormat;
 import java.util.Date;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
 
 public class PullRequestReviewRequested extends PullRequestEvent {
 
@@ -25,7 +25,7 @@ public class PullRequestReviewRequested extends PullRequestEvent {
 	}
 
 	public User getReviewer() {
-		return OneDev.getInstance(UserService.class).load(reviewerId);
+		return Cheeta.getInstance(UserService.class).load(reviewerId);
 	}
 
 	@Override

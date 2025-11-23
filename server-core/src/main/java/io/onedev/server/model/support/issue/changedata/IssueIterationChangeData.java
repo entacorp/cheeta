@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.changedata;
+package io.cheeta.server.model.support.issue.changedata;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.User;
-import io.onedev.server.notification.ActivityDetail;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.User;
+import io.cheeta.server.notification.ActivityDetail;
 
 public class IssueIterationChangeData extends IssueChangeData {
 

@@ -1,4 +1,4 @@
-onedev.server.floating = {
+cheeta.server.floating = {
 	init: function(floatingId, alignment, noNarrowThanTarget, neverShrink, animation, closeCallback) {
 		var $floating = $("#" + floatingId);
 		$floating.data("closeCallback", closeCallback);

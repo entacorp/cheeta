@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.setting.authorization;
+package io.cheeta.server.web.page.project.setting.authorization;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 import java.io.Serializable;
 import java.util.ArrayList;

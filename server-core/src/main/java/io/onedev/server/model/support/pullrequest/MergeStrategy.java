@@ -1,16 +1,16 @@
-package io.onedev.server.model.support.pullrequest;
+package io.cheeta.server.model.support.pullrequest;
 
 import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.commons.utils.WordUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
+import io.cheeta.commons.utils.WordUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
 
 public enum MergeStrategy {
 	
@@ -78,7 +78,7 @@ public enum MergeStrategy {
 	}
 	
 	private static GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	@Override

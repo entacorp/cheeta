@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.admin.buildsetting.jobexecutor;
+package io.cheeta.server.web.page.admin.buildsetting.jobexecutor;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class JobExecutorBean implements Serializable {

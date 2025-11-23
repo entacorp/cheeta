@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
 import java.io.Serializable;
 
@@ -6,8 +6,8 @@ import org.jspecify.annotations.Nullable;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.util.ReflectionUtils;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.util.ReflectionUtils;
 
 class ExampleProvider {
 	

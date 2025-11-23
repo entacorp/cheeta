@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.offcanvas;
+package io.cheeta.server.web.component.offcanvas;
 
 import org.jspecify.annotations.Nullable;
 

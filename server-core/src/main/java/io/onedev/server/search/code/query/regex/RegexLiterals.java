@@ -1,6 +1,6 @@
-package io.onedev.server.search.code.query.regex;
+package io.cheeta.server.search.code.query.regex;
 
-import static io.onedev.server.search.code.IndexConstants.NGRAM_SIZE;
+import static io.cheeta.server.search.code.IndexConstants.NGRAM_SIZE;
 
 import java.util.List;
 
@@ -18,8 +18,8 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Strings;
 
-import io.onedev.server.search.code.query.NGramLuceneQuery;
-import io.onedev.server.search.code.query.TooGeneralQueryException;
+import io.cheeta.server.search.code.query.NGramLuceneQuery;
+import io.cheeta.server.search.code.query.TooGeneralQueryException;
 
 public class RegexLiterals {
 	

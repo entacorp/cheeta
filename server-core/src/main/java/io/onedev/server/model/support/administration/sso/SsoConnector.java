@@ -1,13 +1,13 @@
-package io.onedev.server.model.support.administration.sso;
+package io.cheeta.server.model.support.administration.sso;
 
 import java.io.Serializable;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.page.security.SsoProcessPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.page.security.SsoProcessPage;
 
 @Editable
 public abstract class SsoConnector implements Serializable {
@@ -17,7 +17,7 @@ public abstract class SsoConnector implements Serializable {
 	public abstract String getButtonImageUrl();
 	
 	public final URI getCallbackUri(String providerName) {
-		String serverUrl = OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+		String serverUrl = Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 		try {
 			return new URI(serverUrl + "/" + SsoProcessPage.MOUNT_PATH + "/" 
 					+ SsoProcessPage.STAGE_CALLBACK + "/" + providerName);

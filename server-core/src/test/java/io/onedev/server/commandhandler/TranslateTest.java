@@ -1,4 +1,4 @@
-package io.onedev.server.commandhandler;
+package io.cheeta.server.commandhandler;
 
 import static org.junit.Assert.assertArrayEquals;
 

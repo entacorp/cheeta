@@ -1,4 +1,4 @@
-package io.onedev.server.web.page;
+package io.cheeta.server.web.page;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.RestartResponseException;
@@ -7,9 +7,9 @@ import org.apache.wicket.core.request.handler.RenderPageRequestHandler.RedirectP
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.page.layout.MainMenuCustomization;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.page.layout.MainMenuCustomization;
 
 public class HomePage extends LayoutPage {
 
@@ -22,7 +22,7 @@ public class HomePage extends LayoutPage {
 		
 		failsafe = params.get(PARAM_FAILSAFE).toBoolean(false);
 		
-		PageProvider pageProvider = OneDev.getInstance(MainMenuCustomization.class).getHomePage(failsafe);
+		PageProvider pageProvider = Cheeta.getInstance(MainMenuCustomization.class).getHomePage(failsafe);
 		throw new RestartResponseException(pageProvider, RedirectPolicy.NEVER_REDIRECT);
 	}
 

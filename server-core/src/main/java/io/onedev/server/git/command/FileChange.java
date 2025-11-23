@@ -1,4 +1,4 @@
-package io.onedev.server.git.command;
+package io.cheeta.server.git.command;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -7,10 +7,10 @@ import java.util.Set;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.util.FileExtension;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.server.util.FileExtension;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
 
 public class FileChange implements Serializable {
 	

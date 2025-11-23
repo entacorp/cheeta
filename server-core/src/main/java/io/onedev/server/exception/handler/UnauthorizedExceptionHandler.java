@@ -1,8 +1,8 @@
-package io.onedev.server.exception.handler;
+package io.cheeta.server.exception.handler;
 
-import io.onedev.server.exception.HttpResponse;
-import io.onedev.server.exception.HttpResponseBody;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.exception.HttpResponse;
+import io.cheeta.server.exception.HttpResponseBody;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +22,7 @@ public class UnauthorizedExceptionHandler extends AbstractExceptionHandler<Unaut
 		
 		if (SecurityUtils.isAnonymous()) {
 			MultivaluedMap<String, String> headers = new MultivaluedHashMap<>();
-			headers.putSingle("WWW-Authenticate", HttpServletRequest.BASIC_AUTH + " realm=\"OneDev\"");
+			headers.putSingle("WWW-Authenticate", HttpServletRequest.BASIC_AUTH + " realm=\"Cheeta\"");
 			return new HttpResponse(HttpServletResponse.SC_UNAUTHORIZED, new HttpResponseBody(false, errorMessage), headers);
 		} else {
 			return new HttpResponse(HttpServletResponse.SC_FORBIDDEN, errorMessage);

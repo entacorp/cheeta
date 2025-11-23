@@ -1,12 +1,12 @@
-package io.onedev.server.web.page.project.pullrequests.detail.operationdlg;
+package io.cheeta.server.web.page.project.pullrequests.detail.operationdlg;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestUpdateService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestUpdate;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestUpdateService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestUpdate;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -117,7 +117,7 @@ public abstract class ObsoleteUpdateAwarePanel extends Panel {
 						ObsoleteUpdateAwarePanel.this.getMarkupId(), form.getMarkupId()));
 				target.appendJavaScript(String.format(""
 						+ "if ($('#%s').data('dirty')) "
-						+ "  onedev.server.form.markDirty($('#%s'))", 
+						+ "  cheeta.server.form.markDirty($('#%s'))", 
 						ObsoleteUpdateAwarePanel.this.getMarkupId(), form.getMarkupId()));
 			}
 
@@ -140,7 +140,7 @@ public abstract class ObsoleteUpdateAwarePanel extends Panel {
 	}
 	
 	protected final PullRequestUpdate getLatestUpdate() {
-		return OneDev.getInstance(PullRequestUpdateService.class).load(latestUpdateId);
+		return Cheeta.getInstance(PullRequestUpdateService.class).load(latestUpdateId);
 	}
 	
 	protected abstract String getTitle();

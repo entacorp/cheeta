@@ -1,8 +1,8 @@
-package io.onedev.server.imports;
+package io.cheeta.server.imports;
 
 import java.util.Collection;
 
-import io.onedev.commons.loader.ExtensionPoint;
+import io.cheeta.commons.loader.ExtensionPoint;
 
 @ExtensionPoint
 public interface ProjectImporterContribution {

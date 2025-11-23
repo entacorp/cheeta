@@ -40,9 +40,9 @@
 	if (lastIndex != -1) {
 		var filePrefix = file.substr(0, lastIndex); 
 		var fileSuffix = file.substr(lastIndex);
-		file = filePrefix + "-ver-" + onedev.server.bootTimestamp + fileSuffix;
+		file = filePrefix + "-ver-" + cheeta.server.bootTimestamp + fileSuffix;
 	} else {
-		file = file + "-ver-" + onedev.server.bootTimestamp;
+		file = file + "-ver-" + cheeta.server.bootTimestamp;
 	}
 	
     if (options && options.loadMode) {

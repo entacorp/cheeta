@@ -1,4 +1,4 @@
-package io.onedev.server.util.oauth;
+package io.cheeta.server.util.oauth;
 
 import java.io.Serializable;
 

@@ -1,23 +1,23 @@
-package io.onedev.server.web.resource;
+package io.cheeta.server.web.resource;
 
 import com.google.common.base.Splitter;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.LfsObject;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IOUtils;
-import io.onedev.server.util.LongRange;
-import io.onedev.server.web.mapper.ProjectMapperUtils;
-import io.onedev.server.web.util.MimeUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.LfsObject;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IOUtils;
+import io.cheeta.server.util.LongRange;
+import io.cheeta.server.web.mapper.ProjectMapperUtils;
+import io.cheeta.server.web.util.MimeUtils;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -174,11 +174,11 @@ public class RawBlobResource extends AbstractResource {
 	}
 
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 
 	public static PageParameters paramsOf(Project project, BlobIdent blobIdent) {

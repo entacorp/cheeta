@@ -1,24 +1,24 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
-import static io.onedev.server.model.AbstractEntity.PROP_NUMBER;
-import static io.onedev.server.model.Issue.PROP_BOARD_POSITION;
-import static io.onedev.server.model.Issue.PROP_COMMENT_COUNT;
-import static io.onedev.server.model.Issue.PROP_CONFUSED_COUNT;
-import static io.onedev.server.model.Issue.PROP_EYES_COUNT;
-import static io.onedev.server.model.Issue.PROP_HEART_COUNT;
-import static io.onedev.server.model.Issue.PROP_ROCKET_COUNT;
-import static io.onedev.server.model.Issue.PROP_SMILE_COUNT;
-import static io.onedev.server.model.Issue.PROP_STATE;
-import static io.onedev.server.model.Issue.PROP_SUBMIT_DATE;
-import static io.onedev.server.model.Issue.PROP_TADA_COUNT;
-import static io.onedev.server.model.Issue.PROP_THUMBS_DOWN_COUNT;
-import static io.onedev.server.model.Issue.PROP_THUMBS_UP_COUNT;
-import static io.onedev.server.model.Issue.PROP_TITLE;
-import static io.onedev.server.model.Issue.PROP_UUID;
-import static io.onedev.server.model.Issue.PROP_VOTE_COUNT;
-import static io.onedev.server.model.IssueSchedule.NAME_ITERATION;
-import static io.onedev.server.search.entity.EntitySort.Direction.DESCENDING;
+import static io.cheeta.server.model.AbstractEntity.PROP_NUMBER;
+import static io.cheeta.server.model.Issue.PROP_BOARD_POSITION;
+import static io.cheeta.server.model.Issue.PROP_COMMENT_COUNT;
+import static io.cheeta.server.model.Issue.PROP_CONFUSED_COUNT;
+import static io.cheeta.server.model.Issue.PROP_EYES_COUNT;
+import static io.cheeta.server.model.Issue.PROP_HEART_COUNT;
+import static io.cheeta.server.model.Issue.PROP_ROCKET_COUNT;
+import static io.cheeta.server.model.Issue.PROP_SMILE_COUNT;
+import static io.cheeta.server.model.Issue.PROP_STATE;
+import static io.cheeta.server.model.Issue.PROP_SUBMIT_DATE;
+import static io.cheeta.server.model.Issue.PROP_TADA_COUNT;
+import static io.cheeta.server.model.Issue.PROP_THUMBS_DOWN_COUNT;
+import static io.cheeta.server.model.Issue.PROP_THUMBS_UP_COUNT;
+import static io.cheeta.server.model.Issue.PROP_TITLE;
+import static io.cheeta.server.model.Issue.PROP_UUID;
+import static io.cheeta.server.model.Issue.PROP_VOTE_COUNT;
+import static io.cheeta.server.model.IssueSchedule.NAME_ITERATION;
+import static io.cheeta.server.search.entity.EntitySort.Direction.DESCENDING;
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.comparingInt;
 
@@ -68,42 +68,42 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.attachment.AttachmentStorageSupport;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.entityreference.EntityReference;
-import io.onedev.server.entityreference.IssueReference;
-import io.onedev.server.model.support.EntityWatch;
-import io.onedev.server.model.support.LastActivity;
-import io.onedev.server.model.support.ProjectBelonging;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.search.entity.EntitySort;
-import io.onedev.server.search.entity.IssueSortField;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.facade.IssueFacade;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.component.iteration.burndown.BurndownIndicators;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.util.IssueAware;
-import io.onedev.server.web.util.WicketUtils;
-import io.onedev.server.xodus.CommitInfoService;
-import io.onedev.server.xodus.PullRequestInfoService;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.attachment.AttachmentStorageSupport;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.entityreference.EntityReference;
+import io.cheeta.server.entityreference.IssueReference;
+import io.cheeta.server.model.support.EntityWatch;
+import io.cheeta.server.model.support.LastActivity;
+import io.cheeta.server.model.support.ProjectBelonging;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.search.entity.EntitySort;
+import io.cheeta.server.search.entity.IssueSortField;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.facade.IssueFacade;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.component.iteration.burndown.BurndownIndicators;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.util.IssueAware;
+import io.cheeta.server.web.util.WicketUtils;
+import io.cheeta.server.xodus.CommitInfoService;
+import io.cheeta.server.xodus.PullRequestInfoService;
+import io.cheeta.server.xodus.VisitInfoService;
 
 @Entity
 @Table(
@@ -505,7 +505,7 @@ public class Issue extends ProjectBelonging implements AttachmentStorageSupport 
 	}
 	
 	public String getThreadingReferences() {
-		var threadingReferences = "<" + getUUID() + "@onedev>";
+		var threadingReferences = "<" + getUUID() + "@cheeta>";
 		if (getMessageId() != null)
 			threadingReferences = getMessageId() + " " + threadingReferences;
 		return threadingReferences;
@@ -865,7 +865,7 @@ public class Issue extends ProjectBelonging implements AttachmentStorageSupport 
 	public boolean isVisitedAfter(Date date) {
 		User user = SecurityUtils.getAuthUser();
 		if (user != null) {
-			Date visitDate = OneDev.getInstance(VisitInfoService.class).getIssueVisitDate(user, this);
+			Date visitDate = Cheeta.getInstance(VisitInfoService.class).getIssueVisitDate(user, this);
 			return visitDate != null && visitDate.getTime()>date.getTime();
 		} else {
 			return true;
@@ -950,11 +950,11 @@ public class Issue extends ProjectBelonging implements AttachmentStorageSupport 
 	}
 	
 	private GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	public long getFieldOrdinal(String fieldName, String fieldValue) {
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		FieldSpec fieldSpec = issueSetting.getFieldSpec(fieldName);
 		if (fieldSpec != null) 
 			return fieldSpec.getOrdinal(fieldValue);
@@ -1102,7 +1102,7 @@ public class Issue extends ProjectBelonging implements AttachmentStorageSupport 
 		if (participants == null) {
 			participants = new LinkedHashSet<>();
 			participants.add(getSubmitter());
-			UserService userService = OneDev.getInstance(UserService.class);
+			UserService userService = Cheeta.getInstance(UserService.class);
 			for (IssueField field: getFields()) {
 				if (field.getType().equals(InputSpec.USER)) {
 					if (field.getValue() != null) {
@@ -1112,7 +1112,7 @@ public class Issue extends ProjectBelonging implements AttachmentStorageSupport 
 					}
 				} else if (field.getType().equals(InputSpec.GROUP)) {
 					if (field.getValue() != null) {
-						Group group = OneDev.getInstance(GroupService.class).find(field.getValue());
+						Group group = Cheeta.getInstance(GroupService.class).find(field.getValue());
 						if (group != null)
 							participants.addAll(group.getMembers());
 					}
@@ -1158,13 +1158,13 @@ public class Issue extends ProjectBelonging implements AttachmentStorageSupport 
 		if (pullRequests == null) {
 			pullRequests = new ArrayList<>();
 
-			PullRequestInfoService infoManager = OneDev.getInstance(PullRequestInfoService.class);
+			PullRequestInfoService infoManager = Cheeta.getInstance(PullRequestInfoService.class);
 			Collection<Long> pullRequestIds = new HashSet<>();
 			for (ProjectScopedCommit commit: getFixCommits(false)) 
 				pullRequestIds.addAll(infoManager.getPullRequestIds(commit.getProject(), commit.getCommitId()));		
 			
 			for (Long requestId: pullRequestIds) {
-				PullRequest request = OneDev.getInstance(PullRequestService.class).get(requestId);
+				PullRequest request = Cheeta.getInstance(PullRequestService.class).get(requestId);
 				if (request != null && !pullRequests.contains(request))
 					pullRequests.add(request);
 			}
@@ -1175,7 +1175,7 @@ public class Issue extends ProjectBelonging implements AttachmentStorageSupport 
 	
 	private List<ProjectScopedCommit> readFixCommits(boolean headOnly) {
 		var fixCommits = new ArrayList<ProjectScopedCommit>();
-		CommitInfoService commitInfoService = OneDev.getInstance(CommitInfoService.class);
+		CommitInfoService commitInfoService = Cheeta.getInstance(CommitInfoService.class);
 
 		getProject().getTree().stream().filter(Project::isCodeManagement).forEach(it-> {
 			for (ObjectId commitId: commitInfoService.getFixCommits(it.getId(), getId(), headOnly)) {
@@ -1212,7 +1212,7 @@ public class Issue extends ProjectBelonging implements AttachmentStorageSupport 
 	}
 	
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(this, true);
+		return Cheeta.getInstance(UrlService.class).urlFor(this, true);
 	}
 	
 	public Collection<Iteration> getIterations() {

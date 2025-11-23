@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.branch.picker;
+package io.cheeta.server.web.component.branch.picker;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -6,11 +6,11 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public abstract class BranchPicker extends DropdownLink {
 

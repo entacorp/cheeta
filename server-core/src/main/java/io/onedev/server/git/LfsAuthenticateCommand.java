@@ -16,19 +16,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.ssh.SshAuthenticator;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.UrlService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.ssh.SshAuthenticator;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.UrlService;
 import org.apache.sshd.server.Environment;
 import org.apache.sshd.server.ExitCallback;
 import org.apache.sshd.server.channel.ChannelSession;
@@ -86,17 +86,17 @@ public class LfsAuthenticateCommand implements Command, ServerSessionAware {
 
     @Override
     public void start(ChannelSession channel, Environment env) throws IOException {
-    	SshAuthenticator authenticator = OneDev.getInstance(SshAuthenticator.class);
+    	SshAuthenticator authenticator = Cheeta.getInstance(SshAuthenticator.class);
     	Long userId = authenticator.getPublicKeyOwnerId(session);
-    	OneDev.getInstance(ExecutorService.class).submit(() -> {
-			SessionService sessionService = OneDev.getInstance(SessionService.class);
+    	Cheeta.getInstance(ExecutorService.class).submit(() -> {
+			SessionService sessionService = Cheeta.getInstance(SessionService.class);
 			sessionService.openSession(); 
 			try {
-				String accessToken = OneDev.getInstance(AccessTokenService.class).createTemporal(userId, 300);
+				String accessToken = Cheeta.getInstance(AccessTokenService.class).createTemporal(userId, 300);
 				String projectPath = StringUtils.strip(StringUtils.substringBefore(
 						commandString.substring(COMMAND_PREFIX.length()+1), " "), "/\\");
 				
-				var projectService = OneDev.getInstance(ProjectService.class);
+				var projectService = Cheeta.getInstance(ProjectService.class);
 				var project = projectService.findByPath(projectPath);
 				if (project == null && projectPath.endsWith(".git")) {
 					projectPath = StringUtils.substringBeforeLast(projectPath, ".");
@@ -104,12 +104,12 @@ public class LfsAuthenticateCommand implements Command, ServerSessionAware {
 				}
 				if (project == null)
 					throw new ExplicitException("Project not found: " + projectPath);
-				String url = OneDev.getInstance(UrlService.class).cloneUrlFor(project, false);
+				String url = Cheeta.getInstance(UrlService.class).cloneUrlFor(project, false);
 				Map<Object, Object> response = CollectionUtils.newHashMap(
 						"href", url + ".git/info/lfs", 
 						"header", CollectionUtils.newHashMap(
 								"Authorization", KubernetesHelper.BEARER + " " + accessToken)); 
-				out.write(OneDev.getInstance(ObjectMapper.class).writeValueAsBytes(response));
+				out.write(Cheeta.getInstance(ObjectMapper.class).writeValueAsBytes(response));
 				callback.onExit(0);
 			} catch (Exception e) {
 				logger.error("Error executing " + COMMAND_PREFIX, e);

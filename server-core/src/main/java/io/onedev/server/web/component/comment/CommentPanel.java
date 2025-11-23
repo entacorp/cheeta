@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.comment;
+package io.cheeta.server.web.component.comment;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,19 +27,19 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.hibernate.StaleStateException;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.EntityReaction;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.component.markdown.ContentQuoted;
-import io.onedev.server.web.component.markdown.ContentVersionSupport;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.component.reaction.ReactionListPanel;
-import io.onedev.server.web.util.DeleteCallback;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.EntityReaction;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.component.markdown.ContentQuoted;
+import io.cheeta.server.web.component.markdown.ContentVersionSupport;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.component.reaction.ReactionListPanel;
+import io.cheeta.server.web.util.DeleteCallback;
 
 public abstract class CommentPanel extends Panel {
 

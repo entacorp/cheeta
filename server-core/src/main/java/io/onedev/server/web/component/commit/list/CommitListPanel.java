@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.commit.list;
+package io.cheeta.server.web.component.commit.list;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -54,43 +54,43 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.search.commit.CommitCriteria;
-import io.onedev.server.search.commit.CommitQuery;
-import io.onedev.server.search.commit.FuzzyCriteria;
-import io.onedev.server.search.commit.MessageCriteria;
-import io.onedev.server.search.commit.PathCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.ProjectAndRevision;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.behavior.CommitQueryBehavior;
-import io.onedev.server.web.behavior.RunTaskBehavior;
-import io.onedev.server.web.component.commit.message.CommitMessagePanel;
-import io.onedev.server.web.component.commit.status.CommitStatusLink;
-import io.onedev.server.web.component.commit.status.CommitStatusSupport;
-import io.onedev.server.web.component.contributorpanel.ContributorPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.gitsignature.SignatureStatusPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.component.savedquery.SavedQueriesClosed;
-import io.onedev.server.web.component.savedquery.SavedQueriesOpened;
-import io.onedev.server.web.component.user.contributoravatars.ContributorAvatars;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.page.project.compare.RevisionComparePage;
-import io.onedev.server.web.util.QuerySaveSupport;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.search.commit.CommitCriteria;
+import io.cheeta.server.search.commit.CommitQuery;
+import io.cheeta.server.search.commit.FuzzyCriteria;
+import io.cheeta.server.search.commit.MessageCriteria;
+import io.cheeta.server.search.commit.PathCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.ProjectAndRevision;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.behavior.CommitQueryBehavior;
+import io.cheeta.server.web.behavior.RunTaskBehavior;
+import io.cheeta.server.web.component.commit.message.CommitMessagePanel;
+import io.cheeta.server.web.component.commit.status.CommitStatusLink;
+import io.cheeta.server.web.component.commit.status.CommitStatusSupport;
+import io.cheeta.server.web.component.contributorpanel.ContributorPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.gitsignature.SignatureStatusPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.savedquery.SavedQueriesClosed;
+import io.cheeta.server.web.component.savedquery.SavedQueriesOpened;
+import io.cheeta.server.web.component.user.contributoravatars.ContributorAvatars;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.compare.RevisionComparePage;
+import io.cheeta.server.web.util.QuerySaveSupport;
 
 public abstract class CommitListPanel extends Panel {
 
@@ -536,7 +536,7 @@ public abstract class CommitListPanel extends Panel {
 	}
 	
 	private BuildService getBuildService() {
-		return OneDev.getInstance(BuildService.class);
+		return Cheeta.getInstance(BuildService.class);
 	}
 	
 	private Collection<ObjectId> getCommitIdsToQueryStatus() {
@@ -731,7 +731,7 @@ public abstract class CommitListPanel extends Panel {
 
 	private String renderCommitGraph() {
 		String jsonOfCommits = asJSON(commitsModel.getObject().current);
-		return String.format("onedev.server.commitList.renderGraph('%s', %s);", body.getMarkupId(), jsonOfCommits);
+		return String.format("cheeta.server.commitList.renderGraph('%s', %s);", body.getMarkupId(), jsonOfCommits);
 	}
 	
 	private void sort(List<RevCommit> commits, int from) {
@@ -795,7 +795,7 @@ public abstract class CommitListPanel extends Panel {
 			}
 		}
 		try {
-			return OneDev.getInstance(ObjectMapper.class).writeValueAsString(commitIndexes);
+			return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(commitIndexes);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
@@ -807,12 +807,12 @@ public abstract class CommitListPanel extends Panel {
 		response.render(JavaScriptHeaderItem.forReference(new CommitListResourceReference()));
 		
 		String jsonOfCommits = asJSON(commitsModel.getObject().current);
-		String script = String.format("onedev.server.commitList.onDomReady('%s', %s);", body.getMarkupId(), jsonOfCommits);		
+		String script = String.format("cheeta.server.commitList.onDomReady('%s', %s);", body.getMarkupId(), jsonOfCommits);		
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	/*

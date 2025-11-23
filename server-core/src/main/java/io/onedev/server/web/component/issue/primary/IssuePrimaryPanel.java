@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.issue.primary;
+package io.cheeta.server.web.component.issue.primary;
 
-import static io.onedev.server.security.SecurityUtils.canAccessIssue;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.security.SecurityUtils.canAccessIssue;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -43,50 +43,50 @@ import org.apache.wicket.request.http.WebRequest;
 import org.apache.wicket.request.http.WebResponse;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IssueReactionService;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CommentRevision;
-import io.onedev.server.model.support.EntityReaction;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.EmailAddressUtils;
-import io.onedev.server.util.LinkDescriptor;
-import io.onedev.server.util.LinkGroup;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.comment.CommentHistoryLink;
-import io.onedev.server.web.component.comment.CommentPanel;
-import io.onedev.server.web.component.comment.ReactionSupport;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.issue.IssueStateBadge;
-import io.onedev.server.web.component.issue.choice.IssueChoiceProvider;
-import io.onedev.server.web.component.issue.create.NewIssueEditor;
-import io.onedev.server.web.component.issue.operation.TransitionMenuLink;
-import io.onedev.server.web.component.markdown.ContentVersionSupport;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.issues.detail.IssueActivitiesPage;
-import io.onedev.server.web.util.DeleteCallback;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IssueReactionService;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CommentRevision;
+import io.cheeta.server.model.support.EntityReaction;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.EmailAddressUtils;
+import io.cheeta.server.util.LinkDescriptor;
+import io.cheeta.server.util.LinkGroup;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.comment.CommentHistoryLink;
+import io.cheeta.server.web.component.comment.CommentPanel;
+import io.cheeta.server.web.component.comment.ReactionSupport;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.issue.IssueStateBadge;
+import io.cheeta.server.web.component.issue.choice.IssueChoiceProvider;
+import io.cheeta.server.web.component.issue.create.NewIssueEditor;
+import io.cheeta.server.web.component.issue.operation.TransitionMenuLink;
+import io.cheeta.server.web.component.markdown.ContentVersionSupport;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.issues.detail.IssueActivitiesPage;
+import io.cheeta.server.web.util.DeleteCallback;
 
 public abstract class IssuePrimaryPanel extends Panel {
 
@@ -174,7 +174,7 @@ public abstract class IssuePrimaryPanel extends Panel {
 			@Override
 			protected void onSaveComment(AjaxRequestTarget target, String comment) {
 				var user = SecurityUtils.getUser();
-				OneDev.getInstance(IssueChangeService.class).changeDescription(user, getIssue(), comment);
+				Cheeta.getInstance(IssueChangeService.class).changeDescription(user, getIssue(), comment);
 				((BasePage)getPage()).notifyObservablesChange(target, getIssue().getChangeObservables(false));
 			}
 
@@ -235,7 +235,7 @@ public abstract class IssuePrimaryPanel extends Panel {
 					
 					@Override
 					public void onToggleEmoji(AjaxRequestTarget target, String emoji) {
-						OneDev.getInstance(IssueReactionService.class).toggleEmoji(
+						Cheeta.getInstance(IssueReactionService.class).toggleEmoji(
 							SecurityUtils.getUser(), 
 							getIssue(), 
 							emoji);
@@ -683,15 +683,15 @@ public abstract class IssuePrimaryPanel extends Panel {
 	}
 
 	private LinkSpecService getLinkSpecService() {
-		return OneDev.getInstance(LinkSpecService.class);
+		return Cheeta.getInstance(LinkSpecService.class);
 	}
 
 	private IssueService getIssueService() {
-		return OneDev.getInstance(IssueService.class);
+		return Cheeta.getInstance(IssueService.class);
 	}
 	
 	private IssueChangeService getIssueChangeService() {
-		return OneDev.getInstance(IssueChangeService.class);
+		return Cheeta.getInstance(IssueChangeService.class);
 	}
 	
 	private void notifyIssueChange(IPartialPageRequestHandler handler, Issue issue) {

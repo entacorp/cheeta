@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
-import io.onedev.commons.loader.AbstractPluginModule;
+import io.cheeta.commons.loader.AbstractPluginModule;
 
 /**
  * NOTE: Do not forget to rename moduleClass property defined in the pom if you've renamed this class.

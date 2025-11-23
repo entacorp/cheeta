@@ -1,8 +1,8 @@
-package io.onedev.server.job.log;
+package io.cheeta.server.job.log;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
 import org.jetbrains.annotations.Nullable;
 
 public class ServerJobLogger extends TaskLogger {
@@ -18,7 +18,7 @@ public class ServerJobLogger extends TaskLogger {
 	
 	@Override
 	public void log(String message, @Nullable String sessionId) {
-		var clusterService = OneDev.getInstance(ClusterService.class);
+		var clusterService = Cheeta.getInstance(ClusterService.class);
 		clusterService.runOnServer(server, new LogTask(jobToken, message, sessionId));	
 	}
 	

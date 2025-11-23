@@ -1,20 +1,20 @@
-package io.onedev.server.web.component.pullrequest.assignment;
+package io.cheeta.server.web.component.pullrequest.assignment;
 
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.base.BasePage;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestAssignmentService;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestAssignment;
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.select2.SelectToActChoice;
-import io.onedev.server.web.component.user.choice.UserChoiceResourceReference;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestAssignmentService;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestAssignment;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.select2.SelectToActChoice;
+import io.cheeta.server.web.component.user.choice.UserChoiceResourceReference;
 
 public abstract class AssigneeChoice extends SelectToActChoice<User> {
 
@@ -36,9 +36,9 @@ public abstract class AssigneeChoice extends SelectToActChoice<User> {
 		super.onInitialize();
 		
 		getSettings().setPlaceholder(_T("Add assignee..."));
-		getSettings().setFormatResult("onedev.server.userChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.userChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.userChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.userChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.userChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.userChoiceFormatter.escapeMarkup");
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public abstract class AssigneeChoice extends SelectToActChoice<User> {
 		assignment.setUser(user);
 
 		if (!getPullRequest().isNew()) {
-			OneDev.getInstance(PullRequestAssignmentService.class).create(assignment);
+			Cheeta.getInstance(PullRequestAssignmentService.class).create(assignment);
 			((BasePage)getPage()).notifyObservableChange(target,
 					PullRequest.getChangeObservable(getPullRequest().getId()));
 		} else {

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.chart.line;
+package io.cheeta.server.web.component.chart.line;
 
 import org.jspecify.annotations.Nullable;
 
@@ -11,8 +11,8 @@ import org.apache.wicket.model.IModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.page.base.BasePage;
 
 public class LineChartPanel extends GenericPanel<LineSeries> {
 
@@ -32,9 +32,9 @@ public class LineChartPanel extends GenericPanel<LineSeries> {
 		response.render(JavaScriptHeaderItem.forReference(new LineChartResourceReference()));
 		
 		try {
-			ObjectMapper mapper = OneDev.getInstance(ObjectMapper.class);
+			ObjectMapper mapper = Cheeta.getInstance(ObjectMapper.class);
 			BasePage page = (BasePage) getPage();
-			String script = String.format("onedev.server.lineChart.onDomReady('%s', %s, %s, %b);", 
+			String script = String.format("cheeta.server.lineChart.onDomReady('%s', %s, %s, %b);", 
 					getMarkupId(true), mapper.writeValueAsString(getSeries()), 
 					getSeries().getYAxisValueFormatter(), page.isDarkMode());
 			response.render(OnDomReadyHeaderItem.forScript(script));

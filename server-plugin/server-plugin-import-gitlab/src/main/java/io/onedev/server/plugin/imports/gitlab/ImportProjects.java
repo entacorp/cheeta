@@ -1,24 +1,24 @@
-package io.onedev.server.plugin.imports.gitlab;
+package io.cheeta.server.plugin.imports.gitlab;
 
 import java.util.Collection;
 import java.util.List;
 
 import javax.validation.constraints.Size;
 
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ProjectChoice;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ProjectChoice;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 @Editable
 public class ImportProjects extends ImportGroup {
 
 	private static final long serialVersionUID = 1L;
 
-	private String parentOneDevProject;
+	private String parentCheetaProject;
 	
 	private boolean all;
 	
@@ -26,15 +26,15 @@ public class ImportProjects extends ImportGroup {
 	
 	private List<String> gitLabProjects;
 
-	@Editable(order=200, name="Parent OneDev Project", description = "Optionally specify a OneDev project " +
+	@Editable(order=200, name="Parent Cheeta Project", description = "Optionally specify a Cheeta project " +
 			"to be used as parent of imported projects. Leave empty to import as root projects")
 	@ProjectChoice
-	public String getParentOneDevProject() {
-		return parentOneDevProject;
+	public String getParentCheetaProject() {
+		return parentCheetaProject;
 	}
 
-	public void setParentOneDevProject(String parentOneDevProject) {
-		this.parentOneDevProject = parentOneDevProject;
+	public void setParentCheetaProject(String parentCheetaProject) {
+		this.parentCheetaProject = parentCheetaProject;
 	}
 	
 	@Editable(order=300, name="Import All Projects")

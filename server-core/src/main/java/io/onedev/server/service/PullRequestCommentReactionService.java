@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestCommentReaction;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestCommentReaction;
+import io.cheeta.server.model.User;
 
 public interface PullRequestCommentReactionService extends EntityService<PullRequestCommentReaction> {
 

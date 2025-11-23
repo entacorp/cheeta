@@ -25,7 +25,7 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.http.WebResponse;
 import org.apache.wicket.util.lang.Args;
 
-import io.onedev.server.util.ComponentContext;
+import io.cheeta.server.util.ComponentContext;
 
 
 /**

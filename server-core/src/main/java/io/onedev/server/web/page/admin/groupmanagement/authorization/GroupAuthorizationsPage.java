@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.groupmanagement.authorization;
+package io.cheeta.server.web.page.admin.groupmanagement.authorization;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -15,16 +15,16 @@ import org.apache.wicket.feedback.FencedFeedbackPanel;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.GroupAuthorizationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.model.GroupAuthorization;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.page.admin.groupmanagement.GroupPage;
-import io.onedev.server.web.util.editbean.ProjectAuthorizationBean;
-import io.onedev.server.web.util.editbean.ProjectAuthorizationsBean;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.GroupAuthorizationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.model.GroupAuthorization;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupPage;
+import io.cheeta.server.web.util.editbean.ProjectAuthorizationBean;
+import io.cheeta.server.web.util.editbean.ProjectAuthorizationsBean;
 
 public class GroupAuthorizationsPage extends GroupPage {
 
@@ -91,15 +91,15 @@ public class GroupAuthorizationsPage extends GroupPage {
 	}
 
 	private RoleService getRoleService() {
-		return OneDev.getInstance(RoleService.class);
+		return Cheeta.getInstance(RoleService.class);
 	}
 
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private GroupAuthorizationService getGroupAuthorizationService() {
-		return OneDev.getInstance(GroupAuthorizationService.class);
+		return Cheeta.getInstance(GroupAuthorizationService.class);
 	}
 
 }

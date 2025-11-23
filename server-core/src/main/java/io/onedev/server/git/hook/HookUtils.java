@@ -1,12 +1,12 @@
-package io.onedev.server.git.hook;
+package io.cheeta.server.git.hook;
 
 import com.google.common.base.Preconditions;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.ServerConfig;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.CryptoUtils;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ServerConfig;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.CryptoUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.File;
@@ -32,8 +32,8 @@ public class HookUtils {
 	}
 	
 	public static Map<String, String> getHookEnvs(Long projectId, String principal) {
-		ServerConfig serverConfig = OneDev.getInstance(ServerConfig.class);
-		SettingService settingService = OneDev.getInstance(SettingService.class);
+		ServerConfig serverConfig = Cheeta.getInstance(ServerConfig.class);
+		SettingService settingService = Cheeta.getInstance(SettingService.class);
 		String hookUrl = "http://localhost:" + serverConfig.getHttpPort();
 		String curl = settingService.getSystemSetting().getCurlLocation().getExecutable();
 		

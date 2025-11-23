@@ -1,20 +1,20 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.search.entity.issue.FuzzyCriteria;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryParser;
-import io.onedev.server.search.entity.issue.ReferenceCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.page.project.issues.detail.IssueDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.search.entity.issue.FuzzyCriteria;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryParser;
+import io.cheeta.server.search.entity.issue.ReferenceCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.page.project.issues.detail.IssueDetailPage;
 
 public class IssueParam extends ParamSegment {
 
@@ -31,7 +31,7 @@ public class IssueParam extends ParamSegment {
 		List<Issue> issues;
 		var project = ParsedUrl.getProject(paramValues);
 		ProjectScope projectScope = new ProjectScope(project, false, false);
-		IssueService issueService = OneDev.getInstance(IssueService.class);
+		IssueService issueService = Cheeta.getInstance(IssueService.class);
 		var subject = SecurityUtils.getSubject();
 		if (matchWith.length() == 0) {
 			issues = issueService.query(subject, projectScope, new IssueQuery(), false, 0, count);
@@ -51,7 +51,7 @@ public class IssueParam extends ParamSegment {
 
 	@Override
 	public boolean isExactMatch(String matchWith, Map<String, String> paramValues) {
-		IssueService issueService = OneDev.getInstance(IssueService.class);
+		IssueService issueService = Cheeta.getInstance(IssueService.class);
 		try {
 			Long issueNumber = Long.valueOf(matchWith);
 			if (issueService.find(ParsedUrl.getProject(paramValues), issueNumber) != null) 

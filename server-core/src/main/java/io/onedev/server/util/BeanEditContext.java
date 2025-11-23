@@ -1,6 +1,6 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.editable.BeanDescriptor;
 
 public class BeanEditContext implements EditContext {
 	

@@ -1,13 +1,13 @@
-package io.onedev.server.search.commit;
+package io.cheeta.server.search.commit;
 
-import static io.onedev.server.search.commit.CommitCriteria.getRuleName;
-import static io.onedev.server.search.commit.CommitQueryLexer.BRANCH;
-import static io.onedev.server.search.commit.CommitQueryLexer.BUILD;
-import static io.onedev.server.search.commit.CommitQueryLexer.COMMIT;
-import static io.onedev.server.search.commit.CommitQueryLexer.DefaultBranch;
-import static io.onedev.server.search.commit.CommitQueryLexer.SINCE;
-import static io.onedev.server.search.commit.CommitQueryLexer.TAG;
-import static io.onedev.server.search.commit.CommitQueryLexer.UNTIL;
+import static io.cheeta.server.search.commit.CommitCriteria.getRuleName;
+import static io.cheeta.server.search.commit.CommitQueryLexer.BRANCH;
+import static io.cheeta.server.search.commit.CommitQueryLexer.BUILD;
+import static io.cheeta.server.search.commit.CommitQueryLexer.COMMIT;
+import static io.cheeta.server.search.commit.CommitQueryLexer.DefaultBranch;
+import static io.cheeta.server.search.commit.CommitQueryLexer.SINCE;
+import static io.cheeta.server.search.commit.CommitQueryLexer.TAG;
+import static io.cheeta.server.search.commit.CommitQueryLexer.UNTIL;
 
 import java.io.Serializable;
 
@@ -15,13 +15,13 @@ import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.revwalk.RevCommit;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.entityreference.BuildReference;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.entityreference.BuildReference;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
 
 public class Revision implements Serializable {
 	
@@ -56,7 +56,7 @@ public class Revision implements Serializable {
 	
 	public Build getValueAsBuild(Project project) {
 		var buildReference = BuildReference.of(value, project);
-		var buildService = OneDev.getInstance(BuildService.class);
+		var buildService = Cheeta.getInstance(BuildService.class);
 		var build = buildService.find(buildReference.getProject(), buildReference.getNumber());
 		if (build == null)
 			throw new ExplicitException("Unable to find build: " + value);

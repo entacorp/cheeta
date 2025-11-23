@@ -1,8 +1,8 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.Serializable;
 
-import io.onedev.server.model.Build;
+import io.cheeta.server.model.Build;
 
 public class ProjectBuildStatusStat implements Serializable {
 

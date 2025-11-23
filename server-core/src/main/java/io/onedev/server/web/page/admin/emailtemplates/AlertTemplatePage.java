@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.emailtemplates;
+package io.cheeta.server.web.page.admin.emailtemplates;
 
-import io.onedev.server.util.CollectionUtils;
+import io.cheeta.server.util.CollectionUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -8,8 +8,8 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import java.text.MessageFormat;
 import java.util.Map;
 
-import static io.onedev.server.model.support.administration.emailtemplates.EmailTemplates.*;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates.*;
+import static io.cheeta.server.web.translation.Translation._T;
 
 public class AlertTemplatePage extends AbstractTemplatePage {
 
@@ -35,8 +35,8 @@ public class AlertTemplatePage extends AbstractTemplatePage {
 	@Override
 	protected Map<String, String> getVariableHelp() {
 		return CollectionUtils.newLinkedHashMap(
-				"alert", _T("<a href='https://code.onedev.io/onedev/server/~files/main/server-core/src/main/java/io/onedev/server/model/Alert.java'>alert</a> to display"),
-				"serverUrl", _T("root url of OneDev server"));
+				"alert", _T("<a href='https://code.cheeta.io/cheeta/server/~files/main/server-core/src/main/java/io/cheeta/server/model/Alert.java'>alert</a> to display"),
+				"serverUrl", _T("root url of Cheeta server"));
 	}
 
 	@Override

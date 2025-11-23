@@ -1,6 +1,6 @@
-package io.onedev.server.model.support.pullrequest;
+package io.cheeta.server.model.support.pullrequest;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,14 +11,14 @@ import java.util.List;
 import org.jspecify.annotations.Nullable;
 import javax.validation.Valid;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.UserChoice;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.WriteCode;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.UserChoice;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.WriteCode;
+import io.cheeta.server.util.usage.Usage;
 
 @Editable
 public class ProjectPullRequestSetting implements Serializable {
@@ -47,7 +47,7 @@ public class ProjectPullRequestSetting implements Serializable {
 	private static String getLfsDescription() {
 		if (!Bootstrap.isInDocker()) {
 			return _T("Whether or not to fetch LFS objects if pull request is opened from a different project. " +
-					"If this option is enabled, git lfs command needs to be installed on OneDev server");
+					"If this option is enabled, git lfs command needs to be installed on Cheeta server");
 		} else {
 			return _T("Whether or not to fetch LFS objects if pull request is opened from a different project.");
 		}

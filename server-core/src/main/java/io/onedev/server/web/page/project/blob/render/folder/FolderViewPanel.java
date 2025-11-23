@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.folder;
+package io.cheeta.server.web.page.project.blob.render.folder;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -30,27 +30,27 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.FileExtension;
-import io.onedev.server.util.FilterIterator;
-import io.onedev.server.util.ProgrammingLanguageDetector;
-import io.onedev.server.web.ajaxlistener.TrackViewStateListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.CtrlAwareOnClickAjaxBehavior;
-import io.onedev.server.web.component.blob.BlobIcon;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.component.user.card.PersonCardPanel;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
-import io.onedev.server.web.util.EditParamsAware;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.FileExtension;
+import io.cheeta.server.util.FilterIterator;
+import io.cheeta.server.util.ProgrammingLanguageDetector;
+import io.cheeta.server.web.ajaxlistener.TrackViewStateListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.CtrlAwareOnClickAjaxBehavior;
+import io.cheeta.server.web.component.blob.BlobIcon;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.component.user.card.PersonCardPanel;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.server.web.util.EditParamsAware;
 
 public class FolderViewPanel extends Panel {
 
@@ -68,7 +68,7 @@ public class FolderViewPanel extends Panel {
 				child.revision = context.getBlobIdent().revision;
 
 			BlobIdent oldBuildSpecIdent = new BlobIdent(context.getBlobIdent().revision,
-					".onedev-buildspec", FileMode.REGULAR_FILE.getBits());
+					".cheeta-buildspec", FileMode.REGULAR_FILE.getBits());
 			BlobIdent buildSpecIdent = new BlobIdent(context.getBlobIdent().revision,
 					BuildSpec.BLOB_PATH, FileMode.REGULAR_FILE.getBits());
 			if (children.contains(oldBuildSpecIdent)) {
@@ -199,7 +199,7 @@ public class FolderViewPanel extends Panel {
 				
 				if (context.getBlobIdent().path != null) 
 					pathLink.add(new Label("label", blobIdent.path.substring(context.getBlobIdent().path.length()+1)));
-				else if (blobIdent.path.equals(BuildSpec.BLOB_PATH) || blobIdent.path.equals(".onedev-buildspec"))
+				else if (blobIdent.path.equals(BuildSpec.BLOB_PATH) || blobIdent.path.equals(".cheeta-buildspec"))
 					pathLink.add(new Label("label", "<b>" + HtmlEscape.escapeHtml5(blobIdent.path) + "</b>").setEscapeModelStrings(false));
 				else
 					pathLink.add(new Label("label", blobIdent.path));
@@ -289,7 +289,7 @@ public class FolderViewPanel extends Panel {
 				userCard.setOutputMarkupId(true);
 				replace(userCard);
 				target.add(userCard);
-				target.appendJavaScript("onedev.server.folderView.onUserCardAvailable();");
+				target.appendJavaScript("cheeta.server.folderView.onUserCardAvailable();");
 			}
 			
 		});
@@ -298,7 +298,7 @@ public class FolderViewPanel extends Panel {
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	@Override
@@ -312,7 +312,7 @@ public class FolderViewPanel extends Panel {
 		String lastCommitsUrl = urlFor(new LastCommitsResourceReference(), params).toString();
 		CharSequence callback = userCardBehavior.getCallbackFunction(
 				CallbackParameter.explicit("name"), CallbackParameter.explicit("emailAddress"));
-		String script = String.format("onedev.server.folderView.onDomReady('%s', '%s', %s)", 
+		String script = String.format("cheeta.server.folderView.onDomReady('%s', '%s', %s)", 
 				getMarkupId(), lastCommitsUrl, callback); 
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

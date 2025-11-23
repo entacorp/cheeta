@@ -1,6 +1,6 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import static io.onedev.server.security.SecurityUtils.getAuthUser;
+import static io.cheeta.server.security.SecurityUtils.getAuthUser;
 
 import java.util.Date;
 
@@ -18,12 +18,12 @@ import javax.ws.rs.core.Response;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SshKeyService;
-import io.onedev.server.model.SshKey;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SshKeyService;
+import io.cheeta.server.model.SshKey;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 
 @Path("/ssh-keys")
 @Consumes(MediaType.APPLICATION_JSON)

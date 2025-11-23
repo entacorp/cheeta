@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.project.builds.detail.issues;
+package io.cheeta.server.web.page.project.builds.detail.issues;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.issue.FixedInBuildCriteria;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.web.component.issue.list.IssueListPanel;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.issue.FixedInBuildCriteria;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.web.component.issue.list.IssueListPanel;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.model.IModel;

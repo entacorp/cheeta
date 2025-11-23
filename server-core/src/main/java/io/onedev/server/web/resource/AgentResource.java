@@ -1,4 +1,4 @@
-package io.onedev.server.web.resource;
+package io.cheeta.server.web.resource;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -16,19 +16,19 @@ import org.apache.wicket.request.resource.AbstractResource;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.agent.Agent;
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TarUtils;
-import io.onedev.commons.utils.ZipUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.AgentTokenService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.AgentToken;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.agent.Agent;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TarUtils;
+import io.cheeta.commons.utils.ZipUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.AgentTokenService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.AgentToken;
+import io.cheeta.server.security.SecurityUtils;
 
 public class AgentResource extends AbstractResource {
 
@@ -56,7 +56,7 @@ public class AgentResource extends AbstractResource {
 			public void writeData(Attributes attributes) throws IOException {
 				File tempDir = FileUtils.createTempDir("agent");
 				try {
-					String agentVersion = OneDev.getInstance(AgentService.class).getAgentVersion();
+					String agentVersion = Cheeta.getInstance(AgentService.class).getAgentVersion();
 					
 					File agentDir = new File(tempDir, "agent");
 					FileUtils.copyDirectoryToDirectory(new File(Bootstrap.installDir, "agent"), agentDir);
@@ -68,15 +68,15 @@ public class AgentResource extends AbstractResource {
 							wrapperConfContent, StandardCharsets.UTF_8);
 					
 					Properties props = new Properties();
-					props.setProperty("serverUrl", OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl());
+					props.setProperty("serverUrl", Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl());
 					
 					AgentToken token = new AgentToken();
-					OneDev.getInstance(AgentTokenService.class).createOrUpdate(token);
+					Cheeta.getInstance(AgentTokenService.class).createOrUpdate(token);
 					props.setProperty("agentToken", token.getValue());
 					
 					try (var os = new BufferedOutputStream(new FileOutputStream(new File(agentDir, "agent/conf/agent.properties")))) {
 						String comment = "For a list of supported agent properties, please visit:\n" 
-								+ "https://docs.onedev.io/administration-guide/agent-management#agent-propertiesenvironments";
+								+ "https://docs.cheeta.io/administration-guide/agent-management#agent-propertiesenvironments";
 						props.store(os, comment);
 					}
 					
@@ -88,7 +88,7 @@ public class AgentResource extends AbstractResource {
 					FileUtils.touchFile(new File(agentDir, "agent/conf/attributes.properties"));
 					FileUtils.touchFile(new File(agentDir, "agent/logs/console.log"));
 					
-					Collection<String> agentLibs = OneDev.getInstance(AgentService.class).getAgentLibs();
+					Collection<String> agentLibs = Cheeta.getInstance(AgentService.class).getAgentLibs();
 					
 					for (File file: Bootstrap.getBootDir().listFiles()) {
 						if (file.getName().startsWith("libwrapper-") 

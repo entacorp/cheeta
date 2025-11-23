@@ -1,4 +1,4 @@
-onedev.server.blameMessage = {
+cheeta.server.blameMessage = {
 	show: function(tooltipId, authoring, message) {
 		var $blameTooltip = $("#" + tooltipId);
 		$blameTooltip.empty();

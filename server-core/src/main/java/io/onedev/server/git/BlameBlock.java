@@ -1,11 +1,11 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import java.io.Serializable;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import io.onedev.commons.utils.LinearRange;
+import io.cheeta.commons.utils.LinearRange;
 
 public class BlameBlock implements Serializable {
 	

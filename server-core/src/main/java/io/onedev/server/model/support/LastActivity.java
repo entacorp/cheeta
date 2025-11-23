@@ -1,4 +1,4 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.OptimisticLock;
 
-import io.onedev.server.model.User;
+import io.cheeta.server.model.User;
 
 @Embeddable
 public class LastActivity implements Serializable {

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.systemsetting;
+package io.cheeta.server.web.page.admin.systemsetting;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.File;
 import java.util.Collection;
@@ -13,14 +13,14 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.server.OneDev;
-import io.onedev.server.ServerConfig;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.SystemSetting;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.admin.AdministrationPage;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ServerConfig;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.SystemSetting;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.admin.AdministrationPage;
 
 public class SystemSettingPage extends AdministrationPage {
 
@@ -32,10 +32,10 @@ public class SystemSettingPage extends AdministrationPage {
 	protected void onInitialize() {
 		super.onInitialize();
 		
-		SystemSetting systemSetting = OneDev.getInstance(SettingService.class).getSystemSetting();
+		SystemSetting systemSetting = Cheeta.getInstance(SettingService.class).getSystemSetting();
 		var oldAuditContent = VersionedXmlDoc.fromBean(systemSetting).toXML();
 
-		String ingressUrl = OneDev.getInstance().getIngressUrl();
+		String ingressUrl = Cheeta.getInstance().getIngressUrl();
 		add(new TextField<String>("ingressUrl", Model.of(ingressUrl)).setVisible(ingressUrl != null));
 
 		Form<?> form = new Form<Void>("form") {
@@ -43,7 +43,7 @@ public class SystemSettingPage extends AdministrationPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				OneDev.getInstance(SettingService.class).saveSystemSetting(systemSetting);
+				Cheeta.getInstance(SettingService.class).saveSystemSetting(systemSetting);
 				var newAuditContent = VersionedXmlDoc.fromBean(systemSetting).toXML();
 				auditService.audit(null, "changed system settings", oldAuditContent, newAuditContent);
 				
@@ -58,9 +58,9 @@ public class SystemSettingPage extends AdministrationPage {
 			excludedProps.add(SystemSetting.PROP_GIT_LOCATION);
 			excludedProps.add(SystemSetting.PROP_CURL_LOCATION);
 		}
-		if (OneDev.getInstance().getIngressUrl() != null)
+		if (Cheeta.getInstance().getIngressUrl() != null)
 			excludedProps.add("serverUrl");
-		if (OneDev.getInstance(ServerConfig.class).getSshPort() == 0)
+		if (Cheeta.getInstance(ServerConfig.class).getSshPort() == 0)
 			excludedProps.add(SystemSetting.PROP_SSH_ROOT_URL);
 		
 		form.add(BeanContext.edit("editor", systemSetting, excludedProps, true));

@@ -1,28 +1,28 @@
-package io.onedev.server.web.component.comment;
+package io.cheeta.server.web.component.comment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.web.component.markdown.AtWhoReferenceSupport;
-import io.onedev.server.web.component.markdown.MarkdownEditor;
-import io.onedev.server.web.component.markdown.UserMentionSupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.web.component.markdown.AtWhoReferenceSupport;
+import io.cheeta.server.web.component.markdown.MarkdownEditor;
+import io.cheeta.server.web.component.markdown.UserMentionSupport;
 
 public abstract class CommentInput extends MarkdownEditor {
 
@@ -65,7 +65,7 @@ public abstract class CommentInput extends MarkdownEditor {
 	}
 	
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 	
 	protected List<User> getParticipants() {
@@ -85,8 +85,8 @@ public abstract class CommentInput extends MarkdownEditor {
 			public List<PullRequest> queryPullRequests(Project project, String query, int count) {
 				var subject = SecurityUtils.getSubject();
 				if (SecurityUtils.canReadCode(subject, project)) {
-					var requestQuery = new PullRequestQuery(new io.onedev.server.search.entity.pullrequest.FuzzyCriteria(query));
-					return OneDev.getInstance(PullRequestService.class).query(subject, project, requestQuery, false, 0, count);
+					var requestQuery = new PullRequestQuery(new io.cheeta.server.search.entity.pullrequest.FuzzyCriteria(query));
+					return Cheeta.getInstance(PullRequestService.class).query(subject, project, requestQuery, false, 0, count);
 				} else {
 					return new ArrayList<>();
 				}
@@ -97,8 +97,8 @@ public abstract class CommentInput extends MarkdownEditor {
 				var subject = SecurityUtils.getSubject();
 				if (SecurityUtils.canAccessProject(subject, project)) {
 					var projectScope = new ProjectScope(project, false, false);
-					var issueQuery = new IssueQuery(new io.onedev.server.search.entity.issue.FuzzyCriteria(query));
-					return OneDev.getInstance(IssueService.class).query(subject, projectScope, issueQuery, false, 0, count);
+					var issueQuery = new IssueQuery(new io.cheeta.server.search.entity.issue.FuzzyCriteria(query));
+					return Cheeta.getInstance(IssueService.class).query(subject, projectScope, issueQuery, false, 0, count);
 				} else {
 					return new ArrayList<>();
 				}
@@ -106,7 +106,7 @@ public abstract class CommentInput extends MarkdownEditor {
 
 			@Override
 			public List<Build> queryBuilds(Project project, String query, int count) {
-				return OneDev.getInstance(BuildService.class).query(SecurityUtils.getSubject(), project, query, count);
+				return Cheeta.getInstance(BuildService.class).query(SecurityUtils.getSubject(), project, query, count);
 			}
 			
 		};

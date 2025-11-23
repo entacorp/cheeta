@@ -1,15 +1,15 @@
-package io.onedev.server.web;
+package io.cheeta.server.web;
 
 import com.google.common.base.Splitter;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.*;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.util.ProjectAndRevision;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.page.project.compare.RevisionComparePage;
-import io.onedev.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.*;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.util.ProjectAndRevision;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.compare.RevisionComparePage;
+import io.cheeta.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.mapper.parameter.PageParametersEncoder;
 import org.apache.wicket.util.encoding.UrlEncoder;

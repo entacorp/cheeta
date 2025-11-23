@@ -1,13 +1,13 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.SubscriptionService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.util.LongRange;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.websocket.PageKey;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.SubscriptionService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.util.LongRange;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.websocket.PageKey;
 import org.apache.wicket.Component;
 import org.apache.wicket.MetaDataKey;
 import org.apache.wicket.core.request.handler.IPageRequestHandler;
@@ -43,7 +43,7 @@ public class WicketUtils {
 	}
 
 	public static ProjectCache getProjectCache() {
-		var projectService = OneDev.getInstance(ProjectService.class);
+		var projectService = Cheeta.getInstance(ProjectService.class);
 		var requestCycle = RequestCycle.get();
 		if (requestCycle != null) {
 			var cache = requestCycle.getMetaData(ProjectCacheKey.INSTANCE);
@@ -58,7 +58,7 @@ public class WicketUtils {
 	}
 	
 	public static boolean isSubscriptionActive() {
-		var subscriptionService = OneDev.getInstance(SubscriptionService.class);
+		var subscriptionService = Cheeta.getInstance(SubscriptionService.class);
 		var requestCycle = RequestCycle.get();
 		if (requestCycle != null) {
 			var subscriptionActive = requestCycle.getMetaData(SubscriptionActiveKey.INSTANCE);

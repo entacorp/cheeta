@@ -1,8 +1,8 @@
-package io.onedev.server.job;
+package io.cheeta.server.job;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.terminal.Shell;
-import io.onedev.server.terminal.Terminal;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.terminal.Shell;
+import io.cheeta.server.terminal.Terminal;
 
 import java.io.Serializable;
 

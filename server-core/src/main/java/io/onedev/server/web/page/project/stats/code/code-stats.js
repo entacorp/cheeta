@@ -1,4 +1,4 @@
-onedev.server.codeStats = {
+cheeta.server.codeStats = {
 	formatYAxisLabel: function(value, index, useKilo) {
 		if (index == 0)
 			useKilo = false;
@@ -45,9 +45,9 @@ onedev.server.codeStats = {
 			
 			function updateDateRange() {
 				$contribs.find(".date-range").text(
-						onedev.server.codeStats.formatDay(fromDay) 
+						cheeta.server.codeStats.formatDay(fromDay) 
 						+ " ~ " 
-						+ onedev.server.codeStats.formatDay(toDay));
+						+ cheeta.server.codeStats.formatDay(toDay));
 			}
 
 			var $contribType = $contribs.find(".contrib-type");
@@ -58,7 +58,7 @@ onedev.server.codeStats = {
 			
 			var overallXAxisData = [];
 			for (var i=0; i<days.length; i++) {
-				overallXAxisData.push(onedev.server.codeStats.formatDay(days[i]));
+				overallXAxisData.push(cheeta.server.codeStats.formatDay(days[i]));
 			}
 			
 			function getOverallSeriesData() {
@@ -104,7 +104,7 @@ onedev.server.codeStats = {
 			    	},	
 			    	axisLabel: {
 			    		formatter: function(value, index) {
-			    			var result = onedev.server.codeStats.formatYAxisLabel(value, index, useKiloForOverallChart);
+			    			var result = cheeta.server.codeStats.formatYAxisLabel(value, index, useKiloForOverallChart);
 			    			useKiloForOverallChart = result.useKilo;
 			    			return result.value;
 			    		},
@@ -181,7 +181,7 @@ onedev.server.codeStats = {
 							var xAxisData = [];
 							for (var i=0; i<days.length; i++) {
 								if (days[i] >= fromDay && days[i] <= toDay) 
-									xAxisData.push(onedev.server.codeStats.formatDay(days[i]));
+									xAxisData.push(cheeta.server.codeStats.formatDay(days[i]));
 							}
 							
 							var maxValue = 0;
@@ -284,7 +284,7 @@ onedev.server.codeStats = {
 								    	boundaryGap: [0, (maxValue-maxValueOfContributor)/maxValueOfContributor],
 								    	axisLabel: {
 								    		formatter: function(value, index) {
-								    			var result = onedev.server.codeStats.formatYAxisLabel(value, index, useKilo);
+								    			var result = cheeta.server.codeStats.formatYAxisLabel(value, index, useKilo);
 								    			useKilo = result.useKilo;
 								    			return result.value;
 								    		},
@@ -409,7 +409,7 @@ onedev.server.codeStats = {
 					else
 						dailyLines.push(increments);
 				}
-				xAxisData.push(onedev.server.codeStats.formatDay(currentDay));
+				xAxisData.push(cheeta.server.codeStats.formatDay(currentDay));
 				currentDay++;
 			}
 			
@@ -458,7 +458,7 @@ onedev.server.codeStats = {
 			    	boundaryGap: [0, 0],
 			    	axisLabel: {
 			    		formatter: function(value, index) {
-			    			var result = onedev.server.codeStats.formatYAxisLabel(value, index, useKilo);
+			    			var result = cheeta.server.codeStats.formatYAxisLabel(value, index, useKilo);
 			    			useKilo = result.useKilo;
 			    			return result.value;
 			    		},

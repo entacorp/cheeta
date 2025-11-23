@@ -1,4 +1,4 @@
-onedev.server.plainEdit = {
+cheeta.server.plainEdit = {
 	onDomReady: function(containerId, fileName) {
 		var $container = $("#" + containerId);
 		var $plainEdit = $container.children(".plain-edit");
@@ -19,7 +19,7 @@ onedev.server.plainEdit = {
 			highlightIdentifiers: {delay: 500}
 		});
 		
-		onedev.server.codemirror.setModeByFileName(cm, fileName);
+		cheeta.server.codemirror.setModeByFileName(cm, fileName);
 		
 		/*
 		 * AreYouSure can not track dirty correctly for CodeMirror generated
@@ -33,7 +33,7 @@ onedev.server.plainEdit = {
 			$plainEdit.closest("form").addClass("dirty");
         });
         
-		onedev.server.codemirror.bindShortcuts(cm);
+		cheeta.server.codemirror.bindShortcuts(cm);
 
         $plainEdit.on("beforeSubmit", function() {
             $plainEdit.children("textarea").val($plainEdit.find(">.source>.CodeMirror")[0].CodeMirror.getValue());

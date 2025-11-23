@@ -1,20 +1,20 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.WordUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.annotation.EntityCreate;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.WordUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.EntityCreate;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -47,8 +47,8 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Pattern;
 
-import static io.onedev.server.web.page.help.ApiHelpUtils.getJsonMembers;
-import static io.onedev.server.web.page.help.ValueInfo.Origin.*;
+import static io.cheeta.server.web.page.help.ApiHelpUtils.getJsonMembers;
+import static io.cheeta.server.web.page.help.ValueInfo.Origin.*;
 
 public class ExampleValuePanel extends Panel {
 
@@ -57,7 +57,7 @@ public class ExampleValuePanel extends Panel {
 	private static final Pattern GET_ENTITY_PATH = Pattern.compile("\\/\\{[a-zA-Z_\\-0-9]+\\}");
 	
 	static {
-		ResourceConfig config = OneDev.getInstance(ResourceConfig.class);
+		ResourceConfig config = Cheeta.getInstance(ResourceConfig.class);
 		
 		for (Class<?> clazz: config.getClasses()) {
 			if (clazz.getAnnotation(Path.class) != null) { 
@@ -605,7 +605,7 @@ public class ExampleValuePanel extends Panel {
 	
 	private String toJson(Object value) {
 		try {
-			return OneDev.getInstance(ObjectMapper.class).writeValueAsString(value);
+			return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(value);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}

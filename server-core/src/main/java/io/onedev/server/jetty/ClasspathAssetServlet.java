@@ -1,4 +1,4 @@
-package io.onedev.server.jetty;
+package io.cheeta.server.jetty;
 
 import java.net.URL;
 

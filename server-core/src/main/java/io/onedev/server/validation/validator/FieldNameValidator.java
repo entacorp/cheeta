@@ -1,10 +1,10 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.annotation.FieldName;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.annotation.FieldName;
 
 public class FieldNameValidator implements ConstraintValidator<FieldName, String> {
 

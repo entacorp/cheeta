@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.ident;
+package io.cheeta.server.web.component.user.ident;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
@@ -10,14 +10,14 @@ import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.web.behavior.dropdown.DropdownHoverBehavior;
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.user.UserAvatar;
-import io.onedev.server.web.component.user.card.UserCardPanel;
-import io.onedev.server.web.page.user.profile.UserProfilePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.behavior.dropdown.DropdownHoverBehavior;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.user.UserAvatar;
+import io.cheeta.server.web.component.user.card.UserCardPanel;
+import io.cheeta.server.web.page.user.profile.UserProfilePage;
 
 public class UserIdentPanel extends GenericPanel<User> {
 
@@ -32,7 +32,7 @@ public class UserIdentPanel extends GenericPanel<User> {
 
 			@Override
 			protected User load() {
-				return OneDev.getInstance(UserService.class).load(userId);
+				return Cheeta.getInstance(UserService.class).load(userId);
 			}
 			
 		});

@@ -1,4 +1,4 @@
-package io.onedev.server.rest;
+package io.cheeta.server.rest;
 
 import javax.annotation.Priority;
 import javax.servlet.http.HttpServletResponse;

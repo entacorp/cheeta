@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,27 +21,27 @@ import javax.ws.rs.core.Response;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.BackupSetting;
-import io.onedev.server.model.support.administration.GlobalBuildSetting;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.administration.GlobalProjectSetting;
-import io.onedev.server.model.support.administration.GlobalPullRequestSetting;
-import io.onedev.server.model.support.administration.GroovyScript;
-import io.onedev.server.model.support.administration.SecuritySetting;
-import io.onedev.server.model.support.administration.ServiceDeskSetting;
-import io.onedev.server.model.support.administration.SshSetting;
-import io.onedev.server.model.support.administration.SystemSetting;
-import io.onedev.server.model.support.administration.authenticator.Authenticator;
-import io.onedev.server.model.support.administration.emailtemplates.EmailTemplates;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.mailservice.MailConnector;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.page.layout.ContributedAdministrationSetting;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.BackupSetting;
+import io.cheeta.server.model.support.administration.GlobalBuildSetting;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.administration.GlobalProjectSetting;
+import io.cheeta.server.model.support.administration.GlobalPullRequestSetting;
+import io.cheeta.server.model.support.administration.GroovyScript;
+import io.cheeta.server.model.support.administration.SecuritySetting;
+import io.cheeta.server.model.support.administration.ServiceDeskSetting;
+import io.cheeta.server.model.support.administration.SshSetting;
+import io.cheeta.server.model.support.administration.SystemSetting;
+import io.cheeta.server.model.support.administration.authenticator.Authenticator;
+import io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.mailservice.MailConnector;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.page.layout.ContributedAdministrationSetting;
 
 @Path("/settings")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -200,7 +200,7 @@ public class SettingResource {
     public Response setSystemSetting(@NotNull @Valid SystemSetting systemSetting) {
     	if (!SecurityUtils.isAdministrator()) 
 			throw new UnauthorizedException();
-    	String ingressUrl = OneDev.getInstance().getIngressUrl();
+    	String ingressUrl = Cheeta.getInstance().getIngressUrl();
     	if (ingressUrl != null && !ingressUrl.equals(systemSetting.getServerUrl()))
     		throw new NotAcceptableException("Server URL can only be \"" + ingressUrl + "\"");
     	var oldAuditContent = VersionedXmlDoc.fromBean(settingService.getSystemSetting()).toXML();

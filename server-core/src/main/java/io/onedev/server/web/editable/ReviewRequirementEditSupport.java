@@ -1,15 +1,15 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.reflect.Method;
 
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.web.component.pullrequest.review.ReviewRequirementBehavior;
-import io.onedev.server.annotation.ReviewRequirement;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
-import io.onedev.server.web.editable.string.StringPropertyViewer;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.component.pullrequest.review.ReviewRequirementBehavior;
+import io.cheeta.server.annotation.ReviewRequirement;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.web.editable.string.StringPropertyViewer;
 
 public class ReviewRequirementEditSupport implements EditSupport {
 

@@ -1,6 +1,6 @@
-package io.onedev.server.entityreference;
+package io.cheeta.server.entityreference;
 
-import static io.onedev.server.entityreference.ReferenceUtils.extractReferences;
+import static io.cheeta.server.entityreference.ReferenceUtils.extractReferences;
 
 import java.util.Date;
 
@@ -10,38 +10,38 @@ import javax.inject.Singleton;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.codecomment.CodeCommentCreated;
-import io.onedev.server.event.project.codecomment.CodeCommentEdited;
-import io.onedev.server.event.project.codecomment.CodeCommentReplyCreated;
-import io.onedev.server.event.project.codecomment.CodeCommentReplyEdited;
-import io.onedev.server.event.project.codecomment.CodeCommentStatusChanged;
-import io.onedev.server.event.project.issue.IssueChanged;
-import io.onedev.server.event.project.issue.IssueCommentCreated;
-import io.onedev.server.event.project.issue.IssueCommentEdited;
-import io.onedev.server.event.project.issue.IssueOpened;
-import io.onedev.server.event.project.pullrequest.PullRequestChanged;
-import io.onedev.server.event.project.pullrequest.PullRequestCommentCreated;
-import io.onedev.server.event.project.pullrequest.PullRequestCommentEdited;
-import io.onedev.server.event.project.pullrequest.PullRequestOpened;
-import io.onedev.server.markdown.MarkdownService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.changedata.IssueReferencedFromCodeCommentData;
-import io.onedev.server.model.support.issue.changedata.IssueReferencedFromIssueData;
-import io.onedev.server.model.support.issue.changedata.IssueReferencedFromPullRequestData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestReferencedFromCodeCommentData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestReferencedFromIssueData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestReferencedFromPullRequestData;
-import io.onedev.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.codecomment.CodeCommentCreated;
+import io.cheeta.server.event.project.codecomment.CodeCommentEdited;
+import io.cheeta.server.event.project.codecomment.CodeCommentReplyCreated;
+import io.cheeta.server.event.project.codecomment.CodeCommentReplyEdited;
+import io.cheeta.server.event.project.codecomment.CodeCommentStatusChanged;
+import io.cheeta.server.event.project.issue.IssueChanged;
+import io.cheeta.server.event.project.issue.IssueCommentCreated;
+import io.cheeta.server.event.project.issue.IssueCommentEdited;
+import io.cheeta.server.event.project.issue.IssueOpened;
+import io.cheeta.server.event.project.pullrequest.PullRequestChanged;
+import io.cheeta.server.event.project.pullrequest.PullRequestCommentCreated;
+import io.cheeta.server.event.project.pullrequest.PullRequestCommentEdited;
+import io.cheeta.server.event.project.pullrequest.PullRequestOpened;
+import io.cheeta.server.markdown.MarkdownService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.changedata.IssueReferencedFromCodeCommentData;
+import io.cheeta.server.model.support.issue.changedata.IssueReferencedFromIssueData;
+import io.cheeta.server.model.support.issue.changedata.IssueReferencedFromPullRequestData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestReferencedFromCodeCommentData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestReferencedFromIssueData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestReferencedFromPullRequestData;
+import io.cheeta.server.persistence.annotation.Transactional;
 
 @Singleton
 public class DefaultReferenceChangeService implements ReferenceChangeService {

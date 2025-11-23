@@ -1,10 +1,10 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import java.util.Date;
 
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
 
 public class PullRequestDeleted extends ProjectEvent {
 	

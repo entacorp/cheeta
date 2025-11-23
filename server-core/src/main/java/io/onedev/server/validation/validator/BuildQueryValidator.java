@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.annotation.BuildQuery;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.annotation.BuildQuery;
 
 public class BuildQueryValidator implements ConstraintValidator<BuildQuery, String> {
 
@@ -29,7 +29,7 @@ public class BuildQueryValidator implements ConstraintValidator<BuildQuery, Stri
 		} else {
 			Project project = Project.get();
 			try {
-				io.onedev.server.search.entity.build.BuildQuery.parse(project, value, 
+				io.cheeta.server.search.entity.build.BuildQuery.parse(project, value, 
 						withCurrentUserCriteria, withUnfinishedCriteria);
 				return true;
 			} catch (Exception e) {

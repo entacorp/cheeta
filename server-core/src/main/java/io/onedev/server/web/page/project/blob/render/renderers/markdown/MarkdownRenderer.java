@@ -1,15 +1,15 @@
-package io.onedev.server.web.page.project.blob.render.renderers.markdown;
+package io.cheeta.server.web.page.project.blob.render.renderers.markdown;
 
 import org.jspecify.annotations.Nullable;
 
 import org.apache.wicket.Component;
 
-import io.onedev.server.util.ProgrammingLanguageDetector;
-import io.onedev.server.util.FileExtension;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
-import io.onedev.server.web.page.project.blob.render.source.SourceViewPanel;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.server.util.ProgrammingLanguageDetector;
+import io.cheeta.server.util.FileExtension;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.server.web.page.project.blob.render.source.SourceViewPanel;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 
 public class MarkdownRenderer implements BlobRenderer {
 

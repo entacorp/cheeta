@@ -1,12 +1,12 @@
-package io.onedev.server.search.code.hit;
+package io.cheeta.server.search.code.hit;
 
 import org.jspecify.annotations.Nullable;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.image.Image;
 
-import io.onedev.commons.jsymbol.Symbol;
-import io.onedev.commons.utils.LinearRange;
+import io.cheeta.commons.jsymbol.Symbol;
+import io.cheeta.commons.utils.LinearRange;
 
 public class SymbolHit extends QueryHit {
 

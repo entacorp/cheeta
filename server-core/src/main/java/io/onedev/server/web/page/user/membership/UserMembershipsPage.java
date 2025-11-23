@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.user.membership;
+package io.cheeta.server.web.page.user.membership;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,29 +35,29 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.MembershipService;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Membership;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.datatable.selectioncolumn.SelectionColumn;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.groupchoice.AbstractGroupChoiceProvider;
-import io.onedev.server.web.component.groupchoice.GroupChoiceResourceReference;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.modal.confirm.ConfirmModalPanel;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
-import io.onedev.server.web.component.select2.SelectToActChoice;
-import io.onedev.server.web.page.admin.groupmanagement.profile.GroupProfilePage;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.MembershipService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Membership;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.datatable.selectioncolumn.SelectionColumn;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.groupchoice.AbstractGroupChoiceProvider;
+import io.cheeta.server.web.component.groupchoice.GroupChoiceResourceReference;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.modal.confirm.ConfirmModalPanel;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.web.component.select2.SelectToActChoice;
+import io.cheeta.server.web.page.admin.groupmanagement.profile.GroupProfilePage;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserMembershipsPage extends UserPage {
 
@@ -86,15 +86,15 @@ public class UserMembershipsPage extends UserPage {
 	}
 
 	private MembershipService getMembershipService() {
-		return OneDev.getInstance(MembershipService.class);
+		return Cheeta.getInstance(MembershipService.class);
 	}
 	
 	private GroupService getGroupService() {
-		return OneDev.getInstance(GroupService.class);
+		return Cheeta.getInstance(GroupService.class);
 	}
 	
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 	
 	@Override
@@ -122,7 +122,7 @@ public class UserMembershipsPage extends UserPage {
 
 			@Override
 			public void query(String term, int page, Response<Group> response) {
-				List<Group> notMembersOf = OneDev.getInstance(GroupService.class).query();
+				List<Group> notMembersOf = Cheeta.getInstance(GroupService.class).query();
 				notMembersOf.removeAll(getUser().getGroups());
 				Collections.sort(notMembersOf);
 				Collections.reverse(notMembersOf);
@@ -146,9 +146,9 @@ public class UserMembershipsPage extends UserPage {
 				super.onInitialize();
 				
 				getSettings().setPlaceholder(_T("Add to group..."));
-				getSettings().setFormatResult("onedev.server.groupChoiceFormatter.formatResult");
-				getSettings().setFormatSelection("onedev.server.groupChoiceFormatter.formatSelection");
-				getSettings().setEscapeMarkup("onedev.server.groupChoiceFormatter.escapeMarkup");
+				getSettings().setFormatResult("cheeta.server.groupChoiceFormatter.formatResult");
+				getSettings().setFormatSelection("cheeta.server.groupChoiceFormatter.formatSelection");
+				getSettings().setEscapeMarkup("cheeta.server.groupChoiceFormatter.escapeMarkup");
 			}
 			
 			@Override
@@ -359,12 +359,12 @@ public class UserMembershipsPage extends UserPage {
 			public Iterator<? extends Membership> iterator(long first, long count) {
 				EntityCriteria<Membership> criteria = getCriteria();
 				criteria.addOrder(Order.desc("id"));
-				return OneDev.getInstance(MembershipService.class).query(criteria, (int) first, (int) count).iterator();
+				return Cheeta.getInstance(MembershipService.class).query(criteria, (int) first, (int) count).iterator();
 			}
 
 			@Override
 			public long size() {
-				return OneDev.getInstance(MembershipService.class).count(getCriteria());
+				return Cheeta.getInstance(MembershipService.class).count(getCriteria());
 			}
 
 			@Override
@@ -374,7 +374,7 @@ public class UserMembershipsPage extends UserPage {
 
 					@Override
 					protected Membership load() {
-						return OneDev.getInstance(MembershipService.class).load(id);
+						return Cheeta.getInstance(MembershipService.class).load(id);
 					}
 
 				};

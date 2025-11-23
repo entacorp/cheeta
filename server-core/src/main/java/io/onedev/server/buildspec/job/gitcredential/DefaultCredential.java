@@ -1,11 +1,11 @@
-package io.onedev.server.buildspec.job.gitcredential;
+package io.cheeta.server.buildspec.job.gitcredential;
 
-import io.onedev.k8shelper.CloneInfo;
-import io.onedev.k8shelper.DefaultCloneInfo;
-import io.onedev.server.OneDev;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.model.Build;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.k8shelper.CloneInfo;
+import io.cheeta.k8shelper.DefaultCloneInfo;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(name="Default", order=100)
 public class DefaultCredential implements GitCredential {
@@ -14,7 +14,7 @@ public class DefaultCredential implements GitCredential {
 
 	@Override
 	public CloneInfo newCloneInfo(Build build, String jobToken) {
-		return new DefaultCloneInfo(OneDev.getInstance(UrlService.class).cloneUrlFor(build.getProject(), false), jobToken);
+		return new DefaultCloneInfo(Cheeta.getInstance(UrlService.class).cloneUrlFor(build.getProject(), false), jobToken);
 	}
 
 }

@@ -1,4 +1,4 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import java.io.Serializable;
 import java.time.DayOfWeek;
@@ -8,7 +8,7 @@ import java.util.Date;
 
 import javax.persistence.Embeddable;
 
-import io.onedev.server.util.DateUtils;
+import io.cheeta.server.util.DateUtils;
 
 @Embeddable
 public class TimeGroups implements Serializable {

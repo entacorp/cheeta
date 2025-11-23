@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.parentchoice;
+package io.cheeta.server.web.editable.parentchoice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +13,15 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.CreateChildren;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.CreateChildren;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class ParentChoiceEditor extends PropertyEditor<String> {
 
@@ -43,7 +43,7 @@ public class ParentChoiceEditor extends PropertyEditor<String> {
 				List<String> projectPaths = new ArrayList<>();
 				Project currentProject = Project.get();
 				
-				ProjectService projectService = OneDev.getInstance(ProjectService.class);
+				ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 				ProjectCache cache = projectService.cloneCache();
 				for (Project project: SecurityUtils.getAuthorizedProjects(new CreateChildren())) {
 					if (currentProject == null || !cache.isSelfOrAncestorOf(currentProject.getId(), project.getId())) {

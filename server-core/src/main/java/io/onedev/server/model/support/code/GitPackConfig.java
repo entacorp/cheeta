@@ -1,8 +1,8 @@
-package io.onedev.server.model.support.code;
+package io.cheeta.server.model.support.code;
 
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Numeric;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Numeric;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

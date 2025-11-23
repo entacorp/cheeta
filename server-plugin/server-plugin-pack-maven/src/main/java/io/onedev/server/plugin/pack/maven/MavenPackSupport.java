@@ -1,7 +1,7 @@
-package io.onedev.server.plugin.pack.maven;
+package io.cheeta.server.plugin.pack.maven;
 
-import static io.onedev.server.plugin.pack.maven.MavenPackHandler.NONE;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.plugin.pack.maven.MavenPackHandler.NONE;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.commons.lang3.StringUtils.substringBeforeLast;
 
 import java.io.IOException;
@@ -12,11 +12,11 @@ import org.apache.wicket.model.LoadableDetachableModel;
 
 import com.google.common.io.Resources;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PackService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.pack.PackSupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.pack.PackSupport;
 
 public class MavenPackSupport implements PackSupport {
 
@@ -56,7 +56,7 @@ public class MavenPackSupport implements PackSupport {
 		return new MavenPackPanel(componentId, new LoadableDetachableModel<>() {
 			@Override
 			protected Pack load() {
-				return OneDev.getInstance(PackService.class).load(packId);
+				return Cheeta.getInstance(PackService.class).load(packId);
 			}
 			
 		});
@@ -72,7 +72,7 @@ public class MavenPackSupport implements PackSupport {
 		var template = Resources.toString(tplUrl, StandardCharsets.UTF_8);
 		template = template.replace(
 			"maven:job-token-notice", 
-			_T("Use job token as user name so that OneDev can know which build is ${permission.equals(\"write\")? \"deploying\": \"using\"} packages"));
+			_T("Use job token as user name so that Cheeta can know which build is ${permission.equals(\"write\")? \"deploying\": \"using\"} packages"));
 		template = template.replace(
 			"maven:access-token-notice", 
 			_T("Job secret 'access-token' should be defined in project build setting as an access token with package ${permission} permission"));

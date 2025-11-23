@@ -1,9 +1,9 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import io.onedev.server.service.IssueWatchService;
-import io.onedev.server.model.IssueWatch;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.service.IssueWatchService;
+import io.cheeta.server.model.IssueWatch;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 
 import javax.inject.Inject;
@@ -13,7 +13,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import static io.onedev.server.security.SecurityUtils.canModifyOrDelete;
+import static io.cheeta.server.security.SecurityUtils.canModifyOrDelete;
 
 @Path("/issue-watches")
 @Consumes(MediaType.APPLICATION_JSON)

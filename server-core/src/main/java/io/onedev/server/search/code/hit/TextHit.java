@@ -1,14 +1,14 @@
-package io.onedev.server.search.code.hit;
+package io.cheeta.server.search.code.hit;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.request.resource.PackageResourceReference;
 
-import io.onedev.commons.jsymbol.util.HighlightableLabel;
-import io.onedev.commons.jsymbol.util.NoAntiCacheImage;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.PlanarRange;
+import io.cheeta.commons.jsymbol.util.HighlightableLabel;
+import io.cheeta.commons.jsymbol.util.NoAntiCacheImage;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.PlanarRange;
 
 public class TextHit extends QueryHit {
 

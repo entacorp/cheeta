@@ -1,17 +1,17 @@
-package io.onedev.server.event;
+package io.cheeta.server.event;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.event.project.ProjectDeleted;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.ActiveServerChanged;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.event.project.ProjectDeleted;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.ActiveServerChanged;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.security.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

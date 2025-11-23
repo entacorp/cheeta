@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.user.profile.activity;
+package io.cheeta.server.web.component.user.profile.activity;
 
 import java.util.Date;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.security.SecurityUtils;
 
 public abstract class IssueActivity extends UserActivity {
 

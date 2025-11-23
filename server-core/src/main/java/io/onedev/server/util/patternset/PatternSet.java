@@ -1,10 +1,10 @@
-package io.onedev.server.util.patternset;
+package io.cheeta.server.util.patternset;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.server.util.patternset.PatternSetParser.PatternContext;
-import io.onedev.server.util.patternset.PatternSetParser.PatternsContext;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.server.util.patternset.PatternSetParser.PatternContext;
+import io.cheeta.server.util.patternset.PatternSetParser.PatternsContext;
 import org.antlr.v4.runtime.*;
 import org.apache.tools.ant.DirectoryScanner;
 

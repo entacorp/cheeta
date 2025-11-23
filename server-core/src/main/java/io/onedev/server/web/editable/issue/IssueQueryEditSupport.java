@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.issue;
+package io.cheeta.server.web.editable.issue;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
@@ -10,17 +10,17 @@ import org.apache.wicket.model.IModel;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.web.behavior.IssueQueryBehavior;
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.EmptyValueLabel;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
-import io.onedev.server.annotation.IssueQuery;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.web.behavior.IssueQueryBehavior;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.EmptyValueLabel;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.IssueQuery;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
 
 public class IssueQueryEditSupport implements EditSupport {
 

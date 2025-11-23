@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.mailservice;
+package io.cheeta.server.web.page.admin.mailservice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -23,25 +23,25 @@ import org.apache.wicket.util.visit.IVisitor;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.SubscriptionRequired;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ParsedEmailAddress;
-import io.onedev.server.web.component.DisableAwareButton;
-import io.onedev.server.web.component.taskbutton.TaskButton;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.taskbutton.TaskResult.PlainMessage;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyUpdating;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.SubscriptionRequired;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ParsedEmailAddress;
+import io.cheeta.server.web.component.DisableAwareButton;
+import io.cheeta.server.web.component.taskbutton.TaskButton;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.taskbutton.TaskResult.PlainMessage;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyUpdating;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.util.WicketUtils;
 
 public class MailConnectorPage extends AdministrationPage {
 	
@@ -52,7 +52,7 @@ public class MailConnectorPage extends AdministrationPage {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 	
 	@Override
@@ -121,7 +121,7 @@ public class MailConnectorPage extends AdministrationPage {
 
 			@Override
 			protected TaskResult runTask(TaskLogger logger) {
-				return OneDev.getInstance(SessionService.class).call(() -> {
+				return Cheeta.getInstance(SessionService.class).call(() -> {
 					var mailConnector = bean.getMailConnector();
 					var inboxMonitor = mailConnector.getInboxMonitor(true);
 					if (inboxMonitor != null) {
@@ -148,8 +148,8 @@ public class MailConnectorPage extends AdministrationPage {
 						String subAddressed = systemAddress.getSubaddress(MailService.TEST_SUB_ADDRESS);
 						logger.log(MessageFormat.format(sendingMailText, subAddressed));
 						mailConnector.sendMail(Sets.newHashSet(subAddressed), Sets.newHashSet(), 
-								Sets.newHashSet(), uuid, "[Test] Test Email From OneDev", 
-								"This is a test email from OneDev", null, 
+								Sets.newHashSet(), uuid, "[Test] Test Email From Cheeta", 
+								"This is a test email from Cheeta", null, 
 								null, null, true);
 
 						logger.log(waitingMailText);
@@ -172,7 +172,7 @@ public class MailConnectorPage extends AdministrationPage {
 						if (emailAddress != null) {
 							String body = "Great, your mail service configuration is working!";
 							mailConnector.sendMail(Sets.newHashSet(emailAddress.getValue()),
-									Sets.newHashSet(), Sets.newHashSet(), "[Test] Test Email From OneDev",
+									Sets.newHashSet(), Sets.newHashSet(), "[Test] Test Email From Cheeta",
 									body, body, null, null, null, true);
 							return new TaskResult(true, new PlainMessage(MessageFormat.format(mailSentText, emailAddress.getValue())));
 						} else {

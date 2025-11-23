@@ -1,6 +1,6 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import static io.onedev.server.security.SecurityUtils.getAuthUser;
+import static io.cheeta.server.security.SecurityUtils.getAuthUser;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -18,13 +18,13 @@ import javax.ws.rs.core.Response;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 
 @Path("/email-addresses")
 @Consumes(MediaType.APPLICATION_JSON)

@@ -1,13 +1,13 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.Serializable;
 import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.exception.ObjectNotFoundException;
-import io.onedev.server.model.Project;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.exception.ObjectNotFoundException;
+import io.cheeta.server.model.Project;
 
 public class RevisionAndPath implements Serializable {
 

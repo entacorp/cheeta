@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.showcondition;
+package io.cheeta.server.buildspecmodel.inputspec.showcondition;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(order=200, name="does not have any value of")
 public class ValueIsNotAnyOf implements ValueMatcher {

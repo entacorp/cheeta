@@ -1,12 +1,12 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.User;
 
 public interface PullRequestReviewService extends EntityService<PullRequestReview> {
 	

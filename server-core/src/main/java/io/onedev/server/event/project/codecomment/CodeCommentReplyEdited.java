@@ -1,9 +1,9 @@
-package io.onedev.server.event.project.codecomment;
+package io.cheeta.server.event.project.codecomment;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentReplyService;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentReplyService;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.security.SecurityUtils;
 
 import java.util.Date;
 
@@ -19,7 +19,7 @@ public class CodeCommentReplyEdited extends CodeCommentEvent {
 	}
 	
 	public CodeCommentReply getReply() {
-		return OneDev.getInstance(CodeCommentReplyService.class).load(replyId);
+		return Cheeta.getInstance(CodeCommentReplyService.class).load(replyId);
 	}
 
 	@Override

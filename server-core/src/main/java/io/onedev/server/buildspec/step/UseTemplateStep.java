@@ -1,20 +1,20 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.k8shelper.Action;
-import io.onedev.server.annotation.*;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.buildspec.param.ParamUtils;
-import io.onedev.server.buildspec.param.instance.ParamInstances;
-import io.onedev.server.buildspec.param.instance.ParamMap;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.interpolative.VariableInterpolator;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.k8shelper.Action;
+import io.cheeta.server.annotation.*;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.buildspec.param.ParamUtils;
+import io.cheeta.server.buildspec.param.instance.ParamInstances;
+import io.cheeta.server.buildspec.param.instance.ParamMap;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.interpolative.VariableInterpolator;
+import io.cheeta.server.web.editable.BeanEditor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static io.onedev.server.buildspec.param.ParamUtils.resolveParams;
+import static io.cheeta.server.buildspec.param.ParamUtils.resolveParams;
 
 @Editable(order=10000, name="Use Step Template", description="Run specified step template")
 public class UseTemplateStep extends CompositeStep {

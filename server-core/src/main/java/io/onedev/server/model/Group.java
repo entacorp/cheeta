@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,15 +15,15 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.jetbrains.annotations.Nullable;
 
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.security.permission.BasePermission;
-import io.onedev.server.security.permission.CreateRootProjects;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.security.permission.SystemAdministration;
-import io.onedev.server.util.facade.GroupFacade;
-import io.onedev.server.util.facade.UserFacade;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.security.permission.BasePermission;
+import io.cheeta.server.security.permission.CreateRootProjects;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.security.permission.SystemAdministration;
+import io.cheeta.server.util.facade.GroupFacade;
+import io.cheeta.server.util.facade.UserFacade;
 
 @Entity
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)

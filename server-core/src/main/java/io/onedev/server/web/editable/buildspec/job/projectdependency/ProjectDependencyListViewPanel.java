@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.buildspec.job.projectdependency;
+package io.cheeta.server.web.editable.buildspec.job.projectdependency;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,11 +27,11 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.buildspec.job.projectdependency.ProjectDependency;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.component.offcanvas.OffCanvasCardPanel;
-import io.onedev.server.web.component.offcanvas.OffCanvasPanel;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.buildspec.job.projectdependency.ProjectDependency;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.component.offcanvas.OffCanvasCardPanel;
+import io.cheeta.server.web.component.offcanvas.OffCanvasPanel;
+import io.cheeta.server.web.editable.BeanContext;
 
 class ProjectDependencyListViewPanel extends Panel {
 

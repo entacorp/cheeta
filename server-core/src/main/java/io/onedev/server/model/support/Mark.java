@@ -1,4 +1,4 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,14 +14,14 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.OneDev;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.util.diff.WhitespaceOption;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.util.diff.WhitespaceOption;
 
 @Embeddable
 public class Mark implements Serializable {
@@ -109,7 +109,7 @@ public class Mark implements Serializable {
 	
 	@Nullable
 	public Mark mapTo(Project project, ObjectId commitId) {
-		GitService gitService = OneDev.getInstance(GitService.class);
+		GitService gitService = Cheeta.getInstance(GitService.class);
 		
 		List<String> newLines = new ArrayList<>();
 		Blob newBlob = gitService.getBlob(project, commitId, path);

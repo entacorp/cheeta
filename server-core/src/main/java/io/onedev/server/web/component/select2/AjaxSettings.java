@@ -10,14 +10,14 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package io.onedev.server.web.component.select2;
+package io.cheeta.server.web.component.select2;
 
 import java.io.Serializable;
 
 import org.json.JSONException;
 import org.json.JSONWriter;
 
-import io.onedev.server.web.component.select2.json.Json;
+import io.cheeta.server.web.component.select2.json.Json;
 
 /**
  * Select2 Ajax settings. Refer to the Select2 documentation for what these

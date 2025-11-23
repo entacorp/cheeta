@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.annotation.PullRequestQuery;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.annotation.PullRequestQuery;
 
 public class PullRequestQueryValidator implements ConstraintValidator<PullRequestQuery, String> {
 
@@ -23,7 +23,7 @@ public class PullRequestQueryValidator implements ConstraintValidator<PullReques
 		} else {
 			Project project = Project.get();
 			try {
-				io.onedev.server.search.entity.pullrequest.PullRequestQuery.parse(project, value, true);
+				io.cheeta.server.search.entity.pullrequest.PullRequestQuery.parse(project, value, true);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

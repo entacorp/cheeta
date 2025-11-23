@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.scriptchoice;
+package io.cheeta.server.web.editable.scriptchoice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,13 +13,13 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GroovyScript;
-import io.onedev.server.util.ScriptContribution;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GroovyScript;
+import io.cheeta.server.util.ScriptContribution;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 
 public class ScriptChoiceEditor extends PropertyEditor<String> {
 
@@ -39,10 +39,10 @@ public class ScriptChoiceEditor extends PropertyEditor<String> {
 			protected List<String> load() {
 				List<String> choices = new ArrayList<>();
 				
-				for (GroovyScript script: OneDev.getInstance(SettingService.class).getGroovyScripts())
+				for (GroovyScript script: Cheeta.getInstance(SettingService.class).getGroovyScripts())
 					choices.add(script.getName());
 				
-				for (ScriptContribution contribution: OneDev.getExtensions(ScriptContribution.class)) {
+				for (ScriptContribution contribution: Cheeta.getExtensions(ScriptContribution.class)) {
 					GroovyScript script = contribution.getScript();
 					choices.add(GroovyScript.BUILTIN_PREFIX + script.getName());
 				}

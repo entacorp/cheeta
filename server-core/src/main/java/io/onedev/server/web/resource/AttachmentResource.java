@@ -1,16 +1,16 @@
-package io.onedev.server.web.resource;
+package io.cheeta.server.web.resource;
 
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentService;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.*;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.util.IOUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentService;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.*;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.util.IOUtils;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.utils.URIBuilder;
@@ -29,8 +29,8 @@ import javax.ws.rs.core.Response;
 import java.io.*;
 import java.net.URLEncoder;
 
-import static io.onedev.commons.utils.LockUtils.read;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.commons.utils.LockUtils.read;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class AttachmentResource extends AbstractResource {
@@ -58,21 +58,21 @@ public class AttachmentResource extends AbstractResource {
 			throw new IllegalArgumentException("Invalid parameter 'attachment-group'");
 
 		if (!SecurityUtils.isSystem()) {
-			Project project = OneDev.getInstance(ProjectService.class).load(projectId);
+			Project project = Cheeta.getInstance(ProjectService.class).load(projectId);
 			
 			String authorization = params.get(PARAM_AUTHORIZATION).toOptionalString();
 			if (authorization == null 
 					|| !new String(CryptoUtils.decrypt(Base64.decodeBase64(authorization)), UTF_8).equals(attachmentGroup)) {
 				Issue issue;
 				Build build;
-				if (OneDev.getInstance(PullRequestService.class).find(attachmentGroup) != null
-						|| OneDev.getInstance(CodeCommentService.class).findByUUID(attachmentGroup) != null) {
+				if (Cheeta.getInstance(PullRequestService.class).find(attachmentGroup) != null
+						|| Cheeta.getInstance(CodeCommentService.class).findByUUID(attachmentGroup) != null) {
 					if (!SecurityUtils.canReadCode(project))
 						throw new UnauthorizedException();
-				} else if ((issue = OneDev.getInstance(IssueService.class).find(attachmentGroup)) != null) {
+				} else if ((issue = Cheeta.getInstance(IssueService.class).find(attachmentGroup)) != null) {
 					if (!SecurityUtils.canAccessIssue(issue))
 						throw new UnauthorizedException();
-				} else if ((build = OneDev.getInstance(BuildService.class).find(attachmentGroup)) != null) {
+				} else if ((build = Cheeta.getInstance(BuildService.class).find(attachmentGroup)) != null) {
 					if (!SecurityUtils.canAccessBuild(build))
 						throw new UnauthorizedException();
 				} else if (!SecurityUtils.canAccessProject(project)) {
@@ -100,7 +100,7 @@ public class AttachmentResource extends AbstractResource {
 			@Override
 			public void writeData(Attributes attributes) throws IOException {
 				String activeServer = getProjectService().getActiveServer(projectId, true);
-				ClusterService clusterService = OneDev.getInstance(ClusterService.class);
+				ClusterService clusterService = Cheeta.getInstance(ClusterService.class);
 				if (activeServer.equals(clusterService.getLocalServerAddress())) {
 					read(getAttachmentService().getAttachmentLockName(projectId, attachmentGroup), () -> {
 						File attachmentFile = new File(getAttachmentService().getAttachmentGroupDir(projectId, attachmentGroup), attachment);
@@ -144,11 +144,11 @@ public class AttachmentResource extends AbstractResource {
 	}
 		
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 	
 	private static AttachmentService getAttachmentService() {
-		return OneDev.getInstance(AttachmentService.class);
+		return Cheeta.getInstance(AttachmentService.class);
 	}
 
 	public static PageParameters paramsOf(Long projectId, String attachmentGroup, String attachment) {

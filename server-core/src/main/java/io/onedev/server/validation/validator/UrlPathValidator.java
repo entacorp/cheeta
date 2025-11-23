@@ -1,4 +1,4 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.net.URISyntaxException;
 import java.util.regex.Pattern;
@@ -8,7 +8,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.apache.http.client.utils.URIBuilder;
 
-import io.onedev.server.annotation.UrlPath;
+import io.cheeta.server.annotation.UrlPath;
 
 public class UrlPathValidator implements ConstraintValidator<UrlPath, String> {
 

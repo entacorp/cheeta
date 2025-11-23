@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.buildspec.step;
+package io.cheeta.server.web.editable.buildspec.step;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class StepCssResourceReference extends BaseDependentCssResourceReference {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.beaneditmodal;
+package io.cheeta.server.web.component.beaneditmodal;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 
-import io.onedev.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.modal.ModalPanel;
 
 public abstract class BeanEditModalPanel<T extends Serializable> extends ModalPanel {
 

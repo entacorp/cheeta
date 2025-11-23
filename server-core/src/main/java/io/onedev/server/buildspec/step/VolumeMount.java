@@ -1,15 +1,15 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.annotation.SubPath;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.annotation.SubPath;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
 
 @Editable
 public class VolumeMount implements Serializable {

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build Commands
 
-OneDev uses Maven as its build system with a multi-module structure.
+Cheeta uses Maven as its build system with a multi-module structure.
 
 ### Essential Commands
 - **Build the project**: `mvn clean compile`
@@ -25,7 +25,7 @@ OneDev uses Maven as its build system with a multi-module structure.
 
 ## Architecture Overview
 
-OneDev is a comprehensive DevOps platform built with a sophisticated multi-module Maven architecture:
+Cheeta is a comprehensive DevOps platform built with a sophisticated multi-module Maven architecture:
 
 ### Core Technology Stack
 - **Web Framework**: Apache Wicket 7.18.0 (component-based UI)
@@ -47,12 +47,12 @@ OneDev is a comprehensive DevOps platform built with a sophisticated multi-modul
 ### Key Subsystems
 
 #### 1. Application Bootstrap
-- Main entry point: `server-core/src/main/java/io/onedev/server/OneDev.java`
-- Module configuration: `server-core/src/main/java/io/onedev/server/CoreModule.java`
+- Main entry point: `server-core/src/main/java/io/cheeta/server/Cheeta.java`
+- Module configuration: `server-core/src/main/java/io/cheeta/server/CoreModule.java`
 - Handles server lifecycle, clustering, and graceful shutdown
 
 #### 2. Entity Management
-Key domain entities and managers in `server-core/src/main/java/io/onedev/server/model/`:
+Key domain entities and managers in `server-core/src/main/java/io/cheeta/server/model/`:
 - Project, User, Group, Role management
 - Issue tracking with customizable workflows
 - Pull request lifecycle and code review
@@ -61,17 +61,17 @@ Key domain entities and managers in `server-core/src/main/java/io/onedev/server/
 
 #### 3. Git Integration
 - Full Git repository management via JGit
-- Git hooks for policy enforcement in `server-core/src/main/java/io/onedev/server/git/`
+- Git hooks for policy enforcement in `server-core/src/main/java/io/cheeta/server/git/`
 - Code browsing, diff visualization, and blame tracking
 - SSH server for Git operations
 
 #### 4. Web Layer (Wicket)
-- Component-based UI in `server-core/src/main/java/io/onedev/server/web/`
+- Component-based UI in `server-core/src/main/java/io/cheeta/server/web/`
 - AJAX-heavy interface with WebSocket support
 - Project browsing, issue boards, pull request review interface
 
 #### 5. REST API (Jersey)
-- RESTful services in `server-core/src/main/java/io/onedev/server/rest/`
+- RESTful services in `server-core/src/main/java/io/cheeta/server/rest/`
 - Project, User, Build, Issue resources
 - WebHook endpoints and package registry APIs
 
@@ -110,12 +110,12 @@ Key domain entities and managers in `server-core/src/main/java/io/onedev/server/
 ## Common Development Tasks
 
 ### Working with Entities
-- Entities are in `server-core/src/main/java/io/onedev/server/model/`
+- Entities are in `server-core/src/main/java/io/cheeta/server/model/`
 - Use corresponding managers for database operations
 - Follow JPA/Hibernate patterns for persistence
 
 ### Adding REST Endpoints
-- Create resources in `server-core/src/main/java/io/onedev/server/rest/resource/`
+- Create resources in `server-core/src/main/java/io/cheeta/server/rest/resource/`
 - Follow Jersey/JAX-RS patterns
 - Use existing security annotations for authentication
 
@@ -126,12 +126,12 @@ Key domain entities and managers in `server-core/src/main/java/io/onedev/server/
 - Place in appropriate `server-plugin/server-plugin-*` module
 
 ### Working with Git
-- Use JGit APIs through OneDev's Git service layer
-- Follow patterns in `server-core/src/main/java/io/onedev/server/git/`
+- Use JGit APIs through Cheeta's Git service layer
+- Follow patterns in `server-core/src/main/java/io/cheeta/server/git/`
 - Handle Git operations asynchronously when possible
 
 ### Adding Web Components
-- Create Wicket components in `server-core/src/main/java/io/onedev/server/web/`
+- Create Wicket components in `server-core/src/main/java/io/cheeta/server/web/`
 - Follow existing component patterns and CSS frameworks
 - Use AJAX for dynamic behavior
 
@@ -167,7 +167,7 @@ Key domain entities and managers in `server-core/src/main/java/io/onedev/server/
 
 ## Important Notes
 
-- OneDev uses a custom plugin loading framework
+- Cheeta uses a custom plugin loading framework
 - Git operations are central to the application architecture
 - The system supports both community (CE) and enterprise (EE) editions
 - Extensive use of Guice for dependency injection and plugin management

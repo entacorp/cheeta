@@ -1,26 +1,26 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.model.AbstractEntity.NAME_NUMBER;
-import static io.onedev.server.search.entity.EntityQuery.getValue;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQuery.checkField;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQuery.getOperator;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQuery.getRuleName;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.ApprovedByMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.AssignedToMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.CommentedByMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.IgnoredByMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.IncludesCommit;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.IncludesIssue;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.MentionedMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.NeedMyAction;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.OrderBy;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.RequestedForChangesByMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.SubmittedByMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.ToBeChangedByMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.ToBeMergedByMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.ToBeReviewedByMe;
-import static io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer.WatchedByMe;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.AbstractEntity.NAME_NUMBER;
+import static io.cheeta.server.search.entity.EntityQuery.getValue;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQuery.checkField;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQuery.getOperator;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQuery.getRuleName;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.ApprovedByMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.AssignedToMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.CommentedByMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.IgnoredByMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.IncludesCommit;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.IncludesIssue;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.MentionedMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.NeedMyAction;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.OrderBy;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.RequestedForChangesByMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.SubmittedByMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.ToBeChangedByMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.ToBeMergedByMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.ToBeReviewedByMe;
+import static io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer.WatchedByMe;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,27 +33,27 @@ import org.apache.wicket.model.IModel;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.ai.QueryDescriptions;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.search.entity.pullrequest.PullRequestQueryParser;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.NaturalLanguageTranslator;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ai.QueryDescriptions;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQueryParser;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.NaturalLanguageTranslator;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class PullRequestQueryBehavior extends ANTLRAssistBehavior {
 	
@@ -249,7 +249,7 @@ public class PullRequestQueryBehavior extends ANTLRAssistBehavior {
 					String fieldName = ProjectQuery.getValue(fieldElements.get(0).getMatchedText());
 					if (fieldName.equals(PullRequest.NAME_TARGET_PROJECT)
 							|| fieldName.equals(PullRequest.NAME_TARGET_BRANCH)) {
-						hints.add(_T("Use '**', '*', or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*', or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 					} else if (fieldName.equals(PullRequest.NAME_TITLE) 
 							|| fieldName.equals(PullRequest.NAME_DESCRIPTION)
 							|| fieldName.equals(PullRequest.NAME_COMMENT)
@@ -290,7 +290,7 @@ public class PullRequestQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 	
 }

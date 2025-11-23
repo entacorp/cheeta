@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.project.builds.detail;
+package io.cheeta.server.web.page.project.builds.detail;
 
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -31,20 +31,20 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.lang.Bytes;
 import org.glassfish.jersey.client.ClientProperties;
 
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.StorageService;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.FilenameUtils;
-import io.onedev.server.util.IOUtils;
-import io.onedev.server.web.component.dropzonefield.DropzoneField;
-import io.onedev.server.web.upload.FileUpload;
-import io.onedev.server.web.upload.UploadService;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.StorageService;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.FilenameUtils;
+import io.cheeta.server.util.IOUtils;
+import io.cheeta.server.web.component.dropzonefield.DropzoneField;
+import io.cheeta.server.web.upload.FileUpload;
+import io.cheeta.server.web.upload.UploadService;
 
 public abstract class ArtifactUploadPanel extends Panel {
 
@@ -60,7 +60,7 @@ public abstract class ArtifactUploadPanel extends Panel {
 	protected void onInitialize() {
 		super.onInitialize();
 		
-		SettingService settingService = OneDev.getInstance(SettingService.class);
+		SettingService settingService = Cheeta.getInstance(SettingService.class);
 		int maxUploadFileSize = settingService.getPerformanceSetting().getMaxUploadFileSize();
 		
 		Form<?> form = new Form<Void>("form");
@@ -105,8 +105,8 @@ public abstract class ArtifactUploadPanel extends Panel {
 					error(_T("'..' is not allowed in the directory"));
 					target.add(feedback);
 				} else {
-					ProjectService projectService = OneDev.getInstance(ProjectService.class);
-					ClusterService clusterService = OneDev.getInstance(ClusterService.class);
+					ProjectService projectService = Cheeta.getInstance(ProjectService.class);
+					ClusterService clusterService = Cheeta.getInstance(ClusterService.class);
 					
 					Long projectId = getBuild().getProject().getId();
 					String activeServer = projectService.getActiveServer(projectId, true);
@@ -114,7 +114,7 @@ public abstract class ArtifactUploadPanel extends Panel {
 					try {
 						if (activeServer.equals(clusterService.getLocalServerAddress())) {
 							LockUtils.write(getBuild().getArtifactsLockName(), () -> {
-								StorageService storageService = OneDev.getInstance(StorageService.class);
+								StorageService storageService = Cheeta.getInstance(StorageService.class);
 								var artifactsDir = storageService.initArtifactsDir(getBuild().getProject().getId(), getBuild().getNumber());
 								for (var item : upload.getItems()) {
 									String filePath = getArtifactPath(item);
@@ -189,7 +189,7 @@ public abstract class ArtifactUploadPanel extends Panel {
 	}
 	
 	private UploadService getUploadService() {
-		return OneDev.getInstance(UploadService.class);
+		return Cheeta.getInstance(UploadService.class);
 	}
 
 	public abstract void onUploaded(AjaxRequestTarget target);

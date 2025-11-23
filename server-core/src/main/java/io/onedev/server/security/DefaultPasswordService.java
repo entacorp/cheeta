@@ -1,6 +1,6 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 import org.apache.shiro.authc.credential.PasswordService;
 
 import javax.inject.Singleton;

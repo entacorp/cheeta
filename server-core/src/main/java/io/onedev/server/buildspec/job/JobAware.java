@@ -1,8 +1,8 @@
-package io.onedev.server.buildspec.job;
+package io.cheeta.server.buildspec.job;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.buildspec.ParamSpecAware;
+import io.cheeta.server.buildspec.ParamSpecAware;
 
 public interface JobAware extends ParamSpecAware {
 	

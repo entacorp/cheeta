@@ -1,9 +1,9 @@
-package io.onedev.server.plugin.mail.smtpimap;
+package io.cheeta.server.plugin.mail.smtpimap;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.model.support.administration.mailservice.ImapImplicitSsl;
-import io.onedev.server.model.support.administration.mailservice.ImapSslSetting;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.model.support.administration.mailservice.ImapImplicitSsl;
+import io.cheeta.server.model.support.administration.mailservice.ImapSslSetting;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;

@@ -1,4 +1,4 @@
-package io.onedev.server.git.service;
+package io.cheeta.server.git.service;
 
 import java.io.IOException;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import io.onedev.server.model.support.issue.changedata.IssueChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueChangeData;
 
 @Entity
 @Table(indexes={

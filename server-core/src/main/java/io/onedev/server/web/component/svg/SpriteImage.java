@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.svg;
+package io.cheeta.server.web.component.svg;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,11 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.CompoundRequestMapper;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.mapper.BaseResourceMapper;
-import io.onedev.server.web.resource.SpriteResourceReference;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.mapper.BaseResourceMapper;
+import io.cheeta.server.web.resource.SpriteResourceReference;
 
 public class SpriteImage extends WebComponent {
 

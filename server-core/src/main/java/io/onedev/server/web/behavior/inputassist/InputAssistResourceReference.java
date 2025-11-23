@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior.inputassist;
+package io.cheeta.server.web.behavior.inputassist;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.caret.CaretResourceReference;
-import io.onedev.server.web.asset.hotkeys.HotkeysResourceReference;
-import io.onedev.server.web.asset.textareacaretposition.TextareaCaretPositionResourceReference;
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.caret.CaretResourceReference;
+import io.cheeta.server.web.asset.hotkeys.HotkeysResourceReference;
+import io.cheeta.server.web.asset.textareacaretposition.TextareaCaretPositionResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class InputAssistResourceReference extends BaseDependentResourceReference {
 

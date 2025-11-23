@@ -1,13 +1,13 @@
-package io.onedev.server.web.component.issue;
+package io.cheeta.server.web.component.issue;
 
 import com.google.common.collect.Sets;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.support.issue.StateSpec;
-import io.onedev.server.util.ColorUtils;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.support.issue.StateSpec;
+import io.cheeta.server.util.ColorUtils;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.svg.SpriteImage;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.basic.Label;
@@ -46,7 +46,7 @@ public class IssueStateBadge extends Label {
 	protected void onComponentTag(ComponentTag tag) {
 		super.onComponentTag(tag);
 		Issue issue = issueModel.getObject();
-		StateSpec stateSpec = OneDev.getInstance(SettingService.class).getIssueSetting().getStateSpec(issue.getState());
+		StateSpec stateSpec = Cheeta.getInstance(SettingService.class).getIssueSetting().getStateSpec(issue.getState());
 		if (stateSpec != null) {
 			String fontColor = ColorUtils.isLight(stateSpec.getColor())?"#333":"#f9f9f9";
 			String style = String.format("background-color: %s; color: %s;", stateSpec.getColor(), fontColor);

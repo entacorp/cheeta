@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.sideinfo;
+package io.cheeta.server.web.component.sideinfo;
 
 import java.util.List;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class SideInfoResourceReference extends BaseDependentResourceReference {
 

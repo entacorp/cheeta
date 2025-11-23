@@ -1,8 +1,8 @@
-package io.onedev.server.model.support.pack;
+package io.cheeta.server.model.support.pack;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.PackQuery;
-import io.onedev.server.model.support.NamedQuery;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.PackQuery;
+import io.cheeta.server.model.support.NamedQuery;
 
 import javax.validation.constraints.NotEmpty;
 

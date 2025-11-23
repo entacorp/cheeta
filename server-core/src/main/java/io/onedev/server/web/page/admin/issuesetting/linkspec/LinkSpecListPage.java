@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.issuesetting.linkspec;
+package io.cheeta.server.web.page.admin.issuesetting.linkspec;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,19 +27,19 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.admin.issuesetting.IssueSettingPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.admin.issuesetting.IssueSettingPage;
 
 public class LinkSpecListPage extends IssueSettingPage {
 
@@ -229,7 +229,7 @@ public class LinkSpecListPage extends IssueSettingPage {
 	}
 
 	private LinkSpecService getLinkSpecService() {
-		return OneDev.getInstance(LinkSpecService.class);
+		return Cheeta.getInstance(LinkSpecService.class);
 	}
 	
 	@Override

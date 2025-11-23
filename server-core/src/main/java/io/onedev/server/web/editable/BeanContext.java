@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -12,8 +12,8 @@ import org.hibernate.proxy.HibernateProxyHelper;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.server.annotation.Editable;
 
 public class BeanContext implements Serializable {
 	

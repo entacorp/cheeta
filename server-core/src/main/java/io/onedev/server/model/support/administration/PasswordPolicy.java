@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class PasswordPolicy implements Serializable {

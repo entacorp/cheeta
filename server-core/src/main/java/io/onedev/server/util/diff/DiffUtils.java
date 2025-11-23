@@ -1,4 +1,4 @@
-package io.onedev.server.util.diff;
+package io.cheeta.server.util.diff;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,10 +14,10 @@ import org.jspecify.annotations.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.util.diff.DiffMatchPatch.Diff;
-import io.onedev.server.util.diff.DiffMatchPatch.Operation;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.util.diff.DiffMatchPatch.Diff;
+import io.cheeta.server.util.diff.DiffMatchPatch.Operation;
 
 public class DiffUtils {
 

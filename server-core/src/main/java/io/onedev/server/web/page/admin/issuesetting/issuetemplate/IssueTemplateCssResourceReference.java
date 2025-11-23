@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.admin.issuesetting.issuetemplate;
+package io.cheeta.server.web.page.admin.issuesetting.issuetemplate;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

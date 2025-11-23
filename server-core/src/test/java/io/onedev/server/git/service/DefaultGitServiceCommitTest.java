@@ -1,4 +1,4 @@
-package io.onedev.server.git.service;
+package io.cheeta.server.git.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -26,22 +26,22 @@ import org.junit.Test;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.git.AbstractGitTest;
-import io.onedev.server.git.BlobContent;
-import io.onedev.server.git.BlobEdits;
-import io.onedev.server.git.exception.NotTreeException;
-import io.onedev.server.git.exception.ObjectAlreadyExistsException;
-import io.onedev.server.git.exception.ObjectNotFoundException;
-import io.onedev.server.git.exception.ObsoleteCommitException;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GpgSetting;
-import io.onedev.server.persistence.SessionService;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.git.AbstractGitTest;
+import io.cheeta.server.git.BlobContent;
+import io.cheeta.server.git.BlobEdits;
+import io.cheeta.server.git.exception.NotTreeException;
+import io.cheeta.server.git.exception.ObjectAlreadyExistsException;
+import io.cheeta.server.git.exception.ObjectNotFoundException;
+import io.cheeta.server.git.exception.ObsoleteCommitException;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GpgSetting;
+import io.cheeta.server.persistence.SessionService;
 
 public class DefaultGitServiceCommitTest extends AbstractGitTest {
 

@@ -1,11 +1,11 @@
-package io.onedev.server.plugin.pack.container;
+package io.cheeta.server.plugin.pack.container;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.pack.PackSupport;
-import io.onedev.server.util.UrlUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.pack.PackSupport;
+import io.cheeta.server.util.UrlUtils;
 import org.apache.wicket.Component;
 
 public class ContainerPackSupport implements PackSupport {
@@ -37,7 +37,7 @@ public class ContainerPackSupport implements PackSupport {
 
 	@Override
 	public Component renderContent(String componentId, Pack pack) {
-		var serverUrl = OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+		var serverUrl = Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 		var server = UrlUtils.getServer(serverUrl);
 		return new ContainerPackPanel(componentId, pack.getProject().getId(), server + "/" + pack.getProject().getPath().toLowerCase() + "/" + pack.getName(), 
 				pack.getVersion(), (String) pack.getData());

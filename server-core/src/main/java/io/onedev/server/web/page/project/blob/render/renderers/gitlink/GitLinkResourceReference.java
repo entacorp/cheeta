@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.renderers.gitlink;
+package io.cheeta.server.web.page.project.blob.render.renderers.gitlink;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

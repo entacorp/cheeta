@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.project.pullrequests.detail;
+package io.cheeta.server.web.page.project.pullrequests.detail;
 
 import java.util.List;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.server.model.PullRequest;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.server.model.PullRequest;
 
 @ExtensionPoint
 public interface PullRequestSummaryContribution {

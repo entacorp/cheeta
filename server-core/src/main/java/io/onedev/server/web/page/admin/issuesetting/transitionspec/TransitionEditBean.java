@@ -1,8 +1,8 @@
-package io.onedev.server.web.page.admin.issuesetting.transitionspec;
+package io.cheeta.server.web.page.admin.issuesetting.transitionspec;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.model.support.issue.transitionspec.TransitionSpec;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.model.support.issue.transitionspec.TransitionSpec;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;

@@ -1,22 +1,22 @@
-package io.onedev.server.buildspec.job.projectdependency;
+package io.cheeta.server.buildspec.job.projectdependency;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 @Editable(order=200, name="Specify by Build Number")
 public class SpecifiedBuild implements BuildProvider {
@@ -59,7 +59,7 @@ public class SpecifiedBuild implements BuildProvider {
 		else
 			buildNumber = Long.parseLong(this.buildNumber);
 		
-		return OneDev.getInstance(BuildService.class).find(project, buildNumber);
+		return Cheeta.getInstance(BuildService.class).find(project, buildNumber);
 	}
 
 	@Override

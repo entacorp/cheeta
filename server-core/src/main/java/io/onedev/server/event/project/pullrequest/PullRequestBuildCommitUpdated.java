@@ -1,12 +1,12 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import java.util.Date;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.util.CommitAware;
-import io.onedev.server.util.ProjectScopedCommit;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.util.CommitAware;
+import io.cheeta.server.util.ProjectScopedCommit;
 
 public class PullRequestBuildCommitUpdated extends PullRequestEvent implements CommitAware {
 	

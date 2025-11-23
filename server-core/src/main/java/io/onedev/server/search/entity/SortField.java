@@ -1,9 +1,9 @@
-package io.onedev.server.search.entity;
+package io.cheeta.server.search.entity;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.search.entity.EntitySort.Direction;
 
-import static io.onedev.server.search.entity.EntitySort.Direction.ASCENDING;
+import static io.cheeta.server.search.entity.EntitySort.Direction.ASCENDING;
 
 public class SortField<T extends AbstractEntity> {
 

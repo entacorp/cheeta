@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -20,16 +20,16 @@ import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AgentAttributeService;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.AgentTokenService;
-import io.onedev.server.model.AgentAttribute;
-import io.onedev.server.web.component.AgentStatusBadge;
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AgentAttributeService;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.AgentTokenService;
+import io.cheeta.server.model.AgentAttribute;
+import io.cheeta.server.web.component.AgentStatusBadge;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.util.ConfirmClickModifier;
 
 public class AgentOverviewPage extends AgentDetailPage {
 
@@ -38,7 +38,7 @@ public class AgentOverviewPage extends AgentDetailPage {
 	}
 
 	private AgentService getAgentService() {
-		return OneDev.getInstance(AgentService.class);
+		return Cheeta.getInstance(AgentService.class);
 	}
 	
 	@Override
@@ -124,9 +124,9 @@ public class AgentOverviewPage extends AgentDetailPage {
 			public void onClick() {
 				var token = getAgent().getToken();
 				token.setValue(UUID.randomUUID().toString());
-				OneDev.getInstance(AgentTokenService.class).createOrUpdate(token);
+				Cheeta.getInstance(AgentTokenService.class).createOrUpdate(token);
 				auditService.audit(null, "regenerated access token for agent \"" + getAgent().getName() + "\"", null, null);
-				OneDev.getInstance(AgentService.class).disconnect(getAgent().getId());
+				Cheeta.getInstance(AgentService.class).disconnect(getAgent().getId());
 				Session.get().success(_T("Access token regenerated, make sure to update the token at agent side"));
 				setResponsePage(AgentOverviewPage.class, paramsOf(getAgent()));
 			}
@@ -147,7 +147,7 @@ public class AgentOverviewPage extends AgentDetailPage {
 					for (AgentAttribute attribute: bean.getAttributes())
 						attributeMap.put(attribute.getName(), attribute.getValue());
 					var oldAuditContent = VersionedXmlDoc.fromBean(getAgent().getAttributeMap()).toXML();
-					OneDev.getInstance(AgentAttributeService.class).syncAttributes(getAgent(), attributeMap);
+					Cheeta.getInstance(AgentAttributeService.class).syncAttributes(getAgent(), attributeMap);
 					var newAuditContent = VersionedXmlDoc.fromBean(getAgent().getAttributeMap()).toXML();
 					auditService.audit(null, "changed attributes of agent \"" + getAgent().getName() + "\"", oldAuditContent, newAuditContent);
 					getAgentService().attributesUpdated(getAgent());

@@ -1,4 +1,4 @@
-package io.onedev.server.util.lucene;
+package io.cheeta.server.util.lucene;
 
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanClause.Occur;

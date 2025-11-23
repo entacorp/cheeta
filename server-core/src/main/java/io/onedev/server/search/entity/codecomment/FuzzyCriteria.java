@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.codecomment;
+package io.cheeta.server.search.entity.codecomment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +10,12 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.search.entitytext.CodeCommentTextService;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.search.entitytext.CodeCommentTextService;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class FuzzyCriteria extends Criteria<CodeComment> {
 
@@ -37,7 +37,7 @@ public class FuzzyCriteria extends Criteria<CodeComment> {
 			if (value.length() == 0)
 				return builder.conjunction();
 			var project = projectScope!=null? projectScope.getProject(): null;
-			commentIds = OneDev.getInstance(CodeCommentTextService.class).query(project, value, MAX_TEXT_QUERY_COUNT);
+			commentIds = Cheeta.getInstance(CodeCommentTextService.class).query(project, value, MAX_TEXT_QUERY_COUNT);
 		}
 		if (commentIds.isEmpty())
 			return builder.disjunction();
@@ -50,7 +50,7 @@ public class FuzzyCriteria extends Criteria<CodeComment> {
 		if (value.length() == 0)
 			return true;
 		else
-			return OneDev.getInstance(CodeCommentTextService.class).matches(comment, value);
+			return Cheeta.getInstance(CodeCommentTextService.class).matches(comment, value);
 	}
 
 	@Override

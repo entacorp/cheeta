@@ -1,10 +1,10 @@
-package io.onedev.server.plugin.report.junit;
+package io.cheeta.server.plugin.report.junit;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.Status;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestCase;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestSuite;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.Status;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestCase;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestSuite;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.dom4j.Document;

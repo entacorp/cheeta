@@ -1,9 +1,9 @@
-package io.onedev.server.git.location;
+package io.cheeta.server.git.location;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(name="Use Specified curl", order=200)
 public class SpecifiedCurl extends CurlLocation {

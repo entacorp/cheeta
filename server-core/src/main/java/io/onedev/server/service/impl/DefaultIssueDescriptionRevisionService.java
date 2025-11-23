@@ -1,12 +1,12 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import javax.inject.Singleton;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.IssueDescriptionRevision;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.IssueDescriptionRevisionService;
+import io.cheeta.server.model.IssueDescriptionRevision;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.IssueDescriptionRevisionService;
 
 @Singleton
 public class DefaultIssueDescriptionRevisionService extends BaseEntityService<IssueDescriptionRevision>

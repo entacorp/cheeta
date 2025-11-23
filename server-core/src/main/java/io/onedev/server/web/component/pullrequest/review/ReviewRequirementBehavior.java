@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.pullrequest.review;
+package io.cheeta.server.web.component.pullrequest.review;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,16 +9,16 @@ import org.apache.wicket.model.IModel;
 
 import com.google.common.base.Optional;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.grammar.RuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.reviewrequirement.ReviewRequirementParser;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.grammar.RuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.reviewrequirement.ReviewRequirementParser;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class ReviewRequirementBehavior extends ANTLRAssistBehavior {
 

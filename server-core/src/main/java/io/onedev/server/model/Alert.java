@@ -1,6 +1,6 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 import org.apache.commons.lang3.StringUtils;
 
 import org.jspecify.annotations.Nullable;
@@ -10,8 +10,8 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import java.util.Date;
 
-import static io.onedev.server.model.Alert.PROP_DATE;
-import static io.onedev.server.model.Alert.PROP_SUBJECT;
+import static io.cheeta.server.model.Alert.PROP_DATE;
+import static io.cheeta.server.model.Alert.PROP_SUBJECT;
 
 @Editable
 @Entity

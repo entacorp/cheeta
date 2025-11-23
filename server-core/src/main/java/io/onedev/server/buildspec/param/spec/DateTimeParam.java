@@ -1,13 +1,13 @@
-package io.onedev.server.buildspec.param.spec;
+package io.cheeta.server.buildspec.param.spec;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspecmodel.inputspec.datetimeinput.DateTimeInput;
-import io.onedev.server.buildspecmodel.inputspec.datetimeinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.datetimeinput.DateTimeInput;
+import io.cheeta.server.buildspecmodel.inputspec.datetimeinput.defaultvalueprovider.DefaultValueProvider;
 
 @Editable(order=600, name=ParamSpec.DATE_TIME)
 public class DateTimeParam extends ParamSpec {

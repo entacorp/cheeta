@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.mail.office365;
+package io.cheeta.server.plugin.mail.office365;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 import javax.validation.constraints.Min;
 import java.io.Serializable;

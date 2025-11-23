@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.source;
+package io.cheeta.server.web.page.project.blob.render.source;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -13,14 +13,14 @@ import org.unbescape.javascript.JavaScriptEscape;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.util.ContentDetector;
-import io.onedev.server.web.component.sourceformat.SourceFormatPanel;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.util.ContentDetector;
+import io.cheeta.server.web.component.sourceformat.SourceFormatPanel;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 
 abstract class SourceFormComponent extends FormComponentPanel<byte[]> {
 
@@ -72,14 +72,14 @@ abstract class SourceFormComponent extends FormComponentPanel<byte[]> {
 		String jsonOfMark;
 		if (mark != null) {
 			try {
-				jsonOfMark = OneDev.getInstance(ObjectMapper.class).writeValueAsString(mark);
+				jsonOfMark = Cheeta.getInstance(ObjectMapper.class).writeValueAsString(mark);
 			} catch (JsonProcessingException e) {
 				throw new RuntimeException(e);
 			}
 		} else {
 			jsonOfMark = "undefined";
 		}
-		String script = String.format("onedev.server.sourceEdit.onDomReady("
+		String script = String.format("cheeta.server.sourceEdit.onDomReady("
 				+ "'%s', '%s', %s, '%s', %s, '%s', %b);", 
 				getMarkupId(), 
 				JavaScriptEscape.escapeJavaScript(getContext().getNewPath()), 

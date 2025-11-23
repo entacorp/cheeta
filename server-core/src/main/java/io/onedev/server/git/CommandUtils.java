@@ -1,19 +1,19 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
-import io.onedev.agent.Agent;
-import io.onedev.commons.bootstrap.SecretMasker;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.ExecutionResult;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.git.command.FileChange;
-import io.onedev.server.git.command.ReceivePackCommand;
-import io.onedev.server.git.command.UploadPackCommand;
-import io.onedev.server.git.location.GitLocation;
+import io.cheeta.agent.Agent;
+import io.cheeta.commons.bootstrap.SecretMasker;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.ExecutionResult;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.git.command.FileChange;
+import io.cheeta.server.git.command.ReceivePackCommand;
+import io.cheeta.server.git.command.UploadPackCommand;
+import io.cheeta.server.git.location.GitLocation;
 import org.apache.commons.lang3.SystemUtils;
 import org.eclipse.jgit.util.QuotedString;
 import org.slf4j.Logger;
@@ -36,7 +36,7 @@ public class CommandUtils {
 	private static final String MIN_VERSION = "2.11.1";
 	
 	public static Commandline newGit() {
-		Commandline cmdline = new Commandline(OneDev.getInstance(GitLocation.class).getExecutable());
+		Commandline cmdline = new Commandline(Cheeta.getInstance(GitLocation.class).getExecutable());
 		if (SystemUtils.IS_OS_MAC_OSX) {
 			String path = System.getenv("PATH") + ":/usr/local/bin";
 			cmdline.environments().put("PATH", path);
@@ -47,7 +47,7 @@ public class CommandUtils {
 	public static <T> T callWithClusterCredential(GitTask<T> task) {
 		File homeDir = FileUtils.createTempDir("githome"); 
 		
-		ClusterService clusterService = OneDev.getInstance(ClusterService.class);
+		ClusterService clusterService = Cheeta.getInstance(ClusterService.class);
 		SecretMasker.push(text -> StringUtils.replace(text, clusterService.getCredential(), "******"));
 		try {
 			Commandline git = newGit();

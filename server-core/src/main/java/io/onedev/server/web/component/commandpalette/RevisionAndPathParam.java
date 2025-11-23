@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.code.CodeSearchService;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.query.FileQuery;
-import io.onedev.server.search.code.query.TooGeneralQueryException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.code.CodeSearchService;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.query.FileQuery;
+import io.cheeta.server.search.code.query.TooGeneralQueryException;
 import org.eclipse.jgit.lib.ObjectId;
 
 import java.util.LinkedHashMap;
@@ -30,7 +30,7 @@ public class RevisionAndPathParam extends ParamSegment {
 		} else {
 			Project project = ParsedUrl.getProject(paramValues);
 			if (project.getDefaultBranch() != null) {
-				CodeSearchService codeSearchService = OneDev.getInstance(CodeSearchService.class);
+				CodeSearchService codeSearchService = Cheeta.getInstance(CodeSearchService.class);
 				ObjectId commitId = project.getObjectId(project.getDefaultBranch(), true);
 				var query = new FileQuery.Builder("*" + matchWith + "*")
 						.count(count)

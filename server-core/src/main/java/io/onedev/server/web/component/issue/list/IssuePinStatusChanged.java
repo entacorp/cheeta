@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.list;
+package io.cheeta.server.web.component.issue.list;
 
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.web.util.AjaxPayload;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
 public class IssuePinStatusChanged extends AjaxPayload {

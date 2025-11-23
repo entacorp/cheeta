@@ -1,4 +1,4 @@
-package io.onedev.server.job.match;
+package io.cheeta.server.job.match;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -6,11 +6,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class JobCriteria extends Criteria<JobMatchContext> {
 

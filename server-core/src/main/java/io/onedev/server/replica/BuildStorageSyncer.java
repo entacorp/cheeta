@@ -1,6 +1,6 @@
-package io.onedev.server.replica;
+package io.cheeta.server.replica;
 
-import io.onedev.commons.loader.ExtensionPoint;
+import io.cheeta.commons.loader.ExtensionPoint;
 
 @ExtensionPoint
 public interface BuildStorageSyncer {

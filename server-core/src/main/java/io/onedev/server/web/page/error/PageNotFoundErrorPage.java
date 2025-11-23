@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.error;
+package io.cheeta.server.web.page.error;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,8 +9,8 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.request.http.WebResponse;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.simple.SimplePage;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.simple.SimplePage;
 
 public class PageNotFoundErrorPage extends SimplePage {
 

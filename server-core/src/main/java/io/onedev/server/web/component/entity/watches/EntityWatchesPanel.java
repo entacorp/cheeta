@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.entity.watches;
+package io.cheeta.server.web.component.entity.watches;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,15 +15,15 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.EntityWatch;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.watch.WatchStatus;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.component.user.list.SimpleUserListLink;
-import io.onedev.server.web.component.watchstatus.WatchStatusLink;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.EntityWatch;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.watch.WatchStatus;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.component.user.list.SimpleUserListLink;
+import io.cheeta.server.web.component.watchstatus.WatchStatusLink;
 
 public abstract class EntityWatchesPanel extends Panel {
 

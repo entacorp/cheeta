@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.offcanvas;
+package io.cheeta.server.web.component.offcanvas;
 
 import org.jspecify.annotations.Nullable;
 
@@ -7,8 +7,8 @@ import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.util.Animation;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.util.Animation;
 
 public abstract class OffCanvasPanel extends FloatingPanel {
 

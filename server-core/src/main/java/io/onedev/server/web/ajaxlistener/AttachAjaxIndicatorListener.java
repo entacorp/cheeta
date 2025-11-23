@@ -1,4 +1,4 @@
-package io.onedev.server.web.ajaxlistener;
+package io.cheeta.server.web.ajaxlistener;
 
 import org.jspecify.annotations.Nullable;
 
@@ -10,11 +10,11 @@ import org.apache.wicket.request.handler.resource.ResourceReferenceRequestHandle
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
 
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.img.ImageScope;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.img.ImageScope;
+import io.cheeta.server.web.page.base.BasePage;
 
 public class AttachAjaxIndicatorListener implements IAjaxCallListener {
 

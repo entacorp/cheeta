@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.sso.openid;
+package io.cheeta.server.plugin.sso.openid;
 
 import java.io.Serializable;
 

@@ -1,14 +1,14 @@
-package io.onedev.server.web.editable.buildspec.step;
+package io.cheeta.server.web.editable.buildspec.step;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.buildspec.step.Step;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.typeselect.TypeSelectPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.editable.EditableUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.buildspec.step.Step;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.typeselect.TypeSelectPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.editable.EditableUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -22,7 +22,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import static io.onedev.server.web.component.floating.AlignPlacement.bottom;
+import static io.cheeta.server.web.component.floating.AlignPlacement.bottom;
 
 abstract class StepEditContentPanel extends Panel {
 

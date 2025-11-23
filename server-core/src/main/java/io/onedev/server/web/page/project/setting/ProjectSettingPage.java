@@ -1,15 +1,15 @@
-package io.onedev.server.web.page.project.setting;
+package io.cheeta.server.web.page.project.setting;
 
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
 
 public abstract class ProjectSettingPage extends ProjectPage {
 

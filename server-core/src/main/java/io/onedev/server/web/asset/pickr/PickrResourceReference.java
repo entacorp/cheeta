@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.pickr;
+package io.cheeta.server.web.asset.pickr;
 
 import java.util.List;
 

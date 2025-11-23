@@ -1,12 +1,12 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 
 import org.jspecify.annotations.Nullable;
 
 import dev.langchain4j.model.chat.ChatModel;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.support.AIModelSetting;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.support.AIModelSetting;
 
 @Editable
 public class AISetting implements Serializable {

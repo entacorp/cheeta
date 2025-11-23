@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.youtrack;
+package io.cheeta.server.plugin.imports.youtrack;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,11 +8,11 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class IssueLinkMapping implements Serializable {
@@ -33,21 +33,21 @@ public class IssueLinkMapping implements Serializable {
 		this.youTrackIssueLink = youTrackIssueLink;
 	}
 
-	@Editable(order=200, name="OneDev Issue Link")
-	@ChoiceProvider("getOneDevIssueLinkChoices")
+	@Editable(order=200, name="Cheeta Issue Link")
+	@ChoiceProvider("getCheetaIssueLinkChoices")
 	@NotEmpty
-	public String getOneDevIssueLink() {
+	public String getCheetaIssueLink() {
 		return oneDevIssueLink;
 	}
 
-	public void setOneDevIssueLink(String oneDevIssueLink) {
+	public void setCheetaIssueLink(String oneDevIssueLink) {
 		this.oneDevIssueLink = oneDevIssueLink;
 	}
 
 	@SuppressWarnings("unused")
-	private static List<String> getOneDevIssueLinkChoices() {
+	private static List<String> getCheetaIssueLinkChoices() {
 		List<String> choices = new ArrayList<>();
-		List<LinkSpec> linkSpecs = OneDev.getInstance(LinkSpecService.class).query();
+		List<LinkSpec> linkSpecs = Cheeta.getInstance(LinkSpecService.class).query();
 		Collections.sort(linkSpecs, new Comparator<LinkSpec>() {
 
 			@Override

@@ -1,10 +1,10 @@
-package io.onedev.server.job.log;
+package io.cheeta.server.job.log;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterTask;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterTask;
 
 public class LogTask implements ClusterTask<Void> {
 
@@ -24,7 +24,7 @@ public class LogTask implements ClusterTask<Void> {
 	
 	@Override
 	public Void call() {
-		TaskLogger logger = OneDev.getInstance(LogService.class).getJobLogger(jobToken);
+		TaskLogger logger = Cheeta.getInstance(LogService.class).getJobLogger(jobToken);
 		if (logger != null && !(logger instanceof ServerJobLogger))  
 			logger.log(message, sessionId);
 		return null;

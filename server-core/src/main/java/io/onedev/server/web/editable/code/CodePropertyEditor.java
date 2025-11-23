@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.code;
+package io.cheeta.server.web.editable.code;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,16 +7,16 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Code;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Code;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 import org.apache.wicket.ajax.AjaxChannel;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -32,7 +32,7 @@ import org.apache.wicket.request.IRequestParameters;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.util.convert.ConversionException;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -88,7 +88,7 @@ public class CodePropertyEditor extends PropertyEditor<Serializable> {
 				String start = params.getParameterValue("start").toString();
 				
 				String variableProvider = getCode().variableProvider();
-				ObjectMapper mapper = OneDev.getInstance(ObjectMapper.class);
+				ObjectMapper mapper = Cheeta.getInstance(ObjectMapper.class);
 				ArrayNode variablesNode = mapper.createArrayNode();
 				if (variableProvider.length() != 0) {
 					ComponentContext.push(new ComponentContext(input));
@@ -107,7 +107,7 @@ public class CodePropertyEditor extends PropertyEditor<Serializable> {
 					}
 				}
 				try {
-					String script = String.format("onedev.server.codeSupport.showVariables('%s', %s, %s, %s);", 
+					String script = String.format("cheeta.server.codeSupport.showVariables('%s', %s, %s, %s);", 
 							input.getMarkupId(), mapper.writeValueAsString(variablesNode), line, start);
 					target.appendJavaScript(script);
 				} catch (JsonProcessingException e) {
@@ -155,7 +155,7 @@ public class CodePropertyEditor extends PropertyEditor<Serializable> {
 		CallbackParameter start = CallbackParameter.explicit("start");
 		CallbackParameter end = CallbackParameter.explicit("end");
 		String script = String.format(
-				"onedev.server.codeSupport.onEditorLoad('%s', '%s', %s);", 
+				"cheeta.server.codeSupport.onEditorLoad('%s', '%s', %s);", 
 				input.getMarkupId(), 
 				getCode().language(), 
 				behavior.getCallbackFunction(matchWith, line, start, end));

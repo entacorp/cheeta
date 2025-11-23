@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.codecomment;
+package io.cheeta.server.web.component.codecomment;
 
-import static io.onedev.server.search.entity.codecomment.CodeCommentQueryLexer.IsSince;
-import static io.onedev.server.search.entity.codecomment.CodeCommentQueryLexer.IsUntil;
+import static io.cheeta.server.search.entity.codecomment.CodeCommentQueryLexer.IsSince;
+import static io.cheeta.server.search.entity.codecomment.CodeCommentQueryLexer.IsUntil;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -18,23 +18,23 @@ import org.apache.wicket.model.LoadableDetachableModel;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.User;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.search.entity.codecomment.CreatedByCriteria;
-import io.onedev.server.search.entity.codecomment.CreatedByUserCriteria;
-import io.onedev.server.search.entity.codecomment.LastActivityDateCriteria;
-import io.onedev.server.search.entity.codecomment.ResolvedCriteria;
-import io.onedev.server.search.entity.codecomment.StatusCriteria;
-import io.onedev.server.search.entity.codecomment.UnresolvedCriteria;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.datepicker.DatePicker;
-import io.onedev.server.web.component.filteredit.FilterEditPanel;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
-import io.onedev.server.web.component.user.choice.UserMultiChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.search.entity.codecomment.CreatedByCriteria;
+import io.cheeta.server.search.entity.codecomment.CreatedByUserCriteria;
+import io.cheeta.server.search.entity.codecomment.LastActivityDateCriteria;
+import io.cheeta.server.search.entity.codecomment.ResolvedCriteria;
+import io.cheeta.server.search.entity.codecomment.StatusCriteria;
+import io.cheeta.server.search.entity.codecomment.UnresolvedCriteria;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.datepicker.DatePicker;
+import io.cheeta.server.web.component.filteredit.FilterEditPanel;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.web.component.user.choice.UserMultiChoice;
 
 class CodeCommentFilterPanel extends FilterEditPanel<CodeComment> {
 	
@@ -214,7 +214,7 @@ class CodeCommentFilterPanel extends FilterEditPanel<CodeComment> {
 	}
 	
 	private static UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 
 }

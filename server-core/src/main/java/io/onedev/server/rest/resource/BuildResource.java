@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,22 +23,22 @@ import javax.ws.rs.core.Response;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspecmodel.inputspec.SecretInput;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.BuildDependence;
-import io.onedev.server.model.BuildLabel;
-import io.onedev.server.model.BuildParam;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.resource.support.RestConstants;
-import io.onedev.server.search.entity.build.BuildQuery;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspecmodel.inputspec.SecretInput;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.BuildDependence;
+import io.cheeta.server.model.BuildLabel;
+import io.cheeta.server.model.BuildParam;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.resource.support.RestConstants;
+import io.cheeta.server.search.entity.build.BuildQuery;
+import io.cheeta.server.security.SecurityUtils;
 
 @Api(description="In most cases, build resource is operated with build id, which is different from build number. "
-		+ "To get build id of a particular build number, use the <a href='/~help/api/io.onedev.server.rest.BuildResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
+		+ "To get build id of a particular build number, use the <a href='/~help/api/io.cheeta.server.rest.BuildResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
 		+ "instance <code>&quot;Number&quot; is &quot;path/to/project#100&quot;</code> or <code>&quot;Number&quot; is &quot;PROJECTKEY-100&quot;</code>")
 @Path("/builds")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -66,7 +66,7 @@ public class BuildResource {
     	return build;
     }
 
-	@Api(order=150, description = "Get list of <a href='/~help/api/io.onedev.server.rest.BuildLabelResource'>labels</a>")
+	@Api(order=150, description = "Get list of <a href='/~help/api/io.cheeta.server.rest.BuildLabelResource'>labels</a>")
 	@Path("/{buildId}/labels")
 	@GET
 	public Collection<BuildLabel> getLabels(@PathParam("buildId") Long buildId) {

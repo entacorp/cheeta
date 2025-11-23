@@ -1,8 +1,8 @@
-package io.onedev.server.util.watch;
+package io.cheeta.server.util.watch;
 
 import java.util.LinkedHashSet;
 
-import io.onedev.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.NamedQuery;
 
 public abstract class QuerySubscriptionSupport<T extends NamedQuery> {
 

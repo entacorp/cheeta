@@ -1,7 +1,7 @@
-package io.onedev.server.web.editable.secret;
+package io.cheeta.server.web.editable.secret;
 
-import io.onedev.server.annotation.Secret;
-import io.onedev.server.web.editable.*;
+import io.cheeta.server.annotation.Secret;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 

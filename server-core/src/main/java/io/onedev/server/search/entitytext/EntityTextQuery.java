@@ -1,4 +1,4 @@
-package io.onedev.server.search.entitytext;
+package io.cheeta.server.search.entitytext;
 
 import org.apache.lucene.search.Query;
 

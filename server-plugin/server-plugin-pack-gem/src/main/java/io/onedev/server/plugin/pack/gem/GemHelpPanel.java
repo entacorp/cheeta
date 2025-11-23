@@ -1,14 +1,14 @@
-package io.onedev.server.plugin.pack.gem;
+package io.cheeta.server.plugin.pack.gem;
 
-import static io.onedev.server.plugin.pack.gem.GemPackHandler.HANDLER_ID;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.plugin.pack.gem.GemPackHandler.HANDLER_ID;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.component.codesnippet.CodeSnippetPanel;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.component.codesnippet.CodeSnippetPanel;
 
 public class GemHelpPanel extends Panel {
 	
@@ -26,7 +26,7 @@ public class GemHelpPanel extends Panel {
 		var registryUrl = getServerUrl() + "/" + projectPath + "/~" + HANDLER_ID;
 		var addSourceCommands = "" +
 				"---\n" +
-				registryUrl + ": Bearer <onedev_access_token>"; 
+				registryUrl + ": Bearer <cheeta_access_token>"; 
 		add(new CodeSnippetPanel("addSource", Model.of(addSourceCommands)));
 		
 		var pushCommand = "gem push --host " + registryUrl + " /path/to/<package>-<version>.gem";
@@ -35,7 +35,7 @@ public class GemHelpPanel extends Panel {
 		var jobCommands = "" +
 				"mkdir -p $HOME/.gem\n" +
 				"\n" +
-				"# " + _T("Use job token to tell OneDev the build publishing the package") + "\n" +
+				"# " + _T("Use job token to tell Cheeta the build publishing the package") + "\n" +
 				"# " + _T("Job secret 'access-token' should be defined in project build setting as an access token with package write permission") + "\n\n" +
 				"cat << EOF > $HOME/.gem/credentials\n" +
 				"---\n" +
@@ -48,7 +48,7 @@ public class GemHelpPanel extends Panel {
 	}
 
 	private String getServerUrl() {
-		return OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+		return Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 	}
 	
 }

@@ -1,7 +1,7 @@
-package io.onedev.server.web.editable.buildspec.param.instance;
+package io.cheeta.server.web.editable.buildspec.param.instance;
 
-import io.onedev.server.buildspec.param.instance.*;
-import io.onedev.server.web.editable.PropertyContext;
+import io.cheeta.server.buildspec.param.instance.*;
+import io.cheeta.server.web.editable.PropertyContext;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;

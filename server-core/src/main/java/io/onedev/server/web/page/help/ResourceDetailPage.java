@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
 
 public class ResourceDetailPage extends ApiHelpPage {
 

@@ -1,9 +1,9 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.persistence.annotation.Sessional;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.persistence.annotation.Sessional;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.subject.Subject;

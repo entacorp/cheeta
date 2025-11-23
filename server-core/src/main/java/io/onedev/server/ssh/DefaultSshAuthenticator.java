@@ -1,10 +1,10 @@
-package io.onedev.server.ssh;
+package io.cheeta.server.ssh;
 
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.SshKeyService;
-import io.onedev.server.model.SshKey;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Sessional;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.SshKeyService;
+import io.cheeta.server.model.SshKey;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Sessional;
 import org.apache.sshd.common.AttributeRepository.AttributeKey;
 import org.apache.sshd.common.config.keys.KeyUtils;
 import org.apache.sshd.common.digest.BuiltinDigests;

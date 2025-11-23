@@ -1,6 +1,6 @@
-package io.onedev.server.rest.resource.support;
+package io.cheeta.server.rest.resource.support;
 
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.Api;
 
 public class FileCreateOrUpdateRequest extends FileEditRequest {
 

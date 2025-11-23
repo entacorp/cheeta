@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.buildspec.imports;
+package io.cheeta.server.web.editable.buildspec.imports;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 
-import io.onedev.server.buildspec.Import;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.buildspec.Import;
+import io.cheeta.server.web.editable.BeanContext;
 
 public class ImportListViewPanel extends Panel {
 

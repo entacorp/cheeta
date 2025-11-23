@@ -1,12 +1,12 @@
-package io.onedev.server.web.page.project.builds.detail.pipeline;
+package io.cheeta.server.web.page.project.builds.detail.pipeline;
 
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.job.jobinfo.JobInfoButton;
-import io.onedev.server.web.component.pipeline.PipelinePanel;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.job.jobinfo.JobInfoButton;
+import io.cheeta.server.web.component.pipeline.PipelinePanel;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
 import org.apache.wicket.Component;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.eclipse.jgit.lib.ObjectId;

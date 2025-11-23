@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.project.pullrequests.detail;
+package io.cheeta.server.web.page.project.pullrequests.detail;
 
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.PullRequestUpdate;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
+import io.cheeta.server.model.PullRequestUpdate;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.page.project.pullrequests.detail.changes.PullRequestChangesPage;
 
 public class UnreviewedChangesPanel extends GenericPanel<PullRequestUpdate> {
 

@@ -1,8 +1,8 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.util.List;
 
-import io.onedev.server.model.Issue;
+import io.cheeta.server.model.Issue;
 
 public class LinkGroup {
 	

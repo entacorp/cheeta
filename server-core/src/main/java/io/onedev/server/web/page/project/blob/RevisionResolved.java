@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.project.blob;
+package io.cheeta.server.web.page.project.blob;
 
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.web.util.AjaxPayload;
+import io.cheeta.server.web.util.AjaxPayload;
 
 public class RevisionResolved extends AjaxPayload {
 

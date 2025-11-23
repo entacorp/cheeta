@@ -1,4 +1,4 @@
-package io.onedev.server.web.resourcebundle;
+package io.cheeta.server.web.resourcebundle;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -26,9 +26,9 @@ import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
 import org.apache.wicket.resource.bundles.ConcatResourceBundleReference;
 
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.commons.utils.DependencyAware;
-import io.onedev.commons.utils.DependencyUtils;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.commons.utils.DependencyAware;
+import io.cheeta.commons.utils.DependencyUtils;
 
 public class ResourceBundleReferences {
 

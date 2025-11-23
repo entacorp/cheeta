@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.buildspec.param.instance;
+package io.cheeta.server.web.editable.buildspec.param.instance;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,12 +10,12 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 
-import io.onedev.server.buildspec.param.instance.IgnoreValues;
-import io.onedev.server.buildspec.param.instance.ParamInstances;
-import io.onedev.server.buildspec.param.instance.PassthroughValues;
-import io.onedev.server.buildspec.param.instance.ScriptingValues;
-import io.onedev.server.buildspec.param.instance.SpecifiedValues;
-import io.onedev.server.web.editable.PropertyContext;
+import io.cheeta.server.buildspec.param.instance.IgnoreValues;
+import io.cheeta.server.buildspec.param.instance.ParamInstances;
+import io.cheeta.server.buildspec.param.instance.PassthroughValues;
+import io.cheeta.server.buildspec.param.instance.ScriptingValues;
+import io.cheeta.server.buildspec.param.instance.SpecifiedValues;
+import io.cheeta.server.web.editable.PropertyContext;
 
 class ParamMatrixViewPanel extends Panel {
 

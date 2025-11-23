@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 import javax.validation.constraints.NotEmpty;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
 
 @Editable
 public class DefaultProjectSetting implements Serializable {
@@ -48,7 +48,7 @@ public class DefaultProjectSetting implements Serializable {
 
 	@SuppressWarnings("unused")
 	private static List<String> getProjectChoices() {
-		List<String> projectPaths = OneDev.getInstance(ProjectService.class)
+		List<String> projectPaths = Cheeta.getInstance(ProjectService.class)
 				.query().stream().map(it->it.getPath()).collect(Collectors.toList());
 		Collections.sort(projectPaths);
 		return projectPaths;

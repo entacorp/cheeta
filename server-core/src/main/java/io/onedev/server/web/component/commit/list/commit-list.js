@@ -1,12 +1,12 @@
-onedev.server.commitList = {
+cheeta.server.commitList = {
 	onDomReady: function(containerId, commits) {
 		$("#" + containerId).on("resized", function() {
 			$(".commit-graph").each(function() {
-				onedev.server.commitList.drawGraph($(this));
+				cheeta.server.commitList.drawGraph($(this));
 			});
 			return false;
 		});
-		onedev.server.commitList.renderGraph(containerId, commits);	
+		cheeta.server.commitList.renderGraph(containerId, commits);	
 	},
 	renderGraph: function(containerId, commits) {
         var $commitList = $("#" + containerId + ">ul");
@@ -15,8 +15,8 @@ onedev.server.commitList = {
     		$commitList.before("<svg class='commit-graph'></svg>");
         var $graph = $commitList.prev("svg");
 
-		onedev.server.commitList.populateGraphData($graph, commits);
-		onedev.server.commitList.drawGraph($graph);
+		cheeta.server.commitList.populateGraphData($graph, commits);
+		cheeta.server.commitList.drawGraph($graph);
 
 		var paper = Snap($graph[0]);
 		function getCommitDot(e) {

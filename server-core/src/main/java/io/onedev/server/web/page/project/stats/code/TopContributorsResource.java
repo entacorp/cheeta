@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.project.stats.code;
+package io.cheeta.server.web.page.project.stats.code;
 
-import static io.onedev.server.util.DateUtils.formatISO8601Date;
-import static io.onedev.server.util.DateUtils.toDate;
+import static io.cheeta.server.util.DateUtils.formatISO8601Date;
+import static io.cheeta.server.util.DateUtils.toDate;
 import static java.time.LocalDate.ofEpochDay;
 
 import java.io.IOException;
@@ -19,22 +19,22 @@ import org.eclipse.jgit.lib.PersonIdent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.git.GitContribution;
-import io.onedev.server.git.GitContributor;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.search.commit.AfterCriteria;
-import io.onedev.server.search.commit.AuthorCriteria;
-import io.onedev.server.search.commit.BeforeCriteria;
-import io.onedev.server.search.commit.CommitQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.avatar.AvatarService;
-import io.onedev.server.web.page.project.commits.ProjectCommitsPage;
-import io.onedev.server.web.page.user.profile.UserProfilePage;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.git.GitContribution;
+import io.cheeta.server.git.GitContributor;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.search.commit.AfterCriteria;
+import io.cheeta.server.search.commit.AuthorCriteria;
+import io.cheeta.server.search.commit.BeforeCriteria;
+import io.cheeta.server.search.commit.CommitQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.avatar.AvatarService;
+import io.cheeta.server.web.page.project.commits.ProjectCommitsPage;
+import io.cheeta.server.web.page.user.profile.UserProfilePage;
+import io.cheeta.server.xodus.CommitInfoService;
 
 class TopContributorsResource extends AbstractResource {
 
@@ -64,7 +64,7 @@ class TopContributorsResource extends AbstractResource {
 
 			@Override
 			public void writeData(Attributes attributes) throws IOException {
-				Project project = OneDev.getInstance(Dao.class).load(Project.class, projectId);
+				Project project = Cheeta.getInstance(Dao.class).load(Project.class, projectId);
 				
 				if (!SecurityUtils.canReadCode(project))
 					throw new UnauthorizedException();
@@ -72,11 +72,11 @@ class TopContributorsResource extends AbstractResource {
 				String fromDate = formatISO8601Date(toDate(ofEpochDay(fromDay).atStartOfDay()));
 				String toDate = formatISO8601Date(toDate(ofEpochDay(toDay).plusDays(1).atStartOfDay()));
 				
-				List<GitContributor> topContributors = OneDev.getInstance(CommitInfoService.class)
+				List<GitContributor> topContributors = Cheeta.getInstance(CommitInfoService.class)
 						.getTopContributors(project.getId(), TOP_CONTRIBUTORS, type, fromDay, toDay);
 				
-				AvatarService avatarService = OneDev.getInstance(AvatarService.class);
-				EmailAddressService emailAddressService = OneDev.getInstance(EmailAddressService.class);
+				AvatarService avatarService = Cheeta.getInstance(AvatarService.class);
+				EmailAddressService emailAddressService = Cheeta.getInstance(EmailAddressService.class);
 
 				List<Map<String, Object>> data = new ArrayList<>();
 				for (GitContributor contributor: topContributors) {
@@ -117,7 +117,7 @@ class TopContributorsResource extends AbstractResource {
 					contributorData.put("dailyContributions", dailyContributionsData);
 					data.add(contributorData);
 				}
-				attributes.getResponse().write(OneDev.getInstance(ObjectMapper.class).writeValueAsBytes(data));
+				attributes.getResponse().write(Cheeta.getInstance(ObjectMapper.class).writeValueAsBytes(data));
 			}
 			
 		});

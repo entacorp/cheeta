@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.executor.serverdocker;
+package io.cheeta.server.plugin.executor.serverdocker;
 
 import java.io.File;
 import java.util.Collection;
@@ -7,14 +7,14 @@ import org.apache.commons.lang.SystemUtils;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.commons.loader.ImplementationProvider;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.LineConsumer;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.JobExecutorDiscoverer;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.commons.loader.ImplementationProvider;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.LineConsumer;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.JobExecutorDiscoverer;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
 
 /**
  * NOTE: Do not forget to rename moduleClass property defined in the pom if you've renamed this class.
@@ -28,7 +28,7 @@ public class ServerDockerModule extends AbstractPluginModule {
 		
 		// put your guice bindings here
 
-		if (OneDev.getK8sService() == null) {
+		if (Cheeta.getK8sService() == null) {
 			contribute(ImplementationProvider.class, new ImplementationProvider() {
 
 				@Override

@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.pullrequest;
+package io.cheeta.server.search.entity.pullrequest;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -11,15 +11,15 @@ import javax.persistence.criteria.Predicate;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.xodus.CommitInfoService;
-import io.onedev.server.xodus.PullRequestInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.xodus.CommitInfoService;
+import io.cheeta.server.xodus.PullRequestInfoService;
 
 public class IncludesIssueCriteria extends Criteria<PullRequest> {
 
@@ -54,8 +54,8 @@ public class IncludesIssueCriteria extends Criteria<PullRequest> {
 	
 	private Collection<Long> getPullRequestIds(Project project) {
 		Collection<Long> pullRequestIds = new HashSet<>();
-		for (ObjectId commit: OneDev.getInstance(CommitInfoService.class).getFixCommits(project.getId(), issue.getId(), false))
-			pullRequestIds.addAll(OneDev.getInstance(PullRequestInfoService.class).getPullRequestIds(project, commit));
+		for (ObjectId commit: Cheeta.getInstance(CommitInfoService.class).getFixCommits(project.getId(), issue.getId(), false))
+			pullRequestIds.addAll(Cheeta.getInstance(PullRequestInfoService.class).getPullRequestIds(project, commit));
 		return pullRequestIds;
 	}
 	

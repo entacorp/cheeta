@@ -8,38 +8,38 @@ global:
   commonLabels: {}
     # dept_name: platform
 
-onedev:
-  # onedev.replicas -- Number of OneDev servers to run. With an enterprise license, you will be able to distribute
+cheeta:
+  # cheeta.replicas -- Number of Cheeta servers to run. With an enterprise license, you will be able to distribute
   # different projects to different servers for horizontal scaling, as well as replicate project repositories and
   # artifacts for high availability. Note that setting this param to 2 or more is only meaningful if you are
-  # connecting to external database; otherwise they simply run as independent OneDev instances
+  # connecting to external database; otherwise they simply run as independent Cheeta instances
   replicas: 1
-  # onedev.updateStrategy -- Valid options: `RollingUpdate`, `OnDelete`
+  # cheeta.updateStrategy -- Valid options: `RollingUpdate`, `OnDelete`
   updateStrategy:
     type: RollingUpdate
   trustCerts:
-    # onedev.trustCerts.secretName -- Name of an existing secret containing trusted certificates. You may create the
-    # secret with "kubectl create secret generic onedev-trustcerts -n onedev --from-file=/path/to/trust-certs",
+    # cheeta.trustCerts.secretName -- Name of an existing secret containing trusted certificates. You may create the
+    # secret with "kubectl create secret generic cheeta-trustcerts -n cheeta --from-file=/path/to/trust-certs",
     # where /path/to/trust-certs is a local directory contains all certificates to be trusted. Certificate should be 
     # of base64 encoded PEM format beginning with "-----BEGIN CERTIFICATE-----" and ending with "-----END CERTIFICATE-----"
-    secretName: "onedev-trustcerts"
+    secretName: "cheeta-trustcerts"
   jvm:
     maxMemoryPercent: "50"
     threadStackSize: "1024k"
   hibernate:
     queryPlanCacheMaxSize: "2048"
     queryPlanParameterMetadataMaxSize: "128"
-  # Specify OneDev Server initial settings to avoid manual setup
+  # Specify Cheeta Server initial settings to avoid manual setup
   initSettings:
-    # onedev.initSettings.user -- Administrator username. Leave empty to prompt
+    # cheeta.initSettings.user -- Administrator username. Leave empty to prompt
     user: ""
-    # onedev.initSettings.password -- Administrator Password. Leave empty to prompt
+    # cheeta.initSettings.password -- Administrator Password. Leave empty to prompt
     password: ""
-    # onedev.initSettings.email -- Administrator Email address. Leave empty to prompt
+    # cheeta.initSettings.email -- Administrator Email address. Leave empty to prompt
     email: ""
-    # onedev.initSettings.serverUrl -- Server url. Leave empty to prompt. Will be ignored if ingress.host is specified
+    # cheeta.initSettings.serverUrl -- Server url. Leave empty to prompt. Will be ignored if ingress.host is specified
     serverUrl: ""
-    # onedev.initSettings.sshRootUrl -- Root url to clone repository via SSH. Leave empty to derive from server url
+    # cheeta.initSettings.sshRootUrl -- Root url to clone repository via SSH. Leave empty to derive from server url
     sshRootUrl: ""
 
 # External database configuration
@@ -47,14 +47,14 @@ database:
   # database.external -- Set to **true** when using external database
   external: false
   # database.type-- Required: Set type of external database. Possible values `mysql`, `mariadb`, `postgresql`, `mssql`
-  # [external databases](https://docs.onedev.io/installation-guide/run-as-docker-container#use-external-database)
+  # [external databases](https://docs.cheeta.io/installation-guide/run-as-docker-container#use-external-database)
   type: "mysql"
   # database.host -- IP address or hostname of database
-  host: "onedev-mysql.onedev.svc.cluster.local"
+  host: "cheeta-mysql.cheeta.svc.cluster.local"
   # database.port --  Port Number
   port: "3306"
   # database.name --  Name of the database
-  name: "onedev"
+  name: "cheeta"
   # database.user --  User with access to database
   user: "root"
   # database.password -- Database password 
@@ -81,7 +81,7 @@ serviceAccount:
   # serviceAccount.create -- If **true**, create a ServiceAccount.
   create: true
   # serviceAccount.name -- Specify a pre-existing ServiceAccount to use if `serviceAccount.create` is **false**.
-  name: onedev
+  name: cheeta
   # serviceAccount.annotations -- Annotations to add to the ServiceAccount, if `serviceAccount.create` is **true**.
   annotations: {}
 
@@ -226,12 +226,12 @@ ingress:
     nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
   # ingress.host -- Set the host name
-  host: onedev.example.com
+  host: cheeta.example.com
 
   # ingress.tls -- Configure TLS for the Ingress.
   tls:
     enabled: false
-    secretName: "onedev-tls"
+    secretName: "cheeta-tls"
     acme:
       # ingress.tls.acme.enabled -- If **true**, create certificate issuer resource
       enabled: false

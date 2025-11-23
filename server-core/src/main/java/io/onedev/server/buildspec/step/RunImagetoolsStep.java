@@ -1,6 +1,6 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import static io.onedev.server.buildspec.step.StepGroup.DOCKER_IMAGE;
+import static io.cheeta.server.buildspec.step.StepGroup.DOCKER_IMAGE;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -9,17 +9,17 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.RunImagetoolsFacade;
-import io.onedev.k8shelper.StepFacade;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.support.administration.jobexecutor.DockerAware;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
-import io.onedev.server.model.support.administration.jobexecutor.KubernetesAware;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.RunImagetoolsFacade;
+import io.cheeta.k8shelper.StepFacade;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.support.administration.jobexecutor.DockerAware;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.server.model.support.administration.jobexecutor.KubernetesAware;
 
 @Editable(order=230, name="Run Buildx Image Tools", group = DOCKER_IMAGE, description="Run docker buildx imagetools " +
 		"command with specified arguments. This step can only be executed by server docker executor " +

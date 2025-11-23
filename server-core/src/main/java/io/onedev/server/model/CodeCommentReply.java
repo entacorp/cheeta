@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.model.support.EntityComment;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.model.support.EntityComment;
 
 @Entity
 @Table(indexes={

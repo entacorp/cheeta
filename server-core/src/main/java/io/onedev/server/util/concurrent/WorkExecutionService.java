@@ -1,4 +1,4 @@
-package io.onedev.server.util.concurrent;
+package io.cheeta.server.util.concurrent;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;

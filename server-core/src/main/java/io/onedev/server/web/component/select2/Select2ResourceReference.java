@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.select2;
+package io.cheeta.server.web.component.select2;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.mousewheel.MouseWheelResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.mousewheel.MouseWheelResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class Select2ResourceReference extends BaseDependentResourceReference {
 

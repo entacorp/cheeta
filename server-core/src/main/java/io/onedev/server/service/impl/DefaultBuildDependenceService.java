@@ -1,12 +1,12 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import javax.inject.Singleton;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.BuildDependence;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.BuildDependenceService;
+import io.cheeta.server.model.BuildDependence;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.BuildDependenceService;
 
 @Singleton
 public class DefaultBuildDependenceService extends BaseEntityService<BuildDependence> implements BuildDependenceService {

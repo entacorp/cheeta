@@ -1,4 +1,4 @@
-package io.onedev.server.git.hook;
+package io.cheeta.server.git.hook;
 
 import java.io.IOException;
 

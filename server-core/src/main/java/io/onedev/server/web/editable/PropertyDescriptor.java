@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
@@ -15,15 +15,15 @@ import javax.validation.constraints.Size;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.ShowCondition;
-import io.onedev.server.annotation.SubscriptionRequired;
-import io.onedev.server.util.BeanUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.DependsOnUtils;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.ReflectionUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.ShowCondition;
+import io.cheeta.server.annotation.SubscriptionRequired;
+import io.cheeta.server.util.BeanUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.DependsOnUtils;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.ReflectionUtils;
 
 public class PropertyDescriptor implements Serializable {
 

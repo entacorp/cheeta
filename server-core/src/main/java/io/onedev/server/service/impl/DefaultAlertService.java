@@ -1,6 +1,6 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.Alert.PROP_SUBJECT;
+import static io.cheeta.server.model.Alert.PROP_SUBJECT;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,21 +14,21 @@ import org.hibernate.criterion.Restrictions;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.cluster.ConnectionLost;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.model.Alert;
-import io.onedev.server.model.support.administration.emailtemplates.EmailTemplates;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.AlertService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.web.util.WicketUtils;
-import io.onedev.server.web.websocket.WebSocketService;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.cluster.ConnectionLost;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.model.Alert;
+import io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.AlertService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.web.util.WicketUtils;
+import io.cheeta.server.web.websocket.WebSocketService;
 
 @Singleton
 public class DefaultAlertService extends BaseEntityService<Alert> implements AlertService {
@@ -80,7 +80,7 @@ public class DefaultAlertService extends BaseEntityService<Alert> implements Ale
 		if (clusterService.isLeaderServer()) {
 			var server = event.getServer() + " (" + clusterService.getServerName(event.getServer()) + ")";
 			alert("Server '" + server + "' can not be reached", 
-					"Server '" + server + "' is part of OneDev cluster, but can not be reached for some reason", 
+					"Server '" + server + "' is part of Cheeta cluster, but can not be reached for some reason", 
 					false);
 		}
 	}

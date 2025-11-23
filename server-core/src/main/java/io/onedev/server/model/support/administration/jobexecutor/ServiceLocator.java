@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration.jobexecutor;
+package io.cheeta.server.model.support.administration.jobexecutor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,12 +7,12 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.k8shelper.ServiceFacade;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.k8shelper.ServiceFacade;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.util.patternset.PatternSet;
 
 @Editable
 public class ServiceLocator implements Serializable {
@@ -40,7 +40,7 @@ public class ServiceLocator implements Serializable {
 	
 	@Editable(order=200, name="Applicable Images", placeholder="All", description=""
 			+ "Optionally specify space-separated service images applicable for this locator. "
-			+ "Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty to match all")
 	@Patterns(path=true)
 	public String getServiceImages() {

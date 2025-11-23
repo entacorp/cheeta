@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.activities.activity;
+package io.cheeta.server.web.component.issue.activities.activity;
 
-import static io.onedev.server.util.DateUtils.formatDateTime;
+import static io.cheeta.server.util.DateUtils.formatDateTime;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -15,19 +15,19 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueWorkService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.IssueWork;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.util.editbean.IssueWorkBean;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueWorkService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.IssueWork;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.util.editbean.IssueWorkBean;
 
 class IssueWorkPanel extends Panel {
 		
@@ -40,7 +40,7 @@ class IssueWorkPanel extends Panel {
 		super.onInitialize();
 		
 		add(new UserIdentPanel("user", getWork().getUser(), Mode.AVATAR_AND_NAME));
-		var timeTrackingSetting = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+		var timeTrackingSetting = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 		add(new Label("workingPeriod", timeTrackingSetting.formatWorkingPeriod(getWork().getMinutes(), true)));	
 		add(new Label("age", DateUtils.formatAge(getWork().getDate()))
 			.add(new AttributeAppender("title", formatDateTime(getWork().getDate()))));
@@ -143,7 +143,7 @@ class IssueWorkPanel extends Panel {
 	}
 	
 	private IssueWorkService getWorkService() {
-		return OneDev.getInstance(IssueWorkService.class);
+		return Cheeta.getInstance(IssueWorkService.class);
 	}
 
 	private IssueWork getWork() {

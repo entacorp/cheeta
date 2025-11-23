@@ -1,17 +1,17 @@
-package io.onedev.server.web.component.user.choice;
+package io.cheeta.server.web.component.user.choice;
 
 import java.util.List;
 
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.util.Similarities;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
 
 public class UserChoiceProvider extends AbstractUserChoiceProvider {
 
@@ -32,7 +32,7 @@ public class UserChoiceProvider extends AbstractUserChoiceProvider {
 	@Override
 	public void query(String term, int page, Response<User> response) {
 		List<User> users = choicesModel.getObject();
-		UserService userService = OneDev.getInstance(UserService.class);
+		UserService userService = Cheeta.getInstance(UserService.class);
 		
 		UserCache cache = userService.cloneCache();
 		

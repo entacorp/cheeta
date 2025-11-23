@@ -1,4 +1,4 @@
-onedev.server.imageUpload = {
+cheeta.server.imageUpload = {
 	onDomReady: function(containerId, callback) {
 		var $container = $("#" + containerId + ">.image-upload");
 		var $data = $container.find("input[type=text]")

@@ -1,9 +1,9 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import org.eclipse.jgit.util.StringUtils;
 import org.hibernate.criterion.Order;
 
-import io.onedev.server.model.Iteration;
+import io.cheeta.server.model.Iteration;
 
 public enum IterationSort {
 	CLOSEST_DUE_DATE {

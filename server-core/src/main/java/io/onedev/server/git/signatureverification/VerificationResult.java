@@ -1,4 +1,4 @@
-package io.onedev.server.git.signatureverification;
+package io.cheeta.server.git.signatureverification;
 
 import org.apache.wicket.Component;
 import org.eclipse.jgit.revwalk.RevObject;

@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.project.blob.render.renderers.buildspec;
+package io.cheeta.server.web.page.project.blob.render.renderers.buildspec;
 
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.NamedElement;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
-import io.onedev.server.web.page.project.blob.render.source.SourceEditPanel;
-import io.onedev.server.web.page.project.blob.render.source.SourceViewPanel;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.NamedElement;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.server.web.page.project.blob.render.source.SourceEditPanel;
+import io.cheeta.server.web.page.project.blob.render.source.SourceViewPanel;
 import org.apache.wicket.Component;
 
 import org.jspecify.annotations.Nullable;
@@ -21,7 +21,7 @@ public class BuildSpecRenderer implements BlobRenderer {
 	private static final String POSITION_PREFIX = "buildspec-";
 	
 	private boolean isBuildSpec(@Nullable String blobPath) {
-		return BuildSpec.BLOB_PATH.equals(blobPath) || ".onedev-buildspec".equals(blobPath);
+		return BuildSpec.BLOB_PATH.equals(blobPath) || ".cheeta-buildspec".equals(blobPath);
 	}
 	
 	@Nullable

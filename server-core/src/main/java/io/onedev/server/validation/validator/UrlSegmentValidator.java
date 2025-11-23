@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.util.regex.Pattern;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.annotation.UrlSegment;
+import io.cheeta.server.annotation.UrlSegment;
 
 public class UrlSegmentValidator implements ConstraintValidator<UrlSegment, String> {
 

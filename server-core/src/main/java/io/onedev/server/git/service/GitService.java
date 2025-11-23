@@ -1,12 +1,12 @@
-package io.onedev.server.git.service;
+package io.cheeta.server.git.service;
 
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.server.git.*;
-import io.onedev.server.git.command.LogCommand;
-import io.onedev.server.git.command.LogCommit;
-import io.onedev.server.git.command.RevListOptions;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.code.BranchProtection;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.server.git.*;
+import io.cheeta.server.git.command.LogCommand;
+import io.cheeta.server.git.command.LogCommit;
+import io.cheeta.server.git.command.RevListOptions;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.code.BranchProtection;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.PersonIdent;

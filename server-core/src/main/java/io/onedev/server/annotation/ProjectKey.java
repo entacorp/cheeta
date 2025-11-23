@@ -1,6 +1,6 @@
-package io.onedev.server.annotation;
+package io.cheeta.server.annotation;
 
-import io.onedev.server.validation.validator.ProjectKeyValidator;
+import io.cheeta.server.validation.validator.ProjectKeyValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

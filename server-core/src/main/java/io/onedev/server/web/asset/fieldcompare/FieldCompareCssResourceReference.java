@@ -1,6 +1,6 @@
-package io.onedev.server.web.asset.fieldcompare;
+package io.cheeta.server.web.asset.fieldcompare;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class FieldCompareCssResourceReference extends BaseDependentCssResourceReference {
 

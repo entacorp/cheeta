@@ -1,9 +1,9 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import static io.onedev.server.model.IssueField.PROP_NAME;
-import static io.onedev.server.model.IssueField.PROP_ORDINAL;
-import static io.onedev.server.model.IssueField.PROP_TYPE;
-import static io.onedev.server.model.IssueField.PROP_VALUE;
+import static io.cheeta.server.model.IssueField.PROP_NAME;
+import static io.cheeta.server.model.IssueField.PROP_ORDINAL;
+import static io.cheeta.server.model.IssueField.PROP_TYPE;
+import static io.cheeta.server.model.IssueField.PROP_VALUE;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.Column;
@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import io.onedev.server.buildspecmodel.inputspec.textinput.TextInput;
+import io.cheeta.server.buildspecmodel.inputspec.textinput.TextInput;
 
 @Entity
 @Table(

@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.field.spec.userchoicefield;
+package io.cheeta.server.model.support.issue.field.spec.userchoicefield;
 
 import java.util.List;
 import java.util.Map;
@@ -6,17 +6,17 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.UserChoiceInput;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.AllUsers;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider.DefaultMultiValueProvider;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider.SpecifiedDefaultMultiValue;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider.SpecifiedDefaultValue;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.UserChoiceInput;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.AllUsers;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider.DefaultMultiValueProvider;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultmultivalueprovider.SpecifiedDefaultMultiValue;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.defaultvalueprovider.SpecifiedDefaultValue;
+import io.cheeta.server.util.usage.Usage;
 
 @Editable(order=150, name= FieldSpec.USER)
 public class UserChoiceField extends FieldSpec {

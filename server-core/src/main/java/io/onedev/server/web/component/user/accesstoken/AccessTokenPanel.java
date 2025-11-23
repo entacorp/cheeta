@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.accesstoken;
+package io.cheeta.server.web.component.user.accesstoken;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Session;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -12,15 +12,15 @@ import org.apache.wicket.markup.html.panel.Panel;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.user.UserPage;
 
 abstract class AccessTokenPanel extends Panel {
 	
@@ -56,9 +56,9 @@ abstract class AccessTokenPanel extends Panel {
 				var token = getToken();
 				token.setValue(CryptoUtils.generateSecret());
 				var newAuditContent = VersionedXmlDoc.fromBean(token).toXML();
-				OneDev.getInstance(AccessTokenService.class).createOrUpdate(token);
+				Cheeta.getInstance(AccessTokenService.class).createOrUpdate(token);
 				if (getPage() instanceof UserPage) {
-					OneDev.getInstance(AuditService.class).audit(null, "regenerated access token \"" + token.getName() + "\" in account \"" + token.getOwner().getName() + "\"", oldAuditContent, newAuditContent);
+					Cheeta.getInstance(AuditService.class).audit(null, "regenerated access token \"" + token.getName() + "\" in account \"" + token.getOwner().getName() + "\"", oldAuditContent, newAuditContent);
 				}
 				target.add(AccessTokenPanel.this);
 				Session.get().success(_T("Access token regenerated successfully"));

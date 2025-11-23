@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.youtrack;
+package io.cheeta.server.plugin.imports.youtrack;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,12 +6,12 @@ import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.StateSpec;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.StateSpec;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class IssueStateMapping implements Serializable {
@@ -32,21 +32,21 @@ public class IssueStateMapping implements Serializable {
 		this.youTrackIssueState = youTrackIssueState;
 	}
 
-	@Editable(order=200, name="OneDev Issue State")
-	@ChoiceProvider("getOneDevIssueStateChoices")
+	@Editable(order=200, name="Cheeta Issue State")
+	@ChoiceProvider("getCheetaIssueStateChoices")
 	@NotEmpty
-	public String getOneDevIssueState() {
+	public String getCheetaIssueState() {
 		return oneDevIssueState;
 	}
 
-	public void setOneDevIssueState(String oneDevIssueState) {
+	public void setCheetaIssueState(String oneDevIssueState) {
 		this.oneDevIssueState = oneDevIssueState;
 	}
 
 	@SuppressWarnings("unused")
-	private static List<String> getOneDevIssueStateChoices() {
+	private static List<String> getCheetaIssueStateChoices() {
 		List<String> choices = new ArrayList<>();
-		GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		for (StateSpec state: issueSetting.getStateSpecs()) 
 			choices.add(state.getName());
 		return choices;

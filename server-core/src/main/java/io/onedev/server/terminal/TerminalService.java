@@ -1,6 +1,6 @@
-package io.onedev.server.terminal;
+package io.cheeta.server.terminal;
 
-import io.onedev.server.model.Build;
+import io.cheeta.server.model.Build;
 import org.apache.wicket.protocol.ws.api.IWebSocketConnection;
 
 public interface TerminalService {

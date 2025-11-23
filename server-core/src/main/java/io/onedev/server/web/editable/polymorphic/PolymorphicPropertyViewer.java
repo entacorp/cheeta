@@ -1,14 +1,14 @@
-package io.onedev.server.web.editable.polymorphic;
+package io.cheeta.server.web.editable.polymorphic;
 
-import io.onedev.server.annotation.ExcludedProperties;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.annotation.ExcludedProperties;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.PropertyDescriptor;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.pipeline;
+package io.cheeta.server.web.component.pipeline;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,11 +26,11 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobDependency;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobDependency;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
 
 public abstract class PipelinePanel extends Panel {
 
@@ -70,10 +70,10 @@ public abstract class PipelinePanel extends Panel {
 
 		Sortable sortable = getSortable();
 		if (sortable != null) { 
-			String startScript = "onedev.server.pipeline.onSortStart(ui.item);";
+			String startScript = "cheeta.server.pipeline.onSortStart(ui.item);";
 			String stopScript = ""
 					+ "if (ui.item.fromList == ui.item.toList && ui.item.fromItem == ui.item.toItem)"
-					+ "  onedev.server.pipeline.onSortStop(ui.item);";
+					+ "  cheeta.server.pipeline.onSortStop(ui.item);";
 			add(new SortBehavior() {
 
 				@Override
@@ -121,7 +121,7 @@ public abstract class PipelinePanel extends Panel {
 		if (event.getPayload() instanceof JobSelectionChange) {
 			JobSelectionChange jobSelectionChange = (JobSelectionChange) event.getPayload();
 			
-			String script = String.format("onedev.server.pipeline.markJobActive($(\"#%s>.pipeline\"), %s);", 
+			String script = String.format("cheeta.server.pipeline.markJobActive($(\"#%s>.pipeline\"), %s);", 
 					getMarkupId(), JobIndex.of(getPipeline(), jobSelectionChange.getJob()).toJson());
 			jobSelectionChange.getHandler().appendJavaScript(script);
 			
@@ -181,7 +181,7 @@ public abstract class PipelinePanel extends Panel {
 			}
 		}
 		try {
-			return OneDev.getInstance(ObjectMapper.class).writeValueAsString(dependencyMap);
+			return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(dependencyMap);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
@@ -201,7 +201,7 @@ public abstract class PipelinePanel extends Panel {
 		
 		// Run script via OnLoad in order for icons to be fully loaded before drawing 
 		// dependency line
-		String script = String.format("onedev.server.pipeline.onWindowLoad('%s', %s, %s);", 
+		String script = String.format("cheeta.server.pipeline.onWindowLoad('%s', %s, %s);", 
 				getMarkupId(), buildDependencyMap(), activePipelineJobIndex);
 		response.render(OnLoadHeaderItem.forScript(script));
 	}

@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,17 +12,17 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
 
 @Editable
 public class ServiceDeskSetting implements Serializable {
@@ -33,7 +33,7 @@ public class ServiceDeskSetting implements Serializable {
 
 	@SuppressWarnings("unused")
 	private static List<String> getProjectChoices() {
-		List<String> projectPaths = OneDev.getInstance(ProjectService.class)
+		List<String> projectPaths = Cheeta.getInstance(ProjectService.class)
 				.query().stream().map(it->it.getPath()).collect(Collectors.toList());
 		Collections.sort(projectPaths);
 		return projectPaths;

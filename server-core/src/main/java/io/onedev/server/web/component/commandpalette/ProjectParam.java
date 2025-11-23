@@ -1,16 +1,16 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.project.PathCriteria;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.search.entity.project.ProjectQueryLexer;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.web.mapper.ProjectMapperUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.project.PathCriteria;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.search.entity.project.ProjectQueryLexer;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.web.mapper.ProjectMapperUtils;
 
 public class ProjectParam extends ParamSegment {
 
@@ -23,7 +23,7 @@ public class ProjectParam extends ParamSegment {
 	@Override
 	public Map<String, String> suggest(String matchWith, 
 			Map<String, String> paramValues, int count) {
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		ProjectQuery query;
 		if (matchWith.length() == 0)
 			query = new ProjectQuery();
@@ -38,7 +38,7 @@ public class ProjectParam extends ParamSegment {
 
 	@Override
 	public boolean isExactMatch(String matchWith, Map<String, String> paramValues) {
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		try {
 			if (projectService.findFacadeByPath(matchWith) != null)
 				return true;

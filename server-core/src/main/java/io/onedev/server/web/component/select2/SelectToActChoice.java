@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.select2;
+package io.cheeta.server.web.component.select2;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;

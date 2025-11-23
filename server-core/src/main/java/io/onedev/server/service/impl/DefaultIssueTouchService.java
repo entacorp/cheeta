@@ -1,7 +1,7 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.IssueTouch.PROP_ISSUE_ID;
-import static io.onedev.server.model.IssueTouch.PROP_PROJECT;
+import static io.cheeta.server.model.IssueTouch.PROP_ISSUE_ID;
+import static io.cheeta.server.model.IssueTouch.PROP_PROJECT;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,29 +19,29 @@ import org.hibernate.criterion.Restrictions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.event.project.issue.IssueChanged;
-import io.onedev.server.event.project.issue.IssueCommentCreated;
-import io.onedev.server.event.project.issue.IssueCommentEdited;
-import io.onedev.server.event.project.issue.IssueOpened;
-import io.onedev.server.event.project.issue.IssuesCopied;
-import io.onedev.server.event.project.issue.IssuesImported;
-import io.onedev.server.event.project.issue.IssuesMoved;
-import io.onedev.server.event.project.issue.IssuesTouched;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueField;
-import io.onedev.server.model.IssueTouch;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.IssueTouchService;
-import io.onedev.server.service.ProjectService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.event.project.issue.IssueChanged;
+import io.cheeta.server.event.project.issue.IssueCommentCreated;
+import io.cheeta.server.event.project.issue.IssueCommentEdited;
+import io.cheeta.server.event.project.issue.IssueOpened;
+import io.cheeta.server.event.project.issue.IssuesCopied;
+import io.cheeta.server.event.project.issue.IssuesImported;
+import io.cheeta.server.event.project.issue.IssuesMoved;
+import io.cheeta.server.event.project.issue.IssuesTouched;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueField;
+import io.cheeta.server.model.IssueTouch;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.IssueTouchService;
+import io.cheeta.server.service.ProjectService;
 
 @Singleton
 public class DefaultIssueTouchService extends BaseEntityService<IssueTouch>

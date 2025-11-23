@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.sso.openid;
+package io.cheeta.server.plugin.sso.openid;
 
 import com.nimbusds.oauth2.sdk.ParseException;
 import com.nimbusds.oauth2.sdk.Scope;
@@ -12,7 +12,7 @@ import com.nimbusds.oauth2.sdk.id.ClientID;
 import com.nimbusds.oauth2.sdk.token.BearerAccessToken;
 import com.nimbusds.openid.connect.sdk.OIDCTokenResponse;
 import com.nimbusds.openid.connect.sdk.token.OIDCTokens;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 

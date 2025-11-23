@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.datatable;
+package io.cheeta.server.web.component.datatable;
 
 import java.util.Iterator;
 
@@ -7,11 +7,11 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.hibernate.criterion.Order;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
 
 public class EntityDataProvider<T extends AbstractEntity> extends LoadableDetachableDataProvider<T, String> {
 	

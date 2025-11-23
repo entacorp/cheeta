@@ -1,19 +1,19 @@
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
 import com.google.common.collect.Sets;
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterRunnable;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.util.Pair;
-import io.onedev.server.taskschedule.SchedulableTask;
-import io.onedev.server.taskschedule.TaskScheduler;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterRunnable;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.taskschedule.SchedulableTask;
+import io.cheeta.server.taskschedule.TaskScheduler;
+import io.cheeta.server.web.page.base.BasePage;
 import org.apache.wicket.Application;
 import org.apache.wicket.protocol.ws.api.IWebSocketConnection;
 import org.apache.wicket.protocol.ws.api.registry.IKey;
@@ -34,8 +34,8 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static io.onedev.server.web.behavior.ChangeObserver.containsObservable;
-import static io.onedev.server.web.behavior.ChangeObserver.filterObservables;
+import static io.cheeta.server.web.behavior.ChangeObserver.containsObservable;
+import static io.cheeta.server.web.behavior.ChangeObserver.filterObservables;
 
 @Singleton
 public class DefaultWebSocketService implements WebSocketService, Serializable {

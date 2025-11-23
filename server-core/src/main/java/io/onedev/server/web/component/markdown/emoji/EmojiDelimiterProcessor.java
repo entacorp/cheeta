@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.markdown.emoji;
+package io.cheeta.server.web.component.markdown.emoji;
 
 import com.vladsch.flexmark.parser.InlineParser;
 import com.vladsch.flexmark.parser.core.delimiter.Delimiter;

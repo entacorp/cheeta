@@ -1,10 +1,10 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import io.onedev.server.model.support.EntityTouch;
+import io.cheeta.server.model.support.EntityTouch;
 
 import javax.persistence.*;
 
-import static io.onedev.server.model.IssueTouch.*;
+import static io.cheeta.server.model.IssueTouch.*;
 
 @Entity
 @Table(indexes={@Index(columnList="o_project_id"), @Index(columnList= PROP_ISSUE_ID)})

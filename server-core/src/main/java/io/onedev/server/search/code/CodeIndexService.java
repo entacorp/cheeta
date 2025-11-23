@@ -1,11 +1,11 @@
-package io.onedev.server.search.code;
+package io.cheeta.server.search.code;
 
 import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.jsymbol.Symbol;
-import io.onedev.commons.jsymbol.SymbolExtractor;
+import io.cheeta.commons.jsymbol.Symbol;
+import io.cheeta.commons.jsymbol.SymbolExtractor;
 
 public interface CodeIndexService {
 	

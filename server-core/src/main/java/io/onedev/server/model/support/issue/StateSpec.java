@@ -1,12 +1,12 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Color;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
+import io.cheeta.server.annotation.Color;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
 
 @Editable
 public class StateSpec implements Serializable {

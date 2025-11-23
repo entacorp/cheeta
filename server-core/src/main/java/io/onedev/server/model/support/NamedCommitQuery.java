@@ -1,9 +1,9 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.CommitQuery;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.CommitQuery;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class NamedCommitQuery implements NamedQuery {

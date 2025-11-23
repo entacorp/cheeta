@@ -1,4 +1,4 @@
-package io.onedev.server.web.mapper;
+package io.cheeta.server.web.mapper;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,8 +15,8 @@ import org.apache.wicket.util.string.Strings;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
 
 public class ProjectMapperUtils {
 
@@ -26,7 +26,7 @@ public class ProjectMapperUtils {
 	public static Url normalize(Url url) {
 		Url normalizedUrl = new Url(url);
 		List<String> segments = normalizedUrl.getSegments();
-		Collection<String> reservedNames = OneDev.getInstance(ProjectService.class).getReservedNames();
+		Collection<String> reservedNames = Cheeta.getInstance(ProjectService.class).getReservedNames();
 		int nonProjectSegmentIndex = segments.size();
 		for (int i = 0; i < segments.size(); i++) {
 			String segment = segments.get(i);

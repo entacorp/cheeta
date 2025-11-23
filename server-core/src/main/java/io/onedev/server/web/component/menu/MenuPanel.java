@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.menu;
+package io.cheeta.server.web.component.menu;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -14,7 +14,7 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 abstract class MenuPanel extends Panel {
 	

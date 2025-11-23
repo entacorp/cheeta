@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.diff.revision;
+package io.cheeta.server.web.component.diff.revision;
 
 import java.io.Serializable;
 

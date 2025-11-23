@@ -1,17 +1,17 @@
-package io.onedev.server.web.editable.beanlist;
+package io.cheeta.server.web.editable.beanlist;
 
-import io.onedev.commons.utils.ClassUtils;
-import io.onedev.server.annotation.ExcludedProperties;
-import io.onedev.server.util.HtmlUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.util.PathNode.Indexed;
-import io.onedev.server.util.PathNode.Named;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.editable.*;
+import io.cheeta.commons.utils.ClassUtils;
+import io.cheeta.server.annotation.ExcludedProperties;
+import io.cheeta.server.util.HtmlUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.util.PathNode.Indexed;
+import io.cheeta.server.util.PathNode.Named;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
@@ -29,7 +29,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;

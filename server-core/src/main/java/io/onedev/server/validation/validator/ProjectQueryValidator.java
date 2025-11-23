@@ -1,10 +1,10 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.annotation.ProjectQuery;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.annotation.ProjectQuery;
 
 public class ProjectQueryValidator implements ConstraintValidator<ProjectQuery, String> {
 
@@ -21,7 +21,7 @@ public class ProjectQueryValidator implements ConstraintValidator<ProjectQuery, 
 			return true;
 		} else {
 			try {
-				io.onedev.server.search.entity.project.ProjectQuery.parse(value);
+				io.cheeta.server.search.entity.project.ProjectQuery.parse(value);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

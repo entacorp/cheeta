@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.render.folder;
+package io.cheeta.server.web.page.project.blob.render.folder;
 
 import org.apache.wicket.request.resource.IResource;
 import org.apache.wicket.request.resource.ResourceReference;

@@ -1,7 +1,7 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import static io.onedev.server.util.DateUtils.parseISO8601Date;
-import static io.onedev.server.util.DateUtils.toLocalDate;
+import static io.cheeta.server.util.DateUtils.parseISO8601Date;
+import static io.cheeta.server.util.DateUtils.toLocalDate;
 import static java.time.ZoneId.systemDefault;
 
 import java.io.Serializable;
@@ -40,40 +40,40 @@ import org.hibernate.criterion.Restrictions;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.git.GitContribution;
-import io.onedev.server.git.GitContributor;
-import io.onedev.server.model.BaseAuthorization;
-import io.onedev.server.model.GroupAuthorization;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.ProjectLabel;
-import io.onedev.server.model.UserAuthorization;
-import io.onedev.server.model.support.CodeAnalysisSetting;
-import io.onedev.server.model.support.NamedCodeCommentQuery;
-import io.onedev.server.model.support.NamedCommitQuery;
-import io.onedev.server.model.support.WebHook;
-import io.onedev.server.model.support.build.ProjectBuildSetting;
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.model.support.code.GitPackConfig;
-import io.onedev.server.model.support.code.TagProtection;
-import io.onedev.server.model.support.issue.ProjectIssueSetting;
-import io.onedev.server.model.support.pack.ProjectPackSetting;
-import io.onedev.server.model.support.pullrequest.ProjectPullRequestSetting;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.annotation.EntityCreate;
-import io.onedev.server.rest.resource.support.RestConstants;
-import io.onedev.server.search.entity.project.ProjectQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.web.page.project.setting.ContributedProjectSetting;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.git.GitContribution;
+import io.cheeta.server.git.GitContributor;
+import io.cheeta.server.model.BaseAuthorization;
+import io.cheeta.server.model.GroupAuthorization;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.ProjectLabel;
+import io.cheeta.server.model.UserAuthorization;
+import io.cheeta.server.model.support.CodeAnalysisSetting;
+import io.cheeta.server.model.support.NamedCodeCommentQuery;
+import io.cheeta.server.model.support.NamedCommitQuery;
+import io.cheeta.server.model.support.WebHook;
+import io.cheeta.server.model.support.build.ProjectBuildSetting;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.model.support.code.GitPackConfig;
+import io.cheeta.server.model.support.code.TagProtection;
+import io.cheeta.server.model.support.issue.ProjectIssueSetting;
+import io.cheeta.server.model.support.pack.ProjectPackSetting;
+import io.cheeta.server.model.support.pullrequest.ProjectPullRequestSetting;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.EntityCreate;
+import io.cheeta.server.rest.resource.support.RestConstants;
+import io.cheeta.server.search.entity.project.ProjectQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.web.page.project.setting.ContributedProjectSetting;
+import io.cheeta.server.xodus.CommitInfoService;
 
 @Path("/projects")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -160,7 +160,7 @@ public class ProjectResource {
     	return project.getForks();
     }
 
-	@Api(order=350, description = "A base authorization corresponds to a default role. It can be added/removed via <a href='/~help/api/io.onedev.server.rest.resource.BaseAuthorizationResource'>base authorizations resource</a>")
+	@Api(order=350, description = "A base authorization corresponds to a default role. It can be added/removed via <a href='/~help/api/io.cheeta.server.rest.resource.BaseAuthorizationResource'>base authorizations resource</a>")
 	@Path("/{projectId}/base-authorizations")
     @GET
     public Collection<BaseAuthorization> getBaseAuthorizations(@PathParam("projectId") Long projectId) {
@@ -190,7 +190,7 @@ public class ProjectResource {
     	return project.getUserAuthorizations();
     }
 
-	@Api(order=600, description = "Get list of <a href='/~help/api/io.onedev.server.rest.ProjectLabelResource'>labels</a>")
+	@Api(order=600, description = "Get list of <a href='/~help/api/io.cheeta.server.rest.ProjectLabelResource'>labels</a>")
 	@Path("/{projectId}/labels")
 	@GET
 	public Collection<ProjectLabel> getLabels(@PathParam("projectId") Long projectId) {

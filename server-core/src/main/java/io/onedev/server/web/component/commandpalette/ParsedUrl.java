@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.commandpalette;
+package io.cheeta.server.web.component.commandpalette;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,32 +9,32 @@ import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.web.page.admin.ServerDetailPage;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.web.page.admin.ServerDetailPage;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.mapper.ProjectMapperUtils;
-import io.onedev.server.web.page.admin.buildsetting.agent.AgentDetailPage;
-import io.onedev.server.web.page.admin.groupmanagement.GroupPage;
-import io.onedev.server.web.page.admin.rolemanagement.RoleDetailPage;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.page.project.issues.boards.IssueBoardsPage;
-import io.onedev.server.web.page.project.issues.detail.IssueDetailPage;
-import io.onedev.server.web.page.project.issues.iteration.IterationDetailPage;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.mapper.ProjectMapperUtils;
+import io.cheeta.server.web.page.admin.buildsetting.agent.AgentDetailPage;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupPage;
+import io.cheeta.server.web.page.admin.rolemanagement.RoleDetailPage;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.issues.boards.IssueBoardsPage;
+import io.cheeta.server.web.page.project.issues.detail.IssueDetailPage;
+import io.cheeta.server.web.page.project.issues.iteration.IterationDetailPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
+import io.cheeta.server.web.page.user.UserPage;
 
 public abstract class ParsedUrl implements Serializable {
 
@@ -109,7 +109,7 @@ public abstract class ParsedUrl implements Serializable {
 	}
 	
 	private List<String> getServers() {
-		return OneDev.getInstance(ClusterService.class).getServerAddresses();
+		return Cheeta.getInstance(ClusterService.class).getServerAddresses();
 	}
 	
 	private boolean isApplicable(Project project, String path) {
@@ -120,7 +120,7 @@ public abstract class ParsedUrl implements Serializable {
 		case "~settings":
 			if (SecurityUtils.canManageProject(project)) {
 				if (segment2.equals("service-desk")) {
-					return OneDev.getInstance(SettingService.class).getServiceDeskSetting() != null
+					return Cheeta.getInstance(SettingService.class).getServiceDeskSetting() != null
 							&& project.isIssueManagement();
 				} else {
 					return true;
@@ -308,17 +308,17 @@ public abstract class ParsedUrl implements Serializable {
 	
 	static Project getProject(Map<String, String> paramValues) {
 		String projectPath = paramValues.get(ProjectMapperUtils.PARAM_PROJECT);
-		return OneDev.getInstance(ProjectService.class).findByPath(projectPath);
+		return Cheeta.getInstance(ProjectService.class).findByPath(projectPath);
 	}
 	
 	static Build getBuild(Map<String, String> paramValues) {
 		Long buildNumber = Long.valueOf(paramValues.get(BuildDetailPage.PARAM_BUILD));
-		return OneDev.getInstance(BuildService.class).find(getProject(paramValues), buildNumber);
+		return Cheeta.getInstance(BuildService.class).find(getProject(paramValues), buildNumber);
 	}
 	
 	static Issue getIssue(Map<String, String> paramValues) {
 		Long issueNumber = Long.valueOf(paramValues.get(IssueDetailPage.PARAM_ISSUE));
-		return OneDev.getInstance(IssueService.class).find(getProject(paramValues), issueNumber);
+		return Cheeta.getInstance(IssueService.class).find(getProject(paramValues), issueNumber);
 	}
 	
 }

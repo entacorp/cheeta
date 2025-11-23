@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 import java.util.Date;
@@ -8,11 +8,11 @@ import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.User;
 
 public interface IssueChangeService extends EntityService<IssueChange> {
 	

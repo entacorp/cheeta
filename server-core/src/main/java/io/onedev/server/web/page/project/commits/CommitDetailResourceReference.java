@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.commits;
+package io.cheeta.server.web.page.project.commits;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 
-import io.onedev.server.web.asset.oneline.OnelineResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.oneline.OnelineResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class CommitDetailResourceReference extends BaseDependentResourceReference {
 

@@ -1,19 +1,19 @@
-package io.onedev.server.web.editable.workingperiod;
+package io.cheeta.server.web.editable.workingperiod;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.issue.TimeTrackingSetting;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.issue.TimeTrackingSetting;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import javax.validation.ValidationException;
 
@@ -63,7 +63,7 @@ public class WorkingPeriodPropertyEditor extends PropertyEditor<Integer> {
 	}
 	
 	private TimeTrackingSetting getTimeTrackingSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 	}
 
 	@Override

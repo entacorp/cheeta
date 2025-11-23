@@ -1,13 +1,13 @@
-package io.onedev.server.model.support.role;
+package io.cheeta.server.model.support.role;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 import org.jspecify.annotations.Nullable;
 import javax.validation.constraints.NotEmpty;
@@ -47,7 +47,7 @@ public class JobPrivilege implements Serializable {
 	
 	@SuppressWarnings("unused")
 	private static List<InputSuggestion> suggestJobNames(String matchWith) {
-		List<String> jobNames = new ArrayList<>(OneDev.getInstance(BuildService.class).getJobNames(null));
+		List<String> jobNames = new ArrayList<>(Cheeta.getInstance(BuildService.class).getJobNames(null));
 		Collections.sort(jobNames);
 		return SuggestionUtils.suggest(jobNames, matchWith);
 	}

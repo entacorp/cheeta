@@ -1,17 +1,17 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobDependency;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.buildspec.param.instance.ParamInstances;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.build.BuildFinished;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Build.Status;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobDependency;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.buildspec.param.instance.ParamInstances;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.build.BuildFinished;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Build.Status;
 
-import static io.onedev.server.buildspec.param.ParamUtils.isCoveredBy;
-import static io.onedev.server.buildspec.param.ParamUtils.resolveParams;
+import static io.cheeta.server.buildspec.param.ParamUtils.isCoveredBy;
+import static io.cheeta.server.buildspec.param.ParamUtils.resolveParams;
 import static java.util.stream.Collectors.toSet;
 
 @Editable(order=500, name="Dependency job finished")

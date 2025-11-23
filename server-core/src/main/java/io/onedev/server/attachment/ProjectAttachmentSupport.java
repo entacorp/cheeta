@@ -1,4 +1,4 @@
-package io.onedev.server.attachment;
+package io.cheeta.server.attachment;
 
 import java.io.InputStream;
 import java.util.List;
@@ -10,12 +10,12 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.web.resource.AttachmentResource;
-import io.onedev.server.web.resource.AttachmentResourceReference;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.web.resource.AttachmentResource;
+import io.cheeta.server.web.resource.AttachmentResourceReference;
 
 @JsonTypeInfo(use=Id.CLASS)
 public class ProjectAttachmentSupport implements AttachmentSupport {
@@ -49,11 +49,11 @@ public class ProjectAttachmentSupport implements AttachmentSupport {
 	}
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	private AttachmentService getAttachmentService() {
-		return OneDev.getInstance(AttachmentService.class);
+		return Cheeta.getInstance(AttachmentService.class);
 	}
 	
 	@Override
@@ -67,7 +67,7 @@ public class ProjectAttachmentSupport implements AttachmentSupport {
 	}
 
 	protected Project getProject() {
-		SessionService sessionService = OneDev.getInstance(SessionService.class);
+		SessionService sessionService = Cheeta.getInstance(SessionService.class);
 		sessionService.openSession();
 		try {
 			return getProjectService().load(projectId);

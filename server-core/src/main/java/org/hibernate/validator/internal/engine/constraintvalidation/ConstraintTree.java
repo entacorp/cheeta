@@ -27,11 +27,11 @@ import org.hibernate.validator.internal.metadata.location.GetterConstraintLocati
 import org.hibernate.validator.internal.util.logging.Log;
 import org.hibernate.validator.internal.util.logging.LoggerFactory;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.util.interpolative.VariableInterpolator;
-import io.onedev.server.validation.validator.InterpolativeValidator;
-import io.onedev.server.annotation.Interpolative;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.util.interpolative.VariableInterpolator;
+import io.cheeta.server.validation.validator.InterpolativeValidator;
+import io.cheeta.server.annotation.Interpolative;
 
 /**
  * Due to constraint composition a single constraint annotation can lead to a whole constraint tree being validated.

@@ -1,14 +1,14 @@
-package io.onedev.server.agent;
+package io.cheeta.server.agent;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ExecutorService;
 
-import io.onedev.agent.*;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AgentService;
+import io.cheeta.agent.*;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AgentService;
 import org.apache.commons.lang3.SerializationUtils;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
@@ -19,15 +19,15 @@ import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.exception.ServerNotReadyException;
-import io.onedev.server.job.JobContext;
-import io.onedev.server.job.JobService;
-import io.onedev.server.job.ResourceAllocator;
-import io.onedev.server.job.log.LogService;
-import io.onedev.server.terminal.AgentShell;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.exception.ServerNotReadyException;
+import io.cheeta.server.job.JobContext;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.job.ResourceAllocator;
+import io.cheeta.server.job.log.LogService;
+import io.cheeta.server.terminal.AgentShell;
 
 @WebSocket
 public class ServerSocket {
@@ -70,7 +70,7 @@ public class ServerSocket {
 	}
 
 	private AgentService getAgentService() {
-		return OneDev.getInstance(AgentService.class);
+		return Cheeta.getInstance(AgentService.class);
 	}
 
 	@OnWebSocketConnect
@@ -110,7 +110,7 @@ public class ServerSocket {
 					}
 					break;
 				case REQUEST:
-					OneDev.getInstance(ExecutorService.class).execute(() -> {
+					Cheeta.getInstance(ExecutorService.class).execute(() -> {
 						try {
 							CallData request = SerializationUtils.deserialize(messageData);
 							CallData response = new CallData(request.getUuid(), service(request.getPayload()));
@@ -132,7 +132,7 @@ public class ServerSocket {
 						if (sessionId.length() == 0)
 							sessionId = null;
 						String logMessage = StringUtils.substringAfter(remaining, ":");
-						TaskLogger logger = OneDev.getInstance(LogService.class).getJobLogger(jobToken);
+						TaskLogger logger = Cheeta.getInstance(LogService.class).getJobLogger(jobToken);
 						if (logger != null)
 							logger.log(logMessage, sessionId);
 					} catch (Exception e) {
@@ -181,14 +181,14 @@ public class ServerSocket {
 	}
 
 	private JobService getJobService() {
-		return OneDev.getInstance(JobService.class);
+		return Cheeta.getInstance(JobService.class);
 	}
 
 	private Serializable service(Serializable request) {
 		try {
 			if (request instanceof WantToDisconnectAgent || request instanceof WaitingForAgentResourceToBeReleased) {
 				if (agentId != null)
-					OneDev.getInstance(ResourceAllocator.class).agentDisconnecting(agentId);
+					Cheeta.getInstance(ResourceAllocator.class).agentDisconnecting(agentId);
 				return null;
 			} else {
 				throw new ExplicitException("Unknown request: " + request.getClass());

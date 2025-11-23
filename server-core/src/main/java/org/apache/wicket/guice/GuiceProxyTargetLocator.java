@@ -31,7 +31,7 @@ import com.google.inject.Key;
 import com.google.inject.Scopes;
 import com.google.inject.TypeLiteral;
 
-import io.onedev.commons.loader.AppLoader;
+import io.cheeta.commons.loader.AppLoader;
 
 class GuiceProxyTargetLocator implements IProxyTargetLocator
 {

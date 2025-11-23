@@ -1,4 +1,4 @@
-package io.onedev.server.util.jackson.hibernate;
+package io.cheeta.server.util.jackson.hibernate;
 
 import java.io.IOException;
 

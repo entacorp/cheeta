@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.list;
+package io.cheeta.server.web.component.user.list;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.user.UserAvatar;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.user.UserAvatar;
 
 abstract class SimpleUserListPanel extends Panel {
 

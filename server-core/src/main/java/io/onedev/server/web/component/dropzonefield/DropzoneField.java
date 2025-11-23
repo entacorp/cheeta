@@ -1,9 +1,9 @@
-package io.onedev.server.web.component.dropzonefield;
+package io.cheeta.server.web.component.dropzonefield;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.upload.FileUpload;
-import io.onedev.server.web.upload.UploadService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.upload.FileUpload;
+import io.cheeta.server.web.upload.UploadService;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -58,7 +58,7 @@ public class DropzoneField extends FormComponentPanel<String> {
 	}
 
 	private UploadService getUploadService() {
-		return OneDev.getInstance(UploadService.class);
+		return Cheeta.getInstance(UploadService.class);
 	}
 	
 	@Override
@@ -137,7 +137,7 @@ public class DropzoneField extends FormComponentPanel<String> {
 		response.render(JavaScriptHeaderItem.forReference(new DropzoneFieldResourceReference()));
 		
 		String script = String.format(
-				"onedev.server.dropzone.onDomReady('%s', '%s', %s, %s, %s, %d);", 
+				"cheeta.server.dropzone.onDomReady('%s', '%s', %s, %s, %s, %d);", 
 				getMarkupId(), 
 				uploadBehavior.getCallbackUrl(), 
 				deleteBehavior.getCallbackFunction(CallbackParameter.explicit("name")),

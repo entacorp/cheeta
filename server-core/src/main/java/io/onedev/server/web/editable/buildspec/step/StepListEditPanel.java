@@ -1,7 +1,7 @@
-package io.onedev.server.web.editable.buildspec.step;
+package io.cheeta.server.web.editable.buildspec.step;
 
-import static io.onedev.server.web.component.floating.AlignPlacement.bottom;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.component.floating.AlignPlacement.bottom;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -35,25 +35,25 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.util.convert.ConversionException;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.BuildSpecAware;
-import io.onedev.server.buildspec.ParamSpecAware;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspec.step.Step;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.typeselect.TypeSelectPanel;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyUpdating;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.BuildSpecAware;
+import io.cheeta.server.buildspec.ParamSpecAware;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspec.step.Step;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.typeselect.TypeSelectPanel;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyUpdating;
+import io.cheeta.server.web.util.TextUtils;
 
 class StepListEditPanel extends PropertyEditor<List<Serializable>> {
 

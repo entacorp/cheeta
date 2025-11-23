@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.project;
+package io.cheeta.server.web.page.project;
 
 import java.util.List;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.web.page.layout.SidebarMenuItem;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.page.layout.SidebarMenuItem;
 
 public interface ProjectMenuContribution {
 

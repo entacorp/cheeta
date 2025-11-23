@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -6,14 +6,14 @@ import java.util.List;
 
 import org.apache.wicket.model.IModel;
 
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputStatus;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.annotation.SuggestionProvider;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
-import io.onedev.server.web.editable.string.StringPropertyViewer;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputStatus;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.annotation.SuggestionProvider;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.web.editable.string.StringPropertyViewer;
 
 public class SuggestionEditSupport implements EditSupport {
 

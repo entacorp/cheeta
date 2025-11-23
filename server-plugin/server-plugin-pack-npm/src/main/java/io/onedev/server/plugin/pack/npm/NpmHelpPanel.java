@@ -1,13 +1,13 @@
-package io.onedev.server.plugin.pack.npm;
+package io.cheeta.server.plugin.pack.npm;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.component.codesnippet.CodeSnippetPanel;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.component.codesnippet.CodeSnippetPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
 
 public class NpmHelpPanel extends Panel {
@@ -25,7 +25,7 @@ public class NpmHelpPanel extends Panel {
 
 		var registryUrl = getServerUrl() + "/" + projectPath + "/~" + NpmPackHandler.HANDLER_ID + "/";
 		add(new CodeSnippetPanel("scopeRegistry", Model.of("$ npm config set @myscope:registry " + registryUrl)));
-		add(new CodeSnippetPanel("registryAuth", Model.of("$ npm config set -- '" + substringAfter(registryUrl, ":") + ":_authToken' \"onedev_access_token\"")));
+		add(new CodeSnippetPanel("registryAuth", Model.of("$ npm config set -- '" + substringAfter(registryUrl, ":") + ":_authToken' \"cheeta_access_token\"")));
 		add(new CodeSnippetPanel("publishCommand", Model.of("$ npm publish")));
 		
 		add(new CodeSnippetPanel("jobCommands", new LoadableDetachableModel<>() {
@@ -36,7 +36,7 @@ public class NpmHelpPanel extends Panel {
 				return "" +
 						"# " + _T("Use @@ to reference scope in job commands to avoid being interpreted as variable") + "\n\n" +
 						"npm config set @@myscope:registry " + registryUrl + "\n\n" +
-						"# " + _T("Use job token to tell OneDev the build publishing the package") + "\n" +
+						"# " + _T("Use job token to tell Cheeta the build publishing the package") + "\n" +
 						"# " + _T("Job secret 'access-token' should be defined in project build setting as an access token with package write permission") + "\n\n" +
 						"npm config set -- '" + substringAfter(registryUrl, ":") + ":_authToken' \"@job_token@:@secret:access-token@\"\n\n" +
 						"npm publish";
@@ -47,7 +47,7 @@ public class NpmHelpPanel extends Panel {
 	}
 	
 	private String getServerUrl() {
-		return OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+		return Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 	}
 	
 }

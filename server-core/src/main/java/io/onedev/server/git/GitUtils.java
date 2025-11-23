@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import static org.eclipse.jgit.lib.Constants.R_HEADS;
 import static org.eclipse.jgit.lib.Constants.R_TAGS;
@@ -73,16 +73,16 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.PathUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.git.command.IsAncestorCommand;
-import io.onedev.server.git.exception.ObjectNotFoundException;
-import io.onedev.server.git.exception.ObsoleteCommitException;
-import io.onedev.server.git.exception.RefUpdateException;
-import io.onedev.server.git.service.DiffEntryFacade;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.util.GpgUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.PathUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.git.command.IsAncestorCommand;
+import io.cheeta.server.git.exception.ObjectNotFoundException;
+import io.cheeta.server.git.exception.ObsoleteCommitException;
+import io.cheeta.server.git.exception.RefUpdateException;
+import io.cheeta.server.git.service.DiffEntryFacade;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.util.GpgUtils;
 
 public class GitUtils {
 

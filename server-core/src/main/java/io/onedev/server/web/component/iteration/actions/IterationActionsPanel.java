@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.iteration.actions;
+package io.cheeta.server.web.component.iteration.actions;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -11,13 +11,13 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.page.project.issues.iteration.IterationEditPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.page.project.issues.iteration.IterationEditPage;
 
 public abstract class IterationActionsPanel extends GenericPanel<Iteration> {
 
@@ -101,11 +101,11 @@ public abstract class IterationActionsPanel extends GenericPanel<Iteration> {
 	}
 	
 	private IterationService getIterationService() {
-		return OneDev.getInstance(IterationService.class);
+		return Cheeta.getInstance(IterationService.class);
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 
 	protected abstract void onDeleted(AjaxRequestTarget target);

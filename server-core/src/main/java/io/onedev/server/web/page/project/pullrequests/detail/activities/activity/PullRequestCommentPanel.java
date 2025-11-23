@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.pullrequests.detail.activities.activity;
+package io.cheeta.server.web.page.project.pullrequests.detail.activities.activity;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,32 +16,32 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.jetbrains.annotations.Nullable;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.service.PullRequestCommentService;
-import io.onedev.server.service.PullRequestCommentReactionService;
-import io.onedev.server.service.PullRequestCommentRevisionService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestCommentRevision;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CommentRevision;
-import io.onedev.server.model.support.EntityReaction;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.component.comment.CommentHistoryLink;
-import io.onedev.server.web.component.comment.CommentPanel;
-import io.onedev.server.web.component.comment.ReactionSupport;
-import io.onedev.server.web.component.markdown.ContentVersionSupport;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.SinceChangesLink;
-import io.onedev.server.web.util.DeleteCallback;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.service.PullRequestCommentService;
+import io.cheeta.server.service.PullRequestCommentReactionService;
+import io.cheeta.server.service.PullRequestCommentRevisionService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestCommentRevision;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CommentRevision;
+import io.cheeta.server.model.support.EntityReaction;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.component.comment.CommentHistoryLink;
+import io.cheeta.server.web.component.comment.CommentPanel;
+import io.cheeta.server.web.component.comment.ReactionSupport;
+import io.cheeta.server.web.component.markdown.ContentVersionSupport;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.SinceChangesLink;
+import io.cheeta.server.web.util.DeleteCallback;
 
 class PullRequestCommentPanel extends Panel {
 	
@@ -206,19 +206,19 @@ class PullRequestCommentPanel extends Panel {
 	}
 
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 
 	private PullRequestCommentRevisionService getPullRequestCommentRevisionService() {
-		return OneDev.getInstance(PullRequestCommentRevisionService.class);
+		return Cheeta.getInstance(PullRequestCommentRevisionService.class);
 	}
 
 	private PullRequestCommentService getPullRequestCommentService() {
-		return OneDev.getInstance(PullRequestCommentService.class);
+		return Cheeta.getInstance(PullRequestCommentService.class);
 	}
 
 	private PullRequestCommentReactionService getPullRequestCommentReactionService() {
-		return OneDev.getInstance(PullRequestCommentReactionService.class);
+		return Cheeta.getInstance(PullRequestCommentReactionService.class);
 	}
 
 	private PullRequestComment getComment() {

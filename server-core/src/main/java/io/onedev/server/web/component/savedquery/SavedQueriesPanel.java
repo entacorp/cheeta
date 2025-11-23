@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.savedquery;
+package io.cheeta.server.web.component.savedquery;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -32,22 +32,22 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.http.WebRequest;
 import org.apache.wicket.request.http.WebResponse;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.watch.WatchStatus;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.subscriptionstatus.SubscriptionStatusLink;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.component.watchstatus.WatchStatusLink;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.watch.WatchStatus;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.subscriptionstatus.SubscriptionStatusLink;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.component.watchstatus.WatchStatusLink;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.base.BasePage;
 
 public abstract class SavedQueriesPanel<T extends NamedQuery> extends Panel {
 

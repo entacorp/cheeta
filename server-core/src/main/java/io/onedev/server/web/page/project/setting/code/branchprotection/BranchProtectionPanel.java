@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.setting.code.branchprotection;
+package io.cheeta.server.web.page.project.setting.code.branchprotection;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -11,9 +11,9 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.editable.BeanContext;
 
 abstract class BranchProtectionPanel extends Panel {
 

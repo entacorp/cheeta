@@ -1,6 +1,6 @@
-package io.onedev.server.web;
+package io.cheeta.server.web;
 
-import io.onedev.server.persistence.SessionService;
+import io.cheeta.server.persistence.SessionService;
 import org.apache.wicket.protocol.http.WicketFilter;
 import org.apache.wicket.protocol.http.WicketServlet;
 

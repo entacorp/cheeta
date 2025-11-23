@@ -1,4 +1,4 @@
-package io.onedev.server.persistence;
+package io.cheeta.server.persistence;
 
 import java.util.concurrent.Callable;
 
@@ -7,7 +7,7 @@ import org.aopalliance.intercept.MethodInvocation;
 
 import com.google.inject.Inject;
 
-import io.onedev.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExceptionUtils;
 
 public class SessionInterceptor implements MethodInterceptor {
 

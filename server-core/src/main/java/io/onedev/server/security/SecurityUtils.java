@@ -1,4 +1,4 @@
-package io.onedev.server.security;
+package io.cheeta.server.security;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
@@ -23,68 +23,68 @@ import org.apache.shiro.web.mgt.WebSecurityManager;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.BaseAuthorizationService;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.GroupAuthorization;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueAuthorization;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueVote;
-import io.onedev.server.model.IssueWatch;
-import io.onedev.server.model.IssueWork;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestWatch;
-import io.onedev.server.model.Role;
-import io.onedev.server.model.User;
-import io.onedev.server.model.UserAuthorization;
-import io.onedev.server.security.permission.AccessBuild;
-import io.onedev.server.security.permission.AccessBuildLog;
-import io.onedev.server.security.permission.AccessBuildPipeline;
-import io.onedev.server.security.permission.AccessBuildReports;
-import io.onedev.server.security.permission.AccessConfidentialIssues;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.security.permission.AccessTimeTracking;
-import io.onedev.server.security.permission.BasePermission;
-import io.onedev.server.security.permission.ConfidentialIssuePermission;
-import io.onedev.server.security.permission.CreateChildren;
-import io.onedev.server.security.permission.CreateRootProjects;
-import io.onedev.server.security.permission.EditIssueField;
-import io.onedev.server.security.permission.EditIssueLink;
-import io.onedev.server.security.permission.JobPermission;
-import io.onedev.server.security.permission.ManageBuilds;
-import io.onedev.server.security.permission.ManageCodeComments;
-import io.onedev.server.security.permission.ManageIssues;
-import io.onedev.server.security.permission.ManageJob;
-import io.onedev.server.security.permission.ManageProject;
-import io.onedev.server.security.permission.ManagePullRequests;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.security.permission.ReadPack;
-import io.onedev.server.security.permission.RunJob;
-import io.onedev.server.security.permission.ScheduleIssues;
-import io.onedev.server.security.permission.SystemAdministration;
-import io.onedev.server.security.permission.UploadCache;
-import io.onedev.server.security.permission.WriteCode;
-import io.onedev.server.security.permission.WritePack;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.util.facade.UserFacade;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.BaseAuthorizationService;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.GroupAuthorization;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueAuthorization;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueVote;
+import io.cheeta.server.model.IssueWatch;
+import io.cheeta.server.model.IssueWork;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestWatch;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.UserAuthorization;
+import io.cheeta.server.security.permission.AccessBuild;
+import io.cheeta.server.security.permission.AccessBuildLog;
+import io.cheeta.server.security.permission.AccessBuildPipeline;
+import io.cheeta.server.security.permission.AccessBuildReports;
+import io.cheeta.server.security.permission.AccessConfidentialIssues;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.security.permission.AccessTimeTracking;
+import io.cheeta.server.security.permission.BasePermission;
+import io.cheeta.server.security.permission.ConfidentialIssuePermission;
+import io.cheeta.server.security.permission.CreateChildren;
+import io.cheeta.server.security.permission.CreateRootProjects;
+import io.cheeta.server.security.permission.EditIssueField;
+import io.cheeta.server.security.permission.EditIssueLink;
+import io.cheeta.server.security.permission.JobPermission;
+import io.cheeta.server.security.permission.ManageBuilds;
+import io.cheeta.server.security.permission.ManageCodeComments;
+import io.cheeta.server.security.permission.ManageIssues;
+import io.cheeta.server.security.permission.ManageJob;
+import io.cheeta.server.security.permission.ManageProject;
+import io.cheeta.server.security.permission.ManagePullRequests;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.security.permission.ReadPack;
+import io.cheeta.server.security.permission.RunJob;
+import io.cheeta.server.security.permission.ScheduleIssues;
+import io.cheeta.server.security.permission.SystemAdministration;
+import io.cheeta.server.security.permission.UploadCache;
+import io.cheeta.server.security.permission.WriteCode;
+import io.cheeta.server.security.permission.WritePack;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.util.facade.UserFacade;
 
 public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 
@@ -156,7 +156,7 @@ public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 	public static User getAuthUser(String principal) {
 		var userId = getAuthUserId(principal);
 		if (userId != null) {
-			var user = OneDev.getInstance(UserService.class).get(userId);
+			var user = Cheeta.getInstance(UserService.class).get(userId);
 			if (user != null && !user.isDisabled())
 				return user;
 		}
@@ -210,7 +210,7 @@ public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 	public static AccessToken getAccessToken(String principal) {
 		var accessTokenId = getAccessTokenId(principal);
 		if (accessTokenId != null)
-			return OneDev.getInstance(AccessTokenService.class).get(accessTokenId);
+			return Cheeta.getInstance(AccessTokenService.class).get(accessTokenId);
 		else
 			return null;
 	}
@@ -224,7 +224,7 @@ public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 		} else {
 			var userId = getAuthUserId(principal);			
 			if (userId != null)
-				return OneDev.getInstance(AccessTokenService.class).createTemporal(userId, temporalAccessTokenExpireSeconds);
+				return Cheeta.getInstance(AccessTokenService.class).createTemporal(userId, temporalAccessTokenExpireSeconds);
 			else
 				return null;
 		}
@@ -372,7 +372,7 @@ public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 			}			
 			return isAssignedDefaultRole(project, role);
 		}
-		return OneDev.getInstance(SettingService.class).getSecuritySetting().isEnableAnonymousAccess()
+		return Cheeta.getInstance(SettingService.class).getSecuritySetting().isEnableAnonymousAccess()
 				&& isAssignedDefaultRole(project, role);
 	}
 	
@@ -660,7 +660,7 @@ public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 
 	private static void addIdsPermittedByDefaultRole(ProjectCache cache, Collection<Long> projectIds,
 											  Permission permission) {
-		var baseAuthorizationService = OneDev.getInstance(BaseAuthorizationService.class);
+		var baseAuthorizationService = Cheeta.getInstance(BaseAuthorizationService.class);
 		for (var authorization: baseAuthorizationService.query()) {
 			if (authorization.getRole().implies(permission))
 				projectIds.addAll(cache.getSubtreeIds(authorization.getProject().getId()));
@@ -676,7 +676,7 @@ public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 	}
 	
 	private static SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	public static Collection<Project> getAuthorizedProjects(Subject subject, BasePermission permission) {
@@ -684,7 +684,7 @@ public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 	}
 
 	public static Collection<Project> getAuthorizedProjects(Subject subject, @Nullable ProjectCache cache, BasePermission permission) {
-		var projectService = OneDev.getInstance(ProjectService.class);
+		var projectService = Cheeta.getInstance(ProjectService.class);
 		String principal = (String) subject.getPrincipal();
 		var user = getAuthUser(principal);
 		var accessToken = getAccessToken(principal);
@@ -731,12 +731,12 @@ public class SecurityUtils extends org.apache.shiro.SecurityUtils {
 	}
 
 	public static Collection<User> getAuthorizedUsers(Project project, BasePermission permission) {
-		var userService = OneDev.getInstance(UserService.class);
+		var userService = Cheeta.getInstance(UserService.class);
 		UserCache cache = userService.cloneCache();
 
 		Collection<User> authorizedUsers = Sets.newHashSet(userService.getRoot());
 
-		for (Group group: OneDev.getInstance(GroupService.class).queryAdminstrator())
+		for (Group group: Cheeta.getInstance(GroupService.class).queryAdminstrator())
 			authorizedUsers.addAll(group.getMembers());
 
 		Project current = project;

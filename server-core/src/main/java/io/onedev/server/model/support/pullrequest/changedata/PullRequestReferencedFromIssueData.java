@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.pullrequest.changedata;
+package io.cheeta.server.model.support.pullrequest.changedata;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.entityreference.ReferencedFromAware;
-import io.onedev.server.model.Issue;
-import io.onedev.server.notification.ActivityDetail;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.entityreference.ReferencedFromAware;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.notification.ActivityDetail;
 
 public class PullRequestReferencedFromIssueData 
 		extends PullRequestChangeData implements ReferencedFromAware<Issue> {
@@ -33,7 +33,7 @@ public class PullRequestReferencedFromIssueData
 
 	@Override
 	public Issue getReferencedFrom() {
-		return OneDev.getInstance(IssueService.class).get(issueId);
+		return Cheeta.getInstance(IssueService.class).get(issueId);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.symboltooltip;
+package io.cheeta.server.web.component.symboltooltip;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
 import java.util.ArrayList;
@@ -39,28 +39,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
-import io.onedev.commons.jsymbol.Symbol;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.code.CodeSearchService;
-import io.onedev.server.search.code.IndexConstants;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.hit.SymbolHit;
-import io.onedev.server.search.code.query.BlobQuery;
-import io.onedev.server.search.code.query.SymbolQuery;
-import io.onedev.server.search.code.query.TextQuery;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.CtrlClickBehavior;
-import io.onedev.server.web.behavior.RunTaskBehavior;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.commons.jsymbol.Symbol;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.code.CodeSearchService;
+import io.cheeta.server.search.code.IndexConstants;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.hit.SymbolHit;
+import io.cheeta.server.search.code.query.BlobQuery;
+import io.cheeta.server.search.code.query.SymbolQuery;
+import io.cheeta.server.search.code.query.TextQuery;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.CtrlClickBehavior;
+import io.cheeta.server.web.behavior.RunTaskBehavior;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 
 public abstract class SymbolTooltipPanel extends Panel {
 
@@ -123,7 +123,7 @@ public abstract class SymbolTooltipPanel extends Panel {
 
 					@Override
 					public void onClick(AjaxRequestTarget target) {
-						String script = String.format("onedev.server.symboltooltip.removeTooltip(document.getElementById('%s'));", 
+						String script = String.format("cheeta.server.symboltooltip.removeTooltip(document.getElementById('%s'));", 
 								SymbolTooltipPanel.this.getMarkupId());
 						target.prependJavaScript(script);						
 						onSelect(target, hit);
@@ -184,7 +184,7 @@ public abstract class SymbolTooltipPanel extends Panel {
 
 					@Override
 					protected void runTask(AjaxRequestTarget target) {
-						String script = String.format("onedev.server.symboltooltip.removeTooltip(document.getElementById('%s'));", 
+						String script = String.format("cheeta.server.symboltooltip.removeTooltip(document.getElementById('%s'));", 
 								SymbolTooltipPanel.this.getMarkupId());
 						target.prependJavaScript(script);						
 						List<QueryHit> hits;						
@@ -319,7 +319,7 @@ public abstract class SymbolTooltipPanel extends Panel {
 					var translations = Map.of("inferring-the-most-likely", _T("Inferring the most likely..."));
 					String script;
 					try {
-						script = String.format("onedev.server.symboltooltip.doneQuery('%s', %s, %s);", 
+						script = String.format("cheeta.server.symboltooltip.doneQuery('%s', %s, %s);", 
 							content.getMarkupId(), callback, objectMapper.writeValueAsString(translations));
 					} catch (JsonProcessingException e) {
 						throw new RuntimeException(e);
@@ -371,7 +371,7 @@ public abstract class SymbolTooltipPanel extends Panel {
 						}
 						index = -1;
 					}					
-					var script = String.format("onedev.server.symboltooltip.doneInfer('%s', %d);", 
+					var script = String.format("cheeta.server.symboltooltip.doneInfer('%s', %d);", 
 							getMarkupId() + "-symbol-tooltip", index);
 					target.appendJavaScript(script);
 				}
@@ -385,7 +385,7 @@ public abstract class SymbolTooltipPanel extends Panel {
 				
 				var callback = getCallbackFunction(explicit("action"), explicit("revision"), 
 						explicit("symbolName"), explicit("symbolPosition"));
-				String script = String.format("onedev.server.symboltooltip.init('%s', %s, %s);", 
+				String script = String.format("cheeta.server.symboltooltip.init('%s', %s, %s);", 
 						getMarkupId(), callback, getSymbolPositionCalcFunction());
 				response.render(OnDomReadyHeaderItem.forScript(script));
 			}

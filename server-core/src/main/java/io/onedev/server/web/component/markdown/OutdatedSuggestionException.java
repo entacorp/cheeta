@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.model.support.Mark;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.model.support.Mark;
 
 public class OutdatedSuggestionException extends ExplicitException {
 

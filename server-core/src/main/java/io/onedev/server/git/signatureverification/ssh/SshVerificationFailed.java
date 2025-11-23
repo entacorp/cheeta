@@ -1,7 +1,7 @@
-package io.onedev.server.git.signatureverification.ssh;
+package io.cheeta.server.git.signatureverification.ssh;
 
-import io.onedev.server.git.signatureverification.VerificationFailed;
-import io.onedev.server.web.component.gitsignature.SshVerificationDetailPanel;
+import io.cheeta.server.git.signatureverification.VerificationFailed;
+import io.cheeta.server.web.component.gitsignature.SshVerificationDetailPanel;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.basic.Label;

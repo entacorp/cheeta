@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.user;
+package io.cheeta.server.web.page.user;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,29 +20,29 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.ServerConfig;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.tabbable.PageTab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.admin.usermanagement.UserListPage;
-import io.onedev.server.web.page.layout.LayoutPage;
-import io.onedev.server.web.page.user.accesstoken.UserAccessTokensPage;
-import io.onedev.server.web.page.user.authorization.UserAuthorizationsPage;
-import io.onedev.server.web.page.user.avatar.UserAvatarPage;
-import io.onedev.server.web.page.user.basicsetting.UserBasicSettingPage;
-import io.onedev.server.web.page.user.emailaddresses.UserEmailAddressesPage;
-import io.onedev.server.web.page.user.gpgkeys.UserGpgKeysPage;
-import io.onedev.server.web.page.user.membership.UserMembershipsPage;
-import io.onedev.server.web.page.user.password.UserPasswordPage;
-import io.onedev.server.web.page.user.profile.UserProfilePage;
-import io.onedev.server.web.page.user.querywatch.UserQueryWatchesPage;
-import io.onedev.server.web.page.user.sshkeys.UserSshKeysPage;
-import io.onedev.server.web.page.user.ssoaccounts.UserSsoAccountsPage;
-import io.onedev.server.web.page.user.twofactorauthentication.UserTwoFactorAuthenticationPage;
-import io.onedev.server.web.util.UserAware;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ServerConfig;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.tabbable.PageTab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.admin.usermanagement.UserListPage;
+import io.cheeta.server.web.page.layout.LayoutPage;
+import io.cheeta.server.web.page.user.accesstoken.UserAccessTokensPage;
+import io.cheeta.server.web.page.user.authorization.UserAuthorizationsPage;
+import io.cheeta.server.web.page.user.avatar.UserAvatarPage;
+import io.cheeta.server.web.page.user.basicsetting.UserBasicSettingPage;
+import io.cheeta.server.web.page.user.emailaddresses.UserEmailAddressesPage;
+import io.cheeta.server.web.page.user.gpgkeys.UserGpgKeysPage;
+import io.cheeta.server.web.page.user.membership.UserMembershipsPage;
+import io.cheeta.server.web.page.user.password.UserPasswordPage;
+import io.cheeta.server.web.page.user.profile.UserProfilePage;
+import io.cheeta.server.web.page.user.querywatch.UserQueryWatchesPage;
+import io.cheeta.server.web.page.user.sshkeys.UserSshKeysPage;
+import io.cheeta.server.web.page.user.ssoaccounts.UserSsoAccountsPage;
+import io.cheeta.server.web.page.user.twofactorauthentication.UserTwoFactorAuthenticationPage;
+import io.cheeta.server.web.util.UserAware;
 
 public abstract class UserPage extends LayoutPage implements UserAware {
 	
@@ -92,7 +92,7 @@ public abstract class UserPage extends LayoutPage implements UserAware {
 				tabs.add(new PageTab(Model.of(_T("Password")), Model.of("password"), UserPasswordPage.class, params));
 			tabs.add(new PageTab(Model.of(_T("Belonging Groups")), Model.of("group"), UserMembershipsPage.class, params));
 			tabs.add(new PageTab(Model.of(_T("Authorized Projects")), Model.of("project"), UserAuthorizationsPage.class, params));
-			if (OneDev.getInstance(ServerConfig.class).getSshPort() != 0)
+			if (Cheeta.getInstance(ServerConfig.class).getSshPort() != 0)
 				tabs.add(new PageTab(Model.of(_T("SSH Keys")), Model.of("key"), UserSshKeysPage.class, params));
 			tabs.add(new PageTab(Model.of(_T("GPG Keys")), Model.of("key"), UserGpgKeysPage.class, params));
 			tabs.add(new PageTab(Model.of(_T("Access Tokens")), Model.of("token"), UserAccessTokensPage.class, params));
@@ -126,7 +126,7 @@ public abstract class UserPage extends LayoutPage implements UserAware {
 	}
 	
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 	
 	public static PageParameters paramsOf(User user) {

@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,13 +22,13 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
 
-import io.onedev.server.model.Group;
-import io.onedev.server.model.Membership;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.MembershipService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.Membership;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.MembershipService;
 
 @Singleton
 public class DefaultMembershipService extends BaseEntityService<Membership> implements MembershipService {

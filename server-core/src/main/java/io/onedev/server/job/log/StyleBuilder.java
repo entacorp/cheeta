@@ -1,8 +1,8 @@
-package io.onedev.server.job.log;
+package io.cheeta.server.job.log;
 
 import java.io.Serializable;
 
-import io.onedev.server.buildspec.job.log.Style;
+import io.cheeta.server.buildspec.job.log.Style;
 
 public class StyleBuilder implements Serializable {
 

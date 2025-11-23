@@ -1,15 +1,15 @@
-package io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider;
+package io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.annotation.Color;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.annotation.Color;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 @Editable(name="Value")
 public class Choice implements Serializable {
@@ -44,7 +44,7 @@ public class Choice implements Serializable {
 	}
 
 	@Editable(order=300, placeholder="All projects", description="Specify applicable projects separated by space. "
-			+ "Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+			+ "Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude. Leave empty for all projects")
 	@Patterns(suggester="suggestProjects", path=true)
 	public String getApplicableProjects() {

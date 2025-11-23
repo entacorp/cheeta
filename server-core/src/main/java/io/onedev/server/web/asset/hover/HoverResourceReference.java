@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.hover;
+package io.cheeta.server.web.asset.hover;
 
 import java.util.ArrayList;
 import java.util.List;

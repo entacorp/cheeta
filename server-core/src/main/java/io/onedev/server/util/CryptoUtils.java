@@ -1,7 +1,7 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.shiro.crypto.AesCipherService;
@@ -22,7 +22,7 @@ public class CryptoUtils {
     private static AesCipherService cipherService = new AesCipherService();
     
 	public static byte[] getCipherKey() {
-		byte[] privateKey = OneDev.getInstance(SettingService.class).getSshSetting().getPrivateKey().getEncoded();
+		byte[] privateKey = Cheeta.getInstance(SettingService.class).getSshSetting().getPrivateKey().getEncoded();
 		if (keyPair == null || !keyPair.getPrivateKey().equals(privateKey)) {
 			/*
 			 * We do not use salt here to make sure that the cipher key remains the same after server restart. 

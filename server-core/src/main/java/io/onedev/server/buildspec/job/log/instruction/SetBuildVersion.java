@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.log.instruction;
+package io.cheeta.server.buildspec.job.log.instruction;
 
 import java.util.List;
 import java.util.Map;
@@ -8,11 +8,11 @@ import javax.inject.Singleton;
 
 import org.apache.commons.lang3.StringUtils;
 
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.build.BuildUpdated;
-import io.onedev.server.model.Build;
-import io.onedev.server.persistence.annotation.Transactional;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.build.BuildUpdated;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.persistence.annotation.Transactional;
 
 @Singleton
 public class SetBuildVersion extends LogInstruction {

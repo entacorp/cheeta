@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ShowCondition;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.util.EditContext;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ShowCondition;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.util.EditContext;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
@@ -100,7 +100,7 @@ public class AddToIterationBean implements Serializable {
 		var iterationPrefix = (String) EditContext.get().getInputValue("iterationPrefix");
 		var currentIteration = (String) EditContext.get().getInputValue("currentIteration");
 		var backlog = (boolean) EditContext.get().getInputValue("backlog");
-		var project = OneDev.getInstance(ProjectService.class).load(projectId);
+		var project = Cheeta.getInstance(ProjectService.class).load(projectId);
 		
 		var iterations = new ArrayList<String>();
 		for (var iteration: project.getSortedHierarchyIterations()) {

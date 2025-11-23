@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.CommitQueryPersonalization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.CommitQueryPersonalization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
 
 public interface CommitQueryPersonalizationService extends EntityService<CommitQueryPersonalization> {
 	

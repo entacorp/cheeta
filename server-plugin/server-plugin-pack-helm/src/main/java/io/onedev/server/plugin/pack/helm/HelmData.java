@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.pack.helm;
+package io.cheeta.server.plugin.pack.helm;
 
 import java.io.Serializable;
 import java.util.Map;

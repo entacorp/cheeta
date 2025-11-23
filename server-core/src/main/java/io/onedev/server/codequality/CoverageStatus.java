@@ -1,4 +1,4 @@
-package io.onedev.server.codequality;
+package io.cheeta.server.codequality;
 
 import org.jspecify.annotations.Nullable;
 

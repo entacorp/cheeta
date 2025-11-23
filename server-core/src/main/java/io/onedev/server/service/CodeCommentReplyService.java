@@ -1,10 +1,10 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Date;
 import java.util.List;
 
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.model.User;
 
 public interface CodeCommentReplyService extends EntityService<CodeCommentReply> {
 

@@ -1,11 +1,11 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CoverageStatus;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CoverageStatus;
 
 public class AnnotationInfo implements Serializable {
 	

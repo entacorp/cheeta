@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.pack.pypi;
+package io.cheeta.server.plugin.pack.pypi;
 
 import java.io.Serializable;
 import java.util.List;

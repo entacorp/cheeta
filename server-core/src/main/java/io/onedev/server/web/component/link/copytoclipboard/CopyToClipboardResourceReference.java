@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.link.copytoclipboard;
+package io.cheeta.server.web.component.link.copytoclipboard;
 
 import java.util.List;
 
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.web.asset.clipboard.ClipboardResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.clipboard.ClipboardResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class CopyToClipboardResourceReference extends BaseDependentResourceReference {
 

@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.user.password;
+package io.cheeta.server.web.page.user.password;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.web.component.user.passwordedit.PasswordEditPanel;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.web.component.user.passwordedit.PasswordEditPanel;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserPasswordPage extends UserPage {
 	

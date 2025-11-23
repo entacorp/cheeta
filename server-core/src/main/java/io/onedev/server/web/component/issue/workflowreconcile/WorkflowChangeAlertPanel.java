@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.issue.workflowreconcile;
+package io.cheeta.server.web.component.issue.workflowreconcile;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -9,11 +9,11 @@ import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
 
 public abstract class WorkflowChangeAlertPanel extends Panel {
 
@@ -71,7 +71,7 @@ public abstract class WorkflowChangeAlertPanel extends Panel {
 	@Override
 	protected void onConfigure() {
 		super.onConfigure();
-		setVisible(!OneDev.getInstance(SettingService.class).getIssueSetting().isReconciled());
+		setVisible(!Cheeta.getInstance(SettingService.class).getIssueSetting().isReconciled());
 	}
 
 	protected abstract void onCompleted(AjaxRequestTarget target);

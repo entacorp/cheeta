@@ -1,6 +1,6 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,28 +14,28 @@ import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.ai.QueryDescriptions;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.build.BuildQuery;
-import io.onedev.server.search.entity.build.BuildQueryLexer;
-import io.onedev.server.search.entity.build.BuildQueryParser;
-import io.onedev.server.service.BuildParamService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.NaturalLanguageTranslator;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ai.QueryDescriptions;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.build.BuildQuery;
+import io.cheeta.server.search.entity.build.BuildQueryLexer;
+import io.cheeta.server.search.entity.build.BuildQueryParser;
+import io.cheeta.server.service.BuildParamService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.NaturalLanguageTranslator;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class BuildQueryBehavior extends ANTLRAssistBehavior {
 	
@@ -86,7 +86,7 @@ public class BuildQueryBehavior extends ANTLRAssistBehavior {
 							List<String> fields = new ArrayList<>(Build.QUERY_FIELDS);
 							if (getProject() != null)
 								fields.remove(Build.NAME_PROJECT);
-							BuildParamService buildParamService = OneDev.getInstance(BuildParamService.class);
+							BuildParamService buildParamService = Cheeta.getInstance(BuildParamService.class);
 							List<String> paramNames = new ArrayList<>(buildParamService.getParamNames(project));
 							Collections.sort(paramNames);
 							fields.addAll(paramNames);
@@ -246,7 +246,7 @@ public class BuildQueryBehavior extends ANTLRAssistBehavior {
 				if (!fieldElements.isEmpty()) {
 					String fieldName = BuildQuery.getValue(fieldElements.get(0).getMatchedText());
 					if (fieldName.equals(Build.NAME_PROJECT)) {
-						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 					} else if (fieldName.equals(Build.NAME_VERSION) || fieldName.equals(Build.NAME_JOB)) {
 						hints.add(_T("Use '*' for wildcard match"));
 						hints.add(_T("Use '\\' to escape quotes"));
@@ -279,7 +279,7 @@ public class BuildQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	@Override

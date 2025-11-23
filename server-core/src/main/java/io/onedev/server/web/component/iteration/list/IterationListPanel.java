@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.iteration.list;
+package io.cheeta.server.web.component.iteration.list;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,35 +37,35 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.IterationService;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryLexer;
-import io.onedev.server.search.entity.issue.StateCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IterationAndIssueState;
-import io.onedev.server.util.IterationSort;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.issue.statestats.StateStatsBar;
-import io.onedev.server.web.component.iteration.IterationDateLabel;
-import io.onedev.server.web.component.iteration.actions.IterationActionsPanel;
-import io.onedev.server.web.component.link.ActionablePageLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.menu.MenuItem;
-import io.onedev.server.web.component.menu.MenuLink;
-import io.onedev.server.web.page.project.issues.iteration.IterationIssuesPage;
-import io.onedev.server.web.page.project.issues.iteration.NewIterationPage;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.IterationService;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryLexer;
+import io.cheeta.server.search.entity.issue.StateCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IterationAndIssueState;
+import io.cheeta.server.util.IterationSort;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.issue.statestats.StateStatsBar;
+import io.cheeta.server.web.component.iteration.IterationDateLabel;
+import io.cheeta.server.web.component.iteration.actions.IterationActionsPanel;
+import io.cheeta.server.web.component.link.ActionablePageLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.menu.MenuItem;
+import io.cheeta.server.web.component.menu.MenuLink;
+import io.cheeta.server.web.page.project.issues.iteration.IterationIssuesPage;
+import io.cheeta.server.web.page.project.issues.iteration.NewIterationPage;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
 
 public class IterationListPanel extends GenericPanel<Project> {
 
@@ -87,7 +87,7 @@ public class IterationListPanel extends GenericPanel<Project> {
 						Iteration iteration = (Iteration) row.getDefaultModelObject();
 						iterations.add(iteration);
 					}
-					return OneDev.getInstance(IssueService.class).queryIterationAndIssueStates(getProject(), iterations);
+					return Cheeta.getInstance(IssueService.class).queryIterationAndIssueStates(getProject(), iterations);
 				}
 
 			}; 
@@ -382,12 +382,12 @@ public class IterationListPanel extends GenericPanel<Project> {
 			public Iterator<? extends Iteration> iterator(long first, long count) {
 				EntityCriteria<Iteration> criteria = getCriteria(closed);
 				criteria.addOrder(sort.getOrder(closed));
-				return OneDev.getInstance(Dao.class).query(criteria, (int) first, (int) count).iterator();
+				return Cheeta.getInstance(Dao.class).query(criteria, (int) first, (int) count).iterator();
 			}
 
 			@Override
 			public long calcSize() {
-				return OneDev.getInstance(Dao.class).count(getCriteria(closed));
+				return Cheeta.getInstance(Dao.class).count(getCriteria(closed));
 			}
 
 			@Override
@@ -397,7 +397,7 @@ public class IterationListPanel extends GenericPanel<Project> {
 
 					@Override
 					protected Iteration load() {
-						return OneDev.getInstance(IterationService.class).load(id);
+						return Cheeta.getInstance(IterationService.class).load(id);
 					}
 
 				};

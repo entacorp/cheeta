@@ -1,14 +1,14 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import javax.inject.Singleton;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestCommentReaction;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.PullRequestCommentReactionService;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestCommentReaction;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.PullRequestCommentReactionService;
 
 @Singleton
 public class DefaultPullRequestCommentReactionService extends BaseEntityService<PullRequestCommentReaction>

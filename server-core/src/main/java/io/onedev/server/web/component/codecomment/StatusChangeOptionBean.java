@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.codecomment;
+package io.cheeta.server.web.component.codecomment;
 
 import java.io.Serializable;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(name="Confirm your action")
 public class StatusChangeOptionBean implements Serializable {

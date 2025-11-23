@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.user.basicsetting;
+package io.cheeta.server.web.component.user.basicsetting;
 
-import static io.onedev.server.model.User.PROP_NOTIFY_OWN_EVENTS;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.User.PROP_NOTIFY_OWN_EVENTS;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 
@@ -13,16 +13,16 @@ import org.apache.wicket.model.IModel;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class BasicSettingPanel extends GenericPanel<User> {
 
@@ -100,11 +100,11 @@ public class BasicSettingPanel extends GenericPanel<User> {
 	}
 
 	private UserService getUserService() {
-		return OneDev.getInstance(UserService.class);
+		return Cheeta.getInstance(UserService.class);
 	}
 
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 	
 }

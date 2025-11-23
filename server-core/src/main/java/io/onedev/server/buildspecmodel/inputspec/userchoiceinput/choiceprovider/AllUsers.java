@@ -1,18 +1,18 @@
-package io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider;
+package io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.web.page.project.issues.detail.IssueDetailPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.web.page.project.issues.detail.IssueDetailPage;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable(order=130, name="All users")
 public class AllUsers implements ChoiceProvider {
@@ -21,7 +21,7 @@ public class AllUsers implements ChoiceProvider {
 
 	@Override
 	public List<User> getChoices(boolean allPossible) {
-		UserCache cache = OneDev.getInstance(UserService.class).cloneCache();
+		UserCache cache = Cheeta.getInstance(UserService.class).cloneCache();
 		
 		if (WicketUtils.getPage() instanceof IssueDetailPage) {
 			IssueDetailPage issueDetailPage = (IssueDetailPage) WicketUtils.getPage();

@@ -1,11 +1,11 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.util.Comparator;
 import java.util.List;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.PathUtils;
+import io.cheeta.commons.utils.PathUtils;
 
 public class PathComparator implements Comparator<String> {
 

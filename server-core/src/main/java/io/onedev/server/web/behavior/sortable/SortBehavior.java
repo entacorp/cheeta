@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior.sortable;
+package io.cheeta.server.web.behavior.sortable;
 
 import org.jspecify.annotations.Nullable;
 
@@ -12,8 +12,8 @@ import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnLoadHeaderItem;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.web.asset.jqueryui.JQueryUIResourceReference;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.asset.jqueryui.JQueryUIResourceReference;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
 
 public abstract class SortBehavior extends AbstractPostAjaxBehavior {
 
@@ -144,7 +144,7 @@ public abstract class SortBehavior extends AbstractPostAjaxBehavior {
 				.getParameterValue("toItem").toInt();
 		if (fromList != toList || fromItem != toItem) {
 			onSort(target, new SortPosition(fromList, fromItem), new SortPosition(toList, toItem));
-			String script = String.format("onedev.server.form.markDirty($('#%s').closest('form.leave-confirm'));", 
+			String script = String.format("cheeta.server.form.markDirty($('#%s').closest('form.leave-confirm'));", 
 					getComponent().getMarkupId(true));
 			target.appendJavaScript(script);
 			

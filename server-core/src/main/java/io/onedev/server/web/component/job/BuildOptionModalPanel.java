@@ -1,8 +1,8 @@
-package io.onedev.server.web.component.job;
+package io.cheeta.server.web.component.job;
 
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.component.modal.ModalPanel;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.component.modal.ModalPanel;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 

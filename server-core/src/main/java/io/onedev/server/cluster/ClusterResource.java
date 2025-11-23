@@ -1,10 +1,10 @@
-package io.onedev.server.cluster;
+package io.cheeta.server.cluster;
 
-import static io.onedev.commons.utils.LockUtils.read;
-import static io.onedev.commons.utils.LockUtils.write;
-import static io.onedev.server.model.Build.getArtifactsLockName;
-import static io.onedev.server.model.Project.SHARE_TEST_DIR;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.commons.utils.LockUtils.read;
+import static io.cheeta.commons.utils.LockUtils.write;
+import static io.cheeta.server.model.Build.getArtifactsLockName;
+import static io.cheeta.server.model.Project.SHARE_TEST_DIR;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
@@ -32,38 +32,38 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 
-import io.onedev.server.annotation.NoDBAccess;
+import io.cheeta.server.annotation.NoDBAccess;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.eclipse.jgit.lib.Repository;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TarUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.StorageService;
-import io.onedev.server.attachment.AttachmentService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.JobCacheService;
-import io.onedev.server.service.PackBlobService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.CommandUtils;
-import io.onedev.server.git.GitFilter;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.LfsObject;
-import io.onedev.server.git.command.AdvertiseReceiveRefsCommand;
-import io.onedev.server.git.command.AdvertiseUploadRefsCommand;
-import io.onedev.server.git.hook.HookUtils;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.model.Project;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IOUtils;
-import io.onedev.server.util.concurrent.WorkExecutionService;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.xodus.CommitInfoService;
-import io.onedev.server.xodus.VisitInfoService;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TarUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.StorageService;
+import io.cheeta.server.attachment.AttachmentService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.JobCacheService;
+import io.cheeta.server.service.PackBlobService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.CommandUtils;
+import io.cheeta.server.git.GitFilter;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.LfsObject;
+import io.cheeta.server.git.command.AdvertiseReceiveRefsCommand;
+import io.cheeta.server.git.command.AdvertiseUploadRefsCommand;
+import io.cheeta.server.git.hook.HookUtils;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IOUtils;
+import io.cheeta.server.util.concurrent.WorkExecutionService;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.xodus.CommitInfoService;
+import io.cheeta.server.xodus.VisitInfoService;
 
 @Api(internal=true)
 @Path("/cluster")
@@ -132,7 +132,7 @@ public class ClusterResource {
 		if (!SecurityUtils.isSystem())
 			throw new UnauthorizedException("This api can only be accessed via cluster credential");
 		
-		StreamingOutput output = os -> TarUtils.tar(OneDev.getAssetsDir(), Sets.newHashSet("**"), null, os, false);
+		StreamingOutput output = os -> TarUtils.tar(Cheeta.getAssetsDir(), Sets.newHashSet("**"), null, os, false);
 		return ok(output).build();
 	}
 	

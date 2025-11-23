@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.avataredit;
+package io.cheeta.server.web.component.user.avataredit;
 
 import org.apache.wicket.event.IEvent;
 import org.apache.wicket.markup.head.CssHeaderItem;
@@ -10,14 +10,14 @@ import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.model.User;
-import io.onedev.server.web.avatar.AvatarService;
-import io.onedev.server.web.component.avatarupload.AvatarFileSelected;
-import io.onedev.server.web.component.avatarupload.AvatarUploadField;
-import io.onedev.server.web.component.user.UserAvatar;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.avatar.AvatarService;
+import io.cheeta.server.web.component.avatarupload.AvatarFileSelected;
+import io.cheeta.server.web.component.avatarupload.AvatarUploadField;
+import io.cheeta.server.web.component.user.UserAvatar;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class AvatarEditPanel extends GenericPanel<User> {
 	
@@ -28,7 +28,7 @@ public class AvatarEditPanel extends GenericPanel<User> {
 	}
 	
 	private AvatarService getAvatarService() {
-		return OneDev.getInstance(AvatarService.class);
+		return Cheeta.getInstance(AvatarService.class);
 	}
 
 	private User getUser() {
@@ -36,7 +36,7 @@ public class AvatarEditPanel extends GenericPanel<User> {
 	}
 	
 	private AuditService getAuditService() {
-		return OneDev.getInstance(AuditService.class);
+		return Cheeta.getInstance(AuditService.class);
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class AvatarEditPanel extends GenericPanel<User> {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				AvatarService avatarService = OneDev.getInstance(AvatarService.class);
+				AvatarService avatarService = Cheeta.getInstance(AvatarService.class);
             	avatarService.useUserAvatar(getUser().getId(), uploadedAvatarData);
 				if (getPage() instanceof UserPage)
 					getAuditService().audit(null, "specified to use uploaded avatar in account \"" + getUser().getName() + "\"", null, null);

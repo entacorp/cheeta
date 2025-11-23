@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.diffmatchpatch;
+package io.cheeta.server.web.asset.diffmatchpatch;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 

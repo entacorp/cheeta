@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.projectdependency;
+package io.cheeta.server.buildspec.job.projectdependency;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,14 +6,14 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.util.EditContext;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.util.EditContext;
 
 @Editable(order=100, name="Last Finished of Specified Job")
 public class LastFinishedBuild implements BuildProvider {
@@ -50,7 +50,7 @@ public class LastFinishedBuild implements BuildProvider {
 		Project project = ProjectDependency.getInputProject(EditContext.get(1));
 		List<String> jobNames = new ArrayList<>();
 		if (project != null) {
-			jobNames.addAll(OneDev.getInstance(BuildService.class).getAccessibleJobNames(SecurityUtils.getSubject(), project));
+			jobNames.addAll(Cheeta.getInstance(BuildService.class).getAccessibleJobNames(SecurityUtils.getSubject(), project));
 			Collections.sort(jobNames);
 		}
 		return jobNames;
@@ -58,7 +58,7 @@ public class LastFinishedBuild implements BuildProvider {
 	
 	@Override
 	public Build getBuild(Project project) {
-		return OneDev.getInstance(BuildService.class).findLastFinished(project, jobName, refName);
+		return Cheeta.getInstance(BuildService.class).findLastFinished(project, jobName, refName);
 	}
 
 	@Override

@@ -1,15 +1,15 @@
-package io.onedev.server.web.page.my.basicsetting;
+package io.cheeta.server.web.page.my.basicsetting;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.user.basicsetting.BasicSettingPanel;
-import io.onedev.server.web.page.my.MyPage;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.user.basicsetting.BasicSettingPanel;
+import io.cheeta.server.web.page.my.MyPage;
 
 public class MyBasicSettingPage extends MyPage {
 

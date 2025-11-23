@@ -1,4 +1,4 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -19,9 +19,9 @@ import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.User;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.User;
 
 public class TwoFactorAuthentication implements Serializable {
 
@@ -54,8 +54,8 @@ public class TwoFactorAuthentication implements Serializable {
 	public void writeQRCode(User user, int size, OutputStream os) {
 		String barCode;
 	    try {
-			String serverUrl = OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
-			String issuer = "OneDev@" + new URL(serverUrl).getHost();
+			String serverUrl = Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+			String issuer = "Cheeta@" + new URL(serverUrl).getHost();
 	        barCode = "otpauth://totp/"
 	                + URLEncoder.encode(issuer + ":" + user.getName(), "UTF-8").replace("+", "%20")
 	                + "?secret=" + URLEncoder.encode(secretKey, "UTF-8").replace("+", "%20")

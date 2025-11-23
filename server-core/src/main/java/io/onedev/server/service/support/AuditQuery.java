@@ -1,4 +1,4 @@
-package io.onedev.server.service.support;
+package io.cheeta.server.service.support;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.User;
+import io.cheeta.server.model.User;
 
 public class AuditQuery implements Serializable {
     

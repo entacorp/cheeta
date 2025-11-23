@@ -1,4 +1,4 @@
-onedev.server.sideInfo = {
+cheeta.server.sideInfo = {
     onDomReady: function(containerId) {
         var $container = $("#" + containerId);
 		$(document).on("mouseup touchstart", function(e) {

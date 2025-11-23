@@ -1,11 +1,11 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import io.onedev.server.model.support.CommentRevision;
+import io.cheeta.server.model.support.CommentRevision;
 
 @Entity
 public class PullRequestCommentRevision extends CommentRevision {

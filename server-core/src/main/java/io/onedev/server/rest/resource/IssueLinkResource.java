@@ -1,7 +1,7 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
-import static io.onedev.server.security.SecurityUtils.canAccessIssue;
-import static io.onedev.server.security.SecurityUtils.canEditIssueLink;
+import static io.cheeta.server.security.SecurityUtils.canAccessIssue;
+import static io.cheeta.server.security.SecurityUtils.canEditIssueLink;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -18,9 +18,9 @@ import javax.ws.rs.core.Response;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.service.IssueLinkService;
-import io.onedev.server.model.IssueLink;
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.service.IssueLinkService;
+import io.cheeta.server.model.IssueLink;
+import io.cheeta.server.rest.annotation.Api;
 
 @Path("/issue-links")
 @Consumes(MediaType.APPLICATION_JSON)

@@ -1,7 +1,7 @@
-package io.onedev.server.web.component.diff.blob;
+package io.cheeta.server.web.component.diff.blob;
 
-import static io.onedev.server.util.diff.DiffUtils.MAX_LINE_LEN;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.util.diff.DiffUtils.MAX_LINE_LEN;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
@@ -25,28 +25,28 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.eclipse.jgit.diff.DiffEntry.ChangeType;
 import org.eclipse.jgit.lib.FileMode;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobChange;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.LfsObject;
-import io.onedev.server.git.LfsPointer;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.component.diff.DiffRenderer;
-import io.onedev.server.web.component.diff.blob.text.BlobTextDiffPanel;
-import io.onedev.server.web.component.diff.diffstat.DiffStatBar;
-import io.onedev.server.web.component.diff.difftitle.BlobDiffTitle;
-import io.onedev.server.web.component.diff.revision.DiffViewMode;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.util.DiffPlanarRange;
-import io.onedev.server.web.util.EditParamsAware;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobChange;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.LfsObject;
+import io.cheeta.server.git.LfsPointer;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.component.diff.DiffRenderer;
+import io.cheeta.server.web.component.diff.blob.text.BlobTextDiffPanel;
+import io.cheeta.server.web.component.diff.diffstat.DiffStatBar;
+import io.cheeta.server.web.component.diff.difftitle.BlobDiffTitle;
+import io.cheeta.server.web.component.diff.revision.DiffViewMode;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.util.DiffPlanarRange;
+import io.cheeta.server.web.util.EditParamsAware;
 
 public class BlobDiffPanel extends Panel {
 
@@ -96,7 +96,7 @@ public class BlobDiffPanel extends Panel {
 
 	private void showBlob(Blob blob) {
 		Component diffPanel = null;
-		for (DiffRenderer renderer : OneDev.getExtensions(DiffRenderer.class)) {
+		for (DiffRenderer renderer : Cheeta.getExtensions(DiffRenderer.class)) {
 			if (blob.getLfsPointer() != null
 					&& !new LfsObject(change.getProject().getId(), blob.getLfsPointer().getObjectId()).exists()) {
 				diffPanel = newMessageFragment(_T("Storage file missing"), true);
@@ -308,7 +308,7 @@ public class BlobDiffPanel extends Panel {
 				Component diffPanel = null;
 
 				if (oldMediaType.equals(newMediaType)) {
-					for (DiffRenderer renderer : OneDev.getExtensions(DiffRenderer.class)) {
+					for (DiffRenderer renderer : Cheeta.getExtensions(DiffRenderer.class)) {
 						diffPanel = renderer.render(BODY_ID, newMediaType, change, diffMode);
 						if (diffPanel != null)
 							break;

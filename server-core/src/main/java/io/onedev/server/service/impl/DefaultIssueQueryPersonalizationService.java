@@ -1,7 +1,7 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
-import static io.onedev.server.model.AbstractEntity.PROP_ID;
-import static io.onedev.server.model.IssueQueryPersonalization.PROP_PROJECT;
+import static io.cheeta.server.model.AbstractEntity.PROP_ID;
+import static io.cheeta.server.model.IssueQueryPersonalization.PROP_PROJECT;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,16 +13,16 @@ import javax.persistence.criteria.CriteriaBuilder;
 
 import org.hibernate.criterion.Restrictions;
 
-import io.onedev.server.model.IssueQueryPersonalization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.IssueQueryPersonalizationService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.util.ProjectScope;
+import io.cheeta.server.model.IssueQueryPersonalization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.IssueQueryPersonalizationService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.util.ProjectScope;
 
 @Singleton
 public class DefaultIssueQueryPersonalizationService extends BaseEntityService<IssueQueryPersonalization>

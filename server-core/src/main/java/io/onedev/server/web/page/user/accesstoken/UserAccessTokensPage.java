@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.user.accesstoken;
+package io.cheeta.server.web.page.user.accesstoken;
 
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.user.accesstoken.AccessTokenListPanel;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.user.accesstoken.AccessTokenListPanel;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserAccessTokensPage extends UserPage {
 

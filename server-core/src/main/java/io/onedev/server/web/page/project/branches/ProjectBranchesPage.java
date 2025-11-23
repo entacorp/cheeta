@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.project.branches;
+package io.cheeta.server.web.page.project.branches;
 
-import static io.onedev.server.entityreference.ReferenceUtils.transformReferences;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.entityreference.ReferenceUtils.transformReferences;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -57,48 +57,48 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.entityreference.LinkTransformer;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.AheadBehind;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.search.entity.pullrequest.OpenCriteria;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.search.entity.pullrequest.PullRequestQueryLexer;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.util.ProjectAndBranch;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.behavior.OnTypingDoneBehavior;
-import io.onedev.server.web.component.branch.choice.BranchSingleChoice;
-import io.onedev.server.web.component.commit.status.CommitStatusLink;
-import io.onedev.server.web.component.contributorpanel.ContributorPanel;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.link.ArchiveMenuLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.page.project.compare.RevisionComparePage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.pullrequests.ProjectPullRequestsPage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.entityreference.LinkTransformer;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.AheadBehind;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.search.entity.pullrequest.OpenCriteria;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQueryLexer;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.util.ProjectAndBranch;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.behavior.OnTypingDoneBehavior;
+import io.cheeta.server.web.component.branch.choice.BranchSingleChoice;
+import io.cheeta.server.web.component.commit.status.CommitStatusLink;
+import io.cheeta.server.web.component.contributorpanel.ContributorPanel;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.link.ArchiveMenuLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.compare.RevisionComparePage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.pullrequests.ProjectPullRequestsPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class ProjectBranchesPage extends ProjectPage {
 
@@ -147,7 +147,7 @@ public class ProjectBranchesPage extends ProjectPage {
 				sources.add(new ProjectAndBranch(getProject(), branchName)); 
 			}
 			
-			return OneDev.getInstance(PullRequestService.class).findEffectives(target, sources);
+			return Cheeta.getInstance(PullRequestService.class).findEffectives(target, sources);
 		}
 		
 	};
@@ -169,7 +169,7 @@ public class ProjectBranchesPage extends ProjectPage {
 		protected Map<ObjectId, AheadBehind> load() {
 			List<ObjectId> compareIds = getCommitIdsToDisplay();
 
-			GitService gitService = OneDev.getInstance(GitService.class);
+			GitService gitService = Cheeta.getInstance(GitService.class);
 			
 			RefFacade baseRef = Preconditions.checkNotNull(getProject().getBranchRef(baseBranch));
 			return gitService.getAheadBehinds(getProject(), baseRef.getObjectId(), compareIds);
@@ -391,7 +391,7 @@ public class ProjectBranchesPage extends ProjectPage {
 										_T("Valid signature required for head commit of this branch per branch protection rule"));
 								target.add(form);
 							} else {
-								OneDev.getInstance(GitService.class).createBranch(getProject(), branchName, helperBean.getRevision());
+								Cheeta.getInstance(GitService.class).createBranch(getProject(), branchName, helperBean.getRevision());
 								modal.close();
 								target.add(branchesTable);
 								
@@ -545,7 +545,7 @@ public class ProjectBranchesPage extends ProjectPage {
 					@Override
 					protected Component newContent(String id, ModalPanel modal) {
 						Fragment fragment = new Fragment(id, "confirmDeleteBranchFrag", ProjectBranchesPage.this);
-						PullRequestService pullRequestService = OneDev.getInstance(PullRequestService.class);
+						PullRequestService pullRequestService = Cheeta.getInstance(PullRequestService.class);
 						if (!pullRequestService.queryOpen(new ProjectAndBranch(getProject(), branch)).isEmpty()) {
 							Fragment bodyFrag = new Fragment("body", "openRequestsFrag", ProjectBranchesPage.this);
 							String query = String.format("\"%s\" %s \"%s\" %s %s", 
@@ -563,7 +563,7 @@ public class ProjectBranchesPage extends ProjectPage {
 
 							@Override
 							public void onClick(AjaxRequestTarget target) {
-								OneDev.getInstance(ProjectService.class).deleteBranch(getProject(), branch);
+								Cheeta.getInstance(ProjectService.class).deleteBranch(getProject(), branch);
 								getSession().success(MessageFormat.format(_T("Branch \"{0}\" deleted"), branch));
 								if (branch.equals(baseBranch)) {
 									baseBranch = getProject().getDefaultBranch();
@@ -708,7 +708,7 @@ public class ProjectBranchesPage extends ProjectPage {
 			
 			@Override
 			protected void onBeforeRender() {
-				BuildService buildService = OneDev.getInstance(BuildService.class);
+				BuildService buildService = Cheeta.getInstance(BuildService.class);
 				getProject().cacheCommitStatuses(buildService.queryStatus(getProject(), getCommitIdsToDisplay()));
 				super.onBeforeRender();
 			}

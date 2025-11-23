@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.html;
+package io.cheeta.server.plugin.report.html;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class HtmlReportCssResourceReference extends BaseDependentCssResourceReference {
 

@@ -1,20 +1,20 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.FieldNamesProvider;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.issue.field.instance.FieldInstance;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.FieldNamesProvider;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.issue.field.instance.FieldInstance;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 import javax.validation.Valid;
 import java.io.Serializable;
@@ -71,7 +71,7 @@ public class IssueCreationSetting implements Serializable {
 	
 	@SuppressWarnings("unused")
 	private static Collection<String> getFieldNames() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getFieldNames();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldNames();
 	}
 	
 	public boolean isProjectAuthorized(Project project) {

@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.util.Optional;
 import java.util.concurrent.ExecutorService;
@@ -6,8 +6,8 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.OneDev;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.Cheeta;
 
 /**
  * A pumper generates elements in a different thread, and consumes the element 
@@ -25,7 +25,7 @@ public abstract class ElementPumper<T> {
 		SynchronousQueue<Optional<T>> queue = new SynchronousQueue<>(); 
 		AtomicReference<Exception> exceptionRef = new AtomicReference<>(null);
 
-		OneDev.getInstance(ExecutorService.class).execute(new Runnable() {
+		Cheeta.getInstance(ExecutorService.class).execute(new Runnable() {
 
 			@Override
 			public void run() {

@@ -1,4 +1,4 @@
-package io.onedev.server.search.code.query;
+package io.cheeta.server.search.code.query;
 
 public class TooGeneralQueryException extends RuntimeException {
 

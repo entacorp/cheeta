@@ -1,16 +1,16 @@
-package io.onedev.server.plugin.report.markdown;
+package io.cheeta.server.plugin.report.markdown;
 
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.model.Build;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.tabbable.PageTabHead;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
-import io.onedev.server.web.page.project.builds.detail.BuildTab;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.tabbable.PageTabHead;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.web.page.project.builds.detail.BuildTab;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.link.Link;
@@ -37,7 +37,7 @@ public class MarkdownReportTab extends BuildTab {
 				Build build = page.getBuild();
 				Long projectId = build.getProject().getId();
 				Long buildNumber = build.getNumber();
-				ProjectService projectService = OneDev.getInstance(ProjectService.class);
+				ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 				String startPage = projectService.runOnActiveServer(projectId, new GetStartPage(projectId, buildNumber, getTitle()));
 				
 				PageParameters params = MarkdownReportPage.paramsOf(page.getBuild(), getTitle(), startPage);
@@ -77,7 +77,7 @@ public class MarkdownReportTab extends BuildTab {
 
 				@Override
 				public String call() throws Exception {
-					File startPageFile = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber),
+					File startPageFile = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber),
 							PublishMarkdownReportStep.CATEGORY + "/" + reportName + "/" + PublishMarkdownReportStep.START_PAGE);
 					return FileUtils.readFileToString(startPageFile, StandardCharsets.UTF_8);
 				}

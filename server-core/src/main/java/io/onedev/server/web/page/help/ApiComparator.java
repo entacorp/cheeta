@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.rest.annotation.Api;
 
 import java.lang.reflect.AnnotatedElement;
 import java.util.Comparator;

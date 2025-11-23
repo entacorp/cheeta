@@ -1,6 +1,6 @@
-package io.onedev.server.xodus;
+package io.cheeta.server.xodus;
 
-import io.onedev.server.model.Issue;
+import io.cheeta.server.model.Issue;
 
 import java.util.Map;
 

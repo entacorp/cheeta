@@ -1,12 +1,12 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.EmailAddressService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.GroovyScript;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.EmailAddressService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.GroovyScript;
 import org.eclipse.jgit.revwalk.RevCommit;
 
 import org.jspecify.annotations.Nullable;
@@ -26,7 +26,7 @@ public abstract class ScriptContribution {
 		Build build = Build.get();
 		if (build != null) {
 			RevCommit commit = Build.get().getProject().getRevCommit(build.getCommitId(), true);
-			EmailAddressService emailAddressService = OneDev.getInstance(EmailAddressService.class);
+			EmailAddressService emailAddressService = Cheeta.getInstance(EmailAddressService.class);
 			EmailAddress emailAddress = emailAddressService.findByPersonIdent(commit.getCommitterIdent());
 			if (emailAddress != null && emailAddress.isVerified())
 				return emailAddress.getOwner().getName();

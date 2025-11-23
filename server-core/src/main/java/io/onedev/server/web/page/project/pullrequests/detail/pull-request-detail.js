@@ -1,4 +1,4 @@
-onedev.server.pullRequestDetail = {
+cheeta.server.pullRequestDetail = {
 	onDomReady: function(scrollTopKey) {
 		var scrollTop = localStorage.getItem(scrollTopKey);
 		if (scrollTop) {

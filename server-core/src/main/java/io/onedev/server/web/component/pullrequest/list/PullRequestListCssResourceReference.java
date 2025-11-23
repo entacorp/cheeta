@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.pullrequest.list;
+package io.cheeta.server.web.component.pullrequest.list;
 
 import org.apache.wicket.request.resource.CssResourceReference;
 

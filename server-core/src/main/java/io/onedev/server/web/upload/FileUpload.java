@@ -1,6 +1,6 @@
-package io.onedev.server.web.upload;
+package io.cheeta.server.web.upload;
 
-import io.onedev.server.OneDev;
+import io.cheeta.server.Cheeta;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.wicket.util.string.Strings;
 
@@ -33,7 +33,7 @@ public class FileUpload {
 	}
 	
 	public void clear() {
-		OneDev.getInstance(UploadService.class).clearUpload(id);
+		Cheeta.getInstance(UploadService.class).clearUpload(id);
 	}
 
 	public static String getFileName(FileItem file) {

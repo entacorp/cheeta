@@ -10,9 +10,9 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package io.onedev.server.web.component.select2;
+package io.cheeta.server.web.component.select2;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -23,7 +23,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.string.Strings;
 import org.json.JSONException;
 
-import io.onedev.server.web.component.select2.json.JsonBuilder;
+import io.cheeta.server.web.component.select2.json.JsonBuilder;
 
 /**
  * Single-select Select2 component. Should be attached to a

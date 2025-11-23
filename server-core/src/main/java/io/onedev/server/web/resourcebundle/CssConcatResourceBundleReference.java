@@ -1,4 +1,4 @@
-package io.onedev.server.web.resourcebundle;
+package io.cheeta.server.web.resourcebundle;
 
 import java.io.IOException;
 import java.util.List;

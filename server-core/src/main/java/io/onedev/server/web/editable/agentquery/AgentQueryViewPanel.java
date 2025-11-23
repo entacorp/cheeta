@@ -1,10 +1,10 @@
-package io.onedev.server.web.editable.agentquery;
+package io.cheeta.server.web.editable.agentquery;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.web.page.admin.buildsetting.agent.AgentListPage;
+import io.cheeta.server.web.page.admin.buildsetting.agent.AgentListPage;
 
 public class AgentQueryViewPanel extends Panel {
 

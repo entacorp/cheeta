@@ -1,10 +1,10 @@
-onedev.server.inputassist = {
+cheeta.server.inputassist = {
 	onDomReady: function(inputId, callback, supportNaturalLanguageInput, translations) {
 		var $input = $("#" + inputId);	
 		$input.data("supportNaturalLanguageInput", supportNaturalLanguageInput);
-		onedev.server.inputassist.translations = translations;
+		cheeta.server.inputassist.translations = translations;
 		
-		onedev.server.inputassist.markErrors(inputId, []);
+		cheeta.server.inputassist.markErrors(inputId, []);
 		
 		$input.data("prevValue", $input.val());
 		$input.data("prevCaret", -1);
@@ -27,7 +27,7 @@ onedev.server.inputassist = {
 						var contentBeforeCaret = value.substring(0, caret);
 						if (contentBeforeCaret.endsWith("🤖")) {
 							var contentToTranslate = contentBeforeCaret.substring(0, contentBeforeCaret.length-2);
-							onedev.server.inputassist.showNaturalLanguageTranslatingIndicator($input, caret);						
+							cheeta.server.inputassist.showNaturalLanguageTranslatingIndicator($input, caret);						
 							callback("translate", contentToTranslate, caret);
 						} else {
 							callback("input", value, caret, e.type);
@@ -38,10 +38,10 @@ onedev.server.inputassist = {
 				}
 			}
 			if (value.trim().length == 0)
-				onedev.server.inputassist.markErrors(inputId, []);
+				cheeta.server.inputassist.markErrors(inputId, []);
 		});
 		$input.on("clear", function(e) {
-			onedev.server.inputassist.markErrors(inputId, []);
+			cheeta.server.inputassist.markErrors(inputId, []);
 		});
 		$input.on("blur", function(e) {
 			$input.data("prevCaret", -1);
@@ -85,7 +85,7 @@ onedev.server.inputassist = {
 						$dropdown.find("li:not(.loading-indicator)").first().addClass("active");						
 				}
 				$dropdown.find(".suggestions li.active")[0].scrollIntoViewIfNeeded(false);
-				onedev.server.inputassist.updateHelp($dropdown);
+				cheeta.server.inputassist.updateHelp($dropdown);
 				$dropdown.align($dropdown.data("alignment"));
 				return false;
 			}
@@ -187,7 +187,7 @@ onedev.server.inputassist = {
 
 	naturalLanguageTranslated: function(inputId, translatedInput) {
 		var $input = $("#" + inputId);		
-		onedev.server.inputassist.hideNaturalLanguageTranslatingIndicator($input);
+		cheeta.server.inputassist.hideNaturalLanguageTranslatingIndicator($input);
 		var caret = $input.caret();
 		var content = translatedInput + $input.val().substring(caret);
 		$input.val(content);
@@ -206,7 +206,7 @@ onedev.server.inputassist = {
 		$dropdown.on("close", function() {
 			$input.data("dropdown", null);
 		});
-		onedev.server.inputassist.assistUpdated(inputId, dropdownId, inputContent);
+		cheeta.server.inputassist.assistUpdated(inputId, dropdownId, inputContent);
 	},
 	
 	assistUpdated: function(inputId, dropdownId, inputContent) {
@@ -221,7 +221,7 @@ onedev.server.inputassist = {
 			var $this = $(this);
 			$input.data("update")($this);
 		});
-		onedev.server.inputassist.updateHelp($dropdown);
+		cheeta.server.inputassist.updateHelp($dropdown);
 		if ($input.is("textarea")) {
 		    var e = $.Event('keydown');
 		    e.which = 40; 
@@ -239,9 +239,9 @@ onedev.server.inputassist = {
 	
 	updateHelp: function($dropdown) {
 		if ($dropdown.find("li.active").length != 0) {
-			$dropdown.find(".help .complete").empty().append(onedev.server.inputassist.translations["activeHelp"]);
+			$dropdown.find(".help .complete").empty().append(cheeta.server.inputassist.translations["activeHelp"]);
 		} else {
-			$dropdown.find(".help .complete").empty().append(onedev.server.inputassist.translations["inactiveHelp"]);
+			$dropdown.find(".help .complete").empty().append(cheeta.server.inputassist.translations["inactiveHelp"]);
 		}
 	},
 	
@@ -251,7 +251,7 @@ onedev.server.inputassist = {
 		$form.css("position", "relative");
 		
 		var coord = getCaretCoordinates($input[0], caret);
-		var icon = onedev.server.isDarkMode()? "sparkle.gif": "sparkle-dark.gif";
+		var icon = cheeta.server.isDarkMode()? "sparkle.gif": "sparkle-dark.gif";
 		var $indicator = $("<div class='ajax-loading-indicator natural-language-translating-indicator'><img src='/~img/" + icon + "' width='16' height='16'></div>");
 		$indicator.appendTo($form);
 		

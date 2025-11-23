@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
@@ -8,13 +8,13 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.web.behavior.CodeCommentQueryBehavior;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.annotation.CodeCommentQuery;
-import io.onedev.server.web.editable.string.StringPropertyEditor;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.behavior.CodeCommentQueryBehavior;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.annotation.CodeCommentQuery;
+import io.cheeta.server.web.editable.string.StringPropertyEditor;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.util.WicketUtils;
 
 public class CodeCommentQueryEditSupport implements EditSupport {
 

@@ -1,12 +1,12 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
-import static io.onedev.server.model.Pack.NAME_LABEL;
-import static io.onedev.server.model.Pack.NAME_NAME;
-import static io.onedev.server.model.Pack.NAME_TYPE;
-import static io.onedev.server.model.Pack.NAME_VERSION;
-import static io.onedev.server.model.Pack.PROP_NAME;
-import static io.onedev.server.model.Pack.PROP_VERSION;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.Pack.NAME_LABEL;
+import static io.cheeta.server.model.Pack.NAME_NAME;
+import static io.cheeta.server.model.Pack.NAME_TYPE;
+import static io.cheeta.server.model.Pack.NAME_VERSION;
+import static io.cheeta.server.model.Pack.PROP_NAME;
+import static io.cheeta.server.model.Pack.PROP_VERSION;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,28 +19,28 @@ import org.jspecify.annotations.Nullable;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.codeassist.AntlrUtils;
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.codeassist.InputCompletion;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.grammar.LexerRuleRefElementSpec;
-import io.onedev.commons.codeassist.parser.Element;
-import io.onedev.commons.codeassist.parser.ParseExpect;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.ai.QueryDescriptions;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.pack.PackQuery;
-import io.onedev.server.search.entity.pack.PackQueryLexer;
-import io.onedev.server.search.entity.pack.PackQueryParser;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.behavior.inputassist.ANTLRAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.web.behavior.inputassist.NaturalLanguageTranslator;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.AntlrUtils;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.codeassist.InputCompletion;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.grammar.LexerRuleRefElementSpec;
+import io.cheeta.commons.codeassist.parser.Element;
+import io.cheeta.commons.codeassist.parser.ParseExpect;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.ai.QueryDescriptions;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.pack.PackQuery;
+import io.cheeta.server.search.entity.pack.PackQueryLexer;
+import io.cheeta.server.search.entity.pack.PackQueryParser;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.behavior.inputassist.ANTLRAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.web.behavior.inputassist.NaturalLanguageTranslator;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class PackQueryBehavior extends ANTLRAssistBehavior {
 
@@ -212,7 +212,7 @@ public class PackQueryBehavior extends ANTLRAssistBehavior {
 				if (!fieldElements.isEmpty()) {
 					String fieldName = PackQuery.getValue(fieldElements.get(0).getMatchedText());
 					if (fieldName.equals(Pack.NAME_PROJECT)) {
-						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 					} else if (fieldName.equals(NAME_NAME) || fieldName.equals(NAME_VERSION)) {
 						hints.add(_T("Use '*' for wildcard match"));
 						hints.add(_T("Use '\\' to escape quotes"));
@@ -222,7 +222,7 @@ public class PackQueryBehavior extends ANTLRAssistBehavior {
 					String operatorName = StringUtils.normalizeSpace(operatorElements.get(0).getMatchedText());
 					int operator = AntlrUtils.getLexerRule(PackQueryLexer.ruleNames, operatorName);
 					if (operator == PackQueryLexer.PublishedByProject) 
-						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
+						hints.add(_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>"));
 				}
 			}
 		} 
@@ -249,7 +249,7 @@ public class PackQueryBehavior extends ANTLRAssistBehavior {
 	}
 
 	private SettingService getSettingService() {
-		return OneDev.getInstance(SettingService.class);
+		return Cheeta.getInstance(SettingService.class);
 	}
 
 	@Override

@@ -1,8 +1,8 @@
-package io.onedev.server.data;
+package io.cheeta.server.data;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.support.administration.BackupSetting;
-import io.onedev.server.util.init.ManualConfig;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.support.administration.BackupSetting;
+import io.cheeta.server.util.init.ManualConfig;
 
 import org.jspecify.annotations.Nullable;
 import java.io.File;

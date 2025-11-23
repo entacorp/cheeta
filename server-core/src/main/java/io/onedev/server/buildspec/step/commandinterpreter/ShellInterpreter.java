@@ -1,12 +1,12 @@
-package io.onedev.server.buildspec.step.commandinterpreter;
+package io.cheeta.server.buildspec.step.commandinterpreter;
 
-import io.onedev.k8shelper.CommandFacade;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.k8shelper.ShellFacade;
-import io.onedev.server.annotation.Code;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.k8shelper.CommandFacade;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.k8shelper.ShellFacade;
+import io.cheeta.server.annotation.Code;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
@@ -31,7 +31,7 @@ public class ShellInterpreter extends Interpreter {
 	}
 
 	@Editable(order=110, description="Specify shell commands to execute "
-			+ "under the <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>")
+			+ "under the <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>")
 	@Interpolative
 	@Code(language=Code.SHELL, variableProvider="suggestVariables")
 	@NotEmpty

@@ -1,4 +1,4 @@
-onedev.server.fileUpload = {
+cheeta.server.fileUpload = {
 	onDomReady: function(inputId, hint, iconUrl) {
 		var $input = $("#" + inputId);
 		$input.change(function() {

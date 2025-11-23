@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.contributorpanel;
+package io.cheeta.server.web.component.contributorpanel;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.basic.Label;
@@ -6,9 +6,9 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.eclipse.jgit.lib.PersonIdent;
 
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.PersonIdentPanel;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.PersonIdentPanel;
 
 public class ContributorPanel extends Panel {
 

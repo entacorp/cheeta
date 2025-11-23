@@ -1,17 +1,17 @@
-package io.onedev.server.model.support.administration.jobexecutor;
+package io.cheeta.server.model.support.administration.jobexecutor;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.k8shelper.RegistryLoginFacade;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.buildspec.job.JobVariable;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.interpolative.VariableInterpolator;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.k8shelper.RegistryLoginFacade;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.buildspec.job.JobVariable;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.interpolative.VariableInterpolator;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
@@ -73,7 +73,7 @@ public class RegistryLogin implements Serializable {
 	public RegistryLoginFacade getFacade(String jobToken) {
 		var interpolator = new VariableInterpolator(t -> {
 			if (t.equalsIgnoreCase(JobVariable.SERVER_URL.name()))
-				return OneDev.getInstance(SettingService.class).getSystemSetting().getServerUrl();
+				return Cheeta.getInstance(SettingService.class).getSystemSetting().getServerUrl();
 			else if (t.equalsIgnoreCase(JobVariable.JOB_TOKEN.name()))
 				return jobToken;
 			else

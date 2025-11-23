@@ -1,20 +1,20 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import org.jspecify.annotations.Nullable;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.model.support.pullrequest.MergePreview;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestDiscardData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestMergeData;
-import io.onedev.server.util.CommitAware;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.model.support.pullrequest.MergePreview;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestDiscardData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestMergeData;
+import io.cheeta.server.util.CommitAware;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
 
 public class PullRequestChanged extends PullRequestEvent implements CommitAware {
 
@@ -31,7 +31,7 @@ public class PullRequestChanged extends PullRequestEvent implements CommitAware 
 	}
 
 	public PullRequestChange getChange() {
-		return OneDev.getInstance(PullRequestChangeService.class).load(changeId);
+		return Cheeta.getInstance(PullRequestChangeService.class).load(changeId);
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class PullRequestChanged extends PullRequestEvent implements CommitAware 
 
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getChange(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getChange(), true);
 	}
 
 	@Override

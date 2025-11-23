@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.unbescape.html.HtmlEscape.escapeHtml5;
 
 import java.io.File;
@@ -51,33 +51,33 @@ import org.unbescape.javascript.JavaScriptEscape;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.PathUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.FilenameUtils;
-import io.onedev.server.util.UrlUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.behavior.ReferenceInputBehavior;
-import io.onedev.server.web.component.blob.BlobFolderSelector;
-import io.onedev.server.web.component.blob.BlobSelector;
-import io.onedev.server.web.component.dropzonefield.DropzoneField;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.upload.FileUpload;
-import io.onedev.server.web.upload.UploadService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.PathUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.FilenameUtils;
+import io.cheeta.server.util.UrlUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.behavior.ReferenceInputBehavior;
+import io.cheeta.server.web.component.blob.BlobFolderSelector;
+import io.cheeta.server.web.component.blob.BlobSelector;
+import io.cheeta.server.web.component.dropzonefield.DropzoneField;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.upload.FileUpload;
+import io.cheeta.server.web.upload.UploadService;
 
 abstract class InsertUrlPanel extends Panel {
 
@@ -119,7 +119,7 @@ abstract class InsertUrlPanel extends Panel {
 			@Override
 			public void renderHead(IHeaderResponse response) {
 				super.renderHead(response);
-				String script = String.format("onedev.server.markdown.onInputUrlDomReady('%s');", getMarkupId());
+				String script = String.format("cheeta.server.markdown.onInputUrlDomReady('%s');", getMarkupId());
 				response.render(OnDomReadyHeaderItem.forScript(script));
 			}
 			
@@ -177,7 +177,7 @@ abstract class InsertUrlPanel extends Panel {
 		String revision = context.getBlobIdent().revision;
 		if (revision == null)
 			revision = "main";
-		GitService gitService = OneDev.getInstance(GitService.class);
+		GitService gitService = Cheeta.getInstance(GitService.class);
 		return gitService.resolve(context.getProject(), revision, false);
 	}
 	
@@ -448,7 +448,7 @@ abstract class InsertUrlPanel extends Panel {
 			});
 			fragment.add(form);
 		} else {
-			int maxUploadFileSize = OneDev.getInstance(SettingService.class).getPerformanceSetting().getMaxUploadFileSize();
+			int maxUploadFileSize = Cheeta.getInstance(SettingService.class).getPerformanceSetting().getMaxUploadFileSize();
 			fragment = new Fragment(CONTENT_ID, "uploadBlobFrag", this);
 			Form<?> form = new Form<Void>("form");
 			form.setMultiPart(true);
@@ -672,7 +672,7 @@ abstract class InsertUrlPanel extends Panel {
 	}
 	
 	private UploadService getUploadService() {
-		return OneDev.getInstance(UploadService.class);
+		return Cheeta.getInstance(UploadService.class);
 	}
 	
 	protected abstract void onClose(AjaxRequestTarget target);

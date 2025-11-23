@@ -1,11 +1,11 @@
-package io.onedev.server.plugin.report.cobertura;
+package io.cheeta.server.plugin.report.cobertura;
 
 import com.google.common.io.Resources;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.coverage.FileCoverage;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.coverage.FileCoverage;
 import org.apache.commons.io.IOUtils;
 import org.jetbrains.annotations.Nullable;
 import org.junit.Test;

@@ -1,15 +1,15 @@
-onedev.server.infiniteScroll = {
+cheeta.server.infiniteScroll = {
 	onLoad: function(containerId, callback, pageSize, itemSelector) {
 		var $container = $("#" + containerId);
 		$container.data("callback", callback);
 		$container.data("pageSize", pageSize);
 		$container.data("itemSelector", itemSelector);
-		var $items = onedev.server.infiniteScroll.getItems($container);
+		var $items = cheeta.server.infiniteScroll.getItems($container);
 		$container.data("hasMore", $items.length >= pageSize);
 		$container.scroll(function() {
-			onedev.server.infiniteScroll.check(containerId, true);
+			cheeta.server.infiniteScroll.check(containerId, true);
 		});
-		onedev.server.infiniteScroll.check(containerId, false);
+		cheeta.server.infiniteScroll.check(containerId, false);
 	}, 
 	getItems: function($container) {
 		if ($container.data("itemSelector"))
@@ -21,7 +21,7 @@ onedev.server.infiniteScroll = {
 		var $container = $("#" + containerId);
 		if (!$container.data("appending")) {
 			$container.data("scrollTop", 0);
-			var $items = onedev.server.infiniteScroll.getItems($container);
+			var $items = cheeta.server.infiniteScroll.getItems($container);
 			$items.remove();
 			$container.scrollTop(0);
 			$container.data("prevItems", 0);
@@ -40,10 +40,10 @@ onedev.server.infiniteScroll = {
 						&& $item.offset().top+$item.outerHeight()<$container.offset().top+$container.outerHeight()+tolerate;
 			}
 			
-			var $items = onedev.server.infiniteScroll.getItems($container);
+			var $items = cheeta.server.infiniteScroll.getItems($container);
 			var $lastItem = $items.last();
 			
-			var ajaxIndicator = onedev.server.isDarkMode()?"dark-ajax-indicator.gif":"ajax-indicator.gif";
+			var ajaxIndicator = cheeta.server.isDarkMode()?"dark-ajax-indicator.gif":"ajax-indicator.gif";
 			
 			if (!$container.data("appending")) {
 				var scrollTop = $container.data("scrollTop");
@@ -82,9 +82,9 @@ onedev.server.infiniteScroll = {
 		var $container = $("#" + containerId);
 		$container.data("appending", false);
 		$container.find(".loading-indicator").remove();
-		var $items = onedev.server.infiniteScroll.getItems($container);
+		var $items = cheeta.server.infiniteScroll.getItems($container);
 		$container.data("hasMore", $items.length - $container.data("prevItems") >= $container.data("pageSize"));
-		onedev.server.infiniteScroll.check(containerId, false);
+		cheeta.server.infiniteScroll.check(containerId, false);
 		$(window).resize();
 	}
 };

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.groupmanagement;
+package io.cheeta.server.web.page.admin.groupmanagement;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +18,16 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.Group;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.tabbable.PageTab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.page.admin.groupmanagement.authorization.GroupAuthorizationsPage;
-import io.onedev.server.web.page.admin.groupmanagement.membership.GroupMembershipsPage;
-import io.onedev.server.web.page.admin.groupmanagement.profile.GroupProfilePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.tabbable.PageTab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.page.admin.groupmanagement.authorization.GroupAuthorizationsPage;
+import io.cheeta.server.web.page.admin.groupmanagement.membership.GroupMembershipsPage;
+import io.cheeta.server.web.page.admin.groupmanagement.profile.GroupProfilePage;
 
 public abstract class GroupPage extends AdministrationPage {
 	
@@ -48,7 +48,7 @@ public abstract class GroupPage extends AdministrationPage {
 
 			@Override
 			protected Group load() {
-				return OneDev.getInstance(GroupService.class).load(groupId);
+				return Cheeta.getInstance(GroupService.class).load(groupId);
 			}
 			
 		};

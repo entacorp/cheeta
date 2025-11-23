@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.user.gpgkeys;
+package io.cheeta.server.web.page.user.gpgkeys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,13 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.model.GpgKey;
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.user.gpgkey.GpgKeyListPanel;
-import io.onedev.server.web.component.user.gpgkey.InsertGpgKeyPanel;
-import io.onedev.server.web.page.user.UserPage;
+import io.cheeta.server.model.GpgKey;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.user.gpgkey.GpgKeyListPanel;
+import io.cheeta.server.web.component.user.gpgkey.InsertGpgKeyPanel;
+import io.cheeta.server.web.page.user.UserPage;
 
 public class UserGpgKeysPage extends UserPage {
 	

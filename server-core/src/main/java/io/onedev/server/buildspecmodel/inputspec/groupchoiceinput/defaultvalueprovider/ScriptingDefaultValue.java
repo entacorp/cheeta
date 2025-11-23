@@ -1,11 +1,11 @@
-package io.onedev.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider;
+package io.cheeta.server.buildspecmodel.inputspec.groupchoiceinput.defaultvalueprovider;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.util.GroovyUtils;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ScriptChoice;
+import io.cheeta.server.util.GroovyUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ScriptChoice;
 
 @Editable(order=400, name="Evaluate script to get default value")
 public class ScriptingDefaultValue implements DefaultValueProvider {
@@ -15,7 +15,7 @@ public class ScriptingDefaultValue implements DefaultValueProvider {
 	private String scriptName;
 
 	@Editable(description="Groovy script to be evaluated. It should return name of a group. "
-			+ "Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details")
+			+ "Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details")
 	@ScriptChoice
 	@OmitName
 	@NotEmpty

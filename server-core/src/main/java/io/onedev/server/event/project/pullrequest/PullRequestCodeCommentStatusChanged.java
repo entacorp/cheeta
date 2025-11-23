@@ -1,14 +1,14 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.CodeCommentStatusChangeService;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.CodeCommentStatusChangeService;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
+import io.cheeta.server.web.UrlService;
 
 public class PullRequestCodeCommentStatusChanged extends PullRequestCodeCommentEvent {
 
@@ -26,7 +26,7 @@ public class PullRequestCodeCommentStatusChanged extends PullRequestCodeCommentE
 	}
 
 	public CodeCommentStatusChange getChange() {
-		return OneDev.getInstance(CodeCommentStatusChangeService.class).load(changeId);
+		return Cheeta.getInstance(CodeCommentStatusChangeService.class).load(changeId);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class PullRequestCodeCommentStatusChanged extends PullRequestCodeCommentE
 
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getChange(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getChange(), true);
 	}
 
 }

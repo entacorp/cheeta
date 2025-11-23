@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.link;
+package io.cheeta.server.web.component.link;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -7,7 +7,7 @@ import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.web.behavior.CtrlAwareOnClickAjaxBehavior;
+import io.cheeta.server.web.behavior.CtrlAwareOnClickAjaxBehavior;
 
 public abstract class ActionablePageLink extends AbstractLink {
 

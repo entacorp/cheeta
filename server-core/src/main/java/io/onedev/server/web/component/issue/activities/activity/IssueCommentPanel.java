@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.activities.activity;
+package io.cheeta.server.web.component.issue.activities.activity;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,30 +13,30 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.jetbrains.annotations.Nullable;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.service.IssueCommentService;
-import io.onedev.server.service.IssueCommentReactionService;
-import io.onedev.server.service.IssueCommentRevisionService;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueCommentRevision;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CommentRevision;
-import io.onedev.server.model.support.EntityReaction;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.component.comment.CommentHistoryLink;
-import io.onedev.server.web.component.comment.CommentPanel;
-import io.onedev.server.web.component.comment.ReactionSupport;
-import io.onedev.server.web.component.markdown.ContentVersionSupport;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.util.DeleteCallback;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.service.IssueCommentService;
+import io.cheeta.server.service.IssueCommentReactionService;
+import io.cheeta.server.service.IssueCommentRevisionService;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueCommentRevision;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CommentRevision;
+import io.cheeta.server.model.support.EntityReaction;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.component.comment.CommentHistoryLink;
+import io.cheeta.server.web.component.comment.CommentPanel;
+import io.cheeta.server.web.component.comment.ReactionSupport;
+import io.cheeta.server.web.component.markdown.ContentVersionSupport;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.util.DeleteCallback;
 
 class IssueCommentPanel extends Panel {
 
@@ -199,18 +199,18 @@ class IssueCommentPanel extends Panel {
 	}
 	
 	private TransactionService getTransactionService() {
-		return OneDev.getInstance(TransactionService.class);
+		return Cheeta.getInstance(TransactionService.class);
 	}
 
 	private IssueCommentRevisionService getIssueCommentRevisionManager() {
-		return OneDev.getInstance(IssueCommentRevisionService.class);
+		return Cheeta.getInstance(IssueCommentRevisionService.class);
 	}
 
 	private IssueCommentService getIssueCommentService() {
-		return OneDev.getInstance(IssueCommentService.class);
+		return Cheeta.getInstance(IssueCommentService.class);
 	}
 
 	private IssueCommentReactionService getIssueCommentReactionManager() {
-		return OneDev.getInstance(IssueCommentReactionService.class);
+		return Cheeta.getInstance(IssueCommentReactionService.class);
 	}
 }

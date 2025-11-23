@@ -1,4 +1,4 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
 import java.io.Serializable;
 

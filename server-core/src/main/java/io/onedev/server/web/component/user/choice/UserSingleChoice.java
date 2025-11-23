@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.choice;
+package io.cheeta.server.web.component.user.choice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.model.User;
-import io.onedev.server.web.component.select2.Select2Choice;
+import io.cheeta.server.model.User;
+import io.cheeta.server.web.component.select2.Select2Choice;
 
 public class UserSingleChoice extends Select2Choice<User> {
 
@@ -25,9 +25,9 @@ public class UserSingleChoice extends Select2Choice<User> {
 			getSettings().setPlaceholder(_T("Choose a user..."));
 		else
 			getSettings().setPlaceholder(_T("Not specified"));
-		getSettings().setFormatResult("onedev.server.userChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.userChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.userChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.userChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.userChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.userChoiceFormatter.escapeMarkup");
 		setConvertEmptyInputStringToNull(true);
 	}
 

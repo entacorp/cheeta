@@ -1,8 +1,8 @@
-package io.onedev.server.git.hook;
+package io.cheeta.server.git.hook;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
 import org.eclipse.jgit.lib.ObjectId;
 
 import org.jspecify.annotations.Nullable;

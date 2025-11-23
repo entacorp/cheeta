@@ -1,13 +1,13 @@
-package io.onedev.server.model.support.issue.field.spec;
+package io.cheeta.server.model.support.issue.field.spec;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
-import io.onedev.server.buildspecmodel.inputspec.floatinput.FloatInput;
-import io.onedev.server.buildspecmodel.inputspec.floatinput.defaultvalueprovider.DefaultValueProvider;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspecmodel.inputspec.floatinput.FloatInput;
+import io.cheeta.server.buildspecmodel.inputspec.floatinput.defaultvalueprovider.DefaultValueProvider;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=450, name=FieldSpec.FLOAT)
 public class FloatField extends FieldSpec {

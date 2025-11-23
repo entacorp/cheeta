@@ -1,17 +1,17 @@
-package io.onedev.server.event.project.issue;
+package io.cheeta.server.event.project.issue;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.changedata.IssueStateChangeData;
-import io.onedev.server.notification.ActivityDetail;
-import io.onedev.server.util.CommitAware;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.changedata.IssueStateChangeData;
+import io.cheeta.server.notification.ActivityDetail;
+import io.cheeta.server.util.CommitAware;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
+import io.cheeta.server.web.UrlService;
 
 import org.jspecify.annotations.Nullable;
 import java.util.Collection;
@@ -36,7 +36,7 @@ public class IssueChanged extends IssueEvent implements CommitAware {
 	}
 	
 	public IssueChange getChange() {
-		return OneDev.getInstance(IssueChangeService.class).load(changeId);
+		return Cheeta.getInstance(IssueChangeService.class).load(changeId);
 	}
 
 	@Override
@@ -76,7 +76,7 @@ public class IssueChanged extends IssueEvent implements CommitAware {
 
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getChange(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getChange(), true);
 	}
 
 	@Override

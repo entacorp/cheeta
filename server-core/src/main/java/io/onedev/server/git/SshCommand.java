@@ -1,9 +1,9 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
-import static io.onedev.server.model.Project.decodeFullRepoNameAsPath;
-import static io.onedev.server.security.SecurityUtils.asPrincipals;
-import static io.onedev.server.security.SecurityUtils.asSubject;
-import static io.onedev.server.security.SecurityUtils.asUserPrincipal;
+import static io.cheeta.server.model.Project.decodeFullRepoNameAsPath;
+import static io.cheeta.server.security.SecurityUtils.asPrincipals;
+import static io.cheeta.server.security.SecurityUtils.asSubject;
+import static io.cheeta.server.security.SecurityUtils.asUserPrincipal;
 import static org.apache.commons.lang3.StringUtils.substringBefore;
 
 import java.io.File;
@@ -30,22 +30,22 @@ import org.eclipse.jgit.transport.RemoteConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.command.ExecutionResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.command.ReceivePackCommand;
-import io.onedev.server.git.command.UploadPackCommand;
-import io.onedev.server.git.hook.HookUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.ssh.SshAuthenticator;
-import io.onedev.server.ssh.SshService;
-import io.onedev.server.util.OutputStreamWrapper;
-import io.onedev.server.util.concurrent.WorkExecutionService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.command.ExecutionResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.command.ReceivePackCommand;
+import io.cheeta.server.git.command.UploadPackCommand;
+import io.cheeta.server.git.hook.HookUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.ssh.SshAuthenticator;
+import io.cheeta.server.ssh.SshService;
+import io.cheeta.server.util.OutputStreamWrapper;
+import io.cheeta.server.util.concurrent.WorkExecutionService;
 
 class SshCommand implements Command, ServerSessionAware {
 	
@@ -85,12 +85,12 @@ class SshCommand implements Command, ServerSessionAware {
 		boolean upload = commandString.startsWith(RemoteConfig.DEFAULT_UPLOAD_PACK);
 		String protocol = environments.get("GIT_PROTOCOL");
 		
-		SshAuthenticator authenticator = OneDev.getInstance(SshAuthenticator.class);
+		SshAuthenticator authenticator = Cheeta.getInstance(SshAuthenticator.class);
 		ThreadContext.bind(asSubject(asPrincipals(asUserPrincipal(authenticator.getPublicKeyOwnerId(session)))));
 		
 		boolean clusterAccess = SecurityUtils.isSystem();		
 		
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 
 		var tempStr = StringUtils.substringAfter(commandString, "'/");   
 		var projectPath = decodeFullRepoNameAsPath(substringBefore(tempStr, "'"));
@@ -106,16 +106,16 @@ class SshCommand implements Command, ServerSessionAware {
 			return;
         } 
 		
-		ClusterService clusterService = OneDev.getInstance(ClusterService.class);
+		ClusterService clusterService = Cheeta.getInstance(ClusterService.class);
 		
 		String activeServerAddress = projectService.getActiveServer(projectFacade.getId(), true);
 		if (clusterAccess || activeServerAddress.equals(clusterService.getLocalServerAddress())) {
-	        File gitDir = OneDev.getInstance(ProjectService.class).getGitDir(projectFacade.getId());
+	        File gitDir = Cheeta.getInstance(ProjectService.class).getGitDir(projectFacade.getId());
 			String principal = (String) SecurityUtils.getSubject().getPrincipal();
 	        Map<String, String> hookEnvs = HookUtils.getHookEnvs(projectFacade.getId(), principal);
 
 	        if (!clusterAccess) {
-		        SessionService sessionService = OneDev.getInstance(SessionService.class);
+		        SessionService sessionService = Cheeta.getInstance(SessionService.class);
 		        sessionService.openSession(); 
 		        try {
 		        	Project project = projectService.load(projectFacade.getId());
@@ -141,7 +141,7 @@ class SshCommand implements Command, ServerSessionAware {
 
 	        String groupId = "git-over-ssh-" + projectFacade.getId() + "-" + principal;
 	        
-	        WorkExecutionService workExecutionService = OneDev.getInstance(WorkExecutionService.class);
+	        WorkExecutionService workExecutionService = Cheeta.getInstance(WorkExecutionService.class);
 			future = workExecutionService.submit(PACK_PRIORITY, groupId, new Runnable() {
 				
 				@Override
@@ -166,9 +166,9 @@ class SshCommand implements Command, ServerSessionAware {
 				
 			});
 		} else {
-			ExecutorService executorService = OneDev.getInstance(ExecutorService.class);
+			ExecutorService executorService = Cheeta.getInstance(ExecutorService.class);
 			future = executorService.submit(() -> {
-				SshService sshService = OneDev.getInstance(SshService.class);
+				SshService sshService = Cheeta.getInstance(SshService.class);
 				try (	var clientSession = sshService.ssh(activeServerAddress); 
 						var clientChannel = clientSession.createExecChannel(commandString)) {
 					clientChannel.setIn(in);

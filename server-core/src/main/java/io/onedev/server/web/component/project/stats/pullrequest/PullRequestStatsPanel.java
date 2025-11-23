@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.project.stats.pullrequest;
+package io.cheeta.server.web.component.project.stats.pullrequest;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,15 +17,15 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequest.Status;
-import io.onedev.server.search.entity.pullrequest.DiscardedCriteria;
-import io.onedev.server.search.entity.pullrequest.MergedCriteria;
-import io.onedev.server.search.entity.pullrequest.OpenCriteria;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.page.project.pullrequests.ProjectPullRequestsPage;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequest.Status;
+import io.cheeta.server.search.entity.pullrequest.DiscardedCriteria;
+import io.cheeta.server.search.entity.pullrequest.MergedCriteria;
+import io.cheeta.server.search.entity.pullrequest.OpenCriteria;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.page.project.pullrequests.ProjectPullRequestsPage;
 
 public class PullRequestStatsPanel extends Panel {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.io.File;
 import java.util.Collection;
@@ -13,18 +13,18 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.shiro.subject.Subject;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.annotation.NoDBAccess;
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectBuildStatusStat;
-import io.onedev.server.util.StatusInfo;
-import io.onedev.server.util.artifact.ArtifactInfo;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.util.StatsGroup;
+import io.cheeta.server.annotation.NoDBAccess;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectBuildStatusStat;
+import io.cheeta.server.util.StatusInfo;
+import io.cheeta.server.util.artifact.ArtifactInfo;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.util.StatsGroup;
 
 public interface BuildService extends EntityService<Build> {
 	

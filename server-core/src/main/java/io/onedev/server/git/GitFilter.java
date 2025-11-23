@@ -1,7 +1,7 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
-import static io.onedev.server.model.Project.decodeFullRepoNameAsPath;
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.model.Project.decodeFullRepoNameAsPath;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 import static org.apache.commons.lang3.StringUtils.strip;
 
 import java.io.File;
@@ -40,22 +40,22 @@ import org.eclipse.jgit.http.server.ServletUtils;
 import org.eclipse.jgit.transport.PacketLineOut;
 import org.glassfish.jersey.client.ClientProperties;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.exception.ServerNotReadyException;
-import io.onedev.server.git.command.AdvertiseReceiveRefsCommand;
-import io.onedev.server.git.command.AdvertiseUploadRefsCommand;
-import io.onedev.server.git.hook.HookUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.security.CodePullAuthorizationSource;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.IOUtils;
-import io.onedev.server.util.OutputStreamWrapper;
-import io.onedev.server.util.concurrent.WorkExecutionService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.exception.ServerNotReadyException;
+import io.cheeta.server.git.command.AdvertiseReceiveRefsCommand;
+import io.cheeta.server.git.command.AdvertiseUploadRefsCommand;
+import io.cheeta.server.git.hook.HookUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.security.CodePullAuthorizationSource;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.IOUtils;
+import io.cheeta.server.util.OutputStreamWrapper;
+import io.cheeta.server.util.concurrent.WorkExecutionService;
 
 @Singleton
 public class GitFilter implements Filter {
@@ -64,7 +64,7 @@ public class GitFilter implements Filter {
 	
 	private static final String INFO_REFS = "info/refs";
 	
-	private final OneDev onedev;
+	private final Cheeta cheeta;
 	
 	private final ProjectService projectService;
 	
@@ -77,10 +77,10 @@ public class GitFilter implements Filter {
 	private final Set<CodePullAuthorizationSource> codePullAuthorizationSources;
 	
 	@Inject
-	public GitFilter(OneDev oneDev, ProjectService projectService, WorkExecutionService workExecutionService,
+	public GitFilter(Cheeta oneDev, ProjectService projectService, WorkExecutionService workExecutionService,
                      SessionService sessionService, ClusterService clusterService,
                      Set<CodePullAuthorizationSource> codePullAuthorizationSources) {
-		this.onedev = oneDev;
+		this.cheeta = oneDev;
 		this.projectService = projectService;
 		this.workExecutionService = workExecutionService;
 		this.sessionService = sessionService;
@@ -377,12 +377,12 @@ public class GitFilter implements Filter {
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
 		if (GitSmartHttpTools.isInfoRefs(httpRequest)) {
-			if (onedev.isReady())
+			if (cheeta.isReady())
 				processRefs(httpRequest, httpResponse);
 			else
 				throw new ServerNotReadyException();
 		} else if (GitSmartHttpTools.isReceivePack(httpRequest) || GitSmartHttpTools.isUploadPack(httpRequest)) {
-			if (onedev.isReady()) {
+			if (cheeta.isReady()) {
 				try {
 					processPack(httpRequest, httpResponse);
 				} catch (InterruptedException | ExecutionException e) {

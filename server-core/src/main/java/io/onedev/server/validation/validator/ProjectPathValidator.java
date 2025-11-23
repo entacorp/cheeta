@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import java.util.regex.Pattern;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.server.annotation.ProjectPath;
+import io.cheeta.server.annotation.ProjectPath;
 
 public class ProjectPathValidator implements ConstraintValidator<ProjectPath, String> {
 

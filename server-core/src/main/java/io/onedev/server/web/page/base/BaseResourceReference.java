@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.base;
+package io.cheeta.server.web.page.base;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,13 @@ import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-import io.onedev.server.web.asset.align.AlignResourceReference;
-import io.onedev.server.web.asset.autosize.AutoSizeResourceReference;
-import io.onedev.server.web.asset.bootstrap.BootstrapResourceReference;
-import io.onedev.server.web.asset.clipboard.ClipboardResourceReference;
-import io.onedev.server.web.asset.cookies.CookiesResourceReference;
-import io.onedev.server.web.asset.perfectscrollbar.PerfectScrollbarResourceReference;
-import io.onedev.server.web.asset.tippy.TippyResourceReference;
+import io.cheeta.server.web.asset.align.AlignResourceReference;
+import io.cheeta.server.web.asset.autosize.AutoSizeResourceReference;
+import io.cheeta.server.web.asset.bootstrap.BootstrapResourceReference;
+import io.cheeta.server.web.asset.clipboard.ClipboardResourceReference;
+import io.cheeta.server.web.asset.cookies.CookiesResourceReference;
+import io.cheeta.server.web.asset.perfectscrollbar.PerfectScrollbarResourceReference;
+import io.cheeta.server.web.asset.tippy.TippyResourceReference;
 
 public class BaseResourceReference extends JavaScriptResourceReference {
 

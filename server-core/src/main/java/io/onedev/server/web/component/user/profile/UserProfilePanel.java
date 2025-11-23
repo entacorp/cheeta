@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.profile;
+package io.cheeta.server.web.component.user.profile;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 import java.time.LocalDate;
@@ -38,62 +38,62 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.service.CodeCommentReplyService;
-import io.onedev.server.service.CodeCommentStatusChangeService;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueCommentService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.PullRequestChangeService;
-import io.onedev.server.service.PullRequestCommentService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.emailtemplates.EmailTemplates;
-import io.onedev.server.model.support.issue.changedata.IssueBatchUpdateData;
-import io.onedev.server.model.support.issue.changedata.IssueStateChangeData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestApproveData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestDiscardData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestMergeData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestReopenData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestRequestedForChangesData;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.util.DateRange;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.component.datepicker.DateRangePicker;
-import io.onedev.server.web.component.taskbutton.TaskButton;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.user.UserAvatar;
-import io.onedev.server.web.component.user.UserDeleteLink;
-import io.onedev.server.web.component.user.profile.activity.ApprovePullRequest;
-import io.onedev.server.web.component.user.profile.activity.CommentIssue;
-import io.onedev.server.web.component.user.profile.activity.CommentPullRequest;
-import io.onedev.server.web.component.user.profile.activity.CommitCode;
-import io.onedev.server.web.component.user.profile.activity.CreateCodeComment;
-import io.onedev.server.web.component.user.profile.activity.DiscardPullRequest;
-import io.onedev.server.web.component.user.profile.activity.MergePullRequest;
-import io.onedev.server.web.component.user.profile.activity.OpenIssue;
-import io.onedev.server.web.component.user.profile.activity.OpenPullRequest;
-import io.onedev.server.web.component.user.profile.activity.ReopenPullRequest;
-import io.onedev.server.web.component.user.profile.activity.ReplyCodeComment;
-import io.onedev.server.web.component.user.profile.activity.RequestChangesToPullRequest;
-import io.onedev.server.web.component.user.profile.activity.ResolveCodeComment;
-import io.onedev.server.web.component.user.profile.activity.TransitIssue;
-import io.onedev.server.web.component.user.profile.activity.UnresolveCodeComment;
-import io.onedev.server.web.component.user.profile.activity.UserActivity;
-import io.onedev.server.web.page.user.password.UserPasswordPage;
-import io.onedev.server.web.util.ConfirmClickModifier;
-import io.onedev.server.web.util.TextUtils;
-import io.onedev.server.web.util.WicketUtils;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.service.CodeCommentReplyService;
+import io.cheeta.server.service.CodeCommentStatusChangeService;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueCommentService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.PullRequestChangeService;
+import io.cheeta.server.service.PullRequestCommentService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates;
+import io.cheeta.server.model.support.issue.changedata.IssueBatchUpdateData;
+import io.cheeta.server.model.support.issue.changedata.IssueStateChangeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestApproveData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestDiscardData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestMergeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestReopenData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestRequestedForChangesData;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.util.DateRange;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.component.datepicker.DateRangePicker;
+import io.cheeta.server.web.component.taskbutton.TaskButton;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.user.UserAvatar;
+import io.cheeta.server.web.component.user.UserDeleteLink;
+import io.cheeta.server.web.component.user.profile.activity.ApprovePullRequest;
+import io.cheeta.server.web.component.user.profile.activity.CommentIssue;
+import io.cheeta.server.web.component.user.profile.activity.CommentPullRequest;
+import io.cheeta.server.web.component.user.profile.activity.CommitCode;
+import io.cheeta.server.web.component.user.profile.activity.CreateCodeComment;
+import io.cheeta.server.web.component.user.profile.activity.DiscardPullRequest;
+import io.cheeta.server.web.component.user.profile.activity.MergePullRequest;
+import io.cheeta.server.web.component.user.profile.activity.OpenIssue;
+import io.cheeta.server.web.component.user.profile.activity.OpenPullRequest;
+import io.cheeta.server.web.component.user.profile.activity.ReopenPullRequest;
+import io.cheeta.server.web.component.user.profile.activity.ReplyCodeComment;
+import io.cheeta.server.web.component.user.profile.activity.RequestChangesToPullRequest;
+import io.cheeta.server.web.component.user.profile.activity.ResolveCodeComment;
+import io.cheeta.server.web.component.user.profile.activity.TransitIssue;
+import io.cheeta.server.web.component.user.profile.activity.UnresolveCodeComment;
+import io.cheeta.server.web.component.user.profile.activity.UserActivity;
+import io.cheeta.server.web.page.user.password.UserPasswordPage;
+import io.cheeta.server.web.util.ConfirmClickModifier;
+import io.cheeta.server.web.util.TextUtils;
+import io.cheeta.server.web.util.WicketUtils;
+import io.cheeta.server.xodus.CommitInfoService;
 
 public abstract class UserProfilePanel extends GenericPanel<User> {
 
@@ -176,7 +176,7 @@ public abstract class UserProfilePanel extends GenericPanel<User> {
     }
 
     private AuditService getAuditService() {
-        return OneDev.getInstance(AuditService.class);
+        return Cheeta.getInstance(AuditService.class);
     }
 
     @Override
@@ -255,14 +255,14 @@ public abstract class UserProfilePanel extends GenericPanel<User> {
 			var passwordResetRequestSentMessage = _T("Password reset request has been sent");
 			var noVerifiedPrimaryEmailAddressMessage = _T("No verified primary email address");
 			var mailServiceNotConfiguredMessage = _T("Unable to notify user as mail service is not configured");
-			var mailSubject = _T("[Reset Password] Please Reset Your OneDev Password");
+			var mailSubject = _T("[Reset Password] Please Reset Your Cheeta Password");
 			form.add(new TaskButton("tellUserToResetPassword") {
 
 				@Override
 				protected TaskResult runTask(TaskLogger logger) {
-					var sessionService = OneDev.getInstance(SessionService.class);
+					var sessionService = Cheeta.getInstance(SessionService.class);
 					return sessionService.call(() -> {
-						SettingService settingService = OneDev.getInstance(SettingService.class);
+						SettingService settingService = Cheeta.getInstance(SettingService.class);
 						if (settingService.getMailConnector() != null) {
                             var user = getUser();
 							if (user.getPrimaryEmailAddress() != null && user.getPrimaryEmailAddress().isVerified()) {
@@ -270,7 +270,7 @@ public abstract class UserProfilePanel extends GenericPanel<User> {
 								user.setPasswordResetCode(passwordResetCode);
 								getUserService().update(user, null);
 
-								MailService mailService = OneDev.getInstance(MailService.class);
+								MailService mailService = Cheeta.getInstance(MailService.class);
 
 								Map<String, Object> bindings = new HashMap<>();
 								bindings.put("passwordResetUrl", settingService.getSystemSetting().getServerUrl() + "/~reset-password/" + passwordResetCode);
@@ -435,11 +435,11 @@ public abstract class UserProfilePanel extends GenericPanel<User> {
     }
 
     private UserService getUserService() {
-        return OneDev.getInstance(UserService.class);
+        return Cheeta.getInstance(UserService.class);
     }
 
     private SettingService getSettingService() {
-        return OneDev.getInstance(SettingService.class);
+        return Cheeta.getInstance(SettingService.class);
     }
 
     private User getUser() {
@@ -469,23 +469,23 @@ public abstract class UserProfilePanel extends GenericPanel<User> {
 
         var user = getUser();
 
-        var commitInfoService = OneDev.getInstance(CommitInfoService.class);
+        var commitInfoService = Cheeta.getInstance(CommitInfoService.class);
         for (var entry: commitInfoService.getUserCommits(user, fromDate, toDate).entrySet()) {
             for (var entry2: entry.getValue().entrySet())
                 activities.add(new CommitCode(new Date(entry2.getValue()), entry.getKey(), entry2.getKey()));
         }
         
-        var issueService = OneDev.getInstance(IssueService.class);
+        var issueService = Cheeta.getInstance(IssueService.class);
         for (var issue: issueService.query(user, fromDate, toDate)) {
             activities.add(new OpenIssue(issue));
         }
 
-        var issueCommentService = OneDev.getInstance(IssueCommentService.class);
+        var issueCommentService = Cheeta.getInstance(IssueCommentService.class);
         for (var comment: issueCommentService.query(user, fromDate, toDate)) {
             activities.add(new CommentIssue(comment));
         }
 
-        var issueChangeService = OneDev.getInstance(IssueChangeService.class);
+        var issueChangeService = Cheeta.getInstance(IssueChangeService.class);
         for (var change: issueChangeService.query(user, fromDate, toDate)) {
             if (change.getData() instanceof IssueStateChangeData) {
                 IssueStateChangeData stateChangeData = (IssueStateChangeData) change.getData();
@@ -497,17 +497,17 @@ public abstract class UserProfilePanel extends GenericPanel<User> {
             }
         }
 
-        var pullRequestService = OneDev.getInstance(PullRequestService.class);
+        var pullRequestService = Cheeta.getInstance(PullRequestService.class);
         for (var pullRequest: pullRequestService.query(user, fromDate, toDate)) {
             activities.add(new OpenPullRequest(pullRequest));
         }
 
-        var pullRequestCommentService = OneDev.getInstance(PullRequestCommentService.class);
+        var pullRequestCommentService = Cheeta.getInstance(PullRequestCommentService.class);
         for (var comment: pullRequestCommentService.query(user, fromDate, toDate)) {
             activities.add(new CommentPullRequest(comment));
         }
 
-        var pullRequestChangeService = OneDev.getInstance(PullRequestChangeService.class);
+        var pullRequestChangeService = Cheeta.getInstance(PullRequestChangeService.class);
         for (var change: pullRequestChangeService.query(user, fromDate, toDate)) {
             if (change.getData() instanceof PullRequestApproveData) {
                 activities.add(new ApprovePullRequest(change.getDate(), change.getRequest()));
@@ -522,17 +522,17 @@ public abstract class UserProfilePanel extends GenericPanel<User> {
             }
         }
 
-        var codeCommentService = OneDev.getInstance(CodeCommentService.class);
+        var codeCommentService = Cheeta.getInstance(CodeCommentService.class);
         for (var comment: codeCommentService.query(user, fromDate, toDate)) {
             activities.add(new CreateCodeComment(comment));
         }
 
-        var codeCommentReplyService = OneDev.getInstance(CodeCommentReplyService.class);
+        var codeCommentReplyService = Cheeta.getInstance(CodeCommentReplyService.class);
         for (var reply: codeCommentReplyService.query(user, fromDate, toDate)) {
             activities.add(new ReplyCodeComment(reply));
         }
 
-        var codeCommentStatusChangeService = OneDev.getInstance(CodeCommentStatusChangeService.class);
+        var codeCommentStatusChangeService = Cheeta.getInstance(CodeCommentStatusChangeService.class);
         for (var change: codeCommentStatusChangeService.query(user, fromDate, toDate)) {
             if (change.isResolved()) {
                 activities.add(new ResolveCodeComment(change.getDate(), change.getComment()));
@@ -551,10 +551,10 @@ public abstract class UserProfilePanel extends GenericPanel<User> {
         super.renderHead(response);
         response.render(JavaScriptHeaderItem.forReference(new UserProfileResourceReference())); 
 
-        var mapper = OneDev.getInstance(ObjectMapper.class);        
+        var mapper = Cheeta.getInstance(ObjectMapper.class);        
         try {
             response.render(OnDomReadyHeaderItem.forScript(String.format(
-                "onedev.server.userProfile.onDomReady(%s, %d, %d, %s, %s, %s);", 
+                "cheeta.server.userProfile.onDomReady(%s, %d, %d, %s, %s, %s);", 
                     mapper.writeValueAsString(activityStatsByDay), 
                     fromDate.toEpochDay(), 
                     toDate.toEpochDay(),

@@ -1,6 +1,6 @@
-package io.onedev.server.model.support.widget;
+package io.cheeta.server.model.support.widget;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 import javax.validation.constraints.Size;
 import java.io.Serializable;

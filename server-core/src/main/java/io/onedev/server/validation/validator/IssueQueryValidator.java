@@ -1,12 +1,12 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.annotation.IssueQuery;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.annotation.IssueQuery;
 
 public class IssueQueryValidator implements ConstraintValidator<IssueQuery, String> {
 
@@ -49,7 +49,7 @@ public class IssueQueryValidator implements ConstraintValidator<IssueQuery, Stri
 						.withCurrentCommitCriteria(withCurrentCommitCriteria)
 						.withCurrentPullRequestCriteria(withCurrentPullRequestCriteria)
 						.withCurrentIssueCriteria(withCurrentIssueCriteria);
-				io.onedev.server.search.entity.issue.IssueQuery.parse(project, value, option, true);
+				io.cheeta.server.search.entity.issue.IssueQuery.parse(project, value, option, true);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

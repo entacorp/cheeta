@@ -1,11 +1,11 @@
-package io.onedev.server.web.page.admin.brandingsetting;
+package io.cheeta.server.web.page.admin.brandingsetting;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Image;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Image;
 
 @Editable
 public class BrandSettingEditBean implements Serializable {

@@ -1,8 +1,8 @@
-package io.onedev.server.pack;
+package io.cheeta.server.pack;
 
-import io.onedev.commons.loader.ExtensionPoint;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.Project;
+import io.cheeta.commons.loader.ExtensionPoint;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.Project;
 import org.apache.wicket.Component;
 
 import java.io.Serializable;

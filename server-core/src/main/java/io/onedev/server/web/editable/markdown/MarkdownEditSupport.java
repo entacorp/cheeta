@@ -1,16 +1,16 @@
-package io.onedev.server.web.editable.markdown;
+package io.cheeta.server.web.editable.markdown;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.editable.EditSupport;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.web.editable.PropertyViewer;
-import io.onedev.server.annotation.Markdown;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.editable.EditSupport;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.web.editable.PropertyViewer;
+import io.cheeta.server.annotation.Markdown;
 
 public class MarkdownEditSupport implements EditSupport {
 

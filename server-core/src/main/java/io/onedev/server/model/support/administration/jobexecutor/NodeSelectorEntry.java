@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.administration.jobexecutor;
+package io.cheeta.server.model.support.administration.jobexecutor;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class NodeSelectorEntry implements Serializable {

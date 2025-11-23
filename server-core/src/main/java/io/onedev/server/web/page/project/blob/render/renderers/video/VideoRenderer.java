@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.blob.render.renderers.video;
+package io.cheeta.server.web.page.project.blob.render.renderers.video;
 
 import org.apache.wicket.Component;
 
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
 
 public class VideoRenderer implements BlobRenderer {
 

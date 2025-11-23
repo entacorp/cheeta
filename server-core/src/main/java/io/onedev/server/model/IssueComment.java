@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
 
@@ -18,9 +18,9 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.onedev.server.model.support.EntityComment;
-import io.onedev.server.rest.annotation.Immutable;
-import io.onedev.server.util.facade.IssueCommentFacade;
+import io.cheeta.server.model.support.EntityComment;
+import io.cheeta.server.rest.annotation.Immutable;
+import io.cheeta.server.util.facade.IssueCommentFacade;
 
 @Entity
 @Table(indexes={

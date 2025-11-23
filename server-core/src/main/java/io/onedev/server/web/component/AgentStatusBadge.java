@@ -1,13 +1,13 @@
-package io.onedev.server.web.component;
+package io.cheeta.server.web.component;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.model.Agent;
+import io.cheeta.server.model.Agent;
 
 public class AgentStatusBadge extends Label {
 

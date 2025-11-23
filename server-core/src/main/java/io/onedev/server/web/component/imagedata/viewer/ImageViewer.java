@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.imagedata.viewer;
+package io.cheeta.server.web.component.imagedata.viewer;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;

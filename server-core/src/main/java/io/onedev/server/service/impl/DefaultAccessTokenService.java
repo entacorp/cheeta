@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
@@ -11,22 +11,22 @@ import org.apache.shiro.authc.DisabledAccountException;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
 
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.event.entity.EntityRemoved;
-import io.onedev.server.event.system.SystemStarting;
-import io.onedev.server.exception.ServerNotReadyException;
-import io.onedev.server.model.AccessToken;
-import io.onedev.server.model.User;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.util.facade.AccessTokenCache;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.event.entity.EntityRemoved;
+import io.cheeta.server.event.system.SystemStarting;
+import io.cheeta.server.exception.ServerNotReadyException;
+import io.cheeta.server.model.AccessToken;
+import io.cheeta.server.model.User;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.util.facade.AccessTokenCache;
 
 @Singleton
 public class DefaultAccessTokenService extends BaseEntityService<AccessToken> implements AccessTokenService {

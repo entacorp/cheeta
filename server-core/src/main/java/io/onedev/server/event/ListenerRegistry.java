@@ -1,4 +1,4 @@
-package io.onedev.server.event;
+package io.cheeta.server.event;
 
 public interface ListenerRegistry {
 	

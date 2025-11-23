@@ -1,21 +1,21 @@
-package io.onedev.server.plugin.buildspec.dotnet;
+package io.cheeta.server.plugin.buildspec.dotnet;
 
 import com.google.common.collect.Lists;
-import io.onedev.k8shelper.ExecuteCondition;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.JobSuggestion;
-import io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger;
-import io.onedev.server.buildspec.job.trigger.PullRequestUpdateTrigger;
-import io.onedev.server.buildspec.step.CheckoutStep;
-import io.onedev.server.buildspec.step.CommandStep;
-import io.onedev.server.buildspec.step.GenerateChecksumStep;
-import io.onedev.server.buildspec.step.SetupCacheStep;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.model.Project;
-import io.onedev.server.plugin.report.cobertura.PublishCoberturaReportStep;
-import io.onedev.server.plugin.report.roslynator.PublishRoslynatorReportStep;
-import io.onedev.server.plugin.report.trx.PublishTRXReportStep;
+import io.cheeta.k8shelper.ExecuteCondition;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.JobSuggestion;
+import io.cheeta.server.buildspec.job.trigger.BranchUpdateTrigger;
+import io.cheeta.server.buildspec.job.trigger.PullRequestUpdateTrigger;
+import io.cheeta.server.buildspec.step.CheckoutStep;
+import io.cheeta.server.buildspec.step.CommandStep;
+import io.cheeta.server.buildspec.step.GenerateChecksumStep;
+import io.cheeta.server.buildspec.step.SetupCacheStep;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.plugin.report.cobertura.PublishCoberturaReportStep;
+import io.cheeta.server.plugin.report.roslynator.PublishRoslynatorReportStep;
+import io.cheeta.server.plugin.report.trx.PublishTRXReportStep;
 import org.eclipse.jgit.lib.ObjectId;
 
 import java.util.ArrayList;

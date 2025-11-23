@@ -1,21 +1,21 @@
-package io.onedev.server.web.component.pullrequest.review;
+package io.cheeta.server.web.component.pullrequest.review;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestReview.Status;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.PullRequestReviewService;
-import io.onedev.server.web.component.select2.SelectToActChoice;
-import io.onedev.server.web.component.user.choice.UserChoiceResourceReference;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestReview.Status;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.PullRequestReviewService;
+import io.cheeta.server.web.component.select2.SelectToActChoice;
+import io.cheeta.server.web.component.user.choice.UserChoiceResourceReference;
+import io.cheeta.server.web.page.base.BasePage;
 
 public abstract class ReviewerChoice extends SelectToActChoice<User> {
 
@@ -37,9 +37,9 @@ public abstract class ReviewerChoice extends SelectToActChoice<User> {
 		super.onInitialize();
 		
 		getSettings().setPlaceholder(_T("Add reviewer..."));
-		getSettings().setFormatResult("onedev.server.userChoiceFormatter.formatResult");
-		getSettings().setFormatSelection("onedev.server.userChoiceFormatter.formatSelection");
-		getSettings().setEscapeMarkup("onedev.server.userChoiceFormatter.escapeMarkup");
+		getSettings().setFormatResult("cheeta.server.userChoiceFormatter.formatResult");
+		getSettings().setFormatSelection("cheeta.server.userChoiceFormatter.formatSelection");
+		getSettings().setEscapeMarkup("cheeta.server.userChoiceFormatter.escapeMarkup");
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public abstract class ReviewerChoice extends SelectToActChoice<User> {
 		}
 
 		if (!getPullRequest().isNew()) {
-			OneDev.getInstance(PullRequestReviewService.class).createOrUpdate(SecurityUtils.getUser(), review);
+			Cheeta.getInstance(PullRequestReviewService.class).createOrUpdate(SecurityUtils.getUser(), review);
 			((BasePage)getPage()).notifyObservableChange(target,
 					PullRequest.getChangeObservable(getPullRequest().getId()));
 		}

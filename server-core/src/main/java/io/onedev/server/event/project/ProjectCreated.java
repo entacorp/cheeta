@@ -1,9 +1,9 @@
-package io.onedev.server.event.project;
+package io.cheeta.server.event.project;
 
 import java.util.Date;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
 
 public class ProjectCreated extends ProjectEvent {
 	

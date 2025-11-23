@@ -1,4 +1,4 @@
-onedev.server.diff = {
+cheeta.server.diff = {
 	highlightSyntax: function($textDiff, fileName) {
 		if ($textDiff.hasClass("syntax-highlighted"))
 			return;
@@ -153,9 +153,9 @@ onedev.server.diff = {
 			}
 		}	
 				
-		var modeInfo = onedev.server.codemirror.findModeByFileName(fileName);
+		var modeInfo = cheeta.server.codemirror.findModeByFileName(fileName);
 		if (modeInfo) {
-			onedev.server.codemirror.highlightSyntax(
+			cheeta.server.codemirror.highlightSyntax(
 				oldLines.join("\n"), 
 				modeInfo, 
 				function(text, style, lineIndex, beginPos) {
@@ -167,7 +167,7 @@ onedev.server.diff = {
 					doneHighlight();							
 				}
 			);				
-			onedev.server.codemirror.highlightSyntax(
+			cheeta.server.codemirror.highlightSyntax(
 				newLines.join("\n"), 
 				modeInfo, 
 				function(text, style, lineIndex, beginPos) {

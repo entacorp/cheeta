@@ -1,4 +1,4 @@
-package io.onedev.server.search.entity.codecomment;
+package io.cheeta.server.search.entity.codecomment;
 
 import java.util.Date;
 
@@ -9,9 +9,9 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class CreateDateCriteria extends Criteria<CodeComment> {
 

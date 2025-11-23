@@ -1,14 +1,14 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryUpdater;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Markdown;
+import io.cheeta.server.annotation.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryUpdater;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Markdown;
 
 @Editable
 public class IssueTemplate implements Serializable {

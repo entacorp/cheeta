@@ -1,8 +1,8 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
-import static io.onedev.server.search.entity.issue.IssueQuery.getRuleName;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.All;
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.Any;
+import static io.cheeta.server.search.entity.issue.IssueQuery.getRuleName;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.All;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.Any;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,18 +21,18 @@ import javax.persistence.criteria.Subquery;
 
 import org.hibernate.Hibernate;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueLinkService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueLink;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.util.LinkDescriptor;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueLinkService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueLink;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.util.LinkDescriptor;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
 
 public class LinkMatchCriteria extends Criteria<Issue> {
 
@@ -124,7 +124,7 @@ public class LinkMatchCriteria extends Criteria<Issue> {
 	@Override
 	public boolean matches(Issue issue) {
 		if (!Hibernate.isInitialized(issue.getSourceLinks()) || !Hibernate.isInitialized(issue.getTargetLinks()))
-			OneDev.getInstance(IssueLinkService.class).loadDeepLinks(issue);
+			Cheeta.getInstance(IssueLinkService.class).loadDeepLinks(issue);
 		LinkSpec spec = getLinkDescriptor().getSpec();
 		boolean opposite = getLinkDescriptor().isOpposite();
 		if (allMatch) {

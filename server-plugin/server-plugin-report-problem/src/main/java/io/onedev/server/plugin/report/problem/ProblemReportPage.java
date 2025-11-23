@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.problem;
+package io.cheeta.server.plugin.report.problem;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.stream.Collectors.toList;
 
 import java.io.File;
@@ -44,33 +44,33 @@ import org.eclipse.jgit.lib.FileMode;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.codequality.BlobTarget;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CodeProblem.Severity;
-import io.onedev.server.codequality.ProblemTarget;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Build;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.PatternSetAssistBehavior;
-import io.onedev.server.web.component.NoRecordsPlaceholder;
-import io.onedev.server.web.component.pagenavigator.OnePagingNavigator;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderer;
-import io.onedev.server.web.page.project.builds.detail.report.BuildReportPage;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.codequality.BlobTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CodeProblem.Severity;
+import io.cheeta.server.codequality.ProblemTarget;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.PatternSetAssistBehavior;
+import io.cheeta.server.web.component.NoRecordsPlaceholder;
+import io.cheeta.server.web.component.pagenavigator.OnePagingNavigator;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderer;
+import io.cheeta.server.web.page.project.builds.detail.report.BuildReportPage;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 public class ProblemReportPage extends BuildReportPage {
 
@@ -100,7 +100,7 @@ public class ProblemReportPage extends BuildReportPage {
 				Long projectId = getProject().getId();
 				Long buildNumber = getBuild().getNumber();
 
-				var report = OneDev.getInstance(ProjectService.class).runOnActiveServer(projectId, new GetProblemReport(projectId, buildNumber, getReportName()));
+				var report = Cheeta.getInstance(ProjectService.class).runOnActiveServer(projectId, new GetProblemReport(projectId, buildNumber, getReportName()));
 				for (var problem: report.getProblems()) {
 					if (problem.getTarget() == null)
 						return null;
@@ -147,7 +147,7 @@ public class ProblemReportPage extends BuildReportPage {
 				protected List<String> getHints(TerminalExpect terminalExpect) {
 					return Lists.newArrayList(
 							_T("Target containing spaces or starting with dash needs to be quoted"),
-							_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude")
+							_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude")
 					);
 				}
 
@@ -449,7 +449,7 @@ public class ProblemReportPage extends BuildReportPage {
 
 				@Override
 				public ProblemReport call() throws Exception {
-					File reportDir = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), ProblemReport.CATEGORY + "/" + reportName);
+					File reportDir = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), ProblemReport.CATEGORY + "/" + reportName);
 					return ProblemReport.readFrom(reportDir);
 				}
 				

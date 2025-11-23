@@ -1,7 +1,7 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
-import io.onedev.server.model.support.EntityWatch;
-import io.onedev.server.rest.annotation.Immutable;
+import io.cheeta.server.model.support.EntityWatch;
+import io.cheeta.server.rest.annotation.Immutable;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.gpgtrustedkeys;
+package io.cheeta.server.web.page.admin.gpgtrustedkeys;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,23 +29,23 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.bouncycastle.openpgp.PGPPublicKey;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.BaseGpgKey;
-import io.onedev.server.model.support.administration.GpgSetting;
-import io.onedev.server.util.GpgUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.ajaxlistener.ConfirmClickListener;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.datatable.DefaultDataTable;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.util.LoadableDetachableDataProvider;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.BaseGpgKey;
+import io.cheeta.server.model.support.administration.GpgSetting;
+import io.cheeta.server.util.GpgUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.ajaxlistener.ConfirmClickListener;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.datatable.DefaultDataTable;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.util.LoadableDetachableDataProvider;
 
 public class GpgTrustedKeysPage extends AdministrationPage {
 
@@ -244,7 +244,7 @@ public class GpgTrustedKeysPage extends AdministrationPage {
     }
     
     private SettingService getSettingService() {
-    	return OneDev.getInstance(SettingService.class);
+    	return Cheeta.getInstance(SettingService.class);
     }
 
 	@Override

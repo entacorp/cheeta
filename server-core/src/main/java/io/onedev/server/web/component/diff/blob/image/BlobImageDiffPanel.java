@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.diff.blob.image;
+package io.cheeta.server.web.component.diff.blob.image;
 
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobChange;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.util.Provider;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.resource.RawBlobResource;
-import io.onedev.server.web.resource.RawBlobResourceReference;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobChange;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.util.Provider;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.resource.RawBlobResource;
+import io.cheeta.server.web.resource.RawBlobResourceReference;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.panel.Panel;

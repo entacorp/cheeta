@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.rolechoice;
+package io.cheeta.server.web.component.rolechoice;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,10 +10,10 @@ import org.unbescape.html.HtmlEscape;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.RoleService;
-import io.onedev.server.model.Role;
-import io.onedev.server.web.component.select2.ChoiceProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.RoleService;
+import io.cheeta.server.model.Role;
+import io.cheeta.server.web.component.select2.ChoiceProvider;
 
 public abstract class AbstractRoleChoiceProvider extends ChoiceProvider<Role> {
 
@@ -29,7 +29,7 @@ public abstract class AbstractRoleChoiceProvider extends ChoiceProvider<Role> {
 	@Override
 	public Collection<Role> toChoices(Collection<String> ids) {
 		List<Role> roles = Lists.newArrayList();
-		RoleService roleService = OneDev.getInstance(RoleService.class);
+		RoleService roleService = Cheeta.getInstance(RoleService.class);
 		for (String each : ids) {
 			Role role = roleService.load(Long.valueOf(each));
 			Hibernate.initialize(role);

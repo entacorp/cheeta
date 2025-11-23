@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.gitsignature;
+package io.cheeta.server.web.component.gitsignature;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.git.signatureverification.SignatureVerificationService;
-import io.onedev.server.git.signatureverification.VerificationResult;
-import io.onedev.server.git.signatureverification.VerificationSuccessful;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.signatureverification.SignatureVerificationService;
+import io.cheeta.server.git.signatureverification.VerificationResult;
+import io.cheeta.server.git.signatureverification.VerificationSuccessful;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.AbstractReadOnlyModel;
@@ -20,7 +20,7 @@ public abstract class SignatureStatusPanel extends DropdownLink {
 
 		@Override
 		protected VerificationResult load() {
-			return OneDev.getInstance(SignatureVerificationService.class).verifySignature(getRevObject());
+			return Cheeta.getInstance(SignatureVerificationService.class).verifySignature(getRevObject());
 		}
 
 	};

@@ -1,24 +1,24 @@
-package io.onedev.server.web.component.revision;
+package io.cheeta.server.web.component.revision;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.behavior.InputChangeBehavior;
-import io.onedev.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
-import io.onedev.server.web.component.createtag.CreateTagPanel;
-import io.onedev.server.web.component.link.ViewStateAwareAjaxLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.behavior.InputChangeBehavior;
+import io.cheeta.server.web.behavior.infinitescroll.InfiniteScrollBehavior;
+import io.cheeta.server.web.component.createtag.CreateTagPanel;
+import io.cheeta.server.web.component.link.ViewStateAwareAjaxLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
@@ -48,9 +48,9 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.onedev.server.git.GitUtils.branch2ref;
-import static io.onedev.server.git.GitUtils.tag2ref;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.git.GitUtils.branch2ref;
+import static io.cheeta.server.git.GitUtils.tag2ref;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.eclipse.jgit.lib.Constants.R_REFS;
 
 public abstract class RevisionSelector extends Panel {
@@ -288,7 +288,7 @@ public abstract class RevisionSelector extends Panel {
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	private void onCreateRef(AjaxRequestTarget target, final String refName) {
@@ -477,7 +477,7 @@ public abstract class RevisionSelector extends Panel {
 
 		response.render(JavaScriptHeaderItem.forReference(new RevisionSelectorResourceReference()));
 		
-		String script = String.format("onedev.server.revisionSelector.onDomReady('%s');", getMarkupId(true));
+		String script = String.format("cheeta.server.revisionSelector.onDomReady('%s');", getMarkupId(true));
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}
 

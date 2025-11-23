@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.savedquery;
+package io.cheeta.server.web.component.savedquery;
 
 import java.io.Serializable;
 

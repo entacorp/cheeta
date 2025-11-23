@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.chart.line;
+package io.cheeta.server.web.component.chart.line;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;
@@ -10,9 +10,9 @@ public class LineSeries implements Serializable {
 
 	public static final String PERCENTAGE_FORMATTER = "function(value) {return value+'%';}";
 
-	public static final String SECONDS_FORMATTER = "function(seconds) {return onedev.server.formatBriefDuration(seconds);}";
+	public static final String SECONDS_FORMATTER = "function(seconds) {return cheeta.server.formatBriefDuration(seconds);}";
 
-	public static final String MINUTES_FORMATTER = "function(minutes) {return onedev.server.formatBriefDuration(minutes*60);}";
+	public static final String MINUTES_FORMATTER = "function(minutes) {return cheeta.server.formatBriefDuration(minutes*60);}";
 	
 	private final String seriesName;
 	

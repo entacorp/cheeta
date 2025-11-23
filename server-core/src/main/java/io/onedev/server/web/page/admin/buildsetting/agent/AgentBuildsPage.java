@@ -1,22 +1,22 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Agent;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.build.BuildQuery;
-import io.onedev.server.search.entity.build.RanOnCriteria;
-import io.onedev.server.web.component.build.list.BuildListPanel;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.model.Agent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.build.BuildQuery;
+import io.cheeta.server.search.entity.build.RanOnCriteria;
+import io.cheeta.server.web.component.build.list.BuildListPanel;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
 
 public class AgentBuildsPage extends AgentDetailPage {
 

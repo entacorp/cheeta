@@ -1,16 +1,16 @@
-package io.onedev.server.web.page.project.builds.detail.dashboard;
+package io.cheeta.server.web.page.project.builds.detail.dashboard;
 
 import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.core.request.handler.PageProvider;
 import org.apache.wicket.core.request.handler.RenderPageRequestHandler.RedirectPolicy;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
-import io.onedev.server.web.page.project.builds.detail.artifacts.BuildArtifactsPage;
-import io.onedev.server.web.page.project.builds.detail.issues.FixedIssuesPage;
-import io.onedev.server.web.page.project.builds.detail.log.BuildLogPage;
-import io.onedev.server.web.page.project.builds.detail.pipeline.BuildPipelinePage;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.web.page.project.builds.detail.artifacts.BuildArtifactsPage;
+import io.cheeta.server.web.page.project.builds.detail.issues.FixedIssuesPage;
+import io.cheeta.server.web.page.project.builds.detail.log.BuildLogPage;
+import io.cheeta.server.web.page.project.builds.detail.pipeline.BuildPipelinePage;
 
 public class BuildDashboardPage extends BuildDetailPage {
 

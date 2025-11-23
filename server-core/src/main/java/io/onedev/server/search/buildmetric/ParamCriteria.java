@@ -1,4 +1,4 @@
-package io.onedev.server.search.buildmetric;
+package io.cheeta.server.search.buildmetric;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Join;
@@ -6,8 +6,8 @@ import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.model.BuildParam;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.BuildParam;
 
 public class ParamCriteria extends BuildMetricCriteria {
 

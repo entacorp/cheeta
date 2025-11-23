@@ -1,7 +1,7 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.Dashboard;
-import io.onedev.server.model.DashboardUserShare;
+import io.cheeta.server.model.Dashboard;
+import io.cheeta.server.model.DashboardUserShare;
 
 import java.util.Collection;
 

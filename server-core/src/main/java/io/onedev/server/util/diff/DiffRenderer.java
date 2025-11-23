@@ -1,6 +1,6 @@
-package io.onedev.server.util.diff;
+package io.cheeta.server.util.diff;
 
-import io.onedev.server.util.diff.DiffMatchPatch.Operation;
+import io.cheeta.server.util.diff.DiffMatchPatch.Operation;
 import org.unbescape.html.HtmlEscape;
 
 import org.jspecify.annotations.Nullable;

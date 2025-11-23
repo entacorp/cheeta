@@ -1,15 +1,15 @@
-package io.onedev.server.web.page.admin.issuesetting;
+package io.cheeta.server.web.page.admin.issuesetting;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.web.component.issue.workflowreconcile.WorkflowChangeAlertPanel;
-import io.onedev.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.web.component.issue.workflowreconcile.WorkflowChangeAlertPanel;
+import io.cheeta.server.web.page.admin.AdministrationPage;
 
 public abstract class IssueSettingPage extends AdministrationPage {
 
@@ -17,7 +17,7 @@ public abstract class IssueSettingPage extends AdministrationPage {
 	
 	public IssueSettingPage(PageParameters params) {
 		super(params);
-		setting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		setting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 
 	@Override

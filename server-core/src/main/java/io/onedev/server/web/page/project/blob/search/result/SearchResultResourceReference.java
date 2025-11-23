@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.search.result;
+package io.cheeta.server.web.page.project.blob.search.result;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 
-import io.onedev.server.web.asset.uri.URIResourceReference;
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.asset.uri.URIResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class SearchResultResourceReference extends BaseDependentResourceReference {
 

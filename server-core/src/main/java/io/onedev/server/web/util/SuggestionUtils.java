@@ -1,6 +1,6 @@
-package io.onedev.server.web.util;
+package io.cheeta.server.web.util;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.Collections.sort;
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.comparingInt;
@@ -27,52 +27,52 @@ import org.apache.commons.lang3.math.NumberUtils;
 import com.google.common.base.Preconditions;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.commons.utils.match.PatternApplied;
-import io.onedev.commons.utils.match.WildcardUtils;
-import io.onedev.k8shelper.KubernetesHelper;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.JobVariable;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.service.AgentAttributeService;
-import io.onedev.server.service.AgentService;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.BuildMetricService;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.service.PackService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.GroovyScript;
-import io.onedev.server.model.support.build.JobProperty;
-import io.onedev.server.model.support.build.JobSecret;
-import io.onedev.server.pack.PackSupport;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.pullrequest.PullRequestQuery;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.security.permission.BasePermission;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.ProjectScopedQuery;
-import io.onedev.server.util.ScriptContribution;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.util.facade.UserFacade;
-import io.onedev.server.util.interpolative.VariableInterpolator;
-import io.onedev.server.web.asset.emoji.Emojis;
-import io.onedev.server.web.behavior.inputassist.InputAssistBehavior;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.commons.utils.match.PatternApplied;
+import io.cheeta.commons.utils.match.WildcardUtils;
+import io.cheeta.k8shelper.KubernetesHelper;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.JobVariable;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.service.AgentAttributeService;
+import io.cheeta.server.service.AgentService;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.BuildMetricService;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.GroovyScript;
+import io.cheeta.server.model.support.build.JobProperty;
+import io.cheeta.server.model.support.build.JobSecret;
+import io.cheeta.server.pack.PackSupport;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.pullrequest.PullRequestQuery;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.security.permission.BasePermission;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.ProjectScopedQuery;
+import io.cheeta.server.util.ScriptContribution;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.util.facade.UserFacade;
+import io.cheeta.server.util.interpolative.VariableInterpolator;
+import io.cheeta.server.web.asset.emoji.Emojis;
+import io.cheeta.server.web.behavior.inputassist.InputAssistBehavior;
+import io.cheeta.server.xodus.CommitInfoService;
 
 public class SuggestionUtils {
 	
@@ -90,7 +90,7 @@ public class SuggestionUtils {
 	}
 	
 	public static List<InputSuggestion> suggestLabels(String matchWith) {
-		var labelNames = OneDev.getInstance(LabelSpecService.class).query().stream()
+		var labelNames = Cheeta.getInstance(LabelSpecService.class).query().stream()
 				.map(it->it.getName())
 				.sorted()
 				.collect(toList());
@@ -98,7 +98,7 @@ public class SuggestionUtils {
 	}
 
 	public static List<InputSuggestion> suggestPackTypes(String matchWith) {
-		List<PackSupport> packSupports = new ArrayList<>(OneDev.getExtensions(PackSupport.class));
+		List<PackSupport> packSupports = new ArrayList<>(Cheeta.getExtensions(PackSupport.class));
 		packSupports.sort(comparing(PackSupport::getOrder));
 		return suggest(packSupports.stream().map(PackSupport::getPackType).collect(toList()), matchWith);
 	}
@@ -215,7 +215,7 @@ public class SuggestionUtils {
 	}
 
 	private static ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	public static List<InputSuggestion> suggestProjectPaths(String matchWith) {
@@ -259,7 +259,7 @@ public class SuggestionUtils {
 	}
 	
 	public static List<InputSuggestion> suggestAgents(String matchWith) {
-		List<String> agentNames = OneDev.getInstance(AgentService.class).query()
+		List<String> agentNames = Cheeta.getInstance(AgentService.class).query()
 				.stream()
 				.map(it->it.getName())
 				.sorted()
@@ -292,7 +292,7 @@ public class SuggestionUtils {
 			variables.put(VariableInterpolator.PREFIX_SECRET + secret.getName(), null);
 
 		if (withDynamicVariables) {
-			var attributeNames = new ArrayList<>(OneDev.getInstance(AgentAttributeService.class).getAttributeNames());
+			var attributeNames = new ArrayList<>(Cheeta.getInstance(AgentAttributeService.class).getAttributeNames());
 			sort(attributeNames);
 			for (String attributeName: attributeNames) 
 				variables.put(VariableInterpolator.PREFIX_ATTRIBUTE + attributeName, "Use value of specified agent attribute");
@@ -307,10 +307,10 @@ public class SuggestionUtils {
 			variables.put(VariableInterpolator.PREFIX_FILE + filePath, "Use content of specified file");
 		}
 		
-		for (GroovyScript script: OneDev.getInstance(SettingService.class).getGroovyScripts())
+		for (GroovyScript script: Cheeta.getInstance(SettingService.class).getGroovyScripts())
 			variables.put(VariableInterpolator.PREFIX_SCRIPT + script.getName(), null);
 		
-		for (ScriptContribution contribution: OneDev.getExtensions(ScriptContribution.class)) {
+		for (ScriptContribution contribution: Cheeta.getExtensions(ScriptContribution.class)) {
 			String varName = VariableInterpolator.PREFIX_SCRIPT + GroovyScript.BUILTIN_PREFIX 
 					+ contribution.getScript().getName();
 			if (!variables.containsKey(varName))
@@ -334,7 +334,7 @@ public class SuggestionUtils {
 	public static List<InputSuggestion> suggestUsers(String matchWith) {
 		List<InputSuggestion> suggestions = new ArrayList<>();
 
-		UserCache cache = OneDev.getInstance(UserService.class).cloneCache();
+		UserCache cache = Cheeta.getInstance(UserService.class).cloneCache();
 		var users = cache.values().stream().filter(it -> !it.isDisabled()).collect(toList());
 		users.sort(Comparator.comparing(it -> it.getDisplayName()));
 		for (UserFacade user: users) {
@@ -358,7 +358,7 @@ public class SuggestionUtils {
 	
 	public static List<InputSuggestion> suggestLinkSpecs(String matchWith) {
 		List<String> linkNames = new ArrayList<>();
-		List<LinkSpec> linkSpecs = OneDev.getInstance(LinkSpecService.class).queryAndSort();
+		List<LinkSpec> linkSpecs = Cheeta.getInstance(LinkSpecService.class).queryAndSort();
 		for (LinkSpec link: linkSpecs) {
 			linkNames.add(link.getName());
 			if (link.getOpposite() != null)
@@ -385,8 +385,8 @@ public class SuggestionUtils {
 		var subject = SecurityUtils.getSubject();
 		if (scopedQuery != null && SecurityUtils.canAccessProject(subject, scopedQuery.getProject())) {
 			var projectScope = new ProjectScope(scopedQuery.getProject(), false, false);
-			var issueQuery = new IssueQuery(new io.onedev.server.search.entity.issue.FuzzyCriteria(scopedQuery.getQuery()));
-			for (var issue : OneDev.getInstance(IssueService.class).query(subject, projectScope, issueQuery, false, 0, count)) {
+			var issueQuery = new IssueQuery(new io.cheeta.server.search.entity.issue.FuzzyCriteria(scopedQuery.getQuery()));
+			for (var issue : Cheeta.getInstance(IssueService.class).query(subject, projectScope, issueQuery, false, 0, count)) {
 				var title = Emojis.getInstance().apply(issue.getTitle());
 				suggestions.add(new InputSuggestion(issue.getReference().toString(project), title, null));	
 			}
@@ -404,8 +404,8 @@ public class SuggestionUtils {
 		List<InputSuggestion> suggestions = new ArrayList<>();
 		var scopedQuery = ProjectScopedQuery.of(project, matchWith, '#', '-');
 		if (scopedQuery != null && SecurityUtils.canReadCode(scopedQuery.getProject())) {
-			PullRequestService pullRequestService = OneDev.getInstance(PullRequestService.class);
-			var requestQuery = new PullRequestQuery(new io.onedev.server.search.entity.pullrequest.FuzzyCriteria(scopedQuery.getQuery()));
+			PullRequestService pullRequestService = Cheeta.getInstance(PullRequestService.class);
+			var requestQuery = new PullRequestQuery(new io.cheeta.server.search.entity.pullrequest.FuzzyCriteria(scopedQuery.getQuery()));
 			for (var request: pullRequestService.query(SecurityUtils.getSubject(), scopedQuery.getProject(), requestQuery, false, 0, count)) {
 				var title = Emojis.getInstance().apply(request.getTitle());
 				suggestions.add(new InputSuggestion(request.getReference().toString(project), title, null));
@@ -425,7 +425,7 @@ public class SuggestionUtils {
 		var scopedQuery = ProjectScopedQuery.of(project, matchWith, '#', '-');
 		if (scopedQuery != null) {
 			var subject = SecurityUtils.getSubject();
-			for (Build build: OneDev.getInstance(BuildService.class).query(subject, scopedQuery.getProject(), scopedQuery.getQuery(), count)) {
+			for (Build build: Cheeta.getInstance(BuildService.class).query(subject, scopedQuery.getProject(), scopedQuery.getQuery(), count)) {
 				String description = build.getJobName();
 				if (build.getVersion() != null)
 					description += " - " + build.getVersion();
@@ -442,7 +442,7 @@ public class SuggestionUtils {
 	}
 	
 	public static List<InputSuggestion> suggestGroups(String matchWith) {
-		List<String> groupNames = OneDev.getInstance(GroupService.class).query()
+		List<String> groupNames = Cheeta.getInstance(GroupService.class).query()
 				.stream()
 				.map(it->it.getName())
 				.sorted()
@@ -451,12 +451,12 @@ public class SuggestionUtils {
 	}
 
 	public static List<InputSuggestion> suggestBlobs(Project project, String matchWith) {
-		CommitInfoService commitInfoService = OneDev.getInstance(CommitInfoService.class);
+		CommitInfoService commitInfoService = Cheeta.getInstance(CommitInfoService.class);
 		return suggestPathsByPathPattern(commitInfoService.getFiles(project.getId()), matchWith, false);
 	}
 	
 	public static List<InputSuggestion> suggestJobs(Project project, String matchWith) {
-		List<String> jobNames = new ArrayList<>(OneDev.getInstance(BuildService.class)
+		List<String> jobNames = new ArrayList<>(Cheeta.getInstance(BuildService.class)
 				.getAccessibleJobNames(SecurityUtils.getSubject(), project));
 		Collections.sort(jobNames);
 		return suggest(jobNames, matchWith);
@@ -464,7 +464,7 @@ public class SuggestionUtils {
 	
 	public static List<InputSuggestion> suggestReports(
 			Project project, Class<? extends AbstractEntity> metricClass, String matchWith) {
-		Map<String, Collection<String>> accessibleReportNames = OneDev.getInstance(BuildMetricService.class)
+		Map<String, Collection<String>> accessibleReportNames = Cheeta.getInstance(BuildMetricService.class)
 				.getAccessibleReportNames(project, metricClass);
 		Collection<String> setOfReportNames = new HashSet<>();
 		
@@ -478,7 +478,7 @@ public class SuggestionUtils {
 	}
 	
 	public static List<InputSuggestion> suggestBuildVersions(Project project, String matchWith) {
-		Collection<String> buildVersions = OneDev.getInstance(BuildService.class).queryVersions(
+		Collection<String> buildVersions = Cheeta.getInstance(BuildService.class).queryVersions(
 				SecurityUtils.getSubject(), project, matchWith, InputAssistBehavior.MAX_SUGGESTIONS);
 		List<InputSuggestion> suggestions = new ArrayList<>();
 		for (String buildVersion: buildVersions) {
@@ -490,7 +490,7 @@ public class SuggestionUtils {
 	}
 
 	public static List<InputSuggestion> suggestPackProps(Project project, String propName, String matchWith) {
-		Collection<String> packProps = OneDev.getInstance(PackService.class).queryProps(
+		Collection<String> packProps = Cheeta.getInstance(PackService.class).queryProps(
 				project, propName, matchWith, InputAssistBehavior.MAX_SUGGESTIONS);
 		List<InputSuggestion> suggestions = new ArrayList<>();
 		for (String packProp: packProps) {

@@ -1,11 +1,11 @@
-package io.onedev.server.util.interpolative;
+package io.cheeta.server.util.interpolative;
 
-import static io.onedev.k8shelper.KubernetesHelper.ATTRIBUTES;
-import static io.onedev.k8shelper.KubernetesHelper.PAUSE;
-import static io.onedev.k8shelper.KubernetesHelper.PLACEHOLDER_PREFIX;
-import static io.onedev.k8shelper.KubernetesHelper.PLACEHOLDER_SUFFIX;
-import static io.onedev.k8shelper.KubernetesHelper.WORKSPACE;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.k8shelper.KubernetesHelper.ATTRIBUTES;
+import static io.cheeta.k8shelper.KubernetesHelper.PAUSE;
+import static io.cheeta.k8shelper.KubernetesHelper.PLACEHOLDER_PREFIX;
+import static io.cheeta.k8shelper.KubernetesHelper.PLACEHOLDER_SUFFIX;
+import static io.cheeta.k8shelper.KubernetesHelper.WORKSPACE;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,18 +16,18 @@ import java.util.function.Function;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.buildspec.job.JobVariable;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.support.build.JobProperty;
-import io.onedev.server.util.GroovyUtils;
-import io.onedev.server.util.interpolative.Interpolative.Segment;
-import io.onedev.server.util.interpolative.Interpolative.Segment.Type;
-import io.onedev.server.web.editable.EditableStringTransformer;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.buildspec.job.JobVariable;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.support.build.JobProperty;
+import io.cheeta.server.util.GroovyUtils;
+import io.cheeta.server.util.interpolative.Interpolative.Segment;
+import io.cheeta.server.util.interpolative.Interpolative.Segment.Type;
+import io.cheeta.server.web.editable.EditableStringTransformer;
 
 public class VariableInterpolator {
 	
@@ -156,11 +156,11 @@ public class VariableInterpolator {
 	public <T> T interpolateProperties(T object) {
 		return beanPropertyTransformer.transformProperties(
 				object, 
-				io.onedev.server.annotation.Interpolative.class);
+				io.cheeta.server.annotation.Interpolative.class);
 	}	
 		
 	public static String getHelp() {
-		return _T("<b>Tips: </b> Type <tt>@</tt> to <a href='https://docs.onedev.io/appendix/job-variables' target='_blank' tabindex='-1'>insert variable</a>. "
+		return _T("<b>Tips: </b> Type <tt>@</tt> to <a href='https://docs.cheeta.io/appendix/job-variables' target='_blank' tabindex='-1'>insert variable</a>. "
 			+ "Use <tt>@@</tt> for literal <tt>@</tt>");
 	}
 }

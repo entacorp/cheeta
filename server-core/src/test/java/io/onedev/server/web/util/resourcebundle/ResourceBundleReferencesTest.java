@@ -1,4 +1,4 @@
-package io.onedev.server.web.util.resourcebundle;
+package io.cheeta.server.web.util.resourcebundle;
 
 import org.apache.wicket.markup.head.CssReferenceHeaderItem;
 import org.apache.wicket.markup.head.JavaScriptReferenceHeaderItem;
@@ -6,17 +6,17 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.junit.Assert;
 import org.junit.Test;
 
-import io.onedev.server.web.resourcebundle.ResourceBundleReferences;
-import io.onedev.server.web.util.resourcebundle.testdata.a.Js1ResourceReferenceA;
-import io.onedev.server.web.util.resourcebundle.testdata.a.Js2ResourceReferenceA;
-import io.onedev.server.web.util.resourcebundle.testdata.a.Js3ResourceReferenceA;
-import io.onedev.server.web.util.resourcebundle.testdata.b.Js1ResourceReferenceB;
-import io.onedev.server.web.util.resourcebundle.testdata.b.Js2ResourceReferenceB;
-import io.onedev.server.web.util.resourcebundle.testdata.b.Js3ResourceReferenceB;
-import io.onedev.server.web.util.resourcebundle.testdata.c.Js1ResourceReferenceC;
-import io.onedev.server.web.util.resourcebundle.testdata.c.Js2ResourceReferenceC;
-import io.onedev.server.web.util.resourcebundle.testdata.c.Js3ResourceReferenceC;
-import io.onedev.server.web.util.resourcebundle.testdata.c.Js4ResourceReferenceC;
+import io.cheeta.server.web.resourcebundle.ResourceBundleReferences;
+import io.cheeta.server.web.util.resourcebundle.testdata.a.Js1ResourceReferenceA;
+import io.cheeta.server.web.util.resourcebundle.testdata.a.Js2ResourceReferenceA;
+import io.cheeta.server.web.util.resourcebundle.testdata.a.Js3ResourceReferenceA;
+import io.cheeta.server.web.util.resourcebundle.testdata.b.Js1ResourceReferenceB;
+import io.cheeta.server.web.util.resourcebundle.testdata.b.Js2ResourceReferenceB;
+import io.cheeta.server.web.util.resourcebundle.testdata.b.Js3ResourceReferenceB;
+import io.cheeta.server.web.util.resourcebundle.testdata.c.Js1ResourceReferenceC;
+import io.cheeta.server.web.util.resourcebundle.testdata.c.Js2ResourceReferenceC;
+import io.cheeta.server.web.util.resourcebundle.testdata.c.Js3ResourceReferenceC;
+import io.cheeta.server.web.util.resourcebundle.testdata.c.Js4ResourceReferenceC;
 
 import com.google.common.collect.Lists;
 

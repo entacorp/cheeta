@@ -10,17 +10,17 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-package io.onedev.server.web.component.select2;
+package io.cheeta.server.web.component.select2;
 
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.component.select2.json.Json;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.component.select2.json.Json;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.PropertyDescriptor;
 import org.json.JSONException;
 import org.json.JSONStringer;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;

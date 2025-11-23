@@ -1,14 +1,14 @@
-package io.onedev.server.web.page.project.builds.detail.report;
+package io.cheeta.server.web.page.project.builds.detail.report;
 
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.BuildMetric;
-import io.onedev.server.search.buildmetric.BuildMetricQuery;
-import io.onedev.server.search.buildmetric.BuildMetricQueryParser;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.page.project.stats.buildmetric.BuildMetricStatsPage;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.BuildMetric;
+import io.cheeta.server.search.buildmetric.BuildMetricQuery;
+import io.cheeta.server.search.buildmetric.BuildMetricQueryParser;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.page.project.stats.buildmetric.BuildMetricStatsPage;
 
 class BuildReportTabOptionPanel extends Panel {
 

@@ -1,10 +1,10 @@
-package io.onedev.server.web.websocket;
+package io.cheeta.server.web.websocket;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.CommitIndexed;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.CommitIndexed;
 
 @Singleton
 public class CommitIndexedBroadcaster {

@@ -1,13 +1,13 @@
-package io.onedev.server.web.editable.stringlist;
+package io.cheeta.server.web.editable.stringlist;
 
-import io.onedev.server.web.editable.*;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 
 import java.lang.reflect.AnnotatedElement;
 import java.util.List;
 
-import static io.onedev.server.util.ReflectionUtils.getCollectionElementClass;
+import static io.cheeta.server.util.ReflectionUtils.getCollectionElementClass;
 
 public class StringListEditSupport implements EditSupport {
 

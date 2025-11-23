@@ -1,8 +1,8 @@
-package io.onedev.server.buildspec.param.spec.choiceparam.defaultmultivalueprovider;
+package io.cheeta.server.buildspec.param.spec.choiceparam.defaultmultivalueprovider;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
-public interface DefaultMultiValueProvider extends io.onedev.server.buildspecmodel.inputspec.choiceinput.DefaultMultiValueProvider {
+public interface DefaultMultiValueProvider extends io.cheeta.server.buildspecmodel.inputspec.choiceinput.DefaultMultiValueProvider {
 	
 }

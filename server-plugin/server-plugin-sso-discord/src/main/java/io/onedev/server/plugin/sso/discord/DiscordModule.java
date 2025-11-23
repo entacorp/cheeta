@@ -1,12 +1,12 @@
-package io.onedev.server.plugin.sso.discord;
+package io.cheeta.server.plugin.sso.discord;
 
 import java.util.Collection;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.commons.loader.ImplementationProvider;
-import io.onedev.server.model.support.administration.sso.SsoConnector;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.commons.loader.ImplementationProvider;
+import io.cheeta.server.model.support.administration.sso.SsoConnector;
 
 /**
  * NOTE: Do not forget to rename moduleClass property defined in the pom if you've renamed this class.

@@ -1,7 +1,7 @@
-package io.onedev.server.search.entity.issue;
+package io.cheeta.server.search.entity.issue;
 
-import static io.onedev.server.model.Issue.NAME_SPENT_TIME;
-import static io.onedev.server.model.Issue.PROP_TOTAL_SPENT_TIME;
+import static io.cheeta.server.model.Issue.NAME_SPENT_TIME;
+import static io.cheeta.server.model.Issue.PROP_TOTAL_SPENT_TIME;
 
 import org.jspecify.annotations.Nullable;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -10,11 +10,11 @@ import javax.persistence.criteria.From;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
 
 public class SpentTimeCriteria extends Criteria<Issue> {
 
@@ -56,7 +56,7 @@ public class SpentTimeCriteria extends Criteria<Issue> {
 
 	@Override
 	public String toStringWithoutParens() {
-		var timeTrackingSetting = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+		var timeTrackingSetting = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 		return quote(NAME_SPENT_TIME) + " "
 				+ IssueQuery.getRuleName(operator) + " "
 				+ quote(timeTrackingSetting.formatWorkingPeriod(value, false));

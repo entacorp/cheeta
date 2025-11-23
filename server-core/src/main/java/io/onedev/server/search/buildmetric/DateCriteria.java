@@ -1,4 +1,4 @@
-package io.onedev.server.search.buildmetric;
+package io.cheeta.server.search.buildmetric;
 
 import java.util.Date;
 
@@ -8,8 +8,8 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import io.onedev.server.model.Build;
-import io.onedev.server.search.entity.EntityQuery;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.search.entity.EntityQuery;
 
 public class DateCriteria extends BuildMetricCriteria {
 

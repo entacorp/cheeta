@@ -1,7 +1,7 @@
-package io.onedev.server.plugin.report.problem;
+package io.cheeta.server.plugin.report.problem;
 
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.ProblemTarget;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.ProblemTarget;
 
 import java.io.Serializable;
 import java.util.ArrayList;

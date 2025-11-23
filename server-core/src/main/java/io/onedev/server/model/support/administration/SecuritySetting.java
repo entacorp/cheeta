@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,14 +10,14 @@ import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.GroupChoice;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.Group;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.GroupChoice;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.util.usage.Usage;
 
 @Editable
 public class SecuritySetting implements Serializable {
@@ -125,7 +125,7 @@ public class SecuritySetting implements Serializable {
 	@Nullable
 	public Group getDefaultGroup() {
 		if (defaultGroupName != null) {
-       		Group group = OneDev.getInstance(GroupService.class).find(defaultGroupName);
+       		Group group = Cheeta.getInstance(GroupService.class).find(defaultGroupName);
        		if (group == null) 
        			logger.error("Unable to find default group: " + defaultGroupName);
        		else

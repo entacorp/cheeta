@@ -1,4 +1,4 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,9 +11,9 @@ import org.eclipse.jgit.lib.FileMode;
 
 import com.google.common.base.MoreObjects;
 
-import io.onedev.server.git.exception.ObjectNotFoundException;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.RevisionAndPath;
+import io.cheeta.server.git.exception.ObjectNotFoundException;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.RevisionAndPath;
 
 public class BlobIdent implements Serializable, Comparable<BlobIdent> {
 	

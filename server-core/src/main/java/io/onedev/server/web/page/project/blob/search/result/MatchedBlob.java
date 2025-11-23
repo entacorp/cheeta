@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.blob.search.result;
+package io.cheeta.server.web.page.project.blob.search.result;
 
 import java.io.Serializable;
 import java.util.List;
 
-import io.onedev.commons.utils.LinearRange;
-import io.onedev.server.search.code.hit.QueryHit;
+import io.cheeta.commons.utils.LinearRange;
+import io.cheeta.server.search.code.hit.QueryHit;
 
 public class MatchedBlob implements Serializable {
 	

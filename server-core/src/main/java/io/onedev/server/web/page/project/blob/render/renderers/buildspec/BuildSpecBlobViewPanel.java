@@ -1,10 +1,10 @@
-package io.onedev.server.web.page.project.blob.render.renderers.buildspec;
+package io.cheeta.server.web.page.project.blob.render.renderers.buildspec;
 
-import static io.onedev.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getActiveElementIndex;
-import static io.onedev.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getPosition;
-import static io.onedev.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getSelection;
-import static io.onedev.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getUrlSegment;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getActiveElementIndex;
+import static io.cheeta.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getPosition;
+import static io.cheeta.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getSelection;
+import static io.cheeta.server.web.page.project.blob.render.renderers.buildspec.BuildSpecRenderer.getUrlSegment;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -39,35 +39,35 @@ import org.unbescape.html.HtmlEscape;
 
 import com.google.common.base.Throwables;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.Import;
-import io.onedev.server.buildspec.NamedElement;
-import io.onedev.server.buildspec.Service;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.step.StepTemplate;
-import io.onedev.server.git.Blob;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.build.JobProperty;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.component.MultilineLabel;
-import io.onedev.server.web.component.job.RunJobLink;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.pipeline.JobSelectionChange;
-import io.onedev.server.web.component.pipeline.PipelinePanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.PropertyContext;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.view.BlobViewPanel;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.Import;
+import io.cheeta.server.buildspec.NamedElement;
+import io.cheeta.server.buildspec.Service;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.step.StepTemplate;
+import io.cheeta.server.git.Blob;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.build.JobProperty;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.component.MultilineLabel;
+import io.cheeta.server.web.component.job.RunJobLink;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.pipeline.JobSelectionChange;
+import io.cheeta.server.web.component.pipeline.PipelinePanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.PropertyContext;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.view.BlobViewPanel;
 
 public class BuildSpecBlobViewPanel extends BlobViewPanel {
 
@@ -169,7 +169,7 @@ public class BuildSpecBlobViewPanel extends BlobViewPanel {
 							@Override
 							public void renderHead(Component component, IHeaderResponse response) {
 								super.renderHead(component, response);
-								response.render(OnDomReadyHeaderItem.forScript("onedev.server.buildSpec.onTabDomReady('.properties');"));
+								response.render(OnDomReadyHeaderItem.forScript("cheeta.server.buildSpec.onTabDomReady('.properties');"));
 							}
 							
 						});
@@ -305,7 +305,7 @@ public class BuildSpecBlobViewPanel extends BlobViewPanel {
 							@Override
 							public void renderHead(Component component, IHeaderResponse response) {
 								super.renderHead(component, response);
-								response.render(OnDomReadyHeaderItem.forScript("onedev.server.buildSpec.onTabDomReady('.jobs');"));
+								response.render(OnDomReadyHeaderItem.forScript("cheeta.server.buildSpec.onTabDomReady('.jobs');"));
 							}
 							
 						});
@@ -347,7 +347,7 @@ public class BuildSpecBlobViewPanel extends BlobViewPanel {
 							@Override
 							public void renderHead(Component component, IHeaderResponse response) {
 								super.renderHead(component, response);
-								response.render(OnDomReadyHeaderItem.forScript("onedev.server.buildSpec.onTabDomReady('.services');"));
+								response.render(OnDomReadyHeaderItem.forScript("cheeta.server.buildSpec.onTabDomReady('.services');"));
 							}
 							
 						});
@@ -389,7 +389,7 @@ public class BuildSpecBlobViewPanel extends BlobViewPanel {
 							@Override
 							public void renderHead(Component component, IHeaderResponse response) {
 								super.renderHead(component, response);
-								response.render(OnDomReadyHeaderItem.forScript("onedev.server.buildSpec.onTabDomReady('.step-templates');"));
+								response.render(OnDomReadyHeaderItem.forScript("cheeta.server.buildSpec.onTabDomReady('.step-templates');"));
 							}
 							
 						});
@@ -417,7 +417,7 @@ public class BuildSpecBlobViewPanel extends BlobViewPanel {
 							@Override
 							public void renderHead(Component component, IHeaderResponse response) {
 								super.renderHead(component, response);
-								response.render(OnDomReadyHeaderItem.forScript("onedev.server.buildSpec.onTabDomReady('.imports');"));
+								response.render(OnDomReadyHeaderItem.forScript("cheeta.server.buildSpec.onTabDomReady('.imports');"));
 							}
 							
 						});
@@ -434,7 +434,7 @@ public class BuildSpecBlobViewPanel extends BlobViewPanel {
 					protected void onInitialize() {
 						super.onInitialize();
 						
-						Validator validator = OneDev.getInstance(Validator.class);
+						Validator validator = Cheeta.getInstance(Validator.class);
 						for (ConstraintViolation<BuildSpec> violation: validator.validate(buildSpec)) {
 							if (StringUtils.isNotBlank(violation.getPropertyPath().toString())) {
 								error(String.format(MessageFormat.format(_T("Error validating build spec (location: {0}, error message: {1})"), 
@@ -612,7 +612,7 @@ public class BuildSpecBlobViewPanel extends BlobViewPanel {
 				public void renderHead(IHeaderResponse response) {
 					super.renderHead(response);
 					
-					String script = String.format("onedev.server.buildSpec.markElementActive(%d);", elementIndex);
+					String script = String.format("cheeta.server.buildSpec.markElementActive(%d);", elementIndex);
 					response.render(OnDomReadyHeaderItem.forScript(script));
 				}
 				

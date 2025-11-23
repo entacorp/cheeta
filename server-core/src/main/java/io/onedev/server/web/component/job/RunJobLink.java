@@ -1,25 +1,25 @@
-package io.onedev.server.web.component.job;
+package io.cheeta.server.web.component.job;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.param.ParamUtils;
-import io.onedev.server.buildspec.param.spec.ParamSpec;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.job.JobAuthorizationContextAware;
-import io.onedev.server.job.JobService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.component.modal.message.MessageModal;
-import io.onedev.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.param.ParamUtils;
+import io.cheeta.server.buildspec.param.spec.ParamSpec;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.job.JobAuthorizationContextAware;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.component.modal.message.MessageModal;
+import io.cheeta.server.web.page.project.builds.detail.dashboard.BuildDashboardPage;
+import io.cheeta.server.xodus.CommitInfoService;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -28,7 +28,7 @@ import org.eclipse.jgit.lib.ObjectId;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -62,7 +62,7 @@ public abstract class RunJobLink extends AjaxLink<Void> implements JobAuthorizat
 		try {
 			BuildSpec buildSpec = Preconditions.checkNotNull(getProject().getBuildSpec(commitId));
 
-			Collection<ObjectId> descendants = OneDev.getInstance(CommitInfoService.class)
+			Collection<ObjectId> descendants = Cheeta.getInstance(CommitInfoService.class)
 					.getDescendants(getProject().getId(), Sets.newHashSet(commitId));
 			descendants.add(commitId);
 
@@ -162,7 +162,7 @@ public abstract class RunJobLink extends AjaxLink<Void> implements JobAuthorizat
 	}
 	
 	private JobService getJobService() {
-		return OneDev.getInstance(JobService.class);
+		return Cheeta.getInstance(JobService.class);
 	}
 
 	@Override

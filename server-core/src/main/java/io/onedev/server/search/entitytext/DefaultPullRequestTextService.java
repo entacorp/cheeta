@@ -1,4 +1,4 @@
-package io.onedev.server.search.entitytext;
+package io.cheeta.server.search.entitytext;
 
 import static java.lang.String.valueOf;
 import static org.apache.lucene.document.Field.Store.NO;
@@ -30,22 +30,22 @@ import org.apache.lucene.search.BoostQuery;
 import org.apache.lucene.search.PrefixQuery;
 import org.apache.lucene.search.Query;
 
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.pullrequest.PullRequestTouched;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.EntityTouch;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.PullRequestTouchService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.util.lucene.BooleanQueryBuilder;
-import io.onedev.server.util.lucene.LuceneUtils;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.pullrequest.PullRequestTouched;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.EntityTouch;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.PullRequestTouchService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.util.lucene.BooleanQueryBuilder;
+import io.cheeta.server.util.lucene.LuceneUtils;
 
 @Singleton
 public class DefaultPullRequestTextService extends EntityTextService<PullRequest> implements PullRequestTextService {

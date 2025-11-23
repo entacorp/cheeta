@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.jspecify.annotations.Nullable;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-import io.onedev.commons.utils.LinearRange;
+import io.cheeta.commons.utils.LinearRange;
 
 public interface SuggestionSupport extends Serializable {
 

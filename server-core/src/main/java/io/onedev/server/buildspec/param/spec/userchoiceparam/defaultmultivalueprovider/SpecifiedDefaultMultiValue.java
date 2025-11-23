@@ -1,12 +1,12 @@
-package io.onedev.server.buildspec.param.spec.userchoiceparam.defaultmultivalueprovider;
+package io.cheeta.server.buildspec.param.spec.userchoiceparam.defaultmultivalueprovider;
 
 import com.google.common.collect.Lists;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.model.User;
-import io.onedev.server.util.EditContext;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.EditContext;
 
 import javax.validation.Validator;
 import javax.validation.constraints.NotEmpty;
@@ -21,7 +21,7 @@ public class SpecifiedDefaultMultiValue implements DefaultMultiValueProvider {
 	private List<String> value;
 
 	@Editable(name="Literal default value")
-	@io.onedev.server.annotation.ChoiceProvider("getValueChoices")
+	@io.cheeta.server.annotation.ChoiceProvider("getValueChoices")
 	@NotEmpty
 	@OmitName
 	public List<String> getValue() {
@@ -40,7 +40,7 @@ public class SpecifiedDefaultMultiValue implements DefaultMultiValueProvider {
 	@SuppressWarnings("unused")
 	private static List<String> getValueChoices() {
 		ChoiceProvider choiceProvider = (ChoiceProvider) EditContext.get(1).getInputValue("choiceProvider");
-		if (choiceProvider != null && OneDev.getInstance(Validator.class).validate(choiceProvider).isEmpty())
+		if (choiceProvider != null && Cheeta.getInstance(Validator.class).validate(choiceProvider).isEmpty())
 			return choiceProvider.getChoices(true).stream().map(User::getName).collect(Collectors.toList());
 		else
 			return Lists.newArrayList();

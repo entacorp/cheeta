@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.savedquery;
+package io.cheeta.server.web.component.savedquery;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.onedev.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.NamedQuery;
 
 public class NamedQueriesBean<T extends NamedQuery> implements Serializable {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.issue.creation;
+package io.cheeta.server.web.editable.issue.creation;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.model.support.administration.IssueCreationSetting;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.model.support.administration.IssueCreationSetting;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 abstract class IssueCreationSettingEditPanel extends Panel {
 

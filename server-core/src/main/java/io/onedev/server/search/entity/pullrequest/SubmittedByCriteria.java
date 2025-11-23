@@ -1,10 +1,10 @@
-package io.onedev.server.search.entity.pullrequest;
+package io.cheeta.server.search.entity.pullrequest;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.criteria.Criteria;
 
 public abstract class SubmittedByCriteria extends Criteria<PullRequest> {
 

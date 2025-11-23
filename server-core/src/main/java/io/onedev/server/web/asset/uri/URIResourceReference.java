@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.uri;
+package io.cheeta.server.web.asset.uri;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 

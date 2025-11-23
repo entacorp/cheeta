@@ -1,22 +1,22 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
 import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.k8shelper.CheckoutFacade;
-import io.onedev.k8shelper.StepFacade;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.SubPath;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.job.gitcredential.DefaultCredential;
-import io.onedev.server.buildspec.job.gitcredential.GitCredential;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.support.administration.jobexecutor.JobExecutor;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.k8shelper.CheckoutFacade;
+import io.cheeta.k8shelper.StepFacade;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.SubPath;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.job.gitcredential.DefaultCredential;
+import io.cheeta.server.buildspec.job.gitcredential.GitCredential;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.support.administration.jobexecutor.JobExecutor;
 
 @Editable(order=50, name="Checkout Code")
 public class CheckoutStep extends Step {
@@ -34,7 +34,7 @@ public class CheckoutStep extends Step {
 	private String checkoutPath;
 	
 	@Editable(order=100, description="By default code is cloned via an auto-generated credential, " +
-			"which only has read permission over current project. In case the job needs to <a href='https://docs.onedev.io/tutorials/cicd/commit-and-push' target='_blank'>push code to server</a>, " +
+			"which only has read permission over current project. In case the job needs to <a href='https://docs.cheeta.io/tutorials/cicd/commit-and-push' target='_blank'>push code to server</a>, " +
 			"you should supply custom credential with appropriate permissions here")
 	@Valid
 	@NotNull
@@ -56,7 +56,7 @@ public class CheckoutStep extends Step {
 	}
 
 	@Editable(order=180, name="Retrieve Submodules", description="Whether or not to retrieve submodules. Refer to " +
-			"<a href='https://docs.onedev.io/tutorials/cicd/clone-submodules' target='_blank'>this tutorial</a> on " +
+			"<a href='https://docs.cheeta.io/tutorials/cicd/clone-submodules' target='_blank'>this tutorial</a> on " +
 			"how to set up clone credential above to retrieve submodules")
 	public boolean isWithSubmodules() {
 		return withSubmodules;
@@ -77,7 +77,7 @@ public class CheckoutStep extends Step {
 	}
 
 	@Editable(order=300, placeholder="Job workspace", description="Optionally specify relative path under "
-			+ "<a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a> to clone code into. "
+			+ "<a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a> to clone code into. "
 			+ "Leave empty to use job workspace itself")
 	@Interpolative(variableSuggester="suggestVariables")
 	@SubPath

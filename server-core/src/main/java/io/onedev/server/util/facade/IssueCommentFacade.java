@@ -1,4 +1,4 @@
-package io.onedev.server.util.facade;
+package io.cheeta.server.util.facade;
 
 public class IssueCommentFacade extends EntityFacade {
 	

@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.project.gitprotocol;
+package io.cheeta.server.web.component.project.gitprotocol;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import javax.servlet.http.Cookie;
 
-import io.onedev.server.ServerConfig;
+import io.cheeta.server.ServerConfig;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -17,13 +17,13 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.http.WebRequest;
 import org.apache.wicket.request.http.WebResponse;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.UrlService;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.administration.SshSetting;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.page.my.sshkeys.MySshKeysPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.UrlService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.administration.SshSetting;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.page.my.sshkeys.MySshKeysPage;
 
 public abstract class GitProtocolPanel extends Panel {
 
@@ -102,7 +102,7 @@ public abstract class GitProtocolPanel extends Panel {
 		
 		add(newContent("content"));
 		
-		SshSetting sshSetting = OneDev.getInstance(SettingService.class).getSshSetting();
+		SshSetting sshSetting = Cheeta.getInstance(SettingService.class).getSshSetting();
 		add(new Label("fingerPrint", _T("Server fingerprint") + ": " + sshSetting.getFingerPrint()) {
 
 			@Override
@@ -132,7 +132,7 @@ public abstract class GitProtocolPanel extends Panel {
 	}
 	
 	private int getSshPort() {
-		return OneDev.getInstance(ServerConfig.class).getSshPort();
+		return Cheeta.getInstance(ServerConfig.class).getSshPort();
 	}
 
 	protected abstract Project getProject();
@@ -140,7 +140,7 @@ public abstract class GitProtocolPanel extends Panel {
 	protected abstract Component newContent(String componentId);
 	
 	public String getProtocolUrl() {
-		UrlService urlService = OneDev.getInstance(UrlService.class);
+		UrlService urlService = Cheeta.getInstance(UrlService.class);
 		return urlService.cloneUrlFor(getProject(), useSsh);
 	}
 	

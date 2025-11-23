@@ -1,4 +1,4 @@
-package io.onedev.server.mail;
+package io.cheeta.server.mail;
 
 import javax.mail.Message;
 import java.util.concurrent.Future;

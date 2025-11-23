@@ -1,9 +1,9 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import javax.persistence.*;
 import java.util.Date;
 
-import static io.onedev.server.model.ReviewedDiff.*;
+import static io.cheeta.server.model.ReviewedDiff.*;
 
 @Entity
 @Table(

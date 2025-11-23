@@ -1,42 +1,42 @@
-package io.onedev.server.web.page.project.issues.boards;
+package io.cheeta.server.web.page.project.issues.boards;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.InputContext;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.BoardSpec;
-import io.onedev.server.model.support.issue.StateSpec;
-import io.onedev.server.model.support.issue.field.FieldUtils;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
-import io.onedev.server.model.support.issue.transitionspec.ManualSpec;
-import io.onedev.server.model.support.issue.transitionspec.TransitionSpec;
-import io.onedev.server.search.entity.issue.*;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.issue.create.CreateIssuePanel;
-import io.onedev.server.web.component.issue.progress.QueriedIssuesProgressPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.modal.ModalLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.editable.BeanDescriptor;
-import io.onedev.server.web.page.project.issues.list.ProjectIssueListPage;
-import io.onedev.server.web.util.ProjectAware;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.InputContext;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.BoardSpec;
+import io.cheeta.server.model.support.issue.StateSpec;
+import io.cheeta.server.model.support.issue.field.FieldUtils;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
+import io.cheeta.server.model.support.issue.transitionspec.ManualSpec;
+import io.cheeta.server.model.support.issue.transitionspec.TransitionSpec;
+import io.cheeta.server.search.entity.issue.*;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.issue.create.CreateIssuePanel;
+import io.cheeta.server.web.component.issue.progress.QueriedIssuesProgressPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.modal.ModalLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.editable.BeanDescriptor;
+import io.cheeta.server.web.page.project.issues.list.ProjectIssueListPage;
+import io.cheeta.server.web.util.ProjectAware;
+import io.cheeta.server.web.util.WicketUtils;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.wicket.Component;
@@ -61,9 +61,9 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static io.onedev.server.search.entity.issue.IssueQueryLexer.*;
-import static io.onedev.server.security.SecurityUtils.canManageIssues;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.search.entity.issue.IssueQueryLexer.*;
+import static io.cheeta.server.security.SecurityUtils.canManageIssues;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 
 abstract class BoardColumnPanel extends AbstractColumnPanel {
@@ -186,7 +186,7 @@ abstract class BoardColumnPanel extends AbstractColumnPanel {
 						super.renderHead(response);
 						CharSequence callback = ajaxBehavior.getCallbackFunction(
 								explicit("issueId"), explicit("cardIndex"));
-						String script = String.format("onedev.server.issueBoards.onColumnDomReady('%s', %s);", 
+						String script = String.format("cheeta.server.issueBoards.onColumnDomReady('%s', %s);", 
 								getMarkupId(), (getQuery() != null && canManageIssues(getProject()))? callback:"undefined");
 						// Use OnLoad instead of OnDomReady as otherwise perfect scrollbar is not shown unless resized 
 						response.render(OnDomReadyHeaderItem.forScript(script));
@@ -243,7 +243,7 @@ abstract class BoardColumnPanel extends AbstractColumnPanel {
 						ComponentContext.pop();
 					}
 				} else if (fieldSpec instanceof UserChoiceField) {
-					user = OneDev.getInstance(UserService.class).findByName(getColumn());
+					user = Cheeta.getInstance(UserService.class).findByName(getColumn());
 				}
 			}
 		} else {

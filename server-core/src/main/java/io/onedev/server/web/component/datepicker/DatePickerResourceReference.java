@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.datepicker;
+package io.cheeta.server.web.component.datepicker;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-import io.onedev.server.web.page.base.BaseDependentResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentResourceReference;
 
 public class DatePickerResourceReference extends BaseDependentResourceReference {
 	

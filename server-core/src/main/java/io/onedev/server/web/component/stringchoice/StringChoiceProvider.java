@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.stringchoice;
+package io.cheeta.server.web.component.stringchoice;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,17 +12,17 @@ import org.apache.wicket.model.Model;
 import org.json.JSONException;
 import org.json.JSONWriter;
 
-import io.onedev.server.util.Similarities;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.component.select2.ChoiceProvider;
-import io.onedev.server.web.component.select2.Response;
-import io.onedev.server.web.component.select2.ResponseFiller;
+import io.cheeta.server.util.Similarities;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.component.select2.ChoiceProvider;
+import io.cheeta.server.web.component.select2.Response;
+import io.cheeta.server.web.component.select2.ResponseFiller;
 
 public class StringChoiceProvider extends ChoiceProvider<String> {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String SPECIAL_CHOICE_PREFIX = "<$OneDevSpecialChoice$>";
+	public static final String SPECIAL_CHOICE_PREFIX = "<$CheetaSpecialChoice$>";
 	
 	private final IModel<List<String>> choicesModel;
 

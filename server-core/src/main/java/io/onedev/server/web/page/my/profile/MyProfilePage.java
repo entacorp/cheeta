@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.my.profile;
+package io.cheeta.server.web.page.my.profile;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 
@@ -11,10 +11,10 @@ import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.User;
-import io.onedev.server.util.DateRange;
-import io.onedev.server.web.component.user.profile.UserProfilePanel;
-import io.onedev.server.web.page.my.MyPage;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.DateRange;
+import io.cheeta.server.web.component.user.profile.UserProfilePanel;
+import io.cheeta.server.web.page.my.MyPage;
 
 public class MyProfilePage extends MyPage {
 

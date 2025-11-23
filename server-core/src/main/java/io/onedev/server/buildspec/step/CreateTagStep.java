@@ -1,20 +1,20 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.k8shelper.ServerStepResult;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.*;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.k8shelper.ServerStepResult;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.*;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.lib.Repository;
 
@@ -63,7 +63,7 @@ public class CreateTagStep extends ServerSideStep {
 	}
 
 	@Editable(order=1060, description="For build commit not reachable from default branch, " +
-			"a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create tag permission")
+			"a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> should be specified as access token with create tag permission")
 	@ChoiceProvider("getAccessTokenSecretChoices")
 	public String getAccessTokenSecret() {
 		return accessTokenSecret;
@@ -81,9 +81,9 @@ public class CreateTagStep extends ServerSideStep {
 
 	@Override
 	public ServerStepResult run(Long buildId, File inputDir, TaskLogger logger) {
-		return OneDev.getInstance(SessionService.class).call(() -> {
-			var build = OneDev.getInstance(BuildService.class).load(buildId);
-			PersonIdent taggerIdent = OneDev.getInstance(UserService.class).getSystem().asPerson();
+		return Cheeta.getInstance(SessionService.class).call(() -> {
+			var build = Cheeta.getInstance(BuildService.class).load(buildId);
+			PersonIdent taggerIdent = Cheeta.getInstance(UserService.class).getSystem().asPerson();
 			Project project = build.getProject();
 			String tagName = getTagName();
 
@@ -95,8 +95,8 @@ public class CreateTagStep extends ServerSideStep {
 			if (build.canCreateTag(getAccessTokenSecret(), tagName)) {
 				RefFacade tagRef = project.getTagRef(tagName);
 				if (tagRef != null)
-					OneDev.getInstance(ProjectService.class).deleteTag(project, tagName);
-				OneDev.getInstance(GitService.class).createTag(project, tagName, build.getCommitHash(),
+					Cheeta.getInstance(ProjectService.class).deleteTag(project, tagName);
+				Cheeta.getInstance(GitService.class).createTag(project, tagName, build.getCommitHash(),
 						taggerIdent, getTagMessage(), false);
 			} else {
 				throw new ExplicitException("This build is not authorized to create tag '" + tagName + "'");

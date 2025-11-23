@@ -1,19 +1,19 @@
-package io.onedev.server.plugin.report.gtest;
+package io.cheeta.server.plugin.report.gtest;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.step.StepGroup;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.PublishUnitTestReportStep;
-import io.onedev.server.plugin.report.unittest.UnitTestReport;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestCase;
-import io.onedev.server.util.XmlUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.step.StepGroup;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.PublishUnitTestReportStep;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestCase;
+import io.cheeta.server.util.XmlUtils;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 
@@ -30,7 +30,7 @@ public class PublishGTestReportStep extends PublishUnitTestReportStep {
 
 	private static final long serialVersionUID = 1L;
 
-	@Editable(order=100, description="Specify GoogleTest XML result file relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. " +
+	@Editable(order=100, description="Specify GoogleTest XML result file relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. " +
 			"This report can be generated with environment variable <tt>GTEST_OUTPUT</tt> when running tests, " +
 			"For instance, <code>export GTEST_OUTPUT=&quot;xml:gtest-result.xml&quot;</code>. " +
 			"Use * or ? for pattern match")

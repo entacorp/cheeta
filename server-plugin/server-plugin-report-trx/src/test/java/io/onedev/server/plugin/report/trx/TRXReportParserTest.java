@@ -1,7 +1,7 @@
-package io.onedev.server.plugin.report.trx;
+package io.cheeta.server.plugin.report.trx;
 
 import com.google.common.io.Resources;
-import io.onedev.server.plugin.report.unittest.UnitTestReport;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;

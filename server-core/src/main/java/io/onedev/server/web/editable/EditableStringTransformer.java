@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable;
+package io.cheeta.server.web.editable;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.util.BeanEditContext;
-import io.onedev.server.util.BeanUtils;
-import io.onedev.server.util.EditContext;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.util.BeanEditContext;
+import io.cheeta.server.util.BeanUtils;
+import io.cheeta.server.util.EditContext;
 
 public class EditableStringTransformer {
 	

@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.project.blob.render.renderers.image;
+package io.cheeta.server.web.page.project.blob.render.renderers.image;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.image.Image;
 
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.view.BlobViewPanel;
-import io.onedev.server.web.resource.RawBlobResource;
-import io.onedev.server.web.resource.RawBlobResourceReference;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.view.BlobViewPanel;
+import io.cheeta.server.web.resource.RawBlobResource;
+import io.cheeta.server.web.resource.RawBlobResourceReference;
 
 public class ImageViewPanel extends BlobViewPanel {
 

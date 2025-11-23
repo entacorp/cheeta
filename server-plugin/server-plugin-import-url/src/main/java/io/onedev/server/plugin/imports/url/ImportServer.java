@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.url;
+package io.cheeta.server.plugin.imports.url;
 
 import java.io.Serializable;
 import java.net.URISyntaxException;
@@ -10,25 +10,25 @@ import javax.validation.constraints.NotEmpty;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.commons.bootstrap.SecretMasker;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.git.command.LsRemoteCommand;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.component.taskbutton.TaskResult.PlainMessage;
+import io.cheeta.commons.bootstrap.SecretMasker;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.git.command.LsRemoteCommand;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.component.taskbutton.TaskResult.PlainMessage;
 
 @Editable
 @ClassValidating
@@ -63,7 +63,7 @@ public class ImportServer implements Serializable, Validatable {
 	}
 
 	@Editable(order=200, placeholderProvider="getProjectPlaceholder", 
-			description="Specify project to import into at OneDev side")
+			description="Specify project to import into at Cheeta side")
 	public String getProject() {
 		return project;
 	}
@@ -93,7 +93,7 @@ public class ImportServer implements Serializable, Validatable {
 	}
 	
 	TaskResult importProject(boolean dryRun, TaskLogger logger) {
-		return OneDev.getInstance(TransactionService.class).call(() -> {
+		return Cheeta.getInstance(TransactionService.class).call(() -> {
 			try {
 				String projectPath = getProject();
 				if (projectPath == null)
@@ -129,7 +129,7 @@ public class ImportServer implements Serializable, Validatable {
 						} else {
 							if (project.isNew()) {
 								getProjectService().create(SecurityUtils.getUser(), project);
-								OneDev.getInstance(AuditService.class).audit(project, "created project", null, VersionedXmlDoc.fromBean(project).toXML());
+								Cheeta.getInstance(AuditService.class).audit(project, "created project", null, VersionedXmlDoc.fromBean(project).toXML());
 							}
 							getProjectService().clone(project, builder.build().toString());
 						}
@@ -147,7 +147,7 @@ public class ImportServer implements Serializable, Validatable {
 	}	
 	
 	private ProjectService getProjectService() {
-		return OneDev.getInstance(ProjectService.class);
+		return Cheeta.getInstance(ProjectService.class);
 	}
 
 	@Override

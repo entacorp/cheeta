@@ -1,16 +1,16 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.onedev.server.buildspec.job.log.JobLogEntryEx;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.job.log.LogListener;
-import io.onedev.server.job.log.LogService;
-import io.onedev.server.job.log.LogSnippet;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Build.Status;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.buildspec.job.log.JobLogEntryEx;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.job.log.LogListener;
+import io.cheeta.server.job.log.LogService;
+import io.cheeta.server.job.log.LogSnippet;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Build.Status;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 
 import javax.inject.Inject;
@@ -26,7 +26,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static javax.ws.rs.core.MediaType.APPLICATION_OCTET_STREAM;
 
 @Api(description="Build log stream resource is operated with build id, which is different from build number. "
-		+ "To get build id of a particular build number, use the <a href='/~help/api/io.onedev.server.rest.BuildResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
+		+ "To get build id of a particular build number, use the <a href='/~help/api/io.cheeta.server.rest.BuildResource/queryBasicInfo'>Query Basic Info</a> operation with query for "
 		+ "instance <code>&quot;Number&quot; is &quot;path/to/project#100&quot;</code> or <code>&quot;Number&quot; is &quot;PROJECTKEY-100&quot;</code>")
 @Path("/streaming/build-logs")
 @Consumes(MediaType.APPLICATION_JSON)

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.tabbable;
+package io.cheeta.server.web.component.tabbable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 public class PageTab extends Tab {
 	

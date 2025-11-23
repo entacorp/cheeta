@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.administration;
+package io.cheeta.server.model.support.administration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 import org.jspecify.annotations.Nullable;
 import javax.validation.Valid;
 
-import io.onedev.server.model.support.NamedProjectQuery;
+import io.cheeta.server.model.support.NamedProjectQuery;
 
 public class GlobalProjectSetting implements Serializable {
 	

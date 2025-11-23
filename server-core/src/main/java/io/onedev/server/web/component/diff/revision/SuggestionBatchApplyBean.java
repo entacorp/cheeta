@@ -1,14 +1,14 @@
-package io.onedev.server.web.component.diff.revision;
+package io.cheeta.server.web.component.diff.revision;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(name="Commit Batched Suggestions")
 public class SuggestionBatchApplyBean implements Serializable {

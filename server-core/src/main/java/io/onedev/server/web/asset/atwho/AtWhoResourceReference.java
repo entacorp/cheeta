@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.atwho;
+package io.cheeta.server.web.asset.atwho;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-import io.onedev.server.web.asset.caret.CaretResourceReference;
+import io.cheeta.server.web.asset.caret.CaretResourceReference;
 
 public class AtWhoResourceReference extends JavaScriptResourceReference {
 

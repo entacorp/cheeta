@@ -1,20 +1,20 @@
-package io.onedev.server.web.page.admin.buildsetting.agent;
+package io.cheeta.server.web.page.admin.buildsetting.agent;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.NamedAgentQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.administration.AgentSetting;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.util.NamedAgentQueriesBean;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.NamedAgentQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.administration.AgentSetting;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.util.NamedAgentQueriesBean;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.head.CssHeaderItem;
@@ -28,7 +28,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import org.jspecify.annotations.Nullable;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -51,7 +51,7 @@ public class AgentListPage extends AdministrationPage {
 	}
 
 	private static AgentSetting getAgentSetting() {
-		return OneDev.getInstance(SettingService.class).getAgentSetting();
+		return Cheeta.getInstance(SettingService.class).getAgentSetting();
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class AgentListPage extends AdministrationPage {
 			@Override
 			protected void onSaveCommonQueries(ArrayList<NamedAgentQuery> namedQueries) {
 				getAgentSetting().setNamedQueries(namedQueries);
-				OneDev.getInstance(SettingService.class).saveAgentSetting(getAgentSetting());
+				Cheeta.getInstance(SettingService.class).saveAgentSetting(getAgentSetting());
 			}
 
 		});
@@ -153,7 +153,7 @@ public class AgentListPage extends AdministrationPage {
 										} else {
 											namedQuery.setQuery(query);
 										}
-										OneDev.getInstance(SettingService.class).saveAgentSetting(agentSetting);
+										Cheeta.getInstance(SettingService.class).saveAgentSetting(agentSetting);
 										target.add(savedQueries);
 										close();
 									}

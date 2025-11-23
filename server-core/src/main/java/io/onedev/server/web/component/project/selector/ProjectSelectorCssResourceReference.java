@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.project.selector;
+package io.cheeta.server.web.component.project.selector;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class ProjectSelectorCssResourceReference extends BaseDependentCssResourceReference {
 

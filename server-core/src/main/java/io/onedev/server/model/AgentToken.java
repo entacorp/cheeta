@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import java.util.UUID;
 
-import static io.onedev.server.model.AgentToken.PROP_VALUE;
+import static io.cheeta.server.model.AgentToken.PROP_VALUE;
 
 @Entity
 @Table(indexes={@Index(columnList=PROP_VALUE)})

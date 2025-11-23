@@ -1,8 +1,8 @@
-package io.onedev.server.web.editable.image;
+package io.cheeta.server.web.editable.image;
 
-import io.onedev.server.annotation.Image;
-import io.onedev.server.web.component.imagedata.viewer.ImageViewer;
-import io.onedev.server.web.editable.*;
+import io.cheeta.server.annotation.Image;
+import io.cheeta.server.web.component.imagedata.viewer.ImageViewer;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 

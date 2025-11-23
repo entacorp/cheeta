@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.markdown;
+package io.cheeta.server.web.component.markdown;
 
 import java.io.Serializable;
 

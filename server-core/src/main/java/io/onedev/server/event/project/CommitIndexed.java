@@ -1,10 +1,10 @@
-package io.onedev.server.event.project;
+package io.cheeta.server.event.project;
 
 import java.util.Date;
 
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.server.model.Project;
+import io.cheeta.server.model.Project;
 
 public class CommitIndexed extends ProjectEvent {
 	

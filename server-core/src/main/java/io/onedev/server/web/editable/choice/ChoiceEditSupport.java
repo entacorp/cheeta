@@ -1,7 +1,7 @@
-package io.onedev.server.web.editable.choice;
+package io.cheeta.server.web.editable.choice;
 
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.web.editable.*;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;

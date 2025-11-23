@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.LinkSpec;
+import io.cheeta.server.model.LinkSpec;
 
 import org.jspecify.annotations.Nullable;
 import java.util.List;

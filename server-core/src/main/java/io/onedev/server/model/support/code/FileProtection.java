@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.code;
+package io.cheeta.server.model.support.code;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,15 +8,15 @@ import javax.validation.ConstraintValidatorContext;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.reviewrequirement.ReviewRequirement;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.JobChoice;
-import io.onedev.server.annotation.Patterns;
-import io.onedev.server.web.util.SuggestionUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.reviewrequirement.ReviewRequirement;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.JobChoice;
+import io.cheeta.server.annotation.Patterns;
+import io.cheeta.server.web.util.SuggestionUtils;
 
 @Editable
 @ClassValidating
@@ -32,7 +32,7 @@ public class FileProtection implements Serializable, Validatable {
 	
 	private List<String> jobNames = new ArrayList<>();
 	
-	@Editable(order=100, description="Specify space-separated paths to be protected. Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
+	@Editable(order=100, description="Specify space-separated paths to be protected. Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. "
 			+ "Prefix with '-' to exclude")
 	@Patterns(suggester = "suggestPaths", path=true)
 	@NotEmpty
@@ -54,7 +54,7 @@ public class FileProtection implements Serializable, Validatable {
 
 	@Editable(order=200, name="Reviewers", description="Specify required reviewers if specified path is "
 			+ "changed. Note that the user submitting the change is considered to reviewed the change automatically")
-	@io.onedev.server.annotation.ReviewRequirement
+	@io.cheeta.server.annotation.ReviewRequirement
 	public String getReviewRequirement() {
 		return reviewRequirement;
 	}

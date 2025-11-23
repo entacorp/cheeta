@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import static java.lang.Integer.MAX_VALUE;
 
@@ -36,88 +36,88 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.match.Matcher;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.commons.utils.match.StringMatcher;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.Input;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.entityreference.ReferenceChangeService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.event.project.build.BuildFinished;
-import io.onedev.server.event.project.issue.IssueChanged;
-import io.onedev.server.event.project.pullrequest.PullRequestChanged;
-import io.onedev.server.event.system.SystemStarted;
-import io.onedev.server.event.system.SystemStopping;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.IssueDescriptionRevision;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.Iteration;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.changedata.IssueBatchUpdateData;
-import io.onedev.server.model.support.issue.changedata.IssueConfidentialChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueDescriptionChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueFieldChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueIterationAddData;
-import io.onedev.server.model.support.issue.changedata.IssueIterationChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueIterationRemoveData;
-import io.onedev.server.model.support.issue.changedata.IssueLinkAddData;
-import io.onedev.server.model.support.issue.changedata.IssueLinkRemoveData;
-import io.onedev.server.model.support.issue.changedata.IssueOwnEstimatedTimeChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueOwnSpentTimeChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueStateChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueTitleChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueTotalEstimatedTimeChangeData;
-import io.onedev.server.model.support.issue.changedata.IssueTotalSpentTimeChangeData;
-import io.onedev.server.model.support.issue.transitionspec.BranchUpdatedSpec;
-import io.onedev.server.model.support.issue.transitionspec.BuildSuccessfulSpec;
-import io.onedev.server.model.support.issue.transitionspec.IssueStateTransitedSpec;
-import io.onedev.server.model.support.issue.transitionspec.NoActivitySpec;
-import io.onedev.server.model.support.issue.transitionspec.PullRequestDiscardedSpec;
-import io.onedev.server.model.support.issue.transitionspec.PullRequestMergedSpec;
-import io.onedev.server.model.support.issue.transitionspec.PullRequestOpenedSpec;
-import io.onedev.server.model.support.issue.transitionspec.PullRequestSpec;
-import io.onedev.server.model.support.issue.transitionspec.TransitionSpec;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestDiscardData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestMergeData;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestReopenData;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.search.entity.issue.IssueQuery;
-import io.onedev.server.search.entity.issue.IssueQueryLexer;
-import io.onedev.server.search.entity.issue.IssueQueryParseOption;
-import io.onedev.server.search.entity.issue.LastActivityDateCriteria;
-import io.onedev.server.search.entity.issue.StateCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueDescriptionRevisionService;
-import io.onedev.server.service.IssueFieldService;
-import io.onedev.server.service.IssueLinkService;
-import io.onedev.server.service.IssueScheduleService;
-import io.onedev.server.service.IssueService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.taskschedule.SchedulableTask;
-import io.onedev.server.taskschedule.TaskScheduler;
-import io.onedev.server.util.ProjectScope;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.concurrent.BatchWorkExecutionService;
-import io.onedev.server.util.concurrent.BatchWorker;
-import io.onedev.server.util.concurrent.Prioritized;
-import io.onedev.server.util.criteria.Criteria;
-import io.onedev.server.util.patternset.PatternSet;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.match.Matcher;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.commons.utils.match.StringMatcher;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.Input;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.entityreference.ReferenceChangeService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.event.project.build.BuildFinished;
+import io.cheeta.server.event.project.issue.IssueChanged;
+import io.cheeta.server.event.project.pullrequest.PullRequestChanged;
+import io.cheeta.server.event.system.SystemStarted;
+import io.cheeta.server.event.system.SystemStopping;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.IssueDescriptionRevision;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.Iteration;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.changedata.IssueBatchUpdateData;
+import io.cheeta.server.model.support.issue.changedata.IssueConfidentialChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueDescriptionChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueFieldChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueIterationAddData;
+import io.cheeta.server.model.support.issue.changedata.IssueIterationChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueIterationRemoveData;
+import io.cheeta.server.model.support.issue.changedata.IssueLinkAddData;
+import io.cheeta.server.model.support.issue.changedata.IssueLinkRemoveData;
+import io.cheeta.server.model.support.issue.changedata.IssueOwnEstimatedTimeChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueOwnSpentTimeChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueStateChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueTitleChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueTotalEstimatedTimeChangeData;
+import io.cheeta.server.model.support.issue.changedata.IssueTotalSpentTimeChangeData;
+import io.cheeta.server.model.support.issue.transitionspec.BranchUpdatedSpec;
+import io.cheeta.server.model.support.issue.transitionspec.BuildSuccessfulSpec;
+import io.cheeta.server.model.support.issue.transitionspec.IssueStateTransitedSpec;
+import io.cheeta.server.model.support.issue.transitionspec.NoActivitySpec;
+import io.cheeta.server.model.support.issue.transitionspec.PullRequestDiscardedSpec;
+import io.cheeta.server.model.support.issue.transitionspec.PullRequestMergedSpec;
+import io.cheeta.server.model.support.issue.transitionspec.PullRequestOpenedSpec;
+import io.cheeta.server.model.support.issue.transitionspec.PullRequestSpec;
+import io.cheeta.server.model.support.issue.transitionspec.TransitionSpec;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestDiscardData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestMergeData;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestReopenData;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.search.entity.issue.IssueQuery;
+import io.cheeta.server.search.entity.issue.IssueQueryLexer;
+import io.cheeta.server.search.entity.issue.IssueQueryParseOption;
+import io.cheeta.server.search.entity.issue.LastActivityDateCriteria;
+import io.cheeta.server.search.entity.issue.StateCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueDescriptionRevisionService;
+import io.cheeta.server.service.IssueFieldService;
+import io.cheeta.server.service.IssueLinkService;
+import io.cheeta.server.service.IssueScheduleService;
+import io.cheeta.server.service.IssueService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.taskschedule.SchedulableTask;
+import io.cheeta.server.taskschedule.TaskScheduler;
+import io.cheeta.server.util.ProjectScope;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.concurrent.BatchWorkExecutionService;
+import io.cheeta.server.util.concurrent.BatchWorker;
+import io.cheeta.server.util.concurrent.Prioritized;
+import io.cheeta.server.util.criteria.Criteria;
+import io.cheeta.server.util.patternset.PatternSet;
 
 @Singleton
 public class DefaultIssueChangeService extends BaseEntityService<IssueChange>
@@ -451,7 +451,7 @@ public class DefaultIssueChangeService extends BaseEntityService<IssueChange>
 	}
 	
 	private List<TransitionSpec> getTransitionSpecs() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getTransitionSpecs();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getTransitionSpecs();
 	}
 	
 	@Transactional
@@ -608,7 +608,7 @@ public class DefaultIssueChangeService extends BaseEntityService<IssueChange>
 	
 	@Transactional
 	@Listen
-	public void on(io.onedev.server.event.project.pullrequest.PullRequestOpened event) {
+	public void on(io.cheeta.server.event.project.pullrequest.PullRequestOpened event) {
 		on(event.getRequest(), PullRequestOpenedSpec.class);
 	}
 	

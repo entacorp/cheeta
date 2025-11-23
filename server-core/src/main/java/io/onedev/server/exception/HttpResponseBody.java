@@ -1,8 +1,8 @@
-package io.onedev.server.exception;
+package io.cheeta.server.exception;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.onedev.server.OneDev;
+import io.cheeta.server.Cheeta;
 
 import java.util.Map;
 
@@ -26,7 +26,7 @@ public class HttpResponseBody {
 	
 	private static String getJsonText(Map<String, Object> jsonValue) {
 		try {
-			return OneDev.getInstance(ObjectMapper.class).writeValueAsString(jsonValue);
+			return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(jsonValue);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}

@@ -1,22 +1,22 @@
-package io.onedev.server.plugin.pack.container;
+package io.cheeta.server.plugin.pack.container;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.onedev.commons.utils.LockUtils;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.service.*;
-import io.onedev.server.exception.DataTooLargeException;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.model.Project;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.util.Digest;
-import io.onedev.server.util.HttpUtils;
-import io.onedev.server.util.Pair;
+import io.cheeta.commons.utils.LockUtils;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.service.*;
+import io.cheeta.server.exception.DataTooLargeException;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.util.Digest;
+import io.cheeta.server.util.HttpUtils;
+import io.cheeta.server.util.Pair;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.eclipse.jetty.http.HttpStatus;
 
@@ -31,12 +31,12 @@ import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.regex.Matcher;
 
-import static io.onedev.server.plugin.pack.container.ContainerAuthenticationFilter.ATTR_BUILD_ID;
-import static io.onedev.server.plugin.pack.container.ContainerManifest.isImageIndex;
-import static io.onedev.server.plugin.pack.container.ContainerManifest.isImageManifest;
-import static io.onedev.server.plugin.pack.container.ContainerPackSupport.TYPE;
-import static io.onedev.server.util.Digest.SHA256;
-import static io.onedev.server.util.IOUtils.copyWithMaxSize;
+import static io.cheeta.server.plugin.pack.container.ContainerAuthenticationFilter.ATTR_BUILD_ID;
+import static io.cheeta.server.plugin.pack.container.ContainerManifest.isImageIndex;
+import static io.cheeta.server.plugin.pack.container.ContainerManifest.isImageManifest;
+import static io.cheeta.server.plugin.pack.container.ContainerPackSupport.TYPE;
+import static io.cheeta.server.util.Digest.SHA256;
+import static io.cheeta.server.util.IOUtils.copyWithMaxSize;
 import static java.lang.Long.parseLong;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.regex.Pattern.compile;
@@ -507,7 +507,7 @@ public class ContainerServlet extends HttpServlet {
 
 	private String getChallenge() {
 		var serverUrl = settingService.getSystemSetting().getServerUrl();
-		return "Bearer realm=\"" + serverUrl + "/v2/token\",service=\"onedev\",scope=\"*\"";
+		return "Bearer realm=\"" + serverUrl + "/v2/token\",service=\"cheeta\",scope=\"*\"";
 	}
 	
 }

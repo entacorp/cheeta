@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Index;
@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import io.onedev.server.model.support.EntityReaction;
+import io.cheeta.server.model.support.EntityReaction;
 
 @Entity
 @Table(

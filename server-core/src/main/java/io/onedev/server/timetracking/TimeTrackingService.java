@@ -1,8 +1,8 @@
-package io.onedev.server.timetracking;
+package io.cheeta.server.timetracking;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.web.page.layout.SidebarMenuItem;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.web.page.layout.SidebarMenuItem;
 
 import java.util.Collection;
 

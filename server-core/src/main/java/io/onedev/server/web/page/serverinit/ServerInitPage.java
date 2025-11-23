@@ -1,17 +1,17 @@
-package io.onedev.server.web.page.serverinit;
+package io.cheeta.server.web.page.serverinit;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.ManualConfigStep;
-import io.onedev.server.util.init.InitStage;
-import io.onedev.server.util.init.ManualConfig;
-import io.onedev.server.web.WebSession;
-import io.onedev.server.web.component.wizard.DefaultEndActionsPanel;
-import io.onedev.server.web.component.wizard.WizardPanel;
-import io.onedev.server.web.page.HomePage;
-import io.onedev.server.web.page.simple.SimplePage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.ManualConfigStep;
+import io.cheeta.server.util.init.InitStage;
+import io.cheeta.server.util.init.ManualConfig;
+import io.cheeta.server.web.WebSession;
+import io.cheeta.server.web.component.wizard.DefaultEndActionsPanel;
+import io.cheeta.server.web.component.wizard.WizardPanel;
+import io.cheeta.server.web.page.HomePage;
+import io.cheeta.server.web.page.simple.SimplePage;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -19,7 +19,7 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class ServerInitPage extends SimplePage {
 	public ServerInitPage(PageParameters params) {
 		super(params);
 		
-		initStage = SerializationUtils.clone(OneDev.getInstance().getInitStage());
+		initStage = SerializationUtils.clone(Cheeta.getInstance().getInitStage());
 		if (initStage == null) {
 			continueToOriginalDestination();
 			throw new RestartResponseException(getApplication().getHomePage());
@@ -55,7 +55,7 @@ public class ServerInitPage extends SimplePage {
 						@Override
 						protected void finished() {
 							while (true) {
-								var initStage = OneDev.getInstance().getInitStage();
+								var initStage = Cheeta.getInstance().getInitStage();
 								if (initStage == null || initStage.getManualConfigs().isEmpty()) {
 									break;
 								} else  {
@@ -67,7 +67,7 @@ public class ServerInitPage extends SimplePage {
 								}
 							}
 							WebSession.get().logout();
-							User root = OneDev.getInstance(UserService.class).getRoot();
+							User root = Cheeta.getInstance(UserService.class).getRoot();
 							SecurityUtils.getSubject().runAs(root.getPrincipals());
 							throw new RestartResponseException(HomePage.class);
 						}

@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.diff.blob;
+package io.cheeta.server.web.component.diff.blob;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 

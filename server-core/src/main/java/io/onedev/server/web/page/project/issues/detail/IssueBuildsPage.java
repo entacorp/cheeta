@@ -1,21 +1,21 @@
-package io.onedev.server.web.page.project.issues.detail;
+package io.cheeta.server.web.page.project.issues.detail;
 
 import java.io.Serializable;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.build.BuildQuery;
-import io.onedev.server.search.entity.build.FixedIssueCriteria;
-import io.onedev.server.web.component.build.list.BuildListPanel;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.build.BuildQuery;
+import io.cheeta.server.search.entity.build.FixedIssueCriteria;
+import io.cheeta.server.web.component.build.list.BuildListPanel;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
 
 public class IssueBuildsPage extends IssueDetailPage {
 

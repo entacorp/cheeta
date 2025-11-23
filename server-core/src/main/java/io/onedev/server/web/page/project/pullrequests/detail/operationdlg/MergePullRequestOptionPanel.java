@@ -1,19 +1,19 @@
-package io.onedev.server.web.page.project.pullrequests.detail.operationdlg;
+package io.cheeta.server.web.page.project.pullrequests.detail.operationdlg;
 
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.REBASE_SOURCE_BRANCH_COMMITS;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.SQUASH_SOURCE_BRANCH_COMMITS;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.REBASE_SOURCE_BRANCH_COMMITS;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.SQUASH_SOURCE_BRANCH_COMMITS;
+import static io.cheeta.server.web.translation.Translation._T;
 
-import io.onedev.server.web.util.editbean.CommitMessageBean;
+import io.cheeta.server.web.util.editbean.CommitMessageBean;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.pullrequest.MergePreview;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.editable.BeanContext;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.pullrequest.MergePreview;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.editable.BeanContext;
 
 public abstract class MergePullRequestOptionPanel extends ObsoleteUpdateAwarePanel {
 

@@ -1,11 +1,11 @@
-package io.onedev.server.web.component.watchstatus;
+package io.cheeta.server.web.component.watchstatus;
 
-import io.onedev.server.util.watch.WatchStatus;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.util.watch.WatchStatus;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;

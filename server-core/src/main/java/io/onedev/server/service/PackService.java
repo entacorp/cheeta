@@ -1,4 +1,4 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -9,12 +9,12 @@ import org.jspecify.annotations.Nullable;
 
 import org.apache.shiro.subject.Subject;
 
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.entity.EntityQuery;
-import io.onedev.server.util.ProjectPackTypeStat;
-import io.onedev.server.util.criteria.Criteria;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.entity.EntityQuery;
+import io.cheeta.server.util.ProjectPackTypeStat;
+import io.cheeta.server.util.criteria.Criteria;
 
 public interface PackService extends EntityService<Pack> {
 

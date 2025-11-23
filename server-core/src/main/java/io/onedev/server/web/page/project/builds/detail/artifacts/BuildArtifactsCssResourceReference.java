@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.builds.detail.artifacts;
+package io.cheeta.server.web.page.project.builds.detail.artifacts;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class BuildArtifactsCssResourceReference extends BaseDependentCssResourceReference {
 

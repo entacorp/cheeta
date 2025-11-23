@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.pipeline;
+package io.cheeta.server.web.component.pipeline;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.Job;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.Job;
 
 public class JobIndex implements Serializable {
 
@@ -48,7 +48,7 @@ public class JobIndex implements Serializable {
 	
 	public String toJson() {
 		try {
-			return OneDev.getInstance(ObjectMapper.class).writeValueAsString(this);
+			return Cheeta.getInstance(ObjectMapper.class).writeValueAsString(this);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}

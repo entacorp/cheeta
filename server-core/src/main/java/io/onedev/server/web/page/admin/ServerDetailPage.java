@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.admin;
+package io.cheeta.server.web.page.admin;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;

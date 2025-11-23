@@ -1,4 +1,4 @@
-onedev.server.codeSupport = {
+cheeta.server.codeSupport = {
 	adjustHeight: function($input) {
 		var maxHeight = $input.parent().data("maxHeight");
 		var minHeight = $input.parent().data("minHeight");
@@ -27,7 +27,7 @@ onedev.server.codeSupport = {
 			gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
 			highlightIdentifiers: {delay: 500}
 		});
-		onedev.server.codemirror.setModeByName(cm, modeName);
+		cheeta.server.codemirror.setModeByName(cm, modeName);
 		
 		let $input = $("#" + inputId);
 		$input.parent().data("minHeight", parseInt($input.parent().css("min-height"), 10));
@@ -35,14 +35,14 @@ onedev.server.codeSupport = {
 		
 		cm.on("change", function() {
 			cm.save();
-			onedev.server.form.markDirty($input.closest("form"));
+			cheeta.server.form.markDirty($input.closest("form"));
 			setTimeout(function() {
-				onedev.server.codeSupport.adjustHeight($input);
+				cheeta.server.codeSupport.adjustHeight($input);
 				cm.refresh();
 			}, 0);
 		});
 		
-		onedev.server.codeSupport.adjustHeight($input);
+		cheeta.server.codeSupport.adjustHeight($input);
 		cm.refresh();
 			
 		function getLineBeforeCursor(cm) {
@@ -79,7 +79,7 @@ onedev.server.codeSupport = {
 		});
 		$input.closest(".visible-aware").on("visible", function() {
 			cm.refresh();
-			onedev.server.codeSupport.adjustHeight($input);
+			cheeta.server.codeSupport.adjustHeight($input);
 		});
     },
     showVariables: function(inputId, variables, line, start) {
@@ -141,13 +141,13 @@ onedev.server.codeSupport = {
 			highlightIdentifiers: {delay: 500}
         });
 
-        onedev.server.codemirror.setModeByName(cm, modeName);
+        cheeta.server.codemirror.setModeByName(cm, modeName);
 		var $input = $("#" + inputId);
-		onedev.server.codeSupport.adjustHeight($input);
+		cheeta.server.codeSupport.adjustHeight($input);
 		cm.refresh();
 		$input.closest(".visible-aware").on("visible", function() {
 			cm.refresh();
-			onedev.server.codeSupport.adjustHeight($input);
+			cheeta.server.codeSupport.adjustHeight($input);
 		});
 	}
 }

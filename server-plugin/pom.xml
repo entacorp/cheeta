@@ -4,13 +4,13 @@
 	<artifactId>server-plugin</artifactId>
 	<packaging>pom</packaging>
 	<parent>
-		<groupId>io.onedev</groupId>
+		<groupId>io.cheeta</groupId>
 		<artifactId>server</artifactId>
 		<version>13.1.0</version>
 	</parent>
 	<dependencies>
 		<dependency>
-			<groupId>io.onedev</groupId>
+			<groupId>io.cheeta</groupId>
 			<artifactId>server-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>

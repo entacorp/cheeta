@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.base;
+package io.cheeta.server.web.page.base;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.HeaderItem;
 import org.apache.wicket.request.resource.CssResourceReference;
 
-import io.onedev.server.web.asset.bootstrap.BootstrapCssResourceReference;
+import io.cheeta.server.web.asset.bootstrap.BootstrapCssResourceReference;
 
 public class BaseCssResourceReference extends CssResourceReference {
 

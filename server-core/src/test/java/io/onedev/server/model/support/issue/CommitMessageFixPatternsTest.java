@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -7,10 +7,10 @@ import static org.mockito.Mockito.when;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.loader.AppLoaderMocker;
-import io.onedev.server.model.Project;
-import io.onedev.server.service.ProjectService;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.loader.AppLoaderMocker;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.service.ProjectService;
 
 public class CommitMessageFixPatternsTest extends AppLoaderMocker {
 

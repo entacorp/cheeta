@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.help;
+package io.cheeta.server.web.page.help;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;

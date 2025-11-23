@@ -1,9 +1,9 @@
-package io.onedev.server.web.editable.workingperiod;
+package io.cheeta.server.web.editable.workingperiod;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.WorkingPeriod;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.web.editable.*;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.WorkingPeriod;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
@@ -28,7 +28,7 @@ public class WorkingPeriodEditSupport implements EditSupport {
 							@Override
 							protected Component newContent(String id, PropertyDescriptor propertyDescriptor) {
 								if (model.getObject() != null) {
-									var timeTrackingSetting = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+									var timeTrackingSetting = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 									return new Label(id, timeTrackingSetting.formatWorkingPeriod(model.getObject(), true));
 								} else { 
 									return new EmptyValueLabel(id) {

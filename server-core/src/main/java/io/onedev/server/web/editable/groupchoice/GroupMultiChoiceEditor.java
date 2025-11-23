@@ -1,13 +1,13 @@
-package io.onedev.server.web.editable.groupchoice;
+package io.cheeta.server.web.editable.groupchoice;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
-import io.onedev.server.util.ComponentContext;
+import io.cheeta.server.util.ComponentContext;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.model.IModel;
@@ -16,14 +16,14 @@ import org.apache.wicket.util.convert.ConversionException;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.model.Group;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.component.groupchoice.GroupMultiChoice;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.annotation.GroupChoice;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.component.groupchoice.GroupMultiChoice;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.GroupChoice;
 
 public class GroupMultiChoiceEditor extends PropertyEditor<Collection<String>> {
 	
@@ -49,7 +49,7 @@ public class GroupMultiChoiceEditor extends PropertyEditor<Collection<String>> {
 				choices.addAll((List<Group>) ReflectionUtils
 						.invokeStaticMethod(descriptor.getBeanClass(), groupChoice.value()));
 			} else {
-				choices.addAll(OneDev.getInstance(GroupService.class).query());
+				choices.addAll(Cheeta.getInstance(GroupService.class).query());
 				choices.sort(Comparator.comparing(Group::getName));
 			}
 		} finally {
@@ -58,7 +58,7 @@ public class GroupMultiChoiceEditor extends PropertyEditor<Collection<String>> {
 	
     	List<Group> selections = new ArrayList<>();
 		if (getModelObject() != null) {
-			GroupService groupService = OneDev.getInstance(GroupService.class);
+			GroupService groupService = Cheeta.getInstance(GroupService.class);
 			for (String groupName: getModelObject()) {
 				Group group = groupService.find(groupName);
 				if (group != null && choices.contains(group))

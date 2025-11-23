@@ -1,17 +1,17 @@
-package io.onedev.server.product;
+package io.cheeta.server.product;
 
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.server.ServerConfig;
-import io.onedev.server.jetty.ServerConfigurator;
-import io.onedev.server.jetty.ServletConfigurator;
-import io.onedev.server.persistence.HibernateConfig;
-import io.onedev.server.util.ProjectNameReservation;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.server.ServerConfig;
+import io.cheeta.server.jetty.ServerConfigurator;
+import io.cheeta.server.jetty.ServletConfigurator;
+import io.cheeta.server.persistence.HibernateConfig;
+import io.cheeta.server.util.ProjectNameReservation;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static io.onedev.commons.bootstrap.Bootstrap.installDir;
-import static io.onedev.server.OneDev.getAssetsDir;
+import static io.cheeta.commons.bootstrap.Bootstrap.installDir;
+import static io.cheeta.server.Cheeta.getAssetsDir;
 
 public class ProductModule extends AbstractPluginModule {
 

@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.moment;
+package io.cheeta.server.web.asset.moment;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 

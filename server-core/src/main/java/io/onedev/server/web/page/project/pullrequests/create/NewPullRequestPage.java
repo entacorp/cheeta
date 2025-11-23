@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.project.pullrequests.create;
+package io.cheeta.server.web.page.project.pullrequests.create;
 
-import static io.onedev.server.model.PullRequest.MAX_DESCRIPTION_LEN;
-import static io.onedev.server.model.PullRequest.MAX_TITLE_LEN;
-import static io.onedev.server.search.commit.Revision.Type.COMMIT;
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.model.PullRequest.MAX_DESCRIPTION_LEN;
+import static io.cheeta.server.model.PullRequest.MAX_TITLE_LEN;
+import static io.cheeta.server.search.commit.Revision.Type.COMMIT;
+import static io.cheeta.server.web.translation.Translation._T;
 import static org.apache.wicket.ajax.attributes.CallbackParameter.explicit;
 import static org.unbescape.javascript.JavaScriptEscape.escapeJavaScript;
 
@@ -63,76 +63,76 @@ import com.google.common.collect.Lists;
 
 import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.PlanarRange;
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.CodeProblemContribution;
-import io.onedev.server.codequality.CoverageStatus;
-import io.onedev.server.codequality.LineCoverageContribution;
-import io.onedev.server.exception.ExceptionUtils;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.git.service.GitService;
-import io.onedev.server.git.service.RefFacade;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.CodeComment;
-import io.onedev.server.model.CodeCommentReply;
-import io.onedev.server.model.CodeCommentStatusChange;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequest.Status;
-import io.onedev.server.model.PullRequestAssignment;
-import io.onedev.server.model.PullRequestLabel;
-import io.onedev.server.model.PullRequestReview;
-import io.onedev.server.model.PullRequestUpdate;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.CompareContext;
-import io.onedev.server.model.support.Mark;
-import io.onedev.server.model.support.pullrequest.MergePreview;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.search.commit.CommitQuery;
-import io.onedev.server.search.commit.Revision;
-import io.onedev.server.search.commit.RevisionCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.CodeCommentReplyService;
-import io.onedev.server.service.CodeCommentService;
-import io.onedev.server.service.CodeCommentStatusChangeService;
-import io.onedev.server.service.LabelSpecService;
-import io.onedev.server.service.PullRequestService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.ProjectAndBranch;
-import io.onedev.server.util.diff.WhitespaceOption;
-import io.onedev.server.web.ajaxlistener.DisableGlobalAjaxIndicatorListener;
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.behavior.ReferenceInputBehavior;
-import io.onedev.server.web.component.branch.BranchLink;
-import io.onedev.server.web.component.branch.picker.AffinalBranchPicker;
-import io.onedev.server.web.component.comment.CommentInput;
-import io.onedev.server.web.component.commit.list.CommitListPanel;
-import io.onedev.server.web.component.diff.revision.RevisionAnnotationSupport;
-import io.onedev.server.web.component.diff.revision.RevisionDiffPanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.pullrequest.assignment.AssignmentListPanel;
-import io.onedev.server.web.component.pullrequest.review.ReviewListPanel;
-import io.onedev.server.web.component.svg.SpriteImage;
-import io.onedev.server.web.component.tabbable.AjaxActionTab;
-import io.onedev.server.web.component.tabbable.Tab;
-import io.onedev.server.web.component.tabbable.Tabbable;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.commits.CommitDetailPage;
-import io.onedev.server.web.page.project.compare.RevisionComparePage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.page.project.pullrequests.ProjectPullRequestsPage;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
-import io.onedev.server.web.page.security.LoginPage;
-import io.onedev.server.web.util.TextUtils;
-import io.onedev.server.web.util.editbean.LabelsBean;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.PlanarRange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.CodeProblemContribution;
+import io.cheeta.server.codequality.CoverageStatus;
+import io.cheeta.server.codequality.LineCoverageContribution;
+import io.cheeta.server.exception.ExceptionUtils;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.git.service.GitService;
+import io.cheeta.server.git.service.RefFacade;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.CodeComment;
+import io.cheeta.server.model.CodeCommentReply;
+import io.cheeta.server.model.CodeCommentStatusChange;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequest.Status;
+import io.cheeta.server.model.PullRequestAssignment;
+import io.cheeta.server.model.PullRequestLabel;
+import io.cheeta.server.model.PullRequestReview;
+import io.cheeta.server.model.PullRequestUpdate;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.CompareContext;
+import io.cheeta.server.model.support.Mark;
+import io.cheeta.server.model.support.pullrequest.MergePreview;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.search.commit.CommitQuery;
+import io.cheeta.server.search.commit.Revision;
+import io.cheeta.server.search.commit.RevisionCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.CodeCommentReplyService;
+import io.cheeta.server.service.CodeCommentService;
+import io.cheeta.server.service.CodeCommentStatusChangeService;
+import io.cheeta.server.service.LabelSpecService;
+import io.cheeta.server.service.PullRequestService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.ProjectAndBranch;
+import io.cheeta.server.util.diff.WhitespaceOption;
+import io.cheeta.server.web.ajaxlistener.DisableGlobalAjaxIndicatorListener;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.behavior.ReferenceInputBehavior;
+import io.cheeta.server.web.component.branch.BranchLink;
+import io.cheeta.server.web.component.branch.picker.AffinalBranchPicker;
+import io.cheeta.server.web.component.comment.CommentInput;
+import io.cheeta.server.web.component.commit.list.CommitListPanel;
+import io.cheeta.server.web.component.diff.revision.RevisionAnnotationSupport;
+import io.cheeta.server.web.component.diff.revision.RevisionDiffPanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.pullrequest.assignment.AssignmentListPanel;
+import io.cheeta.server.web.component.pullrequest.review.ReviewListPanel;
+import io.cheeta.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.tabbable.AjaxActionTab;
+import io.cheeta.server.web.component.tabbable.Tab;
+import io.cheeta.server.web.component.tabbable.Tabbable;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.commits.CommitDetailPage;
+import io.cheeta.server.web.page.project.compare.RevisionComparePage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.page.project.pullrequests.ProjectPullRequestsPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.PullRequestActivitiesPage;
+import io.cheeta.server.web.page.security.LoginPage;
+import io.cheeta.server.web.util.TextUtils;
+import io.cheeta.server.web.util.editbean.LabelsBean;
 
 public class NewPullRequestPage extends ProjectPage implements RevisionAnnotationSupport {
 
@@ -159,7 +159,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 
 		@Override
 		protected Collection<CodeComment> load() {
-			CodeCommentService manager = OneDev.getInstance(CodeCommentService.class);
+			CodeCommentService manager = Cheeta.getInstance(CodeCommentService.class);
 			return manager.query(projectModel.getObject(), 
 					getPullRequest().getBaseCommit(), source.getObjectId());
 		}
@@ -214,7 +214,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 	}
 	
 	private PullRequestService getPullRequestService() {
-		return OneDev.getInstance(PullRequestService.class);
+		return Cheeta.getInstance(PullRequestService.class);
 	}
 	
 	public NewPullRequestPage(PageParameters params) {
@@ -338,7 +338,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 	}
 	
 	private GitService getGitService() {
-		return OneDev.getInstance(GitService.class);
+		return Cheeta.getInstance(GitService.class);
 	}
 	
 	@Override
@@ -776,7 +776,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 						Session.get().error("Error suggesting title/description, check server log for details");
 					}
 				}
-				var script = String.format("onedev.server.newPullRequest.titleAndDescriptionSuggested('%s', '%s');", 
+				var script = String.format("cheeta.server.newPullRequest.titleAndDescriptionSuggested('%s', '%s');", 
 						escapeJavaScript(title), escapeJavaScript(description));
 				target.appendJavaScript(script);
 			}
@@ -797,7 +797,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 				translations.put("suggesting-title", _T("Suggesting title..."));
 				translations.put("suggesting-description", _T("Suggesting description..."));
 				try {
-					var script = String.format("onedev.server.newPullRequest.onCanSendLoad(%s, %s);", 
+					var script = String.format("cheeta.server.newPullRequest.onCanSendLoad(%s, %s);", 
 							callback, objectMapper.writeValueAsString(translations));
 					response.render(OnLoadHeaderItem.forScript(script));
 				} catch (JsonProcessingException e) {
@@ -818,7 +818,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 			public void onSubmit() {
 				super.onSubmit();
 				
-				Dao dao = OneDev.getInstance(Dao.class);
+				Dao dao = Cheeta.getInstance(Dao.class);
 				ProjectAndBranch target = getPullRequest().getTarget();
 				ProjectAndBranch source = getPullRequest().getSource();
 				if (!target.getObjectName().equals(getPullRequest().getTarget().getObjectName()) 
@@ -830,7 +830,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 					getPullRequest().setTarget(target);
 					for (var label: labelsBean.getLabels()) {
 						PullRequestLabel requestLabel = new PullRequestLabel();
-						requestLabel.setSpec(OneDev.getInstance(LabelSpecService.class).find(label));
+						requestLabel.setSpec(Cheeta.getInstance(LabelSpecService.class).find(label));
 						requestLabel.setRequest(getPullRequest());
 						getPullRequest().getLabels().add(requestLabel);
 					}
@@ -1147,7 +1147,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 	@Override
 	public CodeComment getOpenComment() {
 		if (commentId != null)
-			return OneDev.getInstance(CodeCommentService.class).load(commentId);
+			return Cheeta.getInstance(CodeCommentService.class).load(commentId);
 		else
 			return null;
 	}
@@ -1181,7 +1181,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 		Set<CodeProblem> problems = new HashSet<>();
 		ObjectId baseCommitId = ObjectId.fromString(getPullRequest().getBaseCommitHash());
 		for (Build build: target.getProject().getBuilds(baseCommitId)) {
-			for (CodeProblemContribution contribution: OneDev.getExtensions(CodeProblemContribution.class))
+			for (CodeProblemContribution contribution: Cheeta.getExtensions(CodeProblemContribution.class))
 				problems.addAll(contribution.getCodeProblems(build, blobPath, null));
 		}
 		return problems;
@@ -1191,7 +1191,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 	public Collection<CodeProblem> getNewProblems(String blobPath) {
 		Set<CodeProblem> problems = new HashSet<>();
 		for (Build build: source.getProject().getBuilds(source.getObjectId())) {
-			for (CodeProblemContribution contribution: OneDev.getExtensions(CodeProblemContribution.class))
+			for (CodeProblemContribution contribution: Cheeta.getExtensions(CodeProblemContribution.class))
 				problems.addAll(contribution.getCodeProblems(build, blobPath, null));
 		}
 		return problems;
@@ -1202,7 +1202,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 		Map<Integer, CoverageStatus> coverages = new HashMap<>();
 		ObjectId baseCommitId = ObjectId.fromString(getPullRequest().getBaseCommitHash());
 		for (Build build: target.getProject().getBuilds(baseCommitId)) {
-			for (LineCoverageContribution contribution: OneDev.getExtensions(LineCoverageContribution.class)) {
+			for (LineCoverageContribution contribution: Cheeta.getExtensions(LineCoverageContribution.class)) {
 				contribution.getLineCoverages(build, blobPath, null).forEach((key, value) -> {
 					coverages.merge(key, value, (v1, v2) -> v1.mergeWith(v2));
 				});
@@ -1215,7 +1215,7 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 	public Map<Integer, CoverageStatus> getNewCoverages(String blobPath) {
 		Map<Integer, CoverageStatus> coverages = new HashMap<>();
 		for (Build build: source.getProject().getBuilds(source.getObjectId())) {
-			for (LineCoverageContribution contribution: OneDev.getExtensions(LineCoverageContribution.class)) {
+			for (LineCoverageContribution contribution: Cheeta.getExtensions(LineCoverageContribution.class)) {
 				contribution.getLineCoverages(build, blobPath, null).forEach((key, value) -> {
 					coverages.merge(key, value, (v1, v2) -> v1.mergeWith(v2));
 				});
@@ -1245,22 +1245,22 @@ public class NewPullRequestPage extends ProjectPage implements RevisionAnnotatio
 	@Override
 	public void onSaveComment(CodeComment comment) {
 		if (comment.isNew())
-			OneDev.getInstance(CodeCommentService.class).create(comment);
+			Cheeta.getInstance(CodeCommentService.class).create(comment);
 		else
-			OneDev.getInstance(CodeCommentService.class).update(comment);
+			Cheeta.getInstance(CodeCommentService.class).update(comment);
 	}
 	
 	@Override
 	public void onSaveCommentReply(CodeCommentReply reply) {
 		if (reply.isNew())
-			OneDev.getInstance(CodeCommentReplyService.class).create(reply);
+			Cheeta.getInstance(CodeCommentReplyService.class).create(reply);
 		else
-			OneDev.getInstance(CodeCommentReplyService.class).update(reply);
+			Cheeta.getInstance(CodeCommentReplyService.class).update(reply);
 	}
 	
 	@Override
 	public void onSaveCommentStatusChange(CodeCommentStatusChange change, String note) {
-		OneDev.getInstance(CodeCommentStatusChangeService.class).create(change, note);
+		Cheeta.getInstance(CodeCommentStatusChangeService.class).create(change, note);
 	}
 	
 	@Override

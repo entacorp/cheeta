@@ -1,12 +1,12 @@
-package io.onedev.server.web.component.issue.activities.activity;
+package io.cheeta.server.web.component.issue.activities.activity;
 
 import java.util.Date;
 
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.model.IssueChange;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.model.IssueChange;
 
 public class IssueChangeActivity implements IssueActivity {
 
@@ -22,7 +22,7 @@ public class IssueChangeActivity implements IssueActivity {
 	}
 
 	public IssueChange getChange() {
-		return OneDev.getInstance(IssueChangeService.class).load(changeId);
+		return Cheeta.getInstance(IssueChangeService.class).load(changeId);
 	}
 	
 	@Override

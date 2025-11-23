@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.sso.openid;
+package io.cheeta.server.plugin.sso.openid;
 
 import java.io.IOException;
 import java.net.URI;
@@ -17,10 +17,10 @@ import com.nimbusds.oauth2.sdk.http.HTTPRequest;
 import com.nimbusds.oauth2.sdk.http.HTTPResponse;
 import com.nimbusds.oauth2.sdk.token.BearerAccessToken;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Password;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Password;
 import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 
@@ -131,7 +131,7 @@ public class EntraIdConnector extends OpenIdConnector {
 				var body = httpResponse.getBody();
 				if (StringUtils.isNotBlank(body)) {
 					try {
-						var errorNode = OneDev.getInstance(ObjectMapper.class).readTree(body).get("error");
+						var errorNode = Cheeta.getInstance(ObjectMapper.class).readTree(body).get("error");
 						details.add("code: " + errorNode.get("code").asText());
 						details.add("message: " + errorNode.get("message").asText());
 					} catch (Exception e) {

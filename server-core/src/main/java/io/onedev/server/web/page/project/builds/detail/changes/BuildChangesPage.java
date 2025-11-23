@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.builds.detail.changes;
+package io.cheeta.server.web.page.project.builds.detail.changes;
 
-import static io.onedev.server.search.commit.Revision.Type.COMMIT;
+import static io.cheeta.server.search.commit.Revision.Type.COMMIT;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,16 +15,16 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.commit.CommitQuery;
-import io.onedev.server.search.commit.Revision;
-import io.onedev.server.search.commit.RevisionCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.component.commit.list.CommitListPanel;
-import io.onedev.server.web.page.project.builds.detail.BuildDetailPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.commit.CommitQuery;
+import io.cheeta.server.search.commit.Revision;
+import io.cheeta.server.search.commit.RevisionCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.component.commit.list.CommitListPanel;
+import io.cheeta.server.web.page.project.builds.detail.BuildDetailPage;
 
 public class BuildChangesPage extends BuildDetailPage {
 
@@ -40,7 +40,7 @@ public class BuildChangesPage extends BuildDetailPage {
 		super(params);
 		query = params.get(PARAM_QUERY).toString();
 
-		BuildService buildService = OneDev.getInstance(BuildService.class);
+		BuildService buildService = Cheeta.getInstance(BuildService.class);
 		Build baseBuild = buildService.findStreamPrevious(getBuild(), null);
 		if (baseBuild != null)
 			baseCommitHash = baseBuild.getCommitHash();

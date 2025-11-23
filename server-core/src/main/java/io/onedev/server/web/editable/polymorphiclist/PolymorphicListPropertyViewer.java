@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.polymorphiclist;
+package io.cheeta.server.web.editable.polymorphiclist;
 
 import static java.util.Arrays.asList;
 
@@ -15,11 +15,11 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 
-import io.onedev.server.annotation.ExcludedProperties;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.EditableUtils;
-import io.onedev.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.annotation.ExcludedProperties;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.EditableUtils;
+import io.cheeta.server.web.editable.PropertyDescriptor;
 
 public class PolymorphicListPropertyViewer extends Panel {
 

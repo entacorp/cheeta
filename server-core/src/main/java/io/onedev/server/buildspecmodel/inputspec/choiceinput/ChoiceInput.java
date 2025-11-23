@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.choiceinput;
+package io.cheeta.server.buildspecmodel.inputspec.choiceinput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,15 +8,15 @@ import javax.validation.ValidationException;
 import javax.validation.Validator;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
-import io.onedev.server.buildspecmodel.inputspec.InputSpec;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.ChoiceProvider;
+import io.cheeta.server.buildspecmodel.inputspec.InputSpec;
 
 public class ChoiceInput {
 	
 	public static List<String> getPossibleValues(ChoiceProvider choiceProvider) {
 		List<String> possibleValues = new ArrayList<>();
-		if (OneDev.getInstance(Validator.class).validate(choiceProvider).isEmpty())
+		if (Cheeta.getInstance(Validator.class).validate(choiceProvider).isEmpty())
 			possibleValues.addAll(choiceProvider.getChoices(true).keySet());
 		return possibleValues;
 	}

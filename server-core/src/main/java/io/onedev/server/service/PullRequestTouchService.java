@@ -1,9 +1,9 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.List;
 
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequestTouch;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequestTouch;
 
 public interface PullRequestTouchService extends EntityService<PullRequestTouch> {
 	

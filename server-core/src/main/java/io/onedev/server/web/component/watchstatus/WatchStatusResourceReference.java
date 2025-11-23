@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.watchstatus;
+package io.cheeta.server.web.component.watchstatus;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class WatchStatusResourceReference extends BaseDependentCssResourceReference {
 

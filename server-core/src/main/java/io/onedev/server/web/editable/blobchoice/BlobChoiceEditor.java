@@ -1,21 +1,21 @@
-package io.onedev.server.web.editable.blobchoice;
+package io.cheeta.server.web.editable.blobchoice;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.util.convert.ConversionException;
 
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.ProjectScopedCommit;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.commons.utils.match.PathMatcher;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.component.blob.BlobPicker;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyEditor;
-import io.onedev.server.annotation.BlobChoice;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.ProjectScopedCommit;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.commons.utils.match.PathMatcher;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.component.blob.BlobPicker;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyEditor;
+import io.cheeta.server.annotation.BlobChoice;
 
 public class BlobChoiceEditor extends PropertyEditor<String> {
 

@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.pack.gem;
+package io.cheeta.server.plugin.pack.gem;
 
-import io.onedev.server.exception.HttpResponseAwareException;
+import io.cheeta.server.exception.HttpResponseAwareException;
 
 public class ClientException extends HttpResponseAwareException {
 

@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.wizard;
+package io.cheeta.server.web.component.wizard;
 
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.persistence.TransactionService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.persistence.TransactionService;
 
 public abstract class DefaultEndActionsPanel extends Panel {
 
@@ -25,7 +25,7 @@ public abstract class DefaultEndActionsPanel extends Panel {
 			public void onSubmit() {
 				super.onSubmit();
 				
-				OneDev.getInstance(TransactionService.class).run(new Runnable() {
+				Cheeta.getInstance(TransactionService.class).run(new Runnable() {
 
 					@Override
 					public void run() {

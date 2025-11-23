@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.cookies;
+package io.cheeta.server.web.asset.cookies;
 
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 

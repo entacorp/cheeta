@@ -1,25 +1,25 @@
-package io.onedev.server.web.page.project.stats.buildmetric;
+package io.cheeta.server.web.page.project.stats.buildmetric;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.BuildMetricService;
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.buildmetric.BuildMetricQuery;
-import io.onedev.server.search.buildmetric.BuildMetricQueryParser;
-import io.onedev.server.util.BeanUtils;
-import io.onedev.server.util.MetricIndicator;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.ReflectionUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.BuildMetricQueryBehavior;
-import io.onedev.server.web.component.chart.line.Line;
-import io.onedev.server.web.component.chart.line.LineChartPanel;
-import io.onedev.server.web.component.chart.line.LineSeries;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.BuildMetricService;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.buildmetric.BuildMetricQuery;
+import io.cheeta.server.search.buildmetric.BuildMetricQueryParser;
+import io.cheeta.server.util.BeanUtils;
+import io.cheeta.server.util.MetricIndicator;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.ReflectionUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.BuildMetricQueryBehavior;
+import io.cheeta.server.web.component.chart.line.Line;
+import io.cheeta.server.web.component.chart.line.LineChartPanel;
+import io.cheeta.server.web.component.chart.line.LineSeries;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
@@ -46,8 +46,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static io.onedev.server.web.translation.Translation._T;
-import static io.onedev.server.web.util.StatsGroup.BY_DAY;
+import static io.cheeta.server.web.translation.Translation._T;
+import static io.cheeta.server.web.util.StatsGroup.BY_DAY;
 import static java.util.Comparator.comparingInt;
 
 public abstract class BuildMetricStatsPage<T extends AbstractEntity> extends ProjectPage {
@@ -183,7 +183,7 @@ public abstract class BuildMetricStatsPage<T extends AbstractEntity> extends Pro
 						}
 					});
 
-					Map<Integer, T> stats = OneDev.getInstance(BuildMetricService.class)
+					Map<Integer, T> stats = Cheeta.getInstance(BuildMetricService.class)
 							.queryStats(getProject(), metricClass, parsedQuery);
 
 					for (List<Method> group : groupedMetricGetters) {
@@ -269,7 +269,7 @@ public abstract class BuildMetricStatsPage<T extends AbstractEntity> extends Pro
 	
 	@Override
 	protected BookmarkablePageLink<Void> navToProject(String componentId, Project project) {
-		if (!OneDev.getInstance(BuildMetricService.class).getAccessibleReportNames(project, metricClass).isEmpty())
+		if (!Cheeta.getInstance(BuildMetricService.class).getAccessibleReportNames(project, metricClass).isEmpty())
 			return new ViewStateAwarePageLink<>(componentId, getPageClass(), paramsOf(project));
 		else 
 			return new ViewStateAwarePageLink<>(componentId, ProjectDashboardPage.class, ProjectDashboardPage.paramsOf(project.getId()));

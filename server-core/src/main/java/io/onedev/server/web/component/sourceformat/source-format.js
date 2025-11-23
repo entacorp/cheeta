@@ -1,4 +1,4 @@
-onedev.server.sourceFormat = {
+cheeta.server.sourceFormat = {
 	init: function(containerId) {
 		var $container = $("#" + containerId);
 

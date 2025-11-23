@@ -1,4 +1,4 @@
-onedev.server.iterationChoiceFormatter = {
+cheeta.server.iterationChoiceFormatter = {
 	formatSelection: function(iteration) {
 		return iteration.name;
 	},

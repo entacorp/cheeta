@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.issue.progress;
+package io.cheeta.server.web.component.issue.progress;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
@@ -12,19 +12,19 @@ import org.apache.wicket.markup.html.panel.Panel;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueWorkService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.StopwatchService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueWork;
-import io.onedev.server.model.Stopwatch;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.timetracking.TimeTrackingService;
-import io.onedev.server.web.component.beaneditmodal.BeanEditModalPanel;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.util.editbean.IssueWorkBean;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueWorkService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.StopwatchService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueWork;
+import io.cheeta.server.model.Stopwatch;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.timetracking.TimeTrackingService;
+import io.cheeta.server.web.component.beaneditmodal.BeanEditModalPanel;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.util.editbean.IssueWorkBean;
 
 abstract class TimingDetailPanel extends Panel {
 
@@ -40,7 +40,7 @@ abstract class TimingDetailPanel extends Panel {
 		
 		page = getPage();
 		
-		var timeTrackingSetting = OneDev.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
+		var timeTrackingSetting = Cheeta.getInstance(SettingService.class).getIssueSetting().getTimeTrackingSetting();
 		var timeAggregationLink = timeTrackingSetting.getAggregationLink();
 		
 		boolean timeAggregation = getIssue().isAggregatingTime(timeAggregationLink);
@@ -130,7 +130,7 @@ abstract class TimingDetailPanel extends Panel {
 						work.setMinutes(bean.getSpentTime());
 						work.setDate(bean.getStartAt());
 						work.setNote(bean.getNote());
-						OneDev.getInstance(IssueWorkService.class).createOrUpdate(work);
+						Cheeta.getInstance(IssueWorkService.class).createOrUpdate(work);
 						notifyObservablesChange(target);
 						close();
 						return null;
@@ -171,15 +171,15 @@ abstract class TimingDetailPanel extends Panel {
 	}
 	
 	private StopwatchService getStopWatchManager() {
-		return OneDev.getInstance(StopwatchService.class);
+		return Cheeta.getInstance(StopwatchService.class);
 	}
 	
 	private TimeTrackingService getTimeTrackingService() {
-		return OneDev.getInstance(TimeTrackingService.class);
+		return Cheeta.getInstance(TimeTrackingService.class);
 	}
 	
 	private IssueChangeService getIssueChangeService() {
-		return OneDev.getInstance(IssueChangeService.class);
+		return Cheeta.getInstance(IssueChangeService.class);
 	}
 	
 	private void notifyObservablesChange(AjaxRequestTarget target) {

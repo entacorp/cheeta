@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.ssosetting;
+package io.cheeta.server.web.page.admin.ssosetting;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.Session;
@@ -11,18 +11,18 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.SsoProviderService;
-import io.onedev.server.model.SsoProvider;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
-import io.onedev.server.web.page.admin.AdministrationPage;
-import io.onedev.server.web.page.admin.groupmanagement.GroupCssResourceReference;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.SsoProviderService;
+import io.cheeta.server.model.SsoProvider;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
+import io.cheeta.server.web.page.admin.AdministrationPage;
+import io.cheeta.server.web.page.admin.groupmanagement.GroupCssResourceReference;
 
 public class NewSsoProviderPage extends AdministrationPage {
 	
@@ -53,7 +53,7 @@ public class NewSsoProviderPage extends AdministrationPage {
 					bean.populate(provider);
 					getSsoProviderService().createOrUpdate(provider);
 					var newAuditContent = VersionedXmlDoc.fromBean(provider).toXML();
-					OneDev.getInstance(AuditService.class).audit(null, "created SSO provider \"" + provider.getName() + "\"", null, newAuditContent);
+					Cheeta.getInstance(AuditService.class).audit(null, "created SSO provider \"" + provider.getName() + "\"", null, newAuditContent);
 					Session.get().success(_T("SSO provider created"));
 					setResponsePage(SsoProviderListPage.class);
 				}
@@ -65,7 +65,7 @@ public class NewSsoProviderPage extends AdministrationPage {
 	}
 
 	private SsoProviderService getSsoProviderService() {
-		return OneDev.getInstance(SsoProviderService.class);
+		return Cheeta.getInstance(SsoProviderService.class);
 	}
 
 	@Override

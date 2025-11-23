@@ -1,7 +1,7 @@
-package io.onedev.server.web.page.project.pullrequests.detail;
+package io.cheeta.server.web.page.project.pullrequests.detail;
 
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT;
-import static io.onedev.server.model.support.pullrequest.MergeStrategy.REBASE_SOURCE_BRANCH_COMMITS;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.CREATE_MERGE_COMMIT;
+import static io.cheeta.server.model.support.pullrequest.MergeStrategy.REBASE_SOURCE_BRANCH_COMMITS;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
@@ -9,9 +9,9 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.support.pullrequest.MergeStrategy;
-import io.onedev.server.web.component.project.gitprotocol.GitProtocolPanel;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.support.pullrequest.MergeStrategy;
+import io.cheeta.server.web.component.project.gitprotocol.GitProtocolPanel;
 
 abstract class ConflictResolveInstructionPanel extends Panel {
 

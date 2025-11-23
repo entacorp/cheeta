@@ -1,9 +1,9 @@
-package io.onedev.server.git;
+package io.cheeta.server.git;
 
-import io.onedev.commons.loader.AppLoader;
-import io.onedev.commons.loader.AppLoaderMocker;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.server.git.location.GitLocation;
+import io.cheeta.commons.loader.AppLoader;
+import io.cheeta.commons.loader.AppLoaderMocker;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.server.git.location.GitLocation;
 import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.CommitCommand;
 import org.eclipse.jgit.api.Git;

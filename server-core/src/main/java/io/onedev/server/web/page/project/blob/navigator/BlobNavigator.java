@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.blob.navigator;
+package io.cheeta.server.web.page.project.blob.navigator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,23 +38,23 @@ import org.eclipse.jgit.lib.FileMode;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.git.BlobIdentFilter;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.util.ChildrenAggregator;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.ajaxlistener.TrackViewStateListener;
-import io.onedev.server.web.asset.dropdowntriangleindicator.DropdownTriangleIndicatorCssResourceReference;
-import io.onedev.server.web.behavior.CtrlAwareOnClickAjaxBehavior;
-import io.onedev.server.web.component.blob.BlobIcon;
-import io.onedev.server.web.component.floating.AlignPlacement;
-import io.onedev.server.web.component.floating.FloatingPanel;
-import io.onedev.server.web.component.link.DropdownLink;
-import io.onedev.server.web.page.project.blob.ProjectBlobPage;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext.Mode;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.git.BlobIdentFilter;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.util.ChildrenAggregator;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.ajaxlistener.TrackViewStateListener;
+import io.cheeta.server.web.asset.dropdowntriangleindicator.DropdownTriangleIndicatorCssResourceReference;
+import io.cheeta.server.web.behavior.CtrlAwareOnClickAjaxBehavior;
+import io.cheeta.server.web.component.blob.BlobIcon;
+import io.cheeta.server.web.component.floating.AlignPlacement;
+import io.cheeta.server.web.component.floating.FloatingPanel;
+import io.cheeta.server.web.component.link.DropdownLink;
+import io.cheeta.server.web.page.project.blob.ProjectBlobPage;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext.Mode;
 
 public class BlobNavigator extends Panel {
 
@@ -280,7 +280,7 @@ public class BlobNavigator extends Panel {
 				name = context.getInitialNewPath();
 			else if (file.path.contains("/"))
 				name = StringUtils.substringAfterLast(file.path, "/");
-			else if (file.path.equals(".onedev-buildspec"))
+			else if (file.path.equals(".cheeta-buildspec"))
 				name = BuildSpec.BLOB_PATH;
 			else
 				name = file.path;

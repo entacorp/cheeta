@@ -1,4 +1,4 @@
-package io.onedev.server.util.patternset;
+package io.cheeta.server.util.patternset;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import com.google.common.collect.Sets;
 
-import io.onedev.server.util.interpolative.VariableInterpolator;
+import io.cheeta.server.util.interpolative.VariableInterpolator;
 
 public class InterpolativePatternSetGrammarTest {
 

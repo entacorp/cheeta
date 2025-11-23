@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.modal.confirm;
+package io.cheeta.server.web.component.modal.confirm;
 
 import org.jspecify.annotations.Nullable;
 
@@ -14,7 +14,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.unbescape.javascript.JavaScriptEscape;
 
-import io.onedev.server.web.component.link.PreventDefaultAjaxLink;
+import io.cheeta.server.web.component.link.PreventDefaultAjaxLink;
 
 abstract class ContentPanel extends Panel {
 	
@@ -73,7 +73,7 @@ abstract class ContentPanel extends Panel {
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(new ConfirmResourceReference()));
 		
-		String script = String.format("onedev.server.confirm('%s', %s);", 
+		String script = String.format("cheeta.server.confirm('%s', %s);", 
 				getMarkupId(), getConfirmInput()!=null?"'" + JavaScriptEscape.escapeJavaScript(getConfirmInput()) + "'": "undefined");
 		response.render(OnDomReadyHeaderItem.forScript(script));
 	}

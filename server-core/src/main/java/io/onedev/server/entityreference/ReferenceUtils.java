@@ -1,4 +1,4 @@
-package io.onedev.server.entityreference;
+package io.cheeta.server.entityreference;
 
 import static java.lang.String.format;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
@@ -19,15 +19,15 @@ import org.jsoup.select.NodeTraversor;
 
 import com.google.common.collect.ImmutableSet;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.HtmlUtils;
-import io.onedev.server.util.TextNodeVisitor;
-import io.onedev.server.validation.validator.ProjectKeyValidator;
-import io.onedev.server.validation.validator.ProjectPathValidator;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.HtmlUtils;
+import io.cheeta.server.util.TextNodeVisitor;
+import io.cheeta.server.validation.validator.ProjectKeyValidator;
+import io.cheeta.server.validation.validator.ProjectPathValidator;
 
 public class ReferenceUtils {
 	
@@ -48,7 +48,7 @@ public class ReferenceUtils {
 	public static String transformReferences(String text, @Nullable Project currentProject,
 									  BiFunction<EntityReference, String, String> transformer) {
 		if (mayContainReferences(text)) {
-			var projectService = OneDev.getInstance(ProjectService.class);
+			var projectService = Cheeta.getInstance(ProjectService.class);
 			var builder = new StringBuilder();
 			var index = 0;
 			var matcher = PATTERN.matcher(text);
@@ -78,7 +78,7 @@ public class ReferenceUtils {
 		} else {
 			text = transformer.apply(null, text);
 		}
-		var issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+		var issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 		for (var entry: issueSetting.getExternalIssueTransformers().getEntries()) {
 			text = text.replaceAll(entry.getPattern(), entry.getReplaceWith());
 		}

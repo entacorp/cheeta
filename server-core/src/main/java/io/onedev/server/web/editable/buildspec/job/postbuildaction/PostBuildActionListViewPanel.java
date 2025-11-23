@@ -1,6 +1,6 @@
-package io.onedev.server.web.editable.buildspec.job.postbuildaction;
+package io.cheeta.server.web.editable.buildspec.job.postbuildaction;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,12 +25,12 @@ import org.apache.wicket.markup.repeater.data.ListDataProvider;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.buildspec.job.action.PostBuildAction;
-import io.onedev.server.web.behavior.NoRecordsBehavior;
-import io.onedev.server.web.component.offcanvas.OffCanvasCardPanel;
-import io.onedev.server.web.component.offcanvas.OffCanvasPanel;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.EditableUtils;
+import io.cheeta.server.buildspec.job.action.PostBuildAction;
+import io.cheeta.server.web.behavior.NoRecordsBehavior;
+import io.cheeta.server.web.component.offcanvas.OffCanvasCardPanel;
+import io.cheeta.server.web.component.offcanvas.OffCanvasPanel;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.EditableUtils;
 
 class PostBuildActionListViewPanel extends Panel {
 

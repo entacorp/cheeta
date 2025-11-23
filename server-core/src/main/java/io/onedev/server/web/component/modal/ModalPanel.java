@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.modal;
+package io.cheeta.server.web.component.modal;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -12,8 +12,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.web.behavior.AbstractPostAjaxBehavior;
-import io.onedev.server.web.page.base.BasePage;
+import io.cheeta.server.web.behavior.AbstractPostAjaxBehavior;
+import io.cheeta.server.web.page.base.BasePage;
 
 public abstract class ModalPanel extends Panel {
 
@@ -67,7 +67,7 @@ public abstract class ModalPanel extends Panel {
 
 				response.render(JavaScriptHeaderItem.forReference(new ModalResourceReference()));
 				
-				String script = String.format("onedev.server.modal.onDomReady('%s', %s);", 
+				String script = String.format("cheeta.server.modal.onDomReady('%s', %s);", 
 						getMarkupId(true), getCallbackFunction());
 				response.render(OnDomReadyHeaderItem.forScript(script));
 			}
@@ -92,7 +92,7 @@ public abstract class ModalPanel extends Panel {
 		AjaxRequestTarget target = RequestCycle.get().find(AjaxRequestTarget.class);
 		
 		if (target != null) {
-			String script = String.format("onedev.server.modal.close($('#%s'), false);", getMarkupId(true));
+			String script = String.format("cheeta.server.modal.close($('#%s'), false);", getMarkupId(true));
 			target.appendJavaScript(script);
 		}
 		remove();

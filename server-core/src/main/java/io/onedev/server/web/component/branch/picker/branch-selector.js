@@ -1,11 +1,11 @@
-onedev.server.branchSelector = {
+cheeta.server.branchSelector = {
 	init: function(containerId, callback) {
 		var $container = $("#" + containerId);
 		var $floating = $container.closest(".floating");
 		$floating.on("open click", function() {
 			$container.find("input").focus();
 		});
-		onedev.server.branchSelector.bindInputKeys(containerId, callback);
+		cheeta.server.branchSelector.bindInputKeys(containerId, callback);
 	},
 	bindInputKeys: function(containerId, callback) {
 		var $container = $("#" + containerId);

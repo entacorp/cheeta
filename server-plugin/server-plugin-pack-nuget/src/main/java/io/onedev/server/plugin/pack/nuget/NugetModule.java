@@ -1,8 +1,8 @@
-package io.onedev.server.plugin.pack.nuget;
+package io.cheeta.server.plugin.pack.nuget;
 
-import io.onedev.commons.loader.AbstractPluginModule;
-import io.onedev.server.pack.PackHandler;
-import io.onedev.server.pack.PackSupport;
+import io.cheeta.commons.loader.AbstractPluginModule;
+import io.cheeta.server.pack.PackHandler;
+import io.cheeta.server.pack.PackSupport;
 
 /**
  * NOTE: Do not forget to rename moduleClass property defined in the pom if you've renamed this class.

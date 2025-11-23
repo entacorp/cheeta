@@ -1,6 +1,6 @@
-package io.onedev.server.buildspec;
+package io.cheeta.server.buildspec;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -23,26 +23,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.job.JobAuthorizationContext;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.facade.ProjectCache;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.job.JobAuthorizationContext;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.facade.ProjectCache;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable
 @ClassValidating
@@ -80,7 +80,7 @@ public class Import implements Serializable, Validatable {
 
 	@SuppressWarnings("unused")
 	private static List<String> getProjectChoices() {
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		Project project = ((ProjectPage)WicketUtils.getPage()).getProject();
 		
 		Collection<Project> projects = SecurityUtils.getAuthorizedProjects(new AccessProject());
@@ -98,7 +98,7 @@ public class Import implements Serializable, Validatable {
 	private static Project getInputProject() {
 		String projectPath = (String) EditContext.get().getInputValue("projectPath");
 		if (projectPath != null) {
-			Project project = OneDev.getInstance(ProjectService.class).findByPath(projectPath);
+			Project project = Cheeta.getInstance(ProjectService.class).findByPath(projectPath);
 			if (project != null && SecurityUtils.canReadCode(project))
 				return project;
 		}
@@ -131,7 +131,7 @@ public class Import implements Serializable, Validatable {
 			return new ArrayList<>();
 	}
 
-	@Editable(order=500, description="Specify a <a href='https://docs.onedev.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token to import build spec " +
+	@Editable(order=500, description="Specify a <a href='https://docs.cheeta.io/tutorials/cicd/job-secrets' target='_blank'>job secret</a> to be used as access token to import build spec " +
 			"from above project if its code is not publicly accessible")
 	@ChoiceProvider("getAccessTokenSecretChoices")
 	@Nullable
@@ -205,7 +205,7 @@ public class Import implements Serializable, Validatable {
 			} else {
 				IMPORT_CHAIN.get().push(commit.name());
 				try {
-					Validator validator = OneDev.getInstance(Validator.class);
+					Validator validator = Cheeta.getInstance(Validator.class);
 					BuildSpec buildSpec = getBuildSpec();
 					JobAuthorizationContext.push(new JobAuthorizationContext(getProject(), getCommit(), null));
 					try {
@@ -242,7 +242,7 @@ public class Import implements Serializable, Validatable {
 	
 	public Project getProject() {
 		if (project == null) {
-			project = OneDev.getInstance(ProjectService.class).findByPath(projectPath);
+			project = Cheeta.getInstance(ProjectService.class).findByPath(projectPath);
 			if (project == null)
 				throw new ExplicitException(MessageFormat.format( _T("Unable to find project to import build spec: {0}"), projectPath));
 		}

@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import javax.validation.constraints.NotEmpty;
 
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.IssueQuery;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.IssueQuery;
 
 @Editable
 public class NamedIssueQuery implements NamedQuery {

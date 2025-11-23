@@ -1,14 +1,14 @@
-package io.onedev.server.web.component.blob;
+package io.cheeta.server.web.component.blob;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.markup.html.WebComponent;
 import org.apache.wicket.model.IModel;
 
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.git.BlobIdent;
-import io.onedev.server.web.asset.icon.IconScope;
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.git.BlobIdent;
+import io.cheeta.server.web.asset.icon.IconScope;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public class BlobIcon extends WebComponent {
 
@@ -21,7 +21,7 @@ public class BlobIcon extends WebComponent {
 		String icon;
 		BlobIdent blobIdent = (BlobIdent) getDefaultModelObject();
 		
-		if (blobIdent.path.equals(BuildSpec.BLOB_PATH) || blobIdent.path.equals(".onedev-buildspec"))
+		if (blobIdent.path.equals(BuildSpec.BLOB_PATH) || blobIdent.path.equals(".cheeta-buildspec"))
 			icon = "gear";
 		else if (blobIdent.isTree())
 			icon = "folder";

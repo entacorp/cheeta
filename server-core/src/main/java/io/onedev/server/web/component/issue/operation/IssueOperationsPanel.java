@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.issue.operation;
+package io.cheeta.server.web.component.issue.operation;
 
 import com.google.common.collect.Lists;
-import io.onedev.server.model.Issue;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.issue.IssueStateBadge;
-import io.onedev.server.web.page.project.issues.create.NewIssuePage;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.issue.IssueStateBadge;
+import io.cheeta.server.web.page.project.issues.create.NewIssuePage;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;

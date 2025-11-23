@@ -1,6 +1,6 @@
-package io.onedev.server.event.project.pack;
+package io.cheeta.server.event.project.pack;
 
-import io.onedev.server.model.Pack;
+import io.cheeta.server.model.Pack;
 
 public class PackPublished extends PackEvent {
 

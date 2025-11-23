@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
@@ -20,8 +20,8 @@ import org.jspecify.annotations.Nullable;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.ExplicitException;
 
 public class ReflectionUtils {
 	

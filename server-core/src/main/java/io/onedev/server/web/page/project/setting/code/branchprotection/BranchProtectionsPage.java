@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.setting.code.branchprotection;
+package io.cheeta.server.web.page.project.setting.code.branchprotection;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.model.support.code.BranchProtection;
-import io.onedev.server.util.CollectionUtils;
-import io.onedev.server.web.behavior.sortable.SortBehavior;
-import io.onedev.server.web.behavior.sortable.SortPosition;
-import io.onedev.server.web.page.project.setting.ProjectSettingPage;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.model.support.code.BranchProtection;
+import io.cheeta.server.util.CollectionUtils;
+import io.cheeta.server.web.behavior.sortable.SortBehavior;
+import io.cheeta.server.web.behavior.sortable.SortPosition;
+import io.cheeta.server.web.page.project.setting.ProjectSettingPage;
 
 public class BranchProtectionsPage extends ProjectSettingPage {
 

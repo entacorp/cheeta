@@ -1,4 +1,4 @@
-package io.onedev.server.util.diff;
+package io.cheeta.server.util.diff;
 
 import java.io.Serializable;
 import java.util.List;

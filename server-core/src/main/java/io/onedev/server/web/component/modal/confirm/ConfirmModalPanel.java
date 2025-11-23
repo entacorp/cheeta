@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.modal.confirm;
+package io.cheeta.server.web.component.modal.confirm;
 
 import org.jspecify.annotations.Nullable;
 
@@ -6,7 +6,7 @@ import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.core.request.handler.IPartialPageRequestHandler;
 
-import io.onedev.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.modal.ModalPanel;
 
 public abstract class ConfirmModalPanel extends ModalPanel {
 

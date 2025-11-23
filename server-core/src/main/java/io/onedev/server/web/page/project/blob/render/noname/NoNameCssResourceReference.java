@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.blob.render.noname;
+package io.cheeta.server.web.page.project.blob.render.noname;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class NoNameCssResourceReference extends BaseDependentCssResourceReference {
 

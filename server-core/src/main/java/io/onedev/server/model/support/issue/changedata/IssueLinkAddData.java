@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue.changedata;
+package io.cheeta.server.model.support.issue.changedata;
 
 public class IssueLinkAddData extends IssueLinkChangeData {
 

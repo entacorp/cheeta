@@ -1,4 +1,4 @@
-onedev.server.userProfile = {
+cheeta.server.userProfile = {
     onDomReady: function(activityStatsByDay, fromDay, toDay, activityStatsByType, types, translations) {
         const graphContainer = $(".user-profile .daily-stats")[0];
         const DAY_IN_MS = 24 * 60 * 60 * 1000;
@@ -264,7 +264,7 @@ onedev.server.userProfile = {
         
         const maxValue = Math.max(...indicatorData.map(item => item.value), 0); // Ensure maxValue is at least 0
 
-        const isDarkMode = onedev.server.isDarkMode();
+        const isDarkMode = cheeta.server.isDarkMode();
         const axisNameColor = isDarkMode ? '#8b949e' : '#535370';
         const axisLineColor = isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(128, 128, 128, 0.2)';
         const chartColor = isDarkMode ? 'rgba(34, 134, 58, 1)' : 'rgba(64, 196, 99, 1)';

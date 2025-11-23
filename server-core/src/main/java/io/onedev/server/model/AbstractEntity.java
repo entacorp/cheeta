@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
 
@@ -19,9 +19,9 @@ import org.hibernate.proxy.HibernateProxy;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.model.support.EntityWatch;
-import io.onedev.server.rest.annotation.Api;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.model.support.EntityWatch;
+import io.cheeta.server.rest.annotation.Api;
 
 @MappedSuperclass
 @JsonIgnoreProperties("handler")
@@ -43,7 +43,7 @@ public abstract class AbstractEntity implements Serializable, Comparable<Abstrac
 	
 	@Api(order=1)
 	@Id
-	@GenericGenerator(name="entity_id", strategy="io.onedev.server.persistence.IdGenerator")
+	@GenericGenerator(name="entity_id", strategy="io.cheeta.server.persistence.IdGenerator")
 	@GeneratedValue(generator="entity_id")
 	@JsonProperty(access = READ_ONLY)
 	private Long id;

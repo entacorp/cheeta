@@ -1,4 +1,4 @@
-package io.onedev.server.web.page.project.pullrequests.detail.activities.activity;
+package io.cheeta.server.web.page.project.pullrequests.detail.activities.activity;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -6,13 +6,13 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.notification.ActivityDetail;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.component.user.ident.Mode;
-import io.onedev.server.web.component.user.ident.UserIdentPanel;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.SinceChangesLink;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.notification.ActivityDetail;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.component.user.ident.Mode;
+import io.cheeta.server.web.component.user.ident.UserIdentPanel;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.SinceChangesLink;
 
 class PullRequestChangePanel extends Panel {
 

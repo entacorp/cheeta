@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.user.list;
+package io.cheeta.server.web.component.user.list;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class SimpleUserListCssResourceReference extends BaseDependentCssResourceReference {
 

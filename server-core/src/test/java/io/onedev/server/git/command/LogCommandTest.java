@@ -1,4 +1,4 @@
-package io.onedev.server.git.command;
+package io.cheeta.server.git.command;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static org.junit.Assert.assertEquals;
@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import io.onedev.server.git.AbstractGitTest;
+import io.cheeta.server.git.AbstractGitTest;
 
 public class LogCommandTest extends AbstractGitTest {
 

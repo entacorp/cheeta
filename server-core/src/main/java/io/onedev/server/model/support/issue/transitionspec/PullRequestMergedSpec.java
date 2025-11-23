@@ -1,10 +1,10 @@
-package io.onedev.server.model.support.issue.transitionspec;
+package io.cheeta.server.model.support.issue.transitionspec;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.text.MessageFormat;
 
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=250, name="Pull request is merged")
 public class PullRequestMergedSpec extends PullRequestSpec {

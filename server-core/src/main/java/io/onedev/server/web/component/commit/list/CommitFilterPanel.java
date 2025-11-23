@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.commit.list;
+package io.cheeta.server.web.component.commit.list;
 
 import static java.util.stream.Collectors.toList;
 
@@ -16,27 +16,27 @@ import org.apache.wicket.model.LoadableDetachableModel;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.commit.AfterCriteria;
-import io.onedev.server.search.commit.AuthorCriteria;
-import io.onedev.server.search.commit.BeforeCriteria;
-import io.onedev.server.search.commit.CommitQuery;
-import io.onedev.server.search.commit.CommitterCriteria;
-import io.onedev.server.search.commit.PathCriteria;
-import io.onedev.server.search.commit.Revision;
-import io.onedev.server.search.commit.RevisionCriteria;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.util.DateUtils;
-import io.onedev.server.web.component.build.choice.BuildChoiceProvider;
-import io.onedev.server.web.component.build.choice.BuildSingleChoice;
-import io.onedev.server.web.component.datepicker.DatePicker;
-import io.onedev.server.web.component.stringchoice.StringMultiChoice;
-import io.onedev.server.web.component.stringchoice.StringSingleChoice;
-import io.onedev.server.xodus.CommitInfoService;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.commit.AfterCriteria;
+import io.cheeta.server.search.commit.AuthorCriteria;
+import io.cheeta.server.search.commit.BeforeCriteria;
+import io.cheeta.server.search.commit.CommitQuery;
+import io.cheeta.server.search.commit.CommitterCriteria;
+import io.cheeta.server.search.commit.PathCriteria;
+import io.cheeta.server.search.commit.Revision;
+import io.cheeta.server.search.commit.RevisionCriteria;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.util.DateUtils;
+import io.cheeta.server.web.component.build.choice.BuildChoiceProvider;
+import io.cheeta.server.web.component.build.choice.BuildSingleChoice;
+import io.cheeta.server.web.component.datepicker.DatePicker;
+import io.cheeta.server.web.component.stringchoice.StringMultiChoice;
+import io.cheeta.server.web.component.stringchoice.StringSingleChoice;
+import io.cheeta.server.xodus.CommitInfoService;
 
 abstract class CommitFilterPanel extends GenericPanel<CommitQuery> {
 	
@@ -175,7 +175,7 @@ abstract class CommitFilterPanel extends GenericPanel<CommitQuery> {
 
 			@Override
 			protected List<String> load() {
-				return OneDev.getInstance(CommitInfoService.class).getFiles(getProject().getId());
+				return Cheeta.getInstance(CommitInfoService.class).getFiles(getProject().getId());
 			}
 		}, true);
 		fileChoice.add(new AjaxFormComponentUpdatingBehavior("change") {
@@ -329,7 +329,7 @@ abstract class CommitFilterPanel extends GenericPanel<CommitQuery> {
 
 			@Override
 			protected List<String> load() {
-				var users = OneDev.getInstance(CommitInfoService.class).getUsers(getProject().getId());
+				var users = Cheeta.getInstance(CommitInfoService.class).getUsers(getProject().getId());
 				return users.stream().map(it-> {
 					String content;
 					if (StringUtils.isNotBlank(it.getEmailAddress()))

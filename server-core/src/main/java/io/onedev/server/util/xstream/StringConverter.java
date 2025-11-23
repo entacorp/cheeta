@@ -1,6 +1,6 @@
-package io.onedev.server.util.xstream;
+package io.cheeta.server.util.xstream;
 
-import io.onedev.commons.utils.StringUtils;
+import io.cheeta.commons.utils.StringUtils;
 
 public class StringConverter extends com.thoughtworks.xstream.converters.basic.StringConverter {
 

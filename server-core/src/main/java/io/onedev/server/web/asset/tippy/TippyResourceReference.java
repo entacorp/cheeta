@@ -1,4 +1,4 @@
-package io.onedev.server.web.asset.tippy;
+package io.cheeta.server.web.asset.tippy;
 
 import java.util.List;
 

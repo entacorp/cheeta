@@ -1,8 +1,8 @@
 services:
-  onedev:
+  cheeta:
     image: 1dev/server
     volumes:
-      - ./onedev:/opt/onedev
+      - ./cheeta:/opt/cheeta
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     ports:
@@ -12,9 +12,9 @@ services:
       ### This should be the same as POSTGRES_PASSWORD env below
       hibernate_connection_password: "changeit"
 
-      hibernate_dialect: io.onedev.server.persistence.PostgreSQLDialect
+      hibernate_dialect: io.cheeta.server.persistence.PostgreSQLDialect
       hibernate_connection_driver_class: org.postgresql.Driver
-      hibernate_connection_url: jdbc:postgresql://postgres:5432/onedev
+      hibernate_connection_url: jdbc:postgresql://postgres:5432/cheeta
       hibernate_connection_username: postgres
     tty: true
     depends_on:
@@ -28,8 +28,8 @@ services:
       POSTGRES_PASSWORD: "changeit"
 
       POSTGRES_USER: "postgres"
-      POSTGRES_DB: "onedev"
+      POSTGRES_DB: "cheeta"
     expose:
       - "5432"
     volumes:
-      - ./onedev/site/postgres:/var/lib/postgresql/data
+      - ./cheeta/site/postgres:/var/lib/postgresql/data

@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.coverage;
+package io.cheeta.server.plugin.report.coverage;
 
-import io.onedev.server.codequality.CoverageStatus;
+import io.cheeta.server.codequality.CoverageStatus;
 
 import java.util.Map;
 

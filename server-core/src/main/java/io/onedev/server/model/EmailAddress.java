@@ -1,11 +1,11 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.onedev.server.rest.annotation.Immutable;
-import io.onedev.server.util.CryptoUtils;
-import io.onedev.server.util.facade.EmailAddressFacade;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.rest.annotation.Immutable;
+import io.cheeta.server.util.CryptoUtils;
+import io.cheeta.server.util.facade.EmailAddressFacade;
+import io.cheeta.server.annotation.Editable;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 

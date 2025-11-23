@@ -1,11 +1,11 @@
-package io.onedev.server.validation.validator;
+package io.cheeta.server.validation.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import org.apache.commons.lang3.StringUtils;
 
-import io.onedev.server.annotation.ReviewRequirement;
+import io.cheeta.server.annotation.ReviewRequirement;
 
 public class ReviewRequirementValidator implements ConstraintValidator<ReviewRequirement, String> {
 	
@@ -22,7 +22,7 @@ public class ReviewRequirementValidator implements ConstraintValidator<ReviewReq
 			return true;
 		} else {
 			try {
-				io.onedev.server.util.reviewrequirement.ReviewRequirement.parse(value);
+				io.cheeta.server.util.reviewrequirement.ReviewRequirement.parse(value);
 				return true;
 			} catch (Exception e) {
 				constraintContext.disableDefaultConstraintViolation();

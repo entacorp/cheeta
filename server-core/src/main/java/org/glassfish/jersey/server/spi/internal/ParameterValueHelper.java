@@ -28,7 +28,7 @@ import javax.ws.rs.NotSupportedException;
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.WebApplicationException;
 
-import io.onedev.server.util.jackson.hibernate.EntityDeserializer;
+import io.cheeta.server.util.jackson.hibernate.EntityDeserializer;
 import org.glassfish.jersey.message.internal.MessageBodyProviderNotFoundException;
 import org.glassfish.jersey.server.ContainerRequest;
 import org.glassfish.jersey.server.internal.process.MappableException;

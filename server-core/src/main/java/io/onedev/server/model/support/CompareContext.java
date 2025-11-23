@@ -1,7 +1,7 @@
-package io.onedev.server.model.support;
+package io.cheeta.server.model.support;
 
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.util.diff.WhitespaceOption;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.util.diff.WhitespaceOption;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

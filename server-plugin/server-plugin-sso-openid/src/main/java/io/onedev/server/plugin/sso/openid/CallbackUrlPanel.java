@@ -1,10 +1,10 @@
-package io.onedev.server.plugin.sso.openid;
+package io.cheeta.server.plugin.sso.openid;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.web.component.link.copytoclipboard.CopyToClipboardLink;
+import io.cheeta.server.web.component.link.copytoclipboard.CopyToClipboardLink;
 
 public class CallbackUrlPanel extends Panel {
 

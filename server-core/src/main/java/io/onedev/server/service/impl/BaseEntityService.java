@@ -1,14 +1,14 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.List;
 
-import io.onedev.server.persistence.dao.Dao;
-import io.onedev.server.persistence.dao.EntityCriteria;
-import io.onedev.server.service.EntityService;
+import io.cheeta.server.persistence.dao.Dao;
+import io.cheeta.server.persistence.dao.EntityCriteria;
+import io.cheeta.server.service.EntityService;
 import org.hibernate.Session;
 
-import io.onedev.server.model.AbstractEntity;
-import io.onedev.server.util.ReflectionUtils;
+import io.cheeta.server.model.AbstractEntity;
+import io.cheeta.server.util.ReflectionUtils;
 
 import javax.inject.Inject;
 

@@ -1,13 +1,13 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.User;
-import io.onedev.server.util.facade.UserCache;
-import io.onedev.server.util.facade.UserFacade;
+import io.cheeta.server.model.User;
+import io.cheeta.server.util.facade.UserCache;
+import io.cheeta.server.util.facade.UserFacade;
 
 public interface UserService extends EntityService<User> {
 	

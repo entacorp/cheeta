@@ -1,12 +1,12 @@
-package io.onedev.server.plugin.report.markdown;
+package io.cheeta.server.plugin.report.markdown;
 
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.web.component.markdown.MarkdownViewer;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestSummaryPart;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.web.component.markdown.MarkdownViewer;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestSummaryPart;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.Model;
@@ -30,14 +30,14 @@ public class PullRequestSummaryMarkdownPart extends PullRequestSummaryPart {
 	
 	@Override
 	public Component render(String componentId) {
-		ProjectService projectService = OneDev.getInstance(ProjectService.class);
+		ProjectService projectService = Cheeta.getInstance(ProjectService.class);
 		String markdown = projectService.runOnActiveServer(projectId, new ClusterTask<String>() {
 
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public String call() throws Exception {
-				File categoryDir = new File(OneDev.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), PublishPullRequestMarkdownReportStep.CATEGORY);
+				File categoryDir = new File(Cheeta.getInstance(BuildService.class).getBuildDir(projectId, buildNumber), PublishPullRequestMarkdownReportStep.CATEGORY);
 				File file = new File(new File(categoryDir, getReportName()), PublishPullRequestMarkdownReportStep.CONTENT);
 				return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
 			}

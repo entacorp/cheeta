@@ -1,10 +1,10 @@
-package io.onedev.server.web.editable.issue.fieldinstance;
+package io.cheeta.server.web.editable.issue.fieldinstance;
 
-import io.onedev.server.model.support.issue.field.instance.FieldInstance;
-import io.onedev.server.model.support.issue.field.instance.IgnoreValue;
-import io.onedev.server.model.support.issue.field.instance.ScriptingValue;
-import io.onedev.server.model.support.issue.field.instance.SpecifiedValue;
-import io.onedev.server.web.editable.PropertyContext;
+import io.cheeta.server.model.support.issue.field.instance.FieldInstance;
+import io.cheeta.server.model.support.issue.field.instance.IgnoreValue;
+import io.cheeta.server.model.support.issue.field.instance.ScriptingValue;
+import io.cheeta.server.model.support.issue.field.instance.SpecifiedValue;
+import io.cheeta.server.web.editable.PropertyContext;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;

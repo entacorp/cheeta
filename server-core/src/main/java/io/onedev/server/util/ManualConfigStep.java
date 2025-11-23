@@ -1,4 +1,4 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
 import java.io.Serializable;
 
@@ -6,11 +6,11 @@ import org.jspecify.annotations.Nullable;
 
 import org.apache.wicket.markup.html.form.FormComponent;
 
-import io.onedev.server.util.init.ManualConfig;
-import io.onedev.server.web.behavior.ForceOrdinaryStyleBehavior;
-import io.onedev.server.web.component.wizard.WizardStep;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.util.init.ManualConfig;
+import io.cheeta.server.web.behavior.ForceOrdinaryStyleBehavior;
+import io.cheeta.server.web.component.wizard.WizardStep;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 public class ManualConfigStep implements WizardStep {
 

@@ -1,6 +1,6 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.PullRequestAssignment;
+import io.cheeta.server.model.PullRequestAssignment;
 
 public interface PullRequestAssignmentService extends EntityService<PullRequestAssignment> {
 

@@ -1,9 +1,9 @@
-package io.onedev.server.web.page.admin.authenticator;
+package io.cheeta.server.web.page.admin.authenticator;
 
 import java.io.Serializable;
 
-import io.onedev.server.model.support.administration.authenticator.Authenticator;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.model.support.administration.authenticator.Authenticator;
+import io.cheeta.server.annotation.Editable;
 
 @Editable
 public class AuthenticatorBean implements Serializable {

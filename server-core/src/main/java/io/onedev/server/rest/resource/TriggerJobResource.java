@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,14 +23,14 @@ import org.apache.shiro.util.ThreadContext;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.git.GitUtils;
-import io.onedev.server.job.JobService;
-import io.onedev.server.model.Project;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.service.AccessTokenService;
-import io.onedev.server.service.ProjectService;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.git.GitUtils;
+import io.cheeta.server.job.JobService;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.service.AccessTokenService;
+import io.cheeta.server.service.ProjectService;
 
 @Api(description="This resource provides an alternative way to run job by passing all parameters via url")
 @Path("/trigger-job")
@@ -56,7 +56,7 @@ public class TriggerJobResource {
 	
 	private static final String REF_DESCRIPTION = "Specify branch or tag to be triggered against. If none specified, default branch will be used";
 	
-	private static final String ACCESS_TOKEN_DESCRIPTION = "OneDev access token with permission to trigger the job";
+	private static final String ACCESS_TOKEN_DESCRIPTION = "Cheeta access token with permission to trigger the job";
 	
 	private final JobService jobService;
 	

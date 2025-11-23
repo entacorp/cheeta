@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec;
+package io.cheeta.server.buildspecmodel.inputspec;
 
 import java.util.ArrayList;
 import java.util.List;

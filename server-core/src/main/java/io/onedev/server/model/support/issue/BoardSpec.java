@@ -1,4 +1,4 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,30 +20,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.IssueQuery;
-import io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider.SpecifiedChoices;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.IssueSchedule;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.model.support.administration.GlobalIssueSetting;
-import io.onedev.server.model.support.issue.field.spec.FieldSpec;
-import io.onedev.server.model.support.issue.field.spec.GroupChoiceField;
-import io.onedev.server.model.support.issue.field.spec.choicefield.ChoiceField;
-import io.onedev.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
-import io.onedev.server.search.entity.issue.IssueQueryUpdater;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.usage.Usage;
-import io.onedev.server.web.component.issue.workflowreconcile.ReconcileUtils;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
-import io.onedev.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
-import io.onedev.server.web.component.stringchoice.StringChoiceProvider;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.IssueQuery;
+import io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider.SpecifiedChoices;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.IssueSchedule;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.model.support.administration.GlobalIssueSetting;
+import io.cheeta.server.model.support.issue.field.spec.FieldSpec;
+import io.cheeta.server.model.support.issue.field.spec.GroupChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.choicefield.ChoiceField;
+import io.cheeta.server.model.support.issue.field.spec.userchoicefield.UserChoiceField;
+import io.cheeta.server.search.entity.issue.IssueQueryUpdater;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.usage.Usage;
+import io.cheeta.server.web.component.issue.workflowreconcile.ReconcileUtils;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValue;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedFieldValuesResolution;
+import io.cheeta.server.web.component.issue.workflowreconcile.UndefinedStateResolution;
+import io.cheeta.server.web.component.stringchoice.StringChoiceProvider;
 
 @Editable
 public class BoardSpec implements Serializable {
@@ -144,7 +144,7 @@ public class BoardSpec implements Serializable {
 		List<String> displayColumns = new ArrayList<>();
 		for (String column: getColumns()) {
 			if (column == null) {
-				GlobalIssueSetting issueSetting = OneDev.getInstance(SettingService.class).getIssueSetting();
+				GlobalIssueSetting issueSetting = Cheeta.getInstance(SettingService.class).getIssueSetting();
 				FieldSpec field = issueSetting.getFieldSpec(getIdentifyField());
 				if (field != null)
 					displayColumns.add("<" + HtmlEscape.escapeHtml5(field.getNameOfEmptyValue()) + ">");
@@ -155,7 +155,7 @@ public class BoardSpec implements Serializable {
 		return displayColumns;
 	}
 
-	@Editable(order=450, description = "If specified, OneDev will only display iterations with this prefix")
+	@Editable(order=450, description = "If specified, Cheeta will only display iterations with this prefix")
 	public String getIterationPrefix() {
 		return iterationPrefix;
 	}
@@ -221,7 +221,7 @@ public class BoardSpec implements Serializable {
 	@SuppressWarnings("unused")
 	private static List<String> getDisplayLinkChoices() {
 		List<String> choices = new ArrayList<>();
-		for (LinkSpec linkSpec: OneDev.getInstance(LinkSpecService.class).queryAndSort()) {
+		for (LinkSpec linkSpec: Cheeta.getInstance(LinkSpecService.class).queryAndSort()) {
 			choices.add(linkSpec.getName());
 			if (linkSpec.getOpposite() != null)
 				choices.add(linkSpec.getOpposite().getName());
@@ -253,7 +253,7 @@ public class BoardSpec implements Serializable {
 	}
 	
 	private static GlobalIssueSetting getIssueSetting() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting();
 	}
 	
 	public static int getBoardIndex(List<BoardSpec> boards, String name) {

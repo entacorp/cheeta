@@ -1,4 +1,4 @@
-package io.onedev.server.taskschedule;
+package io.cheeta.server.taskschedule;
 
 import java.util.Properties;
 import java.util.UUID;
@@ -23,7 +23,7 @@ import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.security.SecurityUtils;
 
 @Singleton
 public class DefaultTaskScheduler implements TaskScheduler {

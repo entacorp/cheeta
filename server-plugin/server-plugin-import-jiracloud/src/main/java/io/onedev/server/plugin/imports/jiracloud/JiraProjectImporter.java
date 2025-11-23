@@ -1,14 +1,14 @@
-package io.onedev.server.plugin.imports.jiracloud;
+package io.cheeta.server.plugin.imports.jiracloud;
 
 import com.google.common.collect.Lists;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.imports.ProjectImporter;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.web.component.taskbutton.TaskResult;
-import io.onedev.server.web.util.ImportStep;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.imports.ProjectImporter;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.web.component.taskbutton.TaskResult;
+import io.cheeta.server.web.util.ImportStep;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.List;
@@ -74,7 +74,7 @@ public class JiraProjectImporter implements ProjectImporter {
 
 	@Override
 	public TaskResult doImport(boolean dryRun, TaskLogger logger) {
-		return OneDev.getInstance(TransactionService.class).call(() -> {
+		return Cheeta.getInstance(TransactionService.class).call(() -> {
 			return serverStep.getSetting().importProjects(
 					projectsStep.getSetting(), optionStep.getSetting(), dryRun, logger);
 		});

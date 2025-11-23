@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.imports.github;
+package io.cheeta.server.plugin.imports.github;
 
 import java.util.Collection;
 import java.util.List;
@@ -7,16 +7,16 @@ import java.util.stream.Collectors;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraints.Size;
 
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.ClassValidating;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.CreateChildren;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.validation.Validatable;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.ClassValidating;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.CreateChildren;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.validation.Validatable;
+import io.cheeta.server.web.editable.BeanEditor;
 
 @Editable
 @ClassValidating
@@ -24,7 +24,7 @@ public class ImportRepositories extends ImportOrganization implements Validatabl
 
 	private static final long serialVersionUID = 1L;
 
-	private String parentOneDevProject;
+	private String parentCheetaProject;
 	
 	private boolean all;
 	
@@ -32,19 +32,19 @@ public class ImportRepositories extends ImportOrganization implements Validatabl
 	
 	private List<String> gitHubRepositories;
 
-	@Editable(order=200, name="Parent OneDev Project", description = "Optionally specify a OneDev project " +
+	@Editable(order=200, name="Parent Cheeta Project", description = "Optionally specify a Cheeta project " +
 			"to be used as parent of imported repositories. Leave empty to import as root projects")
-	@ChoiceProvider("getParentOneDevProjectChoices")
-	public String getParentOneDevProject() {
-		return parentOneDevProject;
+	@ChoiceProvider("getParentCheetaProjectChoices")
+	public String getParentCheetaProject() {
+		return parentCheetaProject;
 	}
 
-	public void setParentOneDevProject(String parentOneDevProject) {
-		this.parentOneDevProject = parentOneDevProject;
+	public void setParentCheetaProject(String parentCheetaProject) {
+		this.parentCheetaProject = parentCheetaProject;
 	}
 
 	@SuppressWarnings("unused")
-	private static List<String> getParentOneDevProjectChoices() {
+	private static List<String> getParentCheetaProjectChoices() {
 		return SecurityUtils.getAuthorizedProjects(new CreateChildren()).stream()
 				.map(it->it.getPath()).sorted().collect(Collectors.toList());
 	}
@@ -97,11 +97,11 @@ public class ImportRepositories extends ImportOrganization implements Validatabl
 	
 	@Override
 	public boolean isValid(ConstraintValidatorContext context) {
-		if (parentOneDevProject == null && !SecurityUtils.canCreateRootProjects()) {
+		if (parentCheetaProject == null && !SecurityUtils.canCreateRootProjects()) {
 			context.disableDefaultConstraintViolation();
 			var errorMessage = "No permission to import as root projects, please specify parent project";
 			context.buildConstraintViolationWithTemplate(errorMessage)
-					.addPropertyNode("parentOneDevProject")
+					.addPropertyNode("parentCheetaProject")
 					.addConstraintViolation();
 			return false;
 		} else {

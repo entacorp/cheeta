@@ -1,11 +1,11 @@
-package io.onedev.server.buildspecmodel.inputspec.dateinput.defaultvalueprovider;
+package io.cheeta.server.buildspecmodel.inputspec.dateinput.defaultvalueprovider;
 
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
 
 @Editable(order=100, name="Use specified default value")
 public class SpecifiedDefaultValue implements DefaultValueProvider {

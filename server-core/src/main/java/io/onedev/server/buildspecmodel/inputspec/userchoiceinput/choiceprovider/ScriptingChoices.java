@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider;
+package io.cheeta.server.buildspecmodel.inputspec.userchoiceinput.choiceprovider;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,13 +10,13 @@ import javax.validation.constraints.NotEmpty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.server.util.GroovyUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.User;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ScriptChoice;
+import io.cheeta.server.util.GroovyUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.User;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ScriptChoice;
 
 @Editable(order=300, name="Evaluate script to get choices")
 public class ScriptingChoices implements ChoiceProvider {
@@ -28,7 +28,7 @@ public class ScriptingChoices implements ChoiceProvider {
 	private String scriptName;
 
 	@Editable(description="Groovy script to be evaluated. The return value should be a list of user login names to "
-			+ "be used as choices. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details")
+			+ "be used as choices. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details")
 	@ScriptChoice
 	@OmitName
 	@NotEmpty
@@ -48,7 +48,7 @@ public class ScriptingChoices implements ChoiceProvider {
 		try {
 			return ((List<String>) GroovyUtils.evalScriptByName(scriptName, variables))
 					.stream()
-					.map(it->OneDev.getInstance(UserService.class).findByName(it))
+					.map(it->Cheeta.getInstance(UserService.class).findByName(it))
 					.filter(it->it!=null)
 					.collect(Collectors.toList());
 		} catch (RuntimeException e) {

@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.pullrequests.detail.activities;
+package io.cheeta.server.web.page.project.pullrequests.detail.activities;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -43,37 +43,37 @@ import org.joda.time.DateTime;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.attachment.AttachmentSupport;
-import io.onedev.server.attachment.ProjectAttachmentSupport;
-import io.onedev.server.service.BuildService;
-import io.onedev.server.service.PullRequestCommentService;
-import io.onedev.server.entityreference.ReferencedFromAware;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.PullRequest;
-import io.onedev.server.model.PullRequestChange;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.model.PullRequestUpdate;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestDescriptionChangeData;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.ChangeObserver;
-import io.onedev.server.web.component.comment.CommentInput;
-import io.onedev.server.web.page.base.BasePage;
-import io.onedev.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.activity.PullRequestChangeActivity;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.activity.PullRequestCommentActivity;
-import io.onedev.server.web.page.project.pullrequests.detail.activities.activity.PullRequestUpdateActivity;
-import io.onedev.server.web.page.security.LoginPage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.attachment.AttachmentSupport;
+import io.cheeta.server.attachment.ProjectAttachmentSupport;
+import io.cheeta.server.service.BuildService;
+import io.cheeta.server.service.PullRequestCommentService;
+import io.cheeta.server.entityreference.ReferencedFromAware;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.PullRequest;
+import io.cheeta.server.model.PullRequestChange;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.model.PullRequestUpdate;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestDescriptionChangeData;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.ChangeObserver;
+import io.cheeta.server.web.component.comment.CommentInput;
+import io.cheeta.server.web.page.base.BasePage;
+import io.cheeta.server.web.page.project.pullrequests.detail.PullRequestDetailPage;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.activity.PullRequestChangeActivity;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.activity.PullRequestCommentActivity;
+import io.cheeta.server.web.page.project.pullrequests.detail.activities.activity.PullRequestUpdateActivity;
+import io.cheeta.server.web.page.security.LoginPage;
 
 public class PullRequestActivitiesPage extends PullRequestDetailPage {
 	
-	private static final String COOKIE_SHOW_COMMENTS = "onedev.server.pullRequest.showComments";
+	private static final String COOKIE_SHOW_COMMENTS = "cheeta.server.pullRequest.showComments";
 	
-	private static final String COOKIE_SHOW_COMMITS = "onedev.server.pullRequest.showCommits";
+	private static final String COOKIE_SHOW_COMMITS = "cheeta.server.pullRequest.showCommits";
 	
-	private static final String COOKIE_SHOW_CHANGE_HISTORY = "onedev.server.pullRequest.showChangeHistory";
+	private static final String COOKIE_SHOW_CHANGE_HISTORY = "cheeta.server.pullRequest.showChangeHistory";
 	
 	private boolean showComments = true;
 	
@@ -163,7 +163,7 @@ public class PullRequestActivitiesPage extends PullRequestDetailPage {
 	}
 
 	private BuildService getBuildService() {
-		return 	OneDev.getInstance(BuildService.class);
+		return 	Cheeta.getInstance(BuildService.class);
 	}
 	
 	@Override
@@ -280,7 +280,7 @@ public class PullRequestActivitiesPage extends PullRequestDetailPage {
 						comment.setRequest(getPullRequest());
 						comment.setUser(getLoginUser());
 						comment.setContent(input.getModelObject());
-						OneDev.getInstance(PullRequestCommentService.class).create(comment, new ArrayList<>());
+						Cheeta.getInstance(PullRequestCommentService.class).create(comment, new ArrayList<>());
 						
 						if (showComments) {
 							((BasePage) getPage()).notifyObservableChange(target,

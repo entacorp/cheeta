@@ -1,8 +1,8 @@
-package io.onedev.server.buildspec.param.instance;
+package io.cheeta.server.buildspec.param.instance;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.buildspec.param.ParamCombination;
-import io.onedev.server.model.Build;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.buildspec.param.ParamCombination;
+import io.cheeta.server.model.Build;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

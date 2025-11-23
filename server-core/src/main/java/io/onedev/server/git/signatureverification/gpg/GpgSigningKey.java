@@ -1,4 +1,4 @@
-package io.onedev.server.git.signatureverification.gpg;
+package io.cheeta.server.git.signatureverification.gpg;
 
 import org.bouncycastle.openpgp.PGPPublicKey;
 

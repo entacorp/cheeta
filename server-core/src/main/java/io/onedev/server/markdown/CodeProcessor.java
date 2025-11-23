@@ -1,6 +1,6 @@
-package io.onedev.server.markdown;
+package io.cheeta.server.markdown;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,14 +16,14 @@ import org.jsoup.select.NodeVisitor;
 
 import com.google.common.base.Splitter;
 
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.model.Project;
-import io.onedev.server.util.diff.DiffBlock;
-import io.onedev.server.util.diff.DiffRenderer;
-import io.onedev.server.util.diff.DiffUtils;
-import io.onedev.server.web.component.markdown.SuggestionSupport;
-import io.onedev.server.web.component.markdown.SuggestionSupport.Selection;
-import io.onedev.server.web.page.project.blob.render.BlobRenderContext;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.util.diff.DiffBlock;
+import io.cheeta.server.util.diff.DiffRenderer;
+import io.cheeta.server.util.diff.DiffUtils;
+import io.cheeta.server.web.component.markdown.SuggestionSupport;
+import io.cheeta.server.web.component.markdown.SuggestionSupport.Selection;
+import io.cheeta.server.web.page.project.blob.render.BlobRenderContext;
 
 public class CodeProcessor implements HtmlProcessor {
 	

@@ -1,4 +1,4 @@
-package io.onedev.server.web.behavior;
+package io.cheeta.server.web.behavior;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.Behavior;
@@ -6,7 +6,7 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 
-import io.onedev.server.web.asset.selectbytyping.SelectByTypingResourceReference;
+import io.cheeta.server.web.asset.selectbytyping.SelectByTypingResourceReference;
 
 public class SelectByTypingBehavior extends Behavior {
 

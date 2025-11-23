@@ -1,16 +1,16 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.event.Event;
-import io.onedev.server.event.project.RefUpdated;
-import io.onedev.server.event.project.build.BuildEvent;
-import io.onedev.server.event.project.issue.IssueEvent;
-import io.onedev.server.event.project.pack.PackEvent;
-import io.onedev.server.event.project.pullrequest.PullRequestEvent;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.administration.emailtemplates.EmailTemplates;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.event.Event;
+import io.cheeta.server.event.project.RefUpdated;
+import io.cheeta.server.event.project.build.BuildEvent;
+import io.cheeta.server.event.project.issue.IssueEvent;
+import io.cheeta.server.event.project.pack.PackEvent;
+import io.cheeta.server.event.project.pullrequest.PullRequestEvent;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.administration.emailtemplates.EmailTemplates;
 import org.unbescape.html.HtmlEscape;
 
 import org.jspecify.annotations.Nullable;
@@ -36,7 +36,7 @@ public class NotificationUtils {
 		bindings.put("replyable", replyable);
 		bindings.put("unsubscribable", unsubscribable);
 
-		var templates = OneDev.getInstance(SettingService.class).getEmailTemplates();
+		var templates = Cheeta.getInstance(SettingService.class).getEmailTemplates();
 		if (event instanceof IssueEvent) {
 			template = templates.getIssueNotification();
 			bindings.put("issue", ((IssueEvent) event).getIssue());

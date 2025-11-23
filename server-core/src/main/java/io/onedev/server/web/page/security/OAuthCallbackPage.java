@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.security;
+package io.cheeta.server.web.page.security;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.Session;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -8,8 +8,8 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.unbescape.javascript.JavaScriptEscape;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.web.page.simple.SimplePage;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.web.page.simple.SimplePage;
 
 public class OAuthCallbackPage extends SimplePage {
 
@@ -30,7 +30,7 @@ public class OAuthCallbackPage extends SimplePage {
 		
 		if (!state.equals(Session.get().getAttribute("oauthState"))) {
 			throw new ExplicitException(_T("Invalid state. Please make sure you are visiting "
-					+ "OneDev using server url specified in system setting"));
+					+ "Cheeta using server url specified in system setting"));
 		} else {
 			Session.get().setAttribute("oauthCode", code);
 		}

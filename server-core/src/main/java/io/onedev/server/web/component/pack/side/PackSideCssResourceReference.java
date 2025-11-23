@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.pack.side;
+package io.cheeta.server.web.component.pack.side;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class PackSideCssResourceReference extends BaseDependentCssResourceReference {
 

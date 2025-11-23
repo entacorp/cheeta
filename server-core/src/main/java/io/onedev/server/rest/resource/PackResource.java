@@ -1,4 +1,4 @@
-package io.onedev.server.rest.resource;
+package io.cheeta.server.rest.resource;
 
 import static java.util.stream.Collectors.toList;
 
@@ -20,17 +20,17 @@ import javax.ws.rs.core.Response;
 
 import org.apache.shiro.authz.UnauthorizedException;
 
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.PackService;
-import io.onedev.server.model.Pack;
-import io.onedev.server.model.PackBlob;
-import io.onedev.server.model.PackBlobReference;
-import io.onedev.server.model.PackLabel;
-import io.onedev.server.rest.annotation.Api;
-import io.onedev.server.rest.resource.support.RestConstants;
-import io.onedev.server.search.entity.pack.PackQuery;
-import io.onedev.server.security.SecurityUtils;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.PackService;
+import io.cheeta.server.model.Pack;
+import io.cheeta.server.model.PackBlob;
+import io.cheeta.server.model.PackBlobReference;
+import io.cheeta.server.model.PackLabel;
+import io.cheeta.server.rest.annotation.Api;
+import io.cheeta.server.rest.resource.support.RestConstants;
+import io.cheeta.server.search.entity.pack.PackQuery;
+import io.cheeta.server.security.SecurityUtils;
 
 @Api(name="Package")
 @Path("/packages")
@@ -59,7 +59,7 @@ public class PackResource {
     	return pack;
     }
 
-	@Api(order=150, description = "Get list of <a href='/~help/api/io.onedev.server.rest.PackLabelResource'>labels</a>")
+	@Api(order=150, description = "Get list of <a href='/~help/api/io.cheeta.server.rest.PackLabelResource'>labels</a>")
 	@Path("/{packId}/labels")
 	@GET
 	public Collection<PackLabel> getLabels(@PathParam("packId") Long packId) {

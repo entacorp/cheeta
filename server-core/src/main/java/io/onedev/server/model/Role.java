@@ -1,4 +1,4 @@
-package io.onedev.server.model;
+package io.cheeta.server.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,49 +24,49 @@ import org.jetbrains.annotations.Nullable;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Multiline;
-import io.onedev.server.annotation.RoleName;
-import io.onedev.server.annotation.ShowCondition;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.support.role.AllIssueFields;
-import io.onedev.server.model.support.role.CodePrivilege;
-import io.onedev.server.model.support.role.IssueFieldSet;
-import io.onedev.server.model.support.role.JobPrivilege;
-import io.onedev.server.model.support.role.PackPrivilege;
-import io.onedev.server.security.permission.AccessBuild;
-import io.onedev.server.security.permission.AccessBuildLog;
-import io.onedev.server.security.permission.AccessBuildPipeline;
-import io.onedev.server.security.permission.AccessBuildReports;
-import io.onedev.server.security.permission.AccessConfidentialIssues;
-import io.onedev.server.security.permission.AccessProject;
-import io.onedev.server.security.permission.AccessTimeTracking;
-import io.onedev.server.security.permission.BasePermission;
-import io.onedev.server.security.permission.CreateChildren;
-import io.onedev.server.security.permission.EditIssueField;
-import io.onedev.server.security.permission.EditIssueLink;
-import io.onedev.server.security.permission.JobPermission;
-import io.onedev.server.security.permission.ManageBuilds;
-import io.onedev.server.security.permission.ManageCodeComments;
-import io.onedev.server.security.permission.ManageIssues;
-import io.onedev.server.security.permission.ManageJob;
-import io.onedev.server.security.permission.ManageProject;
-import io.onedev.server.security.permission.ManagePullRequests;
-import io.onedev.server.security.permission.ReadCode;
-import io.onedev.server.security.permission.ReadPack;
-import io.onedev.server.security.permission.RunJob;
-import io.onedev.server.security.permission.ScheduleIssues;
-import io.onedev.server.security.permission.UploadCache;
-import io.onedev.server.security.permission.WriteCode;
-import io.onedev.server.security.permission.WritePack;
-import io.onedev.server.util.EditContext;
-import io.onedev.server.util.facade.RoleFacade;
-import io.onedev.server.util.facade.UserFacade;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Multiline;
+import io.cheeta.server.annotation.RoleName;
+import io.cheeta.server.annotation.ShowCondition;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.support.role.AllIssueFields;
+import io.cheeta.server.model.support.role.CodePrivilege;
+import io.cheeta.server.model.support.role.IssueFieldSet;
+import io.cheeta.server.model.support.role.JobPrivilege;
+import io.cheeta.server.model.support.role.PackPrivilege;
+import io.cheeta.server.security.permission.AccessBuild;
+import io.cheeta.server.security.permission.AccessBuildLog;
+import io.cheeta.server.security.permission.AccessBuildPipeline;
+import io.cheeta.server.security.permission.AccessBuildReports;
+import io.cheeta.server.security.permission.AccessConfidentialIssues;
+import io.cheeta.server.security.permission.AccessProject;
+import io.cheeta.server.security.permission.AccessTimeTracking;
+import io.cheeta.server.security.permission.BasePermission;
+import io.cheeta.server.security.permission.CreateChildren;
+import io.cheeta.server.security.permission.EditIssueField;
+import io.cheeta.server.security.permission.EditIssueLink;
+import io.cheeta.server.security.permission.JobPermission;
+import io.cheeta.server.security.permission.ManageBuilds;
+import io.cheeta.server.security.permission.ManageCodeComments;
+import io.cheeta.server.security.permission.ManageIssues;
+import io.cheeta.server.security.permission.ManageJob;
+import io.cheeta.server.security.permission.ManageProject;
+import io.cheeta.server.security.permission.ManagePullRequests;
+import io.cheeta.server.security.permission.ReadCode;
+import io.cheeta.server.security.permission.ReadPack;
+import io.cheeta.server.security.permission.RunJob;
+import io.cheeta.server.security.permission.ScheduleIssues;
+import io.cheeta.server.security.permission.UploadCache;
+import io.cheeta.server.security.permission.WriteCode;
+import io.cheeta.server.security.permission.WritePack;
+import io.cheeta.server.util.EditContext;
+import io.cheeta.server.util.facade.RoleFacade;
+import io.cheeta.server.util.facade.UserFacade;
+import io.cheeta.server.web.util.WicketUtils;
 
 /**
  * @author robin
@@ -291,7 +291,7 @@ public class Role extends AbstractEntity implements BasePermission {
 
 	@SuppressWarnings("unused")
 	private static List<String> getIssueFieldChoices() {
-		return OneDev.getInstance(SettingService.class).getIssueSetting().getFieldNames();
+		return Cheeta.getInstance(SettingService.class).getIssueSetting().getFieldNames();
 	}
 	
 	@Editable(order=625, placeholder="None", description="Optionally specify issue links allowed to edit")
@@ -307,7 +307,7 @@ public class Role extends AbstractEntity implements BasePermission {
 	
 	private static Map<String, String> getIssueLinkDisplayNames() {
 		Map<String, String> choices = new LinkedHashMap<>();
-		for (LinkSpec link: OneDev.getInstance(LinkSpecService.class).queryAndSort()) {
+		for (LinkSpec link: Cheeta.getInstance(LinkSpecService.class).queryAndSort()) {
 			choices.put(link.getName(), link.getDisplayName());
 		}
 		return choices;

@@ -1,11 +1,11 @@
-package io.onedev.server.search.entity;
+package io.cheeta.server.search.entity;
 
-import static io.onedev.server.search.entity.EntitySort.Direction.ASCENDING;
+import static io.cheeta.server.search.entity.EntitySort.Direction.ASCENDING;
 
 import java.util.Comparator;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.search.entity.EntitySort.Direction;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.search.entity.EntitySort.Direction;
 
 public class IssueSortField extends SortField<Issue> {
 

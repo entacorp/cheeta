@@ -1,14 +1,14 @@
-package io.onedev.server.plugin.report.problem;
+package io.cheeta.server.plugin.report.problem;
 
-import io.onedev.server.codequality.CodeProblem;
-import io.onedev.server.codequality.ProblemTarget;
-import io.onedev.server.model.Build;
+import io.cheeta.server.codequality.CodeProblem;
+import io.cheeta.server.codequality.ProblemTarget;
+import io.cheeta.server.model.Build;
 import org.apache.commons.lang3.SerializationUtils;
 
 import java.io.*;
 import java.util.*;
 
-import static io.onedev.server.util.IOUtils.BUFFER_SIZE;
+import static io.cheeta.server.util.IOUtils.BUFFER_SIZE;
 
 public class ProblemReport implements Serializable {
 

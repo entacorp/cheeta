@@ -1,4 +1,4 @@
-onedev.server.colorPicker = {
+cheeta.server.colorPicker = {
 	onDomReady: function(inputId, allowEmpty) {
 		var $input = $("#" + inputId);
 		var pickrElementId = inputId + "-pickr";

@@ -1,11 +1,11 @@
-package io.onedev.server.buildspec.job.trigger;
+package io.cheeta.server.buildspec.job.trigger;
 
-import io.onedev.server.buildspec.job.Job;
-import io.onedev.server.buildspec.job.TriggerMatch;
-import io.onedev.server.event.project.ProjectEvent;
-import io.onedev.server.event.project.pullrequest.PullRequestChanged;
-import io.onedev.server.model.support.pullrequest.changedata.PullRequestDiscardData;
-import io.onedev.server.annotation.Editable;
+import io.cheeta.server.buildspec.job.Job;
+import io.cheeta.server.buildspec.job.TriggerMatch;
+import io.cheeta.server.event.project.ProjectEvent;
+import io.cheeta.server.event.project.pullrequest.PullRequestChanged;
+import io.cheeta.server.model.support.pullrequest.changedata.PullRequestDiscardData;
+import io.cheeta.server.annotation.Editable;
 
 @Editable(order=320, name="Pull request discard", description="Job will run on head commit of target branch")
 public class PullRequestDiscardTrigger extends PullRequestTrigger {

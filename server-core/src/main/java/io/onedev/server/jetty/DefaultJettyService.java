@@ -1,4 +1,4 @@
-package io.onedev.server.jetty;
+package io.cheeta.server.jetty;
 
 import java.io.ObjectStreamException;
 import java.io.Serializable;
@@ -25,19 +25,19 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 
 import com.google.inject.servlet.GuiceFilter;
 
-import io.onedev.commons.bootstrap.Bootstrap;
-import io.onedev.commons.loader.ManagedSerializedForm;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.server.cluster.ClusterRunnable;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.cluster.ClusterTask;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.entity.EntityPersisted;
-import io.onedev.server.model.Setting;
-import io.onedev.server.model.support.administration.SystemSetting;
-import io.onedev.server.persistence.TransactionService;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.SettingService;
+import io.cheeta.commons.bootstrap.Bootstrap;
+import io.cheeta.commons.loader.ManagedSerializedForm;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.server.cluster.ClusterRunnable;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.cluster.ClusterTask;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.entity.EntityPersisted;
+import io.cheeta.server.model.Setting;
+import io.cheeta.server.model.support.administration.SystemSetting;
+import io.cheeta.server.persistence.TransactionService;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.SettingService;
 
 @Singleton
 public class DefaultJettyService implements JettyService, Provider<ServletContextHandler>, Serializable {

@@ -1,4 +1,4 @@
-package io.onedev.server.git.command;
+package io.cheeta.server.git.command;
 
 import java.io.File;
 import java.io.InputStream;
@@ -7,9 +7,9 @@ import java.util.Map;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.commons.utils.command.Commandline;
-import io.onedev.commons.utils.command.ExecutionResult;
-import io.onedev.server.git.CommandUtils;
+import io.cheeta.commons.utils.command.Commandline;
+import io.cheeta.commons.utils.command.ExecutionResult;
+import io.cheeta.server.git.CommandUtils;
 
 public class UploadPackCommand {
 

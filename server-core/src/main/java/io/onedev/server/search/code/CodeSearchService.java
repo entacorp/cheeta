@@ -1,4 +1,4 @@
-package io.onedev.server.search.code;
+package io.cheeta.server.search.code;
 
 import java.util.List;
 
@@ -7,12 +7,12 @@ import org.jspecify.annotations.Nullable;
 import org.apache.lucene.search.IndexSearcher;
 import org.eclipse.jgit.lib.ObjectId;
 
-import io.onedev.commons.jsymbol.Symbol;
-import io.onedev.server.model.Project;
-import io.onedev.server.search.code.hit.QueryHit;
-import io.onedev.server.search.code.hit.SymbolHit;
-import io.onedev.server.search.code.query.BlobQuery;
-import io.onedev.server.search.code.query.TooGeneralQueryException;
+import io.cheeta.commons.jsymbol.Symbol;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.search.code.hit.QueryHit;
+import io.cheeta.server.search.code.hit.SymbolHit;
+import io.cheeta.server.search.code.query.BlobQuery;
+import io.cheeta.server.search.code.query.TooGeneralQueryException;
 
 public interface CodeSearchService {
 

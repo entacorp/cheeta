@@ -1,8 +1,8 @@
-package io.onedev.server.service;
+package io.cheeta.server.service;
 
-import io.onedev.server.model.Issue;
-import io.onedev.server.model.Stopwatch;
-import io.onedev.server.model.User;
+import io.cheeta.server.model.Issue;
+import io.cheeta.server.model.Stopwatch;
+import io.cheeta.server.model.User;
 
 import org.jspecify.annotations.Nullable;
 

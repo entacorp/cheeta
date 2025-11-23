@@ -1,18 +1,18 @@
-package io.onedev.server.notification;
+package io.cheeta.server.notification;
 
 import com.google.common.collect.Lists;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.event.Listen;
-import io.onedev.server.event.project.pack.PackEvent;
-import io.onedev.server.mail.MailService;
-import io.onedev.server.model.*;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.search.entity.pack.PackQuery;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.security.permission.ReadPack;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.event.Listen;
+import io.cheeta.server.event.project.pack.PackEvent;
+import io.cheeta.server.mail.MailService;
+import io.cheeta.server.model.*;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.search.entity.pack.PackQuery;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.security.permission.ReadPack;
+import io.cheeta.server.web.UrlService;
 import org.apache.shiro.authz.Permission;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-import static io.onedev.server.notification.NotificationUtils.getEmailBody;
+import static io.cheeta.server.notification.NotificationUtils.getEmailBody;
 import static java.util.stream.Collectors.toList;
 
 @Singleton
@@ -72,7 +72,7 @@ public class PackNotificationManager {
 				summary = "Package published via build " + pack.getBuild().getReference();
 
 			String url = urlService.urlFor(pack, true);
-			String threadingReferences = "<" + pack.getProject().getPath() + "-pack-" + pack.getId() + "@onedev>";
+			String threadingReferences = "<" + pack.getProject().getPath() + "-pack-" + pack.getId() + "@cheeta>";
 			String htmlBody = getEmailBody(true, event, summary, null, url, false, null);
 			String textBody = getEmailBody(false, event, summary, null, url, false, null);
 			mailService.sendMailAsync(Lists.newArrayList(), Lists.newArrayList(), emails, subject, htmlBody,

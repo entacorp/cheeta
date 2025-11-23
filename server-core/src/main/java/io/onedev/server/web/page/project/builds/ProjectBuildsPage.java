@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.project.builds;
+package io.cheeta.server.web.page.project.builds;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,30 +16,30 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.BuildQueryPersonalizationService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.model.BuildQueryPersonalization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.support.NamedQuery;
-import io.onedev.server.model.support.QueryPersonalization;
-import io.onedev.server.model.support.administration.GlobalBuildSetting;
-import io.onedev.server.model.support.build.NamedBuildQuery;
-import io.onedev.server.model.support.build.ProjectBuildSetting;
-import io.onedev.server.web.component.build.list.BuildListPanel;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.modal.ModalPanel;
-import io.onedev.server.web.component.savedquery.NamedQueriesBean;
-import io.onedev.server.web.component.savedquery.PersonalQuerySupport;
-import io.onedev.server.web.component.savedquery.SaveQueryPanel;
-import io.onedev.server.web.component.savedquery.SavedQueriesPanel;
-import io.onedev.server.web.page.project.ProjectPage;
-import io.onedev.server.web.page.project.dashboard.ProjectDashboardPage;
-import io.onedev.server.web.util.NamedBuildQueriesBean;
-import io.onedev.server.web.util.QuerySaveSupport;
-import io.onedev.server.web.util.paginghistory.PagingHistorySupport;
-import io.onedev.server.web.util.paginghistory.ParamPagingHistorySupport;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.BuildQueryPersonalizationService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.model.BuildQueryPersonalization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.support.NamedQuery;
+import io.cheeta.server.model.support.QueryPersonalization;
+import io.cheeta.server.model.support.administration.GlobalBuildSetting;
+import io.cheeta.server.model.support.build.NamedBuildQuery;
+import io.cheeta.server.model.support.build.ProjectBuildSetting;
+import io.cheeta.server.web.component.build.list.BuildListPanel;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.modal.ModalPanel;
+import io.cheeta.server.web.component.savedquery.NamedQueriesBean;
+import io.cheeta.server.web.component.savedquery.PersonalQuerySupport;
+import io.cheeta.server.web.component.savedquery.SaveQueryPanel;
+import io.cheeta.server.web.component.savedquery.SavedQueriesPanel;
+import io.cheeta.server.web.page.project.ProjectPage;
+import io.cheeta.server.web.page.project.dashboard.ProjectDashboardPage;
+import io.cheeta.server.web.util.NamedBuildQueriesBean;
+import io.cheeta.server.web.util.QuerySaveSupport;
+import io.cheeta.server.web.util.paginghistory.PagingHistorySupport;
+import io.cheeta.server.web.util.paginghistory.ParamPagingHistorySupport;
 
 public class ProjectBuildsPage extends ProjectPage {
 
@@ -59,11 +59,11 @@ public class ProjectBuildsPage extends ProjectPage {
 	}
 
 	private BuildQueryPersonalizationService getBuildQueryPersonalizationService() {
-		return OneDev.getInstance(BuildQueryPersonalizationService.class);
+		return Cheeta.getInstance(BuildQueryPersonalizationService.class);
 	}
 	
 	protected GlobalBuildSetting getBuildSetting() {
-		return OneDev.getInstance(SettingService.class).getBuildSetting();
+		return Cheeta.getInstance(SettingService.class).getBuildSetting();
 	}
 	
 	@Override

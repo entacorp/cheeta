@@ -1,8 +1,8 @@
-package io.onedev.server.exception;
+package io.cheeta.server.exception;
 
 import edu.emory.mathcs.backport.java.util.Collections;
-import io.onedev.server.OneDev;
-import io.onedev.server.exception.handler.ExceptionHandler;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.exception.handler.ExceptionHandler;
 
 import org.jspecify.annotations.Nullable;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +15,7 @@ import java.util.List;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static javax.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 
-public class ExceptionUtils extends io.onedev.commons.utils.ExceptionUtils {
+public class ExceptionUtils extends io.cheeta.commons.utils.ExceptionUtils {
 	
 	public static void handle(HttpServletResponse servletResponse, Exception exception) {
 		try {
@@ -44,7 +44,7 @@ public class ExceptionUtils extends io.onedev.commons.utils.ExceptionUtils {
 	@Nullable
 	public static HttpResponse buildResponse(Throwable exception) {
 		List<ExceptionHandler<? extends Throwable>> handlers = new ArrayList<>();
-		for (ExceptionHandler<? extends Throwable> handler: OneDev.getExtensions(ExceptionHandler.class)) 
+		for (ExceptionHandler<? extends Throwable> handler: Cheeta.getExtensions(ExceptionHandler.class)) 
 			handlers.add(handler);
 		Collections.sort(handlers, (Comparator<ExceptionHandler<? extends Throwable>>) (o1, o2) -> 
 				getInheritanceLevel(o2.getExceptionClass()) - getInheritanceLevel(o1.getExceptionClass()));

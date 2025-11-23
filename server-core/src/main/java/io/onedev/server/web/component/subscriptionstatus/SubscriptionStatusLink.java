@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.subscriptionstatus;
+package io.cheeta.server.web.component.subscriptionstatus;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -10,7 +10,7 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
-import io.onedev.server.web.component.svg.SpriteImage;
+import io.cheeta.server.web.component.svg.SpriteImage;
 
 public abstract class SubscriptionStatusLink extends AjaxLink<Void> {
 

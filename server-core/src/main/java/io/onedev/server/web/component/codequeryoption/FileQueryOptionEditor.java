@@ -1,10 +1,10 @@
-package io.onedev.server.web.component.codequeryoption;
+package io.cheeta.server.web.component.codequeryoption;
 
-import io.onedev.server.search.code.query.FileQuery;
-import io.onedev.server.search.code.query.FileQueryOption;
-import io.onedev.server.search.code.query.TooGeneralQueryException;
+import io.cheeta.server.search.code.query.FileQuery;
+import io.cheeta.server.search.code.query.FileQueryOption;
+import io.cheeta.server.search.code.query.TooGeneralQueryException;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.feedback.FencedFeedbackPanel;

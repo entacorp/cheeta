@@ -1,9 +1,9 @@
-onedev.server.blobTextDiff = {
+cheeta.server.blobTextDiff = {
 	symbolClasses: ".cm-property, .cm-variable, .cm-variable-2, .cm-variable-3, .cm-def, .cm-meta, .cm-string, .cm-tag, .cm-attribute, cm-builtin, cm-qualifier",
 	onDomReady: function(containerId, symbolTooltipId, oldRev, newRev, oldPath, newPath, 
 						 callback, blameMessageCallback, markRange, openComment, 
 						 annotationInfo, commentContainerId, translations) {
-		onedev.server.blobTextDiff.translations = translations;
+		cheeta.server.blobTextDiff.translations = translations;
 		var $container = $("#" + containerId);
 		$container.data("commentContainerId", commentContainerId);
 		$container.data("callback", callback);
@@ -29,7 +29,7 @@ onedev.server.blobTextDiff = {
 				symbolTooltip.onMouseOverSymbol(revision, this);
 		});
 		$container.data("onMouseOverContent", function() {
-			if (!onedev.server.mouseState.pressed) {
+			if (!cheeta.server.mouseState.pressed) {
 				if ($(this).hasClass("left")) {
 					$container.find("td.content.right").addClass("noselect");
 					$container.find("td.content.left").removeClass("noselect");
@@ -46,7 +46,7 @@ onedev.server.blobTextDiff = {
 			callback("setActive");
 		});
 
-		onedev.server.blobTextDiff.initBlameTooltip(containerId, $container.find("td.blame>a.hash"));
+		cheeta.server.blobTextDiff.initBlameTooltip(containerId, $container.find("td.blame>a.hash"));
 		
 		$container.selectionPopover("init", function(e) {
 	    	if ($(e.target).closest(".selection-popover").length != 0) {
@@ -55,7 +55,7 @@ onedev.server.blobTextDiff = {
 			
 	    	var selection = window.getSelection();
 
-	    	if (!selection.rangeCount || !onedev.server.mouseState.position) {
+	    	if (!selection.rangeCount || !cheeta.server.mouseState.position) {
 	    		return "close";
 	    	}
 
@@ -329,12 +329,12 @@ onedev.server.blobTextDiff = {
 	    		return "close";
 			}
 
-			position = onedev.server.mouseState.position;			
+			position = cheeta.server.mouseState.position;			
 
 			function showInvalidSelection() {
 				var $content = $("<div></div>");
-				$content.append(`<a class='invalid'><svg class='icon'><use xlink:href='${onedev.server.icons}#warning'/></svg> ${onedev.server.blobTextDiff.translations["invalid-selection"]}</a>`);
-				$content.children("a").attr("href", "https://docs.onedev.io/appendix/diff-selection").attr("target", "_blank");
+				$content.append(`<a class='invalid'><svg class='icon'><use xlink:href='${cheeta.server.icons}#warning'/></svg> ${cheeta.server.blobTextDiff.translations["invalid-selection"]}</a>`);
+				$content.children("a").attr("href", "https://docs.cheeta.dev/appendix/diff-selection").attr("target", "_blank");
 				return {
 					position: position, 
 					content: $content
@@ -424,13 +424,13 @@ onedev.server.blobTextDiff = {
 		let oldCoverages = annotationInfo.oldAnnotations.coverages;
 		for (var line in oldCoverages) {
 			if (oldCoverages.hasOwnProperty(line)) 
-				onedev.server.blobTextDiff.addCoverateInfo($container, true, line, oldCoverages[line]);
+				cheeta.server.blobTextDiff.addCoverateInfo($container, true, line, oldCoverages[line]);
 		}
 		
 		let newCoverages = annotationInfo.newAnnotations.coverages;
 		for (var line in newCoverages) {
 			if (newCoverages.hasOwnProperty(line)) 
-				onedev.server.blobTextDiff.addCoverateInfo($container, false, line, newCoverages[line]);
+				cheeta.server.blobTextDiff.addCoverateInfo($container, false, line, newCoverages[line]);
 		}
 
 		let oldProblems = annotationInfo.oldAnnotations.problems;
@@ -439,7 +439,7 @@ onedev.server.blobTextDiff = {
 				let oldProblemsOnLine = oldProblems[line];
 				for (var i in oldProblemsOnLine) 
 					oldProblemsOnLine[i].target.location.leftSide = true;
-				onedev.server.blobTextDiff.addProblemInfo($container, true, line, oldProblems[line]);
+				cheeta.server.blobTextDiff.addProblemInfo($container, true, line, oldProblems[line]);
 			}
 		}
 		
@@ -449,7 +449,7 @@ onedev.server.blobTextDiff = {
 				let newProblemsOnLine = newProblems[line];
 				for (var i in newProblemsOnLine) 
 					newProblemsOnLine[i].target.location.leftSide = false;
-				onedev.server.blobTextDiff.addProblemInfo($container, false, line, newProblems[line]);
+				cheeta.server.blobTextDiff.addProblemInfo($container, false, line, newProblems[line]);
 			}
 		}
 		
@@ -462,7 +462,7 @@ onedev.server.blobTextDiff = {
 				let oldCommentsOnLine = oldComments[line];
 				for (var i in oldCommentsOnLine) 
 					oldCommentsOnLine[i].range.leftSide = true;
-		    	onedev.server.blobTextDiff.addCommentIndicator($container, true, line, oldCommentsOnLine);
+		    	cheeta.server.blobTextDiff.addCommentIndicator($container, true, line, oldCommentsOnLine);
 		    }
 		}
 		var newComments = annotationInfo.newAnnotations.comments;
@@ -471,33 +471,33 @@ onedev.server.blobTextDiff = {
 				let newCommentsOnLine = newComments[line];
 				for (var i in newCommentsOnLine) 
 					newCommentsOnLine[i].range.leftSide = false;
-		    	onedev.server.blobTextDiff.addCommentIndicator($container, false, line, newCommentsOnLine);
+		    	cheeta.server.blobTextDiff.addCommentIndicator($container, false, line, newCommentsOnLine);
 		    }
 		}
 		
-		onedev.server.blobTextDiff.highlightCommentTrigger($container);				
+		cheeta.server.blobTextDiff.highlightCommentTrigger($container);				
 		
 		if (markRange) {
 			$container.data("markRange", markRange);
-			onedev.server.blobTextDiff.mark($container, markRange);	
+			cheeta.server.blobTextDiff.mark($container, markRange);	
 		}			
 	},
 	onLoad: function(containerId, markRange) {
 		var $container = $("#" + containerId);
-		if (markRange && onedev.server.viewState.getFromHistory() === undefined)
-			onedev.server.blobTextDiff.scrollTo($container, markRange);
+		if (markRange && cheeta.server.viewState.getFromHistory() === undefined)
+			cheeta.server.blobTextDiff.scrollTo($container, markRange);
 		
 		var $scrollParent = $container.scrollParent();
 		if (!$scrollParent.data("onTextDiffScrollInstalled"))	{
 			$scrollParent.data("onTextDiffScrollInstalled", true);
 			$scrollParent.doneEvents("scroll", function() {
 				$(".blob-text-diff").each(function() {
-					onedev.server.blobTextDiff.highlightSyntax($(this));
+					cheeta.server.blobTextDiff.highlightSyntax($(this));
 				}, 100);
 			});
 		}		
 		
-		onedev.server.blobTextDiff.highlightSyntax($container);
+		cheeta.server.blobTextDiff.highlightSyntax($container);
 	},
 	highlightSyntax($container) {
 		var oldBlobPath = $container.data("oldPath");
@@ -695,7 +695,7 @@ onedev.server.blobTextDiff = {
 								newLineIndex++;
 						}
 						
-						$codeTr.find(onedev.server.blobTextDiff.symbolClasses).mouseover($container.data("symbolHover"));
+						$codeTr.find(cheeta.server.blobTextDiff.symbolClasses).mouseover($container.data("symbolHover"));
 						if ($codeTr.is($lastCodeTr))
 							break;
 						$codeTr = $codeTr.next();
@@ -705,9 +705,9 @@ onedev.server.blobTextDiff = {
 				}
 			}	
 					
-			var oldModeInfo = onedev.server.codemirror.findModeByFileName(oldBlobPath);
+			var oldModeInfo = cheeta.server.codemirror.findModeByFileName(oldBlobPath);
 			if (oldModeInfo) {
-				onedev.server.codemirror.highlightSyntax(
+				cheeta.server.codemirror.highlightSyntax(
 					oldLines.join("\n"), 
 					oldModeInfo, 
 					function(text, style, lineIndex, beginPos) {
@@ -724,9 +724,9 @@ onedev.server.blobTextDiff = {
 				doneHighlight();
 			}
 			
-			var newModeInfo = onedev.server.codemirror.findModeByFileName(newBlobPath);
+			var newModeInfo = cheeta.server.codemirror.findModeByFileName(newBlobPath);
 			if (newModeInfo) {
-				onedev.server.codemirror.highlightSyntax(
+				cheeta.server.codemirror.highlightSyntax(
 					newLines.join("\n"), 
 					newModeInfo, 
 					function(text, style, lineIndex, beginPos) {
@@ -759,7 +759,7 @@ onedev.server.blobTextDiff = {
 
 			var tooltipId = "blame-message-" + containerId + "_" + oldLine + "_" + newLine;
 			$container.data("blameMessageCallback")(tooltipId, $(this).data("hash"));
-			var $tooltip = $(`<div class='blame-message'><div class='loading'>${onedev.server.blobTextDiff.translations["loading"]}</div></div>`);
+			var $tooltip = $(`<div class='blame-message'><div class='loading'>${cheeta.server.blobTextDiff.translations["loading"]}</div></div>`);
 			$tooltip.attr("id", tooltipId);
 			$tooltip.data("trigger", this);
 			$tooltip.data("alignment", alignment);
@@ -771,11 +771,11 @@ onedev.server.blobTextDiff = {
 		var $container = $("#" + containerId);
 		
 		if (!markUrl) {
-			$content = $(`<div><span class='invalid'><svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#warning'/></svg> ${onedev.server.blobTextDiff.translations["unable-to-comment"]}</span></div>`);
+			$content = $(`<div><span class='invalid'><svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#warning'/></svg> ${cheeta.server.blobTextDiff.translations["unable-to-comment"]}</span></div>`);
 		} else {
-			var $content = $(`<div><a class='permanent'><svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#link'/></svg> ${onedev.server.blobTextDiff.translations["perma-link"]}</a>`);
+			var $content = $(`<div><a class='permanent'><svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#link'/></svg> ${cheeta.server.blobTextDiff.translations["perma-link"]}</a>`);
 			$content.children("a.permanent").attr("href", markUrl);
-			$content.append(`<a class='copy-marked'><svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#copy'/></svg> ${onedev.server.blobTextDiff.translations["copy-to-clipboard"]}</a>`);
+			$content.append(`<a class='copy-marked'><svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#copy'/></svg> ${cheeta.server.blobTextDiff.translations["copy-to-clipboard"]}</a>`);
 			var clipboard = new ClipboardJS(".copy-marked", {
 			    text: function(trigger) {
 			        return markedText;
@@ -786,16 +786,16 @@ onedev.server.blobTextDiff = {
 				$(".selection-popover").remove();
 			});
 			if (loggedIn) {
-				$content.append(`<a class='comment'><svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#comment'/></svg> ${onedev.server.blobTextDiff.translations["add-selection-comment"]}</a>`);
+				$content.append(`<a class='comment'><svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#comment'/></svg> ${cheeta.server.blobTextDiff.translations["add-selection-comment"]}</a>`);
 				$content.children("a.comment").click(function() {
-					if (onedev.server.blobTextDiff.confirmUnsavedChanges($container)) {
+					if (cheeta.server.blobTextDiff.confirmUnsavedChanges($container)) {
 						$container.data("callback")("addComment", markRange.leftSide, 
 								markRange.fromRow, markRange.fromColumn, markRange.toRow, markRange.toColumn);
 					}
 				});
 			} else {
 				var loginHref = $(".sign-in").attr("href");
-				$content.append(`<a class='comment' href='${loginHref}'><svg class='icon mr-1'><use xlink:href='${onedev.server.icons}#warning'/></svg> ${onedev.server.blobTextDiff.translations["login-to-comment-on-selection"]}</a>`);
+				$content.append(`<a class='comment' href='${loginHref}'><svg class='icon mr-1'><use xlink:href='${cheeta.server.icons}#warning'/></svg> ${cheeta.server.blobTextDiff.translations["login-to-comment-on-selection"]}</a>`);
 			}			
 		}		
 		
@@ -806,7 +806,7 @@ onedev.server.blobTextDiff = {
 	},
 	confirmUnsavedChanges: function($container) {
 		return $("#"+$container.data("commentContainerId")).find("form.dirty").length == 0 
-				|| confirm(onedev.server.blobTextDiff.translations["unsaved-changes-prompt"]); 
+				|| confirm(cheeta.server.blobTextDiff.translations["unsaved-changes-prompt"]); 
 	},
 	expand: function(containerId, blockIndex, expandedHtml) {
 		var $container = $("#" + containerId);
@@ -864,8 +864,8 @@ onedev.server.blobTextDiff = {
 			processBlames(1);
 		}
 		
-		onedev.server.blobTextDiff.initBlameTooltip(containerId, $expandedTrs.find(">td.blame>a.hash"));
-		onedev.server.blobTextDiff.highlightSyntax($container);
+		cheeta.server.blobTextDiff.initBlameTooltip(containerId, $expandedTrs.find(">td.blame>a.hash"));
+		cheeta.server.blobTextDiff.highlightSyntax($container);
 		$container.find("td.expander a").each(function() {
 			tippy(this, {
 				delay: [500, 0],
@@ -906,7 +906,7 @@ onedev.server.blobTextDiff = {
 		};
 	},
 	scrollTo: function($container, markRange) {
-		var markInfo = onedev.server.blobTextDiff.getMarkInfo($container, markRange);
+		var markInfo = cheeta.server.blobTextDiff.getMarkInfo($container, markRange);
 		var $startTd = markInfo.startTd;
 		var $endTd = markInfo.endTd;
 		if ($startTd && $endTd) {
@@ -916,14 +916,14 @@ onedev.server.blobTextDiff = {
 		}
 	},
 	scrollIntoView: function($container, markRange) {
-		var markInfo = onedev.server.blobTextDiff.getMarkInfo($container, markRange);
+		var markInfo = cheeta.server.blobTextDiff.getMarkInfo($container, markRange);
 		var $startTd = markInfo.startTd;
 		var $endTd = markInfo.endTd;
 		if ($startTd && $endTd) 
 			$startTd[0].scrollIntoViewIfNeeded();
 	},
 	mark: function($container, markRangeOrMarkRanges) {
-		onedev.server.blobTextDiff.clearMark($container);
+		cheeta.server.blobTextDiff.clearMark($container);
 
 		var markRanges;		
 		if (Array.isArray(markRangeOrMarkRanges)) {
@@ -935,7 +935,7 @@ onedev.server.blobTextDiff = {
 
 		for (let i in markRanges) {
 			let markRange = markRanges[i];
-			var markInfo = onedev.server.blobTextDiff.getMarkInfo($container, markRange);
+			var markInfo = cheeta.server.blobTextDiff.getMarkInfo($container, markRange);
 			var $startTd = markInfo.startTd;
 			var $endTd = markInfo.endTd;
 			if ($startTd && $endTd) {
@@ -1059,31 +1059,31 @@ onedev.server.blobTextDiff = {
 	restoreMark: function($container) {
 		var markRange = $container.data("markRange");
 		if (markRange) {
-			onedev.server.blobTextDiff.mark($container, markRange);
+			cheeta.server.blobTextDiff.mark($container, markRange);
 		} else {
-			onedev.server.blobTextDiff.clearMark($container);
+			cheeta.server.blobTextDiff.clearMark($container);
 		}
 	},
 	addProblemInfo: function($container, leftSide, line, problems) {
 		let oldOrNew = leftSide?"old":"new";
 		$container.find("." + oldOrNew + ".problem-popover[data-line='" + line + "']").remove();
-		let $lineNumTd = onedev.server.blobTextDiff.getLineNumTd($container, leftSide, line);
+		let $lineNumTd = cheeta.server.blobTextDiff.getLineNumTd($container, leftSide, line);
 		
 		let $trigger = $(document.createElement("a"));
 		$trigger.addClass("problem-trigger");
 		
-		$trigger.addClass(onedev.server.codeProblem.getSeverityInfo(problems));
+		$trigger.addClass(cheeta.server.codeProblem.getSeverityInfo(problems));
 
-		$trigger.append(`<svg class='icon icon-sm'><use xlink:href='${onedev.server.icons}#exclamation-circle-o'/></svg>`);
+		$trigger.append(`<svg class='icon icon-sm'><use xlink:href='${cheeta.server.icons}#exclamation-circle-o'/></svg>`);
 		
 		let markRanges = [];
 		for (var i in problems) 
 			markRanges.push(problems[i].target.location);			
 		
 		$trigger.mouseover(function() {
-			onedev.server.blobTextDiff.mark($container, markRanges);
+			cheeta.server.blobTextDiff.mark($container, markRanges);
 		}).mouseout(function() {
-			onedev.server.blobTextDiff.restoreMark($container);
+			cheeta.server.blobTextDiff.restoreMark($container);
 		});
 
 		$trigger.mousedown(function() {
@@ -1097,19 +1097,19 @@ onedev.server.blobTextDiff = {
 					sanitize: false, 
 					placement: "top", 
 					container: $container,
-					content: onedev.server.codeProblem.renderProblems(problems, onedev.server.blobTextDiff.translations),
+					content: cheeta.server.codeProblem.renderProblems(problems, cheeta.server.blobTextDiff.translations),
 					template: `<div data-line='${line}' class='${oldOrNew} popover problem-popover'><div class='arrow'></div><div class='popover-body'></div></div>`
 				}).on("shown.bs.popover", function() {
 					var $currentPopover = $(`.problem-popover.${oldOrNew}[data-line='${line}']`);
 					$(".popover").not($currentPopover).popover("hide");
 					$currentPopover.find(".problem-content").mouseover(function() {
-						onedev.server.blobTextDiff.mark($container, problems[$(this).index()].target.location);
+						cheeta.server.blobTextDiff.mark($container, problems[$(this).index()].target.location);
 					}).mouseout(function() {
-						onedev.server.blobTextDiff.restoreMark($container);
+						cheeta.server.blobTextDiff.restoreMark($container);
 					}).each(function() {
 						var problem = problems[$(this).index()];
 						$(this).children(".add-comment").click(function() {
-							if (onedev.server.blobTextDiff.confirmUnsavedChanges($container)) {
+							if (cheeta.server.blobTextDiff.confirmUnsavedChanges($container)) {
 								$currentPopover.popover("hide");
 								var range = problem.target.location;
 								$container.data("callback")("addComment", leftSide, range.fromRow, range.fromColumn, 
@@ -1131,15 +1131,15 @@ onedev.server.blobTextDiff = {
 			$lineNumTd.prepend($trigger);
 	},
 	addCoverateInfo: function($container, leftSide, line, coverageStatus) {
-		var $lineNumTd = onedev.server.blobTextDiff.getLineNumTd($container, leftSide, line);
+		var $lineNumTd = cheeta.server.blobTextDiff.getLineNumTd($container, leftSide, line);
 		var cssClass = coverageStatus.toLowerCase();
 		var title;
 		if (coverageStatus == 'COVERED') 
-			title = onedev.server.blobTextDiff.translations["covered-by-tests"]; 
+			title = cheeta.server.blobTextDiff.translations["covered-by-tests"]; 
 		else if (coverageStatus == 'NOT_COVERED')
-			title = onedev.server.blobTextDiff.translations["not-covered-by-any-test"];
+			title = cheeta.server.blobTextDiff.translations["not-covered-by-any-test"];
 		else  
-			title = onedev.server.blobTextDiff.translations["partially-covered-by-some-tests"];
+			title = cheeta.server.blobTextDiff.translations["partially-covered-by-some-tests"];
 			
 		$lineNumTd.find(".coverage").addClass(cssClass).attr("data-tippy-content", title);		
 		tippy($lineNumTd.find(".coverage")[0], {
@@ -1150,7 +1150,7 @@ onedev.server.blobTextDiff = {
 	addCommentIndicator: function($container, leftSide, line, comments) {
 		var oldOrNew = leftSide?"old":"new";
 		$container.find("." + oldOrNew + ".comment-popover[data-line='" + line + "']").remove();
-		var $lineNumTd = onedev.server.blobTextDiff.getLineNumTd($container, leftSide, line);
+		var $lineNumTd = cheeta.server.blobTextDiff.getLineNumTd($container, leftSide, line);
 		
 		var callback = $container.data("callback");
 		
@@ -1173,13 +1173,13 @@ onedev.server.blobTextDiff = {
 					cssClasses += " updated";
 					updated = true;
 				}
-				content += `<a class='${cssClasses}' data-tippy-content='${onedev.server.blobTextDiff.translations["show-comment"]}'>#${comments[i].id}</a>`;
+				content += `<a class='${cssClasses}' data-tippy-content='${cheeta.server.blobTextDiff.translations["show-comment"]}'>#${comments[i].id}</a>`;
 			}
 
 			if (updated)
 				$indicator.addClass("updated");
 			
-			$indicator.append(`<svg class='icon'><use xlink:href='${onedev.server.icons}#comments'/></svg>`);
+			$indicator.append(`<svg class='icon'><use xlink:href='${cheeta.server.icons}#comments'/></svg>`);
 			
 			$indicator.popover({
 				html: true, 
@@ -1196,13 +1196,13 @@ onedev.server.blobTextDiff = {
 				$currentPopover.find("a").each(function() {
 					$(this).mouseover(function() {
 						var comment = comments[$(this).index()];			        						
-						onedev.server.blobTextDiff.mark($container, comment.range);
+						cheeta.server.blobTextDiff.mark($container, comment.range);
 					});
 					$(this).mouseout(function() {
-						onedev.server.blobTextDiff.restoreMark($container);
+						cheeta.server.blobTextDiff.restoreMark($container);
 					});
 					$(this).click(function() {
-						if (!$(this).hasClass("active") && onedev.server.blobTextDiff.confirmUnsavedChanges($container)) {
+						if (!$(this).hasClass("active") && cheeta.server.blobTextDiff.confirmUnsavedChanges($container)) {
 							var comment = comments[$(this).index()];			        						
 							callback("openComment", comment.id, comment.range.leftSide, comment.range.fromRow, 
 									comment.range.fromColumn, comment.range.toRow, comment.range.toColumn);
@@ -1213,22 +1213,22 @@ onedev.server.blobTextDiff = {
 						placement: 'auto'
 					});					
 				});
-				onedev.server.blobTextDiff.highlightCommentTrigger($container);				
+				cheeta.server.blobTextDiff.highlightCommentTrigger($container);				
 			});
 		} else {
 			var comment = comments[0];
 			if (comment.updated)
 				$indicator.addClass("updated");
-			$indicator.addClass("comment-trigger").attr("data-tippy-content", onedev.server.blobTextDiff.translations["show-comment"]);
-			$indicator.append("<svg class='icon'><use xlink:href='" + onedev.server.icons + "#comment'/></svg>");
+			$indicator.addClass("comment-trigger").attr("data-tippy-content", cheeta.server.blobTextDiff.translations["show-comment"]);
+			$indicator.append("<svg class='icon'><use xlink:href='" + cheeta.server.icons + "#comment'/></svg>");
 			$indicator.mouseover(function() {
-				onedev.server.blobTextDiff.mark($container, comment.range);
+				cheeta.server.blobTextDiff.mark($container, comment.range);
 			});
 			$indicator.mouseout(function() {
-				onedev.server.blobTextDiff.restoreMark($container);
+				cheeta.server.blobTextDiff.restoreMark($container);
 			});
 			$indicator.click(function() {
-				if (!$indicator.hasClass("active") && onedev.server.blobTextDiff.confirmUnsavedChanges($container)) {
+				if (!$indicator.hasClass("active") && cheeta.server.blobTextDiff.confirmUnsavedChanges($container)) {
 					callback("openComment", comment.id, comment.range.leftSide, comment.range.fromRow, 
 							comment.range.fromColumn, comment.range.toRow, comment.range.toColumn);
 				}
@@ -1259,7 +1259,7 @@ onedev.server.blobTextDiff = {
 		var openComment = $container.data("openComment");
 		if (openComment) {
 			var line = parseInt(openComment.range.fromRow);
-			var $indicator = onedev.server.blobTextDiff.getLineNumTd($container, openComment.range.leftSide, line).children(".comment-indicator");
+			var $indicator = cheeta.server.blobTextDiff.getLineNumTd($container, openComment.range.leftSide, line).children(".comment-indicator");
 			if ($indicator.length != 0) {
 				var comments = $indicator.data("comments");
 				if (comments.length == 1) {
@@ -1283,7 +1283,7 @@ onedev.server.blobTextDiff = {
 		var line = parseInt(comment.range.fromRow);		
 		var leftSide = comment.range.leftSide;
 		
-		var $indicator = onedev.server.blobTextDiff.getLineNumTd($container, leftSide, line).children(".comment-indicator");
+		var $indicator = cheeta.server.blobTextDiff.getLineNumTd($container, leftSide, line).children(".comment-indicator");
 		var comments;
 		if ($indicator.length != 0) {
 			comments = $indicator.data("comments");
@@ -1291,8 +1291,8 @@ onedev.server.blobTextDiff = {
 			comments = [];
 		} 
 		comments.push(comment);
-		onedev.server.blobTextDiff.addCommentIndicator($container, leftSide, line, comments);
-		onedev.server.blobTextDiff.highlightCommentTrigger($container);				
+		cheeta.server.blobTextDiff.addCommentIndicator($container, leftSide, line, comments);
+		cheeta.server.blobTextDiff.highlightCommentTrigger($container);				
 	},
 	onCommentDeleted: function($container) {
 		$(".popover").popover("hide");
@@ -1303,7 +1303,7 @@ onedev.server.blobTextDiff = {
 			
 			var line = parseInt(openComment.range.fromRow);
 			var leftSide = openComment.range.leftSide;
-			var $indicator = onedev.server.blobTextDiff.getLineNumTd($container, leftSide, line).children(".comment-indicator");
+			var $indicator = cheeta.server.blobTextDiff.getLineNumTd($container, leftSide, line).children(".comment-indicator");
 			var comments = $indicator.data("comments");
 			if (comments.length == 1) {
 				$indicator.remove();
@@ -1315,23 +1315,23 @@ onedev.server.blobTextDiff = {
 						break;
 					}
 				}
-				onedev.server.blobTextDiff.addCommentIndicator($container, leftSide, line, comments);
+				cheeta.server.blobTextDiff.addCommentIndicator($container, leftSide, line, comments);
 			}
-			onedev.server.blobTextDiff.highlightCommentTrigger($container);				
+			cheeta.server.blobTextDiff.highlightCommentTrigger($container);				
 		}
 	},
 	onCommentOpened: function($container, comment) {
 		$(".popover").popover("hide");
 		$container.data("openComment", comment);
 		$container.data("markRange", comment.range);
-		onedev.server.blobTextDiff.highlightCommentTrigger($container);
-		onedev.server.blobTextDiff.mark($container, comment.range);
-		onedev.server.blobTextDiff.scrollIntoView($container, comment.range);
+		cheeta.server.blobTextDiff.highlightCommentTrigger($container);
+		cheeta.server.blobTextDiff.mark($container, comment.range);
+		cheeta.server.blobTextDiff.scrollIntoView($container, comment.range);
 	},
 	onCommentClosed: function($container) {
 		$(".popover").popover("hide");
 		$container.removeData("openComment");
-		onedev.server.blobTextDiff.highlightCommentTrigger($container);
+		cheeta.server.blobTextDiff.highlightCommentTrigger($container);
 	},
 	onAddComment: function($container, markRange) {
 		$(".popover").popover("hide");
@@ -1344,9 +1344,9 @@ onedev.server.blobTextDiff = {
 		// continue to operate DOM in a timer to give browser a chance to 
 		// clear selections
 		setTimeout(function() {
-			onedev.server.blobTextDiff.highlightCommentTrigger($container);
-			onedev.server.blobTextDiff.mark($container, markRange);
-			onedev.server.blobTextDiff.scrollIntoView($container, markRange);
+			cheeta.server.blobTextDiff.highlightCommentTrigger($container);
+			cheeta.server.blobTextDiff.mark($container, markRange);
+			cheeta.server.blobTextDiff.scrollIntoView($container, markRange);
 		}, 100);
 	}
 };

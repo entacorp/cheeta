@@ -1,9 +1,9 @@
-package io.onedev.server.util;
+package io.cheeta.server.util;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.OneDev;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.model.LinkSpec;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.model.LinkSpec;
 
 public class LinkDescriptor {
 	
@@ -17,7 +17,7 @@ public class LinkDescriptor {
 	}
 	
 	public LinkDescriptor(String linkName) {
-		spec = OneDev.getInstance(LinkSpecService.class).find(linkName);
+		spec = Cheeta.getInstance(LinkSpecService.class).find(linkName);
 		if (spec == null)
 			throw new ExplicitException("Link spec not found: " + linkName);
 		opposite = !linkName.equals(spec.getName());

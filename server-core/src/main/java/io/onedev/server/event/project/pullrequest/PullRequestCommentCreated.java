@@ -1,13 +1,13 @@
-package io.onedev.server.event.project.pullrequest;
+package io.cheeta.server.event.project.pullrequest;
 
 import java.util.Collection;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.service.PullRequestCommentService;
-import io.onedev.server.model.PullRequestComment;
-import io.onedev.server.util.commenttext.CommentText;
-import io.onedev.server.util.commenttext.MarkdownText;
-import io.onedev.server.web.UrlService;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.service.PullRequestCommentService;
+import io.cheeta.server.model.PullRequestComment;
+import io.cheeta.server.util.commenttext.CommentText;
+import io.cheeta.server.util.commenttext.MarkdownText;
+import io.cheeta.server.web.UrlService;
 
 public class PullRequestCommentCreated extends PullRequestEvent {
 
@@ -24,7 +24,7 @@ public class PullRequestCommentCreated extends PullRequestEvent {
 	}
 
 	public PullRequestComment getComment() {
-		return OneDev.getInstance(PullRequestCommentService.class).load(commentId);
+		return Cheeta.getInstance(PullRequestCommentService.class).load(commentId);
 	}
 
 	public Collection<String> getNotifiedEmailAddresses() {
@@ -43,7 +43,7 @@ public class PullRequestCommentCreated extends PullRequestEvent {
 
 	@Override
 	public String getUrl() {
-		return OneDev.getInstance(UrlService.class).urlFor(getComment(), true);
+		return Cheeta.getInstance(UrlService.class).urlFor(getComment(), true);
 	}
 
 }

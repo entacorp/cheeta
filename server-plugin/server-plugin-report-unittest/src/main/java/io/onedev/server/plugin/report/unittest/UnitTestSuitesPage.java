@@ -1,6 +1,6 @@
-package io.onedev.server.plugin.report.unittest;
+package io.cheeta.server.plugin.report.unittest;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.toSet;
 
@@ -39,22 +39,22 @@ import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.codeassist.parser.TerminalExpect;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.Status;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestSuite;
-import io.onedev.server.util.patternset.PatternSet;
-import io.onedev.server.web.WebConstants;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.behavior.PatternSetAssistBehavior;
-import io.onedev.server.web.component.NoRecordsPlaceholder;
-import io.onedev.server.web.component.chart.pie.PieChartPanel;
-import io.onedev.server.web.component.chart.pie.PieSlice;
-import io.onedev.server.web.component.link.ViewStateAwarePageLink;
-import io.onedev.server.web.component.pagenavigator.OnePagingNavigator;
-import io.onedev.server.web.util.SuggestionUtils;
-import io.onedev.server.web.util.TextUtils;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.codeassist.parser.TerminalExpect;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.Status;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestSuite;
+import io.cheeta.server.util.patternset.PatternSet;
+import io.cheeta.server.web.WebConstants;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.behavior.PatternSetAssistBehavior;
+import io.cheeta.server.web.component.NoRecordsPlaceholder;
+import io.cheeta.server.web.component.chart.pie.PieChartPanel;
+import io.cheeta.server.web.component.chart.pie.PieSlice;
+import io.cheeta.server.web.component.link.ViewStateAwarePageLink;
+import io.cheeta.server.web.component.pagenavigator.OnePagingNavigator;
+import io.cheeta.server.web.util.SuggestionUtils;
+import io.cheeta.server.web.util.TextUtils;
 
 public class UnitTestSuitesPage extends UnitTestReportPage {
 
@@ -171,7 +171,7 @@ public class UnitTestSuitesPage extends UnitTestReportPage {
 				protected List<String> getHints(TerminalExpect terminalExpect) {
 					return Lists.newArrayList(
 							_T("Path containing spaces or starting with dash needs to be quoted"),
-							_T("Use '**', '*' or '?' for <a href='https://docs.onedev.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude")
+							_T("Use '**', '*' or '?' for <a href='https://docs.cheeta.io/appendix/path-wildcard' target='_blank'>path wildcard match</a>. Prefix with '-' to exclude")
 					);
 				}
 

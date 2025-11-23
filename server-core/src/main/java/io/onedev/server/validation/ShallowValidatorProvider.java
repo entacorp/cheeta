@@ -1,11 +1,11 @@
-package io.onedev.server.validation;
+package io.cheeta.server.validation;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
-import io.onedev.server.annotation.Shallow;
+import io.cheeta.server.annotation.Shallow;
 
 public class ShallowValidatorProvider implements Provider<Validator> {
 

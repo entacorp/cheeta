@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.chart.line;
+package io.cheeta.server.web.component.chart.line;
 
 import org.jspecify.annotations.Nullable;
 import java.io.Serializable;

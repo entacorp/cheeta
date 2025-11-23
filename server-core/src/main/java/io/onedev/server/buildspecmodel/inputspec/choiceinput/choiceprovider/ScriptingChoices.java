@@ -1,4 +1,4 @@
-package io.onedev.server.buildspecmodel.inputspec.choiceinput.choiceprovider;
+package io.cheeta.server.buildspecmodel.inputspec.choiceinput.choiceprovider;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,11 +8,11 @@ import javax.validation.constraints.NotEmpty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.server.util.GroovyUtils;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.OmitName;
-import io.onedev.server.annotation.ScriptChoice;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.server.util.GroovyUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.OmitName;
+import io.cheeta.server.annotation.ScriptChoice;
 
 @Editable(order=300, name="Evaluate script to get choices")
 public class ScriptingChoices extends ChoiceProvider {
@@ -26,7 +26,7 @@ public class ScriptingChoices extends ChoiceProvider {
 	@Editable(description="Groovy script to be evaluated. The return value should be a value to color map, "
 			+ "for instance:<br>"
 			+ "<code>return [\"Successful\":\"#00ff00\", \"Failed\":\"#ff0000\"]</code>, "
-			+ "Use <tt>null</tt> if the value does not have a color. Check <a href='https://docs.onedev.io/appendix/scripting' target='_blank'>scripting help</a> for details")
+			+ "Use <tt>null</tt> if the value does not have a color. Check <a href='https://docs.cheeta.io/appendix/scripting' target='_blank'>scripting help</a> for details")
 	@ScriptChoice
 	@OmitName
 	@NotEmpty

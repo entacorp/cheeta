@@ -1,8 +1,8 @@
-package io.onedev.server.util.facade;
+package io.cheeta.server.util.facade;
 
 import org.jspecify.annotations.Nullable;
 
-import io.onedev.server.model.support.code.GitPackConfig;
+import io.cheeta.server.model.support.code.GitPackConfig;
 
 public class ProjectFacade extends EntityFacade {
 	

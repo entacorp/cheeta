@@ -1,6 +1,6 @@
-package io.onedev.server.security.realm;
+package io.cheeta.server.security.realm;
 
-import static io.onedev.server.security.SecurityUtils.getUser;
+import static io.cheeta.server.security.SecurityUtils.getUser;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,23 +22,23 @@ import org.apache.wicket.request.cycle.RequestCycle;
 
 import com.google.common.collect.Lists;
 
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.ProjectService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.IssueAuthorization;
-import io.onedev.server.model.Project;
-import io.onedev.server.model.UserAuthorization;
-import io.onedev.server.persistence.SessionService;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.BasePermission;
-import io.onedev.server.security.permission.ConfidentialIssuePermission;
-import io.onedev.server.security.permission.ProjectPermission;
-import io.onedev.server.security.permission.SystemAdministration;
-import io.onedev.server.security.permission.UserAdministration;
-import io.onedev.server.util.Pair;
-import io.onedev.server.util.facade.UserFacade;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.ProjectService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.IssueAuthorization;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.model.UserAuthorization;
+import io.cheeta.server.persistence.SessionService;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.BasePermission;
+import io.cheeta.server.security.permission.ConfidentialIssuePermission;
+import io.cheeta.server.security.permission.ProjectPermission;
+import io.cheeta.server.security.permission.SystemAdministration;
+import io.cheeta.server.security.permission.UserAdministration;
+import io.cheeta.server.util.Pair;
+import io.cheeta.server.util.facade.UserFacade;
 
 public class GeneralAuthorizingRealm extends AuthorizingRealm {
 

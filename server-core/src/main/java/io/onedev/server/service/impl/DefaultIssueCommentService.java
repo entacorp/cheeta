@@ -1,4 +1,4 @@
-package io.onedev.server.service.impl;
+package io.cheeta.server.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,17 +14,17 @@ import javax.persistence.criteria.Predicate;
 
 import com.google.common.base.Preconditions;
 
-import io.onedev.server.event.ListenerRegistry;
-import io.onedev.server.event.project.issue.IssueCommentCreated;
-import io.onedev.server.event.project.issue.IssueCommentEdited;
-import io.onedev.server.model.IssueChange;
-import io.onedev.server.model.IssueComment;
-import io.onedev.server.model.User;
-import io.onedev.server.model.support.issue.changedata.IssueCommentRemoveData;
-import io.onedev.server.persistence.annotation.Sessional;
-import io.onedev.server.persistence.annotation.Transactional;
-import io.onedev.server.service.IssueChangeService;
-import io.onedev.server.service.IssueCommentService;
+import io.cheeta.server.event.ListenerRegistry;
+import io.cheeta.server.event.project.issue.IssueCommentCreated;
+import io.cheeta.server.event.project.issue.IssueCommentEdited;
+import io.cheeta.server.model.IssueChange;
+import io.cheeta.server.model.IssueComment;
+import io.cheeta.server.model.User;
+import io.cheeta.server.model.support.issue.changedata.IssueCommentRemoveData;
+import io.cheeta.server.persistence.annotation.Sessional;
+import io.cheeta.server.persistence.annotation.Transactional;
+import io.cheeta.server.service.IssueChangeService;
+import io.cheeta.server.service.IssueCommentService;
 
 @Singleton
 public class DefaultIssueCommentService extends BaseEntityService<IssueComment> implements IssueCommentService {

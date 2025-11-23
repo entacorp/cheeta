@@ -1,4 +1,4 @@
-package io.onedev.server.web.editable.string;
+package io.cheeta.server.web.editable.string;
 
 import java.lang.reflect.AnnotatedElement;
 
@@ -6,9 +6,9 @@ import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.unbescape.html.HtmlEscape;
 
-import io.onedev.server.web.editable.EmptyValueLabel;
-import io.onedev.server.web.editable.PropertyDescriptor;
-import io.onedev.server.web.editable.PropertyViewer;
+import io.cheeta.server.web.editable.EmptyValueLabel;
+import io.cheeta.server.web.editable.PropertyDescriptor;
+import io.cheeta.server.web.editable.PropertyViewer;
 
 public class StringPropertyViewer extends PropertyViewer {
 

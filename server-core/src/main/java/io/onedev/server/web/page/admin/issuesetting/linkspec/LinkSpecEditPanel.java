@@ -1,6 +1,6 @@
-package io.onedev.server.web.page.admin.issuesetting.linkspec;
+package io.cheeta.server.web.page.admin.issuesetting.linkspec;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 
@@ -13,16 +13,16 @@ import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.data.migration.VersionedXmlDoc;
-import io.onedev.server.service.AuditService;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.model.LinkSpec;
-import io.onedev.server.util.Path;
-import io.onedev.server.util.PathNode;
-import io.onedev.server.web.ajaxlistener.ConfirmLeaveListener;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.editable.BeanEditor;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.data.migration.VersionedXmlDoc;
+import io.cheeta.server.service.AuditService;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.model.LinkSpec;
+import io.cheeta.server.util.Path;
+import io.cheeta.server.util.PathNode;
+import io.cheeta.server.web.ajaxlistener.ConfirmLeaveListener;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.editable.BeanEditor;
 
 abstract class LinkSpecEditPanel extends GenericPanel<LinkSpec> {
 
@@ -103,8 +103,8 @@ abstract class LinkSpecEditPanel extends GenericPanel<LinkSpec> {
 					editor.error(new Path(new PathNode.Named("opposite"), new PathNode.Named("name")), errorMessage);
 					target.add(form);
 				} else {
-					var linkSpecService = OneDev.getInstance(LinkSpecService.class);
-					var auditService = OneDev.getInstance(AuditService.class);
+					var linkSpecService = Cheeta.getInstance(LinkSpecService.class);
+					var auditService = Cheeta.getInstance(AuditService.class);
 					LinkSpec specWithSameName = linkSpecService.find(getSpec().getName());
 					if (getSpec().isNew() && specWithSameName != null 
 							|| !getSpec().isNew() && specWithSameName != null && !specWithSameName.equals(getSpec())) {

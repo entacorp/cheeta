@@ -1,4 +1,4 @@
-package io.onedev.server.attachment;
+package io.cheeta.server.attachment;
 
 import java.io.InputStream;
 import java.io.Serializable;

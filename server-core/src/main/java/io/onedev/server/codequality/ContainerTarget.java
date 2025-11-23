@@ -1,4 +1,4 @@
-package io.onedev.server.codequality;
+package io.cheeta.server.codequality;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

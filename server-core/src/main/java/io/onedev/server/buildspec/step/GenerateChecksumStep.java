@@ -1,15 +1,15 @@
-package io.onedev.server.buildspec.step;
+package io.cheeta.server.buildspec.step;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.buildspec.step.commandinterpreter.Interpreter;
-import io.onedev.server.buildspec.step.commandinterpreter.ShellInterpreter;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.buildspec.step.commandinterpreter.Interpreter;
+import io.cheeta.server.buildspec.step.commandinterpreter.ShellInterpreter;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.onedev.server.buildspec.step.StepGroup.UTILITIES;
+import static io.cheeta.server.buildspec.step.StepGroup.UTILITIES;
 
 @Editable(order=1110, group = UTILITIES, name="Generate File Checksum", description = "" +
 		"This step can only be executed by a docker aware executor")
@@ -23,7 +23,7 @@ public class GenerateChecksumStep extends CommandStep {
 	
 	@Editable(order=100, description = "Specify files to create md5 checksum from. Multiple files " +
 			"should be separated by space. <a href='https://www.linuxjournal.com/content/globstar-new-bash-globbing-option' target='_blank'>Globstar</a> patterns accepted. " +
-			"Non-absolute file is considered to be relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a>")
+			"Non-absolute file is considered to be relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a>")
 	@Interpolative(variableSuggester="suggestVariables")
 	@NotEmpty
 	public String getFiles() {
@@ -34,7 +34,7 @@ public class GenerateChecksumStep extends CommandStep {
 		this.files = files;
 	}
 
-	@Editable(order=200, description = "Specify a file relative to <a href='https://docs.onedev.io/concepts#job-workspace' target='_blank'>job workspace</a> to write checksum into")
+	@Editable(order=200, description = "Specify a file relative to <a href='https://docs.cheeta.io/concepts#job-workspace' target='_blank'>job workspace</a> to write checksum into")
 	@Interpolative(variableSuggester="suggestVariables")
 	@NotEmpty
 	public String getTargetFile() {

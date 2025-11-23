@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.profile.activity;
+package io.cheeta.server.web.component.user.profile.activity;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,6 +1,6 @@
-package io.onedev.server.web.component.job.runselector;
+package io.cheeta.server.web.component.job.runselector;
 
-import io.onedev.server.web.page.base.BaseDependentCssResourceReference;
+import io.cheeta.server.web.page.base.BaseDependentCssResourceReference;
 
 public class JobRunSelectorCssResourceReference extends BaseDependentCssResourceReference {
 	public JobRunSelectorCssResourceReference() {

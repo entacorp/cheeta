@@ -1,4 +1,4 @@
-package io.onedev.server.web.component.user.accesstoken;
+package io.cheeta.server.web.component.user.accesstoken;
 
 import static java.util.Comparator.comparing;
 
@@ -9,15 +9,15 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.ProjectChoice;
-import io.onedev.server.annotation.RoleChoice;
-import io.onedev.server.model.Project;
-import io.onedev.server.security.SecurityUtils;
-import io.onedev.server.security.permission.ManageProject;
-import io.onedev.server.util.ComponentContext;
-import io.onedev.server.web.util.UserAware;
-import io.onedev.server.web.util.WicketUtils;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.ProjectChoice;
+import io.cheeta.server.annotation.RoleChoice;
+import io.cheeta.server.model.Project;
+import io.cheeta.server.security.SecurityUtils;
+import io.cheeta.server.security.permission.ManageProject;
+import io.cheeta.server.util.ComponentContext;
+import io.cheeta.server.web.util.UserAware;
+import io.cheeta.server.web.util.WicketUtils;
 
 @Editable
 public class AccessTokenAuthorizationBean implements Serializable {

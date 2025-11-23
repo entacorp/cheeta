@@ -1,4 +1,4 @@
-package io.onedev.server.plugin.report.jest;
+package io.cheeta.server.plugin.report.jest;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -9,27 +9,27 @@ import javax.validation.constraints.NotEmpty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 
-import io.onedev.commons.codeassist.InputSuggestion;
-import io.onedev.commons.utils.ExceptionUtils;
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.TaskLogger;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.BuildSpec;
-import io.onedev.server.buildspec.step.StepGroup;
-import io.onedev.server.model.Build;
-import io.onedev.server.plugin.report.unittest.PublishUnitTestReportStep;
-import io.onedev.server.plugin.report.unittest.UnitTestReport;
-import io.onedev.server.plugin.report.unittest.UnitTestReport.TestCase;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.annotation.Interpolative;
-import io.onedev.server.annotation.Patterns;
+import io.cheeta.commons.codeassist.InputSuggestion;
+import io.cheeta.commons.utils.ExceptionUtils;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.TaskLogger;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.BuildSpec;
+import io.cheeta.server.buildspec.step.StepGroup;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.plugin.report.unittest.PublishUnitTestReportStep;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport;
+import io.cheeta.server.plugin.report.unittest.UnitTestReport.TestCase;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.annotation.Interpolative;
+import io.cheeta.server.annotation.Patterns;
 
 @Editable(order=10000, group=StepGroup.PUBLISH, name="Jest Test Report")
 public class PublishJestReportStep extends PublishUnitTestReportStep {
 
 	private static final long serialVersionUID = 1L;
 
-	@Editable(order=100, description="Specify Jest test result file in json format relative to <a href='https://docs.onedev.io/concepts#job-workspace'>job workspace</a>. "
+	@Editable(order=100, description="Specify Jest test result file in json format relative to <a href='https://docs.cheeta.io/concepts#job-workspace'>job workspace</a>. "
 			+ "This file can be generated via Jest option <tt>'--json'</tt> and <tt>'--outputFile'</tt>. Use * or ? for pattern match")
 	@Interpolative(variableSuggester="suggestVariables")
 	@Patterns(path=true)
@@ -51,7 +51,7 @@ public class PublishJestReportStep extends PublishUnitTestReportStep {
 
 	@Override
 	protected UnitTestReport process(Build build, File inputDir, TaskLogger logger) {
-		ObjectMapper mapper = OneDev.getInstance(ObjectMapper.class);
+		ObjectMapper mapper = Cheeta.getInstance(ObjectMapper.class);
 
 		List<TestCase> testCases = new ArrayList<>();
 		int baseLen = inputDir.getAbsolutePath().length()+1;

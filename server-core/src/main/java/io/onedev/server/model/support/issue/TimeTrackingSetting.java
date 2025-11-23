@@ -1,6 +1,6 @@
-package io.onedev.server.model.support.issue;
+package io.cheeta.server.model.support.issue;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -16,12 +16,12 @@ import javax.validation.constraints.Min;
 
 import org.apache.commons.lang3.StringUtils;
 
-import io.onedev.server.OneDev;
-import io.onedev.server.annotation.ChoiceProvider;
-import io.onedev.server.annotation.DependsOn;
-import io.onedev.server.annotation.Editable;
-import io.onedev.server.service.LinkSpecService;
-import io.onedev.server.util.usage.Usage;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.annotation.ChoiceProvider;
+import io.cheeta.server.annotation.DependsOn;
+import io.cheeta.server.annotation.Editable;
+import io.cheeta.server.service.LinkSpecService;
+import io.cheeta.server.util.usage.Usage;
 
 @Editable
 public class TimeTrackingSetting implements Serializable {
@@ -92,7 +92,7 @@ public class TimeTrackingSetting implements Serializable {
 	@SuppressWarnings("unused")
 	private static List<String> getLinkChoices() {
 		var choices = new LinkedHashSet<String>();
-		for (var linkSpec: OneDev.getInstance(LinkSpecService.class).query()) {
+		for (var linkSpec: Cheeta.getInstance(LinkSpecService.class).query()) {
 			if (linkSpec.getOpposite() != null) {
 				choices.add(linkSpec.getName());
 				choices.add(linkSpec.getOpposite().getName());

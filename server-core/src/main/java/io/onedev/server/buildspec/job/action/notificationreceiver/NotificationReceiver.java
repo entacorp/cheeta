@@ -1,4 +1,4 @@
-package io.onedev.server.buildspec.job.action.notificationreceiver;
+package io.cheeta.server.buildspec.job.action.notificationreceiver;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -17,17 +17,17 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.revwalk.RevCommit;
 
-import io.onedev.commons.codeassist.FenceAware;
-import io.onedev.commons.utils.ExplicitException;
-import io.onedev.commons.utils.StringUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.buildspec.job.action.notificationreceiver.NotificationReceiverParser.CriteriaContext;
-import io.onedev.server.service.GroupService;
-import io.onedev.server.service.UserService;
-import io.onedev.server.model.Build;
-import io.onedev.server.model.EmailAddress;
-import io.onedev.server.model.Group;
-import io.onedev.server.model.User;
+import io.cheeta.commons.codeassist.FenceAware;
+import io.cheeta.commons.utils.ExplicitException;
+import io.cheeta.commons.utils.StringUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.buildspec.job.action.notificationreceiver.NotificationReceiverParser.CriteriaContext;
+import io.cheeta.server.service.GroupService;
+import io.cheeta.server.service.UserService;
+import io.cheeta.server.model.Build;
+import io.cheeta.server.model.EmailAddress;
+import io.cheeta.server.model.Group;
+import io.cheeta.server.model.User;
 
 public class NotificationReceiver {
 	
@@ -60,14 +60,14 @@ public class NotificationReceiver {
 		for (CriteriaContext criteria: parser.receiver().criteria()) {
 			if (criteria.userCriteria() != null) {
 				String userName = getValue(criteria.userCriteria().Value());
-				User user = OneDev.getInstance(UserService.class).findByName(userName);
+				User user = Cheeta.getInstance(UserService.class).findByName(userName);
 				if (user != null) 
 					addEmailAddress(emailAddresses, user);
 				else 
 					throw new ExplicitException("Unable to find user '" + userName + "'");
 			} else if (criteria.groupCriteria() != null) {
 				String groupName = getValue(criteria.groupCriteria().Value());
-				Group group = OneDev.getInstance(GroupService.class).find(groupName);
+				Group group = Cheeta.getInstance(GroupService.class).find(groupName);
 				if (group != null) {
 					emailAddresses.addAll(group.getMembers().stream()
 							.map(it->it.getPrimaryEmailAddress())

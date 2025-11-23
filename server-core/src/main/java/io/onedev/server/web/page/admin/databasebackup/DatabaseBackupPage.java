@@ -1,13 +1,13 @@
-package io.onedev.server.web.page.admin.databasebackup;
+package io.cheeta.server.web.page.admin.databasebackup;
 
-import io.onedev.commons.utils.FileUtils;
-import io.onedev.commons.utils.ZipUtils;
-import io.onedev.server.OneDev;
-import io.onedev.server.cluster.ClusterService;
-import io.onedev.server.service.SettingService;
-import io.onedev.server.data.DataService;
-import io.onedev.server.web.editable.BeanContext;
-import io.onedev.server.web.page.admin.AdministrationPage;
+import io.cheeta.commons.utils.FileUtils;
+import io.cheeta.commons.utils.ZipUtils;
+import io.cheeta.server.Cheeta;
+import io.cheeta.server.cluster.ClusterService;
+import io.cheeta.server.service.SettingService;
+import io.cheeta.server.data.DataService;
+import io.cheeta.server.web.editable.BeanContext;
+import io.cheeta.server.web.page.admin.AdministrationPage;
 import org.apache.tika.mime.MimeTypes;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
@@ -17,7 +17,7 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.AbstractResource;
 
-import static io.onedev.server.web.translation.Translation._T;
+import static io.cheeta.server.web.translation.Translation._T;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class DatabaseBackupPage extends AdministrationPage {
 	}
 
 	private ClusterService getClusterService() {
-		return OneDev.getInstance(ClusterService.class);
+		return Cheeta.getInstance(ClusterService.class);
 	}
 	
 	@Override
@@ -49,13 +49,13 @@ public class DatabaseBackupPage extends AdministrationPage {
 			}
 		});
 		BackupSettingHolder backupSettingHolder = new BackupSettingHolder();
-		backupSettingHolder.setBackupSetting(OneDev.getInstance(SettingService.class).getBackupSetting());
+		backupSettingHolder.setBackupSetting(Cheeta.getInstance(SettingService.class).getBackupSetting());
 		Form<?> form = new Form<Void>("backupSetting") {
 
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				OneDev.getInstance(SettingService.class).saveBackupSetting(backupSettingHolder.getBackupSetting());
+				Cheeta.getInstance(SettingService.class).saveBackupSetting(backupSettingHolder.getBackupSetting());
 				getSession().success(_T("Backup settings updated"));
 				
 				setResponsePage(DatabaseBackupPage.class);
@@ -77,7 +77,7 @@ public class DatabaseBackupPage extends AdministrationPage {
 					public void writeData(Attributes attributes) throws IOException {
 						File tempDir = FileUtils.createTempDir("backup");
 						try {
-							DataService databaseManager = OneDev.getInstance(DataService.class);
+							DataService databaseManager = Cheeta.getInstance(DataService.class);
 							databaseManager.exportData(tempDir);
 							ZipUtils.zip(tempDir, attributes.getResponse().getOutputStream());
 						} finally {

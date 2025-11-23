@@ -1,7 +1,7 @@
-package io.onedev.server.web.editable.password;
+package io.cheeta.server.web.editable.password;
 
-import io.onedev.server.annotation.Password;
-import io.onedev.server.web.editable.*;
+import io.cheeta.server.annotation.Password;
+import io.cheeta.server.web.editable.*;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.IModel;
