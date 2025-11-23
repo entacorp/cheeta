@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: cheeta-webapp
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cheeta
+    driver-class-name: org.postgresql.Driver
+    username: cheeta
+    password: cheeta_password
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+logging:
+  level:
+    root: WARN
+    io.cheeta: INFO
+    org.springframework.web: WARN
+
+cheeta:
+  api:
+    base-url: http://localhost:8081
+    timeout: 30s
+  ui:
+    development-mode: false

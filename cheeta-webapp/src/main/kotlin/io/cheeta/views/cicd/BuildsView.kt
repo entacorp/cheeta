@@ -1,4 +1,4 @@
-package io.cheeta.views.issues
+package io.cheeta.views.cicd
 
 import com.vaadin.flow.component.grid.Grid
 import com.vaadin.flow.component.html.Div
@@ -6,11 +6,11 @@ import com.vaadin.flow.component.html.H1
 import com.vaadin.flow.router.Route
 import io.cheeta.MainLayout
 import io.cheeta.api.client.CheetaApiClient
-import io.cheeta.api.dto.IssueDto
+import io.cheeta.api.dto.BuildDto
 import org.springframework.beans.factory.annotation.Autowired
 
-@Route("issues", layout = MainLayout::class)
-class IssuesView(
+@Route("builds", layout = MainLayout::class)
+class BuildsView(
     @Autowired private val api: CheetaApiClient
 ) : Div() {
     
@@ -19,19 +19,19 @@ class IssuesView(
         style.set("padding", "20px")
         
         add(
-            H1("Issues").apply {
+            H1("CI/CD Builds").apply {
                 style.set("color", "#F59E0B")
             },
-            createIssuesGrid()
+            createBuildsGrid()
         )
     }
 
-    private fun createIssuesGrid(): Grid<IssueDto> {
-        return Grid<IssueDto>().apply {
+    private fun createBuildsGrid(): Grid<BuildDto> {
+        return Grid<BuildDto>().apply {
             addColumn { it.number?.toString() ?: "-" }.setHeader("#").setWidth("80px")
-            addColumn { it.title }.setHeader("Title").setFlexGrow(2)
-            addColumn { it.state }.setHeader("State").setWidth("100px")
-            addColumn { it.assignees.joinToString { user -> user.name } }.setHeader("Assignees")
+            addColumn { it.branch }.setHeader("Branch").setFlexGrow(1)
+            addColumn { it.status }.setHeader("Status").setWidth("100px")
+            addColumn { it.author?.name ?: "-" }.setHeader("Author").setFlexGrow(1)
             
             setItems(emptyList())
             setSizeFull()

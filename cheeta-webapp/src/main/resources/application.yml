@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: cheeta-webapp
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  error:
+    include-message: always
+
+logging:
+  level:
+    root: INFO
+    io.cheeta: DEBUG
+    org.springframework.web: INFO
+    com.vaadin: INFO
+
+cheeta:
+  api:
+    base-url: http://localhost:8081
+    timeout: 30s
+  ui:
+    development-mode: true
